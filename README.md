@@ -70,7 +70,7 @@ Add it to a deployment's `chambers.json`:
 ```json
 {
   "chambers": [
-    { "name": "retinue", "url": "https://github.com/retinue-os/retinue-chamber.git" }
+    { "name": "retinue", "url": "https://github.com/retinue-os/retinue-os-chamber.git" }
   ]
 }
 ```
@@ -83,5 +83,5 @@ personal chambers — guardrail 5 requires him to refuse and escalate if he find
 himself with access to health data, correspondence or contacts. A deployment
 that mounts only this chamber keeps that boundary structural rather than
 aspirational. See
-[retinue-deployment](https://github.com/retinue-os/retinue-deployment) for a
+[retinue-deployment](https://github.com/retinue-os/retinue-os-deployment) for a
 ready-made one.
