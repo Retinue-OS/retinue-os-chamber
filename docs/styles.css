@@ -1,0 +1,128 @@
+/* Retinue public dashboard — static mirror of the Retinue PWA shell.
+ *
+ * This file is copied from the live dashboard (webapp/styles.css) and reduced
+ * to what a read-only page needs: the design tokens, the app frame, the header
+ * and the card rhythm. The rules that only existed for the interactive regions
+ * (immersive conversation thread, composer, project page) are gone, because
+ * this mirror has no such regions.
+ *
+ * Layout model:
+ *  - Mobile first: main is a single flex column at most 640px wide, the page
+ *    scrolls, every card keeps its natural height.
+ *  - Wide-and-tall screens (>=1000px): the same two-column proportions as the
+ *    live dashboard — the wide left column carries the narrative cards, the
+ *    360px right rail carries the short lists.
+ *
+ * Theme: like the live dashboard, this is a committed dark UI. The palette is
+ * declared once in :root and `color-scheme: dark` (set in the document head)
+ * tells the browser to render form controls, scrollbars and the canvas dark to
+ * match — there is no light variant to switch to. */
+:root {
+  --bg: #0b0d12;
+  --card: #151922;
+  --card-2: #1c2230;
+  --fg: #e7ebf2;
+  --fg2: #c3cad6;
+  --muted: #8b93a3;
+  --accent: #6ea8fe;
+  --high: #ff6b6b;
+  --ok: #57c785;
+  --line: rgba(231, 235, 242, .08);
+  --radius: 16px;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  min-height: 100vh;   /* fallback */
+  min-height: 100dvh;  /* tracks the collapsing mobile URL bar */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px)
+           calc(env(safe-area-inset-right, 0px) + 12px)
+           calc(env(safe-area-inset-bottom, 0px) + 10px)
+           calc(env(safe-area-inset-left, 0px) + 12px);
+}
+
+/* Header — the live dashboard's title/date row, with the project identity and
+   the link to the GitHub org added. */
+.top {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  padding: 2px 4px 0;
+}
+.top h1 { font-size: 1.3rem; font-weight: 650; letter-spacing: -.01em; margin: 0; }
+.top .date { color: var(--muted); font-size: .8rem; }
+.top .sub {
+  flex-basis: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.top .sub a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.top .sub a:hover { text-decoration: underline; }
+
+/* Cards keep their natural height; the page scrolls. */
+retinue-briefing,
+retinue-projects,
+retinue-agenda,
+retinue-messages,
+retinue-todo { flex: none; }
+
+/* The two column wrappers exist only for the wide layout. On phones they
+   dissolve with `display: contents`, so their cards are direct flex children of
+   main and stack in document order — one column, no wrapper artefacts. */
+.col { display: contents; }
+
+/* Footer disclaimer — deliberately low-contrast card chrome so it reads as
+   meta-information about the page, not as another data card. */
+.disclaimer {
+  flex: none;
+  margin-top: 4px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+.disclaimer strong { color: var(--fg2); font-weight: 600; }
+.disclaimer a { color: var(--accent); text-decoration: none; }
+.disclaimer a:hover { text-decoration: underline; }
+
+/* Wide-and-tall screens: two columns in the live dashboard's proportions —
+   a flexible main column and a 360px rail. The page still scrolls as one
+   document (nothing here scrolls internally, since nothing is interactive). */
+@media (min-width: 1000px) and (min-height: 480px) {
+  main {
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    align-content: start;
+    gap: 12px 18px;
+  }
+  .top { grid-column: 1 / -1; }
+  /* Each column packs its own cards, so an unequal column never opens a gap
+     in the other one (which shared grid rows would). */
+  .col { display: flex; flex-direction: column; gap: 12px; align-self: start; }
+  .col-main { grid-column: 1; }
+  .col-rail { grid-column: 2; }
+  .disclaimer { grid-column: 1 / -1; }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0d12">
+  <title>Retinue — project dashboard</title>
+  <meta name="description" content="A static, read-only mirror of the Retinue dashboard UI, showing the state of the Retinue open-source project.">
+
+  <!-- Favicon only. This page is deliberately not a PWA: no web app manifest,
+       no install prompt, no service worker. -->
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Read-only cards. Each is a standalone custom element that fetches one
+       baked JSON document from data/ and renders it. All paths are relative so
+       the site works from a project subpath on GitHub Pages. Nothing here
+       writes, posts, or talks to a backend. -->
+  <script type="module" src="components/briefing.js"></script>
+  <script type="module" src="components/projects.js"></script>
+  <script type="module" src="components/agenda.js"></script>
+  <script type="module" src="components/messages.js"></script>
+  <script type="module" src="components/todo.js"></script>
+</head>
+<body>
+  <main>
+    <header class="top">
+      <h1>Retinue</h1>
+      <span class="date">Snapshot &middot; 18 July 2026</span>
+      <span class="sub">
+        <span>Project dashboard, kept by Aros</span>
+        <a href="https://github.com/retinue-os">github.com/retinue-os &rarr;</a>
+      </span>
+    </header>
+
+    <!-- The two column wrappers only shape the wide layout; on phones they
+         dissolve (display: contents) and the cards stack in this order. -->
+    <div class="col col-main">
+      <!-- Where the project stands, in a paragraph. -->
+      <retinue-briefing heading="Briefing"     src="data/briefing.json"></retinue-briefing>
+
+      <!-- Promotion and community projects in flight, split into the ones this
+           project can move and the ones blocked on someone else. -->
+      <retinue-projects heading="Projects"     src="data/projects.json"></retinue-projects>
+    </div>
+
+    <div class="col col-rail">
+      <!-- Dated project milestones (the personal dashboard's agenda card). -->
+      <retinue-agenda   heading="Milestones"   src="data/agenda.json"></retinue-agenda>
+
+      <!-- Recent community activity: stars, issues, pull requests, mentions. -->
+      <retinue-messages heading="Community"    src="data/messages.json"></retinue-messages>
+
+      <!-- What the agent needs the human owner to do. -->
+      <retinue-todo     heading="Owner's desk" src="data/todo.json"></retinue-todo>
+    </div>
+
+    <footer class="disclaimer">
+      <strong>This is a static, read-only mirror of the live Retinue dashboard UI.</strong>
+      It reproduces the interface — the same stylesheet, cards and layout as the
+      real Progressive Web App — over content committed to this repository. It is
+      not connected to any live system: there are no conversations, no message
+      composer, no voice input and no way to act on anything shown. Nothing on
+      this page reads or writes personal data. Source and issues:
+      <a href="https://github.com/retinue-os">github.com/retinue-os</a>.
+    </footer>
+  </main>
+</body>
+</html>

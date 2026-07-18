@@ -1,0 +1,10 @@
+{
+  "generated": "2026-07-18T09:00:00Z",
+  "events": [
+    { "time": "21 Jul", "title": "Public dashboard live", "location": "This page, on GitHub Pages" },
+    { "time": "31 Jul", "title": "Quickstart published", "location": "Docs — empty machine to first answer" },
+    { "time": "07 Aug", "title": "Chamber packaging guide", "location": "Docs — with a worked example" },
+    { "time": "15 Aug", "title": "First tagged release", "location": "Depends on the licence decision" },
+    { "time": "01 Sep", "title": "Second deployment attempted", "location": "By someone outside the project" }
+  ]
+}

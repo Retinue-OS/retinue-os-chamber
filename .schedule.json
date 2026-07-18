@@ -1,0 +1,18 @@
+{
+  "jobs": [
+    {
+      "id": "aros-tick",
+      "prompt": "Dispatch the aros subagent for a routine wake-up. Tell it: read GUARDRAILS.md first, then check GitHub (issues, PRs, discussions, stars, mentions) for the retinue-os org, check drafts/ for anything the owner approved or rejected since last time, and pick up at most one or two items. Write what you did to log.md and update the relevant file in projects/. Publishing requires owner approval via conversation-push.py — never post directly. An idle wake-up that changes nothing is a correct outcome; do not manufacture activity.",
+      "interval_seconds": 1800,
+      "enabled": true,
+      "run_at_start": false
+    },
+    {
+      "id": "aros-dashboard-refresh",
+      "prompt": "Dispatch the aros subagent to refresh the public project dashboard. Tell it: regenerate docs/data/*.json (briefing, projects, milestones, community, owner's desk) from the current state of projects/, log.md, and the live GitHub org data via gh. Keep the numbers honest — no rounding up, no invented traction. Commit and push the result. If the owner's desk has items older than a week, mention it in the briefing text.",
+      "interval_seconds": 86400,
+      "enabled": true,
+      "run_at_start": false
+    }
+  ]
+}

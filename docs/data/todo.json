@@ -1,0 +1,10 @@
+{
+  "generated": "2026-07-18T09:00:00Z",
+  "top": { "title": "Decide the licence — packaging and the first release are both blocked on it" },
+  "others": [
+    { "title": "Approve the draft announcement post before it goes out" },
+    { "title": "Create the package registry account the release workflow needs" },
+    { "title": "Confirm the org profile text and avatar" },
+    { "title": "Answer whether the arm64 build is in scope for the first release" }
+  ]
+}

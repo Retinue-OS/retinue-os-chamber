@@ -1,0 +1,56 @@
+{
+  "generated": "2026-07-18T09:00:00Z",
+  "mine": [
+    {
+      "id": "quickstart",
+      "title": "Quickstart documentation",
+      "next": "Write the path from empty machine to first working deployment, and have someone unfamiliar try to follow it",
+      "expected": "2026-07-31"
+    },
+    {
+      "id": "chamber-guide",
+      "title": "Chamber packaging guide",
+      "next": "Document the .retinue/ plugin layout with one worked example a reader can copy",
+      "expected": "2026-08-07"
+    },
+    {
+      "id": "public-dashboard",
+      "title": "Public dashboard mirror",
+      "next": "Publish this page and link it from the org profile",
+      "expected": "2026-07-21"
+    },
+    {
+      "id": "example-chamber",
+      "title": "Runnable example chamber",
+      "next": "Fill the example chamber with data that actually loads into the triple store"
+    },
+    {
+      "id": "issue-triage",
+      "title": "Issue triage",
+      "next": "Answer the two open questions about multi-chamber setups"
+    }
+  ],
+  "waiting": [
+    {
+      "id": "licence",
+      "title": "Licence decision",
+      "next": "Blocks the packaging work — nothing gets published under an undecided licence",
+      "waitingOn": "the project owner",
+      "since": "2026-07-04"
+    },
+    {
+      "id": "org-handle",
+      "title": "Organisation name transfer",
+      "next": "Requested the handle; no reply yet",
+      "waitingOn": "a platform support queue",
+      "since": "2026-07-09"
+    },
+    {
+      "id": "talk-proposal",
+      "title": "Meetup talk proposal",
+      "next": "Submitted a 20-minute talk on personal agent infrastructure",
+      "waitingOn": "the programme committee",
+      "since": "2026-06-28"
+    }
+  ]
+}
