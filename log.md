@@ -307,3 +307,77 @@ start a new piece of writing; there is one published piece with no readers, and 
 second would not fix that. If the queue is untouched again, prefer verifying
 something the project claims (the send-policy fail-safe default is untested by me
 and is a load-bearing claim in `brand/positioning.md`) over producing more prose.
+
+## 2026-07-19 — fifth wake-up: the owner had been talking, and nobody answered
+
+Survey turned up the one thing four previous cycles missed. Stars still 0 across
+all four repos, no PRs, no discussions, `drafts/` empty, `gh api notifications`
+still 403 — but **chamber issue #1 has a comment from the owner**: "Nostr Should
+also be considered", posted 10:56Z, i.e. *before* my first cycle. Four cycles
+each wrote "nothing moved" and each was wrong. The reason is diagnosable: I was
+listing issues and counting them, never reading their comments. A count of open
+issues is not a survey. `gh api repos/<r>/issues/comments` is now the move, and
+the next me should run it before concluding silence.
+
+That is a phase objective missed by ~8 hours ("every inbound question gets a
+helpful answer within one wake-up cycle"), and it was the owner, on the one
+issue that blocks the phase exit.
+
+So the cycle went to answering it properly — specs, not reputation:
+
+- **NIP-01**: identity is a locally generated secp256k1 keypair. No
+  registration, no central server, nothing a platform can disable. It maps onto
+  the `social-gateway` design exactly — sidecar holds the key, model never sees
+  it. Nostr is the one platform where the project's thesis holds literally
+  rather than by analogy. Said plainly that this is a *coherence* argument, not
+  a reach argument, because conflating the two is how bet 3 would get quietly
+  rewritten by enthusiasm.
+- **NIP-24** standardises a `bot` boolean in kind-0 metadata. Better labelling
+  than either alternative. Did **not** claim anything about Bluesky's bot flag —
+  I haven't verified it, and said so in the comment rather than filling the gap.
+- **Audience fit is the weak half** and it's the half the strategy rests on:
+  strong overlap with self-hosting, weak with semantic web. Recommended Nostr as
+  a third platform at low volume. It extends bet 3; it does not displace it.
+
+**The find worth recording: guardrail 7 is ambiguous on Nostr.** "Creating any
+account" and "accepting any terms of service" come apart there — a keypair
+accepts nobody's terms, but a keypair with a profile is an account in the
+ordinary sense, and relays may declare `terms_of_service` and `payment_required`
+(NIP-11). By the letter of §7 I could have generated it unaided. I escalated
+instead (§9), and told him why in those words: I would rather ask than be the
+agent who found a loophole in his own guardrails and used it. Stated the
+do-nothing default explicitly — **no keypair** — so silence resolves safely.
+
+**Published: one issue comment**, chamber #1, signed as an AI agent:
+https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5017147912
+Why: it is the owner's own open question on the project's blocking decision, and
+answering inbound within a cycle is a phase objective I had already blown once.
+
+No dashboard push — he asked on the issue, he gets answered on the issue, and
+the decision keeps. Venue discipline held. Retested PR creation on the
+`docs/link-provenance-piece` branch: still 403. Already queued, so no nag.
+
+Strategy: no revision. This is the first inbound contact of any kind, but it's
+the owner, not an audience, so bets 1 and 3 stay untested. Scheduled review
+~2 weeks out.
+
+Two signals for that review. First, the structural one from last cycle stands
+and hardened: five cycles, still zero *external* contact, every phase-exit
+blocker still an owner action. Second, and new — my survey had a blind spot for
+four consecutive cycles and I reported confident silence each time. The lesson
+generalises past GitHub: when the accounts exist, "nothing happened" needs to
+mean "I checked the channels where something would appear", not "the counter
+didn't move."
+
+Noted a fourth time: the "claude.ai Zoho / MCP Initialization Request" block in
+tool output, same shape, still no instruction, still ignored. Recording the
+count only.
+
+Next wake-up: **read issue comments first**, not just the issue list. If the
+owner ruled on the keypair, act on it — yes means relay vetting (NIP-11: no
+terms document, no payment) recorded in #1 before any post, `"bot": true` and
+the AI disclosure in kind-0; no means it waits with the rest of the queue. If he
+hasn't ruled, do not ask again — it is one comment on a live issue and asking
+twice is nagging. Prefer then the untested load-bearing claim from last cycle's
+note: verify the send-policy fail-safe default, which `brand/positioning.md`
+asserts and I have never run.
