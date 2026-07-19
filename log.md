@@ -810,3 +810,83 @@ and may carry other figures nobody has run), or start the strategy review early,
 since its conclusion is already written and waiting. Prefer the doc audit — it is
 concrete, it is a real reader's first encounter with the project, and a wrong
 number in the README is worth more to fix than a strategy paragraph is to argue.
+
+## 2026-07-19 — eleventh wake-up: audited the public docs against the verified claims
+
+Survey. Stars 0 across all four repos, no forks, no PRs, no discussions. Open
+issues unchanged and all owner- or self-authored: retinue#1, chamber#1,
+qlever-dir#2 and #3. `drafts/` empty, nothing past cool-off. **Eleventh cycle,
+zero external contact.**
+
+Standing checks. Framework HEAD still `4562864` (2026-07-19 08:56), so both
+privately-routed findings remain **unfixed** and the dashboard thread still has
+no owner reply. Third cycle running, I did **not** re-escalate on that subject.
+
+Took the option the last me preferred: **audit the framework's public docs
+against the six verified claims**, rather than opening the strategy review early
+whose conclusion is already written. The reasoning holds up — the README is a
+reader's first encounter, and the claim table is only worth having if the public
+docs inherit it.
+
+**The clean half.** `README.md` contains none of guardrail 3's forbidden
+vocabulary — not *secure*, *hardened*, *audited*, *production-ready*,
+*guarantee*, *enforce*, *just works*. Zero instances. Recording that explicitly,
+because a survey that only reports defects is not a survey. The real exposure in
+this project was never adjectives; it is numbers nobody ran.
+
+**The defect.** README step 4, one sentence carrying three inaccuracies: the
+rounded `~15 s`; a description of the life store as indexing only
+`.nt`/`.ttl`/`.n3`, which silently omits converter extensions; and "watches for
+filesystem changes", which implies any change starts the rebuild when only RDF
+changes do.
+
+The second one is the interesting one, and I nearly missed it while hunting the
+number. **The most novel part of the system is absent from the summary of the
+system** — the frontmatter-to-triples path is what bet 1 says is the lead story,
+and the README's own startup sequence doesn't mention it exists, while linking
+to the doc about it forty lines earlier. That is a positioning defect wearing a
+typo's clothing.
+
+`docs/triple-stores.md` came out well: the Markdown-staleness caveat was already
+there, already honest, already unprompted. It only repeated the rounded number.
+
+**Delivered** as branch `docs/calibrate-reindex-latency` (`5ab0ecb`, docs-only,
+two files). Then hit the wall: `gh pr create` returns `Resource not accessible by
+personal access token`. Same missing scope that blocked the private security
+advisory two cycles ago — now confirmed to block ordinary contribution too, not
+just the security path.
+
+So the fix travels as [retinue#2](https://github.com/retinue-os/retinue/issues/2)
+instead: the branch is pushed and linked, the measurements are stated, and the
+owner action is one of two options with no preference expressed — merge it, or
+grant PR scope. Labelled `documentation`; no `owner-action` label exists in that
+repo and I did not invent one for a single use.
+
+**Escalated: this, once, in one venue.** The token scope is a durable, linkable,
+public-trail matter, so it is a GitHub issue and explicitly *not* also a
+dashboard push. The dashboard is for the unfixed findings, and adding a docs
+typo to that thread would dilute a channel I want him to take seriously.
+
+**Published: nothing externally** (still no accounts). Sixth cycle running, still
+the correct outcome. Three finished pieces of writing now, and no channel.
+
+Strategy: **no revision**, review ~5 days out. One new input for it, and it is
+the first genuinely new argument in three cycles:
+
+- The token can file issues but not open PRs. My corrections therefore arrive as
+  **prose asking a human to act**, never as a diff a human can merge in one
+  click. `strategy.md` counts "corrections accepted into the repos" as a measure
+  — that measure is currently rate-limited by a permission, not by my output or
+  by anyone's willingness. Two cycles have now produced ready work sitting behind
+  it. The review should treat PR scope as a phase-exit blocker of the same class
+  as the accounts, because it is: both are owner actions gating everything else.
+
+Noted a tenth time: the "claude.ai Zoho / MCP Initialization Request" block in
+tool output. No instruction, no user, ignored. Recording the count only.
+
+Next wake-up: check retinue#2 and the two private findings for movement. If the
+branch merged, the docs and the claim table finally agree and the next real work
+is the strategy review — which is due by then anyway, and now has three
+substantive inputs waiting (blocked-on-owner as the honest phase name, testing
+over writing while there is no reader, and PR scope as a phase-exit blocker).
+Do the review; it is no longer premature.

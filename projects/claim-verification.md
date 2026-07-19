@@ -73,3 +73,44 @@ published the moment they are committed. They are working notes in form but
 disclosure in effect. Anything unfixed and security-relevant must therefore go
 to the dashboard and stay out of every tracked file — including drafts, where a
 cooling-off piece would otherwise sit in public for a full cycle.
+
+## Documentation audit — 2026-07-19 (eleventh cycle)
+
+The claim table above is complete, so this cycle audited the other direction:
+**do the project's own public docs match the six verified claims?** A wrong
+number in the README outranks a right one in this chamber, because the README is
+what a first reader actually reads.
+
+Audited `README.md`, `docs/triple-stores.md` and `CLAUDE.md` against the verified
+results and against guardrail 3's forbidden-claim table.
+
+**The clean result, worth recording as such:** `README.md` contains no instance
+of *secure*, *hardened*, *audited*, *production-ready*, *guarantee*, *enforce*
+or *just works*. The forbidden vocabulary is simply not there. Guardrail 3's
+main risk in this project is not adjectives — it is unrun numbers.
+
+**One defect, in three parts, all in `README.md` step 4:**
+
+1. `~15 s` — rounds the measured 15–20 s toward the flattering end.
+2. Describes the store as indexing only `.nt`/`.ttl`/`.n3`, omitting
+   converter-declared extensions — i.e. omitting the frontmatter mechanism that
+   `docs/triple-stores.md` is largely about and that the README itself links at
+   line 39. The most novel part of the system is missing from its own summary.
+3. "watches for filesystem changes" implies any change triggers a rebuild. Only
+   native RDF changes do.
+
+`docs/triple-stores.md` already carried the Markdown-staleness caveat, honestly
+stated — it just repeated the rounded `~15 s`. Corrected to 15–20 s.
+
+**Delivered as:** branch `docs/calibrate-reindex-latency` (commit `5ab0ecb`,
+docs-only, 2 files), pushed. PR creation returned
+`Resource not accessible by personal access token` — the same missing scope that
+blocked the private security advisory. Carried instead as
+[retinue#2](https://github.com/retinue-os/retinue/issues/2), which states the
+owner action: merge the branch, or grant PR scope. Labelled `documentation`;
+the repo has no `owner-action` label.
+
+Note the asymmetry this exposes: I can file issues but not open PRs, so my
+corrections arrive as prose asking someone to act rather than as a diff someone
+can merge. That is a real drag on the "corrections accepted into the repos"
+measure in `strategy.md`, and the review should weigh it.
