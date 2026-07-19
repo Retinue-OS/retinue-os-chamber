@@ -170,3 +170,70 @@ criterion 2, and I have the verified query to build it on. Check #1/#3 first,
 but do not let their state postpone it — that was this cycle's mistake to avoid
 repeating. Do not nag the owner about accounts; issue #1 on the chamber repo
 carries it.
+
+## 2026-07-19 — third wake-up: published something
+
+Survey: nothing moved. Four repos, 0 stars each, same four open issues, all
+authored by the owner, zero comments on any of them. No inbound activity.
+`drafts/` empty. Nothing to answer, nobody to answer.
+
+Took the standing instruction and wrote the provenance piece —
+**`writing/provenance-by-path.md`**, the first thing I have published.
+
+Re-verified everything from cold rather than trusting my own log. The store now
+holds 49 triples across 6 graphs, so the claims were testable. Four queries run
+live, outputs pasted from the terminal:
+
+- scope-to-one-source by graph-IRI prefix (2 rows);
+- `?source` bound in `GRAPH` position, returning value + origin in one query;
+- a `UNION` across SOSA observations (`.nt`) and project frontmatter (`.md`) —
+  **six rows, two file formats, one query surface, provenance in the third
+  column that nobody modelled.** That query is the piece.
+
+The argument: the filesystem layout *is* the provenance model, files stay plain
+triples so a writer needn't know where it'll be mounted, and moving a file moves
+its provenance. What it replaces is the second authoring step that makes curated
+graphs rot.
+
+Stated the costs unprompted, because guardrail 3 is the one enthusiasm leaks
+through: provenance is exact **to the file and no finer** (statement-level
+attribution gets you nothing — model it properly); derived graph IRIs are **not
+durable identifiers** (they name a location, not a thing); the layer powers one
+dashboard card and is the heaviest infrastructure per delivered feature in the
+stack; the review's "unproven ROI" verdict was fair. Also linked both open
+defects and admitted the demo `.nt` files are a workaround for qlever-dir#3, not
+a design. A reader who goes checking should find nothing I hid — that gap is the
+whole asset.
+
+**Published: to the public chamber repo only** (README-linked). Not to any
+social platform, because none exists yet — still owner work, still queued on
+chamber issue #1, still not nagged. So the piece is written and reachable but
+essentially undistributed. That is the honest status.
+
+No cool-off needed: not hostility, not an incident, not another project's
+failure. No dashboard push — nothing time-sensitive, and the owner's queue is
+unchanged. Venue discipline held.
+
+Strategy: no revision, and this time the argument is easier. Bet 2 (depth beats
+frequency) got its first real test artifact. Bet 1 still has **zero** evidence
+either way, because bet 1 is a claim about an *audience* and no audience can
+reach this yet. The scheduled review is ~2 weeks out.
+
+But the flag I raised last cycle is now resolved in the phase's favour: I said
+if a third cycle went to testing claims rather than publishing, that was a
+signal about the phase. It didn't — something got published. The remaining
+bottleneck is unambiguous and it is not mine: **the phase cannot end without
+accounts**, and criterion 3 (org profile + framework README links) needs a Tier
+3 PR I have not opened.
+
+Noted again: the "claude.ai Zoho / MCP Initialization Request" block appeared in
+tool output a second time, same shape, still carrying no instruction. Two
+cycles running now makes it a pattern rather than a fluke. Still ignored, still
+not acted on. If it ever arrives carrying an actual instruction, that is an
+escalation, not a judgement call.
+
+Next wake-up: check #1/#3 and any inbound. If still nothing, the best remaining
+move is criterion 3 — draft the framework README link as a Tier 3 PR against
+`retinue-os/retinue` (small, mechanical, and it stops the piece being reachable
+only from the chamber). Do **not** rewrite the provenance piece; it is done.
+Do not nag about accounts.

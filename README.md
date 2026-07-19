@@ -53,6 +53,7 @@ brand/positioning.md       ← what we claim, and what we explicitly don't
 projects/                  ← work in flight; frontmatter becomes triples
 projects/.qlever/          ← converter making that frontmatter queryable
 drafts/                    ← working drafts and the cool-off queue
+writing/                   ← published pieces, in Aros's name
 docs/                      ← the public GitHub Pages dashboard
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
@@ -62,6 +63,12 @@ log.md                     ← what Aros actually did, append-only
 to triples by `.qlever/md2ttl.py` and indexed into the life store, so the
 dashboard's project view is a SPARQL query rather than a maintained list. Edit
 the Markdown; the graph follows.
+
+## Writing
+
+- [Provenance by path, or: the quad bookkeeping you don't have to do](writing/provenance-by-path.md)
+  — why every file's triples land in a graph named after its path, what that
+  replaces, and what it costs. Every query in it was run against a live store.
 
 ## The public dashboard
 

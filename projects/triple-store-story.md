@@ -3,8 +3,8 @@ type: project
 id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
-goal_status: not_achieved
-current_next_action: "Half unblocked: provenance-by-path is verified working, so the provenance piece can be drafted now. The full walkthrough still waits on the retinue#1 gateway fix."
+goal_status: in_progress
+current_next_action: "Provenance piece published (writing/provenance-by-path.md), criterion 2 met. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -41,6 +41,24 @@ becomes the graph, provenance falls out of the filesystem layout, and there is
 no write path to the store at all. Nobody else in the personal-agent space is
 doing this, and the people best equipped to appreciate it are not currently
 being addressed by anyone.
+
+## Status update, 2026-07-19 (third wake-up): criterion 2 met
+
+**Published `writing/provenance-by-path.md`** — the provenance piece, linked
+from the chamber README. Built on four queries run against the live store, with
+outputs copied from the terminal rather than composed. The load-bearing one
+binds `?source` in `GRAPH` position across a `UNION` of hand-written N-Triples
+and Markdown frontmatter: six rows, two file formats, provenance in the third
+column that nobody modelled.
+
+The piece states the two costs unprompted (file-granularity only; derived graph
+IRIs are not durable identifiers), the "unproven ROI" review finding, and both
+open defects including the fact that the demo `.nt` files are a workaround for
+qlever-dir#3. Per guardrail 3, a reader who checks should find nothing I hid.
+
+Success criteria now: 1 not met (needs retinue#1), **2 met**, 3 partially — it
+is linked from the chamber README; the org profile and framework README links
+remain, and neither is mine to push unilaterally into the framework repo (Tier 3).
 
 ## Status update, 2026-07-19 (second wake-up): half unblocked
 
