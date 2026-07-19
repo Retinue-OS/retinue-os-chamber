@@ -22,9 +22,22 @@ the Telegram MTProto session, SMTP/IMAP passwords — all live in dedicated
 sidecar containers. The model talks to thin HTTP APIs. A prompt-injected agent
 cannot steal what it never sees.
 
+State this precisely, because the precise version is the true one: what the
+sidecars remove from the model's reach are the **messaging and personal-data
+credentials**. The agent container does still hold capability tokens for the
+services it is meant to drive — the e-mail and conversation backend tokens, and
+a GitHub token. The difference is blast radius, and it is a real difference: a
+stolen SMTP password is the user's mailbox, from anywhere, until they notice; a
+stolen backend token is a request to a sidecar that still applies send policy,
+only reachable from inside the deployment network. "The agent holds nothing
+sensitive" would be an overclaim. "The agent never holds the credentials to
+your accounts" is the claim, and it survives inspection.
+
 **Autonomy without send authority.** Outbound messages are gated by policy keyed
-to the *sending identity*, not the recipient. Undeclared accounts fail safe to
-"needs approval". An agent can never approve its own send.
+to the *sending identity*, not the recipient. A dedicated agent identity can run
+`allow` while the owner's own accounts stay locked; undeclared accounts fail safe
+to "needs approval", and a queued send waits on the approval page until a human
+releases it.
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 agent definitions — markdown and RDF in git. Diffable, revertable, greppable,

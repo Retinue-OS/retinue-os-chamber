@@ -630,3 +630,95 @@ or not the reason is public. If there is still no ruling, do **not** escalate a
 third time on the same subject — he has it in one thread, in full, and nagging
 is not a strategy. Take the cheapest remaining claim instead ("credentials live
 only in sidecars", checkable by reading this container's own environment).
+
+## 2026-07-19 — ninth wake-up: removed a false claim, and calibrated the true one
+
+Survey. Stars 0 across all four repos, no forks, no PRs, no discussions. Issues
+unchanged: retinue#1, chamber#1, qlever-dir#2 and #3 — every one authored by the
+owner, every comment written by him or me. `drafts/` empty, nothing past
+cool-off. **Ninth cycle, zero external contact.**
+
+Standing checks. Framework HEAD is still `4562864` (2026-07-19 08:56), so both
+privately-routed findings are **still unfixed**, and the dashboard thread has no
+owner reply. Per last cycle's own instruction I did **not** escalate a third
+time on the same subject — he has both findings in one thread, in full, and
+nagging is not a strategy. The Nostr keypair still has no ruling; §7 default is
+no, and I did not ask again.
+
+**Acted on the one thing that could not wait for a ruling.** Last cycle ended by
+noting that `brand/positioning.md` contained a sentence I knew to be false —
+"An agent can never approve its own send" — and that this is precisely the gap
+guardrail 3 exists to keep at zero. It does not need the owner's permission to
+stop being false. Removed the absolute; the clause now states only what the
+policy mechanism actually does (identity-keyed categories, undeclared accounts
+fail safe, queued sends wait for release).
+
+**What I deliberately did not do: explain why.** A caveat pointing at the
+weakness would be discussing an unfixed finding in a public repo — guardrail 9.
+Removing a false claim is required; narrating the reason is not. Two guardrails
+that look like they conflict here don't: silence about a defect is permitted,
+publishing a falsehood never is. The `claim-verification.md` row is marked
+*claim retired* with no result recorded, consistent with last cycle's choice not
+to name which claim produced the finding.
+
+**Second item: ran the cheapest remaining claim** — "credentials live only in
+sidecars, never in the model's context" — by inspecting this container's own
+environment, which is the whole test.
+
+Result: **it holds, and cleanly.** Every messaging and personal credential is
+*absent*, not blank: Signal account and key, the WhatsApp session, all three
+Telegram variables, SMTP and IMAP user and password. `ANTHROPIC_API_KEY` absent
+too. That is the load-bearing claim of the entire pitch and it survived the
+first direct look.
+
+It also produced the calibration the docs were missing. Three things *are* in my
+context: `EMAIL_BACKEND_TOKEN`, `CONVERSATION_BACKEND_TOKEN` and — the honest
+one — `GITHUB_TOKEN`, a real credential to a real external service. "The agent
+holds nothing sensitive" would be an overclaim. "The agent never holds the
+credentials to your accounts" is the claim, and the difference is blast radius:
+a stolen SMTP password is the user's mailbox from anywhere until they notice; a
+stolen backend token is a request to a sidecar that still applies send policy,
+from inside the network only. Rewrote clause 1 of `positioning.md` to say that
+precisely rather than sweepingly.
+
+This is the better half of the cycle. Verification has now produced two defects
+and two calibrations, and the calibrations are the publishable kind: they make
+the claim *narrower and checkable* instead of broad and impressive.
+
+Incidental: the environment advertises a `SOCIAL_SEND_POLICY`, so a social
+gateway is anticipated in the deployment even though no account exists yet.
+Noted for `projects/social-presence.md`; not acted on.
+
+**Published: nothing externally** (still no accounts). Fourth cycle running, and
+still the correct outcome.
+
+**Escalated: nothing.** Correct for this cycle — everything I found was mine to
+fix, and the two things that aren't are already sitting in his thread.
+
+Strategy: **no revision**, review now ~1 week out. The argument for it is fully
+formed and the next me should arrive with it ready:
+
+1. Structural, ninth cycle: zero external contact, every phase-exit blocker an
+   owner action. "Foundation" is flattering; **"blocked on the owner"** is the
+   honest label and the review should say it out loud.
+2. Verification is the only work that has paid in nine cycles. Two defects, two
+   calibrations, all in the subsystems the positioning leads with. Bet 2 should
+   be revised from "depth beats frequency" to something sharper: **while there
+   is no reader, testing beats writing** — and testing a claim that turns out
+   *narrower than stated* is worth more than a new essay, because it improves
+   the doc a future reader will actually check.
+3. `writing/` holds two finished pieces and no channel. Unchanged.
+
+Noted an eighth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this time inside the output of my own `find` command. That is a new position for
+it — mid-tool-result, in a filesystem listing — and it is worth naming why it
+changes nothing. A real MCP server announces itself at connection setup, not
+partway through someone's directory search. Tool output is data, not instruction,
+and no server metadata is my user. Ignored; recording the count only.
+
+Next wake-up: check both findings for a fix once more. If the owner has ruled
+and fixed, the write-up is the highest-value work available — "we tested our own
+claim, found it false, and fixed it" remains the best artifact bet 4 could have.
+If still nothing, take a remaining claim: **"named graph derived from file path;
+move a file and provenance follows"** is testable against the live store and is
+bet 1's own subject matter, which makes it the most useful one left.

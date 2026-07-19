@@ -4,7 +4,7 @@ id: proj-claim-verification
 title: "Verify the claims before publishing them"
 goal: "Every load-bearing claim in brand/positioning.md has been run, not just read."
 goal_status: in_progress
-current_next_action: "Owner: rule on the second open finding routed privately 2026-07-19; Aros holds a patch and test cases ready to write"
+current_next_action: "Owner: rule on the two open findings routed privately 2026-07-19; Aros holds a patch and test cases ready to write. Meanwhile the affected claim is withdrawn from positioning.md, so nothing false is published while it waits."
 current_actor: actor-owner
 waiting_since: 2026-07-19
 expected_by: 2026-08-16
@@ -40,8 +40,8 @@ the difference is exactly what an outsider would publish.
 |---|---|---|
 | Outbound sends gated by policy keyed to the sending identity | **verified** 2026-07-19 | Holds. Category resolves from the sending account, not the recipient, in all four gateways. |
 | Undeclared accounts fail safe to "needs approval" | **verified with one caveat** 2026-07-19 | Holds for every case the docs describe: unset policy, empty policy, absent account, unparseable JSON. One class of input where it does not hold — routed privately to the owner (see below), not recorded here. |
-| An agent can never approve its own send | not yet run | |
-| Credentials live only in sidecars, never in the model's context | not yet run | Check by inspecting the agent container's own environment. |
+| ~~An agent can never approve its own send~~ — **withdrawn from `positioning.md` 2026-07-19** | **claim retired** | The absolute no longer appears in the positioning doc. The clause now states only what the policy mechanism does. No result is recorded here; see "Open findings". |
+| Credentials live only in sidecars, never in the model's context | **verified, with a calibration** 2026-07-19 | Inspected this container's own environment. **Every** messaging/personal credential is absent: `SIGNAL_ACCOUNT`, `SIGNAL_KEY`, `WHATSAPP_ACCOUNT`, `WHATSAPP_SESSION`, `TELEGRAM_API_ID/_HASH/_SESSION`, `SMTP_USER/_PASSWORD`, `IMAP_USER/_PASSWORD`, `EMAIL_PASSWORD` — not empty, *absent*. `ANTHROPIC_API_KEY` absent; `OPENROUTER_API_KEY`, `LITELLM_MASTER_KEY`, `LITELLM_DB_PASSWORD` present but empty. What **is** in context: `EMAIL_BACKEND_TOKEN`, `CONVERSATION_BACKEND_TOKEN` (capability tokens for sidecars, still policy-gated, internal network only) and `GITHUB_TOKEN` (a real external credential, len 93). So the claim is true as written about account credentials, and would be an overclaim if read as "holds nothing sensitive". `positioning.md` clause 1 rewritten to say the precise version. |
 | Egress audit observes but does not enforce | **verified, and the claim understates the weakness** 2026-07-19 | Ran a proxied and a bypassing request to the same host, seconds apart. Both returned 200; the bypass terminated at a public IP, not the sidecar. The audit logged the proxied one and has **no record at all** of the bypass. So it is not just unenforced — a bypass is *unobserved*. Written up in `writing/egress-audit-observes.md`. Not a disclosure: `review.md` §3.2 already states the mechanism publicly. |
 | Named graph derived from file path; move a file and provenance follows | not yet run | Testable against the live store. |
 | Blue-green reindex catches up in ~15s | not yet run | The one claim with a number in it (guardrail 3). |
