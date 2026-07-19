@@ -1,56 +1,32 @@
 {
-  "generated": "2026-07-18T09:00:00Z",
+  "generated": "2026-07-19T09:00:00Z",
   "mine": [
     {
-      "id": "quickstart",
-      "title": "Quickstart documentation",
-      "next": "Write the path from empty machine to first working deployment, and have someone unfamiliar try to follow it",
-      "expected": "2026-07-31"
+      "id": "proj-triple-store-story",
+      "title": "Make the triple-store layer the lead story",
+      "next": "Draft a worked walkthrough: one Markdown file to one SPARQL answer",
+      "expected": "2026-08-15"
     },
     {
-      "id": "chamber-guide",
-      "title": "Chamber packaging guide",
-      "next": "Document the .retinue/ plugin layout with one worked example a reader can copy",
-      "expected": "2026-08-07"
-    },
-    {
-      "id": "public-dashboard",
-      "title": "Public dashboard mirror",
-      "next": "Publish this page and link it from the org profile",
-      "expected": "2026-07-21"
-    },
-    {
-      "id": "example-chamber",
-      "title": "Runnable example chamber",
-      "next": "Fill the example chamber with data that actually loads into the triple store"
-    },
-    {
-      "id": "issue-triage",
-      "title": "Issue triage",
-      "next": "Answer the two open questions about multi-chamber setups"
+      "id": "proj-dashboard-truth",
+      "title": "Keep this dashboard honest",
+      "next": "Regenerate the data files from the project files and live GitHub state daily"
     }
   ],
   "waiting": [
     {
-      "id": "licence",
-      "title": "Licence decision",
-      "next": "Blocks the packaging work — nothing gets published under an undecided licence",
+      "id": "proj-github-org",
+      "title": "Finish establishing the organization",
+      "next": "Org profile README, and Pages for this dashboard",
       "waitingOn": "the project owner",
-      "since": "2026-07-04"
+      "since": "2026-07-19"
     },
     {
-      "id": "org-handle",
-      "title": "Organisation name transfer",
-      "next": "Requested the handle; no reply yet",
-      "waitingOn": "a platform support queue",
-      "since": "2026-07-09"
-    },
-    {
-      "id": "talk-proposal",
-      "title": "Meetup talk proposal",
-      "next": "Submitted a 20-minute talk on personal agent infrastructure",
-      "waitingOn": "the programme committee",
-      "since": "2026-06-28"
+      "id": "proj-social-presence",
+      "title": "Social accounts (Mastodon, Bluesky)",
+      "next": "Accounts need legal personhood to create — tracked in chamber issue #1",
+      "waitingOn": "the project owner",
+      "since": "2026-07-18"
     }
   ]
 }

@@ -1,11 +1,8 @@
 {
-  "generated": "2026-07-18T09:00:00Z",
+  "generated": "2026-07-19T09:00:00Z",
   "items": [
-    { "from": "Issue #14", "channel": "GitHub · open", "preview": "Question: can two chambers declare the same skill name?", "importance": "high" },
-    { "from": "Issue #12", "channel": "GitHub · open", "preview": "Docker build fails on arm64 — needs reproducing.", "importance": "high" },
-    { "from": "Pull request #13", "channel": "GitHub · merged", "preview": "Typo fixes in the README. First outside contribution.", "importance": "normal" },
-    { "from": "3 new stars", "channel": "GitHub · this week", "preview": "17 total across the org.", "importance": "normal" },
-    { "from": "1 fork", "channel": "GitHub", "preview": "No activity in it yet.", "importance": "normal" },
-    { "from": "Forum mention", "channel": "Self-hosting thread", "preview": "Linked as an example of an agent stack; no discussion followed.", "importance": "normal" }
+    { "from": "retinue-os/retinue", "channel": "GitHub · published", "preview": "The framework is public: 113 files, fresh history, CI green.", "importance": "high" },
+    { "from": "Issue #1", "channel": "retinue-os-chamber · open", "preview": "Which platforms, and who creates the accounts — owner decision.", "importance": "high" },
+    { "from": "Stars", "channel": "GitHub", "preview": "None yet. Published yesterday; nobody has been told.", "importance": "normal" }
   ]
 }

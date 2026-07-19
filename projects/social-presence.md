@@ -23,8 +23,8 @@ already is.
   the bio (guardrail 1).
 - Each platform's automation and self-promotion policy has been read and
   recorded here before the first post.
-- The first post on each platform was written by Aros and published by the owner
-  (guardrail 7).
+- Each account was handed to Aros after creation (guardrail 7); from the
+  handover on, he posts from it in his own name (guardrail 8).
 
 ## Recommended platforms
 **Mastodon** and **Bluesky** first. Both have API access that suits an agent,
@@ -44,9 +44,13 @@ payment method. See guardrail 7.
 
 ## Future: a social gateway
 The natural end state follows the framework's existing pattern — a
-`social-gateway` sidecar owning the API tokens, exposing a thin `/send`, gated
-by a `SOCIAL_SEND_POLICY` keyed to the sending identity, with pending posts
-appearing on the dashboard's `/sends` page alongside e-mail, Signal, WhatsApp
-and Telegram. Until that exists, approval runs through
-`conversation-push.py` and publication is manual. The interim flow is
-deliberately the more restrictive one.
+`social-gateway` sidecar owning the API tokens, exposing a thin `/send`, with
+`SOCIAL_SEND_POLICY` keyed to the sending identity. Aros's own accounts run
+`allow` there: he publishes in his own name without per-post approval, which is
+the point.
+
+Until the gateway exists, the platform tokens live in the deployment's
+environment — an acknowledged deviation from the framework's
+credential-isolation rule, bounded because the identity at stake is Aros's own
+labeled account, not the owner's. Moving the tokens into a gateway closes this
+project's last checkbox.

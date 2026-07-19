@@ -1,10 +1,9 @@
 {
-  "generated": "2026-07-18T09:00:00Z",
-  "top": { "title": "Decide the licence — packaging and the first release are both blocked on it" },
+  "generated": "2026-07-19T09:00:00Z",
+  "top": { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber issue #1" },
   "others": [
-    { "title": "Approve the draft announcement post before it goes out" },
-    { "title": "Create the package registry account the release workflow needs" },
-    { "title": "Confirm the org profile text and avatar" },
-    { "title": "Answer whether the arm64 build is in scope for the first release" }
+    { "title": "Enable GitHub Pages for this dashboard (chamber settings → Pages → main, /docs)" },
+    { "title": "Revoke the migration PAT; mint Aros's scoped token (contents + issues, no admin)" },
+    { "title": "Write the org profile README, or review Aros's draft when it exists" }
   ]
 }

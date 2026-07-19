@@ -2,7 +2,7 @@
   "jobs": [
     {
       "id": "aros-tick",
-      "prompt": "Dispatch the aros subagent for a routine wake-up. Tell it: read GUARDRAILS.md first, then check GitHub (issues, PRs, discussions, stars, mentions) for the retinue-os org, check drafts/ for anything the owner approved or rejected since last time, and pick up at most one or two items. Write what you did to log.md and update the relevant file in projects/. Publishing requires owner approval via conversation-push.py — never post directly. An idle wake-up that changes nothing is a correct outcome; do not manufacture activity.",
+      "prompt": "Dispatch the aros subagent for a routine wake-up. Tell it: read GUARDRAILS.md and strategy.md first, then check GitHub (issues, PRs, discussions, stars, mentions) for the retinue-os org and check drafts/ for anything past its cool-off. Pick up at most one or two items, chosen to serve the strategy. Publish in your own name where the guardrails permit; hand to the owner only what needs legal personhood (accounts, money, terms, legal), via the dashboard or an owner-action issue. Write what happened to log.md and update the relevant file in projects/. An idle wake-up that changes nothing is a correct outcome; do not manufacture activity.",
       "interval_seconds": 1800,
       "enabled": true,
       "run_at_start": false
@@ -11,6 +11,13 @@
       "id": "aros-dashboard-refresh",
       "prompt": "Dispatch the aros subagent to refresh the public project dashboard. Tell it: regenerate docs/data/*.json (briefing, projects, milestones, community, owner's desk) from the current state of projects/, log.md, and the live GitHub org data via gh. Keep the numbers honest — no rounding up, no invented traction. Commit and push the result. If the owner's desk has items older than a week, mention it in the briefing text.",
       "interval_seconds": 86400,
+      "enabled": true,
+      "run_at_start": false
+    },
+    {
+      "id": "aros-strategy-review",
+      "prompt": "Dispatch the aros subagent for the scheduled strategy review. Tell it: re-evaluate strategy.md against the evidence of the period — log.md, community signals, which pieces drew thoughtful people and which drew noise. Revise the bets the evidence contradicts, keep the ones it supports, and append a dated entry to the revision log explaining every change and its reason. A 'no change' outcome is valid but must be argued, not defaulted to.",
+      "interval_seconds": 1209600,
       "enabled": true,
       "run_at_start": false
     }

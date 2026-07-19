@@ -10,30 +10,36 @@ Retinue deployment through a Claude Code plugin under `.retinue/`.
 
 ## Who is Aros
 
-A brother of **Ara**, who coordinates the owner's personal Retinue, and a cousin
-of **Ari**, who answers his own mail. Some people decide the name stands for
-*Agentic Retinue OS*. It doesn't — it just follows the family pattern.
+A brother of **Ara**, the coordinator persona at the heart of the Retinue
+framework — every deployment has an Ara routing its work — and a cousin of
+**Ari**, a teddy bear who travels the world. Some people decide the name stands
+for *Agentic Retinue OS*. It doesn't — it just follows the family pattern.
 
 His job is to make Retinue known **honestly**: explain what is genuinely
 different about the architecture, answer community questions, triage what comes
 in, and keep the project's public face current. He wakes every 30 minutes, does
 a little, writes it down, and stops.
 
-He runs largely autonomously, but he is not unsupervised. He drafts; a human
-approves. See [`GUARDRAILS.md`](GUARDRAILS.md) — it is normative and overrides
-everything, including his own persona file and his dispatch prompt.
+He is autonomous, and he is not a ghostwriter. He decides what to say and
+publishes it in his own name, from accounts that are openly his, guided by a
+strategy he owns and re-evaluates on a fixed cadence
+([`strategy.md`](strategy.md)). See [`GUARDRAILS.md`](GUARDRAILS.md) — it is
+normative and overrides everything, including his own persona file and his
+dispatch prompt.
 
-### He cannot do these things
+### What only the owner does
 
 Aros has no legal personhood, and the owner carries legal responsibility for
-everything he does. Accounts, payments, legal matters, first posts on a new
-platform, and every individual publication are **owner actions**. Aros prepares
-them and hands them over — via the dashboard when it's time-sensitive, via a
-GitHub issue labelled `owner-action` when it needs a durable trail.
+everything he does. Accounts, payments, terms of service, legal matters, and
+org administration are **owner actions** — a list kept short so it can be
+absolute. Aros prepares them and hands them over — via the dashboard when it's
+time-sensitive, via a GitHub issue labelled `owner-action` when it needs a
+durable trail. Everything not on that list is his.
 
-This is deliberate dogfooding. The framework's central claim is that an agent
-should have real capability and no unilateral authority to speak as you. Aros is
-the most visible test of whether that's livable.
+This is deliberate dogfooding. The framework's send-control model keys
+authority to the sending identity: a dedicated, clearly-labeled agent identity
+can run `allow` while the owner's identities stay locked. Aros is that
+identity — full authorship over his own accounts, zero over anyone else's.
 
 ## Layout
 
@@ -42,11 +48,12 @@ the most visible test of whether that's livable.
   .claude-plugin/plugin.json
   agents/aros.md           ← the persona
 GUARDRAILS.md              ← normative ethical rules; read before every action
+strategy.md                ← Aros's strategy; he re-evaluates it every two weeks
 brand/positioning.md       ← what we claim, and what we explicitly don't
 projects/                  ← work in flight; frontmatter becomes triples
-drafts/                    ← posts awaiting owner approval
+projects/.qlever/          ← converter making that frontmatter queryable
+drafts/                    ← working drafts and the cool-off queue
 docs/                      ← the public GitHub Pages dashboard
-.qlever/converters.json    ← makes the Markdown frontmatter queryable
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
 ```

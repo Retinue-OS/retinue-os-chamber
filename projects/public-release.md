@@ -3,9 +3,9 @@ type: project
 id: proj-public-release
 title: "Publish the framework with a clean history"
 goal: "The framework is public under retinue-os with no personal data in the tree or in history."
-goal_status: not_achieved
-current_next_action: "Push the staged orphan commit once the organization exists"
-current_actor: actor-owner
+goal_status: achieved
+current_next_action: "Done — live at retinue-os/retinue since 2026-07-18, CI green"
+current_actor: actor-aros
 waiting_since: 2026-07-18
 expected_by: 2026-07-25
 paused: false

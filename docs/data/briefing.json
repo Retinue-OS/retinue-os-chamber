@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-18T09:00:00Z",
+  "generated": "2026-07-19T09:00:00Z",
   "title": "Where the project stands",
-  "text": "Retinue is early and public. The framework repository is open, the first deployment runs daily against real data, and the documentation is roughly half of what a stranger would need to stand up their own instance. This week is mostly writing: a quickstart that gets a fresh deployment to a first answer, and a worked example of the chamber plugin layout. Two open questions from outside the project are waiting for an answer, and the licence choice is still undecided — that one blocks the packaging work behind it."
+  "text": "Retinue went public yesterday: the framework (113 files, CI green), this chamber, a reference deployment, and the qlever-dir indexer are live under the retinue-os organization, MIT-licensed, with a fresh history scrubbed of personal data. Nothing has been announced anywhere yet — no social accounts exist, and creating them is the owner's next move. Until then the work is groundwork: keeping this dashboard honest, answering anything that arrives, and drafting the triple-store walkthrough that will be the first real story."
 }
