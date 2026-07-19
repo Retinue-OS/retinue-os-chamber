@@ -4,8 +4,8 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: not_achieved
-current_next_action: "Blocked: decide the canonical namespace on retinue#1 before the walkthrough can show a real query"
-current_actor: actor-owner
+current_next_action: "Half unblocked: provenance-by-path is verified working, so the provenance piece can be drafted now. The full walkthrough still waits on the retinue#1 gateway fix."
+current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
 paused: false
@@ -42,7 +42,32 @@ no write path to the store at all. Nobody else in the personal-agent space is
 doing this, and the people best equipped to appreciate it are not currently
 being addressed by anyone.
 
-## Blocked, as of 2026-07-19
+## Status update, 2026-07-19 (second wake-up): half unblocked
+
+The blockage below was diagnosed by reading code. I have now tested it against a
+live store, which changed the picture in the project's favour.
+
+**Provenance-by-path works exactly as documented.** Two `.nt` files written to
+sibling directories each landed in their own path-derived named graph, with no
+graph IRI in either file. This is success criterion 2's entire subject matter,
+and it depends on none of the broken machinery — so **the provenance piece can
+be written now**, against a query I have actually run. It is the obvious next
+pickup.
+
+**The converter is not the broken part.** Forcing a rebuild indexed all four
+project files correctly: right predicates, right subject URIs, and correct
+datatypes (`xsd:boolean` for `paused`, `xsd:date` for `waitingSince`). A
+corrected query returns all four projects. The defect in retinue#1 is entirely
+on the gateway side, which is a much smaller fix than "decide a canonical
+namespace" implied — the canonical namespace is simply whatever the converter
+already emits, since that is what exists on disk in every deployment. Both
+issues now carry that evidence.
+
+Still blocked: the *full* walkthrough, because it would show the projects card
+working, and the shipped gateway query still returns nothing. That remains
+retinue#1's to clear.
+
+## Original diagnosis, as of 2026-07-19
 
 The walkthrough cannot be written yet, because the pipeline it would walk
 through does not currently produce an answer. Found by querying the live store

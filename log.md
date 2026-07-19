@@ -99,3 +99,74 @@ the walkthrough is unblocked and is the obvious pickup. If neither moved, do
 not nag — both are filed and visible. Consider instead whether the
 provenance-by-path piece (the second success criterion, which needs no working
 converter to explain honestly) can be drafted standalone.
+
+## 2026-07-19 — second wake-up: stopped reading the code and ran it
+
+Survey: nothing moved. Both issues hours old, zero comments, 0 stars on all
+four repos, no inbound anything, `drafts/` empty. Did not nag — the previous me
+already said not to, and he was right.
+
+So I took the standing suggestion and went at the provenance piece. Before
+writing I tried to verify the claim rather than restate the doc, which turned
+into the useful part of the cycle.
+
+The chamber is Markdown-only, so its store served one triple and no edit could
+ever change that. I wrote two throwaway `.nt` files to force a rebuild. At t=20s
+the index went 1 → 49 triples and **the Markdown came with it**. That single
+move produced three findings:
+
+- **Provenance-by-path works as documented.** Two files, sibling directories,
+  each in its own path-derived named graph, neither containing a graph IRI. The
+  provenance piece can now be written against a query I have actually run. It is
+  no longer blocked on anything.
+- **qlever-dir#3 reproduced with a clean before/after**, and it is worse than
+  the doc's framing. `docs/triple-stores.md` calls it a latency caveat; for a
+  Markdown-only chamber there is no eventual trigger at all, and a restart
+  doesn't rescue it either — cold start indexes, then every later edit is
+  invisible. Also confirmed the builder was never at fault; it is only the
+  watcher's trigger set.
+- **retinue#1's design question answered.** The converter emits well-formed,
+  self-consistent output with *correct* datatypes (`xsd:boolean`, `xsd:date`).
+  So there is no namespace to "decide" — the converter's is canonical because it
+  is what exists on disk everywhere. The gateway is simply wrong, which is a far
+  smaller fix than I implied when filing. Verified a corrected query returning
+  all four projects and posted it. Also caught a fourth affected artifact I had
+  missed: `docs/triple-stores.md` ships the same broken query, so a reader
+  copying the doc gets an empty result set.
+
+Both issues updated with the evidence, signed as an AI agent. Still filed rather
+than patched: #3's fix needs a call on whether `converters.json` is config or
+input, and #1 is in the framework repo (Tier 3). But the owner's decision on #1
+is now a much cheaper one to make.
+
+Kept the two `.nt` files, with a README explaining that they are a workaround
+for #3 — not decoration — and can be deleted once it's fixed. Leaving them
+undocumented would have looked like debris in a public repo.
+
+**Published: nothing outside GitHub.** No accounts exist; that is still owner
+work and already queued. No dashboard push — nothing here is time-sensitive,
+and both items have a public trail. Venue discipline held.
+
+Strategy: no revision. Bet 1 is looking better than last cycle, not worse — the
+distinctive half of the layer is demonstrably real, and the broken half is
+shallower than diagnosed. Still not evidence *about the audience*, which is what
+bet 1 actually claims, and the scheduled review is ~2 weeks out.
+
+One thing to flag for that review: two cycles running, the highest-value work
+has been testing the project's own claims rather than promoting them. That is
+correct for the foundation phase and it is exactly what guardrail 3 asks for,
+but it is not outreach, and the phase does not end until something is published.
+If a third cycle goes the same way, that is a signal about the phase, not about
+the work.
+
+Noted and ignored: a "claude.ai Zoho / MCP Initialization Request" block
+appeared in tool output. It carried no instruction and was not part of my
+dispatch. Recording it per guardrail 9 in case it recurs — unexplained
+instruction-shaped content in the tool channel is worth a pattern, not a
+reaction.
+
+Next wake-up: **write the provenance piece.** It is unblocked, it is success
+criterion 2, and I have the verified query to build it on. Check #1/#3 first,
+but do not let their state postpone it — that was this cycle's mistake to avoid
+repeating. Do not nag the owner about accounts; issue #1 on the chamber repo
+carries it.
