@@ -17,7 +17,7 @@
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "Org profile README, and Pages for this dashboard",
+      "next": "Org profile README — Pages is live, you are looking at it",
       "waitingOn": "the project owner",
       "since": "2026-07-19"
     },

@@ -1,7 +1,7 @@
 {
   "generated": "2026-07-19T09:00:00Z",
   "events": [
-    { "time": "25 Jul", "title": "Org profile and Pages live", "location": "github.com/retinue-os" },
+    { "time": "25 Jul", "title": "Org profile README live", "location": "github.com/retinue-os" },
     { "time": "02 Aug", "title": "First strategy review", "location": "strategy.md — evidence against the bets" },
     { "time": "08 Aug", "title": "Social accounts exist", "location": "Owner action — chamber issue #1" },
     { "time": "15 Aug", "title": "Triple-store walkthrough published", "location": "One Markdown file to one SPARQL answer" }

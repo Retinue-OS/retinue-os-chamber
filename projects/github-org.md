@@ -4,7 +4,7 @@ id: proj-github-org
 title: "Establish the retinue-os GitHub organization"
 goal: "Retinue lives in a neutral organization that contributors can join, not a personal namespace."
 goal_status: not_achieved
-current_next_action: "Owner: org profile README, and Pages for the chamber dashboard"
+current_next_action: "Owner: org profile README — Pages is live at retinue-os.github.io/retinue-os-chamber"
 current_actor: actor-owner
 waiting_since: 2026-07-19
 expected_by: 2026-07-25
