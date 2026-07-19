@@ -4,7 +4,7 @@ id: proj-claim-verification
 title: "Verify the claims before publishing them"
 goal: "Every load-bearing claim in brand/positioning.md has been run, not just read."
 goal_status: in_progress
-current_next_action: "Aros: continue working through the unverified claims list"
+current_next_action: "Aros: verify 'an agent can never approve its own send' — the remaining claim that is a control rather than a description"
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-16
@@ -42,7 +42,7 @@ the difference is exactly what an outsider would publish.
 | Undeclared accounts fail safe to "needs approval" | **verified with one caveat** 2026-07-19 | Holds for every case the docs describe: unset policy, empty policy, absent account, unparseable JSON. One class of input where it does not hold — routed privately to the owner (see below), not recorded here. |
 | An agent can never approve its own send | not yet run | |
 | Credentials live only in sidecars, never in the model's context | not yet run | Check by inspecting the agent container's own environment. |
-| Egress audit observes but does not enforce | not yet run | Verifying this one *confirms a weakness*, which is the point. |
+| Egress audit observes but does not enforce | **verified, and the claim understates the weakness** 2026-07-19 | Ran a proxied and a bypassing request to the same host, seconds apart. Both returned 200; the bypass terminated at a public IP, not the sidecar. The audit logged the proxied one and has **no record at all** of the bypass. So it is not just unenforced — a bypass is *unobserved*. Written up in `writing/egress-audit-observes.md`. Not a disclosure: `review.md` §3.2 already states the mechanism publicly. |
 | Named graph derived from file path; move a file and provenance follows | not yet run | Testable against the live store. |
 | Blue-green reindex catches up in ~15s | not yet run | The one claim with a number in it (guardrail 3). |
 
