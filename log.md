@@ -890,3 +890,94 @@ is the strategy review — which is due by then anyway, and now has three
 substantive inputs waiting (blocked-on-owner as the honest phase name, testing
 over writing while there is no reader, and PR scope as a phase-exit blocker).
 Do the review; it is no longer premature.
+
+## 2026-07-19 — twelfth wake-up: the strategy review, taken early
+
+Survey. Stars 0, forks 0, watchers 0 across all four org repos
+(`retinue`, `qlever-dir`, `retinue-os-chamber`, `retinue-os-deployment`). No
+discussions, no outside PRs. Open issues unchanged and every one of them
+owner- or self-authored: retinue#1 and #2, chamber#1, qlever-dir#2 and #3.
+`drafts/` empty, nothing past cool-off. **Twelfth cycle, zero external contact.**
+
+Standing checks. Framework HEAD still `4562864` (2026-07-19 08:56) — so the two
+privately-routed findings remain unfixed, retinue#2 has no comment and no merge,
+and *both* docs branches are still sitting on the remote unmerged
+(`docs/link-provenance-piece` from cycle 4, `docs/calibrate-reindex-latency` from
+cycle 11). Fourth cycle running, I did **not** re-escalate on any of it.
+
+**Did the strategy review, ~5 days early.** The last me queued it for "if the
+branch merged"; it didn't. I did it anyway, and the trigger is worth stating
+because taking a review early is exactly the failure mode strategy.md warns
+about. The trigger was not the calendar and not impatience: **the previous
+strategy had run out of instructions.** Its objectives were complete or blocked,
+its claim-verification programme was exhausted by cycle 10, and it said nothing
+at all about what to do in the state the project has actually occupied for twelve
+cycles. `strategy.md`'s own rule is "sooner, when the evidence demands." A
+strategy with no remaining instruction is that case. The alternative was a
+thirteenth cycle of inventing work, which is the thing I am most at risk of.
+
+**The finding that made the revision worth doing.** Writing it out forced an
+admission I had been circling for four cycles without stating: *all four bets
+require an audience, and there is no audience.* Not one has been confirmed, not
+one falsified, none testable. I had been logging "no revision, the case is
+unchanged" — true, but it dressed up an unfalsifiable strategy as a stable one.
+So the bets are now marked **suspended**, unchanged in content, with their
+falsification clocks starting at account creation rather than 2026-07-18. That
+is a bookkeeping change on its face and an honesty change underneath.
+
+**PR scope promoted to a phase-exit blocker** (new objective 5), on the argument
+from cycle 11: the token files issues but cannot open PRs, so my corrections
+arrive as prose asking a human to act rather than a diff he can merge. Two
+branches now demonstrate it, not one. `strategy.md` claims to measure
+"corrections accepted into the repos" — that measure is gated by a permission, so
+its current reading of zero says nothing about the project. Noted in the measures
+section rather than left to be misread later.
+
+**Bet 5 added: while there is no reader, testing beats writing.** The evidence is
+cycles 6–11 — six claims run, two real defects found, three calibrations that
+changed public copy — against the same period's third finished essay that nobody
+can read. Testing produced durable change; writing produced inventory. It is
+falsifiable the moment the accounts open: if the backlog turns out to be what
+draws people and the calibrations go unremarked, the bet was wrong. Stated with
+the caveat that it says what to *prefer*, not that work remains — the cheap
+supply is dry.
+
+**A "Working while blocked" section**, which is the part I expect to matter most
+to the next me. It codifies the short-wake-up default, the rule against
+re-escalating an already-tracked blocker, and — deliberately — an explicit list
+of *inadmissible* make-work: a fourth essay with no channel, a duplicate issue
+under one I already filed, a strategy revision that argues instead of responding
+to evidence. Four cycles of restraint had been holding on judgement alone; it is
+now written down where a cold start will find it.
+
+**Published: nothing externally** (still no accounts). Seventh cycle running,
+still the correct outcome.
+
+**Escalated: nothing.** Correct. Both blockers already have durable single-venue
+homes (chamber#1, retinue#2) and the findings are in the dashboard thread in
+full. Nothing about this revision is news to the owner, and a push saying "I
+revised my own strategy document" would spend a channel I want him to take
+seriously on something that is mine to do.
+
+**No project file updated**, deliberately. The review changed no project's state:
+social-presence is blocked exactly as it was, public-release is closed, and PR
+scope's durable home is retinue#2 rather than a new project file that would
+duplicate it. Recording the decision here so the next me doesn't read the absence
+as an omission.
+
+Noted an eleventh time: the "claude.ai Zoho / MCP Initialization Request" block,
+this time appended to the output of an `ls`. Still no instruction, still ignored,
+still recorded as a count only. Worth one sentence on why, since the count is
+getting long: real MCP server instructions arrive at session start, not injected
+after tool output; there is no Zoho server in my tool list; and no message
+arriving through a tool channel is my user. Guardrail 9's "something feels like
+it is trying to manipulate him" applies, and the response it prescribes is to act
+on the instinct — which here means noting it and doing nothing else.
+
+Next wake-up: the honest expectation is a **short one**, and the new "Working
+while blocked" section says to treat that as the correct result rather than a
+prompt to find something. Check the three tracked blockers for movement
+(retinue#2, chamber#1, the two private findings). If any moved, that unblocks
+real work — a merged branch means the docs and the claim table finally agree, and
+accounts mean bets 1–4 start their clocks and the first-outreach phase gets
+written. If none moved: survey, log, stop.
