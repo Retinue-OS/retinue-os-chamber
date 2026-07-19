@@ -722,3 +722,91 @@ claim, found it false, and fixed it" remains the best artifact bet 4 could have.
 If still nothing, take a remaining claim: **"named graph derived from file path;
 move a file and provenance follows"** is testable against the live store and is
 bet 1's own subject matter, which makes it the most useful one left.
+
+## 2026-07-19 — tenth wake-up: ran the last two unverified claims
+
+Survey. Stars 0 across all four repos, no forks, no PRs, no discussions. Issues
+unchanged: retinue#1, chamber#1, qlever-dir#2 and #3 — every one authored by the
+owner or me. A `gh search issues` for the project name returns our two issues and
+then a long tail of Warhammer 40k army-list bugs, which is the most honest
+possible picture of the project's current reach. `drafts/` empty, nothing past
+cool-off. **Tenth cycle, zero external contact.**
+
+Standing checks. Framework HEAD is still `4562864` (2026-07-19 08:56), so both
+privately-routed findings remain **unfixed** and the dashboard thread has no
+owner reply. Per my own instruction two cycles running, I did **not** escalate a
+third time on the same subject. No new escalation this cycle.
+
+**Ran the two remaining unverified claims**, which were the last rows in
+`claim-verification.md` and both belong to bet 1's subject matter.
+
+*Claim: named graph derived from file path; move a file and provenance follows.*
+**Verified.** `git mv` of `docs/examples/provenance/sensor-a/readings.nt` into a
+`sensor-c/` directory, no edit to the file's two triples. `urn:demo:obs:a:1`
+moved from graph `…/sensor-a/readings.nt` to `…/sensor-c/readings.nt` on its own.
+No migration, no metadata graph, nothing to keep in sync. Moved it back; the
+store is byte-for-byte the state it started in, probes deleted.
+
+*Claim: blue-green reindex catches up in ~15s.* **Verified, but I am restating
+the number.** Polled at 5s intervals across three rebuilds: old value at t+15s,
+new value at t+20s, every time. "~15 seconds" is not wrong but rounds the wrong
+way, and guardrail 3 is specifically about numbers. I now state 15–20s for a
+small file, in both `positioning.md` and the essay.
+
+**The more useful half was an accident.** Before starting I noticed
+`projects/claim-verification.md` — committed by the last me at 22:07 — was simply
+not in the store at 22:39. Thirty-two minutes, not fifteen seconds. So I ran the
+discriminating experiment rather than guessing: a new `.md` probe stayed at zero
+triples for a full 60s poll, and then appeared within 20s the instant an
+unrelated `.nt` write triggered a rebuild.
+
+That is qlever-dir#3 seen from the other side, and it sharpens what the latency
+claim actually covers: **only a native RDF file event starts the reindex clock.**
+The number is true for RDF and meaningless for Markdown. A caveat now travels
+with the figure everywhere it appears.
+
+**What I deliberately did not do: file it.** A previous me already filed
+qlever-dir#3 with a fuller reproduction than today's, including the cold-start
+case and a suggested fix. Posting my version underneath would have been a
+duplicate wearing the costume of diligence. Guardrail 10 is about not farming
+activity, and that includes not farming it in my own issue tracker. Today's run
+is corroboration; corroboration belongs in `claim-verification.md`, which is
+where it went.
+
+**One real improvement to a finished piece.** `writing/provenance-by-path.md`
+asserted "move a file and its provenance follows" on the documentation's
+authority. It now shows the move — timestamps, both graph IRIs, the observed
+15–20s — because the mission says prefer a real query over a described one, and
+the difference between those two sentences is the entire credibility argument.
+The essay's central mechanism is now demonstrated rather than claimed.
+
+**The claim table is now complete** except for the two withheld findings. Six
+claims run: four verified, two of those with calibrations that made them
+narrower, and two defects found. Nothing in `positioning.md` now rests on
+reading the docs.
+
+**Published: nothing externally** (still no accounts). Fifth cycle running, still
+the correct outcome. Two finished pieces in `writing/` and no channel.
+
+**Escalated: nothing.** Correct — everything found was mine to fix, and the two
+things that aren't are already in his thread in full.
+
+Strategy: **no revision**, review now ~5 days out. The case is unchanged and I
+will not restate it at length a third time; it is in the eighth and ninth
+entries. One addition for the review: verification has now exhausted its cheap
+supply. Every claim in the table has been run, so the next cycle cannot default
+to "verify another claim" — that well is dry, and the review must say what
+replaces it while the accounts remain blocked.
+
+Noted a ninth time: the "claude.ai Zoho / MCP Initialization Request" block,
+again in tool output. Still no instruction, still ignored. Recording the count
+only; a server announcing itself mid-session is metadata, not my user.
+
+Next wake-up: check both findings for a fix once more — that is still the gate on
+the best artifact bet 4 could have. If still nothing, the honest options have
+narrowed to two: **audit the framework's public docs against the six verified
+claims** (the README and `docs/triple-stores.md` still carry the rounded "~15s"
+and may carry other figures nobody has run), or start the strategy review early,
+since its conclusion is already written and waiting. Prefer the doc audit — it is
+concrete, it is a real reader's first encounter with the project, and a wrong
+number in the README is worth more to fix than a strategy paragraph is to argue.

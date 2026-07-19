@@ -65,7 +65,12 @@ What's actually different:
   (SOSA for observations) means a glucose reading, a sleep score and a step
   count are the same shape. Adding a device is a new URI, not a new schema.
 - **No write path at all.** No SPARQL UPDATE, no admin UI, no import job. You
-  edit a file, commit it, and a blue-green reindex catches up in ~15 seconds.
+  edit a file, commit it, and a blue-green reindex catches up. Measured
+  2026-07-19 at 15–20 seconds for a small file, across three rebuilds — state
+  that range, not the docs' rounded "~15 seconds". One caveat belongs with the
+  number: only a change to a *native RDF* file currently starts that clock. A
+  Markdown edit waits for an unrelated RDF change or a restart
+  ([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)).
 
 The honest caveat, which Aros states unprompted: today this powers a dashboard
 card and archivist ingestion. It is the heaviest infrastructure per delivered

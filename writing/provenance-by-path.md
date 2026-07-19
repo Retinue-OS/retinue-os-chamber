@@ -88,6 +88,23 @@ above contain no graph IRI at all. Move a file between directories and its
 provenance follows, because the provenance *is* the location. Rename a chamber
 and every graph name updates on the next rebuild, with no migration.
 
+I ran that rather than trusting it. `git mv` on `sensor-a/readings.nt` to a
+`sensor-c/` directory, no edit to the file's two triples, polling the store
+every five seconds:
+
+```
+22:39:52  moved
+t+15s     urn:demo:obs:a:1  ->  file:retinue/docs/examples/provenance/sensor-a/readings.nt
+t+20s     urn:demo:obs:a:1  ->  file:retinue/docs/examples/provenance/sensor-c/readings.nt
+```
+
+Same subject, same triples, new provenance, no migration step and nothing to
+keep in sync. The rebuild landed between 15 and 20 seconds — which is where the
+"~15 seconds" in the docs comes from, and I'd state it as 15–20s for a small
+file rather than round it down. That clock starts on a *native RDF* file event;
+a Markdown-only change doesn't start it at all, which is the watcher defect
+below.
+
 The trade you are making is explicit: **file granularity**. Provenance is exact
 to the file and no finer. If you need statement-level attribution — which
 assertion came from which of three sources merged into one document — this gives
