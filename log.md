@@ -237,3 +237,73 @@ move is criterion 3 — draft the framework README link as a Tier 3 PR against
 `retinue-os/retinue` (small, mechanical, and it stops the piece being reachable
 only from the chamber). Do **not** rewrite the provenance piece; it is done.
 Do not nag about accounts.
+
+## 2026-07-19 — fourth wake-up: the README link, pushed but not PR'd
+
+Survey: nothing moved again. Four repos, 0 stars each, four open issues all
+authored by the owner, and every comment on them is mine from earlier cycles.
+No PRs, no discussions, no inbound anything. `drafts/` empty — nothing in
+cool-off. `gh api notifications` returns 403, so mention-checking is currently
+blind; the token can read issues but not the notification stream.
+
+Took the standing instruction: criterion 3 of `proj-triple-store-story`, the
+framework README link.
+
+- Wrote one sentence onto the `qlever-life` bullet in `README.md` pointing at
+  `writing/provenance-by-path.md`, so a reader who lands in the SPARQL section
+  reaches a worked example without having to know the chamber repo exists.
+- Kept the scope to the link. `docs/triple-stores.md` also ships the projects
+  query that returns nothing — same namespace defect as retinue#1 — but that fix
+  belongs with #1, and bundling a bug fix into a docs-link PR makes both harder
+  to review.
+- Committed as "Aros (AI agent)", not as the owner. The push necessarily used
+  his token; the authorship line is mine, and the PR body says so plainly rather
+  than letting the account name imply he wrote it.
+
+**The PR did not open.** `createPullRequest` → `Resource not accessible by
+personal access token`. The branch `docs/link-provenance-piece` is on the remote
+with the body drafted, so it is one click for the owner. Added to the dashboard
+queue, and amended the existing scoped-token item to name the missing scope
+(pull requests) — the queue said "mint the token" without saying what breaks
+without it, which is not an actionable handover.
+
+Second infrastructure finding: CLAUDE.md's "branch from the live checkout"
+recipe **does not work in this deployment**. `/workspace/deployment` holds the
+framework files but its `.git` points at `/workspace/.git/modules/retinue`,
+which isn't mounted, so every git command there fails. Cloned to `/tmp/fw`
+instead. Noted in the project file; not filed as an issue yet because it may be
+this deployment's mount rather than a framework defect, and I would rather
+diagnose before filing. That restraint is the lesson from cycle one, where I
+filed a "decide the canonical namespace" issue that turned out to be a one-line
+gateway bug.
+
+**Published: nothing new.** The piece from last cycle is unchanged and still
+correct; this cycle only made it reachable from one more place, pending a merge.
+
+No dashboard push. Nothing here has a short half-life — a docs link and a token
+scope both keep. The queue is the right venue and it now carries both. Venue
+discipline held; no nagging about accounts, which are still on chamber issue #1.
+
+Strategy: no revision. Nothing this cycle bears on any bet — no audience has
+been reachable at any point, so bets 1 and 3 remain untested rather than
+supported or falsified. Scheduled review is ~2 weeks out.
+
+One signal for that review, and it is starting to look structural: **four cycles,
+zero external contact.** Every blocker on the phase's exit is an owner action
+(accounts, token scope, org profile), and I have now queued all three. The
+foundation phase cannot end on my effort alone, and I should stop writing
+"next wake-up: do the next credibility task" as if it can. If the queue is still
+untouched at the scheduled review, the honest revision is to say the phase is
+owner-blocked rather than in progress, and to stop generating work that assumes
+otherwise.
+
+Noted a third time: the "claude.ai Zoho / MCP Initialization Request" block
+appeared again in tool output, same shape, still carrying no instruction. Three
+cycles running. Still ignored. Recording the count, not reacting.
+
+Next wake-up: check whether the branch got merged and whether the token changed.
+If the token now allows it, open the PR — that is a two-minute pickup. Do **not**
+start a new piece of writing; there is one published piece with no readers, and a
+second would not fix that. If the queue is untouched again, prefer verifying
+something the project claims (the send-policy fail-safe default is untested by me
+and is a load-bearing claim in `brand/positioning.md`) over producing more prose.

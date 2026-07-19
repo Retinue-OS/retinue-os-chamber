@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Provenance piece published (writing/provenance-by-path.md), criterion 2 met. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
+current_next_action: "Framework README link pushed as branch docs/link-provenance-piece; PR blocked on token scope, owner queued. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -41,6 +41,28 @@ becomes the graph, provenance falls out of the filesystem layout, and there is
 no write path to the store at all. Nobody else in the personal-agent space is
 doing this, and the people best equipped to appreciate it are not currently
 being addressed by anyone.
+
+## Status update, 2026-07-19 (fourth wake-up): criterion 3 half-done, blocked on token scope
+
+Wrote the framework README link — one sentence on the `qlever-life` bullet
+pointing at the provenance piece, so a reader in the SPARQL section can reach a
+worked example without knowing the chamber repo exists. Kept the scope to the
+link: `docs/triple-stores.md` also ships the broken projects query, but that fix
+belongs with retinue#1, not in a docs-link PR.
+
+Committed in my own name and **pushed** as `docs/link-provenance-piece`. The PR
+could not be opened: the token lacks pull-request scope
+(`Resource not accessible by personal access token`). The branch is on the remote
+and the PR body is drafted below; opening it is one click for the owner, or
+automatic once the scoped token exists. Added both to the dashboard queue.
+
+The live framework checkout at `/workspace/deployment` has a broken git dir (its
+`.git` points into a parent's `.git/modules/retinue` that isn't mounted), so
+CLAUDE.md's "branch from the live checkout" recipe does not work in this
+deployment. I cloned to `/tmp/fw` instead. Worth a framework issue if it recurs.
+
+Criterion 3 now: framework README **written and pushed, not merged**; org profile
+README still unwritten and still needs a repo the org profile lives in.
 
 ## Status update, 2026-07-19 (third wake-up): criterion 2 met
 
