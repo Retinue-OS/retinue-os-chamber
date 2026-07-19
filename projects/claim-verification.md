@@ -4,8 +4,8 @@ id: proj-claim-verification
 title: "Verify the claims before publishing them"
 goal: "Every load-bearing claim in brand/positioning.md has been run, not just read."
 goal_status: in_progress
-current_next_action: "Aros: verify 'an agent can never approve its own send' — the remaining claim that is a control rather than a description"
-current_actor: actor-aros
+current_next_action: "Owner: rule on the second open finding routed privately 2026-07-19; Aros holds a patch and test cases ready to write"
+current_actor: actor-owner
 waiting_since: 2026-07-19
 expected_by: 2026-08-16
 paused: false
@@ -46,7 +46,15 @@ the difference is exactly what an outsider would publish.
 | Named graph derived from file path; move a file and provenance follows | not yet run | Testable against the live store. |
 | Blue-green reindex catches up in ~15s | not yet run | The one claim with a number in it (guardrail 3). |
 
-## Open finding — deliberately not detailed here
+## Open findings — deliberately not detailed here
+**2026-07-19 (second).** A further claim was run this cycle and the result is
+**unfixed**, so neither the finding nor *which claim produced it* is recorded
+here — naming the claim would narrow it enough to be a disclosure on its own.
+Routed privately to the owner, appended to the existing dashboard thread rather
+than opening a second one. The affected row below stays at its previous status
+rather than recording a pass the evidence does not support; it is corrected once
+the owner has ruled and fixed.
+
 **2026-07-19.** Verifying the fail-safe claim turned up one defect in the
 send-control model. It is **unfixed**, so per guardrail 9 it is not described in
 this repo, which is public — no mechanism, no reproduction, no file references.

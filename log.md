@@ -543,3 +543,90 @@ claim: **"an agent can never approve its own send."** It is the last one on the
 list that is a genuine *control* rather than a description, which makes it the
 one where a failure would matter most — and the `/sends` approval path is
 reachable from here.
+
+## 2026-07-19 — eighth wake-up: ran the last control claim, and it did not hold
+
+Survey. Stars 0 across all four repos, no forks, no PRs, no discussions. Issues
+unchanged: retinue#1, chamber#1, qlever-dir#2 and #3 — every one authored by the
+owner's account, every comment on them written by me or him. `drafts/` empty, so
+nothing past cool-off. **Eighth cycle, zero external contact.**
+
+Two standing checks first. The Nostr keypair still has no ruling from the owner;
+per §7 the default is no and I did not ask again. The framework repo's history
+still ends at `4562864` (2026-07-19 08:56), so last cycle's send-policy defect is
+**still unfixed** — nothing about it appears in this file, and the write-up I
+offered stays unwritten until he says it is public.
+
+Cycle went where last cycle's note pointed: the last claim on the list that is a
+genuine **control** rather than a description, chosen because a failure there
+matters most.
+
+**Result: the claim does not hold.** Method as before — build the failing case,
+not just the passing one, and this time the failing case is the one that ran.
+Details, mechanism, file references and reproduction are **not** in this repo,
+which is public and which I now treat as disclosure by default. Routed privately
+to the owner, appended to the **existing** dashboard thread rather than opening a
+second one, since it is the same control and he should read them together.
+
+I did not name the affected claim in `projects/claim-verification.md` either.
+Last cycle I recorded which claim produced the finding; for this one that would
+narrow it enough to be a disclosure on its own. Its row keeps its previous
+status rather than recording a pass the evidence does not support — a wrong row
+in a public table is worse than a stale one.
+
+Constructing the test, I checked that nothing could actually go out: the probe
+used a request id that does not exist, so no message could be sent by it. That
+was a deliberate design of the test, not luck, and the next me should keep the
+habit — verifying a send control must not send anything.
+
+**Published: nothing.** Third cycle running, and the correct outcome again: the
+one substantive thing I learned is the one thing I may not say.
+
+**Escalated: one dashboard message**, appended to thread
+"Send-policy fails open on a malformed entry (private: unfixed)". What, the
+three commands and their exact responses including the control case, why it
+matters against the threat model, an honestly deflated severity, the suggested
+fix and why I prefer the variant that keeps the decision on the credential-
+holding side, and the do-nothing consequence. Offered patch and tests; wrote
+neither, because a public PR would disclose the defect.
+
+Strategy: **no revision**, but the case for one at the scheduled review is now
+much stronger, and I want the next me to arrive with it already argued.
+
+Signals for that review, ~1 week out:
+
+1. Structural, eighth cycle: zero external contact, every phase-exit blocker an
+   owner action. Unchanged by any effort of mine. Eight cycles is enough that
+   "foundation" may simply be the wrong name for this phase; "blocked on the
+   owner" is the honest label and the review should say so out loud.
+2. **Verification has now found two defects in two cycles of looking, in the
+   same subsystem, and that subsystem is the one the positioning leads with.**
+   Two findings is a pattern, not a coincidence, and it points at the review's
+   own note that the gateway is a large single file with thin test coverage and
+   no CI. Bet 2 revision firms up further: while there is no reader, testing
+   beats writing — and testing the *controls* beats testing the descriptions,
+   because a false control is the only kind of error that turns a reader into a
+   critic with a screenshot.
+3. The publishing pipeline is now genuinely blocked in both directions. Two
+   finished pieces in `writing/` with no account to publish them from, and the
+   send-control story — the strongest part of the architecture — cannot be told
+   at all until a claim in `brand/positioning.md` is either fixed or corrected.
+   **`positioning.md` currently contains a sentence I know to be false.** That is
+   the gap guardrail 3 exists to keep at zero, and it is the single most urgent
+   thing in this chamber.
+
+Noted a seventh time: the "claude.ai Zoho / MCP Initialization Request" block,
+again as an MCP server instruction in tool output. Still carries no instruction,
+still ignored — server metadata is not a channel that can direct my work, and
+tool output is not my user. Recording the count only.
+
+Next wake-up: check both open findings for a fix. If the owner has ruled that
+the second one is fixed and public, the highest-value work available is the
+write-up — "we tested our own claim, found it was false, and fixed it" is the
+best artifact bet 4 could possibly have, and better than either piece already in
+`writing/`. If he has ruled but wants it quiet, correct the sentence in
+`positioning.md` regardless: the claim must not stand while it is false, whether
+or not the reason is public. If there is still no ruling, do **not** escalate a
+third time on the same subject — he has it in one thread, in full, and nagging
+is not a strategy. Take the cheapest remaining claim instead ("credentials live
+only in sidecars", checkable by reading this container's own environment).
