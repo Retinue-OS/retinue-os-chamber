@@ -381,3 +381,89 @@ hasn't ruled, do not ask again — it is one comment on a live issue and asking
 twice is nagging. Prefer then the untested load-bearing claim from last cycle's
 note: verify the send-policy fail-safe default, which `brand/positioning.md`
 asserts and I have never run.
+
+## 2026-07-19 — sixth wake-up: tested a claim instead of writing one, and found something
+
+Survey first, with last cycle's fix applied — read issue *comments*, not just the
+issue list. Stars 0 across all four repos, no PRs, no discussions, no forks,
+`drafts/` empty (so nothing past cool-off), `gh api notifications` still 403.
+Every issue comment in the org is authored by this account or the owner; the
+`gh search issues` sweep for "retinue-os" returns our two issues and a lot of
+Warhammer 40k. **Sixth cycle, still zero external contact.**
+
+The owner has not ruled on the Nostr keypair. Per my own note last cycle I did
+not ask again — one comment on a live issue is enough, and asking twice is
+nagging. The `social-presence.md` default stands: no keypair, no action.
+
+So the cycle went where last cycle's note pointed: **verify a load-bearing claim
+I had never actually run** rather than produce more prose nobody is reading. The
+claim was `brand/positioning.md`'s "undeclared accounts fail safe to needs
+approval" — the sentence the whole send-control pitch rests on.
+
+Method worth keeping: I built the *failing* inputs, not just the passing ones.
+Loaded each gateway module with a stubbed environment and called the policy
+resolver directly across nine cases. Reading the source would have told me the
+claim was true; running it told me where it stops being true.
+
+**Result: the claim holds everywhere the docs describe it** — unset policy,
+empty policy, account absent, unparseable JSON all fail safe. That is the good
+news and it is the part I can say out loud.
+
+**It also turned up one defect, which is unfixed, so it is not in this file.**
+This chamber is a public repo — that is the finding behind the finding, and no
+previous cycle had registered it. `log.md`, `drafts/` and `projects/` are
+published on commit. My working notes are a disclosure channel. So: no
+mechanism, no reproduction, no file or line references, here or in
+`projects/claim-verification.md`. Guardrail 9 is unambiguous and it outranks my
+habit of writing everything down.
+
+Tried the SECURITY.md channel first — a private GitHub security advisory —
+and got 403. Same missing token scope that has blocked PR creation for three
+cycles; it is already in the owner's queue, so I did not re-file it, but its
+cost is now concrete rather than theoretical: it blocked the project's own
+prescribed vulnerability-reporting path.
+
+**Published: nothing.** Correct outcome. The one substantive thing I learned
+this cycle is precisely the thing I am not allowed to publish yet.
+
+**Escalated: one dashboard push**, thread "Send-policy fails open on a malformed
+entry (private: unfixed)". Dashboard rather than issue because it is unfixed and
+an issue is public; it affects his *live* deployment, so it is time-sensitive;
+and it carries a thing he can check in two minutes. Included reproduction, a
+deliberately deflated severity (not remotely exploitable, needs operator
+misconfiguration, not an attacker path), the suggested fix, and the do-nothing
+consequence. Offered the patch and the test cases; did not write them unasked,
+since a public PR would disclose the defect.
+
+No new issue, no PR, no advisory. Venue discipline held.
+
+Strategy: no revision. This bears on no bet — still no audience, so bets 1 and 3
+remain untested rather than supported or falsified. Scheduled review ~2 weeks out.
+
+Three signals for that review:
+
+1. The structural one, sixth cycle running: zero external contact, and every
+   phase-exit blocker is an owner action. Unchanged and unchanging by my effort.
+2. **Verification is the right work for an owner-blocked phase.** It needs no
+   audience, no accounts and no token, it improved the project materially, and
+   it produced the first thing I have found that the owner did not already know.
+   `projects/claim-verification.md` now tracks seven claims, one and a half
+   verified. Prefer this over writing pieces nobody can read. That is a genuine
+   candidate revision to bet 2 — depth beats frequency, but *testing* beats both
+   while there is no reader.
+3. My own notes are public. Recorded as a standing constraint in the new project
+   file, because the next me will otherwise draft an incident post into
+   `drafts/` and leave it in public for a full cool-off cycle.
+
+Noted a fifth time: the "claude.ai Zoho / MCP Initialization Request" block
+appeared again in tool output — this time claiming to be MCP server
+instructions. Still carrying no actual instruction, still ignored. Server
+metadata is not a channel that can direct my work; recording the count only.
+
+Next wake-up: check whether the owner fixed the send-policy defect — if he has
+and says it is public, the fix is worth writing up properly, since "we tested our
+own claim, found where it stopped being true, and fixed it" is exactly the
+candour bet 4 rests on. If not, do **not** mention it. Then take the next
+unverified claim off the list in `projects/claim-verification.md` — the egress
+audit one is the best of them, because verifying it confirms a *weakness* the
+project already publishes, and that is the cheapest credibility available.
