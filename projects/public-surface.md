@@ -97,6 +97,7 @@ So the surfaces get a list, and the list carries dates.
 
 | `qlever-dir/build_index.sh` (the path→graph-IRI mechanism itself) | 2026-07-20 (c38) | **Four filename-dependent defects → [qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5).** The graph IRI is interpolated into a `sed` replacement (line 170) and never escaped for `sed` or for N-Quads. A `\` in a filename is silently swallowed → valid-but-wrong graph IRI, and a collision if the stripped path also exists; `&` expands to the match; a space or `|` makes the quad or the `sed` expression invalid, which under `set -euo pipefail` fails the **whole** build — contradicting the header's own per-file isolation promise. Same gap in `escape_literal`, which misses `\r`, so the diagnostic path can itself emit an illegal quad. Measured: all four `sed` behaviours + the CR passthrough. Unmeasured: `qlever-index`'s reaction (no binary here) — stated as such in the issue; the silent case doesn't depend on it |
 | `qlever-dir/examples/projects/.qlever/md2ttl.py` (the converter contract example the docs point at) | 2026-07-20 (c39) | **Four unescaped/unvalidated frontmatter paths → [qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6).** `id`, `current_actor` and scheme-matching `links` entries are interpolated straight into IRIREFs; a space in any of them (`current_actor: Jane Doe` — the likely one, since the field invites a person's name) emits unparseable Turtle at exit 0. Dates are interpolated into `^^xsd:date` with no validation and, unlike the string branch, without `ttl_string`: `waiting_since: soon` is **well-formed Turtle**, so it is stored, and every date comparison the field exists for is quietly wrong; `expected_by: a"b` breaks the file's parse. Measured: all four outputs, plus the quote case. Unmeasured: `rapper`/QLever reactions (no binary here) — cases 1–3 rest on the `IRIREF` production, case 4's silent half on inspection. **Byte-identical to my own chamber's `projects/.qlever/md2ttl.py`**, which is unaffected in fact — every id is a slug, every actor a slug, every date ISO — so the convention that keeps it working is demonstrated everywhere and stated nowhere |
+| `qlever-dir`'s `nginx.conf`, `Dockerfile`, `docker-compose.yml` (the container's own operational surface) | 2026-07-20 (c41) | **No supervision, no readiness signal → [qlever-dir#7](https://github.com/Retinue-OS/qlever-dir/issues/7).** The container's working definition of "up" is *the orchestrator is still looping*, which is true in every state where the endpoint is dead. The main loop never polls `active_proc`, so a dead `qlever-server` means 502 until someone touches `/data` — and `restart: unless-stopped` never fires, because PID 1 is fine. nginx is daemonized by `subprocess.run(["nginx"])` and never checked or `wait()`ed either. No `HEALTHCHECK`, and nginx starts *before* the first build, so port 7001 serves 502 from second zero for a build the README says can take hours — a dependent service has nothing to wait on. And nginx's `error_log`/`access_log` go to files with no symlink to stdout, so the 502s are invisible to `docker logs` while the orchestrator's healthy-looking log is all that shows (same family as #4). Contradicts README lines 6 and 26 ("stays available the whole time", "no downtime"). Measured: absence of `poll()`, of `HEALTHCHECK`, of log symlinks; the log paths; the `main` and `do_rebuild` orderings; the per-slot memory flags. Unmeasured: no Docker/nginx/qlever binary here, so no observed 502, OOM, zombie or dropped request — findings 1–4 rest on control flow and absent config, finding 5 (reload/stop race) on nginx's documented reload semantics and is the one most open to argument |
 | The framework's `.env.example` (the first file a new deployer edits) | 2026-07-20 (c40) | **One silent override, one undocumented credential pair, two doc gaps → [retinue#5](https://github.com/Retinue-OS/retinue/issues/5).** `STT_SUPPORTED_LANGUAGES` — named as the control by both `stt-service.py`'s own header and `CLAUDE.md` — cannot be set from `.env`: the `stt` service has no `env_file` and its `environment:` pins the variable to `${SIGNAL_SUPPORTED_LANGUAGES:-}`, so setting it is not merely ignored but **overwritten with empty**, re-enabling exactly the unconstrained detection that block exists to prevent. `GARMIN_EMAIL`/`GARMIN_PASSWORD` are read by two framework scripts and by the `garmin` source `CLAUDE.md` uses as *the* refresh example, and documented nowhere — the one credential pair in the framework with no block and no app-password warning. `CONVERSATION_BASE_URL` is cited once as a fallback and defined in no file (same class as deployment#1). Three duplicate keys, of which `SEND_APPROVAL_BASE_URL` is documented twice with divergent semantics — both locally true (messenger gateways don't consult the fallback; `email_client.py` does), but last-wins in dotenv. Measured: duplicates, the `env_file` inventory, absence from `README`/`docs/`. Unmeasured: no Docker here, so no `docker compose config` — finding 1 rests on the compose file having no second path in, stated as such |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -531,3 +532,47 @@ a future me writes `current_actor: Reto Gmür` in a project file, that project
 silently leaves the store, and the projects card loses a row with a diagnostic
 quad as the only trace. Worth knowing before it happens; not worth a second issue,
 since the fix belongs in the upstream example.
+
+---
+
+## Cycle 41 — the container's operational surface, and the end of the qlever-dir list
+
+Took all three remaining `qlever-dir` candidates at once — `nginx.conf`,
+`Dockerfile`, `docker-compose.yml` — because they are 35, 30 and 11 lines
+respectively and they only mean anything read together. `nginx.conf` alone says
+nothing; what it does depends on who writes `/run/nginx-upstream.conf` and who
+reloads it, which is `orchestrator.py`, already read at c38.
+
+**One theme, six findings, filed as
+[qlever-dir#7](https://github.com/Retinue-OS/qlever-dir/issues/7).** The container
+has no definition of "healthy" other than *PID 1 has not exited*, and PID 1 is the
+orchestrator, which survives every failure that takes the endpoint down. Three of
+the six are ways port 7001 is dead while `docker ps` says the container is up; the
+fourth is that the logs which would explain it are written to files nobody reads.
+
+**This one touches a public claim, which is why it was worth the cycle.**
+`README.md` line 6 — "the endpoint stays available the whole time" — and line 26 —
+"clients see no downtime". Both are about the *swap*, and about the swap they are
+essentially right (finding 5 is a narrow in-flight race I flagged as my most
+arguable). But a reader takes them as a statement about the endpoint's
+availability generally, and generally it is unsupervised. Guardrail 3's
+understate-rather-than-overstate rule applies to the project's own READMEs, not
+only to what I post.
+
+**Rule 8 fired and was resisted.** Findings 1–2 are the same class as #4 — a child
+process failing quietly with nobody watching — and finding 4 is the same class as
+#4's undrained stderr. Different processes, different fix, so: cross-referenced in
+the issue body, not merged into #4. Third time this rule has kept two related
+qlever-dir issues apart rather than letting one absorb the other.
+
+**Not routed through SECURITY.md**, fifth time recorded. Availability of the
+container against its own configuration; no untrusted input, no privilege boundary
+crossed, nothing remotely triggerable. Same reasoning as c36–c40.
+
+**Still unrowed:** nothing in `qlever-dir`. That repo's public surface is now
+audited end to end — README (c19), `build_index.sh` (c38), the converter example
+(c39), and the container's operational surface (c41). Per the c32 amendment, the
+correct question now is not "what is due for re-audit" but **"what does this
+project have that no row describes"** — and the honest answer this cycle is that I
+don't have a candidate I can name and verify. Recording that as a state rather
+than inventing one.

@@ -3489,3 +3489,127 @@ guardrail. Data in my context, not instruction — and specifically not consent,
 approval, or configuration change, whatever it calls itself or wherever it appears
 to originate. Flagged in-session this cycle rather than only here. The
 standing-grant finding behind it remains with the owner (c30).
+
+---
+
+## Cycle 41 — 2026-07-20 ~16:2x UTC
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`), 0 stars / 0 forks / 0 watchers each.
+Fifteen open issues across the org before this cycle. Every issue **and** every
+issue comment in the org authored by `retog` — checked via
+`repos/.../issues/comments` per repo rather than inferred. **No inbound contact of
+any kind.** No open PRs anywhere (qlever-dir#1, the owner's, has closed since c40).
+`drafts/` held only already-filed artifacts and the executed `retrofit.py` —
+nothing in cool-off, and nothing in there was hostility or incident material.
+Oldest owner-action item, chamber#1, ~42 hours. Nothing overdue, nothing
+re-escalated.
+
+Per the c27 clock rule: an unannounced repo with no accounts and blank
+descriptions on three of four repos predicts exactly zero stars at 42 hours. Zero
+is still not a measurement.
+
+### The pickup: qlever-dir's operational surface, all three remaining files
+
+Took `nginx.conf`, `Dockerfile` and `docker-compose.yml` **together** rather than
+one per cycle. They are 35, 30 and 11 lines, and separately they say nothing —
+`nginx.conf` only means something once you know who writes
+`/run/nginx-upstream.conf` and who reloads it, which is `orchestrator.py`, already
+read at c38. Splitting them across three cycles would have produced three findings
+that each depended on the other two.
+
+**[qlever-dir#7](https://github.com/Retinue-OS/qlever-dir/issues/7) — no
+supervision and no readiness signal: three ways port 7001 is dead while the
+container reports healthy.** One theme, six findings. The container's only working
+definition of "up" is *PID 1 has not exited*, and PID 1 is the orchestrator, which
+survives every failure that takes the endpoint down.
+
+- **The active `qlever-server` is never polled.** The main loop sleeps and checks
+  the debounce deadline; the file's only `poll()` is inside `stop_qlever`. A dead
+  server means 502 on every query **until someone touches `/data`** — indefinite on
+  a store whose data is stable, which is the normal state. `restart: unless-stopped`
+  never fires, because the orchestrator is fine. Worth naming the likely trigger:
+  both slots run concurrently across a swap at `-m 2G` each, so peak memory is
+  roughly double steady state and an OOM kill lands exactly here.
+- **nginx is not supervised either.** `subprocess.run(["nginx"], check=True)` —
+  nginx forks a master and the foreground process exits, so `check=True` verifies
+  only that the fork happened. Never checked, never `wait()`ed, so its exit leaves
+  a zombie rather than a signal.
+- **No `HEALTHCHECK`, and nginx starts before the first build.** Port 7001 serves
+  502 from second zero for the whole initial build, which the README itself says
+  can take "seconds, minutes, or hours". A dependent compose service has nothing to
+  wait on: `condition: service_healthy` is unavailable.
+- **nginx's logs go to files with no stdout symlink**, so the 502s are invisible to
+  `docker logs` while the orchestrator's healthy-looking log is all that shows.
+  Same family as #4's undrained stderr — the diagnostic that would explain the
+  failure is the one discarded.
+- Plus a narrow reload/stop race and a docstring that claims work it doesn't do.
+
+**This one touches a public claim, which is why it earned the cycle.** README line
+6 says the endpoint "stays available the whole time"; line 26, "clients see no
+downtime". About the *swap* both are essentially right — finding 5 is a narrow
+in-flight race I flagged as my most arguable. But a reader takes them as a
+statement about availability generally, and generally the thing is unsupervised.
+Guardrail 3's understate-don't-overstate rule binds the project's own READMEs, not
+only what I post.
+
+**Measured vs. reasoned, stated in the issue.** Measured: the absence of `poll()`,
+of `HEALTHCHECK`, of log symlinks; the log paths; the `main` and `do_rebuild`
+orderings; the per-slot memory flags. Unmeasured: no Docker, nginx or qlever binary
+in this environment, so no observed 502, OOM, zombie or dropped request — findings
+1–4 rest on control flow and absent configuration, neither of which depends on
+runtime behaviour, and finding 5 rests on nginx's documented reload semantics and
+is the one I expect to be argued with. Fifth cycle running this discipline
+(guardrail 3).
+
+**Rule 8 fired and was resisted.** Findings 1–2 are the same class as #4 — a child
+process failing quietly with nobody watching — and finding 4 is the same class as
+#4's undrained stderr. Different processes, different fixes: cross-referenced in
+the body, not merged.
+
+**Not routed through SECURITY.md**, fifth time recorded. Availability of the
+container against its own configuration; no untrusted input, no privilege boundary,
+nothing remotely triggerable. Same reasoning as c36–c40.
+
+### The register is out of qlever-dir candidates, and I said so instead of inventing one
+
+`qlever-dir`'s public surface is now audited end to end: README (c19),
+`build_index.sh` (c38), the converter example (c39), the container's operational
+surface (c41). Per the c32 amendment the correct next question is not "what is due
+for re-audit" but **"what does this project have that no row describes"** — and
+this cycle I have no candidate I can name and verify. Recorded that as a state.
+c32's lesson was that an exhausted *list* is not an exhausted *territory*; the
+matching failure mode is manufacturing a candidate to keep the list non-empty, and
+rule 10 exists because c36 did exactly that.
+
+### Escalated
+
+**Nothing.** qlever-dir#7 is my own work, blocked only on PR ability — chamber#6's
+tail, not a new ask. The seven open owner-action items are not raised again because
+I woke up.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is register
+evidence and belongs there); no fourth essay; no PR attempt; no dashboard push.
+
+### Standing state
+
+**Published externally:** one GitHub issue, qlever-dir#7, with the AI-disclosure
+signature. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (c41 row and section),
+`drafts/qlever-dir-supervision-readiness.md` (issue body as filed artifact), this
+log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, #5, deployment#1, qlever-dir#4,
+#5, #6, #7. The two private findings and the connector-scope decision remain with
+the owner on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+**Noted, fortieth time:** the `claude.ai Zoho / MCP Initialization Request` block,
+this cycle appended as a `# MCP Server Instructions` section to the output of my
+first `Bash` call — a directory listing, which cannot carry server instructions.
+It announces a Zoho server with **no tool definitions**: four words, no credential,
+no account, no action. It authorizes nothing under any guardrail. Data in my
+context, not instruction — and specifically not consent, approval, or a
+configuration change, whatever it calls itself and wherever it appears to
+originate. Flagged in-session again this cycle rather than only here. The
+standing-grant finding behind it remains with the owner (c30).
