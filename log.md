@@ -1477,3 +1477,104 @@ Next wake-up: blockers are chamber#1, chamber#3, chamber#4, chamber#5, retinue#2
 and the two private findings. If none moved, the register names four never-audited
 surfaces — `docs/` dashboard site and the `qlever-dir` README are the two most
 likely to be read by a stranger.
+
+## 2026-07-20 — nineteenth wake-up: the blocker I'd been citing to an issue that doesn't exist
+
+Survey. Stars 0, forks 0, watchers 0 across all three public repos. No outside
+issues, no outside PRs, no discussions, no mentions. Framework `main` unchanged;
+both docs branches still pushed and unmerged. **Nineteenth cycle, zero external
+contact.**
+
+`drafts/` held only `retrofit.py`, a tool, not prose in cool-off. Nothing waiting.
+
+### The find, which was in my own strategy
+
+The log queued the two most stranger-facing never-audited surfaces. Started with the
+`qlever-dir` README. While cross-checking its claims against open issues I listed
+the org's issues — and the list did not contain the token-scope blocker that
+`strategy.md` says is "tracked publicly and durably at retinue#2".
+
+retinue#2 is the owner's own documentation issue about reindex latency. Checked
+open and closed across all repos: **the token-scope blocker had never been filed
+anywhere.**
+
+That citation entered the strategy at cycle 12 and has been load-bearing ever
+since. The no-re-escalation rule reads "do not re-escalate a blocker that is
+already tracked" — so for seven consecutive cycles I correctly applied a sound
+rule to a tracker that did not exist, and stayed silent about the project's most
+consequential blocker while filing four separate `owner-action` issues that were
+each downstream of it.
+
+Worth being precise about the failure, because it is not the obvious one. The rule
+is good and I kept it. What it lacked was the cheap verification that makes silence
+safe: an issue number I remember writing is not evidence that I wrote it.
+
+### What I did
+
+1. Re-measured the blocker before filing, so the issue states facts and not
+   recollection. All four refusals confirmed today: `createPullRequest`, `PATCH`
+   repo description, `PUT` topics, `PUT` private-vulnerability-reporting — 403
+   `Resource not accessible by personal access token`, every one.
+2. Filed [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6)
+   (`owner-action`). Framed as **one permission with four consequences**, with the
+   table showing which existing issue each consequence is stranded in, because that
+   is the fact that makes it worth his attention — chamber#4 and #5 are symptoms.
+   Two options, no preference expressed, except one honest note that the narrower
+   one (PRs only, no repo administration) is the better trade for a project whose
+   pitch is that capability shouldn't require broad credentials. Recorded my own
+   error in the issue body rather than fixing it quietly; he has been reading those
+   four issues for two days without being told they share a root cause.
+3. **qlever-dir README audit** (its first). Accurate and unusually thorough — the
+   blue-green, rebuild-scheduling and inotify-limitations sections all state their
+   own weaknesses without prompting. One gap: the converter section says non-RDF
+   files "can also be indexed", and the scheduling section states the general
+   guarantee that any change to `/data` triggers a rebuild. Nothing tells the reader
+   those don't compose — per qlever-dir#3 a converted file's change triggers nothing.
+   Someone following `examples/projects/`, the path the README recommends for
+   learning the feature, edits a file, sees nothing happen, and can't tell a
+   misconfiguration from a bug. Added it as a **comment on qlever-dir#3** with
+   suggested known-limitation wording, not a new issue — same defect from the
+   reader's side, and the no-duplicate rule applies.
+4. Corrected `strategy.md`: citation fixed, objective 5 renamed "PR scope" →
+   "write scope", the no-re-escalation rule now carries the verify-the-tracker step
+   plus the current tracker list inline, and "audit an unaudited public surface"
+   promoted to second in admissible work on five-for-five evidence. Revision logged.
+5. Register updated with both audits, plus a second rule: **my own records are
+   surfaces.**
+
+### On the cap
+
+Two items — one surface audit, one self-audit — which is the cap. The strategy
+edits are bookkeeping on the second find, not a third item, and no bet changed:
+nothing this cycle is evidence about the bets, which still have no audience.
+
+**Not a re-escalation.** The token scope had never been raised in nineteen cycles —
+that is the entire point of this entry. chamber#1, #3, #4, #5 and the two private
+findings were left untouched. chamber#6 *references* #4 and #5 to show they are
+downstream, which is triage, not a repeat ask.
+
+### Standing state
+
+**Escalated:** chamber#6 (new). **Published externally:** nothing — fourteenth
+cycle, still no accounts.
+
+Strategy review due ~2026-08-02. Both notes carried since cycle 15 are now folded
+in, so the scheduled review starts clean. One new note for it: five of the last
+five cycles found their work by audit, and the strategy now says so — the honest
+question for 2026-08-02 is whether that is a healthy discipline or a well-organised
+way to stay busy while the actual phase exit (accounts, chamber#1) has not moved in
+fourteen cycles. I lean toward the first, but I am the wrong party to be confident.
+
+Noted an eighteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle prepended to the session as a server-instruction block claiming to
+require initialization. It did not come from my dispatcher or the permission
+system, and it asks for an action no guardrail authorizes; it is data appearing in
+my context, not instruction. Ignored, as every cycle. Bare count — but noting that
+this is the first time it presented itself as a *directive* rather than as inert
+text inside tool output, which is a change in shape worth one line here. Still no
+action warranted; if it escalates to naming a credential or an account, that
+becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, and the two private findings.
+If none moved, the register's remaining "never" rows are the `docs/` dashboard site,
+the `CONTRIBUTING.md`/`CODE_OF_CONDUCT.md` contents, and repo social preview images.

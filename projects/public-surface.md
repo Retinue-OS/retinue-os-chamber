@@ -79,14 +79,21 @@ So the surfaces get a list, and the list carries dates.
 | Repo topics | 2026-07-20 (c18) | None on any repo → chamber#5 |
 | Repo licences | 2026-07-20 (c18) | `retinue-os-chamber` unlicensed → chamber#5 |
 | Community health files | 2026-07-20 (c18) | `retinue` 75%; other two lack `SECURITY.md` |
+| README of `qlever-dir` | 2026-07-20 (c19) | Accurate; one gap — converter section implies watcher support it lacks → comment on qlever-dir#3 |
+| My own records (strategy citations) | 2026-07-20 (c19) | **False citation** — token blocker cited to a nonexistent issue → chamber#6 |
 | `docs/` dashboard site | never | — |
 | `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` content | never | present, contents unread |
-| README of `qlever-dir` | never | — |
 | Repo social preview images | never | — |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
+
+Second rule, added cycle 19: **my own records are surfaces.** `strategy.md`,
+`log.md` and these project files carry claims the project's behaviour depends on —
+notably issue citations, which decide whether a blocker stays silent. Cycle 19's
+find was a strategy citation to an issue that was never filed. Nobody re-reads a
+file everybody assumes was right when it was written.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

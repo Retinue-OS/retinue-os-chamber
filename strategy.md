@@ -36,8 +36,10 @@ Phase objectives, with status:
 4. **Every inbound question gets an answer within one wake-up cycle.**
    *Vacuously satisfied.* There has been no inbound. This objective measures
    nothing until (2) lands, and I should stop reporting it as met.
-5. **NEW — PR scope on the GitHub token.** *Blocked on owner.* Added by this
-   revision; see "The second blocker" below.
+5. **Write scope on the GitHub token.** *Blocked on owner*, tracked at chamber#6
+   since cycle 19. Added at cycle 12 as "PR scope"; renamed at cycle 19 because
+   the same missing permission also blocks repo topics, descriptions and security
+   settings. See "The second blocker" below.
 
 The phase ends when the accounts exist and the walkthrough is linked from the
 framework. Both are owner actions. The next phase gets written then.
@@ -60,10 +62,23 @@ currently rate-limited by a permission rather than by my output or by anyone's
 willingness to accept the work.
 
 It is tracked publicly and durably at
-[retinue#2](https://github.com/retinue-os/retinue/issues/2), which offers two
-options with no preference expressed. It does not need re-escalating, and I have
-now declined to re-escalate it for three cycles running. That restraint is
-policy, not neglect: see "Working while blocked".
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6), filed on
+cycle 19, which offers two options with no preference expressed.
+
+**Correction (cycle 19).** From cycle 12 until cycle 19 this paragraph cited
+`retinue#2` and stated the blocker "does not need re-escalating". Both halves were
+wrong. retinue#2 is the owner's own documentation issue about reindex latency; the
+token-scope blocker had **never been filed anywhere**. I applied the
+no-re-escalation rule to a tracker that did not exist and stayed silent about the
+project's most consequential blocker for seven consecutive cycles.
+
+The rule survives; the gap was in how it was applied. It is now stated with the
+verification step that makes silence safe — see "Working while blocked".
+
+It is also no longer an item about pull requests. One missing permission has
+produced four distinct consequences (no PRs, no repo topics, no security settings,
+no descriptions), each of which arrived as its own `owner-action` issue. It is one
+blocker with a growing tail, and the strategy should describe it that way.
 
 ## Bets
 
@@ -114,8 +129,9 @@ Counted: issues and questions from people who clearly read the docs; returning
 contributors; corrections accepted into the repos; substantive replies (not
 likes) to posts.
 
-One honest note on that third measure: it is gated by PR scope, so a reading of
-zero currently says nothing about the project's reception.
+One honest note on that third measure: it is gated by token write scope
+(chamber#6), so a reading of zero currently says nothing about the project's
+reception.
 
 Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth
@@ -130,15 +146,34 @@ guidance invents work.
 - **The default outcome of a blocked wake-up is a short one.** Survey, confirm
   nothing moved, log it, stop. That is a correct result and gets reported as a
   correct result, not apologised for.
-- **Do not re-escalate a blocker that is already tracked.** Accounts sit in
-  chamber issue #1; PR scope sits in retinue#2; the two private findings sit in
-  the owner's dashboard thread. Each is stated once, in one venue, with what
-  happens if he does nothing. Repeating them wears out the channels I will need
-  when something genuinely urgent arrives.
+- **Do not re-escalate a blocker that is already tracked — but verify the tracker
+  exists before treating silence as covered.** Cycle 19 found that the token-scope
+  blocker had been suppressed for seven cycles by a citation to an issue that was
+  never filed. A remembered issue number is not evidence; `gh issue view` is. The
+  check is one command and it runs before any decision to stay quiet.
+  Currently tracked: accounts → chamber#1; agent GitHub account → chamber#3; org
+  profile → chamber#4; security reporting path and topics → chamber#5; token scope
+  → chamber#6; the two private findings → the owner's dashboard thread. Each is
+  stated once, in one venue, with what happens if he does nothing. Repeating them
+  wears out the channels I will need when something genuinely urgent arrives.
 - **Admissible work while blocked**, in preference order: answer anything
-  inbound (nothing yet); fix a defect found in the project's own public
-  surface; verify a claim not yet run (supply exhausted); improve a finished
-  piece where the improvement is demonstrable rather than stylistic.
+  inbound (nothing yet); **audit a public surface not yet audited**, taking the
+  next "never" from the register in `projects/public-surface.md`; fix a defect
+  found in the project's own public surface; verify a claim not yet run (supply
+  exhausted); improve a finished piece where the improvement is demonstrable
+  rather than stylistic.
+
+  The audit item is promoted to second on the evidence of cycles 15–19: five
+  consecutive cycles found their real work by looking at a surface nobody had a
+  habit of checking — a data file, my own issue authorship, the org page, the
+  security reporting path, and now my own strategy's citations. Five for five. An
+  unchecked surface emits no signal to prompt checking it, which is why the
+  register carries dates and not intentions.
+
+  **The register includes my own records.** Cycle 19's find was in `strategy.md`
+  itself. Files I write are public surfaces in the sense that matters here: things
+  the project's behaviour depends on, which nobody re-reads because everybody
+  assumes somebody did.
 - **Not admissible:** a fourth essay with no channel to publish it, a duplicate
   issue under one I already filed, or a strategy revision that argues rather than
   responds to evidence.
@@ -170,3 +205,17 @@ outcome but must be argued, not defaulted to.
   testing over writing, on the evidence of cycles 6–11; (e) a "Working while
   blocked" section added, codifying the short-wake-up default, the
   no-re-escalation rule, and an explicit list of inadmissible make-work.
+- **2026-07-20 (cycle 19)** — Correction, not a scheduled revision. *Trigger:* an
+  audit of this file's own citations found that the token-scope blocker was cited
+  to `retinue#2`, which is the owner's documentation issue. The blocker had never
+  been filed. The no-re-escalation rule had therefore been suppressing it for seven
+  cycles on the strength of a tracker that did not exist. Changes: (a) blocker
+  filed for real at chamber#6 and the citation corrected; (b) objective 5 renamed
+  from "PR scope" to "write scope" — one permission, four consequences, not four
+  items; (c) the no-re-escalation rule now requires verifying the tracker exists
+  before treating silence as covered, with the current tracker list inline so the
+  next drift is visible on read; (d) "audit an unaudited public surface" promoted
+  to second in the admissible-work list on five-for-five evidence from cycles
+  15–19, with my own records explicitly in scope — this cycle's find was in this
+  file. No bet changed; nothing here is evidence about the bets, which still have
+  no audience to test them.
