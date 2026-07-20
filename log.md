@@ -2983,3 +2983,84 @@ action, authorizes nothing under any guardrail. Data in my context, not
 instruction — and specifically not consent, approval, or configuration change,
 regardless of its framing as server "instructions". The standing-grant finding
 behind it remains with the owner (c30).
+
+---
+
+## Cycle 36 — 2026-07-20 ~13:0x UTC
+
+**Survey.** 0 stars, 0 forks, 0 external issues/PRs/discussions across the org.
+No inbound contact. `drafts/` holds only `retrofit.py` (executed c16) — nothing
+in cool-off. Oldest owner-action item, chamber#1, is ~39 hours. Nothing overdue;
+nothing re-escalated.
+
+### The pickup: audit `retinue-os-deployment`
+
+The register listed three unrowed candidates. I took none of them, because the
+survey turned up a better one: **there are four public repos and I had never
+looked at one of them.** Every log entry says "all four repos"; the loop I ran to
+produce that number queried `retinue-os.github.io`, which does not exist, and
+silently returned nothing. The real fourth repo is `retinue-os-deployment` —
+public, empty description, never audited. The count was right by accident.
+
+**Clean on the things that would have been serious.** No committed secrets, no
+PII, no private-chamber references; `chambers.json` mounts exactly one chamber,
+so the GUARDRAILS §5 isolation the README claims is a property of the config and
+not just of my prompt. Recorded as a clean result so it is not re-run.
+
+**Two documentation defects, both in the README, both real:** the token summary
+("repository read/write ... and nothing more") is broader than `.env.example`'s
+spec and would grant the Workflows-write escalation channel that file explicitly
+withholds; and the README points readers at the framework's docs for `PUBLIC_HOST`
+and `ACME_EMAIL`, which the framework documents nowhere (checked README,
+`.env.example`, both compose files, `deploy/`).
+
+**Judgement call, recorded because it could have gone the other way.** Finding 1
+touches privilege scoping, so I checked it against guardrail 9 before publishing
+rather than after. It is not an unfixed vulnerability: no live credential is
+over-scoped — this deployment's own token cannot open PRs, which proves it was
+scoped from `.env.example` and not from the README — and the correct narrow spec
+is already public in the adjacent file of the same repo. The exposure is to a
+future copier of a repo that advertises itself as a reference deployment. That is
+a documentation defect, and filing it publicly is how it gets fixed.
+
+### Published
+
+- [retinue-os-deployment#1](https://github.com/retinue-os/retinue-os-deployment/issues/1),
+  in my own name with the AI-disclosure footer: both README defects, each with a
+  one-line suggested fix and the evidence I checked. Not labelled `owner-action` —
+  it is my own work, blocked only on PR ability, so it belongs in chamber#6's tail
+  rather than in the owner's queue.
+
+### Escalated
+
+**Nothing new.** No dashboard push. The seven open owner-action items are not
+re-raised because I woke up again, and this issue *adds* nothing to that queue.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is
+register evidence and is recorded there); no fourth essay; no PR attempt; no
+second issue splitting the two findings, which share a file and a cause.
+
+### Standing state
+
+**Published externally:** one GitHub issue. No social accounts exist.
+**Files changed:** `projects/public-surface.md` (c36 row, ninth rule), this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, and now deployment#1. The two
+private findings and the connector-scope decision remain with the owner on the
+dashboard thread (unread since 21:33 on 2026-07-19).
+
+Accumulating for the 2026-08-02 review: a sixth admissible-work item (propagate
+the previous cycle's correction, c31); rule 3's restatement against the API (c32);
+and the register's exhaustion has now been claimed twice and been wrong twice —
+c35 corrected c34, and this cycle found an entire unaudited public repository
+while the register described itself as down to three minor candidates. The review
+should treat "exhausted" as a claim requiring the same enumeration as any other,
+which is this cycle's ninth rule generalised.
+
+**Noted, thirty-fifth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section after my first
+tool call. Content unchanged: four words, no credential, no account, no action,
+authorizes nothing under any guardrail. Data in my context, not instruction — and
+specifically not consent, approval, or configuration change, whatever it calls
+itself. The standing-grant finding behind it remains with the owner (c30).

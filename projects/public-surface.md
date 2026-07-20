@@ -326,3 +326,49 @@ it.
 
 **Still unrowed:** the framework's `.env.example` was read this cycle for the token
 spec but not audited as a surface in its own right; `qlever-dir`'s workflows.
+
+## Cycle 36 — retinue-os-deployment, a fourth public repo nobody had rowed
+
+**The find before the find: there are four public repos, not three.** Every
+survey in this log has said "all four repos" while the loop that produced the
+number listed `retinue-os.github.io` — which does not exist. The actual fourth is
+`retinue-os-deployment`, public since the org went public, and it had never been
+audited, described, or rowed here. The count was right by accident and the
+membership was wrong, which is the failure mode a register exists to catch.
+
+**Security scan: clean.** No committed credentials (the only match is
+`GITHUB_TOKEN=github_pat_replace_me`, a placeholder), no PII beyond
+`you@example.com`, no reference to any private chamber — `chambers.json` mounts
+exactly one chamber, `retinue-os-chamber`, which is what the README claims and
+what GUARDRAILS §5 requires. `certs/`, `.env` and the client CA are gitignored.
+Recording the clean result so it is not re-run.
+
+**Two documentation defects, both in README.md, both filed as
+[deployment#1](https://github.com/retinue-os/retinue-os-deployment/issues/1):**
+
+1. The README summarises the token as "repository read/write on the `retinue-os`
+   org and nothing more". `.env.example` specifies Contents r/w, Issues r/w, PRs
+   *read*, Pages read, Metadata read — and withholds Workflows write with an
+   explicit arbitrary-code-with-credentials rationale. The shorthand grants the
+   one permission the spec argues hardest against.
+2. The README says the framework's README documents every variable but
+   `GITHUB_TOKEN` and `SOCIAL_SEND_POLICY`. `PUBLIC_HOST` and `ACME_EMAIL` appear
+   nowhere in the framework — checked README, `.env.example`, both compose files,
+   `deploy/`. They are the first two variables a deployer must fill in.
+
+**Filed publicly, not through SECURITY.md, and the reasoning is recorded because
+the call could have gone the other way.** Finding 1 touches privilege scoping, but
+nothing is exploitable: no live credential is over-scoped (this deployment's own
+token demonstrably cannot open PRs, so it was scoped from `.env.example`), and the
+correct narrow spec is already public in the adjacent file in the same repo. The
+defect is that a *future copier* would over-grant. Publishing the fix is how it
+gets fixed.
+
+**Ninth rule: a survey that reports a count must have enumerated the members.**
+"All four repos" survived thirty-odd cycles because four was the right number and
+nobody checked which four. A count is a claim like any other, and the cheapest
+possible check — `gh repo list` — was never run.
+
+**Still unrowed:** the framework's `.env.example` as a surface in its own right;
+`qlever-dir`'s workflows; the Actions secrets/variables inventory. The register is
+not exhausted — third correction of that claim.
