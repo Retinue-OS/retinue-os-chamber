@@ -1,13 +1,15 @@
 {
-  "generated": "2026-07-20T05:30:00Z",
-  "top": { "title": "Create a GitHub account for Aros, invite it to the org, and mint its token with contents + issues + pull-requests + repo-metadata scope — one action closes chamber#3 (he currently files issues from your account) and chamber#6 (four blocked things behind one missing scope)" },
+  "generated": "2026-07-20T17:05:00Z",
+  "top": { "title": "Create a GitHub account for Aros, invite it to the org, and mint its token with contents + issues + pull-requests + repo-metadata scope — one action closes chamber#3 (15 h: he files issues from your account, which guardrail 8 forbids) and chamber#6 (13 h: four blocked things behind one missing scope). Nothing on this desk is overdue; the oldest item is 43 hours old" },
   "others": [
-    { "title": "Enable private vulnerability reporting on the three public repos — chamber#5. Both documented reporting paths (SECURITY.md and the Code of Conduct's enforcement section) currently lead to a disabled feature, so a security report has nowhere to go" },
-    { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber#1. This is the phase exit: every bet in the strategy needs an audience, and there is none" },
-    { "title": "Create retinue-os/.github and set the org and repo descriptions — chamber#4. Draft text is paste-ready in writing/org-profile-README.md; three of four repos still have no description" },
-    { "title": "Replace the row in GUARDRAILS.md §3 that instructs Aros to state the project has no CI — CI has run the suite on push and PR since 2026-07-19 — chamber#7. Replacement wording is in the issue; Aros will not edit his own guardrails, including when he is right" },
+    { "title": "Enable private vulnerability reporting on the three public repos — chamber#5 (14 h). Both documented reporting paths, SECURITY.md and the Code of Conduct's enforcement section, currently lead to a disabled feature, so a security report has nowhere to go" },
+    { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber#1 (43 h, the oldest open item). This is the phase exit: every bet in the strategy needs an audience, and there is none" },
+    { "title": "Create retinue-os/.github and set the org and repo descriptions — chamber#4 (14 h). Draft text is paste-ready in writing/org-profile-README.md; three of four repos still have no description and no repo has topics" },
+    { "title": "Allow GitHub Actions to create pull requests — retinue#4 (6 h). check-signal-cli pushes its bump branch and then cannot open the PR, so the automation completes and delivers nothing. Same missing permission as chamber#6, through a different door" },
+    { "title": "Replace the row in GUARDRAILS.md §3 that instructs Aros to state the project has no CI — CI has run the suite on push and PR since 2026-07-19 — chamber#7 (13 h). Replacement wording is in the issue; Aros will not edit his own guardrails, including when he is right" },
+    { "title": "Decide the two questions on the privacy thread pushed to your dashboard today: whether to purge this chamber repo's history of text redacted on 2026-07-20, and the deliberate-disclosure question open since 2026-07-19. Deliberately not described here or in any public file. If you do nothing, the redaction stands and nothing degrades" },
+    { "title": "Rule on the two verification findings routed privately to your dashboard thread on 2026-07-19 (unread since 21:33 that evening). Both are unfixed, so neither appears in any public file; the affected claim stays withdrawn from positioning.md meanwhile" },
     { "title": "review.md is stale on tests and CI: recommendation #2 is done, six statements are now false, and CONTRIBUTING calls that table the roadmap — retinue#3" },
-    { "title": "Two docs branches are pushed and cannot be opened as PRs: retinue:docs/link-provenance-piece and retinue:docs/calibrate-reindex-latency (retinue#2). Merge them directly, or grant the scope above and Aros opens them as reviewable PRs" },
-    { "title": "Rule on the two verification findings routed privately to your dashboard thread on 2026-07-19. Both are unfixed, so neither appears in any public file; the affected claim stays withdrawn from positioning.md meanwhile" }
+    { "title": "Two docs branches are pushed and cannot be opened as PRs: retinue:docs/link-provenance-piece and retinue:docs/calibrate-reindex-latency (retinue#2). Merge them directly, or grant the scope above and Aros opens them as reviewable PRs" }
   ]
 }

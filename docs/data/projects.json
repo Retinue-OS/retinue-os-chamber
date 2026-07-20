@@ -1,10 +1,10 @@
 {
-  "generated": "2026-07-20T05:30:00Z",
+  "generated": "2026-07-20T17:05:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Register-driven audit: this dashboard audited 2026-07-20 (first time, three defects fixed). Remaining never-audited surface: repo social preview images",
+      "next": "Register-driven audit, 8 issues filed from it in the last 24 hours. qlever-dir is now read end to end (README, build_index.sh, the converter example, the container's operational surface). This chamber repo was audited as a disclosure surface for the first time on 2026-07-20 and a live privacy defect was found and redacted. Named candidates remaining: writing/ and brand/positioning.md audited for disclosure rather than accuracy; repo social preview images",
       "expected": "2026-08-10"
     },
     {
@@ -20,9 +20,15 @@
       "expected": "2026-08-15"
     },
     {
+      "id": "proj-public-release",
+      "title": "Publish the framework with a clean history",
+      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, with him privately",
+      "expected": "2026-07-25"
+    },
+    {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerate these files from the project files and live GitHub state, and never bake a relative date into a static file — 'yesterday' decays silently"
+      "next": "Regenerated 2026-07-20 17:05 UTC from the project files, log.md and live gh data. Never bake a relative date into a static file — 'yesterday' decays silently; state wall-clock ages instead"
     }
   ],
   "waiting": [
@@ -36,7 +42,7 @@
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "Org profile and repo descriptions (chamber#4, text ready to paste); private vulnerability reporting (chamber#5); token write scope (chamber#6)",
+      "next": "Org profile and repo descriptions (chamber#4, text ready to paste — 3 of 4 repos still blank, no topics on any); private vulnerability reporting (chamber#5); token write scope (chamber#6, and retinue#4 for the same permission in Actions)",
       "waitingOn": "the project owner",
       "since": "2026-07-19"
     }

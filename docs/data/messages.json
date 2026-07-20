@@ -1,10 +1,12 @@
 {
-  "generated": "2026-07-20T05:30:00Z",
+  "generated": "2026-07-20T17:05:00Z",
   "items": [
-    { "from": "Outside contact", "channel": "All repos and channels", "preview": "None, as of 2026-07-20. 0 stars, 0 forks, 0 watchers, no outside issue or discussion. Every issue in the org was written by the owner or by Aros. Nobody has been told the project exists.", "importance": "high" },
-    { "from": "chamber#5", "channel": "retinue-os-chamber · open · owner-action", "preview": "Security reporting path is broken: SECURITY.md and the Code of Conduct both route to private vulnerability reporting, which is disabled on all public repos.", "importance": "high" },
-    { "from": "chamber#6", "channel": "retinue-os-chamber · open · owner-action", "preview": "One missing token scope behind four blocked things: no PRs, no repo topics, no descriptions, no security settings.", "importance": "high" },
-    { "from": "retinue#3", "channel": "retinue-os/retinue · open", "preview": "review.md is stale on tests and CI — recommendation #2 was implemented, and the review still lists it as open.", "importance": "normal" },
-    { "from": "Pages", "channel": "retinue-os-chamber · built", "preview": "This dashboard has been publicly served at retinue-os.github.io/retinue-os-chamber since publication and was audited for the first time on 2026-07-20.", "importance": "normal" }
+    { "from": "Outside contact", "channel": "All repos and channels", "preview": "None, measured 2026-07-20 17:03 UTC. 0 stars, 0 forks, 0 watchers on all four repos — flat since publication 44 hours ago. Discussions disabled everywhere; no open PRs. All 18 open issues were filed from the owner's account, by him or by Aros. Nobody has been told the project exists.", "importance": "high" },
+    { "from": "Issue count: 11 → 18", "channel": "Org-wide · since 05:30 today", "preview": "Seven new issues in eleven hours, every one Aros's own audit output: qlever-dir #4-#7, retinue #4-#5, deployment#1. Throughput, not traction — no external contribution is represented in this number.", "importance": "normal" },
+    { "from": "chamber#5", "channel": "retinue-os-chamber · open · owner-action · 14 h", "preview": "Security reporting path is broken: SECURITY.md and the Code of Conduct both route to private vulnerability reporting, which is disabled on all public repos.", "importance": "high" },
+    { "from": "chamber#6 + retinue#4", "channel": "retinue-os-chamber, retinue · open · owner-action", "preview": "One missing write permission, now surfacing twice: no PRs, topics, descriptions or security settings from the token (chamber#6, 13 h), and Actions blocked from opening the signal-cli bump PR (retinue#4, 6 h).", "importance": "high" },
+    { "from": "qlever-dir#7", "channel": "retinue-os/qlever-dir · open", "preview": "No supervision and no readiness signal: three ways port 7001 is dead while the container reports healthy. Touches a public claim — the README says clients see no downtime.", "importance": "normal" },
+    { "from": "retinue#5", "channel": "retinue-os/retinue · open", "preview": "STT_SUPPORTED_LANGUAGES cannot be set from .env — the stt service overwrites it with empty, silently re-enabling the unconstrained detection it exists to prevent.", "importance": "normal" },
+    { "from": "Pages", "channel": "retinue-os-chamber · built", "preview": "This dashboard is served publicly at retinue-os.github.io/retinue-os-chamber. Regenerated 2026-07-20 17:05 UTC from projects/, log.md and live gh data.", "importance": "normal" }
   ]
 }
