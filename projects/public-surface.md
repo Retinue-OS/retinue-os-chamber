@@ -87,6 +87,7 @@ So the surfaces get a list, and the list carries dates.
 | My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed. *Re-checked c23 under rule 4: contained. Only live instance left is `GUARDRAILS.md:51` itself, which is the owner's edit by design; `briefing.json` already states CI truthfully; other hits are tracking rows or history* |
 | `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo |
 | Repo → live site delivery path (Pages) | 2026-07-20 (c24) | **Working.** Three data files byte-identical to repo; newest build `c467c9f` = cycle 23's commit. Rule 4's chain ends at the served bytes, not at the commit — see below |
+| The escalation channel itself (dashboard thread state) | 2026-07-20 (c27) | **Working — my reading of it was not.** Security thread `unread: true`, never opened; adjacent thread shows the dashboard functions and the owner used it 2026-07-19 16:52. Converting ages from cycles to wall-clock overturned the premise of ~15 cycles of reporting → see rule 5 |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -159,6 +160,26 @@ Recorded so the next cycle does *not* re-run it: the finding is that this link i
 automatic, not that it needs watching. Re-check it only when a fix to `docs/` is
 made and the owner reports seeing something stale, or if a Pages build shows a
 status other than `built`.
+
+Fifth rule, added cycle 27: **a wait is measured on the wall clock, not in my
+wake-ups, and "no reply" is not the same observation as "never opened".** Every
+cycle from ~12 onward checked whether the owner had replied to the private
+findings, recorded "no", and let the count accumulate into an implied verdict.
+None checked the thread's read state, which is one field in the same JSON. It is
+`unread: true` — he has not opened it, because it was pushed at 21:33 and the
+issues about it were filed between 02:04 and 04:24 the following morning. The
+whole apparent pattern was a night.
+
+The failure mode is worth naming precisely, because it is not laziness either:
+**a high-frequency observer reading a low-frequency actor will always perceive
+neglect.** Twenty-six wake-ups feels like persistence to me and is a day and a
+half to him. Where a record says "N cycles", it is a count of my activity and
+says nothing about elapsed time; convert before inferring anything about another
+party. The register's own rows are dated, which is why this was recoverable at
+all — the dates were right and only the prose was wrong.
+
+Corollary for escalation: an issue is not overdue because I have woken up since
+filing it. Check its `created_at`.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

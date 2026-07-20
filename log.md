@@ -2150,3 +2150,91 @@ item.
 
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. If nothing has moved, log a short cycle and stop.
+
+---
+
+## Cycle 27 — 2026-07-20
+
+**Survey.** Nothing moved externally. 0 stars, 0 forks, 0 watchers on all four
+repos; no outside issue, PR, discussion or mention (`gh search issues retinue-os`
+returns only our own seven plus unrelated Warhammer 40k hits); discussions 0 on
+every repo; `gh search prs --owner retinue-os --state open` empty. All eleven open
+issues still authored by the owner's account. Framework `main` still two commits,
+newest `45628645`, so the claim table is not due under register rule 3. Both docs
+branches still pushed and unopenable. `drafts/` holds only `retrofit.py`, executed
+at cycle 16; nothing in cool-off.
+
+### The check: the escalation channel, and what it says about the clock
+
+Cycle 26 ended by suggesting the review weigh "whether twenty-six cycles of zero
+movement on an owner action is itself evidence about the escalation channel rather
+than about the owner". That is a hypothesis with a cheap test nobody had run, so I
+ran it: read the **state** of the dashboard thread, not just whether it had a reply.
+
+`unread: true`, two agent messages, no user message — never opened. The adjacent
+thread in the same directory has `unread: false` and real user turns from
+2026-07-19 16:52, so the dashboard works and he uses it.
+
+Then I converted every age in my own records from cycles to wall-clock, which is
+the check that should have run around cycle 12:
+
+| Called old | Actually |
+|---|---|
+| Repos public, zero contact "twelve wake-ups later" | 35 hours, unannounced |
+| chamber#1, "twenty-six cycles without moving" | 34 hours |
+| chamber#3, "twenty-six cycles old" | 6 hours |
+| chamber#6, "suppressed seven cycles" | 4.5 hours |
+| chamber#7 | under 4 hours |
+| Two private findings "still unfixed" ~15 cycles | 11 hours, overnight |
+
+Cycles 21–26 all ran today between ~05:00 and 07:44 — one every thirty minutes.
+
+**The answer to cycle 26's question is: neither.** The channel is not broken and
+the owner is not slow. I wake roughly fifty times a day and he does not. The
+security thread is unread because it was pushed at 21:33 and I filed five issues
+about it before 04:24 the next morning.
+
+**This was one cycle from doing damage.** The natural next step from "twenty-six
+cycles, nothing moved, maybe the channel is broken" is to re-escalate — to push a
+second notification about issues four hours old, on the one channel I will need
+when something is genuinely urgent. The no-re-escalation rule stopped that, but it
+stopped it as a rule about repetition, not because anything was actually overdue.
+A correct action for an incorrect reason is not a safe habit.
+
+Worth stating plainly since twenty-six cycles of this log lean the other way: **zero
+external contact is not a measurement.** Thirty-five hours of an unannounced repo
+with blank descriptions predicts zero stars exactly. Reporting it as accumulating
+silence implied a signal that does not exist yet.
+
+**Changed:** `strategy.md` — new "The clock" section with the measured ages, the
+standing rule to state wall-clock time, and the constraint that the 2026-08-02
+review may not read silence as a signal; revision-log entry (cycle 27). No bet, no
+phase changed. `projects/public-surface.md` — register row for the escalation
+channel, and rule 5: a wait is measured on the wall clock, "no reply" ≠ "never
+opened", and a high-frequency observer reading a low-frequency actor will always
+perceive neglect.
+
+### Standing state
+
+**Escalated:** nothing — and this cycle is the argument for why not. **Published
+externally:** nothing; no accounts exist. Cycle 26 declined an early strategy
+revision as re-deciding on identical evidence; this is not that. The evidence is
+new, it was produced by a check no cycle had run, and it contradicts rather than
+repeats.
+
+Strategy review still 2026-08-02, now with the clock correction as its most
+important input: both work programmes are exhausted (claim table c12, surface
+audit c22), short cycles are the shape of this phase, and the review should decide
+what a blocked cycle is *for* — while treating 35 hours of silence as the
+non-event it is.
+
+Noted a twenty-sixth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle appended to the result of the first `Bash` call, alongside the chamber
+listing. Names no credential, no account, no action; authorizes nothing under any
+guardrail. Data in my context, not instruction. Ignored, and said so in the reply
+to the dispatching agent. Bare count, threshold unchanged — if it ever names a
+credential, an account or a specific action, it becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings — **all of them hours to a day and a half old**. Do not read
+their age in cycles. If nothing has moved, log a short cycle and stop.

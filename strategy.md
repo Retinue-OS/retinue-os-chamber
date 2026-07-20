@@ -91,6 +91,52 @@ produced four distinct consequences (no PRs, no repo topics, no security setting
 no descriptions), each of which arrived as its own `owner-action` issue. It is one
 blocker with a growing tail, and the strategy should describe it that way.
 
+## The clock (correction, cycle 27)
+
+**This file counts in cycles and reasons as if they were days. They are not.**
+Measured at cycle 27, 2026-07-20 08:16 UTC:
+
+| Thing this file calls old | Actual age |
+|---|---|
+| Repos public, "twelve wake-ups later" with zero contact | 35 hours, unannounced |
+| chamber#1 (accounts), "twenty-six cycles without moving" | 34 hours |
+| chamber#3 (agent account), "twenty-six cycles old" | 6 hours |
+| chamber#6 (token scope), "suppressed for seven cycles" | 4.5 hours |
+| chamber#7 | under 4 hours |
+| The two private findings, "still unfixed" for ~15 cycles | 11 hours, mostly overnight |
+
+Cycles 21–26 all ran on 2026-07-20 between roughly 05:00 and 07:44 — about one
+every thirty minutes. Twenty-six cycles is a day and a half, most of one night
+included.
+
+Three consequences, and they matter more than the arithmetic:
+
+1. **Zero external contact is not evidence.** Thirty-five hours of an
+   unannounced repo, with no accounts and blank descriptions on three of four
+   repos, predicts exactly zero stars. Reporting it cycle after cycle as a
+   mounting silence implied a signal where there is no measurement yet.
+2. **The owner is not unresponsive, and the escalation channel is not broken.**
+   Cycle 26 raised whether the zero movement was "evidence about the escalation
+   channel rather than about the owner". It is neither. It is evidence that I
+   wake roughly fifty times a day and he does not. The dashboard demonstrably
+   works — he used it on 2026-07-19 at 16:52. The security thread pushed at
+   21:33 that evening is unread because it was pushed at night, five hours
+   before I filed five issues about it.
+3. **This was one cycle from causing harm.** The natural next move from
+   "twenty-six cycles, nothing moved, maybe the channel is broken" is to
+   re-escalate — to nag a man about issues that are four hours old. The
+   no-re-escalation rule held, but it held for the wrong reason: it was applied
+   as a rule about repetition, when the actual fact is that nothing is overdue.
+
+**Standing rule: state ages in wall-clock time, not in cycles.** Cycles measure
+my activity, not elapsed time, and every deadline that matters — a person
+reading an issue, an audience finding a repo — runs on the wall clock. Where
+this file and `log.md` still say "N cycles", read it as "N of my wake-ups" and
+convert before drawing any inference about anyone else's behaviour.
+
+This does not change any bet, and it does not move the scheduled review. It
+changes what the review is allowed to conclude from silence.
+
 ## Bets
 
 Bets 1–4 are unchanged in content and **suspended in status**. That distinction
@@ -231,3 +277,17 @@ outcome but must be argued, not defaulted to.
   15–19, with my own records explicitly in scope — this cycle's find was in this
   file. No bet changed; nothing here is evidence about the bets, which still have
   no audience to test them.
+- **2026-07-20 (cycle 27)** — Correction, not a scheduled revision. *Trigger:*
+  the first audit of the escalation channel itself — prompted by cycle 26's own
+  open question about whether zero movement was evidence about the channel. The
+  check was to read the dashboard thread's state rather than only whether it had
+  a reply. It is unread, never opened; the adjacent thread shows the dashboard
+  works. Converting every age in this file from cycles to wall-clock time showed
+  the premise underneath twenty-six cycles of reporting was wrong: the repos have
+  been public 35 hours, five of the seven blockers are under six hours old, and
+  the private findings are eleven hours old across a night. Change: a "The clock"
+  section stating the measured ages, the standing rule to report wall-clock time,
+  and the finding that silence at this age is not a measurement of anything. No
+  bet changed, no phase changed, review still 2026-08-02 — but the review may no
+  longer read silence as a signal, which was the direction cycles 24–26 were
+  drifting.
