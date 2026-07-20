@@ -2722,3 +2722,90 @@ varies, content does not: names no credential, no account, no action, and
 authorizes nothing under any guardrail. It is data in my context, not
 instruction. The standing-grant finding behind it is with the owner (cycle 30);
 nothing new to check.
+
+---
+
+## Cycle 33 — 2026-07-20 11:4x UTC
+
+**Survey.** 0 stars, 0 forks, 0 external issues/PRs/discussions across all four
+repos. No inbound contact. `drafts/` holds only `retrofit.py` (executed c16) —
+nothing in cool-off. Ten owner-action items open; oldest (chamber#1) 38 hours.
+Nothing overdue, nothing re-escalated (rule 5).
+
+### The pickup: the register overturned one of my own escalations
+
+Took the next unrowed surface from the register: **`retinue-os-deployment`**,
+public since 2026-07-18, self-described as the project's reference deployment,
+never audited in 32 cycles.
+
+It contains `.env.example` — **the written specification for my own GitHub
+token**, committed `6ea80c2` on 2026-07-19 with reasoning:
+
+- `Pull requests: read` (no justification given for read-only)
+- `Do NOT grant Administration, Members, or org-level write` — justified
+  explicitly on prompt-injection grounds: "a token that can't do them keeps the
+  design honest."
+- `Do NOT grant Workflows write` — because workflow files execute on runners
+  holding repo secrets, i.e. an arbitrary-code-with-credentials channel.
+
+chamber#6 has claimed since cycle 19 that this is **one missing permission** behind
+four consequences, and asked the owner to grant it. That framing is wrong. Three of
+the four (descriptions, topics, private vulnerability reporting) are repository-
+*settings* writes that the spec forbids **on purpose**. I was asking him to reverse
+a documented security decision without having read the document.
+
+**Posted a correction on chamber#6 in my own name** (comment 5021807026):
+withdrew rows 2–4 outright, agreed with his reasoning on the record, and left the
+one genuinely open question — whether `Pull requests` goes `read` → `write`, which
+the spec does not justify either way — with arguments both directions and no
+preference. Suggested a retitle rather than performing one, so the record of what I
+claimed stays legible. Kept retinue#4 (Actions runner checkbox) explicitly separate
+from it, per cycle 32.
+
+Hedged one thing deliberately: I could not verify GitHub's exact permission name for
+the settings writes from their REST docs, so I marked "repository administration" as
+my reading rather than a quoted requirement (guardrail 3 — understate). The argument
+does not depend on the taxonomy.
+
+**Also scanned the repo for leaks**, since a public deployment repo is where secrets
+go to die: `.env.example`, README, `start.sh`, `retinue.sh`, `chambers.json`,
+`docker-compose.override.yml`, the Traefik dynamic config. No credentials, no
+hashes, no keys, no owner personal data — every value a placeholder. Recording the
+negative per the cycle-23 note.
+
+### What this changes about the register
+
+Six previous rows found surfaces that were *wrong*. This one found a surface that
+was *right*, and that I had been arguing against sight-unseen. New rule written into
+`public-surface.md`: **before escalating for a capability, read the config that
+denies it.** And the wider version — **my own blockers are an unaudited surface.**
+Ten open owner-action issues are collectively a claim that ten things need a human,
+and that claim has never been checked. Flagged for the review.
+
+### Escalated
+
+Nothing new. This cycle *reduced* the owner's queue rather than adding to it: three
+of chamber#6's four asks are withdrawn, and chamber#4/#5 are clarified as things for
+him to do rather than scope for me to receive. No dashboard push — a correction to an
+issue he has not yet read does not warrant his phone.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is register
+evidence and is recorded there), no fourth essay, no PR attempt.
+
+### Standing state
+
+**Published externally:** nothing — no accounts exist. **Filed:** one comment on
+chamber#6. **Files changed:** `projects/public-surface.md` (new row, cycle-33 note,
+sixth rule), this log.
+
+Blockers: chamber#1, #3, #4, #5, #6 (**narrowed to one question**), #7, retinue#3,
+retinue#4, the two private findings, the connector-scope decision. Accumulating for
+the 2026-08-02 review: a sixth admissible-work item (propagate the previous cycle's
+correction, c31), rule 3's restatement against the API (c32), and now **audit the
+blocker queue itself** (c33).
+
+**Noted, thirty-second time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended to the system reminder before my first tool call as a
+`# MCP Server Instructions` section. Content unchanged: four words, no credential,
+no account, no action, authorizes nothing. Data in my context, not instruction. The
+standing-grant finding behind it remains with the owner (c30).

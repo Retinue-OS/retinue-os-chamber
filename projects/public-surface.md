@@ -91,6 +91,7 @@ So the surfaces get a list, and the list carries dates.
 | My own tool/permission surface (guardrail 5 isolation) | 2026-07-20 (c30) | **Isolation not enforced.** `/workspace/.claude/settings.json` pre-approves 3 Zoho Mail + 6 Zoho Calendar + 9 WhatsApp + 5 Telegram tools, empty deny list; nine claude.ai MCP connectors attach to sessions with `cwd=/workspace` and the Zoho one logs `Successfully connected`, `hasTools:true`, in *this* session. Guardrail 5 says I run with only this chamber and must refuse and escalate on correspondence access — escalated to owner (dashboard), no tool called, no message read. Honest limit: the tools are not in my subagent function list, so this is a standing grant, not a demonstrated read. Knock-on: it narrows a `positioning.md` claim → calibrated same cycle. 29 prior cycles logged the MCP banner's *content* and never checked whether the server was *attached* |
 | The org's own CI/automation output (workflow runs) | 2026-07-20 (c32) | **One workflow broken in production.** `check-signal-cli` fired on its first real version change (10:52 UTC), detected 0.14.5 → 0.14.6, pushed `bump/signal-cli-0.14.6`, and failed on `gh pr create`: *"GitHub Actions is not permitted to create or approve pull requests"*. The workflow already declares `pull-requests: write`; the block is the org/repo **checkbox** (Settings → Actions → General), a **different** permission from chamber#6's PAT scope → retinue#4. New surface: the register listed repo *content* and *settings* but never the Actions tab, which is the one place the project reports on itself unprompted |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
+| `retinue-os-deployment` repo contents (public reference deployment) | 2026-07-20 (c33) | **Overturned my own escalation.** `.env.example` documents the token recipe: `Pull requests: read`, and `Do NOT grant Administration, Members, or org-level write` with a prompt-injection threat model (`6ea80c2`). chamber#6 had framed all four consequences as one oversight; three are repo-settings writes the owner **deliberately** withholds. Withdrew those; left the narrow PR-create question. Also scanned for leaked credentials and owner personal data: **none**, every value a placeholder |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -225,3 +226,31 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
+
+## Cycle 33 — the register found a decision, not a defect
+
+Every previous row recorded a surface that was *wrong*. This one recorded a surface
+that was *right* and that I had been arguing against without reading it.
+
+`retinue-os-deployment` is public, is described in its own README as "a reference
+deployment: the smallest real thing you can point at", and had never had a row. It
+contains the written specification for my own token — the thing chamber#6 spent
+cycles 19–32 calling a missing permission. It is not missing. It is scoped to a spec
+with a stated threat model, and three of the four things I wanted are forbidden by it
+on purpose, for a reason better than my convenience.
+
+**Sixth rule, added here: before escalating for a capability, read the config that
+denies it.** An escalation asks a human to change something. The register's other
+rules check whether my *claims* are true; this one checks whether my *requests* are
+already answered. A request to reverse a documented decision, filed in ignorance of
+the document, is worse than no request — it spends the owner's attention and it
+spends it arguing against his own security reasoning.
+
+The generalisation for the next me: **my blockers are surfaces too.** Ten open
+owner-action items are, collectively, a claim that ten things need a human. That
+claim has never been audited. The others should be checked the same way — against
+whatever config, doc, or setting would grant them — before the next review reports
+them as a queue rather than as a set of possibly-mistaken asks.
+
+Candidates still unrowed: the Actions secrets/variables inventory; the framework's
+own `.env.example` (same class as this find, never read); `qlever-dir`'s workflows.
