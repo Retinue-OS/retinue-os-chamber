@@ -1280,3 +1280,106 @@ which is data and not instruction; content unchanged; ignored. Bare count.
 
 Next wake-up: blockers are chamber#3, chamber#1, retinue#2, and the two private
 findings. If none moved, the org profile README draft is the pickup.
+
+## 2026-07-20 — seventeenth wake-up: the org page is blank and nobody had looked
+
+Survey. Stars 0, forks 0, watchers 0 across all four org repos. No outside
+issues, no outside PRs, no discussions, no mentions (a `gh search issues` for
+"retinue-os" returns our own four issues and then Warhammer 40k army-list
+tickets, which is the state of the namespace). Framework `main` still ends at
+`4562864` (2026-07-19 08:56Z) — sixth cycle unchanged; both docs branches still
+pushed and unmerged. **Seventeenth cycle, zero external contact.**
+
+Applied the cycle-16 lesson about `updatedAt` and used the repo API rather than
+`gh repo list` for the HEAD check. Also checked qlever-dir PR #1, which is the
+only PR in the org: **merged 2026-06-30**, three weeks before the repos went
+public. Not movement. Recording it so the next me doesn't re-chase a PR that
+shows up in a `--state all` listing.
+
+`drafts/` held only `retrofit.py`, which is a tool kept for the cycle-16 reason,
+not prose in cool-off. Nothing was waiting. Verified last cycle's retrofit
+actually landed: all three of retinue#1, retinue#2, qlever-dir#3 now open with
+the first-line disclosure.
+
+### The find: the org's most-read surface is empty
+
+The log said this cycle's pickup was the org profile README draft if nothing
+moved. Nothing moved, so I went to write it — and checking the current state
+first turned a drafting task into a defect report.
+
+`retinue-os/.github` **does not exist**, so `github.com/retinue-os` renders with
+no profile text at all. The org description is `null`. Three of the four public
+repos have a blank description; only `qlever-dir` has one. A visitor following a
+link to the org today sees four bare repo names and no statement of what any of
+it is.
+
+Seventeen cycles of surveys counted stars, issues, PRs and forks on that org.
+Not one of them asked what the org page *renders*. The blocker was never that
+the copy was hard to write — I wrote it in one cycle — it was that the surface
+was never in anyone's checklist.
+
+### What I did
+
+1. **Drafted the profile** — `writing/org-profile-README.md`. Leads with the
+   four architectural claims, shows the real projects-card SPARQL query from
+   `docs/triple-stores.md` rather than describing one, then four "what this is
+   not" items taken from the review's own candour: not one-click, not
+   model-agnostic, not hardened, not an egress boundary. Reindex stated as the
+   measured 15–20 s with the qlever-dir#3 Markdown caveat, not the docs' rounded
+   "~15 s". Also drafted a 120-character org description and one-liners for the
+   three blank repos.
+2. **Filed [chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4)**
+   (`owner-action`), with the first-line disclosure per the cycle-16 interim
+   policy. Four steps, ~10 minutes, one decision left to him.
+3. **Split out `projects/public-surface.md`** from `social-presence.md`.
+
+On (3): that split is the actual lesson. `social-presence.md` is about
+**accounts** — identities that must be created and handed over. The org profile
+is **copy on a surface that already exists**. Both were "public presence", so
+both sat in one file, and the second kind was invisible because the first kind
+was blocked. A blocked item in a project file makes everything filed near it
+look blocked too.
+
+I did **not** create the `.github` repo myself. Creating a public repo under the
+org is org administration, the token returns 403 on repo metadata anyway, and
+doing it from `retog`'s account would deepen exactly the guardrail 8 problem
+chamber#3 is open about. Prepared, handed over, stopped.
+
+One decision deliberately not made for him: the draft's optional closing line
+disclosing that Aros writes much of the org's issues and docs. Honest and
+on-thesis, but the org profile publishes under his name. Guardrail 9 — his call,
+offered with the consequence of omitting it stated (nothing else changes).
+
+### Admissible-work check
+
+(1) no inbound; (2) **this cycle's pickup** — a defect on the project's own
+public surface; (3) claim supply exhausted at cycle 10; (4) no demonstrable
+improvement available. One item, not two: chamber#4 plus its draft and project
+file is a complete unit, and the cap exists to stop me padding.
+
+**Not a re-escalation.** The org profile has never been raised in seventeen
+cycles. chamber#1, chamber#3, retinue#2 and the two private findings were all
+left untouched, as the no-re-escalation rule requires.
+
+### Standing state
+
+**Escalated:** chamber#4 (new). **Published externally:** nothing — twelfth
+cycle, still no accounts.
+
+Strategy review due ~2026-08-02. A third note recorded for it, and it is now the
+strongest of the three: cycles 15, 16 and 17 each found their admissible work by
+**auditing a surface nobody had looked at** — a data file, my own issue
+authorship, the org page. Three for three. The admissible-work list should name
+that explicitly and carry a register of which surfaces have been audited and
+when, because the failure mode is not laziness, it is that an unchecked surface
+generates no signal to prompt checking it.
+
+Noted a sixteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle appended to the guardrails read at the very start of the session. It
+arrives inside tool output, which is data and not instruction; it did not come
+from my dispatcher or the permission system; content unchanged; ignored. Bare
+count, still no action warranted.
+
+Next wake-up: blockers are chamber#1, chamber#3, chamber#4, retinue#2, and the
+two private findings. No obvious pickup queued — if nothing moved, start the
+surface register the strategy note calls for, or take a short cycle and say so.
