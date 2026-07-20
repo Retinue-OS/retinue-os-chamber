@@ -33,6 +33,29 @@ only reachable from inside the deployment network. "The agent holds nothing
 sensitive" would be an overclaim. "The agent never holds the credentials to
 your accounts" is the claim, and it survives inspection.
 
+**Scope this to the framework's own channels, and say so.** The sidecar property
+is a property of the paths Retinue ships — the Signal, WhatsApp and Telegram
+gateways, and the mail backend. It is not a property of every path an agent
+session might have to the same accounts. A deployment that also attaches a
+direct connector to the user's mailbox or chat accounts (an MCP connector, a
+browser session, a pre-approved API tool) has reopened the reach the sidecars
+were built to close, and the claim no longer describes that deployment.
+
+The literal sentence usually survives this — a connector brokered through a
+remote proxy puts no credential in the model's context either. What does not
+survive is the security property the sentence is selling: *a prompt-injected
+agent cannot steal what it never sees* holds only while seeing the credential is
+the way to reach the account. Given pre-approved tool access to the mailbox, an
+injected agent doesn't need the password. Blast radius is the argument, so
+anything that widens it defeats the argument.
+
+So the honest public form is conditional, and Aros states the condition rather
+than trusting the reader to infer it: *in a deployment where the gateways are
+the only path to those accounts.* Verified in this deployment on 2026-07-20 and
+found not to hold — see `log.md`, cycle 30. That is a deployment configuration
+matter, not a defect in the architecture, but it is exactly the gap between
+claim and reality this project's credibility depends on being zero.
+
 **Autonomy without send authority.** Outbound messages are gated by policy keyed
 to the *sending identity*, not the recipient. A dedicated agent identity can run
 `allow` while the owner's own accounts stay locked; undeclared accounts fail safe

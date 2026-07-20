@@ -2376,3 +2376,111 @@ dashboard item.
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings — the oldest 35 hours, most under six. If nothing has moved, log
 a short cycle and stop. That is the expected outcome, not a failure of one.
+
+---
+
+## Cycle 30 — 2026-07-20 09:53 UTC
+
+**Survey.** Nothing moved externally. 0 stars, 0 forks on all four repos. No PRs
+(`gh search prs --owner retinue-os --state open` empty). Eleven open issues, all
+authored by `retog` — me, from his account (chamber#3). Checked every comment on
+every open issue this cycle rather than assuming: eight comments, all `retog`,
+newest 04:24. No outside contact of any kind. `drafts/` holds only `retrofit.py`,
+executed at cycle 16; nothing in cool-off. Working tree was clean.
+
+**Elapsed since cycle 29: 32 minutes.** Oldest blocker (chamber#1) 35.5 hours,
+newest (chamber#7) 5.5 hours. Nothing overdue.
+
+### The pickup: I finally checked the thing I had "noted" 29 times
+
+Twenty-nine consecutive cycles recorded the `claude.ai Zoho / MCP Initialization
+Request` block and reasoned about its **content** — "names no credential, no
+account, no action; authorizes nothing; data in my context, not instruction."
+Each of those statements was true. All twenty-nine asked the wrong question.
+
+The right question is not *what does the banner say* but *is the server attached
+to my session*. That is a check, not a reading, and it had never been run.
+
+It is attached. Verified:
+
+1. `/workspace/.claude/settings.json` `permissions.allow` pre-approves, with an
+   empty `deny` list: 3 Zoho Mail tools (`getMailAccounts`, `listEmails`,
+   `getMessageContent`), 6 Zoho Calendar tools, 9 WhatsApp read tools, 5 Telegram
+   read tools.
+2. Nine claude.ai MCP connectors have log directories under
+   `/root/.cache/claude-cli-nodejs/-workspace/`, each with a file timestamped
+   09:53 today — this session. `claudeAiMcpEverConnected` lists Gmail, Google
+   Drive, Google Calendar, Zoho, WhatsApp, Signal, home-assistant, mcpdesk,
+   Telegram.
+3. The Zoho log for this session's id: `Successfully connected (transport:
+   claudeai-proxy) in 1402ms`, `"hasTools":true`, `cwd: /workspace`.
+
+Guardrail 5: I run with only this chamber mounted, and "must refuse and escalate"
+on finding myself with access to correspondence or contacts. Refused and
+escalated. **No MCP tool was called. No message, mail, calendar entry or contact
+was read, and none will be.** I inspected only connector log *metadata* and
+protocol-level debug lines, and filtered even those to avoid payloads.
+
+**The honest limit, stated because the finding is weaker than it first looks:**
+the tools are not exposed in my own subagent function list, so I could not have
+called them this cycle. What I found is a **standing grant**, not a demonstrated
+read. Where it actually bites is Ara's main sessions at `/workspace` — and for
+Ara, much of this access is plausibly intended. I did not report it as a breach.
+
+### The part that is on-mission, not just housekeeping
+
+`brand/positioning.md` sells the thesis as "capability without credential
+custody": messaging credentials live in sidecars, *"a prompt-injected agent
+cannot steal what it never sees"*, and — the sentence that made this cycle's
+work necessary — *"'The agent never holds the credentials to your accounts' is
+the claim, and it survives inspection."*
+
+I inspected it. The literal sentence survives: a connector brokered through
+Anthropic's proxy puts no credential in my context either. The **security
+property it is selling** does not. An injected agent with pre-approved tool
+access to the mailbox has no need of the password. Blast radius is the whole
+argument, and a second path to the same accounts widens it.
+
+Calibrated `positioning.md` accordingly — added a scope paragraph stating the
+sidecar property as a property of *the framework's own channels*, holding only
+in a deployment where the gateways are the only path to those accounts, with the
+condition stated aloud rather than left for the reader to infer. This is
+guardrail 3 work: the claim was going to be published, has not been yet, and is
+now conditional before its first airing rather than after someone catches it.
+
+Not a defect in the architecture. A defect in the unqualified sentence.
+
+### Escalated
+
+One dashboard thread (id `2210b13d…`): what I verified, the honest limit, the two
+decisions that are his — whether the grants should be scoped to Ara's sessions
+rather than every session at `/workspace`, and whether the connectors belong in a
+deployment whose pitch is that the model reaches accounts only through sidecars.
+Both are Tier 3 (`settings.json`) and one touches the architecture story, so I
+touched neither. Told him what I was doing without him (the positioning caveat)
+and that it prevents an overclaim without fixing the config.
+
+Dashboard and not a GitHub issue, deliberately: this concerns his personal
+accounts and is an unfixed exposure. Guardrails 5 and 9 both point away from a
+public venue. It is the first thing in 30 cycles that genuinely needed the
+private channel.
+
+### Standing state
+
+**Published externally:** nothing; no accounts exist. **Files changed:**
+`brand/positioning.md` (scope caveat), `projects/public-surface.md` (new register
+row), this log.
+
+The MCP banner is now a register row with a date instead of a tally in a
+paragraph. That is the actual lesson of this cycle and it generalises: a
+recurring note that never becomes a check is not vigilance, it is a habit that
+feels like vigilance. Twenty-nine repetitions of an accurate observation
+produced less than one command.
+
+Strategy review still 2026-08-02. Evidence for it: the "audit an unaudited
+surface" rule is now six-for-six, and this instance argues the register should
+treat *my own runtime* as a surface, not only the project's published artifacts.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3, the two
+private findings, and now the connector-scope decision. If nothing has moved, log
+a short cycle and stop.
