@@ -731,3 +731,56 @@ grep.
 Also worth recording: a wrap-aware search was required. `grep -rn "Telegram bot"`
 returns nothing, because the phrase breaks across a line. A single-line grep is a
 test that can pass on prose for the wrong reason.
+
+## Cycle 50 — the README's two structural summaries, both frozen at "Signal is the only gateway"
+
+Continued c49's move: the framework README against the code, this time the two
+sections that describe the *shape* of the stack rather than its behaviour. c49
+queued them explicitly with the right open question — is the omission presented as
+exhaustive, which is the difference between a summary and a defect. Answered by
+measurement, not by reading tone.
+
+**Finding 1 — `README.md:15`, "Defines these core compose services:", names four
+of twelve.** Listed: `retinue`, `signal-gateway`, `stt`, `qlever-life`. Not
+listed: `whatsapp-gateway`, `telegram-gateway`, `litellm`, `litellm-db`,
+`updater`, `egress-audit`, `egress-log-viewer`, `egress-anomaly-agent`.
+
+The check that turned this from "an overview is allowed to be short" into a
+defect: **`grep -c "profiles:" docker-compose.yml` → 0.** No service is optional.
+All twelve are built by `docker compose build` and started by `docker compose up
+-d`, on the default path the README's own Installation section walks. Had even one
+`profiles:` key existed, the honest verdict would have been "short but fair".
+
+Two of the eight are gateways of exactly the class the list already contains, with
+full README sections of their own further down; three are the egress-audit trio —
+by my own positioning notes the project's most distinctive component, and absent
+from the summary a security-minded reader reads first.
+
+**Finding 2 — the `Layout` tree (`README.md:570`) omits ten root directories**,
+all verified present: `whatsapp-gateway/`, `telegram-gateway/`, `stt/`,
+`litellm/`, `updater/`, `egress-audit/`, `webapp/`, `tests/`, `deploy/`, `docs/`.
+No ellipsis, no "selected entries" caption, so it reads as exhaustive. Same root
+cause as finding 1, which is why both went into one issue rather than two.
+
+Filed as [retinue#10](https://github.com/Retinue-OS/retinue/issues/10).
+
+**What was checked and found correct**, recorded because a register of faults only
+is itself a distortion: the four described services are described accurately;
+startup steps 1–3, 5 and 6 match `entrypoint.sh` (hooks at :213, `refresh.py` at
+:252); the Deployment and host-mount sections match the entrypoint's
+already-present-chamber detection.
+
+**One thing deliberately raised as a question, not a finding.**
+`entrypoint.sh:301–308` forks the web gateway, `scheduler.py` and `sync-plugins.py
+--watch` in remote-control mode; none appears in the startup list, and
+`.schedule.json` is absent from `README.md` entirely (it is in `CLAUDE.md`). That
+is either a missing step or a deliberate README/CLAUDE.md division of labour, and
+I cannot tell which from the artifacts. Asked inside retinue#10 rather than
+asserted. **Rule 14: when a gap could be a design boundary, the finding is the
+question, not the verdict** — asserting it would have been c47's harm claim in a
+new costume, a conclusion reached because it made the issue feel bigger.
+
+**Rule 13 now five for five**, and this cycle sharpens it: the two defects were in
+*summaries*, the copy whose whole job is to describe other artifacts. A summary
+has no test, no diff, no reviewer, and it decays every time the thing beneath it
+grows. It is the highest-yield surface in the repo and the one nobody re-reads.

@@ -4432,3 +4432,107 @@ of artifacts that have moved (the layout tree omits `whatsapp-gateway/`,
 which exist; step 8 mentions only the Signal gateway). I did not verify whether
 either is presented as exhaustive, which is the difference between an omission and
 a defect, and that check is the next cycle's work rather than a claim now.
+
+## 2026-07-20 (cycle 50) — a four-item overview of a twelve-service stack
+
+**Survey.** Measured 20:4x UTC. Four public repos, 0 stars / 0 forks / 0 watchers
+each, unchanged since publication (~47 h ago). Three of four descriptions still
+blank; only `qlever-dir` has one. Nineteen open issues org-wide before this cycle,
+every one authored `retog`; no PRs, no discussions, no inbound contact of any
+kind. `drafts/` holds five already-filed artifacts plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication.
+
+Also checked, per the habit c47–c49 established: c49's own output. It holds.
+retinue#9's code citations re-verified (`telegram-gateway.py:483`, no `bot_token`
+in the file); the register row's claims match the issue. No correction needed —
+second consecutive clean re-read.
+
+### The pickup: the framework README's structural sections against the code
+
+c49 queued this and, to its credit, queued it with the open question rather than
+the answer: the Layout tree and the startup list both omit things, and *omission
+is not defect unless the passage presents itself as complete*. That distinction
+decided the cycle.
+
+**`README.md:15` — "Defines these core compose services:" — lists four. The
+compose file defines twelve.** Missing: `whatsapp-gateway`, `telegram-gateway`,
+`litellm`, `litellm-db`, `updater`, `egress-audit`, `egress-log-viewer`,
+`egress-anomaly-agent`.
+
+The measurement that settled it was one command: `grep -c "profiles:"
+docker-compose.yml` → **0**. Nothing is optional, nothing is behind a flag. All
+twelve build and start on the exact path the README's Installation section walks
+a first-time reader down. If a single `profiles:` key had existed anywhere, the
+honest verdict would have been "a short overview, fairly scoped", and I would have
+recorded no defect.
+
+What makes it worth a maintainer's attention rather than a note to myself: two of
+the eight are gateways of precisely the class already in the list, each with its
+own README section sixty lines below; and three are the egress-audit trio — a
+TLS-intercepting proxy with its own CA, a log viewer, and an agent reading the
+logs. That is the component my own positioning treats as most distinctive, and it
+is invisible in the summary a security-minded reader reads first. The gap between
+"four services" and twelve containers is also the gap between what a reader
+expects `docker compose build` to do and what it does.
+
+**Second symptom, same root cause:** the `Layout` tree omits ten root directories,
+all verified present — including `docs/` (where `triple-stores.md` lives, linked
+from the intro) and `tests/` (where a contributor looks first). No ellipsis, no
+caption limiting it. One issue, not two: both froze at the moment Signal stopped
+being the only gateway.
+
+Filed as [retinue#10](https://github.com/Retinue-OS/retinue/issues/10), with what
+I verified **correct** stated alongside — the four described services are
+described accurately, and startup steps 1–3, 5 and 6 match `entrypoint.sh`
+line-for-line. A register of faults only is its own kind of distortion.
+
+**The thing I deliberately did not claim.** `entrypoint.sh:301–308` forks three
+long-running processes in remote-control mode — web gateway, `scheduler.py`,
+`sync-plugins.py --watch` — and none appears in the startup list, which ends at
+step 8 with the Signal gateway. `.schedule.json` appears nowhere in `README.md`.
+That is either three missing steps or a deliberate README-is-deployment /
+CLAUDE.md-is-agent division, and **the artifacts do not tell me which.** It went
+into the issue as a question with both readings and an offer to draft either,
+because asserting it would have been c47's harm claim wearing a new suit: a
+conclusion adopted because it made the finding bigger. Recorded as rule 14 —
+when a gap could be a design boundary, the finding is the question.
+
+### Escalated
+
+**Nothing.** One issue filed against the project's own repo — no account, no
+money, no legal weight, no owner-gated permission, nothing time-sensitive. Seven
+owner-action blockers unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#4.
+No-re-escalation rule verified against the tracker list rather than memory. Ages
+on the wall clock per the c27 rule: oldest blocker 47 h, five under a day, none
+overdue. No dashboard push — a README structure defect does not belong on a phone.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing this cycle
+is evidence about a bet — none has an audience yet). No second issue for the
+startup-list question; it is one paragraph inside retinue#10 where the maintainer
+is already reading about the same section. No attempt to push a branch — the
+framework checkout's git dir is still unreachable
+(`/workspace/deployment/../.git/modules/retinue`), noted once inside the issue,
+not re-escalated: chamber#6 already says exactly this. No regeneration of
+`docs/data/*.json` (c47 established these derive from the project Markdown and
+`gh`, not the store; current copies remain correct).
+
+### Standing state
+
+**Published externally:** one issue, retinue#10. No post; there are still no
+accounts to post from.
+**Files changed:** `projects/public-surface.md`, this log.
+
+**Noted:** the `claude.ai Zoho / MCP Initialization Request` block did not appear
+in this session's tool output — fifth consecutive cycle without it. Still an
+observation, not a conclusion; the c30 standing-grant finding
+(`/workspace/.claude/settings.json` pre-approves mail, calendar and messenger
+tools that guardrail 5 says I must not hold) remains with the owner and unchanged
+until he says otherwise.
+
+Next wake-up: two candidates, and the first is better. (1) The README's remaining
+~14 sections read against the code the same way — Installation, the model-gateway
+block, the send-policy subsections — since two consecutive cycles have found real
+defects there and the supply is demonstrably not exhausted. (2) The same treatment
+for `CONTRIBUTING.md` and `SECURITY.md`, never audited against the repo's actual
+state, and both of which make procedural promises to a contributor who does not
+exist yet but will. Prefer (1) while it keeps paying.
