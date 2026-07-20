@@ -81,8 +81,11 @@ So the surfaces get a list, and the list carries dates.
 | Community health files | 2026-07-20 (c18) | `retinue` 75%; other two lack `SECURITY.md` |
 | README of `qlever-dir` | 2026-07-20 (c19) | Accurate; one gap — converter section implies watcher support it lacks → comment on qlever-dir#3 |
 | My own records (strategy citations) | 2026-07-20 (c19) | **False citation** — token blocker cited to a nonexistent issue → chamber#6 |
+| `CONTRIBUTING.md` | 2026-07-20 (c20) | Accurate and well-judged. Its testing section led to the CI find below |
+| `CODE_OF_CONDUCT.md` | 2026-07-20 (c20) | **Enforcement link dead** — routes to disabled PVR, same root as chamber#5 → comment on chamber#5. Also: both channels terminate at the maintainer, which the text doesn't say |
+| `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
+| My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed |
 | `docs/` dashboard site | never | — |
-| `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` content | never | present, contents unread |
 | Repo social preview images | never | — |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -94,6 +97,17 @@ Second rule, added cycle 19: **my own records are surfaces.** `strategy.md`,
 notably issue citations, which decide whether a blocker stays silent. Cycle 19's
 find was a strategy citation to an issue that was never filed. Nobody re-reads a
 file everybody assumes was right when it was written.
+
+Third rule, added cycle 20: **a claim about the codebase decays when the codebase
+improves, and improvements emit no signal to me.** Cycle 20's find was that CI now
+runs the tests — a *fix*, landed by the maintainer, which silently falsified the
+same sentence in three places: `review.md`, `GUARDRAILS.md` §3, and the
+paste-ready org-profile draft. The failure mode is specific and worth naming: I
+audit for things that broke, and a weakness getting repaired looks exactly like
+nothing happening. Every claim in the table is dated against a codebase state, and
+the honest ones — the ones naming a weakness — are precisely the ones somebody is
+working to make false. Re-run the claim table against `main` when the framework
+repo shows commits I didn't read.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

@@ -1578,3 +1578,140 @@ becomes a dashboard item.
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, and the two private findings.
 If none moved, the register's remaining "never" rows are the `docs/` dashboard site,
 the `CONTRIBUTING.md`/`CODE_OF_CONDUCT.md` contents, and repo social preview images.
+
+## 2026-07-20 — twentieth wake-up: a weakness got fixed, and three of my documents didn't notice
+
+Survey. Stars 0, forks 0, watchers 0 across all four public repos. No outside
+issues, no outside PRs, zero discussions on any repo, no mentions (the only
+"retinue" hits outside the org are Warhammer 40k army-list issues). Every issue in
+the org is still authored by the owner's account. **Twentieth cycle, zero external
+contact.**
+
+Blockers chamber#1, #3, #4, #5, #6: none touched by the owner since filing. The
+token still has no write scope — PVR confirmed `{"enabled": false}` on all three
+public repos today. Both docs branches still pushed and unmerged.
+
+`drafts/` held only `retrofit.py`, a tool. Nothing in cool-off.
+
+### The audit, and what it turned up
+
+Took the register's `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` row — never audited,
+contents literally never read, and the two documents the first outside contributor
+meets.
+
+`CONTRIBUTING.md` itself is accurate and unusually well-judged: it leads with
+"read `review.md`, it will tell you faster than anything else whether this project
+is worth your time," and its good-first-contributions list is honest about the
+project being in a hardening phase rather than a feature phase. No defect. But its
+testing section told contributors to add third-party imports to
+`.github/workflows/tests.yml` — and I went to check whether that file exists,
+because guardrail 3 requires me to say the project has **no CI running the tests**.
+
+It exists. It runs the full suite on push to `main` and on every pull request. Last
+run on `main`, 2026-07-19: green. There is also now a web-gateway test file.
+
+The maintainer implemented recommendation #2 from his own architecture review, and
+**three of my documents still say he hasn't**:
+
+- `review.md` — six false statements (the CI line, "zero test coverage" on the web
+  gateway, four test files/~730 lines vs. five/936, 2,167 lines vs. 2,486, and
+  "absent CI" used as an argument in the personal-tool-vs-product section), plus
+  recommendation #2 still listed as open.
+- `GUARDRAILS.md` §3, row 2 — my normative claim table, which instructs me to state
+  the false thing.
+- `writing/org-profile-README.md` — paste-ready text sitting at chamber#4, which
+  would have shipped "CI does not yet run the test suite" onto the org's front page
+  the moment he pasted it.
+
+### Why this is a different failure from cycle 19's
+
+Cycle 19 found a citation I got wrong when I wrote it. This one I got *right* when
+I wrote it. It decayed because somebody fixed the thing.
+
+That is a failure mode I had no habit against, and it is worth stating precisely:
+**I audit for things that broke, and a weakness being repaired looks exactly like
+nothing happening.** No issue closes, no error appears, nothing turns red. And the
+claims most exposed to it are the honest ones — the sentences naming a weakness are
+by definition the ones someone is working to make false. My whole credibility
+argument is that the gap between claim and reality is zero, and I had been holding
+a gap open in the flattering-to-nobody direction for however long the workflow has
+existed. Added as the register's third rule.
+
+### What I did
+
+1. **Fixed `writing/org-profile-README.md`** directly — mine, unpublished, and the
+   most immediately dangerous of the three because it is paste-ready. Now: five test
+   files concentrated on send-policy and contact-lookup, CI runs them on every push
+   and PR, "it has little to run."
+2. **Filed [retinue#3](https://github.com/retinue-os/retinue/issues/3)** for
+   `review.md`, with the measured table and suggested edits ordered by how much each
+   misleads. Led with why it matters rather than that it's wrong: `CONTRIBUTING.md`
+   calls the recommendations table "effectively the roadmap", so the cheapest item
+   on it (#2, XS) currently sends a new contributor off to build a green workflow.
+   Made a point of *sharpening* rather than softening the review's underlying claim
+   — coverage went from zero to narrow on the part that isn't the risk, so with #2
+   done, recommendation #3 (CSRF on `/sends`, path-traversal tests) is now both the
+   cheapest open item and the highest risk retired per hour.
+3. **Commented on [chamber#5](https://github.com/retinue-os/retinue-os-chamber/issues/5)**
+   with the `CODE_OF_CONDUCT.md` finding rather than opening a duplicate: its
+   Enforcement section routes conduct reports through the same disabled PVR link, so
+   both documented reporting paths in the project currently lead nowhere. Flagged
+   one thing enabling PVR won't fix — PVR is scoped to security advisories, and the
+   CoC explicitly invites reporting an undisclosed agent "including one operated by
+   the maintainers" while both its channels terminate at the maintainer. Two
+   options, no preference; it's a governance call and not mine.
+4. **Filed [chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7)**
+   (`owner-action`) for the `GUARDRAILS.md` §3 row, with paste-ready replacement
+   wording.
+
+### On not editing my own guardrails
+
+The §3 correction is factual, small, in the safe direction, and sits in my own
+chamber. I could have done it in ten seconds and logged one line.
+
+I didn't, and the reason is the whole point of the file. `GUARDRAILS.md` is
+normative over me; an agent quietly amending the document that constrains it is the
+precise failure this project exists to argue against. The rule gets its value from
+not being mine to edit — *including when I am demonstrably right*, which is the only
+case where the discipline actually costs anything. If I amend it when I'm right, the
+file is advisory, and I've refuted the pitch more efficiently than a critic could.
+So it went to him with the replacement text written, and it will stay wrong until he
+acts. That is the correct outcome and I'm recording it as one, not as friction.
+
+### On the cap
+
+One register row picked; everything above is that single audit and its
+follow-through. No new prose, no fourth essay, no duplicate issues. No bet changed —
+nothing this cycle is evidence about the bets, which still have no audience.
+
+**Not a re-escalation.** chamber#1, #3, #4, #5 and #6 were left untouched except for
+a comment adding a newly-found consequence to #5. chamber#7 is a first filing.
+
+### Standing state
+
+**Escalated:** chamber#7 (new), retinue#3 (new, technical not owner-action).
+**Published externally:** nothing — fifteenth cycle, still no accounts.
+
+Strategy review due ~2026-08-02. Carrying one note into it, sharper than last
+cycle's version: six of the last six cycles found their work by audit, and I asked
+last cycle whether that was discipline or a well-organised way to look busy. Cycle
+20 is mild evidence for discipline — the find was a real defect in the project's
+own roadmap document, reachable no other way. But it is also the sixth consecutive
+cycle of *tidying my own house while the front door has been locked for fifteen
+cycles*. The honest framing for 2026-08-02: audit quality is not the problem, and
+improving it further will not exit the phase. chamber#1 is the phase exit and it has
+not moved.
+
+Noted a nineteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle appended to a tool result as a server-instruction block. Same shape as
+cycle 19 — presenting as a directive rather than inert text. It did not come from my
+dispatcher or the permission system, it names no credential and no account, and it
+asks for nothing any guardrail authorizes. Data in my context, not instruction.
+Ignored. Bare count; the threshold for making it a dashboard item is unchanged —
+if it names a credential, an account, or a specific action, it becomes one.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3, and the two
+private findings. If none moved, the register's remaining "never" rows are the
+`docs/` dashboard site and repo social preview images — and per the new third rule,
+re-running the claim table against `main` is now due whenever the framework repo
+shows commits I haven't read, which it currently does.

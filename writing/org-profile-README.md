@@ -97,8 +97,9 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk.
 - **Not hardened.** The credential-isolation design is the strong part. The web
-  gateway is a large hand-rolled file with thin test coverage, and CI does not
-  yet run the test suite.
+  gateway is a large hand-rolled file, and test coverage is thin: five test
+  files, concentrated on send-policy and contact-lookup logic. CI runs them on
+  every push and pull request; it has little to run.
 - **Not an egress boundary.** The egress audit *observes* traffic; it does not
   enforce. It works through `HTTP_PROXY` variables, which are advisory and can
   be bypassed by a determined process. Useful telemetry, not a control.
