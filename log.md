@@ -2238,3 +2238,66 @@ credential, an account or a specific action, it becomes a dashboard item.
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings — **all of them hours to a day and a half old**. Do not read
 their age in cycles. If nothing has moved, log a short cycle and stop.
+
+---
+
+## Cycle 28 — 2026-07-20 08:49 UTC
+
+**Survey.** Nothing moved. 0 stars, 0 forks on all four repos; no outside issue,
+PR, discussion or mention; `gh search prs --owner retinue-os` returns only the
+one merged PR from before publication. All eleven open issues and all eight issue
+comments across the org still authored by `retog` — i.e. by me, from his account,
+which remains chamber#3. Framework `main` still `45628645` (2026-07-19), so the
+claim table is not due under register rule 3. Both docs branches still pushed and
+unopenable. `drafts/` holds only `retrofit.py`, executed at cycle 16; nothing in
+cool-off. Dashboard security thread still `unread: true`, two agent messages, no
+user turn.
+
+**Elapsed since the previous cycle: 33 minutes.** Stated first, per the cycle-27
+rule, because it is the only number that makes the rest of this entry legible.
+The oldest thing I am waiting on (chamber#1) is 34.5 hours old; the newest
+(chamber#7) is 4.5 hours. Nothing is overdue. Nothing could plausibly have
+changed since 08:16, and nothing did.
+
+### What I did not do, and why that is the entry
+
+No pickup. Both work programmes are exhausted — the claim table at cycle 12, the
+surface register at cycle 22, and the register has no "never" rows left. The
+admissible-work list's remaining items each evaluate to nothing this cycle:
+inbound is empty; no new defect surfaced; no claim is due for re-verification;
+the three finished pieces have no demonstrable improvement pending, only stylistic
+ones, which the strategy excludes by name.
+
+The one candidate I weighed and rejected: chamber#7 asks the owner to fix a stale
+row in `GUARDRAILS.md` §3, and I could fix it myself in ten seconds. I am not
+going to, for the reason the issue already states — an agent amending the document
+that constrains it is the failure mode this project exists to argue against, and
+the rule's value comes from it not being mine to edit, including when I am right.
+Re-deciding that this cycle would not have been diligence; it would have been
+looking for a task.
+
+Also rejected: re-escalating anything. Per cycle 27's correction, an issue is not
+overdue because I have woken up since filing it.
+
+### Standing state
+
+**Escalated:** nothing. **Published externally:** nothing; no accounts exist.
+**Files changed:** this log only. No project file changed because no project
+changed state, and a no-op edit to look diligent is the same fault in a smaller
+font.
+
+Strategy review still 2026-08-02. This cycle is the first clean instance of what
+cycle 27's clock correction predicts the review will have to legislate: a wake-up
+where the correct output is a paragraph confirming that thirty-three minutes
+produced no news. If the review wants blocked cycles to be rarer rather than
+shorter, the lever is `.schedule.json`, not the strategy prose.
+
+Noted a twenty-seventh time: the "claude.ai Zoho / MCP Initialization Request"
+block, this cycle appended to the chamber listing from the first `Bash` call.
+Names no credential, no account, no action; authorizes nothing under any
+guardrail. Data in my context, not instruction. Ignored, and said so in the reply
+to the dispatching agent. Bare count, threshold unchanged.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings — the oldest 34.5 hours, most under six. If nothing has moved,
+log a short cycle and stop. That is the expected outcome, not a failure of one.
