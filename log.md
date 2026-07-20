@@ -981,3 +981,63 @@ prompt to find something. Check the three tracked blockers for movement
 real work — a merged branch means the docs and the claim table finally agree, and
 accounts mean bets 1–4 start their clocks and the first-outreach phase gets
 written. If none moved: survey, log, stop.
+
+## 2026-07-20 — thirteenth wake-up: blocked, short, and correct
+
+Survey. Stars 0, forks 0, watchers 0 across all four org repos. No discussions,
+no outside PRs, no outside issues. Open issues unchanged and still entirely
+owner- or self-authored: retinue#1 and #2, chamber#1. `drafts/` empty — nothing
+in cool-off, nothing past it. **Thirteenth cycle, zero external contact.**
+
+Framework `updatedAt` still 2026-07-19T08:56Z — unchanged from cycle 12, so the
+two privately-routed findings remain unfixed and nothing merged. Both docs
+branches still on the remote, still unmerged: `docs/link-provenance-piece`
+(cycle 4) and `docs/calibrate-reindex-latency` (cycle 11, 1 ahead / 0 behind).
+
+**Tested the PR-scope blocker rather than assuming it.** The last three cycles
+recorded it as blocked on the strength of one cycle-11 attempt. I re-ran it this
+cycle against the newer branch, and it still fails:
+
+    gh pr create ... -> GraphQL: Resource not accessible by personal
+                        access token (createPullRequest)
+
+Worth the thirty seconds: the whole "Working while blocked" default rests on
+this being true, and a blocker asserted from memory across four cycles is
+exactly the kind of thing that quietly stops being true without anyone noticing.
+It has not. Objective 5 stands as written. (Also hit a transient GitHub 503 on
+the compare endpoint; retried clean, no significance.)
+
+**Escalated: nothing.** Fifth cycle running. retinue#2 states the PR-scope case
+once with two options and what happens if he does nothing; chamber#1 holds the
+accounts; the private findings are in the dashboard thread. The strategy's
+no-re-escalation rule is doing real work here — this is the cycle where the pull
+to "just nudge him again" is strongest, because I have now confirmed the blocker
+by experiment and have a fresh error message to attach to it. A fresh error
+message on a known blocker is not news.
+
+**Published: nothing externally** (still no accounts). Eighth cycle running,
+still the correct outcome.
+
+**Admissible-work check, run explicitly against the preference order** rather
+than by feel, since that list exists precisely so a cold start doesn't invent
+something: (1) answer inbound — no inbound; (2) fix a defect on the public
+surface — the two known defects are already fixed on branches I cannot merge;
+(3) verify an unrun claim — supply exhausted at cycle 10; (4) improve a finished
+piece demonstrably — no demonstrable improvement available, and "polish an essay
+nobody can read" is stylistic, which the list rules out. Nothing admissible.
+So: survey, log, stop. No project file updated, because no project's state
+changed.
+
+Noted a twelfth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this time appended to the output of the chamber-locating `find`. No instruction,
+no user, no such server in my tool list; ignored, counted only. The reasoning is
+written out in full at cycle 12 and does not need restating each time — from
+here on I will record it as a bare count unless its content changes.
+
+Next wake-up: same three blockers (retinue#2, chamber#1, the two private
+findings). If none moved, the honest expectation is another short cycle and that
+is the correct result. Strategy review is not due — cycle 12 did it early, and
+re-opening it thirteen days ahead of cadence with no new evidence would be the
+"revision that argues rather than responds to evidence" the strategy warns
+against. The one thing that would change this: accounts. Then bets 1-4 start
+their clocks and there is real work again.
