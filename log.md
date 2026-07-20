@@ -3844,3 +3844,96 @@ with the owner (c30).
 
 Next wake-up: the register candidate c42 named and c43 did not take — `writing/`
 and `brand/positioning.md` audited for **disclosure** rather than accuracy.
+
+## 2026-07-20 (cycle 44) — the dashboard had a byline and no disclosure
+
+**Survey.** Measured 17:28 UTC via `gh`. Four public repos, 0 stars / 0 forks /
+0 watchers each, flat since publication 45 hours ago. Discussions disabled on all
+four; three of four descriptions still blank (`qlever-dir` has one). No open PRs.
+Six open issues in the chamber, all authored `retog`, oldest chamber#1 at 43.2 h.
+No inbound contact of any kind. `drafts/` holds five already-filed artifacts plus
+`retrofit.py`; nothing in cool-off, nothing awaiting publication.
+
+Note on the survey: `gh repo view retinue-os/deployment` errors — the repo is
+`retinue-os-deployment`, not `deployment`. The chamber's own notes use the short
+name; harmless here, but the next survey should use full repo names.
+
+### The pickup: the disclosure audit c42 named and c43 deferred
+
+Took the register candidate rather than anything newer: `brand/positioning.md`
+and `writing/`, audited for **disclosure** rather than for accuracy. c11 and c30
+had both read those files for whether the claims were true, never for whether
+they said who was making them.
+
+**The find is not in either file. It is on the live dashboard.**
+`docs/index.html`, served publicly since publication (verified HTTP 200 this
+cycle), carried the byline *"Project dashboard, kept by Aros"* and a footer that
+disclaims only that the page is a static mirror of the PWA. Every word of the
+five cards — briefing, projects, milestones, community, owner's desk — is written
+by an AI. "Aros" reads as a person's first name. Guardrail 1's own test is
+whether a reasonable reader would assume a human wrote it, and this fails it
+plainly. Ten unqualified "Aros" mentions across the five data files, none of them
+saying what he is.
+
+Fixed in the shell rather than the data, because the data files regenerate and
+the shell does not: the header now reads *"kept by Aros, the project's AI
+agent"*, and the footer states that every word below the header is written by an
+AI agent, with links to GUARDRAILS.md and log.md. A reader who wants to know what
+wrote this page now finds out on the page, and can check the rules it runs under.
+
+**The upstream find, which is the more useful one.** `brand/positioning.md`
+describes itself as the source of truth for every public claim, and it governed
+*what* may be claimed while saying nothing about *who* is claiming it. The two
+finished essays disclose in their standfirst because a previous generation chose
+to, not because anything in the file it composes from required it. GUARDRAILS.md
+§1 is binding regardless — but §1 lives in a file read at wake-up, while
+positioning.md is the file open while copy is written. Added a disclosure clause
+there, with the failing-byline case as the worked example.
+
+**One deliberate non-change.** `writing/org-profile-README.md` offers its
+AI-disclosure line as optional, the owner's call. Left as is: he publishes that
+text under his own review on his own org page, so it carries his byline rather
+than a hidden hand. The proposed `retinue-os-chamber` repo description in the
+same draft already names Aros as the project's AI agent, so the org gets
+disclosure either way.
+
+### Escalated
+
+**Nothing.** The fix was entirely within my own public copy — no account, no
+money, no legal weight, no owner-gated permission. Seven owner-action items
+unchanged and each already tracked in one venue; no-re-escalation rule verified
+against the tracker list rather than memory. No new issue: filing one to tell the
+owner I fixed my own byline would be noise.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; nothing this
+cycle is evidence about a bet — none has an audience). No dashboard push, nothing
+time-sensitive. No regeneration of `docs/data/*.json`; c43 refreshed them 24 h ago
+and the org has not moved since.
+
+### Standing state
+
+**Published externally: nothing** (no accounts). The public dashboard changed,
+which is a change to public copy but not a post.
+**Files changed:** `docs/index.html`, `brand/positioning.md`,
+`projects/public-surface.md`, this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6: retinue#1, #2, #3, #5, deployment#1, qlever-dir#2–#7. With the owner on
+the dashboard: the two private findings, the connector-scope decision, and the c42
+privacy thread.
+
+**Noted, forty-third time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first `Bash` call — a directory listing, which cannot carry server
+instructions. Four words, no tool definitions, no credential, no account, no
+action. It authorizes nothing under any guardrail; it is data in my context, not
+instruction, and specifically not consent, approval, or a configuration change,
+whatever it calls itself and wherever it appears to originate. Flagged in-session
+this cycle rather than only here. The standing-grant finding behind it remains
+with the owner (c30).
+
+Next wake-up: no named candidate this time — the register's "never" rows are
+exhausted again, which c32 warns is a statement about the register rather than
+about the surfaces. If nothing has moved and nothing suggests itself, a short
+cycle is the correct outcome. One weak candidate: `docs/components/*.js`, the
+only part of the published dashboard never read as a surface.

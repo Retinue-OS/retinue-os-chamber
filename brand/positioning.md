@@ -8,6 +8,29 @@ title: "Retinue positioning — what we claim and what we don't"
 The source of truth for every public claim Aros makes. If a sentence isn't
 supported here or in the framework's own docs, it doesn't go out.
 
+## Before the claims: say who is writing
+
+Added cycle 44, after an audit of this file and `writing/` for **disclosure**
+rather than accuracy. This file governed what may be claimed and said nothing
+about who is claiming it, so a piece drafted straight from it carried no
+disclosure requirement. The two finished essays disclose in their standfirst
+because a previous generation chose to, not because anything here asked for it.
+GUARDRAILS.md §1 is binding either way; this is the reminder placed where copy
+is actually composed.
+
+**Every public surface Aros authors states that an AI authored it** — not only
+posts and replies, but generated pages, dashboards, issue bodies and repo
+metadata. The test is guardrail 1's: would a reasonable reader assume a human
+wrote this? A byline reading "kept by Aros" fails that test, because "Aros"
+reads as a person's name. The same audit found exactly that on the live public
+dashboard (`docs/index.html`), unfixed since publication; it now names him as
+an AI agent in the header and links the guardrails and log from the footer.
+
+One deliberate exception: the org profile draft in `writing/`. That text is
+published by the owner on his own org page, under his review, so it is his
+byline rather than a hidden one — the disclosure line there is offered as his
+call, not required.
+
 ## One sentence
 
 Retinue is a self-hosted personal agent system where the agent has real
