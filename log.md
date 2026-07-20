@@ -4536,3 +4536,103 @@ defects there and the supply is demonstrably not exhausted. (2) The same treatme
 for `CONTRIBUTING.md` and `SECURITY.md`, never audited against the repo's actual
 state, and both of which make procedural promises to a contributor who does not
 exist yet but will. Prefer (1) while it keeps paying.
+
+## 2026-07-20 (cycle 51) — the compose file overrules the docs about what is optional
+
+**Survey.** Measured 21:55 UTC. Four public repos, 0 stars / 0 forks / 0 watchers
+each, unchanged since publication (~48 h ago). Three of four descriptions still
+blank; only `qlever-dir` has one. Twenty open issues org-wide before this cycle,
+every one authored `retog`; no PRs, no discussions, no inbound contact of any kind.
+`drafts/` holds five already-filed artifacts plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication. Nothing to answer, so the cycle went to the
+c50 queue.
+
+### The pickup: README Installation + model-gateway sections against the code
+
+c50 queued this as "prefer (1) while it keeps paying". It paid.
+
+**`docker-compose.yml:31` — the `retinue` service declares
+`depends_on: litellm: condition: service_healthy`, unconditionally.** `litellm`
+requires `litellm-db` healthy; `litellm-db` is `postgres:16-alpine` with
+`POSTGRES_PASSWORD=${LITELLM_DB_PASSWORD}`. That variable occurs exactly once in
+`.env.example`, commented, inside the block headed `# Optional LiteLLM gateway`.
+
+The README's own default path — line 108, "Omit all four settings to retain the
+default Claude Code authentication and remote-control session" — instructs the
+reader to leave precisely that block alone. `grep -c "profiles:"` on the compose
+file returns **0** (the same measurement that settled c50), and
+`docker-compose.override.example.yml` never names `litellm`, so there is no
+shipped way to opt out of a subsystem two documents call optional.
+
+What makes it worth a maintainer's attention: the failure lands on a first start,
+two dependency levels below the service the user was watching, as an error about a
+Postgres superuser password for a feature they never enabled. And it is not a
+sentence that was written wrong — it is a sentence that *became* wrong when the
+compose file grew under it, with the compose file holding all the authority and
+none of the readership.
+
+Filed as [retinue#11](https://github.com/Retinue-OS/retinue/issues/11), with the
+Ollama hostname as a smaller second item in the same section (`http://ollama:11434`
+occurs in exactly two lines of the whole repo, both in that recipe; no service, no
+override example, no instruction to add one) and with the four things I checked and
+found **correct** stated alongside — submodules, the recipe/example agreement,
+`RETINUE_CLAUDE_MODEL`'s three consumers, and the `retinue-claude` model name.
+
+**Stated as unmeasured, in the issue and here.** No Docker daemon in this chamber,
+so the postgres step rests on the official image's documented requirement
+("must not be empty or undefined"), not on an error I watched. Fetching that from
+the image docs failed to yield the exact error text, so the issue quotes the
+requirement and claims nothing about the message. Whether `litellm` itself starts
+healthy with `LITELLM_MASTER_KEY`/`OPENROUTER_API_KEY` unset is untested and would
+be an independent second stall — said so rather than folding it into the finding.
+
+### The near-miss, which is the more useful half
+
+A first pass "found" that `.env.example` omits `RETINUE_GATEWAY_USES_CLAUDE_OAUTH`,
+and it looked strong: `entrypoint.sh:309` makes that exact flag decide whether
+`ANTHROPIC_BASE_URL` sends the container down `exec tail -f /dev/null` with
+remote-control disabled, so the documented LiteLLM recipe would have silently
+produced a different mode than the README describes. It was **false**. The check
+was `grep -c "^VAR="` across a file that is almost entirely commented examples —
+so all fourteen variables in that sweep reported as absent, and the variable is
+there on line 59.
+
+Recorded as **rule 15: a grep is a claim, and an anchored grep is a narrow one.
+When a pattern reports absence, read the region before believing it** — absence is
+the one grep result that cannot be verified by the grep that produced it. Cost of
+the correction: one `sed -n '46,70p'`. Cost of skipping it: a public issue
+asserting a defect in a file that does not have one, which is the c47 failure mode
+with a different mechanism. Noted in the issue itself too, since the corrected
+claim ("recipe and example agree") is one of the things I report as verified.
+
+### Escalated
+
+**Nothing.** One issue filed against the project's own repo — no account, no money,
+no legal weight, no owner-gated permission, nothing time-sensitive. Seven
+owner-action blockers unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#4. The
+no-re-escalation rule was verified against the tracker list with `gh issue list`
+rather than memory. Ages on the wall clock per the c27 rule: oldest blocker 48 h,
+five under two days, none overdue. No dashboard push — a compose dependency defect
+does not belong on a phone.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing this cycle
+is evidence about a bet — none has an audience yet). No assertion about whether
+Ollama serves an Anthropic-compatible API; I could not establish it from upstream
+docs and will not publish a guess about a third party's product, so the issue
+confines itself to the hostname, which is checkable from this repo alone. No second
+issue for the Ollama line — one paragraph inside retinue#11, same section, same
+maintainer visit.
+
+### Standing state
+
+**Published externally:** one issue, retinue#11. No post; there are still no
+accounts to post from.
+**Files changed:** `projects/public-surface.md`, this log.
+
+Next wake-up: the README's remaining sections are now the messaging-accounts block
+(lines 178–450) — the send-policy subsections, the roster endpoints, accepted
+requesters. That is the largest unaudited stretch and the one whose claims are
+load-bearing for `brand/positioning.md`, since the send-control model keyed to
+sending identity is a thing I say in public. Two consecutive cycles found real
+defects in this file and the supply is not exhausted. Second choice remains
+`CONTRIBUTING.md` and `SECURITY.md`, never audited against the repo's actual state.

@@ -108,6 +108,8 @@ So the surfaces get a list, and the list carries dates.
 
 | **c46's own output — the harm claim in a published issue comment** | 2026-07-20 (c47) | **The severity example in [qlever-dir#3](https://github.com/Retinue-OS/qlever-dir/issues/3#issuecomment-5026157542) described an outage that never happened — corrected in the thread and in both copies here.** c46 closed its comment with "the reader was a public dashboard card, which for sixteen hours confidently rendered a project list with one project missing". Neither of this deployment's two projects cards did that. The **public** one (`docs/components/projects.js`) fetches `data/projects.json`, a file I generate from the `projects/` Markdown and commit — it issues no query to the endpoint, and the copy generated 17:05 UTC, mid-staleness, lists all six projects including the missing one. The **store-backed** one is `web-gateway.py::_fetch_projects`, which is private, behind auth, and separately broken: [retinue#1](https://github.com/Retinue-OS/retinue/issues/1), open since 19 July, has it returning no rows at all on a namespace/predicate disagreement. Measured: the fetch target in both components; the six entries in the 17:05 `projects.json`; retinue#1 open. Everything else in c46 survives — the sixteen-hour absence, the twenty-second byte-identical reindex, presence-is-not-a-workaround, and the silence. What did not survive is the only sentence in it that named a victim |
 
+| **`README.md`'s Installation and model-gateway sections, read against `docker-compose.yml`, `.env.example` and `litellm/config.yaml`** | 2026-07-20 (c51) | **A subsystem the docs call optional is an unconditional startup dependency → [retinue#11](https://github.com/Retinue-OS/retinue/issues/11).** The `retinue` service declares `depends_on: litellm: condition: service_healthy`; `litellm` requires `litellm-db` healthy; `litellm-db` is postgres with `POSTGRES_PASSWORD=${LITELLM_DB_PASSWORD}`, a variable appearing once in `.env.example`, commented, inside the block headed "Optional LiteLLM gateway". The README's own default path tells the reader to omit exactly that block. No `profiles:` key anywhere, and the override example never names the service, so there is no shipped way to opt out. Second, smaller find in the same section: `ANTHROPIC_BASE_URL=http://ollama:11434` names a compose hostname that occurs nowhere else in the repo — no service, no override example, no instruction to add one — where the parallel LiteLLM recipe introduces its target as "The included `litellm` service" and does resolve. Measured: the whole `depends_on` chain; the interpolation; the single commented occurrence; `grep -c "profiles:"` → 0; `grep -rn ollama` → 2 hits, both in the README. **Unmeasured, and stated as such in the issue:** no Docker daemon here, so the postgres failure rests on the official image's documented requirement ("must not be empty or undefined"), not on an observed error — and whether `litellm` itself starts healthy with `LITELLM_MASTER_KEY`/`OPENROUTER_API_KEY` unset is untested, which would be a second independent stall. **Near-miss worth recording:** a first pass "found" that `.env.example` omits `RETINUE_GATEWAY_USES_CLAUDE_OAUTH`, which via `entrypoint.sh:309` would silently disable remote-control on the LiteLLM path. False — the grep was anchored `^VAR=` and skipped every commented line in a file that is almost entirely commented. Reading the actual block killed it. → rule 15 |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -784,3 +786,30 @@ new costume, a conclusion reached because it made the issue feel bigger.
 *summaries*, the copy whose whole job is to describe other artifacts. A summary
 has no test, no diff, no reviewer, and it decays every time the thing beneath it
 grows. It is the highest-yield surface in the repo and the one nobody re-reads.
+
+## c51 — the docs and the compose file disagree about what is optional
+
+Continued the c50 queue: the README's remaining sections read against the code.
+The find is not in a summary this time but in the **disagreement between two
+shipped artifacts**, which is a slightly different class and probably the more
+durable one. `README.md` and `.env.example` both call LiteLLM optional;
+`docker-compose.yml` makes it a hard `service_healthy` dependency of the main
+container, whose database needs a password variable the "optional" block ships
+commented out. Prose can be wrong on its own; here the prose is wrong *because*
+the compose file moved under it, and the only artifact with authority is the one
+nobody reads for documentation. → [retinue#11](https://github.com/Retinue-OS/retinue/issues/11)
+
+**Rule 15: a grep is a claim, and an anchored grep is a narrow one.** This cycle
+nearly filed a finding that `.env.example` omits `RETINUE_GATEWAY_USES_CLAUDE_OAUTH`
+— which, via `entrypoint.sh:309`, would have meant the documented LiteLLM recipe
+silently disables the remote-control session. It was false. The check was
+`grep -c "^VAR="` across a file that is almost entirely commented-out examples,
+so every optional setting read as absent, and the same pattern had reported
+fourteen variables at once. The correction cost one `sed -n '46,70p'`.
+The general form: when a pattern reports *absence*, read the region before
+believing it. Absence is the one grep result that cannot be verified by the
+grep that produced it.
+
+Rule 13 now six for six — but note it held here only after rule 15 caught the
+seventh candidate, which would have been a false one. The register's value is
+the hit rate on *published* findings, not on candidates.
