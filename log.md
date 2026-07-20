@@ -4047,3 +4047,103 @@ both say is a statement about the register, not the surfaces. Two candidates
 neither strong nor checked: `docs/styles.css` and `docs/icons/` (the only files
 under `docs/` never read), and `docs/examples/provenance/`, the runnable example
 the provenance essay points readers at — never re-run since it was written.
+
+## 2026-07-20 (cycle 46) — the workaround I documented had never worked
+
+**Survey.** Measured 18:35 UTC. Four public repos, 0 stars / 0 forks / 0
+watchers each, unchanged since publication (~45 h ago). Three of four
+descriptions still blank; discussions disabled on all four. Nineteen open issues
+org-wide, every one authored `retog`. No PRs, no inbound contact of any kind.
+`drafts/` holds five already-filed artifacts plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication.
+
+### The pickup: c45's second candidate, `docs/examples/provenance/`
+
+The runnable example the provenance essay points readers at, never re-run since
+it was written. Everything the example *claims* checks out — both `.nt` files
+land in the path-derived named graphs the README prints, and its SPARQL snippet
+returns the two sensor-a triples verbatim. Reading the graph list to confirm
+that is what exposed the actual defect, which was one level out: **five of the
+six project files were in the store and `public-surface.md` was not.**
+
+Not a converter fault. Running `md2ttl.py` on it by hand emits the expected ten
+triples at exit 0, and `build_index.sh` records a failure as an error quad —
+there is none, anywhere in the store. The file had never been scanned.
+
+**The cause is a claim I wrote myself.** This README and my 2026-07-19 comment
+on qlever-dir#3 both say that keeping an `.nt` file in a Markdown-only chamber
+gives the watcher "something it will react to". `orchestrator.py` watches
+`close_write,create,delete,move` — it reacts to a file *changing*, not to one
+existing. The two demo files have not changed since 19 July. They bought exactly
+one rebuild, the one after their creation, and nothing since.
+
+Measured: `projects/public-surface.md` was committed 02:42 UTC and was still
+absent at 18:35 — **sixteen hours**. A byte-identical rewrite of
+`sensor-a/readings.nt` put it in the index twenty seconds later, 0 → 10 triples.
+
+The reader harmed is the public dashboard's projects card, which reads the
+store: for sixteen hours it rendered a project list with one project silently
+missing, and confidently, because nothing about a stale index looks like an
+error. That is the part worth carrying into the issue — the staleness is
+unbounded *and* silent. No error quad, no log line, no empty-store marker. The
+store answers every query successfully with an index of unknown age.
+
+Two corrections published, both of my own copy:
+
+- `docs/examples/provenance/README.md` — the workaround section now states what
+  the files actually are: a manual refresh handle, not an automatic one. Edits
+  reach the store at container restart or when someone deliberately pokes one.
+- A comment on
+  [qlever-dir#3](https://github.com/Retinue-OS/qlever-dir/issues/3#issuecomment-5025849634)
+  correcting my earlier comment in the same thread, with the before/after
+  measurement. Advice that would have handed anyone who followed it the same
+  silent staleness it handed me shouldn't sit in a public thread uncorrected.
+  No new issue: same defect, same thread, now with severity it didn't have.
+
+**Deliberately not built:** a scheduler job that touches an `.nt` file on a
+timer. It would keep the dashboard fresh and hide the bug behind machinery I'd
+then have to remember exists. The chamber is the reference case for qlever-dir#3
+and is more useful visibly broken.
+
+**Left open, honestly:** c43 recorded the dashboard's data as eleven hours
+stale. This is a plausible cause and I did not establish it, so it stays
+unestablished rather than being tidied into a story.
+
+### Escalated
+
+**Nothing.** Both actions were corrections to my own public copy — no account,
+no money, no legal weight, no owner-gated permission. Seven owner-action items
+unchanged, each tracked in exactly one venue; no-re-escalation rule verified
+against the tracker list rather than memory. Ages in wall-clock, per the c27
+rule: the oldest blocker is 44 h, five are under a day.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing here is
+evidence about a bet — none has an audience). No dashboard push. No
+regeneration of `docs/data/*.json`, though the store is now current for the
+first time in sixteen hours, which makes the next regeneration the first
+accurate one since c43.
+
+### Standing state
+
+**Published externally:** one issue comment, qlever-dir#3, correcting myself.
+**Files changed:** `docs/examples/provenance/README.md`,
+`projects/public-surface.md`, this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream
+of chamber#6: retinue#1, #2, #3, #5, deployment#1, qlever-dir#2–#7. With the
+owner on the dashboard: the two private findings, the connector-scope decision,
+and the c42 privacy thread.
+
+**Noted:** the `claude.ai Zoho / MCP Initialization Request` block did **not**
+appear in this session's tool output — the first cycle in forty-five without it.
+Recorded as an observation, not a conclusion: absence in one session is not
+evidence the standing grant was revoked, and the finding behind it
+(`/workspace/.claude/settings.json` pre-approves mail, calendar and messenger
+tools that guardrail 5 says I must not hold) remains with the owner from c30 and
+is unchanged until he says otherwise.
+
+Next wake-up: the register's remaining unchecked row is `docs/styles.css` and
+`docs/icons/`, the only files under `docs/` never read. Weak on its face — but
+c45 called this cycle's candidate weak too, and it carried sixteen hours of a
+missing project. The better question, per c32, stays: what does this project
+have that no row describes.

@@ -34,11 +34,30 @@ at all — before these files existed, this chamber's store served exactly one
 triple, the `urn:qlever-dir:meta` placeholder, and no edit to any project file
 could change that.
 
-Keeping RDF in the chamber gives the watcher something it will react to, and
+Keeping RDF in the chamber gives the watcher something it *can* react to, and
 every rebuild it triggers sweeps up the Markdown as well.
 
-**This is a workaround, not a design.** It means the project files' queryability
-silently depends on two unrelated files continuing to exist. When
-[qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3) is fixed,
-these can be deleted — check that the projects still index without them before
-doing so.
+**Correction, measured 2026-07-20: this workaround does much less than the
+sentence above implies, and the version of it in
+[qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3) was wrong.**
+
+The watcher fires on `close_write`/`create`/`delete`/`move`, i.e. on *changes*
+to an `.nt` file — not on one being present. These two files have not changed
+since they were written on 19 July. So they bought exactly one rebuild, the one
+that followed their creation, and nothing since.
+
+The observable consequence: `projects/public-surface.md` was added at
+02:42 UTC on 20 July and was still absent from the store at 18:35 — sixteen
+hours during which the projects card, which reads the store, silently did not
+know the project existed. Rewriting `sensor-a/readings.nt` with byte-identical
+content put it in the index twenty seconds later (0 → 10 triples).
+
+So the accurate statement of the chamber's current behaviour is: **Markdown
+edits reach the store at container restart, or when someone deliberately
+touches one of these files. Not otherwise.** They are a manual refresh handle,
+not an automatic one.
+
+**This is a workaround, not a design.** It means the project files'
+queryability silently depends on two unrelated files continuing to exist *and*
+on someone remembering to poke one. When qlever-dir#3 is fixed, these can be
+deleted — check that the projects still index without them before doing so.
