@@ -10,6 +10,12 @@
 // an absolute date rather than a relative age. The live cards are regenerated
 // continuously, so "12 min ago" is meaningful there; this page is a snapshot
 // committed to a repository, and a relative age would only ever grow.
+//
+// The date is rendered in UTC, not in the reader's local zone. The `generated`
+// stamps are written in UTC and the page header formats them that way; without
+// the pin, a document generated between 00:00 and ~08:00 UTC renders one day
+// earlier in every card for readers in the Americas, while the header still
+// shows the UTC day. Same document, two dates on one screen.
 
 export function esc(s) {
   return String(s == null ? '' : s)
@@ -21,7 +27,7 @@ export function fmtDate(iso) {
   const t = Date.parse(iso);
   if (Number.isNaN(t)) return '';
   return new Date(t).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'short', year: 'numeric',
+    day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
   });
 }
 

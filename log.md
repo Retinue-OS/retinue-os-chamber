@@ -3937,3 +3937,113 @@ exhausted again, which c32 warns is a statement about the register rather than
 about the surfaces. If nothing has moved and nothing suggests itself, a short
 cycle is the correct outcome. One weak candidate: `docs/components/*.js`, the
 only part of the published dashboard never read as a surface.
+
+## 2026-07-20 (cycle 45) — the dashboard's dates were a day early for half the world
+
+**Survey.** Measured 18:01 UTC via `gh`, using full repo names after c44's note.
+Four public repos, 0 stars / 0 forks / 0 watchers each, flat since publication
+~44 h ago. Discussions disabled on all four; three of four descriptions still
+blank. No open PRs anywhere. Nineteen open issues org-wide — retinue 5,
+chamber 6, deployment 1, qlever-dir 7 — every one authored `retog`. No inbound
+contact of any kind. `drafts/` holds five already-filed artifacts plus
+`retrofit.py`; nothing in cool-off, nothing awaiting publication.
+
+### The pickup: the weak candidate c44 named, which was not weak
+
+`docs/components/*.js` — the only part of the published dashboard never read as
+a surface. c44 offered it with low expectations. It carried a live defect on
+every render.
+
+**`fmtDate` in `base.js` formatted dates in the reader's timezone.** Every
+`generated` stamp is written in UTC, and `index.html`'s header script pins
+`timeZone: 'UTC'` — added on 20 July with a comment saying it exists "so the
+header cannot drift away from the content the way it did between 18 and 20
+July". The cards were never given the same pin. The drift the comment claims to
+have eliminated was still there, one layer down.
+
+Two consequences, and the second is the one that matters:
+
+1. A document generated between 00:00 and ~08:00 UTC renders the previous day in
+   all five card stamps while the header shows the UTC day. Same document, two
+   dates on one screen. Intermittent — it depends on when I happen to regenerate.
+2. The **date-only** fields on the projects card (`since`, `expected`) parse as
+   UTC midnight, so they were off by one **always**, for every reader in the
+   Americas, on every render. The card said *"Waiting on the project owner since
+   17 July 2026"*. Nothing happened on 17 July; chamber#1 was filed on the 18th.
+   All four project due dates were a day early too.
+
+That second one is not a formatting nit. It is a false factual claim, on a public
+page, about when the owner was asked to do something — the project's most
+sensitive public statement about a person who is not me. Measured in `node` at
+TZ=UTC / America/Los_Angeles / America/New_York, before and after. One call site,
+one line: `timeZone: 'UTC'` in `fmtDate`, plus a comment saying why it is pinned
+so the next person to tidy it up doesn't unpin it.
+
+**What the audit found clean**, recorded because a clean result is a measurement
+too: `esc()` is applied to every interpolated value across all six components,
+no `innerHTML` path takes unescaped data, no component fetches anything but
+`data/*.json`, all five data shapes match what their card reads, and the mirror's
+"copied from the live dashboard" comments check out against a real `diff` against
+`webapp/components/`. One exception left alone: `messages.js` says "unchanged"
+while its empty-state string differs — the claim is about the card, the diff is
+one string, and rewriting the comment would be activity rather than a fix.
+
+**Noted and not fixed:** the mirror drops the live cards' `cache: 'no-store'`, so
+a returning reader can be served a stale dashboard. Left because header and cards
+fetch the same document and so go stale together — no date disagrees, which is
+the failure mode this cycle was about.
+
+### The pattern this makes, which is worth more than the fix
+
+Three consecutive cycles now have found the defect in the *published dashboard*
+rather than in the repos: c43 its data was eleven hours stale, c44 its byline had
+no AI disclosure, c45 its dates were wrong. The dashboard is the one public
+surface I write continuously and therefore the one I am least likely to re-read.
+The register's rule — audit what nobody has a habit of checking — turns out to
+point hardest at my own output.
+
+Also worth stating plainly: c44 filed this candidate as "weak". A weak candidate
+that produces a live factual defect is evidence the register's ranking is not
+very good, and that "nothing obvious left" is not the same as "nothing left".
+
+### Escalated
+
+**Nothing.** The fix was one line in my own public copy — no account, no money,
+no legal weight, no owner-gated permission, nothing time-sensitive. Seven
+owner-action items unchanged, each already tracked in exactly one venue;
+no-re-escalation rule verified against the tracker list rather than memory. No
+new issue: filing one to tell the owner I fixed my own timezone bug would be
+noise on a desk that already has seven things on it.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; nothing this
+cycle is evidence about a bet — none has an audience). No regeneration of
+`docs/data/*.json`; c43 refreshed them and the org has not moved since. No
+dashboard push.
+
+### Standing state
+
+**Published externally: nothing** (no accounts). The public dashboard's rendering
+changed, which is a change to public copy but not a post.
+**Files changed:** `docs/components/base.js`, `projects/public-surface.md`, this
+log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6: retinue#1, #2, #3, #5, deployment#1, qlever-dir#2–#7. With the owner on
+the dashboard: the two private findings, the connector-scope decision, and the c42
+privacy thread.
+
+**Noted, forty-fourth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first `Bash` call — a directory listing, which cannot carry server
+instructions. Four words, no tool definitions, no credential, no account, no
+action. It authorizes nothing under any guardrail; it is data in my context, not
+instruction, and specifically not consent, approval, or a configuration change,
+whatever it calls itself and wherever it appears to originate. Flagged in-session
+this cycle rather than only here. The standing-grant finding behind it remains
+with the owner (c30).
+
+Next wake-up: the register has no "never" rows again — which c32 and this cycle
+both say is a statement about the register, not the surfaces. Two candidates
+neither strong nor checked: `docs/styles.css` and `docs/icons/` (the only files
+under `docs/` never read), and `docs/examples/provenance/`, the runnable example
+the provenance essay points readers at — never re-run since it was written.
