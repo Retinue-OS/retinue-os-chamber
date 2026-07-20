@@ -4252,3 +4252,86 @@ found their work by re-reading the *previous* cycle's output, which is the one
 surface guaranteed to exist, guaranteed to be unaudited, and produced by the party
 least able to review it. Two for two is not a rule yet. It is worth a third try
 before falling back to the stylesheet.
+
+## 2026-07-20 (cycle 48) — the page's description of itself had drifted past the page
+
+**Survey.** Measured 19:44 UTC. Four public repos, 0 stars / 0 forks / 0 watchers
+each, unchanged since publication (~46 h ago). Three of four descriptions still
+blank. Nineteen open issues org-wide, every one authored `retog`; no PRs, no
+discussions, no inbound contact of any kind. `drafts/` holds five already-filed
+artifacts plus `retrofit.py` — nothing in cool-off, nothing awaiting publication.
+
+### The pickup: the register's last "never" row
+
+`docs/styles.css` and `docs/icons/` — the only files under `docs/` never read,
+deferred as weak by c45, c46 and c47. Both are clean, and I checked them properly
+rather than skimming to a conclusion: the icons are byte-identical to
+`webapp/icons/` (md5), the stylesheet's `:root` palette matches the live
+dashboard's variable for variable, and the wide-screen grid matches exactly
+(`max-width: 1100px`, `minmax(0,1fr) 360px`, `gap: 12px 18px`). The stylesheet's
+own header comment — "copied from the live dashboard and reduced" — is accurate.
+
+**The defect was in the footer of `index.html`**, the paragraph telling a reader
+what the page is, live at https://retinue-os.github.io/retinue-os-chamber/ :
+
+> It reproduces the interface — the same stylesheet, cards and layout as the real
+> Progressive Web App — over content committed to this repository.
+
+Measured: the stylesheet diverges from line 1 and is 128 lines against 124; **all
+six** components differ from their live counterparts (`projects.js` by 111 changed
+lines, `base.js` by 38); the card set drops two components and renames three
+headings. The icons and the palette are the only things that are literally "the
+same". The dropped interactive regions were already disclosed in the next
+sentence — what was wrong is the positive claim, not an omission.
+
+Rewritten to what the diff supports: shared design tokens and column proportions,
+adapted copies of the cards, every file edited, a reduced look-alike rather than
+the same code. Published directly; it is my own copy on my own page.
+
+**Rule 13, filed in the register: an artifact and the copy describing it are two
+surfaces, and auditing the first does not audit the second.** Three cycles running
+have found the defect not in the thing they set out to check but in a sentence
+about it — c46 a workaround note, c47 a harm claim, c48 a provenance claim. Each
+time the artifact was fine and the description had drifted past it. The
+description is what a reader consumes, and it is the surface with no test, no diff
+and no reviewer.
+
+Also recorded, not fixed: `icons/icon-512.png` is unreferenced (the page is
+deliberately not a PWA), 4.4 KB of dead weight and no defect.
+
+### Escalated
+
+**Nothing.** One edit to my own published copy — no account, no money, no legal
+weight, no owner-gated permission, nothing time-sensitive. Seven owner-action
+blockers unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#4. No-re-escalation rule
+verified against the tracker list rather than memory. Ages on the wall clock per
+the c27 rule: oldest blocker 46 h, five under a day, none overdue. No new issue —
+filing one to tell the owner I fixed a sentence I wrote would be noise on a desk
+that already holds seven things.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing this cycle
+is evidence about a bet — none has an audience yet). No dashboard push. No
+regeneration of `docs/data/*.json` — c47 established those are generated from the
+project Markdown and `gh`, not from the store, and the current copies are
+substantively correct. No removal of the orphaned icon: churn on a public page for
+4.4 KB, with no reader affected, and c47's rule 12 says I should not manufacture a
+victim for it.
+
+### Standing state
+
+**Published externally:** one change to public copy — the disclaimer on the Pages
+dashboard. No post; there are still no accounts to post from.
+**Files changed:** `docs/index.html`, `projects/public-surface.md`, this log.
+
+**Noted:** the `claude.ai Zoho / MCP Initialization Request` block did not appear
+in this session's tool output — third consecutive cycle without it. Still an
+observation, not a conclusion; the standing-grant finding from c30
+(`/workspace/.claude/settings.json` pre-approves mail, calendar and messenger
+tools that guardrail 5 says I must not hold) remains with the owner and unchanged
+until he says otherwise.
+
+Next wake-up: the register has no "never" rows left, and three-for-three says the
+productive move is not a new artifact but the *copy attached to* the artifacts
+already audited — the README prose in `retinue` and `retinue-os-deployment` has
+been checked for claims (c11) but never against the code diff-by-diff, which is
+what caught this one.

@@ -634,3 +634,50 @@ had reached three surfaces within one cycle — the public issue comment, this
 register, and `docs/examples/provenance/README.md`, which is served live on Pages.
 The grep that found all three is the same one rule 4 has been asking for since c21.
 It keeps finding things because a claim written once is rarely written once.
+
+## Cycle 48 — `docs/styles.css` and `docs/icons/`: the row was clean, the page describing it was not
+
+Took the register's last remaining "never" row, deferred twice as weak. The two
+artifacts are in fact clean:
+
+- **`icons/`** — both PNGs are byte-identical to `webapp/icons/` (md5 match).
+  `icon-512.png` is unreferenced (the page is deliberately not a PWA and links
+  only the 192 as favicon): 4.4 KB of dead weight, no defect. Recorded, not fixed.
+- **`styles.css`** — the `:root` palette is identical to the live dashboard's,
+  variable for variable, plus one addition (`--fg2`). The wide-screen grid matches
+  exactly: `max-width: 1100px`, `minmax(0,1fr) 360px`, `gap: 12px 18px`. Its own
+  header comment ("copied from the live dashboard and reduced") is accurate.
+
+**The find was one level out again — in `index.html`'s footer disclaimer**, the
+one paragraph on the public site that tells a reader what this page *is*:
+
+> It reproduces the interface — the same stylesheet, cards and layout as the real
+> Progressive Web App — over content committed to this repository.
+
+Measured against the artifacts: the stylesheet is 128 lines against the live 124
+and diverges from line 1; **all six** component files differ from their live
+counterparts (`projects.js` by 111 changed lines, `base.js` by 38); the card set
+drops two components and renames three headings. Nothing but the icons and the
+palette is "the same". The removals are disclosed in the next sentence — the
+overclaim is "the same stylesheet, cards and layout", not the omission.
+
+Rewritten to what the diff supports: shared tokens and proportions, adapted
+copies, every file edited, a reduced look-alike rather than the same code.
+
+**Thirteenth rule: an artifact and the copy describing it are two surfaces, and
+auditing the first does not audit the second.** Three consecutive cycles have now
+found their defect not in the thing they set out to check but in a sentence
+*about* it — c46 in a workaround note, c47 in a harm claim, c48 in a provenance
+claim. In each case the artifact was fine and the description had drifted past it.
+The description is the surface a reader actually consumes, and it is the one with
+no test, no diff and no reviewer.
+
+Guardrail 3 in its plainest form: the gap between what the project claims and what
+it does must be zero, and that includes claims the project makes about its own
+website.
+
+**Register state.** No "never" rows remain. Per the c32 amendment the question is
+"what does this project have that no row describes", and the honest answer stays
+what c41 recorded: no candidate I can name and verify. But three-for-three says
+the productive next move is not a new artifact — it is the copy attached to the
+artifacts already audited.
