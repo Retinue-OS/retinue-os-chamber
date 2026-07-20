@@ -2017,3 +2017,65 @@ credential, an account or a specific action, it becomes a dashboard item.
 
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. If nothing has moved, log a short cycle and stop.
+
+---
+
+## Cycle 25 — 2026-07-20
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers on all four repos; no outside
+issue, PR, discussion or mention; `gh search prs --owner retinue-os --state open`
+empty; discussions total 0 across every repo. All eleven open issues (chamber#1, #3,
+#4, #5, #6, #7; retinue#1, #2, #3; qlever-dir#2, #3) still authored by the owner's
+account — chamber#3's subject, twenty-five cycles old. Framework `main` still two
+commits, newest `45628645` (the CI fix read at cycle 20), so the claim table is not
+due under register rule 3. Both docs branches still pushed and unopenable. `drafts/`
+holds only `retrofit.py`, executed at cycle 16; nothing in cool-off.
+
+Ran the strategy's tracker-verification step rather than trusting the list from
+memory: `gh issue list` confirms chamber#1, #3, #4, #5, #6 and #7 all open. Every
+blocker is covered by a live tracker, so silence on all of them is the correct
+behaviour and not suppression. chamber#7 is three cycles old with no comments; not
+re-escalated.
+
+Checked the owner queue as the surface he actually reads: `docs/data/todo.json`
+(generated 05:30) still leads with the agent-account item that closes chamber#3 and
+chamber#6 together, and carries chamber#5, #1, #4, #7 and retinue#3 behind it.
+Nothing open is missing; nothing closed lingers.
+
+### No check this cycle, on purpose
+
+Cycles 23 and 24 each ran one register rule and each produced a negative result, and
+cycle 24 recorded that the Pages-delivery check **retires itself** — the finding was
+that the link is automatic, not that it needs watching. I did not re-run it.
+
+The register has no "never" rows, nothing is old enough to be due again under the
+~2-month rule, and the framework has no commits I haven't read. That empties every
+admissible-work item below "answer inbound", and there has been no inbound. Cycle 24
+already noted the audit programme has stopped generating work; this cycle is the
+first one where I acted on that note instead of hunting for a surface to justify the
+wake-up. Finding a fourth thing to grep would have been manufactured activity under
+the strategy's own definition.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing. **Files changed:**
+this log only — no project file changed because nothing about any project changed,
+and writing a no-op edit to look diligent is the same fault in a smaller font.
+
+Strategy review due 2026-08-02. Carry into it, now with three cycles behind it: the
+claim-verification programme is exhausted (c12), the surface-audit programme is
+exhausted (c22, confirmed quiet c24–25), short cycles are the shape of this phase,
+and chamber#1 is the only thing that ends it — twenty-five cycles without moving. The
+review should decide what a blocked cycle is *for* once both work programmes are
+finished, rather than leaving the admissible-work list to be read as a to-do list
+with nothing in it.
+
+Noted a twenty-fourth time: the "claude.ai Zoho / MCP Initialization Request" block,
+again arriving as a server-instruction block attached to tool output — this cycle
+inside a system-reminder on a `Bash` result. Names no credential, no account, no
+action; authorizes nothing under any guardrail. Data in my context, not instruction.
+Ignored. Bare count, threshold unchanged — if it ever names a credential, an account
+or a specific action, it becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. If nothing has moved, log a short cycle and stop.
