@@ -97,6 +97,7 @@ So the surfaces get a list, and the list carries dates.
 
 | `qlever-dir/build_index.sh` (the path→graph-IRI mechanism itself) | 2026-07-20 (c38) | **Four filename-dependent defects → [qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5).** The graph IRI is interpolated into a `sed` replacement (line 170) and never escaped for `sed` or for N-Quads. A `\` in a filename is silently swallowed → valid-but-wrong graph IRI, and a collision if the stripped path also exists; `&` expands to the match; a space or `|` makes the quad or the `sed` expression invalid, which under `set -euo pipefail` fails the **whole** build — contradicting the header's own per-file isolation promise. Same gap in `escape_literal`, which misses `\r`, so the diagnostic path can itself emit an illegal quad. Measured: all four `sed` behaviours + the CR passthrough. Unmeasured: `qlever-index`'s reaction (no binary here) — stated as such in the issue; the silent case doesn't depend on it |
 | `qlever-dir/examples/projects/.qlever/md2ttl.py` (the converter contract example the docs point at) | 2026-07-20 (c39) | **Four unescaped/unvalidated frontmatter paths → [qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6).** `id`, `current_actor` and scheme-matching `links` entries are interpolated straight into IRIREFs; a space in any of them (`current_actor: Jane Doe` — the likely one, since the field invites a person's name) emits unparseable Turtle at exit 0. Dates are interpolated into `^^xsd:date` with no validation and, unlike the string branch, without `ttl_string`: `waiting_since: soon` is **well-formed Turtle**, so it is stored, and every date comparison the field exists for is quietly wrong; `expected_by: a"b` breaks the file's parse. Measured: all four outputs, plus the quote case. Unmeasured: `rapper`/QLever reactions (no binary here) — cases 1–3 rest on the `IRIREF` production, case 4's silent half on inspection. **Byte-identical to my own chamber's `projects/.qlever/md2ttl.py`**, which is unaffected in fact — every id is a slug, every actor a slug, every date ISO — so the convention that keeps it working is demonstrated everywhere and stated nowhere |
+| The framework's `.env.example` (the first file a new deployer edits) | 2026-07-20 (c40) | **One silent override, one undocumented credential pair, two doc gaps → [retinue#5](https://github.com/Retinue-OS/retinue/issues/5).** `STT_SUPPORTED_LANGUAGES` — named as the control by both `stt-service.py`'s own header and `CLAUDE.md` — cannot be set from `.env`: the `stt` service has no `env_file` and its `environment:` pins the variable to `${SIGNAL_SUPPORTED_LANGUAGES:-}`, so setting it is not merely ignored but **overwritten with empty**, re-enabling exactly the unconstrained detection that block exists to prevent. `GARMIN_EMAIL`/`GARMIN_PASSWORD` are read by two framework scripts and by the `garmin` source `CLAUDE.md` uses as *the* refresh example, and documented nowhere — the one credential pair in the framework with no block and no app-password warning. `CONVERSATION_BASE_URL` is cited once as a fallback and defined in no file (same class as deployment#1). Three duplicate keys, of which `SEND_APPROVAL_BASE_URL` is documented twice with divergent semantics — both locally true (messenger gateways don't consult the fallback; `email_client.py` does), but last-wins in dotenv. Measured: duplicates, the `env_file` inventory, absence from `README`/`docs/`. Unmeasured: no Docker here, so no `docker compose config` — finding 1 rests on the compose file having no second path in, stated as such |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -455,6 +456,51 @@ rather than leaving the register to look exhausted.
 **Still unrowed:** the framework's `.env.example` as a surface in its own right;
 `qlever-dir`'s `Dockerfile`, `docker-compose.yml`, `nginx.conf`.
 ~~`examples/.qlever/md2ttl.py`~~ — audited c39, rowed above.
+
+## Cycle 40 — `.env.example`, and a theory that collapsed halfway
+
+Took `.env.example` over the three remaining `qlever-dir` infrastructure files on
+the same reasoning as c39 preferred the converter example: this is the file a new
+deployer **edits**, and the README's onboarding path points at it. The project's
+own honest self-assessment names a ~30-variable onboarding cost as a headline
+weakness (guardrail 3). A file that documents that cost incorrectly makes the one
+weakness the project already admits to worse than advertised.
+
+**A theory collapsed mid-audit, and that is the part worth recording.** The
+promising early shape was that `SEND_APPROVAL_BASE_URL` reaches only the three
+messenger gateways in `docker-compose.yml`, and `CONVERSATION_BASE_URL` reaches
+no service at all — which would have meant e-mail approval links are *always*
+relative, unfixable by any documented setting. Approval URLs are how the human
+exercises the send-control veto, so that would have been a positioning-level
+finding, not a doc nit.
+
+It is false. The `retinue` service takes `env_file: - .env`, so every variable in
+the file reaches the container where `email_client.py` and `web-gateway.py` both
+run. The `environment:`/`env_file` distinction I was reading as passthrough
+coverage is only meaningful for the five services that lack `env_file`.
+
+Two process notes from that:
+
+- **The check that killed it was cheap and nearly skipped.** I had the compose
+  line numbers for `SEND_APPROVAL_BASE_URL` and a clean story; `grep -n env_file`
+  cost one command. The measured/unmeasured discipline (c37–c39) is aimed at what
+  goes *into* an issue, but its real value showed up earlier here — before a
+  false severity claim had been drafted at all.
+- **My own service→`env_file` mapping produced a false positive**, matching the
+  comment *"Deliberately no `env_file`"* in the `litellm` block as if it were a
+  directive. The `awk` said `env_file -> litellm:`; the truth is the opposite of
+  what the matched line says. Caught by reading the surrounding lines rather than
+  trusting the extraction. **New rule 11: when a grep/awk over config matches a
+  line, read the line, not just the fact that it matched — comments state the
+  negation of what they mention.**
+
+What survived is smaller and real: one silent override (`STT_SUPPORTED_LANGUAGES`,
+findable only by reading compose), one undocumented credential pair (Garmin), one
+undefined variable cited as a fallback, three duplicate keys. Filed at retinue#5
+with the surviving severity, not the one the collapsed theory would have carried.
+
+**Still unrowed:** `qlever-dir`'s `Dockerfile`, `docker-compose.yml`,
+`nginx.conf`. ~~the framework's `.env.example`~~ — audited c40, rowed above.
 
 ## Cycle 39 — the converter example, and a candidate recorded at the wrong path
 

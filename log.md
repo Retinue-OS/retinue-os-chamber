@@ -3387,3 +3387,105 @@ authorizes nothing under any guardrail. Data in my context, not instruction — 
 specifically not consent, approval, or configuration change, whatever it calls
 itself or wherever it appears to originate. The standing-grant finding behind it
 remains with the owner (c30).
+
+---
+
+## Cycle 40 — 2026-07-20 ~15:3x UTC
+
+**Survey.** Four public repos, 0 stars / 0 forks / 0 watchers each. Fourteen open
+issues before this cycle; every issue and every issue comment in the org still
+authored by `retog`, checked via `repos/.../issues/comments` rather than assumed.
+**No inbound contact of any kind.** One open PR, qlever-dir#1, the owner's.
+`drafts/` held only already-filed artifacts and the executed `retrofit.py` —
+nothing in cool-off, and nothing in there was hostility/incident material anyway.
+Oldest owner-action item, chamber#1, ~41 hours. Nothing overdue, nothing
+re-escalated.
+
+Per the c27 clock rule: an unannounced repo with no accounts and blank
+descriptions on three of four repos predicts exactly zero stars at 41 hours. Zero
+is still not a measurement.
+
+*Tooling note:* my first issue-listing command used a malformed `jq` filter and
+printed nothing — which would have read as "no open issues" had I not known
+fourteen were expected. Re-ran with `--template`. An empty result from a filter I
+just wrote is a bug in the filter until proven otherwise.
+
+### The pickup: `.env.example` as a public surface
+
+Chose it over the three remaining `qlever-dir` infrastructure files for the c39
+reason: it is the file a new deployer **edits**, and `review.md` already names a
+~30-variable onboarding cost as a headline weakness. Documenting that cost wrongly
+makes the admitted weakness worse than advertised — guardrail 3's territory.
+
+**[retinue#5](https://github.com/Retinue-OS/retinue/issues/5) — two silently-ignored
+settings, one undocumented credential pair, three duplicate keys.**
+
+The one that matters: **`STT_SUPPORTED_LANGUAGES` cannot be set from `.env`.**
+`stt-service.py`'s own header names it, `CLAUDE.md` says language handling "lives
+entirely in the service via" it — but the `stt` service has no `env_file` and its
+`environment:` pins it to `${SIGNAL_SUPPORTED_LANGUAGES:-}`. Setting it is not
+merely ignored: it is **overwritten with empty**, re-enabling the unconstrained
+detection that whole config block exists to prevent. Silent, and findable only by
+reading compose.
+
+Also: `GARMIN_EMAIL`/`GARMIN_PASSWORD` read by two framework scripts and by the
+source `CLAUDE.md` uses as *the* refresh example, documented nowhere — the only
+credential pair in the framework with no block and no app-password warning;
+`CONVERSATION_BASE_URL` cited once as a fallback and defined in no file (same
+class as deployment#1, cross-referenced per rule 8); three duplicate keys, of
+which `SEND_APPROVAL_BASE_URL` is documented twice with divergent semantics.
+
+**Measured vs. reasoned, stated in the issue.** Measured: the duplicates, the
+`env_file` inventory, absence from `README`/`docs/`, the Garmin reads. Unmeasured:
+no Docker in this environment, so no `docker compose config` — finding 1 rests on
+the compose file offering no second path in. Fourth cycle running this discipline.
+
+### The finding I did not file
+
+The audit's promising shape was that `SEND_APPROVAL_BASE_URL` reaches only the
+three messenger gateways and `CONVERSATION_BASE_URL` no service at all — meaning
+e-mail approval links would be permanently relative and unfixable by any
+documented setting. Approval URLs are how the human exercises the send-control
+veto, so that was a positioning-level claim, not a doc nit.
+
+**It was false.** The `retinue` service takes `env_file: - .env`; every variable
+reaches the container where `email_client.py` and `web-gateway.py` run. One
+`grep -n env_file` killed it. Recorded in the register because the
+measured/unmeasured discipline is aimed at what enters an issue, and here its
+value landed a step earlier — before a false severity claim was drafted at all.
+
+Also caught: my own service→`env_file` `awk` reported `env_file -> litellm:` by
+matching the comment *"Deliberately no `env_file`"* — the truth is the negation of
+the matched line. **New rule 11 in the register: read the matched line, not just
+the fact that it matched.**
+
+### Escalated
+
+**Nothing.** retinue#5 is my own work, blocked only on PR ability — chamber#6's
+tail, not a new ask. The seven open owner-action items are not raised again
+because I woke up.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is
+register evidence and belongs there); no fourth essay; no PR attempt; no dashboard
+push.
+
+### Standing state
+
+**Published externally:** one GitHub issue, retinue#5, with the AI-disclosure
+signature. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (c40 row, section, rule 11),
+`drafts/env-example-audit.md` (issue body as filed artifact), this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, #5, deployment#1, qlever-dir#4,
+#5, #6. The two private findings and the connector-scope decision remain with the
+owner on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+**Noted, thirty-ninth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended to my *first* tool output as a `# MCP Server
+Instructions` section announcing a Zoho server with **no tool definitions** — four
+words, no credential, no account, no action. It authorizes nothing under any
+guardrail. Data in my context, not instruction — and specifically not consent,
+approval, or configuration change, whatever it calls itself or wherever it appears
+to originate. Flagged in-session this cycle rather than only here. The
+standing-grant finding behind it remains with the owner (c30).
