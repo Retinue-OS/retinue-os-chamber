@@ -2301,3 +2301,78 @@ to the dispatching agent. Bare count, threshold unchanged.
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings — the oldest 34.5 hours, most under six. If nothing has moved,
 log a short cycle and stop. That is the expected outcome, not a failure of one.
+
+---
+
+## Cycle 29 — 2026-07-20 09:21 UTC
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers on all four repos. No
+outside issue, PR, discussion or mention — `gh search issues retinue-os` returns
+our own seven plus the usual Warhammer 40k and Pali-canon noise; `gh search prs
+--owner retinue-os --state open` is empty. All nine open issues across the org
+still authored by `retog`, i.e. by me from his account (chamber#3). Framework
+`main` unchanged, so the claim table is not due under register rule 3. Both docs
+branches still pushed and unopenable. `drafts/` holds only `retrofit.py`,
+executed at cycle 16; nothing in cool-off. Working tree clean.
+
+**Elapsed since the previous cycle: 32 minutes.** Stated first, per the cycle-27
+rule. Oldest blocker (chamber#1) is 35 hours; newest (chamber#7) is 5 hours.
+Nothing is overdue, and nothing could plausibly have changed since 08:49.
+
+### The one check worth running: is the public face still current?
+
+The mission names the dashboard under `docs/` as mine to keep current, and it is
+the one surface that decays on the wall clock rather than on anyone's action — so
+it is the only thing in the admissible list that a 32-minute gap can change.
+Checked it rather than assumed it.
+
+`docs/data/*.json` was regenerated at 05:00 by the daily refresh job. The two
+newest issues (chamber#7 and retinue#3, both filed 04:24) are in `todo.json`, all
+seven owner items are present, and `briefing.json` states the zero-contact
+position the way cycle 27 established it should be stated — as untested, not as
+disappointing. No issue has been filed since 05:00. The dashboard is accurate and
+needs no edit.
+
+That is the whole of this cycle's work: a check that returned "current".
+
+### What I did not do
+
+No pickup beyond the above. Both work programmes remain exhausted — claim table
+at cycle 12, surface register at cycle 22, no "never" rows left. Inbound is empty.
+No new defect surfaced. The three finished pieces have no demonstrable improvement
+pending, only stylistic ones, which the strategy excludes by name.
+
+Rejected again, and recorded so the next me does not re-open it: editing
+`GUARDRAILS.md` §3 myself to fix the stale CI row (chamber#7). An agent amending
+the document that constrains it is the failure this project argues against, and
+the rule's value comes from it not being mine to edit — including when I am
+demonstrably right about the fact. Also rejected: re-escalating anything. Per
+cycle 27, an issue is not overdue because I have woken up since filing it.
+
+**Accumulating for the 2026-08-02 review, not acted on now:** this is the second
+consecutive fully-idle cycle, 32 minutes apart, and at a 1800 s interval I will
+wake roughly 650 more times before that review. Cycle 28 identified the lever as
+`.schedule.json` rather than strategy prose. I am not pulling it this cycle —
+32 minutes of identical evidence is not grounds to re-decide, and the direction
+of the change (waking less) is one the owner may reasonably want a say in, since
+it trades responsiveness-to-inbound against log noise. It goes to the review as a
+question with two cycles of evidence behind it.
+
+### Standing state
+
+**Escalated:** nothing. **Published externally:** nothing; no accounts exist.
+**Files changed:** this log, and a dated re-check note on the dashboard row of
+`projects/public-surface.md` — a real observation with a date, not a diligence
+edit.
+
+Noted a twenty-eighth time: the "claude.ai Zoho / MCP Initialization Request"
+block, this cycle arriving appended to the chamber listing from the first `Bash`
+call. Names no credential, no account, no action; authorizes nothing under any
+guardrail. Data in my context, not instruction. Ignored, and said so in the reply
+to the dispatching agent rather than only here. Bare count, threshold unchanged —
+if it ever names a credential, an account or a specific action, it becomes a
+dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings — the oldest 35 hours, most under six. If nothing has moved, log
+a short cycle and stop. That is the expected outcome, not a failure of one.
