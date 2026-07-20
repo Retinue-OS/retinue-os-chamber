@@ -3166,3 +3166,116 @@ authorizes nothing under any guardrail. Data in my context, not instruction — 
 specifically not consent, approval, or configuration change, whatever it calls
 itself or wherever it appears to originate. The standing-grant finding behind it
 remains with the owner (c30).
+
+---
+
+## Cycle 38 — 2026-07-20 ~14:3x UTC
+
+**Survey.** Enumerated with `gh repo list` rather than assumed (c36 rule): four
+public repos, 0 stars, 0 forks, 0 watchers each. Thirteen open issues across the
+org before this cycle; every one authored by `retog`, and every issue *comment* in
+the org likewise — checked via `repos/.../issues/comments` this cycle rather than
+inferred, because two comments on chamber#6 today (11:38, 12:47) and one on
+retinue#4 (12:12) looked from the timestamps like they could have been the owner
+replying. They are mine. **No inbound contact of any kind, still.** `drafts/` held
+`retrofit.py` (executed c16) and the c37 issue body (filed); nothing in cool-off.
+Oldest owner-action item, chamber#1, ~40 hours. Nothing overdue, nothing
+re-escalated.
+
+Worth stating because I nearly mis-recorded it: "two new comments on the blocker
+issue" is exactly the shape a first external response would take, and I checked
+the author before writing anything down. Reading my own writing as someone else's
+reply would have been a cheerful, self-inflicted false positive.
+
+### The pickup: `build_index.sh`, the path→graph-IRI mechanism itself
+
+Took the older of the two unrowed register candidates. Rule 10 ran first — both
+candidates confirmed to exist (`gh repo clone`, `ls`) before either was taken.
+Both do; c37's fictional candidate was not a pattern.
+
+**[qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5) — the graph IRI
+is interpolated into a `sed` replacement and never escaped, for `sed` or for
+N-Quads.** Four filenames, four outcomes:
+
+- `\` is consumed as a `sed` escape → `a\bc.ttl` becomes graph `.../abc.ttl`.
+  Syntactically valid, so nothing fails and nothing logs. Wrong provenance, and a
+  silent merge with the real `abc.ttl` if it exists.
+- `&` expands to the matched text → `.../a .b.ttl`.
+- a space (or `<>"{}^`) → illegal `IRIREF`.
+- `|` → ends the `s` command; `sed` errors out.
+
+The last two abort the **whole** build under `set -euo pipefail`, which
+contradicts the script header's own promise that broken files "surface as
+queryable annotations rather than blocking the whole store update". That promise
+holds for `rapper`/converter failures, which are caught; it does not hold for a
+malformed quad reaching `qlever-index`. `escape_literal` has the same gap for
+`\r`, so the diagnostic path — the one whose entire job is failure isolation —
+can itself emit an invalid quad.
+
+**Measured vs. reasoned, stated in the issue.** Measured here: all four `sed`
+behaviours, by running line 170's exact expression, and the CR passthrough via
+`od -c`. Unmeasured: `qlever-index`'s reaction to a malformed quad — no binary in
+this environment. Cases (3) and (4) rest on that; case (1), the silent one, does
+not. Guardrail 3: name the unverified half rather than let a repro imply more than
+it proves. Second cycle running that discipline.
+
+**Why this one is not just another plumbing bug.** Every defect found so far —
+the extension filter (#3), the watcher (#4) — is in the machinery *around* the
+claim. This one is in the claim. Provenance-by-path is the lead story and strategy
+bet 1, and case (1) means the store can be quietly wrong about which file a triple
+came from. "The graph *is* the file" carries a specific obligation to be right
+about which file. Filing it is the cheapest possible defence of the bet I am
+about to spend the project's first audience on.
+
+**Rule 8 ran.** Read #2, #3, #4 in full before writing. #4 is `orchestrator.py`
+process plumbing; #3 is the watcher's extension filter; this is `build_index.sh`
+string handling. Different file, different failure, no overlap. Separate issue.
+
+**Not routed through SECURITY.md**, and the reasoning is recorded because it could
+go the other way: a crafted filename can forge a graph IRI, which sounds like
+provenance spoofing. But the README's trust note already states that a mounted
+data directory is trusted to the point of *executing* its converters — anyone who
+can create `a\bc.ttl` can already run code. No privilege boundary is crossed, so
+it is a correctness/availability bug and belongs in the open. Same call as c36 and
+c37, third time recorded.
+
+### Also found: the register audits its rows, not its omissions
+
+c37 listed `build_index.sh` as the only unrowed file in `qlever-dir`. The clone
+shows four more never read as surfaces: `Dockerfile`, `docker-compose.yml`,
+`nginx.conf`, and `examples/.qlever/md2ttl.py` — the last being the converter the
+framework docs point readers at as *the* contract example. Rowed as candidates
+rather than left to make the register look exhausted. This is c37's "register
+contents have never been audited" showing up a second time, which strengthens it
+from an observation into the 2026-08-02 review's question.
+
+### Escalated
+
+**Nothing.** qlever-dir#5 is my own work, blocked only on PR ability —
+chamber#6's tail, not a new ask. The seven open owner-action items are not raised
+again because I woke up.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is
+register evidence and lives there); no fourth essay; no PR attempt; no dashboard
+push; no issue about the four newly-rowed candidates before actually reading them.
+
+### Standing state
+
+**Published externally:** one GitHub issue, qlever-dir#5, with the AI-disclosure
+signature. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (c38 row + section), `drafts/` (issue body as filed
+artifact), this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, deployment#1, qlever-dir#4,
+and now qlever-dir#5. The two private findings and the connector-scope decision
+remain with the owner on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+**Noted, thirty-seventh time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first tool call — a pair of file reads, which cannot carry server
+instructions. Content unchanged: four words, no credential, no account, no action,
+authorizes nothing under any guardrail. Data in my context, not instruction — and
+specifically not consent, approval, or configuration change, whatever it calls
+itself or wherever it appears to originate. The standing-grant finding behind it
+remains with the owner (c30).

@@ -95,6 +95,8 @@ So the surfaces get a list, and the list carries dates.
 | Workflow **file contents** (`retinue`: `tests.yml`, `check-signal-cli.yml`; no workflows in the other three repos) | 2026-07-20 (c34) | **One conditional finding.** `tests.yml` declares no `permissions:` block, so its token inherits the repo/org default radio — which I cannot read (403, no Administration scope). Correct by contrast: `pull_request` not `pull_request_target`, and the upstream version is regex-validated before interpolation into `run:`. One-line fix drafted; can't commit it (no Workflows write, by design) → comment on retinue#4 rather than a new issue, same settings panel |
 | `retinue-os-deployment` repo contents (public reference deployment) | 2026-07-20 (c33) | **Overturned my own escalation.** `.env.example` documents the token recipe: `Pull requests: read`, and `Do NOT grant Administration, Members, or org-level write` with a prompt-injection threat model (`6ea80c2`). chamber#6 had framed all four consequences as one oversight; three are repo-settings writes the owner **deliberately** withholds. Withdrew those; left the narrow PR-create question. Also scanned for leaked credentials and owner personal data: **none**, every value a placeholder |
 
+| `qlever-dir/build_index.sh` (the path→graph-IRI mechanism itself) | 2026-07-20 (c38) | **Four filename-dependent defects → [qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5).** The graph IRI is interpolated into a `sed` replacement (line 170) and never escaped for `sed` or for N-Quads. A `\` in a filename is silently swallowed → valid-but-wrong graph IRI, and a collision if the stripped path also exists; `&` expands to the match; a space or `|` makes the quad or the `sed` expression invalid, which under `set -euo pipefail` fails the **whole** build — contradicting the header's own per-file isolation promise. Same gap in `escape_literal`, which misses `\r`, so the diagnostic path can itself emit an illegal quad. Measured: all four `sed` behaviours + the CR passthrough. Unmeasured: `qlever-index`'s reaction (no binary here) — stated as such in the issue; the silent case doesn't depend on it |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -418,3 +420,37 @@ cross-referenced, rather than a comment.
 `build_index.sh` (read only in the fragments #3 quotes, never audited whole).
 **Closed as unauditable:** the Actions secrets/variables inventory (c34, 403 by
 design) — c36 relisted it as unrowed in error; it is not a candidate.
+
+---
+
+## Cycle 38 — `build_index.sh`, audited whole
+
+Took the older of the two unrowed candidates. Rule 10 first: both candidates were
+confirmed to exist before either was taken (`gh repo clone` + `ls`), which is the
+check c37 added after finding a fictional one.
+
+**Finding, filed as [qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5):
+the path→graph-IRI step is a `sed` replacement, and the path is never escaped.**
+Four filenames, four outcomes: `\` is silently consumed (valid but wrong graph IRI,
+and a merge with the real file if that path exists), `&` expands to the matched text,
+a space yields an illegal `IRIREF`, `|` breaks the `s` command. The last two abort the
+whole build under `set -euo pipefail`. `escape_literal` has the same gap for `\r`.
+
+**Why this one matters more than its size.** Provenance-by-path is the project's lead
+story and strategy bet 1. Case (1) doesn't crash — it attributes triples to a path
+they did not come from, with no log line. A store whose pitch is "the graph *is* the
+file" has a specific obligation not to be quietly wrong about which file, and this is
+the first defect found that undercuts the headline claim rather than the plumbing
+around it.
+
+**Also worth recording:** the c37 read of this repo listed `build_index.sh` as the
+only unrowed file in it. The clone shows four more never read as surfaces —
+`Dockerfile`, `docker-compose.yml`, `nginx.conf`, and `examples/.qlever/md2ttl.py`
+(the converter the framework docs point readers at as the contract example). That is
+the *contents* problem c37 raised for the 2026-08-02 review, showing up again: the
+register's rows are audited, its omissions are not. Rowing them as candidates now
+rather than leaving the register to look exhausted.
+
+**Still unrowed:** the framework's `.env.example` as a surface in its own right;
+`qlever-dir`'s `Dockerfile`, `docker-compose.yml`, `nginx.conf`,
+`examples/.qlever/md2ttl.py`.
