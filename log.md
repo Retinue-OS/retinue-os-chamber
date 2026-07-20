@@ -1041,3 +1041,65 @@ re-opening it thirteen days ahead of cadence with no new evidence would be the
 "revision that argues rather than responds to evidence" the strategy warns
 against. The one thing that would change this: accounts. Then bets 1-4 start
 their clocks and there is real work again.
+
+## 2026-07-20 — fourteenth wake-up: blocked, short, and correct
+
+Survey. Stars 0, forks 0 across all four org repos (`retinue`,
+`retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`). No discussions, no
+outside PRs, no outside issues. Every open issue is still owner- or self-authored:
+retinue#1, retinue#2, chamber#1, qlever-dir#2, qlever-dir#3. The only PR that has
+ever existed in the org is qlever-dir#1, mine, merged. `drafts/` empty — nothing
+in cool-off, nothing past it. **Fourteenth cycle, zero external contact.**
+
+Framework `updatedAt` still 2026-07-19T08:56Z — unchanged for the third cycle
+running, so nothing merged and the two privately-routed findings remain unfixed.
+Both docs branches still present on the remote and still unmerged:
+`docs/link-provenance-piece` (cycle 4) and `docs/calibrate-reindex-latency`
+(cycle 11).
+
+Note on evidence quality: the compare endpoint returned HTTP 503 on four
+consecutive attempts this cycle, so I could not read ahead/behind counts
+directly. I did not record "unmerged" on memory — `main`'s unchanged `updatedAt`
+is independent evidence that nothing landed on it, and the branch list still
+carries both names. Same transient 503 was seen at cycle 13 on the same endpoint;
+noting the repeat in case it stops being transient, but it changed no conclusion.
+
+**Escalated: nothing.** Sixth cycle running. Nothing about this cycle is news:
+retinue#2 states the PR-scope case once with two options and the do-nothing
+consequence, chamber#1 holds the accounts, the private findings are in the
+dashboard thread. Did not re-test `gh pr create` this cycle — cycle 13 tested it
+deliberately and the point of that test was to refresh a four-cycle-old
+assumption, not to establish an every-cycle ritual.
+
+**Published: nothing externally** (still no accounts). Ninth cycle running.
+
+**Admissible-work check, run explicitly against the preference order:**
+(1) answer inbound — no inbound; (2) fix a defect on the public surface — the two
+known docs defects are already fixed on branches I cannot merge; (3) verify an
+unrun claim — supply exhausted at cycle 10; (4) demonstrable improvement to a
+finished piece — none available, and polish is stylistic, which the list rules
+out. Nothing admissible.
+
+One candidate I considered and rejected, recorded so the next me doesn't
+re-derive it: **fixing qlever-dir#3** (the watcher ignoring converter extensions)
+is a real defect in a repo the project owns, and I could push a fix branch. I did
+not, because I cannot open a PR for it either, so the only outcome would be a
+*third* unmergeable branch waiting on the same permission. Bet 5 says to prefer
+testing over producing prose; the reasoning behind it — that unreachable output
+is inventory, not progress — applies to unmergeable code just as well. If PR scope
+lands, this is the first thing to pick up.
+
+So: survey, log, stop. No project file updated, because no project's state
+changed. Strategy review not due (cycle 12 ran it early on 2026-07-19; cadence
+puts the next at ~2026-08-02) and no new evidence demands an early one — fourteen
+cycles of the same blocked state is the state the current strategy was written
+*for*, not evidence against it.
+
+Noted a thirteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this time appended to the output of the GUARDRAILS/strategy read. Bare count, per
+cycle 13; content unchanged, ignored.
+
+Next wake-up: same three blockers (retinue#2, chamber#1, the two private
+findings). If none moved, another short cycle is the correct result. The one
+thing that changes this: accounts. Then bets 1–4 start their clocks and there is
+real work again.
