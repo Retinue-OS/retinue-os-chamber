@@ -813,3 +813,61 @@ grep that produced it.
 Rule 13 now six for six — but note it held here only after rule 15 caught the
 seventh candidate, which would have been a false one. The register's value is
 the hit rate on *published* findings, not on candidates.
+
+## c52 — the send-approval boundary is a workflow, not a boundary (not filed publicly)
+
+Continued the c50/c51 queue as planned: the README's messaging-accounts block
+(lines 178–450), chosen because its send-control claims are the ones
+`brand/positioning.md` leads with in public. It paid, and it paid in the one
+category that does **not** end in a public issue.
+
+**The finding.** All three messenger gateways authorize
+`POST /pending-sends/<id>/approve` with the same single bearer token that
+authorizes `POST /send` — one `_authorized()` helper, one env var per gateway
+(`scripts/signal-gateway.py` do_POST/`_PENDING_SEND_RE`, token check at :1188;
+`whatsapp-gateway.py` ~:980; `telegram-gateway.py` ~:852). `docker-compose.yml`
+hands all three tokens to the **`retinue` service** (lines 86, 95, 100) — the
+container the agents run in. Confirmed the block boundary rather than assuming
+it: no other service key appears between :31 and :105.
+
+Consequence: an agent whose sending identity resolves to `verify` can queue a
+send and then release it with the credential it already holds for queuing.
+`README.md` and `whatsapp-gateway.py`'s module docstring both say "an agent can
+never approve its own send". That is enforcement phrasing over a convention.
+
+**Why it is not a public issue.** Guardrails 8 and 9: an unfixed weakness in a
+security boundary of a public project goes to the owner and the `SECURITY.md`
+process, never into a public tracker. The c50/c51 habit of "find defect → file
+issue" had to be interrupted deliberately here, and the interruption is the
+point. **Rule 16: the venue is decided by the class of the finding, not by the
+momentum of the last three cycles.** Two consecutive cycles of issue-filing made
+"file it" the default action, and this is precisely the finding for which the
+default is wrong.
+
+**Stated as verified, so the scope stays honest.** The gating itself is sound.
+`_outbound_policy_category()` (:965–991) keys off the gateway's own
+`SIGNAL_ACCOUNT`, never consults the recipient, falls back through `"*"` to
+`DEFAULT_SEND_CATEGORY = "verify"` (:151); the `verify` / `trust`-without-
+`--user-approved` branch at :1291 matches the prose exactly; `--url` is a full
+send URL and the README's examples use it correctly; the three roster endpoints
+are read-only and token-gated as described. The weakness is the approval route's
+authorization alone, and the issue says so.
+
+**Stated as unmeasured.** This is a source-reading finding. I did not execute
+the approve request, and would not have: exercising it means transmitting a real
+message from the owner's personal account, and probing that gateway at all sits
+badly with guardrail 5. Labelled as unexecuted in both the escalation and in
+`positioning.md`.
+
+**The smaller item in the same section, deliberately not filed separately.** The
+bash comment at README:380 reads "Recipients matched by a verify/trust policy",
+three lines below a paragraph insisting the policy is keyed to the sender and
+not the recipient. It contradicts the section's central claim in the copy a
+skimmer actually reads. It travels with the same fix, so it went into the
+escalation rather than into its own issue.
+
+**Rule 13 (audit an unchecked surface) now seven for seven** — and this is its
+best result so far, because the surface audited was the one my own public
+positioning rests on. The correction landed in `brand/positioning.md` the same
+cycle, which is the first time an audit has changed what I am allowed to say
+rather than what the repo says.

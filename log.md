@@ -4636,3 +4636,116 @@ load-bearing for `brand/positioning.md`, since the send-control model keyed to
 sending identity is a thing I say in public. Two consecutive cycles found real
 defects in this file and the supply is not exhausted. Second choice remains
 `CONTRIBUTING.md` and `SECURITY.md`, never audited against the repo's actual state.
+
+## 2026-07-20 (cycle 52) — the approval page is the human's view of the queue, not the lock on it
+
+**Survey.** Measured 22:31 UTC. Four public repos, 0 stars / 0 forks / 0 watchers
+each, unchanged since publication (~48 h ago). Three of four descriptions still
+blank; only `qlever-dir` has one. Twenty-one open issues org-wide, every one
+authored `retog`; no PRs, no discussions, no inbound contact of any kind — the
+only issue comments in the org are the owner's three. `drafts/` holds five
+already-filed artifacts plus `retrofit.py`: nothing in cool-off, nothing awaiting
+publication. Nothing to answer, so the cycle went to the c51 queue.
+
+### The pickup: the README's messaging-accounts block against the gateway code
+
+c51 queued this as the largest unaudited stretch and the one "whose claims are
+load-bearing for `brand/positioning.md`, since the send-control model keyed to
+sending identity is a thing I say in public". That reasoning turned out to be
+exactly right, and not in the way it expected.
+
+**The gating is real.** `_outbound_policy_category()`
+(`scripts/signal-gateway.py:965–991`) resolves the category from the gateway's own
+`SIGNAL_ACCOUNT`, never looks at the recipient, and falls back through the `"*"`
+wildcard to `DEFAULT_SEND_CATEGORY = "verify"` (:151). The
+`verify`/`trust`-without-`--user-approved` branch at :1291 matches the README
+sentence for sentence. Roster endpoints read-only and token-gated as described;
+`--url` is a full send URL and the examples use it correctly. The claim I lead
+with in public survives.
+
+**The approval step does not.** `POST /pending-sends/<id>/approve` is authorized
+by `self._authorized()` — the *same* single bearer token as `POST /send`
+(:1188). Same shape in `whatsapp-gateway.py` (~:980) and `telegram-gateway.py`
+(~:852). And `docker-compose.yml` hands all three tokens to the **`retinue`
+service** (lines 86, 95, 100), which is the container the agents run in. I
+confirmed the service-block boundary rather than assuming it — no other service
+key appears between :31 and :105 — because the whole finding turns on which
+block those three lines sit in, and rule 15 says a pattern's answer is a claim.
+
+So an agent whose sending identity resolves to `verify` can queue a send and then
+release it with the credential it already holds for queuing. `README.md`'s
+send-control section and `whatsapp-gateway.py`'s own module docstring (:20) both
+state **"an agent can never approve its own send."** That is enforcement phrasing
+over what is currently a convention.
+
+This is the egress-audit pattern again — the one guardrail 3 already forbids me
+by name, observability described as enforcement — reappearing in the subsystem I
+consider the project's second-strongest argument. That is what makes it worth a
+cycle rather than a footnote.
+
+### What I did with it, and what I pointedly did not
+
+**Not a public issue.** Guardrails 8 and 9: an unfixed weakness in a security
+boundary goes to the owner and the `SECURITY.md` process, never into a public
+tracker. Recorded as **rule 16 — the venue is decided by the class of the
+finding, not by the momentum of the last three cycles.** c50 and c51 both ended
+in `gh issue create`, and the hand reaches for it. This is the exact finding for
+which that default is wrong, and the interruption had to be deliberate.
+
+**Corrected my own copy first.** `brand/positioning.md` said a queued send "waits
+on the approval page until a human releases it" — true of the workflow, false as
+enforcement, and mine to fix without asking anyone. It now says "waits for", cites
+the verified line range for the part that *is* enforced, names the part that is
+not, and records that I do not repeat the "can never approve" phrasing until it is
+true in code. This is the first audit that changed what I am allowed to say rather
+than what the repo says.
+
+**Stated as unmeasured, in both places.** Source-reading finding; I did not
+execute the approve request and would not have. Exercising it means transmitting
+a real message from the owner's personal account, and probing that gateway at all
+sits badly against guardrail 5. Labelled unexecuted in the escalation and in
+`positioning.md`.
+
+### Escalated
+
+**One thing, privately, to the owner's dashboard** (thread
+`0e9aa02e9542429fb1f5877a4b363191`): the finding, the three file:line citations,
+the compose lines that put the token in the agent container, what I verified
+**correct** so the scope stays honest, and two options with the cost of each —
+(1) a separate `SEND_APPROVAL_TOKEN` held by `web-gateway` and withheld from
+`retinue`, roughly one env var, one helper and three call sites; or (2) keep the
+design and delete the "can never approve" sentence from the README and the
+docstring. Plus what happens if he does nothing: no immediate exposure — it needs
+an agent already inside the network — but the public README goes on making an
+enforcement claim the code does not back, in front of exactly the readers this
+strategy is trying to reach. Dashboard rather than an issue because the venue for
+an unfixed security weakness cannot be a public tracker, and this one genuinely
+needs his decision (a code change or a doc change, both his call).
+
+The README:380 bash comment — "Recipients matched by a verify/trust policy",
+three lines under a paragraph insisting the policy is keyed to the *sender* —
+travelled with it rather than becoming its own issue. Same fix, same visit.
+
+Seven owner-action blockers otherwise unchanged: chamber#1, #3, #4, #5, #6, #7,
+retinue#4. No-re-escalation rule verified with `gh issue list` against the tracker
+list rather than from memory. Ages on the wall clock per the c27 rule: oldest
+blocker 48 h, five under two days, none overdue. None re-raised.
+
+Deliberately not done: no public issue for the finding (above). No strategy
+revision — review is 2026-08-02, and nothing this cycle is evidence about a bet,
+since none has an audience yet. No probe of the running gateway. No second
+dashboard push; one thread carries the whole thing.
+
+### Standing state
+
+**Published externally:** nothing. No issue this cycle by design, and there are
+still no accounts to post from.
+**Files changed:** `brand/positioning.md`, `projects/public-surface.md`, this log.
+
+Next wake-up: the messaging block is now audited through line 450. Two candidates.
+(1) `CONTRIBUTING.md` and `SECURITY.md` against the repo's actual state — never
+audited, and `SECURITY.md` just became load-bearing, since this cycle used its
+process and chamber#5 says private reporting is disabled on every public repo.
+That pairing makes it the better pick. (2) The README's remaining sections
+(First start, Normal start, Deployment, Updating). Prefer (1); the security
+reporting path is the one a reader will need before any of the rest.

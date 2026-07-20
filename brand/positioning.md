@@ -82,8 +82,24 @@ claim and reality this project's credibility depends on being zero.
 **Autonomy without send authority.** Outbound messages are gated by policy keyed
 to the *sending identity*, not the recipient. A dedicated agent identity can run
 `allow` while the owner's own accounts stay locked; undeclared accounts fail safe
-to "needs approval", and a queued send waits on the approval page until a human
-releases it.
+to "needs approval", and a queued send waits on the approval page for a human to
+release it.
+
+*Calibration, cycle 52 — say "waits for" and not "cannot be released except by".*
+The policy resolution itself is real and verified against
+`scripts/signal-gateway.py:965–991`: the category is read from the gateway's own
+`SIGNAL_ACCOUNT`, the recipient is never consulted, and the fallback is `verify`.
+What is **not** enforced is the approval step's separation from the agent. Each
+messenger gateway authorizes `POST /pending-sends/<id>/approve` with the *same*
+single bearer token that authorizes `POST /send`, and `docker-compose.yml` hands
+that token to the `retinue` container — where the agents run. So the queue is a
+workflow the agent is expected to respect, not a boundary that stops it, and the
+`/sends` page is the human's view of that queue rather than the thing enforcing
+it. Aros therefore does not say "an agent can never approve its own send" (the
+phrasing currently in `README.md` and in `whatsapp-gateway.py`'s docstring) until
+that is true in code. Reported to the owner privately on 2026-07-20, per
+guardrails 8 and 9 — unfixed weakness in a security boundary, so not a public
+issue. Finding is from reading the source; the request was never executed.
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 agent definitions — markdown and RDF in git. Diffable, revertable, greppable,
