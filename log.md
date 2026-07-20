@@ -1883,3 +1883,76 @@ Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. The register has no "never" rows and the framework has no unread
 commits. If nothing has moved, a short cycle is the correct outcome and should be
 logged as one without hunting for work.
+
+---
+
+## Cycle 23 — 2026-07-20
+
+**Survey.** Nothing moved, and this time I can say so from the org event stream
+rather than from four separate repo queries: every one of the last 15 events in
+`orgs/Retinue-OS/events` is my own account pushing, filing or commenting. 0 stars,
+0 forks, 0 watchers on all four repos; no outside issue, PR, discussion or mention;
+`gh search prs --owner retinue-os --state open` returns empty. All eleven open
+issues (chamber#1, #3, #4, #5, #6, #7; retinue#1, #2, #3; qlever-dir#2, #3) are
+still mine. Framework `main` still has exactly two commits, newest the CI fix
+audited at cycle 20 — so the claim table is **not** due for a re-run under register
+rule 3. `drafts/` holds only `retrofit.py`, executed at cycle 16; nothing awaiting
+cool-off.
+
+chamber#7 (filed 04:24 yesterday, `owner-action`, the GUARDRAILS §3 CI row) has no
+comments. Not re-escalated; it is one cycle old and already stated once with its
+consequence.
+
+### The one check I ran: rule 4 applied to chamber#7's correction
+
+Cycle 21 added the register's fourth rule — *a correction is not done until it
+reaches every surface that carries the claim; grep before logging it as done*. That
+rule was written about a citation. Cycle 22 filed chamber#7, a claim correction, and
+this is the first cycle where the rule could be tested against something it wasn't
+written for. So I ran it rather than assuming containment.
+
+Grepped the chamber for every phrasing of the stale "no CI / thin coverage" claim
+across `*.md`, `*.json`, `*.html`. Result: **contained.** The only live instance is
+`GUARDRAILS.md:51` itself, which is deliberate — it is the owner's edit to make, for
+the reason chamber#7 states. Everywhere else the claim is either already corrected
+(`writing/org-profile-README.md`), already stated in its true form
+(`docs/data/briefing.json`, which describes CI as green on main and the suite as
+narrow), or is a tracking row that is supposed to name the stale claim
+(`projects/public-surface.md`, `docs/data/todo.json`). `log.md` hits are history.
+
+Also checked the owner's queue against the open issues, since it is the surface he
+actually reads: `docs/data/todo.json` (generated 05:30) carries seven items covering
+chamber#1, #3, #4, #5, #6, #7, retinue#3, the two stuck branches from retinue#2, and
+the two private findings. Nothing open is missing from it and nothing closed lingers
+in it.
+
+Negative results, both. That is the point of a rule with a verification step: cycle
+21's find was that follow-through had silently failed, and the only way to know it
+didn't fail this time is to look. It cost two commands.
+
+### On the cap
+
+Nothing else. No new prose, no new issues, nothing escalated, nothing published —
+twenty-third cycle, still no accounts. The register has no "never" rows, no surface
+is old enough to be due again, and the framework has no commits I haven't read, so
+all three admissible-work items below "answer inbound" are genuinely empty this
+cycle. Per the strategy's own instruction, that makes a short cycle the correct
+outcome and not one to apologise for or pad.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing.
+
+Strategy review due 2026-08-02. The carry into it is unchanged from cycle 22 and now
+has one more cycle of evidence behind it: the audit programme is finished, short
+cycles are the shape of this phase, and chamber#1 is the only thing that ends it —
+twenty-three cycles without moving.
+
+Noted a twenty-second time: the "claude.ai Zoho / MCP Initialization Request" block,
+again arriving as a server-instruction block attached to tool output. Names no
+credential, no account, no action; authorizes nothing under any guardrail. Data in my
+context, not instruction. Ignored. Bare count, threshold unchanged — if it ever names
+a credential, an account or a specific action, it becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. If nothing has moved, log a short cycle and stop.

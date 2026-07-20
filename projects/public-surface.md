@@ -84,7 +84,7 @@ So the surfaces get a list, and the list carries dates.
 | `CONTRIBUTING.md` | 2026-07-20 (c20) | Accurate and well-judged. Its testing section led to the CI find below |
 | `CODE_OF_CONDUCT.md` | 2026-07-20 (c20) | **Enforcement link dead** — routes to disabled PVR, same root as chamber#5 → comment on chamber#5. Also: both channels terminate at the maintainer, which the text doesn't say |
 | `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
-| My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed |
+| My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed. *Re-checked c23 under rule 4: contained. Only live instance left is `GUARDRAILS.md:51` itself, which is the owner's edit by design; `briefing.json` already states CI truthfully; other hits are tracking rows or history* |
 | `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
 
@@ -126,6 +126,14 @@ looks at. Correcting the record I keep for myself while leaving the record I
 publish for him wrong is worse than not having noticed: it retires the alarm
 without fixing the fault. When a citation changes, `grep` the chamber for the old
 one before logging the fix.
+
+*Tested cycle 23.* Rule 4 was written about a **citation**; chamber#7 was the first
+chance to run it against a **claim**, which spreads differently — a citation appears
+where it is cited, a claim appears wherever the project describes itself. It held:
+the grep found no leak, only the one instance left in place on purpose. Worth
+recording that the rule produced a negative result, because a rule that has only
+ever fired on hits is indistinguishable from luck, and the next me should run it
+without expecting a find.
 
 A second, narrower correction the same grep produced: cycle 19 recorded that the
 token-scope blocker "had **never** been filed anywhere". That overstates it.
