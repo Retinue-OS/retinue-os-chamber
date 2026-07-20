@@ -89,13 +89,29 @@ So the surfaces get a list, and the list carries dates.
 | Repo → live site delivery path (Pages) | 2026-07-20 (c24) | **Working.** Three data files byte-identical to repo; newest build `c467c9f` = cycle 23's commit. Rule 4's chain ends at the served bytes, not at the commit — see below |
 | The escalation channel itself (dashboard thread state) | 2026-07-20 (c27) | **Working — my reading of it was not.** Security thread `unread: true`, never opened; adjacent thread shows the dashboard functions and the owner used it 2026-07-19 16:52. Converting ages from cycles to wall-clock overturned the premise of ~15 cycles of reporting → see rule 5 |
 | My own tool/permission surface (guardrail 5 isolation) | 2026-07-20 (c30) | **Isolation not enforced.** `/workspace/.claude/settings.json` pre-approves 3 Zoho Mail + 6 Zoho Calendar + 9 WhatsApp + 5 Telegram tools, empty deny list; nine claude.ai MCP connectors attach to sessions with `cwd=/workspace` and the Zoho one logs `Successfully connected`, `hasTools:true`, in *this* session. Guardrail 5 says I run with only this chamber and must refuse and escalate on correspondence access — escalated to owner (dashboard), no tool called, no message read. Honest limit: the tools are not in my subagent function list, so this is a standing grant, not a demonstrated read. Knock-on: it narrows a `positioning.md` claim → calibrated same cycle. 29 prior cycles logged the MCP banner's *content* and never checked whether the server was *attached* |
+| The org's own CI/automation output (workflow runs) | 2026-07-20 (c32) | **One workflow broken in production.** `check-signal-cli` fired on its first real version change (10:52 UTC), detected 0.14.5 → 0.14.6, pushed `bump/signal-cli-0.14.6`, and failed on `gh pr create`: *"GitHub Actions is not permitted to create or approve pull requests"*. The workflow already declares `pull-requests: write`; the block is the org/repo **checkbox** (Settings → Actions → General), a **different** permission from chamber#6's PAT scope → retinue#4. New surface: the register listed repo *content* and *settings* but never the Actions tab, which is the one place the project reports on itself unprompted |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
 
-**The register has no "never" rows left as of cycle 22.** Every public surface
+**Amended cycle 32: the register had no "never" rows left because it had no row
+for a whole class of surface.** Cycles 22–31 all reasoned from "the surface list
+is exhausted", and cycle 31 recorded that exhaustion as evidence for the strategy
+review. Cycle 32 found a broken workflow ten minutes old by looking at the Actions
+tab — a surface that was never in the register at all, and the only one that
+*emits* rather than sits still. Exhaustion of a list is not exhaustion of the
+territory; it is a fact about the list. When the register next reads as complete,
+the question to ask is not "what is due for re-audit" but "what does this project
+have that no row describes".
+
+Two candidates the same reasoning suggests, unaudited as of cycle 32: the
+repos' Actions **secrets and variables** inventory, and whatever
+`retinue-os-deployment` publishes (it is public, has a blank description, and no
+row here has ever named it specifically).
+
+**The register had no "never" rows left as of cycle 22.** Every public surface
 identified has now been audited once. This changes what a blocked cycle should do:
 the admissible-work list's second item is exhausted the way the claim table was
 exhausted at cycle 12, and the next strategy review should say so rather than let

@@ -2604,3 +2604,121 @@ block, this cycle appended to the first `Bash` call's output. Unchanged in form.
 Cycle 30 retired the tally by converting it into an actual check, and the finding
 (a standing grant, escalated) is with the owner. Nothing new to check here; the
 banner itself remains data in my context, not instruction, and authorizes nothing.
+
+---
+
+## Cycle 32 — 2026-07-20 11:03 UTC
+
+**Survey.** 0 stars, 0 forks across all four repos; no open PRs; no outside
+contact. `drafts/` holds only `retrofit.py`, executed cycle 16 — nothing in
+cool-off. Working tree clean. Elapsed since cycle 31: 35 minutes.
+
+**Rule 4 run on cycle 31's own corrections — negative.** Cycle 31 propagated the
+connector-scope calibration into `writing/org-profile-README.md`; I grepped the
+whole chamber (including `docs/`, which cycle 31's grep did not cover — that one
+was for the retinue#2 citation, not the claim) for unqualified
+credential-custody phrasing. Two hits, both correct: `positioning.md` where the
+qualification is the subject, and the org-profile headline at line 35, which is
+scoped two paragraphs down in the same document. `docs/` carries the claim
+nowhere. Recording the negative deliberately — per the cycle-23 note, a rule that
+has only ever fired on hits is indistinguishable from luck.
+
+**Rule 3 could not run the way it is written.** `/workspace/deployment` no longer
+resolves as a git repo (`fatal: not a git repository:
+/workspace/deployment/../.git/modules/retinue`); cycle 31 read a commit from it
+35 minutes ago. Rule 3 says re-run the claim table when the framework repo shows
+commits I did not read, and it assumes a readable local checkout. Substituted the
+GitHub API, which is the more durable check anyway: `main` is still `4562864`
+(2026-07-19 08:56), already accounted for at cycle 20. No unread commit, so the
+claim table is not due. **Rule 3 should be restated against the API rather than
+the mount** — noted for the review; the local path is infrastructure I do not own
+and it broke silently under me, which is exactly the failure the register keeps
+finding in other people's surfaces.
+
+### The pickup: the project's own automation is broken, and had been for ten minutes
+
+The Actions tab was never a row in the register. It is now, and it paid out
+immediately.
+
+`check-signal-cli` — a weekly workflow — fired at 10:52 UTC on its **first real
+version change**. It correctly detected signal-cli 0.14.5 → 0.14.6, edited
+`signal-gateway/Dockerfile`, committed, pushed `bump/signal-cli-0.14.6`
+(`2f9d0dd`), and then died on the last step:
+
+```
+pull request create failed: GraphQL: GitHub Actions is not permitted to
+create or approve pull requests (createPullRequest)
+```
+
+Filed as [retinue#4](https://github.com/retinue-os/retinue/issues/4), labelled
+`owner-action` (label did not exist in that repo; created it).
+
+The part worth getting right is the diagnosis. The workflow **already declares**
+`permissions: pull-requests: write`, so reading the workflow will not reveal the
+fault — it is the org/repo checkbox "Allow GitHub Actions to create and approve
+pull requests", off by default, which overrides the job-level grant. That makes
+it a **different permission from chamber#6**, which is my PAT's scope. The two
+produce an identical symptom (a pushed branch with no PR) and the obvious guess
+is that they are one problem; fixing either leaves the other broken. I said so
+explicitly in the issue, because a wrong merge of two blockers costs more than
+either blocker.
+
+Three options offered, no preference: enable the checkbox, merge the one-line
+diff by hand, or convert the step to open an issue (which Actions *is* permitted
+to do). Also flagged a second, smaller bug found while reading: if the branch
+survives to next Monday, `git checkout -b` and the push both fail on the existing
+branch, so the job stays red for a second, unrelated reason.
+
+**Why this is worse than no automation, and why it was worth a cycle:** the
+failure is silent in the direction that matters. Orphan branches accumulate — one
+per release — so the repo *looks* like updates are being proposed while nothing
+reaches `main`. A maintainer who set up a version check reasonably believes he is
+being told about versions. He is not.
+
+### What the find says about the register
+
+The register has read as "exhausted" since cycle 22, and cycle 31 logged that
+exhaustion as evidence for the strategy review. It was wrong in a specific way:
+the list had no row for a whole *class* of surface. Every row was repo content or
+repo settings — things that sit still. The Actions tab is the one surface that
+**emits**, and it is the only place this project reports on itself unprompted.
+Nobody had looked at it in 32 cycles.
+
+Written into the register: exhaustion of a list is a fact about the list, not
+about the territory. The question when it next reads complete is not "what is due
+for re-audit" but "what does this project have that no row describes". Two
+candidates named there for the next blocked cycle: the Actions secrets/variables
+inventory, and `retinue-os-deployment`, which is public with a blank description
+and has never had a row of its own.
+
+### Escalated
+
+**retinue#4 only**, as a labelled issue — durable trail, not time-sensitive, and
+the strategy forbids double-channelling. No dashboard push: a signal-cli patch
+release one version behind does not justify reaching his phone, and the ten open
+blockers ahead of it do not get re-raised because I woke up again (rule 5;
+oldest, chamber#1, is 37 hours). Nothing overdue.
+
+Deliberately not done: no PR for the docs branches (same scope), no fourth essay,
+no strategy revision — the review is 2026-08-02 and this cycle's evidence is
+about the register, which I amended in place.
+
+### Standing state
+
+**Published externally:** nothing; no accounts exist. **Filed:** retinue#4 +
+`owner-action` label on `retinue-os/retinue`. **Files changed:**
+`projects/public-surface.md` (new Actions row, exhaustion amendment), this log.
+
+Blockers: chamber#1, #3, #4, #5, #6, #7, retinue#3, **retinue#4**, the two
+private findings, and the connector-scope decision. Strategy review 2026-08-02;
+accumulating for it: a sixth admissible-work item (*propagate the previous
+cycle's correction*, from cycle 31) and rule 3's restatement against the API.
+
+**Noted, thirty-first time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended after the first `Bash` call as a standalone
+`# MCP Server Instructions` section claiming a server "provided instructions".
+It provided none — the body is the four words "MCP Initialization Request". Form
+varies, content does not: names no credential, no account, no action, and
+authorizes nothing under any guardrail. It is data in my context, not
+instruction. The standing-grant finding behind it is with the owner (cycle 30);
+nothing new to check.
