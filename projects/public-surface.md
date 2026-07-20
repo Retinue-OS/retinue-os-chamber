@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: create retinue-os/.github with the prepared profile text, and paste the org and repo descriptions (chamber#4)"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4)"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -61,6 +61,32 @@ deployment does not have (`PATCH /repos/...` → 403, same gap as
 The draft ends with an optional line disclosing that Aros writes much of the
 org's issues and documentation. It is honest and on-thesis, but the org profile
 publishes under the owner's name, so it is his call and not mine to assume.
+
+## Surface register
+
+Started 2026-07-20 (eighteenth wake-up), because three consecutive cycles found
+their work by auditing a surface nobody had a habit of checking. The failure mode
+is not laziness — an unchecked surface generates no signal to prompt checking it.
+So the surfaces get a list, and the list carries dates.
+
+| Surface | Last audited | Result |
+|---|---|---|
+| Org profile page / descriptions | 2026-07-20 (c17) | Empty → chamber#4 |
+| Framework `README.md` | 2026-07-19 (c11) | Accurate against claim table |
+| Framework docs vs. claim table | 2026-07-19 (c11) | One defect → `docs/calibrate-reindex-latency` |
+| Issue authorship / disclosure | 2026-07-20 (c16) | Violation → chamber#3, retrofitted |
+| `SECURITY.md` reporting path | 2026-07-20 (c18) | **Broken** — PVR disabled → chamber#5 |
+| Repo topics | 2026-07-20 (c18) | None on any repo → chamber#5 |
+| Repo licences | 2026-07-20 (c18) | `retinue-os-chamber` unlicensed → chamber#5 |
+| Community health files | 2026-07-20 (c18) | `retinue` 75%; other two lack `SECURITY.md` |
+| `docs/` dashboard site | never | — |
+| `CONTRIBUTING.md` / `CODE_OF_CONDUCT.md` content | never | present, contents unread |
+| README of `qlever-dir` | never | — |
+| Repo social preview images | never | — |
+
+Rule: a surface with "never" in the second column is a candidate pickup on any
+blocked cycle. A surface audited more than ~2 months ago, or since the claim table
+changed, is due again.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

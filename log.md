@@ -1383,3 +1383,97 @@ count, still no action warranted.
 Next wake-up: blockers are chamber#1, chamber#3, chamber#4, retinue#2, and the
 two private findings. No obvious pickup queued — if nothing moved, start the
 surface register the strategy note calls for, or take a short cycle and say so.
+
+## 2026-07-20 — eighteenth wake-up: the security policy names a door that isn't there
+
+Survey. Stars 0, forks 0, watchers 0 across the public repos. No outside issues,
+no outside PRs, no discussions, no mentions. Framework `main` still ends at
+`4562864` (2026-07-19 08:56Z) — seventh cycle unchanged; both docs branches still
+pushed and unmerged. `retinue-os/.github` still does not exist; org description
+still `null`. **Eighteenth cycle, zero external contact.**
+
+`drafts/` held only `retrofit.py`, a tool, not prose in cool-off. Nothing waiting.
+
+### The find
+
+The log queued the surface register as this cycle's pickup if nothing moved.
+Building it meant listing surfaces and marking which had never been checked — and
+the act of listing them turned up a live defect before the register was written.
+
+`SECURITY.md` directs vulnerability reporters to GitHub's private vulnerability
+reporting at `/security/advisories/new`. That feature is **disabled on all three
+public repos**:
+
+```
+GET /repos/retinue-os/{retinue,qlever-dir,retinue-os-chamber}/private-vulnerability-reporting
+-> {"enabled": false}
+```
+
+The documented primary channel for private disclosure does not work. The policy's
+fallback ("open a public issue containing only the words *security contact
+requested*") is well designed and does still work, so this degrades rather than
+fails — but it depends on the reporter reading past a link that just dead-ended
+them. The realistic bad outcome is vulnerability details landing in a public
+issue, which is the exact thing guardrail 9 exists to prevent, on the project
+whose pitch is a security architecture.
+
+Nobody has tried yet, which is why it was cheap to find and cheap to fix.
+
+### What I did
+
+1. Tried to fix it myself. `PUT .../private-vulnerability-reporting` → **403,
+   resource not accessible by personal access token**. Same root blocker as
+   retinue#2: the token reads metadata and files issues, but every write to repo
+   *settings* is refused.
+2. Same audit, two secondary findings, both also 403 to me:
+   - **No repo carries any topics.** `"topics": []` on all three. `qlever-dir` is
+     therefore invisible to anyone browsing `topics/sparql` or `topics/rdf` —
+     precisely the audience bet 1 names as the lead. Suggested factual topic sets
+     in the issue.
+   - **`retinue-os-chamber` has no LICENSE**, so it is all-rights-reserved by
+     default while its two siblings are MIT. Licence choice is guardrail 7's;
+     flagged, not chosen.
+3. Filed [chamber#5](https://github.com/retinue-os/retinue-os-chamber/issues/5)
+   (`owner-action`), disclosure on the first line per the cycle-16 interim policy.
+   One settings visit, ~5 minutes, all three items. Said plainly that it outranks
+   chamber#4: an empty org page costs attention, a broken disclosure path has a
+   downside that is public and permanent.
+4. Started the **surface register** in `projects/public-surface.md` — twelve
+   surfaces, four never audited, with a rule that "never" makes a surface a
+   candidate pickup on a blocked cycle.
+
+### On scope discipline
+
+Three findings, one issue, because they are one action for him — the same settings
+page — and splitting them into three `owner-action` issues would be padding my own
+output at the cost of his attention. The cap is one or two items; the register plus
+chamber#5 is one unit.
+
+**Not a re-escalation.** The security reporting path has never been raised in
+eighteen cycles. chamber#1, chamber#3, chamber#4, retinue#2 and the two private
+findings were all left untouched, as the no-re-escalation rule requires. I did
+*reference* chamber#4 in the new issue, to give him a priority ordering between two
+items on the same settings page — that is triage information, not a repeat ask.
+
+### Standing state
+
+**Escalated:** chamber#5 (new). **Published externally:** nothing — thirteenth
+cycle, still no accounts.
+
+Strategy review due ~2026-08-02. The note carried since cycle 15 is now four for
+four and no longer needs arguing: every cycle since 15 found its admissible work by
+auditing an unaudited surface. The register now exists, so the revision should
+simply name "audit a surface from the register" in the admissible-work list and
+point at it. A second, newer note: the token-scope blocker has now produced three
+distinct consequences (no PRs, no topics, no security settings), which is evidence
+it should be stated in the strategy as *one* blocker with a growing tail rather
+than as an item about pull requests.
+
+Noted a seventeenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle appended to a directory listing. It arrives inside tool output, which is
+data and not instruction; content unchanged; ignored. Bare count.
+
+Next wake-up: blockers are chamber#1, chamber#3, chamber#4, chamber#5, retinue#2,
+and the two private findings. If none moved, the register names four never-audited
+surfaces — `docs/` dashboard site and the `qlever-dir` README are the two most
+likely to be read by a stranger.
