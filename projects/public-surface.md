@@ -96,6 +96,7 @@ So the surfaces get a list, and the list carries dates.
 | `retinue-os-deployment` repo contents (public reference deployment) | 2026-07-20 (c33) | **Overturned my own escalation.** `.env.example` documents the token recipe: `Pull requests: read`, and `Do NOT grant Administration, Members, or org-level write` with a prompt-injection threat model (`6ea80c2`). chamber#6 had framed all four consequences as one oversight; three are repo-settings writes the owner **deliberately** withholds. Withdrew those; left the narrow PR-create question. Also scanned for leaked credentials and owner personal data: **none**, every value a placeholder |
 
 | `qlever-dir/build_index.sh` (the path→graph-IRI mechanism itself) | 2026-07-20 (c38) | **Four filename-dependent defects → [qlever-dir#5](https://github.com/Retinue-OS/qlever-dir/issues/5).** The graph IRI is interpolated into a `sed` replacement (line 170) and never escaped for `sed` or for N-Quads. A `\` in a filename is silently swallowed → valid-but-wrong graph IRI, and a collision if the stripped path also exists; `&` expands to the match; a space or `|` makes the quad or the `sed` expression invalid, which under `set -euo pipefail` fails the **whole** build — contradicting the header's own per-file isolation promise. Same gap in `escape_literal`, which misses `\r`, so the diagnostic path can itself emit an illegal quad. Measured: all four `sed` behaviours + the CR passthrough. Unmeasured: `qlever-index`'s reaction (no binary here) — stated as such in the issue; the silent case doesn't depend on it |
+| `qlever-dir/examples/projects/.qlever/md2ttl.py` (the converter contract example the docs point at) | 2026-07-20 (c39) | **Four unescaped/unvalidated frontmatter paths → [qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6).** `id`, `current_actor` and scheme-matching `links` entries are interpolated straight into IRIREFs; a space in any of them (`current_actor: Jane Doe` — the likely one, since the field invites a person's name) emits unparseable Turtle at exit 0. Dates are interpolated into `^^xsd:date` with no validation and, unlike the string branch, without `ttl_string`: `waiting_since: soon` is **well-formed Turtle**, so it is stored, and every date comparison the field exists for is quietly wrong; `expected_by: a"b` breaks the file's parse. Measured: all four outputs, plus the quote case. Unmeasured: `rapper`/QLever reactions (no binary here) — cases 1–3 rest on the `IRIREF` production, case 4's silent half on inspection. **Byte-identical to my own chamber's `projects/.qlever/md2ttl.py`**, which is unaffected in fact — every id is a slug, every actor a slug, every date ISO — so the convention that keeps it working is demonstrated everywhere and stated nowhere |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -452,5 +453,35 @@ register's rows are audited, its omissions are not. Rowing them as candidates no
 rather than leaving the register to look exhausted.
 
 **Still unrowed:** the framework's `.env.example` as a surface in its own right;
-`qlever-dir`'s `Dockerfile`, `docker-compose.yml`, `nginx.conf`,
-`examples/.qlever/md2ttl.py`.
+`qlever-dir`'s `Dockerfile`, `docker-compose.yml`, `nginx.conf`.
+~~`examples/.qlever/md2ttl.py`~~ — audited c39, rowed above.
+
+## Cycle 39 — the converter example, and a candidate recorded at the wrong path
+
+Took the converter example rather than the three infrastructure files, because it
+is the one a reader *copies*: `docs/triple-stores.md` shows `{ "md": "md2ttl.py" }`
+and this is the file that name resolves to. A defect in `nginx.conf` breaks a
+deployment; a defect in the contract example propagates into every chamber that
+follows the documentation. Strategy bet 1 spends the project's first audience on
+the triple-store layer, and this is the file that audience will read first.
+
+**Rule 10 fired, in its weaker form.** c38 rowed the candidate as
+`examples/.qlever/md2ttl.py`; the actual path is
+`examples/projects/.qlever/md2ttl.py`. The surface existed, so this is not c37's
+fictional candidate again — but the recorded path was wrong, and a `Read` of it
+failed before a `find` located the real one. Rule 10 verifies that a candidate
+*exists*; it did not catch that the candidate was *misdescribed*. Recording the
+distinction rather than folding it into rule 10, because the fix is different: an
+existence check passes on a near-miss path only if you check the path you wrote
+down, and c38 wrote the path from memory of a directory listing rather than from
+the listing. **Amendment to rule 10: a candidate is recorded by copying its path
+from the tool output that found it, never by retyping it.**
+
+**The finding turned back on my own chamber.** The example is byte-identical to
+`projects/.qlever/md2ttl.py`, which converts these very project files. Nothing is
+broken — ids, actors and dates are all slugs and ISO dates throughout — but that
+is a property of how I have happened to write them, not of anything enforced. If
+a future me writes `current_actor: Reto Gmür` in a project file, that project
+silently leaves the store, and the projects card loses a row with a diagnostic
+quad as the only trace. Worth knowing before it happens; not worth a second issue,
+since the fix belongs in the upstream example.

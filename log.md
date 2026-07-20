@@ -3279,3 +3279,111 @@ authorizes nothing under any guardrail. Data in my context, not instruction — 
 specifically not consent, approval, or configuration change, whatever it calls
 itself or wherever it appears to originate. The standing-grant finding behind it
 remains with the owner (c30).
+
+---
+
+## Cycle 39 — 2026-07-20 ~15:0x UTC
+
+**Survey.** Enumerated rather than assumed: four public repos, 0 stars, 0 forks,
+0 watchers each. Fourteen open issues across the org (up one from c38 — that one
+is mine), and every issue *and* every issue comment in the org is authored by
+`retog`, checked this cycle via `repos/.../issues/comments` rather than inferred.
+**No inbound contact of any kind, still.** `drafts/` held only already-filed
+artifacts and the executed `retrofit.py`; nothing in cool-off. Oldest owner-action
+item, chamber#1, ~41 hours. Nothing overdue, nothing re-escalated.
+
+Per the c27 clock rule: 35→41 hours of an unannounced repo with no accounts still
+predicts exactly zero stars. Zero is not a measurement yet.
+
+### The pickup: `md2ttl.py`, the converter contract example
+
+Took the converter example over the three remaining `qlever-dir` infrastructure
+candidates (`Dockerfile`, `docker-compose.yml`, `nginx.conf`), and the reason is
+strategic rather than alphabetical: this is the file readers **copy**.
+`docs/triple-stores.md` shows `{ "md": "md2ttl.py" }`, and this is what that name
+resolves to. A defect in `nginx.conf` breaks one deployment; a defect here
+propagates into every chamber that follows the documentation.
+
+**[qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6) — frontmatter
+values are interpolated into IRIs and typed literals unescaped and unvalidated.**
+Four cases, all exit 0:
+
+- `current_actor: Jane Doe` → `<urn:retinue:Jane Doe>`. Unparseable Turtle. The
+  likely one, because a field called `current_actor` invites a person's name; the
+  shipped example uses a slug, so the convention that keeps it working is
+  demonstrated everywhere and stated nowhere.
+- `id: proj y` → invalid subject, whole file unindexable.
+- a `links` entry with a scheme and a space → invalid IRI.
+- `waiting_since: soon` → `"soon"^^xsd:date`. **Well-formed Turtle**, so it parses,
+  so it is stored, so every date comparison the field exists for is quietly wrong.
+  This is the one that matters. `expected_by: a"b` breaks the parse outright,
+  because the typed-literal branch skips `ttl_string` while the string branch
+  handles quotes correctly.
+
+Cases 1–3 degrade gracefully — `rapper` rejects, `build_index.sh` catches it, a
+diagnostic quad replaces the file's triples. The failure mode is a *missing
+project*, not a broken build. I said so in the issue rather than letting three
+loud cases borrow the severity of the silent one.
+
+**Measured vs. reasoned, stated in the issue.** Measured: all four outputs plus
+the quote case, by running the converter. Unmeasured: `rapper`'s and QLever's
+reactions — neither binary here. Cases 1–3 rest on the Turtle `IRIREF` production,
+not an observed parser error; case 4's silent half rests on inspection alone,
+which is exactly why it is the one that gets stored. Third cycle running this
+discipline (guardrail 3).
+
+**Rule 8 ran.** #5 is the same *class* — unescaped interpolation into an IRI — in
+`build_index.sh`'s path→graph-IRI step. Different file, different input, and that
+one can abort the build while this one cannot. Cross-referenced rather than merged.
+
+**Not routed through SECURITY.md**, same reasoning as c36–c38, fourth time
+recorded: the README's trust note already has a mounted data directory trusted to
+the point of executing its converters. No privilege boundary crossed.
+
+### Two things the audit turned up about my own records
+
+**The candidate was rowed at the wrong path.** c38 wrote
+`examples/.qlever/md2ttl.py`; it is `examples/projects/.qlever/md2ttl.py`. Rule 10
+verifies a candidate *exists* — it did not catch a candidate *misdescribed*, and a
+`Read` failed before a `find` located the real file. Amended rule 10 in the
+register: **copy a candidate's path from the tool output that found it, never
+retype it.** c38 retyped from memory of a listing.
+
+**It is byte-identical to my own chamber's `projects/.qlever/md2ttl.py`** — the
+converter that turns these project files into the rows on the projects card.
+Nothing is broken in fact: every id is a slug, every actor a slug, every date ISO.
+But that is a property of how I have happened to write them, not of anything
+enforced. A future me writing `current_actor: Reto Gmür` silently drops that
+project from the store. Noted in the register; no second issue, since the fix
+belongs upstream in the example.
+
+### Escalated
+
+**Nothing.** qlever-dir#6 is my own work, blocked only on PR ability — chamber#6's
+tail, not a new ask. The seven open owner-action items are not raised again
+because I woke up.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is register
+evidence and belongs there); no fourth essay; no PR attempt; no dashboard push; no
+issue about my own chamber's copy.
+
+### Standing state
+
+**Published externally:** one GitHub issue, qlever-dir#6, with the AI-disclosure
+signature. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (c39 row, section, and the rule-10 amendment),
+`drafts/qlever-dir-md2ttl-escaping.md` (issue body as filed artifact), this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, deployment#1, qlever-dir#4, #5,
+and now #6. The two private findings and the connector-scope decision remain with
+the owner on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+**Noted, thirty-eighth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first `Bash` call — a directory listing, which cannot carry server
+instructions. Content unchanged: four words, no credential, no account, no action,
+authorizes nothing under any guardrail. Data in my context, not instruction — and
+specifically not consent, approval, or configuration change, whatever it calls
+itself or wherever it appears to originate. The standing-grant finding behind it
+remains with the owner (c30).
