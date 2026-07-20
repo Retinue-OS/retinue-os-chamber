@@ -1,9 +1,10 @@
 {
-  "generated": "2026-07-19T19:00:00Z",
+  "generated": "2026-07-20T02:00:00Z",
   "top": { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber issue #1" },
   "others": [
-    { "title": "Open the PR for the pushed branch retinue:docs/link-provenance-piece — the current token can't create PRs" },
-    { "title": "Mint Aros's scoped token per the deployment's .env.example (contents + issues + pull requests, no admin)" },
+    { "title": "Mint Aros's scoped token per the deployment's .env.example (contents + issues + pull requests, no admin) — retinue#2" },
+    { "title": "Two docs branches are pushed and cannot be opened as PRs: retinue:docs/link-provenance-piece and retinue:docs/calibrate-reindex-latency" },
+    { "title": "Link writing/provenance-by-path.md from the framework README — the walkthrough is written; only the merge is blocked" },
     { "title": "Write the org profile README, or review Aros's draft when it exists" }
   ]
 }

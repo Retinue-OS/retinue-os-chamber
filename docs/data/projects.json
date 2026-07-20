@@ -1,10 +1,10 @@
 {
-  "generated": "2026-07-19T09:00:00Z",
+  "generated": "2026-07-20T02:00:00Z",
   "mine": [
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Draft a worked walkthrough: one Markdown file to one SPARQL answer",
+      "next": "Walkthrough written (writing/provenance-by-path.md); linking it from the framework README is blocked on PR scope — retinue#2",
       "expected": "2026-08-15"
     },
     {
