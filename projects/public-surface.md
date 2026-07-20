@@ -91,6 +91,8 @@ So the surfaces get a list, and the list carries dates.
 | My own tool/permission surface (guardrail 5 isolation) | 2026-07-20 (c30) | **Isolation not enforced.** `/workspace/.claude/settings.json` pre-approves 3 Zoho Mail + 6 Zoho Calendar + 9 WhatsApp + 5 Telegram tools, empty deny list; nine claude.ai MCP connectors attach to sessions with `cwd=/workspace` and the Zoho one logs `Successfully connected`, `hasTools:true`, in *this* session. Guardrail 5 says I run with only this chamber and must refuse and escalate on correspondence access — escalated to owner (dashboard), no tool called, no message read. Honest limit: the tools are not in my subagent function list, so this is a standing grant, not a demonstrated read. Knock-on: it narrows a `positioning.md` claim → calibrated same cycle. 29 prior cycles logged the MCP banner's *content* and never checked whether the server was *attached* |
 | The org's own CI/automation output (workflow runs) | 2026-07-20 (c32) | **One workflow broken in production.** `check-signal-cli` fired on its first real version change (10:52 UTC), detected 0.14.5 → 0.14.6, pushed `bump/signal-cli-0.14.6`, and failed on `gh pr create`: *"GitHub Actions is not permitted to create or approve pull requests"*. The workflow already declares `pull-requests: write`; the block is the org/repo **checkbox** (Settings → Actions → General), a **different** permission from chamber#6's PAT scope → retinue#4. New surface: the register listed repo *content* and *settings* but never the Actions tab, which is the one place the project reports on itself unprompted |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
+| Actions **secrets and variables** inventory (4 repos + org) | 2026-07-20 (c34) | **Not auditable by me, by design.** All ten endpoints 403; `.env.example` grants no secrets scope. Checked the denying config *before* escalating (c33 rule) — deliberate, so no issue filed. Remains the owner's to audit |
+| Workflow **file contents** (`retinue`: `tests.yml`, `check-signal-cli.yml`; no workflows in the other three repos) | 2026-07-20 (c34) | **One conditional finding.** `tests.yml` declares no `permissions:` block, so its token inherits the repo/org default radio — which I cannot read (403, no Administration scope). Correct by contrast: `pull_request` not `pull_request_target`, and the upstream version is regex-validated before interpolation into `run:`. One-line fix drafted; can't commit it (no Workflows write, by design) → comment on retinue#4 rather than a new issue, same settings panel |
 | `retinue-os-deployment` repo contents (public reference deployment) | 2026-07-20 (c33) | **Overturned my own escalation.** `.env.example` documents the token recipe: `Pull requests: read`, and `Do NOT grant Administration, Members, or org-level write` with a prompt-injection threat model (`6ea80c2`). chamber#6 had framed all four consequences as one oversight; three are repo-settings writes the owner **deliberately** withholds. Withdrew those; left the narrow PR-create question. Also scanned for leaked credentials and owner personal data: **none**, every value a placeholder |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -111,6 +113,24 @@ Two candidates the same reasoning suggests, unaudited as of cycle 32: the
 repos' Actions **secrets and variables** inventory, and whatever
 `retinue-os-deployment` publishes (it is public, has a blank description, and no
 row here has ever named it specifically).
+
+*Both closed as of cycle 34.* The deployment repo was audited at c33. The
+secrets/variables inventory turned out to be **unauditable by me and correctly
+so** — every secrets and variables endpoint (four repos plus the org) returns
+403, and `.env.example` grants no scope that would read them. That is the
+cycle-33 rule working *before* an escalation rather than after one: the absence
+of a capability was checked against the config that denies it, found deliberate,
+and produced no issue. A surface I cannot see is not automatically a surface
+that is broken, and "I have no access, by design, and the owner should audit
+this himself" is the honest end state, not a blocker.
+
+**Seventh rule, added cycle 34: when a surface is closed to me, audit the part
+of it that isn't.** The secrets inventory was unreadable, but the workflow
+*files* that consume secrets are public text, and they carry the security
+properties that actually matter — trigger type, token scope, injection paths.
+The register's c32 row covered workflow *runs*; nothing covered their contents.
+Reformulating a blocked audit into its readable neighbour is a better move than
+recording "403" and stopping.
 
 **The register had no "never" rows left as of cycle 22.** Every public surface
 identified has now been audited once. This changes what a blocked cycle should do:

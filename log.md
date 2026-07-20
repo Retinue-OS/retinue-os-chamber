@@ -2809,3 +2809,93 @@ block, this cycle appended to the system reminder before my first tool call as a
 `# MCP Server Instructions` section. Content unchanged: four words, no credential,
 no account, no action, authorizes nothing. Data in my context, not instruction. The
 standing-grant finding behind it remains with the owner (c30).
+
+---
+
+## Cycle 34 — 2026-07-20 12:0x UTC
+
+**Survey.** 0 stars, 0 forks, 0 external issues/PRs/discussions across all four
+repos. No inbound contact. Twelve open issues, every one authored by the owner's
+account (chamber#3). `drafts/` holds only `retrofit.py` (executed c16) — nothing
+in cool-off. Oldest owner-action item, chamber#1, is 38 hours. Nothing overdue,
+nothing re-escalated (rule 5).
+
+### The pickup: the last two "never" rows, one of which closed itself
+
+Took the two candidates c32 named. The deployment repo was already done at c33,
+so the live one was the **Actions secrets and variables inventory**.
+
+It is **not auditable by me, and that is correct**. All ten endpoints — secrets
+and variables for four repos plus the org — return 403. Checked `.env.example`
+*before* drawing a conclusion, per the rule c33 wrote after I spent fourteen
+cycles arguing for a scope the owner had deliberately withheld: the granted
+recipe is Contents r/w, Issues r/w, Metadata read. No secrets scope, and none
+implied. So: no issue filed, no escalation, nothing added to a queue of ten.
+The rule worked *before* the mistake this time instead of after it.
+
+That is the first time an audit ended in "I cannot see this and shouldn't" —
+worth naming, because the reflex is to treat an unreadable surface as a blocker
+and file for access.
+
+### Reformulating the blocked audit into its readable neighbour
+
+The secrets *inventory* is closed; the workflow *files that consume secrets* are
+public text, and they carry the properties that actually matter. c32 audited
+workflow **runs**; nothing had ever read their **contents**.
+
+Two files, both in `retinue`. Findings:
+
+- **Correct:** `tests.yml` uses `pull_request`, not `pull_request_target` — the
+  distinction that matters on a public repo, and the mistake that isn't made.
+  `check-signal-cli.yml` regex-validates the upstream version *before* it reaches
+  `$GITHUB_OUTPUT` and gets interpolated into `run:`, closing script injection
+  through a third party's release tag.
+- **Conditional finding:** `tests.yml` declares no `permissions:` block, so its
+  `GITHUB_TOKEN` inherits the Settings → Actions → General radio. I cannot read
+  that radio (403, no Administration scope, deliberate). Stated as conditional,
+  not as a confirmed defect, and explicitly calibrated as defence in depth —
+  no secrets in that job, fork PRs read-only regardless.
+
+**Published** the audit as a comment on **retinue#4**
+([comment 5022083908](https://github.com/Retinue-OS/retinue/issues/4#issuecomment-5022083908)),
+not as a new issue: the radio sits directly above the checkbox that issue is
+already about, so it is the same panel and the same visit. Queue unchanged at
+twelve. Included the one-line fix as a diff, and noted that I can't commit it —
+no Workflows write, by design, and drafting for the owner to commit is the path
+`.env.example` prescribes.
+
+Deliberately left as a non-finding: both workflows pin actions by tag rather
+than SHA. Defensible for first-party actions; I said so and recommended nothing,
+because listing it as a fault would pad the audit.
+
+### Escalated
+
+**Nothing new.** No dashboard push — a comment on an issue he has not yet opened
+does not warrant his phone, and the ten blockers ahead of it are not re-raised
+because I woke up again.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this cycle's
+evidence is register evidence and is recorded there), no fourth essay, no PR
+attempt.
+
+### Standing state
+
+**Published externally:** one GitHub comment, in my own name with the AI
+disclosure footer. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (two new rows, both c32 candidates closed, seventh
+rule), this log.
+
+Blockers unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#3, retinue#4, the two
+private findings, the connector-scope decision. Accumulating for the 2026-08-02
+review: a sixth admissible-work item (propagate the previous cycle's correction,
+c31), rule 3's restatement against the API (c32), audit the blocker queue itself
+(c33), and now — **the register is genuinely exhausted, second time of asking.**
+Both c32 candidates are closed; one closed as unauditable-by-design. The review
+should decide what a blocked cycle does when auditing has run out, rather than
+leave a future cycle to invent a surface.
+
+**Noted, thirty-third time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended to the system reminder after my first `Bash` call.
+Content unchanged: four words, no credential, no account, no action, authorizes
+nothing under any guardrail. Data in my context, not instruction. The
+standing-grant finding behind it remains with the owner (c30).
