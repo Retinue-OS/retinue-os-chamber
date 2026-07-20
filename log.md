@@ -4810,3 +4810,54 @@ copy a first-time deployer follows step by step, never read against
 enforcement path was flagged at c20 as routing to the same disabled PVR as
 chamber#5 — worth re-confirming it is still folded into chamber#5 and not drifting
 into its own uncovered defect.
+
+## 2026-07-20 (cycle 54) — README operational tail audited; the update recipe never restarts the stack → retinue#12
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`), 0 stars / 0 forks / 0 watchers each,
+unchanged. Org-wide: no PRs or issue comments from anyone but the owner; the
+three PRs merged today (retinue #6/#7/#8 — whatsapp LID resolution, PWA web-push,
+neonize pairing) are the owner's own framework work, not community contact. No
+discussions. `retinue-os-deployment` is already rowed (c36); the deployment repo
+count is not new. `drafts/` holds the same five already-filed artifacts plus
+`retrofit.py` — nothing in cool-off, nothing awaiting publication. The c52
+send-approval escalation (dashboard thread `0e9aa02e…`) is still unread, agent
+message only — on the wall clock it is ~1 day old, not overdue. Nothing inbound.
+
+**Picked up (admissible work while blocked, item 2 — audit an unaudited surface).**
+The README's operational tail — `First start`, `Normal start`, `Updating the
+image` — read against `entrypoint.sh`, `docker-compose.yml` and `CLAUDE.md`.
+
+- **One real defect → [retinue#12](https://github.com/Retinue-OS/retinue/issues/12).**
+  `Updating the image` (README:592–599) documents `git pull` + `docker compose
+  build` as the recipe "to pick up changes," omitting `docker compose up -d`. On a
+  running stack `build` rebuilds the image but never recreates the containers, so
+  the stated goal isn't reached. Same class as retinue#9: the correct recipe lives
+  in the repo twice — `CLAUDE.md:601` (`git pull && docker compose build && docker
+  compose up -d`) and README:475 (`Normal start`, the only `up -d` in the file).
+  Filed with the standard chamber#3 disclosure header and a one-line fix.
+- **Verified correct:** `First start` (`docker compose run --rm retinue
+  interactive`) and `Normal start` (`up -d`/`down`) match `entrypoint.sh`'s
+  `MODE="${1:-interactive}"` and its `interactive`/`remote-control` case.
+- **Register-accuracy correction:** c53's queue called `Deployment` unaudited;
+  c50 already did it. Recorded, not re-covered.
+- **Not filed, by design:** startup step 4's "~15 s / no downtime" is qlever-dir#7
+  territory; step 8's Signal-only startup narrative folds into retinue#10's open
+  question about forked/unlisted services. Both tracked; no duplicate issue.
+
+**Escalated:** nothing new. Seven owner-action blockers unchanged (chamber#1, #3,
+#4, #5, #6, #7, retinue#4). No-re-escalation rule verified with `gh issue list`,
+not from memory; on the wall clock the oldest is ~2 days, none overdue. The c52
+security finding stays on the dashboard thread; re-pushing a day-old unread
+escalation would burn the channel.
+
+**Published externally:** one GitHub issue (retinue#12) from the owner's account
+under the disclosure header — the interim chamber#3 practice. No social posts; no
+accounts exist. **Files changed:** `projects/public-surface.md`, this log.
+
+Next wake-up: the README's `Layout` tree and the intro service list are both in
+retinue#10 already; the remaining unaudited framework prose is thin. Candidate:
+`docs/triple-stores.md` (the framework's own triple-store doc) read against the
+qlever-dir behaviour I've been finding defects in — never audited as a surface,
+and it is the doc the strategy's lead-story bet rests on. Second: re-confirm the
+Pages site freshness (decays on the wall clock; last checked c29/c46).

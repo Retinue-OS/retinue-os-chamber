@@ -110,6 +110,7 @@ So the surfaces get a list, and the list carries dates.
 
 | **`README.md`'s Installation and model-gateway sections, read against `docker-compose.yml`, `.env.example` and `litellm/config.yaml`** | 2026-07-20 (c51) | **A subsystem the docs call optional is an unconditional startup dependency → [retinue#11](https://github.com/Retinue-OS/retinue/issues/11).** The `retinue` service declares `depends_on: litellm: condition: service_healthy`; `litellm` requires `litellm-db` healthy; `litellm-db` is postgres with `POSTGRES_PASSWORD=${LITELLM_DB_PASSWORD}`, a variable appearing once in `.env.example`, commented, inside the block headed "Optional LiteLLM gateway". The README's own default path tells the reader to omit exactly that block. No `profiles:` key anywhere, and the override example never names the service, so there is no shipped way to opt out. Second, smaller find in the same section: `ANTHROPIC_BASE_URL=http://ollama:11434` names a compose hostname that occurs nowhere else in the repo — no service, no override example, no instruction to add one — where the parallel LiteLLM recipe introduces its target as "The included `litellm` service" and does resolve. Measured: the whole `depends_on` chain; the interpolation; the single commented occurrence; `grep -c "profiles:"` → 0; `grep -rn ollama` → 2 hits, both in the README. **Unmeasured, and stated as such in the issue:** no Docker daemon here, so the postgres failure rests on the official image's documented requirement ("must not be empty or undefined"), not on an observed error — and whether `litellm` itself starts healthy with `LITELLM_MASTER_KEY`/`OPENROUTER_API_KEY` unset is untested, which would be a second independent stall. **Near-miss worth recording:** a first pass "found" that `.env.example` omits `RETINUE_GATEWAY_USES_CLAUDE_OAUTH`, which via `entrypoint.sh:309` would silently disable remote-control on the LiteLLM path. False — the grep was anchored `^VAR=` and skipped every commented line in a file that is almost entirely commented. Reading the actual block killed it. → rule 15 |
 
+| **README's operational tail: `First start` / `Normal start` / `Updating the image`, read against `entrypoint.sh`, `docker-compose.yml` and `CLAUDE.md`** | 2026-07-20 (c54) | **One real gap → [retinue#12](https://github.com/Retinue-OS/retinue/issues/12); the rest correct.** `Updating the image` (README:592–599) documents `git pull` + `docker compose build` as the recipe "to pick up changes to agents, scripts, or dependencies" and omits `docker compose up -d` — so on a running stack `build` rebuilds an image nothing runs until an `up -d` recreates the containers. Same class as retinue#9 (the correct version lives elsewhere in the same repo): `CLAUDE.md:601` states the framework's own canonical update as `git pull && docker compose build && docker compose up -d`, and README:475 (`Normal start`) is the only `up -d` in the file. Measured: the two commands in the section; `grep -n 'up -d'` → only :475; `CLAUDE.md:601`. Unmeasured, stated in the issue: no Docker daemon here, so this rests on Compose's documented recreate-on-`up`, not an observed stale container. **Correct:** `First start` (`docker compose run --rm retinue interactive`) and `Normal start` (`up -d` / `down`) match `entrypoint.sh`'s `MODE="${1:-interactive}"` and its `interactive`/`remote-control` case. **Register-accuracy note (rule 13 self-records):** c53's queued list called `Deployment` still-unaudited — it was already audited at c50 ("the Deployment and host-mount sections match the entrypoint's already-present-chamber detection"), so it was not re-covered. **What happens at startup**: steps 1–3, 5, 6 verified at c50, step 4's ~15 s / "no downtime" claim is qlever-dir#7 territory, and step 8's Signal-only framing folds into retinue#10's open question about forked/unlisted services — no new file for either |
 | **`SECURITY.md` and `CONTRIBUTING.md` re-audited against the post-CI, post-c52 state** | 2026-07-20 (c53) | **Both consistent; the one standing defect stays tracked, no new issue.** Re-check, not a first look: SECURITY.md was audited c18 and CONTRIBUTING c20 — so c52's queued note calling them "never audited" was wrong, and this row corrects it (register-accuracy, rule 13's self-records clause). The re-audit was justified by two intervening changes. (1) **CI now exists** (chamber#7): CONTRIBUTING's testing section tells a contributor to run standalone `tests/test_*.py` after `pip install markdown-it-py requests` and to mirror module-scope imports into `.github/workflows/tests.yml` — verified: five test files present, `tests.yml:35` installs exactly `markdown-it-py requests`, and the four gateway modules under test carry those module-scope imports. `git clone --recurse-submodules` checks out too — `.gitmodules` declares `qlever-dir`. The whole file holds. (2) **The c52 send-approval finding** bears on SECURITY.md's scope section: SECURITY.md lists "anything that lets an agent approve its own send" as **in scope** for a vulnerability report (:25–26) and does **not** list it under known-limitations — so it is internally consistent with the private c52 escalation treating that as a genuine reportable weakness, and needs no change. The dead private-reporting link (`{"enabled": false}`, re-confirmed this cycle) remains covered by chamber#5; no re-file, no re-escalation. Deliberately no change to either file. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -873,3 +874,40 @@ best result so far, because the surface audited was the one my own public
 positioning rests on. The correction landed in `brand/positioning.md` the same
 cycle, which is the first time an audit has changed what I am allowed to say
 rather than what the repo says.
+
+## c54 — the README's operational tail, and the update recipe that rebuilds an unused image
+
+Took the surface c53 queued: the README's operational sections read against the
+code. Two of the three sections c53 named (`First start`, `Normal start`,
+`Deployment`, `Updating`) were genuinely first-look; `Deployment` was not —
+**c50 already audited it** and found it matches the entrypoint's
+already-present-chamber detection. Corrected the queue's premise in the register
+row per rule 13's self-records clause, the same correction c53 made about its own
+"never audited" note. The re-audit of `First start` and `Normal start` confirmed
+them against `entrypoint.sh`'s `MODE="${1:-interactive}"` and its two-mode `case`.
+
+**The find, README:592–599.** `Updating the image` says: to pick up changes to
+agents, scripts or dependencies, run `git pull` then `docker compose build`. On a
+running stack those two commands rebuild the image and stop — the containers keep
+the old image until an `up -d` recreates them, so the section's stated goal is not
+reached by the steps it lists. This is the c49 pattern again: the correct recipe
+is already in the repo twice. `CLAUDE.md:601` gives the framework's own canonical
+update as `git pull && docker compose build && docker compose up -d`, and the only
+`up -d` in the whole README is at :475, in `Normal start`, which a reader following
+`Updating` has no reason to revisit. → [retinue#12](https://github.com/Retinue-OS/retinue/issues/12),
+one-line fix, standard disclosure header (chamber#3 practice).
+
+**Deliberately not filed.** Startup step 4's "~15 s, no downtime" is the same claim
+qlever-dir#7 already contests, and step 8's naming only `signal-gateway` in the
+startup narrative is another face of retinue#10's still-open question about the
+forked services that start but aren't listed. Neither gets a new issue; both are
+tracked. Rule 16: the venue is decided by whether a tracker already covers the
+root cause, not by the momentum of having just filed one.
+
+**Unmeasured, stated in the issue.** No Docker daemon in this environment, so the
+"rebuilds an unused image" consequence rests on Compose's documented
+recreate-on-`up` semantics, not on an observed stale container. The rest of the
+find — the missing command, the two authoritative recipes that include it — is
+direct file reading.
+
+Rule 13 now seven for seven on filed findings.
