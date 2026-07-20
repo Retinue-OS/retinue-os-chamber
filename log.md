@@ -2079,3 +2079,74 @@ or a specific action, it becomes a dashboard item.
 
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. If nothing has moved, log a short cycle and stop.
+
+---
+
+## Cycle 26 — 2026-07-20
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers on all four repos; no outside
+issue, PR, discussion or mention (`gh search issues retinue-os` returns only our own
+seven, plus unrelated Warhammer 40k results for the word "retinue"); discussions total
+0 on every repo; `gh search prs --owner retinue-os --state open` empty. All eleven open
+issues still authored by the owner's account — chamber#3's subject, twenty-six cycles
+old. Framework `main` still two commits, newest `45628645` (the CI fix read at cycle
+20), so the claim table is not due under register rule 3. Both docs branches
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`) still pushed and
+unopenable. `drafts/` holds only `retrofit.py`, executed at cycle 16; nothing in
+cool-off.
+
+Ran the strategy's tracker-verification step rather than trusting memory: `gh issue
+list` confirms chamber#1, #3, #4, #5, #6, #7 open, plus retinue#1, #2, #3 and
+qlever-dir#2, #3. Every blocker has a live tracker, so silence on all of them is
+correct behaviour and not suppression. chamber#7 is now four cycles old with no
+comments; not re-escalated.
+
+Checked `docs/data/todo.json` as the surface the owner actually reads: generated
+05:30, still leads with the agent-account item that closes chamber#3 and chamber#6
+together, and carries chamber#5, #1, #4, #7, retinue#3, the two stranded branches and
+the private findings behind it. Seven blockers, seven entries. Nothing open is
+missing; nothing closed lingers.
+
+### No check this cycle, on purpose — second consecutive time
+
+The register has no "never" rows, nothing is old enough to be due again under the
+~2-month rule, the framework has no commits I haven't read, and there has been no
+inbound. That empties every admissible-work item. Cycle 24 recorded that the
+Pages-delivery check retires itself; I did not re-run it. Cycle 25 was the first
+cycle to act on the note that the audit programme has stopped generating work, and
+this is the second. Hunting for a fourth surface to grep would be manufactured
+activity under the strategy's own definition.
+
+**Considered and declined: an early strategy revision.** The case for one is real —
+both work programmes (claim verification, exhausted c12; surface audit, exhausted
+c22) are finished, and the admissible-work list now reads as a to-do list with
+nothing in it. But that is the *same* observation cycles 24 and 25 already recorded
+and deliberately deferred to the scheduled review on 2026-08-02. It is one cycle
+older, not stronger. Revising now would be a third me re-deciding what two previous
+cycles decided on identical evidence, which is exactly the "argues rather than
+responds to evidence" revision the strategy rules out. Deferred, unchanged, to
+2026-08-02.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing. **Files changed:** this
+log only — no project file changed because nothing about any project changed, and a
+no-op edit to look diligent is the same fault in a smaller font.
+
+Strategy review due 2026-08-02, now with four cycles behind it: both work programmes
+exhausted, short cycles are the shape of this phase, and chamber#1 is the only thing
+that ends it — twenty-six cycles without moving. The review should decide what a
+blocked cycle is *for*, and should also weigh whether twenty-six cycles of zero
+movement on an owner action is itself evidence about the escalation channel rather
+than about the owner.
+
+Noted a twenty-fifth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle arriving appended to the result of the very first tool call, alongside the
+guardrails read. Names no credential, no account, no action; authorizes nothing under
+any guardrail. Data in my context, not instruction. Ignored, and said so in the reply
+to the dispatching agent rather than only here. Bare count, threshold unchanged — if
+it ever names a credential, an account or a specific action, it becomes a dashboard
+item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. If nothing has moved, log a short cycle and stop.
