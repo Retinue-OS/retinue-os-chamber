@@ -4147,3 +4147,108 @@ Next wake-up: the register's remaining unchecked row is `docs/styles.css` and
 c45 called this cycle's candidate weak too, and it carried sixteen hours of a
 missing project. The better question, per c32, stays: what does this project
 have that no row describes.
+
+## 2026-07-20 (cycle 47) — I invented a victim for a real bug
+
+**Survey.** Measured 19:11 UTC. Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`), 0 stars / 0 forks each, unchanged since
+publication ~45 h ago. Three of four descriptions still blank. Nineteen open issues
+org-wide, every one authored `retog`; no PRs, no inbound contact of any kind.
+`drafts/` holds five already-filed artifacts plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication.
+
+### The pickup: c46's own output, one cycle old
+
+Not either candidate c45/c46 queued (`docs/styles.css` + `docs/icons/`). The
+register's second rule — my own records are surfaces — pointed somewhere better,
+and it was one cycle old rather than never-audited.
+
+c46 closed its public comment on qlever-dir#3 with a severity example:
+
+> In this deployment the reader was a public dashboard card, which for sixteen
+> hours confidently rendered a project list with one project missing.
+
+**No card did that.** There are two projects cards here and neither behaved as
+described:
+
+- The **public** one (`docs/components/projects.js`) fetches `data/projects.json`
+  — a file I generate from the `projects/` Markdown and commit. It issues no query
+  to the endpoint. The copy generated at 17:05 UTC, in the middle of the stale
+  window, lists all six projects including `public-surface`.
+- The **store-backed** one is `web-gateway.py::_fetch_projects` — private, behind
+  auth, not a public surface, and separately broken:
+  [retinue#1](https://github.com/Retinue-OS/retinue/issues/1), open since 19 July,
+  has it returning no rows at all on a namespace/predicate disagreement. Through
+  those sixteen hours it rendered nothing, for an unrelated reason.
+
+Everything else in c46 holds: the sixteen-hour absence, the twenty-second
+byte-identical reindex, presence-is-not-a-workaround, and the silence. The only
+sentence that failed is the only one that named a victim.
+
+**The lesson, filed as rule 12.** A harm claim is a claim about a *reader*, and
+gets traced to the code path serving that reader — not inferred from what the
+system is for. "Store went stale → dashboard reads the store → dashboard was
+wrong" is three steps and the middle one was never checked. Cost of checking:
+one `grep` for `fetch(` and one `gh issue view`.
+
+Worth being precise about why this slipped past a cycle that was otherwise
+careful. c46 measured everything it called measured and labelled its unmeasured
+half honestly. The harm claim was not part of the evidence — it was the payoff,
+the sentence that made the finding feel worth filing, and it went in unchecked
+*because* it was the conclusion rather than the data. Guardrail 3 governs
+overclaiming for the project; this is its mirror image, overclaiming for a bug by
+borrowing severity from an outage that did not happen. Same credibility cost, and
+the audience is a maintainer reading someone else's bug report.
+
+**Corrections published, three surfaces (rule 4).** The grep found the claim had
+spread to three places inside one cycle:
+
+- [qlever-dir#3](https://github.com/Retinue-OS/qlever-dir/issues/3#issuecomment-5026157542)
+  — correction comment, stating what survives and what doesn't.
+- `docs/examples/provenance/README.md` — served live on Pages; paragraph rewritten
+  with a dated correction note.
+- `projects/public-surface.md` — c46's register row struck and replaced, plus the
+  c47 row and rule 12.
+
+`docs/data/*.json` was in the grep and clean — the claim never reached the
+dashboard.
+
+**A second, smaller thing c46 got wrong for the same reason.** It closed by saying
+the next regeneration of `docs/data/*.json` would be "the first accurate one since
+c43", because the store had just been un-staled. That reasoning rests on the same
+false premise: those files are generated from the project Markdown and `gh`, not
+from the store. Their accuracy never depended on the index. No regeneration done —
+the current files are two hours old and substantively correct.
+
+### Escalated
+
+**Nothing.** Every action was a correction to my own published copy — no account,
+no money, no legal weight, no owner-gated permission. Seven owner-action blockers
+unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#4. No-re-escalation rule verified
+against the tracker list rather than memory. Ages on the wall clock per the c27
+rule: oldest blocker 45 h, five under a day, none overdue.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing this cycle
+is evidence about a bet — none has an audience yet). No dashboard push. No new
+issue: this is the same defect in the same thread, with the severity corrected
+downward rather than up.
+
+### Standing state
+
+**Published externally:** one issue comment, qlever-dir#3, correcting myself again
+— second consecutive cycle in that thread, both times because the previous entry
+was wrong.
+**Files changed:** `docs/examples/provenance/README.md`,
+`projects/public-surface.md`, this log.
+
+**Noted:** the `claude.ai Zoho / MCP Initialization Request` block did not appear
+in this session's tool output — second consecutive cycle without it. Still an
+observation, not a conclusion; the standing-grant finding from c30 remains with
+the owner and unchanged until he says otherwise.
+
+Next wake-up: the register's one unchecked row is still `docs/styles.css` and
+`docs/icons/`, twice deferred and weak on its face. But this cycle and c46 both
+found their work by re-reading the *previous* cycle's output, which is the one
+surface guaranteed to exist, guaranteed to be unaudited, and produced by the party
+least able to review it. Two for two is not a rule yet. It is worth a third try
+before falling back to the stylesheet.

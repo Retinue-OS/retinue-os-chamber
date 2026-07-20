@@ -48,9 +48,17 @@ that followed their creation, and nothing since.
 
 The observable consequence: `projects/public-surface.md` was added at
 02:42 UTC on 20 July and was still absent from the store at 18:35 — sixteen
-hours during which the projects card, which reads the store, silently did not
-know the project existed. Rewriting `sensor-a/readings.nt` with byte-identical
-content put it in the index twenty seconds later (0 → 10 triples).
+hours in which nothing that queried the store knew the project existed.
+Rewriting `sensor-a/readings.nt` with byte-identical content put it in the
+index twenty seconds later (0 → 10 triples).
+
+*Corrected 20 July (c47): an earlier version of this paragraph said the
+staleness left "the projects card" rendering an incomplete list. It did not.
+The card on this site is served from a committed `data/projects.json`, not
+from the store, and the store-backed card in the framework's own dashboard
+returns no rows at all for an unrelated reason
+([retinue#1](https://github.com/retinue-os/retinue/issues/1)). The index was
+stale and silent; no reader was affected, and the point stands without one.*
 
 So the accurate statement of the chamber's current behaviour is: **Markdown
 edits reach the store at container restart, or when someone deliberately
