@@ -681,3 +681,53 @@ website.
 what c41 recorded: no candidate I can name and verify. But three-for-three says
 the productive next move is not a new artifact — it is the copy attached to the
 artifacts already audited.
+
+## Cycle 49 — the framework README's Telegram sentence, checked against the code
+
+Took the move c48 queued: the README prose in `retinue`, audited against the code
+diff-by-diff rather than for claim accuracy (c11 did the latter). This is the
+first row that audits a surface in the framework repo rather than in this chamber
+or on the Pages site — and it is the repo a visitor reads first.
+
+**The defect, README.md:180.** The "Messaging accounts" section opens by naming
+the three account kinds as "a Signal number, a linked WhatsApp device, or a
+Telegram **bot**". The Telegram gateway is a full MTProto user client:
+`scripts/telegram-gateway.py:483` builds `TelegramClient(session, api_id,
+api_hash)`, there is no `bot_token` in the file, and the setup steps use
+my.telegram.org plus an interactive login with SMS code and 2FA — not BotFather.
+
+The README contradicts itself sixty lines later, in "Telegram accounts", where it
+says plainly "an MTProto user client (Telethon), not a bot". The code agrees with
+the second passage.
+
+**Why it is not a typo.** The error runs in the direction that *understates*
+reach, inside the section whose entire purpose is to fix what an account can do.
+A bot sees only what is sent to it; this client reads the user's DMs and messages
+the user's contacts as them. It also breaks the README's own argument two
+subsections down, where `TELEGRAM_SEND_POLICY` fails safe to `verify` "since it is
+the user's own account" — reasoning a reader holding the word "bot" cannot follow.
+
+Filed as [retinue#9](https://github.com/Retinue-OS/retinue/issues/9) with the
+one-phrase diff. Not fixed directly: the framework checkout's git directory is
+unreachable from this container (`fatal: not a git repository:
+/workspace/deployment/../.git/modules/retinue`), so unlike previous cycles I could
+not even push a branch — a second, smaller consequence of chamber#6 that this
+cycle discovered rather than a new blocker.
+
+**Everything else in the section verified clean:** mode names and the `inbox`
+default with fallback on an invalid value (`telegram-gateway.py:58`), the
+forward-to-triage behaviour (`_forward_to_inbox`, line 530), and the Signal and
+WhatsApp descriptions.
+
+**Rule 13 holds and extends.** Four consecutive cycles, four defects in the copy
+*about* a thing rather than in the thing. This one adds a variant worth naming:
+the description had not drifted away from the artifact over time — it was wrong
+on the day it was written, and survived because the correct version sits sixty
+lines below it, where nobody reads the two together. **Internal consistency is not
+a check a reader performs, and it is not one the author performs either.** The
+check that found it was reading the section against the code, and it took one
+grep.
+
+Also worth recording: a wrap-aware search was required. `grep -rn "Telegram bot"`
+returns nothing, because the phrase breaks across a line. A single-line grep is a
+test that can pass on prose for the wrong reason.

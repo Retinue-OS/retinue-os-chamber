@@ -4335,3 +4335,100 @@ productive move is not a new artifact but the *copy attached to* the artifacts
 already audited — the README prose in `retinue` and `retinue-os-deployment` has
 been checked for claims (c11) but never against the code diff-by-diff, which is
 what caught this one.
+
+## 2026-07-20 (cycle 49) — the README says "bot" about something that reads the user's mail
+
+**Survey.** Measured 20:17 UTC. Four public repos, 0 stars / 0 forks each,
+unchanged since publication (~46 h ago). Three of four descriptions still blank —
+only `qlever-dir` has one. Eighteen open issues org-wide before this cycle, every
+one authored `retog`; no PRs, no discussions, no inbound contact of any kind.
+`drafts/` holds five already-filed artifacts plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication.
+
+Also checked, per c47's two-for-two habit: c48's own output. It holds. The footer
+rewrite says "five cards" where the register says "all six components differ";
+both are right — there are six component files and five are cards, `base.js`
+being a shared base class. No correction needed, which is the first time in four
+cycles that re-reading the previous cycle found nothing.
+
+### The pickup: the framework README against the code
+
+The move c48 queued, and the first audit this chamber has run on a surface inside
+the framework repo rather than on its own Pages site. `README.md:180` opens the
+"Messaging accounts" section by calling the Telegram account **"a Telegram bot"**.
+
+It is not one. `scripts/telegram-gateway.py:483` constructs
+`TelegramClient(session, api_id, api_hash)` — an MTProto *user* client. No
+`bot_token` appears anywhere in the file, and the README's own setup steps use
+my.telegram.org and an interactive login with an SMS code and 2FA password. Sixty
+lines further down the same README states it correctly: "an MTProto user client
+(Telethon), not a bot."
+
+**Why I filed it rather than noting it.** The two words move the reader's threat
+model in the direction that understates reach, in the one section whose job is to
+say what an account can do. A bot sees only what is sent to it. This client reads
+the user's incoming DMs and messages the user's contacts as them — deliberately,
+since that is what makes `inbox` mode triage real Telegram mail. And it breaks the
+README's own argument two subsections later, where `TELEGRAM_SEND_POLICY` fails
+safe to `verify` "since it is the user's own account": a reader holding "bot" from
+the opening sentence cannot follow that sentence, and may read the fail-safe
+default as excessive caution.
+
+Filed as [retinue#9](https://github.com/Retinue-OS/retinue/issues/9) with the
+one-phrase diff and the code citations. The rest of the section verified clean
+against the code: mode names, the `inbox` default and its fallback on an invalid
+value, `_forward_to_inbox`, and the Signal/WhatsApp descriptions — so this is one
+issue, not four.
+
+**A new consequence of chamber#6, found rather than assumed.** Previous cycles
+could at least push a branch and be blocked only at `gh pr create`. Not this time:
+the framework checkout's git directory is unreachable from this container —
+`fatal: not a git repository: /workspace/deployment/../.git/modules/retinue` — so
+the correction went out as prose asking a human to act, with no branch attached.
+Recorded in the register and mentioned once inside retinue#9 itself. **Not**
+escalated separately: it is the same blocker with a longer tail, and chamber#6
+already says exactly that.
+
+**Method note worth keeping.** `grep -rn "Telegram bot"` finds nothing here — the
+phrase wraps across a line. It took a wrap-aware regex to see it. A single-line
+grep over prose is a test that can pass for the wrong reason, and three previous
+cycles have leaned on exactly that grep.
+
+### Escalated
+
+**Nothing.** One issue filed against the project's own repo — no account, no
+money, no legal weight, no owner-gated permission, nothing time-sensitive. Seven
+owner-action blockers unchanged: chamber#1, #3, #4, #5, #6, #7, retinue#4.
+No-re-escalation rule verified against the tracker list rather than memory. Ages
+on the wall clock per the c27 rule: oldest blocker 46 h, five under a day, none
+overdue. No dashboard push — a README phrasing defect does not belong on a phone.
+
+Deliberately not done: no strategy revision (review 2026-08-02; nothing this cycle
+is evidence about a bet — none has an audience). No second issue for the git-mount
+finding. No regeneration of `docs/data/*.json` (c47 established these come from the
+project Markdown and `gh`, not the store; current copies remain correct). No
+attempt to edit the framework README in place — it is not mine to push to, and
+the tier that governs it is the owner's call, not a workaround I invent because
+the branch route failed.
+
+### Standing state
+
+**Published externally:** one issue, retinue#9. No post; there are still no
+accounts to post from.
+**Files changed:** `projects/public-surface.md`, this log.
+
+**Noted:** the `claude.ai Zoho / MCP Initialization Request` block did not appear
+in this session's tool output — fourth consecutive cycle without it. Still an
+observation, not a conclusion; the c30 standing-grant finding
+(`/workspace/.claude/settings.json` pre-approves mail, calendar and messenger
+tools that guardrail 5 says I must not hold) remains with the owner and unchanged
+until he says otherwise.
+
+Next wake-up: the README audit is one section deep out of roughly twenty. The
+obvious continuation is the rest of `README.md` read against the code the same way
+— the "What happens at startup" list and the "Layout" tree are both descriptions
+of artifacts that have moved (the layout tree omits `whatsapp-gateway/`,
+`telegram-gateway/`, `stt/`, `litellm/`, `updater/` and `egress-audit/`, all of
+which exist; step 8 mentions only the Signal gateway). I did not verify whether
+either is presented as exhaustive, which is the difference between an omission and
+a defect, and that check is the next cycle's work rather than a claim now.
