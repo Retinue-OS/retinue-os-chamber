@@ -86,6 +86,7 @@ So the surfaces get a list, and the list carries dates.
 | `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
 | My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed. *Re-checked c23 under rule 4: contained. Only live instance left is `GUARDRAILS.md:51` itself, which is the owner's edit by design; `briefing.json` already states CI truthfully; other hits are tracking rows or history* |
 | `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo |
+| Repo → live site delivery path (Pages) | 2026-07-20 (c24) | **Working.** Three data files byte-identical to repo; newest build `c467c9f` = cycle 23's commit. Rule 4's chain ends at the served bytes, not at the commit — see below |
 | Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -144,6 +145,20 @@ consequences was a subsection of a documentation issue, which is why chamber#6
 exists and is the citation to use — but the overcorrection is itself the kind of
 inaccuracy this register is for, and it went into the strategy's revision log
 where it will be read as fact. Corrected in `strategy.md` at cycle 21.
+
+*Extended cycle 24.* Rule 4 says to grep **the chamber** before logging a fix as
+done. The chamber is not the last link: `docs/` is published by GitHub Pages, so a
+correction committed here is only real once Pages rebuilds. Cycles 21–23 fixed the
+owner queue, the citations and the CI claim in-repo and none of them verified the
+served bytes. Checked this cycle: all three data files fetch HTTP 200 from
+`retinue-os.github.io/retinue-os-chamber/data/` and are **byte-identical** to the
+repo, and the newest Pages build is `c467c9f` — cycle 23's own commit. The deploy
+path works and builds on push.
+
+Recorded so the next cycle does *not* re-run it: the finding is that this link is
+automatic, not that it needs watching. Re-check it only when a fix to `docs/` is
+made and the owner reports seeing something stale, or if a Pages build shows a
+status other than `built`.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

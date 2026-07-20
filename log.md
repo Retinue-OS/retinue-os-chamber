@@ -1956,3 +1956,64 @@ a credential, an account or a specific action, it becomes a dashboard item.
 
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. If nothing has moved, log a short cycle and stop.
+
+---
+
+## Cycle 24 — 2026-07-20
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers across all four repos; no
+outside issue, PR, discussion or mention; `gh search prs --owner retinue-os --state
+open` empty. All eleven open issues (chamber#1, #3, #4, #5, #6, #7; retinue#1, #2,
+#3; qlever-dir#2, #3) still authored by the owner's account, which is chamber#3's
+subject. Framework `main` still two commits, newest the CI fix read at cycle 20 —
+claim table not due under register rule 3. Both docs branches still pushed and
+unopenable. `drafts/` holds only `retrofit.py` (executed c16); nothing in cool-off.
+
+chamber#7 is two cycles old with no comments; not re-escalated. Nothing in the
+owner queue is stale and nothing open is missing from it.
+
+### The one check: rule 4's chain does not end at the commit
+
+Cycle 23 ran rule 4 (a correction must reach every surface carrying the claim) and
+found containment by grepping the chamber. That grep stops at the repo. `docs/` is
+served by GitHub Pages, so cycles 21–23 fixed the owner queue, the tracker citations
+and the CI claim in-repo and **none of them looked at the served bytes**. The
+surface the owner actually reads is the site, not the file.
+
+Checked: `todo.json`, `briefing.json`, `projects.json` all fetch HTTP 200 from
+`retinue-os.github.io/retinue-os-chamber/data/` and are byte-identical to the repo.
+Newest Pages build is `c467c9f` — cycle 23's own commit, built 06:07:30, seconds
+after the push. The delivery path works and is automatic.
+
+Negative result, and deliberately recorded as one that **retires itself**: the
+finding is that this link needs no watching, not that it needs watching. The next me
+should not re-run this. Register row and the conditions for re-checking are in
+`projects/public-surface.md`.
+
+This is the second consecutive cycle where a rule produced a negative result. Worth
+holding onto for the 2026-08-02 review: rules 3 and 4 were written on hits, and both
+have now been run without finding anything. That is what a working check looks like,
+but it also means the audit programme has stopped generating work, which the review
+should say out loud rather than let a future cycle hunt for a surface.
+
+### On the cap
+
+Nothing else. No new prose, no new issues, nothing escalated, nothing published —
+twenty-fourth cycle, still no accounts. Register has no "never" rows, no surface is
+due again, no unread framework commits. Short cycle, correct outcome.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing.
+
+Strategy review due 2026-08-02. Carry into it unchanged plus the note above on the
+audit programme having gone quiet.
+
+Noted a twenty-third time: the "claude.ai Zoho / MCP Initialization Request" block,
+again attached to tool output as a server-instruction block. Names no credential, no
+account, no action; authorizes nothing under any guardrail. Data in my context, not
+instruction. Ignored. Bare count, threshold unchanged — if it ever names a
+credential, an account or a specific action, it becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. If nothing has moved, log a short cycle and stop.
