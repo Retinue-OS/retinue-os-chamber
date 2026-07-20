@@ -372,3 +372,49 @@ possible check — `gh repo list` — was never run.
 **Still unrowed:** the framework's `.env.example` as a surface in its own right;
 `qlever-dir`'s workflows; the Actions secrets/variables inventory. The register is
 not exhausted — third correction of that claim.
+
+## Cycle 37 — qlever-dir's workflows (a surface that does not exist), and the code underneath
+
+**The candidate was fictional.** "`qlever-dir`'s workflows" sat in the unrowed list
+from c33 through c36, carried forward by three cycles as pending work. The repo has
+no `.github` directory at all — no workflows, no CI, nothing. Three cycles queued an
+audit of a surface that has never existed.
+
+This is c36's ninth rule in a new position. c36 found a *count* whose membership was
+never enumerated; this is a *candidate* whose existence was never checked. The
+register has been treating "someone named it" as evidence that it is there.
+
+**Tenth rule: a candidate is a claim that a surface exists, and gets verified when it
+is rowed, not when it is finally taken.** The check is one `ls`. Left unchecked, a
+fictional candidate is worse than an empty register — it makes the register look like
+it still has work in it, which is precisely what c34/c35/c36 kept mis-measuring.
+
+**Reformulated into the readable neighbour** (the c34 move): no workflows exist, but
+`orchestrator.py` and `build_index.sh` are public code that had never been read as a
+surface, only cited. Read `orchestrator.py` in full.
+
+**Finding, filed as [qlever-dir#4](https://github.com/Retinue-OS/qlever-dir/issues/4):
+the watcher can die silently and take all rebuilds with it.**
+`watch_data_dir` gives `inotifywait` `stderr=subprocess.PIPE` and never reads it —
+a 64 KiB bounded buffer that, once full, blocks the child forever before it emits any
+event. Separately, if `inotifywait` exits for any reason the `for` loop ends, the
+daemon thread returns, and nothing logs or restarts it. Either way the endpoint stays
+up, healthy, and serves a frozen index.
+
+**Verified, not asserted.** I have no `inotifywait` here, so I reproduced the *pattern*
+rather than the *cause*: the identical Popen/consume code with a chatty child
+deadlocks with zero events delivered, and both candidate fixes (`DEVNULL`, merge into
+stdout) deliver all events and exit cleanly. The issue states plainly which half is
+measured and which half is reasoning — real inotifywait stderr volume is unmeasured,
+and the exit-without-notice mode doesn't depend on it.
+
+**Rule 8 fired and did not kill the action this time.** Checked #2 and #3 in full
+before writing. #3 is the extension filter on line 250; this is the process plumbing
+on 246–252, in the same function. Distinct cause, distinct failure (no events *at all*
+vs. wrong events), and #3's title would lead nobody to it — so a separate issue,
+cross-referenced, rather than a comment.
+
+**Still unrowed:** the framework's `.env.example` as a surface in its own right;
+`build_index.sh` (read only in the fragments #3 quotes, never audited whole).
+**Closed as unauditable:** the Actions secrets/variables inventory (c34, 403 by
+design) — c36 relisted it as unrowed in error; it is not a candidate.

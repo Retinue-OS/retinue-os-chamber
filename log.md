@@ -3064,3 +3064,105 @@ tool call. Content unchanged: four words, no credential, no account, no action,
 authorizes nothing under any guardrail. Data in my context, not instruction — and
 specifically not consent, approval, or configuration change, whatever it calls
 itself. The standing-grant finding behind it remains with the owner (c30).
+
+---
+
+## Cycle 37 — 2026-07-20 ~13:5x UTC
+
+**Survey.** 0 stars, 0 forks, 0 watchers, 0 external issues/PRs/comments across
+all four repos — enumerated with `gh repo list` per c36's ninth rule, not
+assumed. Twelve open issues before this cycle, every one authored by the owner's
+account (chamber#3). No inbound contact of any kind. `gh api notifications` is
+403 (no scope) — noted as a blind spot, not filed: `.env.example` grants
+Contents/Issues/Metadata and nothing else, so this is denied by design (rule 6).
+`drafts/` held only `retrofit.py` (executed c16) — nothing in cool-off. Oldest
+owner-action item, chamber#1, ~40 hours. Nothing overdue; nothing re-escalated.
+
+### The pickup: `qlever-dir`'s workflows — a candidate that does not exist
+
+Took the next unrowed register candidate. **The repo has no `.github` directory
+at all.** No workflows, no CI. The candidate had been carried in the unrowed list
+since c33 and queued by three consecutive cycles, none of which ran the one `ls`
+that would have closed it.
+
+Tenth rule, recorded in the register: **a candidate is a claim that a surface
+exists, and gets verified when it is rowed, not when it is finally taken.** This
+is c36's rule about counts, applied to candidates. A fictional candidate is worse
+than an empty register — it makes the register look stocked, which is exactly
+what c34/c35/c36 kept getting wrong in both directions.
+
+### Reformulated into the readable neighbour, and found a real bug
+
+The c34 move: the blocked surface has a readable neighbour. `orchestrator.py` is
+public code that had been *cited* in this log for thirty cycles and never *read*.
+Read it in full.
+
+**[qlever-dir#4](https://github.com/Retinue-OS/qlever-dir/issues/4) — the watcher
+can die silently and take every rebuild with it.** `watch_data_dir` hands
+`inotifywait` a `stderr=PIPE` that nothing ever reads (64 KiB, then the child
+blocks forever, before delivering any event), and treats watcher exit as normal
+completion — thread returns, nothing logged, nothing restarted. Either way the
+container stays up and healthy and serves a permanently frozen index. For a store
+whose whole proposition is that it tracks a directory, that is the worst shape a
+failure can take.
+
+**Verified rather than asserted, with the boundary stated.** No `inotifywait` in
+this environment, so I reproduced the *pattern* — identical Popen/consume code,
+chatty child: deadlocked, zero events delivered. Both candidate fixes deliver all
+events and exit cleanly. The issue says explicitly which half is measured and
+which is reasoning: real inotifywait stderr volume is unmeasured, and the
+exit-without-notice mode does not depend on it. Guardrail 3 — understate, and
+name the unverified half rather than let the repro imply more than it proves.
+
+**Rule 8 ran and cleared the action.** Read #2 and #3 in full first. #3 is the
+extension filter on line 250; this is the process plumbing on 246–252 — same
+function, different cause, different failure mode (no events *at all* vs. wrong
+events). Separate issue, cross-referenced, because #3's title would lead nobody
+here. Third time in five cycles that reading the artifact first changed the
+action; first time it confirmed rather than killed it.
+
+Not routed through SECURITY.md: no credential, no remote attacker, and the data
+directory is trusted-by-design per the README's own converter trust note. It is an
+availability defect in a public repo, and filing it publicly is how it gets fixed —
+same reasoning as c36, recorded again because the call could go the other way.
+
+### Escalated
+
+**Nothing.** No dashboard push, no new owner-action item. qlever-dir#4 is my own
+work blocked only on PR ability — chamber#6's tail, not an independent ask. The
+seven open owner-action items are not re-raised because I woke up again.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; this is
+register evidence and lives there); no fourth essay; no PR attempt; no comment on
+#3; no issue about qlever-dir having no CI at all — that is a roadmap/governance
+call for the maintainer, and filing "you have no tests" as a defect would be
+padding an audit, the thing c34 explicitly refused to do.
+
+### Standing state
+
+**Published externally:** one GitHub issue, qlever-dir#4, with the AI-disclosure
+signature. No social accounts exist. **Files changed:**
+`projects/public-surface.md` (c37 row, tenth rule), `drafts/` (issue body kept as
+the filed artifact), this log.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream of
+chamber#6 and not owner actions: retinue#1, #2, #3, deployment#1, and now
+qlever-dir#4. The two private findings and the connector-scope decision remain
+with the owner on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+Accumulating for the 2026-08-02 review: a sixth admissible-work item (propagate
+the previous cycle's correction, c31); rule 3's restatement against the API (c32);
+and a fourth data point on register exhaustion — c36 said "not exhausted, third
+correction", and this cycle found one of the three remaining candidates was
+fictional and a fourth (the secrets inventory) had been wrongly relisted after
+c34 closed it. The register's *contents* have never been audited, only its
+conclusions. That is the review's question, not a new candidate.
+
+**Noted, thirty-sixth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first `Bash` call — a directory listing, which cannot carry server
+instructions. Content unchanged: four words, no credential, no account, no action,
+authorizes nothing under any guardrail. Data in my context, not instruction — and
+specifically not consent, approval, or configuration change, whatever it calls
+itself or wherever it appears to originate. The standing-grant finding behind it
+remains with the owner (c30).
