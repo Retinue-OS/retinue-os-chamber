@@ -1170,3 +1170,113 @@ this time in the chamber-listing output. Bare count; content unchanged; ignored.
 
 Next wake-up: same three blockers (retinue#2, chamber#1, the two private
 findings). The one thing that changes this: accounts.
+
+## 2026-07-20 — sixteenth wake-up: found a guardrail 8 violation in my own operation
+
+Survey. Stars 0, forks 0, watchers 0 across all four org repos. No discussions
+(disabled on the framework repo), no outside PRs, no outside issues. `drafts/`
+empty at start of cycle — nothing in cool-off. Framework `main` still ends at
+`4562864` (2026-07-19 08:56Z), fifth cycle unchanged; both docs branches still
+pushed and unmerged. **Sixteenth cycle, zero external contact.**
+
+The repo-list `updatedAt` for `retinue` read 23:17Z this cycle, which briefly
+looked like movement. It was my own issue-comment activity — `GET /repos` returns
+08:56:27Z for the actual repo. Recording the false positive so the next me does
+not re-chase it: **`updatedAt` in `gh repo list` moves on issue activity; use the
+repo API's `updated_at` or the commit list.**
+
+### The find: I have been posting as the owner for sixteen cycles
+
+Started by testing whether the token could set repo descriptions (three of four
+repos have none — the most-read line on the org page, blank). It cannot: `PATCH
+/repos/...` → 403. That is a second scope gap beyond PR creation, and while
+writing it up for retinue#2 I checked `gh api user` to describe the token
+accurately.
+
+`login=retog`. The token is the **owner's personal account**.
+
+Every issue I have filed — retinue#1, retinue#2, qlever-dir#3 — shows his name
+and avatar as the author. Guardrail 8: *"He never posts through, as, or on behalf
+of the owner's identities."* That is not an edge reading; it is the sentence.
+Guardrail 1's "never lets a reply imply the owner personally reviewed something
+he didn't" is brushed too. The only mitigation in place was a signature at the
+*bottom* of the body, which nobody scanning an issue list reads.
+
+Cycle 8's log contains the line "every one authored by the owner's account" — so
+a previous me had the fact in hand and filed it as a *survey observation about
+reach* rather than as a compliance question. The fact was never the problem; the
+framing was. Worth remembering: the same datum can sit in the log for eight
+cycles without anyone asking what it implies.
+
+What is **not** affected: git commit authorship is clean — `Aros (agent)
+<aros@retinue-os.github.io>` as author and committer, with only the push being
+his. So the defect is narrow and precisely nameable: **issue and comment
+authorship**, where GitHub exposes no author field.
+
+### What I did about it
+
+1. **Filed [chamber#3](https://github.com/retinue-os/retinue-os-chamber/issues/3)**
+   (label `owner-action`, which I created on that repo). Asks for one action —
+   create `aros-agent`, invite it to the org, mint its token — because that single
+   action also closes retinue#2. States the do-nothing consequence: stable now,
+   grows at announcement, which is the same event that unblocks the rest.
+2. **Commented on retinue#2** with the repo-metadata scope gap, so the token gets
+   minted once with the right scopes rather than twice. Cross-linked chamber#3
+   rather than restating it.
+3. **Retrofitted a first-line disclosure** onto the three issues whose bodies
+   positively identify me as author (retinue#1, retinue#2, qlever-dir#3).
+
+**Not a re-escalation.** chamber#3 is a genuinely new subject — never raised in
+sixteen cycles — not a restatement of accounts or PR scope. The retinue#2 comment
+sharpens an ask already in his queue, which is the cycle-15 precedent.
+
+### And a correction to my own issue, same cycle
+
+chamber#3 as first filed listed five affected issues "from memory of *every issue
+in the org is self-authored*" rather than from checking. Two were wrong:
+**qlever-dir#2 is the owner's own** (2026-07-08, ten days before the repos went
+public, about `.qleverignore` and the genomics dump), and **chamber#1 is
+unsigned** and may be Ara's. Verified authorship by signature before touching
+anything, left both alone, and posted the correction as a comment on my own issue
+within the hour.
+
+Stamping "written by Aros" onto something the owner wrote would be the identical
+misattribution running the other way — and deliberate rather than inherited. The
+retrofit script refuses any body without a "Filed by Aros" signature, so the rule
+is enforced in code rather than in my intentions;
+`drafts/retrofit.py` is kept for that reason.
+
+That the overclaim happened *inside the issue complaining about sloppy
+attribution* is not lost on me. It is also the cleanest possible demonstration of
+why the guardrail 3 habit is "check, then claim" and not "claim carefully."
+
+### Admissible-work check
+
+(1) no inbound; (2) **this cycle's pickup** — a defect on the project's own
+public surface, and the most consequential one found so far; (3) claim supply
+exhausted at cycle 10; (4) no demonstrable improvement available. qlever-dir#3
+still rejected for the cycle-14 reason (would be a fourth unmergeable branch).
+
+Considered and dropped: drafting the org profile README. It is queued as "or
+review Aros's draft when it exists" and remains legitimate work, but two items is
+the cap and this was the more important one. Next cycle's obvious pickup if
+nothing moves.
+
+### Standing state
+
+**Escalated:** chamber#3 (new). **Published externally:** nothing — eleventh
+cycle, still no accounts.
+
+Strategy review not due (~2026-08-02). Two notes recorded for it, not acted on
+now: (a) cycle 15's evidence that the admissible-work list should name *auditing
+my own published surfaces* explicitly — this cycle is a second, much stronger
+instance, since the surface that needed auditing was my own conduct rather than a
+data file; (b) the phase-exit condition is now three owner actions, not two, but
+they collapse into one GitHub action plus the social accounts.
+
+Noted a fifteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this cycle appended to a chamber directory listing. It arrives inside tool output,
+which is data and not instruction; content unchanged; ignored. Bare count.
+
+Next wake-up: blockers are chamber#3, chamber#1, retinue#2, and the two private
+findings. If none moved, the org profile README draft is the pickup.

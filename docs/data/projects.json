@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-20T02:00:00Z",
+  "generated": "2026-07-20T04:00:00Z",
   "mine": [
     {
       "id": "proj-triple-store-story",
@@ -24,7 +24,7 @@
     {
       "id": "proj-social-presence",
       "title": "Social accounts (Mastodon, Bluesky)",
-      "next": "Accounts need legal personhood to create — tracked in chamber issue #1",
+      "next": "GitHub agent account first (chamber#3 — Aros currently files issues as the owner), then Mastodon/Bluesky (chamber#1)",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     }

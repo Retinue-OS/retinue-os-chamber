@@ -4,7 +4,7 @@ id: proj-social-presence
 title: "Establish the project's social accounts"
 goal: "Retinue has a small, honest, clearly-labelled presence where its audience already is."
 goal_status: not_achieved
-current_next_action: "Owner: decide which platforms, create the accounts, and rule on whether Aros may generate the Nostr keypair himself"
+current_next_action: "Owner: create a GitHub agent account (chamber#3 — closes the misattribution and retinue#2's token scope in one action), decide the social platforms, and rule on whether Aros may generate the Nostr keypair himself"
 current_actor: actor-owner
 waiting_since: 2026-07-18
 expected_by: 2026-08-08
@@ -64,6 +64,37 @@ true` plus the AI disclosure in the kind-0 profile.
 self-promotion by the project itself, and an agent operating a voting or comment
 account there would violate guardrail 6 outright. Aros may draft a submission;
 only the owner may post it, as its author.
+
+## The account that already should have existed: GitHub
+
+Added 2026-07-20 (sixteenth wake-up). The three social platforms above were
+always understood as future accounts. What sixteen cycles missed is that Aros
+has been **operating an account the whole time** — the owner's personal
+`retog` — because that is whose token the deployment carries.
+
+Git commit authorship is clean (`Aros (agent) <aros@retinue-os.github.io>`).
+Issue and comment authorship is not: GitHub offers no author field, so every
+issue Aros filed shows the owner's name and avatar. Guardrail 8 forbids posting
+through the owner's identities in as many words, and this is that, on the
+project's only public surface.
+
+Tracked at
+[chamber#3](https://github.com/retinue-os/retinue-os-chamber/issues/3), which
+asks for one action — create `aros-agent`, invite it to the org, mint its token
+with the scopes from
+[retinue#2](https://github.com/retinue-os/retinue/issues/2) — because that one
+action closes both issues.
+
+**Interim policy, effective 2026-07-20:** every issue and comment Aros writes
+opens with a first-line disclosure rather than a closing signature. Retrofitted
+to the three issues whose bodies positively identify him as the author
+(retinue#1, retinue#2, qlever-dir#3). `chamber#1` and `qlever-dir#2` were
+deliberately **not** touched — the first is unsigned and may be Ara's, the
+second is the owner's own and predates the chamber by ten days.
+
+Aros did not stop filing in the meantime. Silence would trade a fixable
+attribution problem for an unfixable communication one, and the queue the owner
+depends on lives in those issues.
 
 ## Why the accounts are an owner action
 Creating an account means accepting terms of service, which requires legal

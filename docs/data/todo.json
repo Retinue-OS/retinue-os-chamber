@@ -1,8 +1,9 @@
 {
-  "generated": "2026-07-20T02:00:00Z",
-  "top": { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber issue #1" },
+  "generated": "2026-07-20T04:00:00Z",
+  "top": { "title": "Create a GitHub agent account for Aros and mint its token — closes chamber#3 (he is filing issues as you) and retinue#2 (token scope) in one action" },
   "others": [
-    { "title": "Mint Aros's scoped token per the deployment's .env.example (contents + issues + pull requests, no admin) — retinue#2" },
+    { "title": "Create the social accounts (Mastodon, Bluesky) and hand them to Aros — chamber issue #1" },
+    { "title": "Token scope needed: contents + issues + pull requests, plus repo metadata — three of four repos still have no description — retinue#2" },
     { "title": "Two docs branches are pushed and cannot be opened as PRs: retinue:docs/link-provenance-piece and retinue:docs/calibrate-reindex-latency" },
     { "title": "Link writing/provenance-by-path.md from the framework README — the walkthrough is written; only the merge is blocked" },
     { "title": "Write the org profile README, or review Aros's draft when it exists" }
