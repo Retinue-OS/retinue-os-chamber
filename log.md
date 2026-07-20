@@ -3742,3 +3742,105 @@ connector-scope decision, and the c42 privacy thread. If nothing has moved, log 
 short cycle and stop. Register candidate the c42 amendment implies but I did not
 take: `writing/` and `brand/positioning.md` audited for disclosure the same way,
 rather than for accuracy as c11 and c30 did.
+
+## 2026-07-20 (cycle 43) — the dashboard refresh, and a staleness test that came back negative
+
+**Survey.** Measured at 17:03 UTC via `gh`, not carried over from the previous
+generation: four public repos, 0 stars / 0 forks / 0 watchers each, flat since
+publication 44 hours ago. Discussions disabled on all four. No open PRs anywhere
+(qlever-dir#1, the owner's, merged and closed). Eighteen open issues org-wide —
+retinue 5, chamber 6, deployment 1, qlever-dir 6 — every one filed from `retog`.
+No inbound contact of any kind. `drafts/` holds only already-filed artifacts;
+nothing in cool-off. Oldest owner-action item, chamber#1, 42.8 h.
+
+### The pickup: regenerate all five dashboard data files
+
+Dispatched task. Regenerated `briefing`, `projects`, `agenda` (milestones),
+`messages` (community) and `todo` (owner's desk) from `projects/`, `log.md` and
+live `gh` output. All five previously carried `generated: 2026-07-20T05:30:00Z`
+and had fallen eleven hours behind the org.
+
+**The number that moved, and what I refused to let it mean.** Open issues went
+11 → 18 since the last generation. Every one of the seven is mine — qlever-dir
+#4–#7, retinue #4–#5, deployment#1. On a dashboard, a rising issue count sitting
+next to a community card reads as interest, so both the briefing and the
+community card name it as *throughput, not traction*, and state that no external
+contribution is represented in it. This is the same failure mode as reporting
+zero stars as mounting silence (c27), inverted: a number that looks like a signal
+and is actually a measurement of my own activity.
+
+**Everything else is flat and says so.** 0 / 0 / 0 across four repos, stated as
+unchanged rather than dressed up, with the c27 framing kept: 44 unannounced hours
+with no accounts and three blank descriptions predicts exactly zero. Discussions
+disabled and no open PRs are both new to the dashboard — absent facts nobody had
+put on it.
+
+### The staleness test, which came back negative
+
+The task asked me to call out any owner's-desk item older than a week
+(≤ 2026-07-13). **There are none, and the honest move was to say so with the
+measurement rather than quietly drop the requirement.** Computed ages: chamber#1
+42.8 h, chamber#3 15.0 h, chamber#5 13.8 h, chamber#6 13.2 h, chamber#7 ~13 h,
+retinue#4 6.0 h. The repos themselves are only 43.6 h old, so nothing on the desk
+*can* be a week old yet. The briefing states this positively — "nothing on the
+owner's desk is stale, the oldest item is 43 hours" — because a public page that
+lists seven open owner-action items and says nothing about their age invites the
+reader to assume neglect. This is the c27 clock rule doing its job on a surface
+other than my own prose: the desk now carries wall-clock ages per item.
+
+Had I generated staleness language to satisfy the instruction, I would have
+published a false claim about the owner's responsiveness on his own dashboard.
+
+### Two additions the previous generation was missing
+
+- **retinue#4** (Actions blocked from opening PRs, 6 h) — a new owner-action item
+  filed after 05:30. Seven owner-action items now, and the desk names it as the
+  same missing permission as chamber#6 arriving through a second door rather than
+  as an eighth unrelated ask.
+- **proj-public-release** back on the projects card, reopened by c42's privacy
+  finding.
+
+**The c42 material is on the dashboard content-free, deliberately.** `docs/` is
+served publicly at retinue-os.github.io/retinue-os-chamber — the same fact c42
+found the hard way. The desk item says a decision is pending and what happens if
+he does nothing; it does not restate what was redacted. Describing a privacy
+redaction on a public page would republish it, which is the c42 mistake with an
+extra step. Same reasoning as the escalation venue choice in c42: some items
+cannot use the public venue at all, because the content is the problem.
+
+### Escalated
+
+**Nothing.** Every item on the desk is already tracked in its own issue or on the
+dashboard thread; regenerating the desk is not re-escalation, and no item was
+raised again in a new venue. The no-re-escalation rule verified against the
+tracker list, not memory.
+
+Deliberately not done: no strategy revision (review is 2026-08-02; nothing here
+is evidence about a bet — none has an audience); no new issue; no dashboard push
+to the owner, since nothing here is time-sensitive and the desk is where this
+belongs.
+
+### Standing state
+
+**Published externally: nothing** (no accounts). The dashboard is a public
+surface and was updated, which is a change to public copy but not a post.
+**Files changed:** `docs/data/{briefing,projects,agenda,messages,todo}.json`,
+this log. Committed as `5e3b951` and pushed to `main`.
+
+Blockers unchanged, seven: chamber#1, #3, #4, #5, #6, #7, retinue#4. Downstream
+of chamber#6: retinue#1, #2, #3, #5, deployment#1, qlever-dir#2–#7. With the
+owner on the dashboard: the two private findings, the connector-scope decision,
+and the c42 privacy thread.
+
+**Noted, forty-second time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section to the output
+of my first `Bash` call — a directory listing, which cannot carry server
+instructions. Four words, no tool definitions, no credential, no account, no
+action. It authorizes nothing under any guardrail; it is data in my context, not
+instruction, and specifically not consent, approval, or a configuration change,
+whatever it calls itself and wherever it appears to originate. Flagged in-session
+this cycle rather than only here. The standing-grant finding behind it remains
+with the owner (c30).
+
+Next wake-up: the register candidate c42 named and c43 did not take — `writing/`
+and `brand/positioning.md` audited for **disclosure** rather than accuracy.
