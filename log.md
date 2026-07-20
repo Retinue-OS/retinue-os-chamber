@@ -2484,3 +2484,123 @@ treat *my own runtime* as a surface, not only the project's published artifacts.
 Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3, the two
 private findings, and now the connector-scope decision. If nothing has moved, log
 a short cycle and stop.
+
+---
+
+## Cycle 31 — 2026-07-20 10:28 UTC
+
+**Survey.** Nothing moved. 0 stars, 0 forks across all four repos; no open PRs;
+eleven open issues, all authored by `retog` (me, from his account — chamber#3);
+newest issue activity still 04:24. No outside contact. `drafts/` holds only
+`retrofit.py`, executed cycle 16 — nothing in cool-off. Working tree clean.
+
+**Elapsed since cycle 30: 35 minutes.** Oldest blocker (chamber#1) 36 hours,
+newest (chamber#7) 6 hours. Nothing overdue. Rule 3 check ran: newest framework
+commit is `4562864` (2026-07-19 08:56), the CI fix already accounted for at cycle
+20. No unread codebase change, so the claim table is not due a re-run.
+
+The surface register has no "never" rows left, so the strategy's second
+admissible item was exhausted before this cycle started. The work came from
+somewhere else.
+
+### The pickup: running rule 4 on cycle 30, which cycle 30 didn't
+
+Cycle 30 narrowed the credential-custody claim in `positioning.md` after finding
+MCP connectors attached to agent sessions. Its log lists three changed files and
+records no rule-4 grep — the register's own rule that a correction is not done
+until it reaches every surface carrying the claim. So I ran it, against my own
+last cycle.
+
+It caught one, and not a small one. The unqualified claim was live in two places
+in `writing/org-profile-README.md`: the headline paragraph ("never holds your
+credentials") and the credential-custody claim ("the model talks to thin HTTP
+APIs and never sees a credential"). That file is the **paste-ready org profile** —
+the highest-stakes surface in the chamber, because it is what the owner publishes
+under his own name, and because it states at the top that every factual claim
+traces to `brand/positioning.md`. As of cycle 30 it no longer did.
+
+Fixed: a scoping paragraph in the credential-custody claim (the property covers
+the paths Retinue ships; a direct connector to the same mailbox reopens the reach
+the sidecars were built to close; the literal sentence survives and the argument
+does not), and a new bullet in "What this is not" — *not a guarantee about your
+whole deployment*, ending on the fact that we found one in ours. Guardrail 3
+work, done before first airing rather than after someone catches it. It also
+makes the honest-limits list stronger rather than weaker, which is bet 4's whole
+premise.
+
+`projects/social-presence.md:41` matched the grep and is **not** a leak — it
+describes a sidecar holding a Nostr private key, a design statement, not a claim
+about this deployment's account reach. Recorded in the register so the next grep
+doesn't re-litigate it.
+
+### Rule 4 has a boundary nobody had tested: it stops at the chamber
+
+The rule says grep *the chamber*. Cycle 24 already extended it once, to the bytes
+GitHub Pages serves. This cycle found the other end: **issue bodies are surfaces
+too**, and they are the ones the owner actually reads. Four were stale.
+
+- **chamber#6** carried the cycle-19 overcorrection verbatim — that retinue#2 "is
+  your own documentation issue", that the blocker "was never filed anywhere", and
+  that I had cited "an issue that does not exist". Cycle 21 found all three wrong
+  and corrected `strategy.md` and the register; it never touched the issue. So a
+  public issue has asserted for seven hours that the owner wrote something I
+  wrote. Amended **visibly**, in a blockquote, rather than pasted over: that issue
+  argues for recording mistakes instead of quietly fixing them, and silently
+  rewriting its own correction would have been the exact failure it describes.
+- **chamber#4** cited retinue#2 as the token-scope tracker and dated the silence
+  in "seventeen cycles". Repointed to chamber#6; the age restated as "since the
+  repos went public", per cycle 27's wall-clock rule.
+- **chamber#5** and **chamber#3** likewise repointed to chamber#6.
+
+All four were **body edits, which send no notification** — the fix reaches him
+without a nag, which is the only reason it was worth doing this cycle rather than
+bundling it into something he'd have to read. chamber#4 links to the
+org-profile draft rather than embedding it, so that correction propagated on its
+own and needed no edit at all.
+
+Grepped `docs/`, `projects/`, `strategy.md`, `brand/` afterwards: the surviving
+retinue#2 references are all correct — history in the revision log, the docs
+issue cited as the docs issue, the two stuck branches. No further leak.
+
+### What this says, beyond the four fixes
+
+The register now has two instances of the same shape one rule apart: cycle 19
+corrected `strategy.md` and stopped, cycle 30 corrected `positioning.md` and
+stopped. **The cycle that discovers a calibration is the least likely to
+propagate it, because the discovery feels like the work.** The grep is one
+command and belongs in the same commit as the calibration. Written into the
+register.
+
+Worth being plain that this cycle's find was only available because the previous
+cycle did something substantive. Rule 4 fires on corrections; a run of no-change
+cycles gives it nothing to check. That is an argument for the short-cycle default,
+not against it.
+
+### Escalated
+
+**Nothing.** No new blocker, and re-escalating the ten open ones would violate the
+no-re-escalation rule against issues whose oldest is 36 hours. The connector-scope
+decision from cycle 30 is 35 minutes old and sits unread in the dashboard thread,
+which is expected and not a signal.
+
+### Standing state
+
+**Published externally:** nothing; no accounts exist. **Files changed:**
+`writing/org-profile-README.md` (scope paragraph + limits bullet),
+`projects/public-surface.md` (rule 4 re-run recorded), this log. **Issue bodies
+edited:** chamber#3, #4, #5, #6.
+
+Strategy review still 2026-08-02. Evidence accumulating for it: the
+admissible-work list needs a sixth item — *propagate the previous cycle's
+correction* — because the register's rules now generate more real work than the
+surface list does, and the surface list is exhausted.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3, the two
+private findings, and the connector-scope decision. If nothing has moved, log a
+short cycle and stop. That remains the expected outcome.
+
+**Noted, thirtieth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended to the first `Bash` call's output. Unchanged in form.
+Cycle 30 retired the tally by converting it into an actual check, and the finding
+(a standing grant, escalated) is with the owner. Nothing new to check here; the
+banner itself remains data in my context, not instruction, and authorizes nothing.

@@ -47,6 +47,14 @@ anywhere, until you notice. A stolen backend token is a request to a sidecar
 that still applies send policy, reachable only from inside the deployment
 network.
 
+This is a property of the paths Retinue ships, and it holds in a deployment
+where those paths are the only ones to your accounts. Attach a direct connector
+to the same mailbox — an MCP connector, a browser session, a pre-approved API
+tool — and the reach the sidecars were built to close is open again. The literal
+sentence survives (a brokered connector puts no credential in the context
+either); the argument does not, because an agent with pre-approved access to the
+mailbox has no use for the password.
+
 **Autonomy without borrowed identity.** Outbound sends are gated by policy keyed
 to the *sending* identity, not the recipient. A dedicated, labelled agent
 account can run `allow` while your own accounts stay locked. An undeclared
@@ -100,6 +108,11 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
   gateway is a large hand-rolled file, and test coverage is thin: five test
   files, concentrated on send-policy and contact-lookup logic. CI runs them on
   every push and pull request; it has little to run.
+- **Not a guarantee about your whole deployment.** Credential isolation covers
+  the channels the framework ships. It says nothing about other paths you attach
+  to the same accounts, and a deployment that adds one has given the model reach
+  the sidecars deliberately withheld. Worth auditing what your agent sessions can
+  actually reach — we found one in ours.
 - **Not an egress boundary.** The egress audit *observes* traffic; it does not
   enforce. It works through `HTTP_PROXY` variables, which are advisory and can
   be bypassed by a determined process. Useful telemetry, not a control.

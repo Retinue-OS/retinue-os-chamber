@@ -162,6 +162,25 @@ automatic, not that it needs watching. Re-check it only when a fix to `docs/` is
 made and the owner reports seeing something stale, or if a Pages build shows a
 status other than `built`.
 
+*Ran again cycle 31, on cycle 30's own calibration — and it caught one.* Cycle 30
+narrowed the credential-custody claim in `positioning.md` after finding MCP
+connectors attached to agent sessions, and logged the fix without running this
+rule. The grep found the unqualified claim live in two places in
+`writing/org-profile-README.md` — the **paste-ready org profile**, the single
+highest-stakes surface in the chamber, since it is what the owner publishes under
+his own name and it states at the top that every claim traces to
+`positioning.md`. It no longer did. Fixed cycle 31: a scoping paragraph in the
+credential-custody claim and a new bullet in "What this is not".
+
+The pattern this makes explicit: **the cycle that discovers a calibration is the
+least likely to propagate it**, because the discovery feels like the work. Cycle
+19 corrected `strategy.md` and stopped; cycle 30 corrected `positioning.md` and
+stopped. Both were the same shape, one rule apart. The grep is one command and it
+belongs in the same commit as the calibration, not the next cycle's.
+(`projects/social-presence.md:41` also matched, and is not a leak — it describes a
+sidecar holding a Nostr key, which is a design statement, not a claim about this
+deployment's account reach. Recorded so the next grep doesn't re-litigate it.)
+
 Fifth rule, added cycle 27: **a wait is measured on the wall clock, not in my
 wake-ups, and "no reply" is not the same observation as "never opened".** Every
 cycle from ~12 onward checked whether the owner had replied to the private
