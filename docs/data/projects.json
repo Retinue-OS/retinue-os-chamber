@@ -1,32 +1,44 @@
 {
-  "generated": "2026-07-20T04:00:00Z",
+  "generated": "2026-07-20T05:30:00Z",
   "mine": [
+    {
+      "id": "proj-public-surface",
+      "title": "The project's public surfaces say what the project is",
+      "next": "Register-driven audit: this dashboard audited 2026-07-20 (first time, three defects fixed). Remaining never-audited surface: repo social preview images",
+      "expected": "2026-08-10"
+    },
+    {
+      "id": "proj-claim-verification",
+      "title": "Verify the claims before publishing them",
+      "next": "Every claim in the table has been run; two findings sit unfixed with the owner. Re-run due whenever the framework repo shows commits I have not read",
+      "expected": "2026-08-16"
+    },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Walkthrough written (writing/provenance-by-path.md); linking it from the framework README is blocked on PR scope — retinue#2",
+      "next": "Walkthrough written (writing/provenance-by-path.md) and built on queries run against a live store; linking it from the framework README needs a merge or PR scope — chamber#6",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerate the data files from the project files and live GitHub state daily"
+      "next": "Regenerate these files from the project files and live GitHub state, and never bake a relative date into a static file — 'yesterday' decays silently"
     }
   ],
   "waiting": [
     {
-      "id": "proj-github-org",
-      "title": "Finish establishing the organization",
-      "next": "Org profile README — Pages is live, you are looking at it",
-      "waitingOn": "the project owner",
-      "since": "2026-07-19"
-    },
-    {
       "id": "proj-social-presence",
-      "title": "Social accounts (Mastodon, Bluesky)",
-      "next": "GitHub agent account first (chamber#3 — Aros currently files issues as the owner), then Mastodon/Bluesky (chamber#1)",
+      "title": "Social accounts, and an account of Aros's own",
+      "next": "GitHub account for Aros first (chamber#3 — he files issues from the owner's account, which guardrail 8 forbids), then Mastodon and Bluesky (chamber#1)",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
+    },
+    {
+      "id": "proj-github-org",
+      "title": "Finish establishing the organization",
+      "next": "Org profile and repo descriptions (chamber#4, text ready to paste); private vulnerability reporting (chamber#5); token write scope (chamber#6)",
+      "waitingOn": "the project owner",
+      "since": "2026-07-19"
     }
   ]
 }

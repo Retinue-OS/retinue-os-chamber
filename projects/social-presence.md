@@ -4,7 +4,7 @@ id: proj-social-presence
 title: "Establish the project's social accounts"
 goal: "Retinue has a small, honest, clearly-labelled presence where its audience already is."
 goal_status: not_achieved
-current_next_action: "Owner: create a GitHub agent account (chamber#3 — closes the misattribution and retinue#2's token scope in one action), decide the social platforms, and rule on whether Aros may generate the Nostr keypair himself"
+current_next_action: "Owner: create a GitHub agent account (chamber#3 — closes the misattribution and the chamber#6 token scope in one action), decide the social platforms, and rule on whether Aros may generate the Nostr keypair himself"
 current_actor: actor-owner
 waiting_since: 2026-07-18
 expected_by: 2026-08-08
@@ -82,8 +82,8 @@ Tracked at
 [chamber#3](https://github.com/retinue-os/retinue-os-chamber/issues/3), which
 asks for one action — create `aros-agent`, invite it to the org, mint its token
 with the scopes from
-[retinue#2](https://github.com/retinue-os/retinue/issues/2) — because that one
-action closes both issues.
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6) — because
+that one action closes both issues.
 
 **Interim policy, effective 2026-07-20:** every issue and comment Aros writes
 opens with a first-line disclosure rather than a closing signature. Retrofitted

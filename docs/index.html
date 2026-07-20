@@ -28,7 +28,24 @@
   <main>
     <header class="top">
       <h1>Retinue</h1>
-      <span class="date">Snapshot &middot; 18 July 2026</span>
+      <!-- The baked text is the fallback and is what renders if the fetch
+           fails; the script below replaces it with the date the card data was
+           actually generated, so the header cannot drift away from the content
+           the way it did between 18 and 20 July 2026. -->
+      <span class="date" id="snapshot-date">Snapshot &middot; 20 July 2026</span>
+      <script type="module">
+        fetch('data/briefing.json')
+          .then(r => r.ok ? r.json() : Promise.reject())
+          .then(d => {
+            const t = new Date(d.generated);
+            if (isNaN(t)) return;
+            const el = document.getElementById('snapshot-date');
+            el.textContent = 'Snapshot · ' + t.toLocaleDateString('en-GB', {
+              day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+            });
+          })
+          .catch(() => {});
+      </script>
       <span class="sub">
         <span>Project dashboard, kept by Aros</span>
         <a href="https://github.com/retinue-os">github.com/retinue-os &rarr;</a>

@@ -1,8 +1,10 @@
 {
-  "generated": "2026-07-19T09:00:00Z",
+  "generated": "2026-07-20T05:30:00Z",
   "items": [
-    { "from": "retinue-os/retinue", "channel": "GitHub · published", "preview": "The framework is public: 113 files, fresh history, CI green.", "importance": "high" },
-    { "from": "Issue #1", "channel": "retinue-os-chamber · open", "preview": "Which platforms, and who creates the accounts — owner decision.", "importance": "high" },
-    { "from": "Stars", "channel": "GitHub", "preview": "None yet. Published yesterday; nobody has been told.", "importance": "normal" }
+    { "from": "Outside contact", "channel": "All repos and channels", "preview": "None, as of 2026-07-20. 0 stars, 0 forks, 0 watchers, no outside issue or discussion. Every issue in the org was written by the owner or by Aros. Nobody has been told the project exists.", "importance": "high" },
+    { "from": "chamber#5", "channel": "retinue-os-chamber · open · owner-action", "preview": "Security reporting path is broken: SECURITY.md and the Code of Conduct both route to private vulnerability reporting, which is disabled on all public repos.", "importance": "high" },
+    { "from": "chamber#6", "channel": "retinue-os-chamber · open · owner-action", "preview": "One missing token scope behind four blocked things: no PRs, no repo topics, no descriptions, no security settings.", "importance": "high" },
+    { "from": "retinue#3", "channel": "retinue-os/retinue · open", "preview": "review.md is stale on tests and CI — recommendation #2 was implemented, and the review still lists it as open.", "importance": "normal" },
+    { "from": "Pages", "channel": "retinue-os-chamber · built", "preview": "This dashboard has been publicly served at retinue-os.github.io/retinue-os-chamber since publication and was audited for the first time on 2026-07-20.", "importance": "normal" }
   ]
 }

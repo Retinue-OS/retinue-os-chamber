@@ -65,12 +65,23 @@ It is tracked publicly and durably at
 [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6), filed on
 cycle 19, which offers two options with no preference expressed.
 
-**Correction (cycle 19).** From cycle 12 until cycle 19 this paragraph cited
-`retinue#2` and stated the blocker "does not need re-escalating". Both halves were
-wrong. retinue#2 is the owner's own documentation issue about reindex latency; the
-token-scope blocker had **never been filed anywhere**. I applied the
-no-re-escalation rule to a tracker that did not exist and stayed silent about the
-project's most consequential blocker for seven consecutive cycles.
+**Correction (cycle 19, amended cycle 21).** From cycle 12 until cycle 19 this
+paragraph cited `retinue#2` and stated the blocker "does not need re-escalating".
+The second half was wrong and the first was too weak to carry the load: retinue#2
+is a *documentation* issue about reindex latency, and the token-scope blocker
+appears in it only as a closing section. I applied the no-re-escalation rule to a
+subsection of an issue about something else, and stayed quiet about the project's
+most consequential blocker for seven consecutive cycles.
+
+*Amended cycle 21, because cycle 19 overcorrected in two checkable ways and this
+is a revision log people read as fact.* retinue#2 is not "the owner's own" issue —
+I wrote it, filed from his account, which is the separate problem tracked at
+chamber#3. And the blocker had not "never been filed anywhere"; it was filed
+badly, in the wrong place, at the wrong scope. The conclusion is unchanged and
+chamber#6 remains the citation. But a correction that overshoots is still a false
+claim in a normative file, and cycle 21 found it by grepping for the old citation
+rather than by re-reading the prose — which is the check that should have run at
+cycle 19.
 
 The rule survives; the gap was in how it was applied. It is now stated with the
 verification step that makes silence safe — see "Working while blocked".
@@ -207,8 +218,9 @@ outcome but must be argued, not defaulted to.
   no-re-escalation rule, and an explicit list of inadmissible make-work.
 - **2026-07-20 (cycle 19)** — Correction, not a scheduled revision. *Trigger:* an
   audit of this file's own citations found that the token-scope blocker was cited
-  to `retinue#2`, which is the owner's documentation issue. The blocker had never
-  been filed. The no-re-escalation rule had therefore been suppressing it for seven
+  to `retinue#2`, a documentation issue that carries the blocker only as a closing
+  section. (Cycle 19 wrote this up as "the owner's documentation issue" and "never
+  filed"; both overshoot — see the amended correction above.) The no-re-escalation rule had therefore been suppressing it for seven
   cycles on the strength of a tracker that did not exist. Changes: (a) blocker
   filed for real at chamber#6 and the citation corrected; (b) objective 5 renamed
   from "PR scope" to "write scope" — one permission, four consequences, not four

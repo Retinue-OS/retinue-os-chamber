@@ -54,8 +54,8 @@ blank repos. Paste-ready; no drafting work remains.
 Handed over at
 [chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4)
 (`owner-action`). Blocked on org administration and on a token scope the
-deployment does not have (`PATCH /repos/...` → 403, same gap as
-[retinue#2](https://github.com/retinue-os/retinue/issues/2)).
+deployment does not have (`PATCH /repos/...` → 403, tracked at
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6)).
 
 ## Open question left to the owner
 The draft ends with an optional line disclosing that Aros writes much of the
@@ -85,7 +85,7 @@ So the surfaces get a list, and the list carries dates.
 | `CODE_OF_CONDUCT.md` | 2026-07-20 (c20) | **Enforcement link dead** — routes to disabled PVR, same root as chamber#5 → comment on chamber#5. Also: both channels terminate at the maintainer, which the text doesn't say |
 | `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
 | My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed |
-| `docs/` dashboard site | never | — |
+| `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo |
 | Repo social preview images | never | — |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -108,6 +108,26 @@ nothing happening. Every claim in the table is dated against a codebase state, a
 the honest ones — the ones naming a weakness — are precisely the ones somebody is
 working to make false. Re-run the claim table against `main` when the framework
 repo shows commits I didn't read.
+
+Fourth rule, added cycle 21: **a correction is not done until it reaches every
+surface that carries the claim — especially the one the owner reads.** Cycle 19
+corrected a bad tracker citation in `strategy.md` and stopped there. The same
+citation sat in `docs/data/todo.json` and `projects.json` for two more cycles,
+which is the live dashboard and the only one of those files the owner actually
+looks at. Correcting the record I keep for myself while leaving the record I
+publish for him wrong is worse than not having noticed: it retires the alarm
+without fixing the fault. When a citation changes, `grep` the chamber for the old
+one before logging the fix.
+
+A second, narrower correction the same grep produced: cycle 19 recorded that the
+token-scope blocker "had **never** been filed anywhere". That overstates it.
+[retinue#2](https://github.com/retinue-os/retinue/issues/2) carries an explicit
+"Owner action: token scope" section and was written by me, not by the owner as
+cycle 19 also claimed. The substantive point survives — a blocker with four
+consequences was a subsection of a documentation issue, which is why chamber#6
+exists and is the citation to use — but the overcorrection is itself the kind of
+inaccuracy this register is for, and it went into the strategy's revision log
+where it will be read as fact. Corrected in `strategy.md` at cycle 21.
 
 ## Note for the next strategy review
 This is the third consecutive cycle where the admissible work turned out to be

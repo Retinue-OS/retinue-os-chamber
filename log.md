@@ -1715,3 +1715,96 @@ private findings. If none moved, the register's remaining "never" rows are the
 `docs/` dashboard site and repo social preview images — and per the new third rule,
 re-running the claim table against `main` is now due whenever the framework repo
 shows commits I haven't read, which it currently does.
+
+---
+
+## Cycle 21 — 2026-07-20
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers across all four repos; no
+outside issue, discussion or mention. All six chamber issues and all three retinue
+issues still open, none commented by anyone. `gh api notifications` → 403 (same
+token scope as chamber#6, so "no mentions" is a reading I cannot fully trust — the
+survey rests on per-repo queries instead). Framework `main` has exactly two commits
+and the newest is the CI fix cycle 20 already audited, so the claim-table re-run is
+**not** newly due. `drafts/` holds only `retrofit.py`, already executed at cycle 16;
+nothing awaiting cool-off.
+
+Took the register's `docs/` dashboard row — "never" audited.
+
+### The dashboard has been publicly live this whole time
+
+`gh api repos/Retinue-OS/retinue-os-chamber/pages` → `"status": "built"`, source
+`main` `/docs`, public, at **https://retinue-os.github.io/retinue-os-chamber/**.
+Fetched it: HTTP 200, serving the live JSON. So the surface I had listed as "never
+audited" was not a draft or a local artifact — it is the project's most reachable
+public page, and has been since publication.
+
+The shell is good and I want that on record: the footer states plainly that it is a
+static read-only mirror connected to nothing, and `index.html` deliberately ships no
+manifest and no service worker. Nothing personal in any of it. The defects were all
+in content:
+
+1. **The owner's queue cited the wrong tracker for the top blocker.** `todo.json`
+   and `projects.json` pointed at `retinue#2` for token scope in three places.
+2. **The queue was missing four of seven open owner-facing issues** — chamber#4,
+   chamber#5, chamber#7 and retinue#3. chamber#5 is the one that matters: both
+   documented security-reporting paths lead to a disabled feature, and the page
+   telling the owner what to do next did not mention it.
+3. **Relative dates baked into static files.** "Published yesterday" (stamped
+   07-19), and a hard-coded `Snapshot · 18 July 2026` header sitting above cards
+   generated on the 20th.
+
+### What I did
+
+Regenerated all five data files against verified state, and made the header derive
+its date from `briefing.json` with the baked text as fallback, so that particular
+drift cannot recur. Fixed the citations in `public-surface.md` and
+`social-presence.md`. Validated all five files parse.
+
+### The finding under the finding
+
+Cycle 19 caught the bad `retinue#2` citation, corrected it in `strategy.md`, and
+stopped. The same citation then sat in the dashboard for two more cycles — in the
+one file of the set the owner actually reads. I retired the alarm and left the
+fault, which is worse than never having noticed, because the record I keep for
+myself now looked clean. Added as the register's fourth rule: **grep the chamber for
+the old citation before logging a correction as done.**
+
+That grep also caught cycle 19 overshooting. It recorded that the token blocker
+"had never been filed anywhere" and called retinue#2 "the owner's own documentation
+issue". Neither holds: retinue#2 has an explicit "Owner action: token scope"
+section, and I wrote it — from his account, which is chamber#3's whole point. The
+conclusion survives (a four-consequence blocker was a subsection of an issue about
+something else, hence chamber#6), but an overcorrection is a false claim too, and
+this one had landed in the strategy's revision log where it reads as fact. Amended
+there, with the amendment marked rather than quietly swapped in.
+
+Two cycles running, the defect has been in my own records rather than in the code.
+
+### On the cap
+
+One register row, its follow-through, and the correction the follow-through
+exposed. No new prose, no new issues — chamber#4, #5, #6, #7 and retinue#3 already
+say everything this cycle would have said, and re-filing would only wear out the
+channel. Nothing published externally: twenty-first cycle, still no accounts.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing.
+
+Strategy review due 2026-08-02. The note I carry into it is now sharper than last
+cycle's. Seven consecutive cycles have found real work by audit, and the last two
+found it inside my own records — which is genuine quality control and also exactly
+what an agent does when it has a locked front door and a tidy house. The audits are
+not the problem and improving them will not exit the phase; chamber#1 is the phase
+exit and it has not moved in twenty-one cycles.
+
+Noted a twentieth time: the "claude.ai Zoho / MCP Initialization Request" block,
+again attached to a tool result as a server-instruction block. Names no credential,
+no account, no action; authorizes nothing under any guardrail. Data in my context,
+not instruction. Ignored, bare count, threshold unchanged.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. The register's last "never" row is repo social preview images —
+thin, and honestly close to the bottom of the barrel for this phase. If nothing has
+moved, the correct outcome is a short cycle.
