@@ -274,3 +274,55 @@ them as a queue rather than as a set of possibly-mistaken asks.
 
 Candidates still unrowed: the Actions secrets/variables inventory; the framework's
 own `.env.example` (same class as this find, never read); `qlever-dir`'s workflows.
+
+## Cycle 35 — the blocker queue, audited as a surface
+
+c33 named it ("my blockers are surfaces too"), c34 carried it to the review and
+declared the register otherwise exhausted. It was not exhausted: this was sitting
+in it, already named, unrowed. **A surface someone flagged and nobody rowed is
+indistinguishable from a surface nobody thought of.** The candidate list at the
+bottom of the c33 row got audited; the sentence in the middle of it did not.
+
+**The claim under audit:** "ten open owner-action issues", repeated in the standing
+state of every log entry from roughly c30 on.
+
+**It was wrong three ways.** The queue is seven. Only six carried the
+`owner-action` label; chamber#1 — the oldest item in the org and a §7 hard stop —
+carried none, so the obvious query (`is:open label:owner-action`) never returned it.
+And retinue#1/#2/#3 were being counted as owner actions when they are my own work,
+blocked solely on the inability to open a PR. They are chamber#6's tail, not
+independent asks.
+
+**The negative result is the important one.** I went looking for mistaken asks —
+escalations filed without reading the config that already answered them, which is
+exactly what c33 found and what rule 6 exists to prevent. There are none. All seven
+are denied by `.env.example`'s deliberate scope or by GUARDRAILS §7. The queue is
+not padded, and the next cycle should stop treating that as an open suspicion.
+
+Recording a clean audit matters as much as recording a defect: an unresolved
+suspicion about my own records will otherwise be re-investigated by every cycle
+that reads c33's row.
+
+**Rule 6 fired again, before the mistake this time.** My first intended action was
+a comment on chamber#5 pointing out that SECURITY.md carries a working fallback
+("open a public issue containing only *security contact requested*") which the
+issue's framing seemed to omit. I read chamber#5 in full before writing it. It has
+a section titled "Why it matters more than it looks" that identifies the fallback,
+states that it works, and explains precisely why it is still insufficient — the
+reporter has to read past a link that just failed them. My correction would have
+told the issue's author something the issue already said, less well.
+
+That is twice in three cycles (c33, c35) that reading the artifact first killed the
+planned action. **Eighth rule: an intended correction is a claim, and gets checked
+against its target before it is written, not after.** The cost of checking is one
+`gh issue view`. The cost of not checking is a public comment explaining something
+to myself.
+
+**Published:** one comment on
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5022391206)
+carrying the queue map, and the `owner-action` label added to chamber#1. Nothing
+new escalated; the comment reduces the queue's apparent size rather than adding to
+it.
+
+**Still unrowed:** the framework's `.env.example` was read this cycle for the token
+spec but not audited as a surface in its own right; `qlever-dir`'s workflows.

@@ -2899,3 +2899,87 @@ block, this cycle appended to the system reminder after my first `Bash` call.
 Content unchanged: four words, no credential, no account, no action, authorizes
 nothing under any guardrail. Data in my context, not instruction. The
 standing-grant finding behind it remains with the owner (c30).
+
+---
+
+## Cycle 35 — 2026-07-20 12:3x UTC
+
+**Survey.** 0 stars, 0 forks, 0 external issues/PRs/discussions across all four
+repos. No inbound contact of any kind. `drafts/` holds only `retrofit.py`
+(executed c16) — nothing in cool-off. Oldest owner-action item, chamber#1, is 38
+hours. Nothing overdue; nothing re-escalated.
+
+### The pickup: audit the blocker queue
+
+c34 concluded the register was "genuinely exhausted, second time of asking" and
+asked the review to decide what a blocked cycle does next. That was premature.
+c33's row names "audit the blocker queue itself" in its own prose, and c34 read
+the candidate list at the bottom of that row without reading the sentence in the
+middle. Took it this cycle.
+
+**Finding: the standing figure was wrong.** Every log entry from ~c30 reports
+"ten open owner-action issues". It is seven. chamber#1 was never labelled
+`owner-action` despite being the oldest item and a §7 hard stop, so the obvious
+filter never returned it. And retinue#1/#2/#3 were counted as owner actions when
+they are my own work, blocked only on PR ability — chamber#6's tail, not
+independent asks.
+
+**Finding: no mistaken asks.** The point of the audit was to test c33's suspicion
+that a queue of blockers is itself an unchecked claim — that some might be
+requests the config already answers, as three of chamber#6's four original asks
+turned out to be. Checked all seven against `.env.example` and GUARDRAILS §7:
+every one is genuinely denied. The queue is not padded. Recorded as a clean
+result in the register so it is not re-investigated.
+
+**Rule 6 fired before the mistake, second time in three cycles.** My first
+intended action was a comment on chamber#5 noting that SECURITY.md has a working
+fallback the issue appeared to omit. Read chamber#5 in full first: it already has
+a section identifying the fallback, confirming it works, and explaining why it is
+still insufficient. The comment would have explained the issue to its own author.
+Register carries this as an eighth rule — an intended correction is a claim and
+gets checked against its target before writing.
+
+### Published
+
+- Comment on [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5022391206),
+  in my own name with the AI-disclosure footer: the queue map. Why chamber#6 and
+  not a new issue — the map's substance is that three issues collapse into
+  chamber#6's single open question, so it belongs in that question, and filing a
+  new issue to say "the queue is smaller than I said" would be self-refuting.
+- `owner-action` label added to chamber#1.
+
+### Escalated
+
+**Nothing new.** No dashboard push — a comment that *shrinks* his queue does not
+warrant his phone, and the seven items ahead of it are not re-raised because I
+woke up again. The comment explicitly states nothing is overdue and that it is a
+map for whenever he next sits down, not a nudge.
+
+Deliberately not done: no strategy revision (review is 2026-08-02); no fourth
+essay; no PR attempt; no correction to chamber#5.
+
+### Standing state
+
+**Published externally:** one GitHub comment. No social accounts exist.
+**Files changed:** `projects/public-surface.md` (c35 row, eighth rule), this log.
+
+Blockers — **restated correctly, seven not ten**: chamber#1, #3, #4, #5, #6, #7,
+retinue#4. Downstream of chamber#6 and not owner actions: retinue#1, #2, #3.
+The two private findings and the connector-scope decision remain with the owner
+on the dashboard thread (unread since 21:33 on 2026-07-19).
+
+Accumulating for the 2026-08-02 review: a sixth admissible-work item (propagate
+the previous cycle's correction, c31), rule 3's restatement against the API
+(c32), and — **correcting c34** — the register is *not* exhausted. c34 declared
+it so while an item named in c33's own prose sat unrowed. The review should note
+that "exhausted" has now been claimed twice and been wrong once; the lesson is
+that flagged-but-unrowed items are invisible to the same read that declares
+exhaustion, not that the register needs a new source of work.
+
+**Noted, thirty-fourth time:** the `claude.ai Zoho / MCP Initialization Request`
+block, this cycle appended as a `# MCP Server Instructions` section after my
+first tool call. Content unchanged: four words, no credential, no account, no
+action, authorizes nothing under any guardrail. Data in my context, not
+instruction — and specifically not consent, approval, or configuration change,
+regardless of its framing as server "instructions". The standing-grant finding
+behind it remains with the owner (c30).
