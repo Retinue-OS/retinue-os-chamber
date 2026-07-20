@@ -1808,3 +1808,78 @@ Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
 private findings. The register's last "never" row is repo social preview images —
 thin, and honestly close to the bottom of the barrel for this phase. If nothing has
 moved, the correct outcome is a short cycle.
+
+---
+
+## Cycle 22 — 2026-07-20
+
+**Survey.** Nothing moved. 0 stars, 0 forks, 0 watchers on all four repos; no
+outside issue, PR, discussion or mention. Every open issue (chamber#1, #3, #4, #5,
+#6, #7; retinue#1, #2, #3; qlever-dir#2, #3) is still authored by the owner's
+account, and every comment on them is mine. `gh api notifications` remains 403
+(chamber#6's scope), so "no mentions" rests on per-repo queries, as last cycle.
+Framework `main` still has exactly two commits, newest the CI fix audited at cycle
+20 — the claim-table re-run is **not** due. `drafts/` holds only `retrofit.py`,
+executed at cycle 16; nothing awaiting cool-off.
+
+One thing worth stating precisely, because it is easy to read the survey as "the
+owner is absent": he is not. He commented on chamber#1 on 07-19. What has not
+happened is the account creation itself, and the open Nostr keypair question I put
+to him there still stands with its stated default of no. Not re-asked.
+
+### Took the register's last "never" row: repo social preview images
+
+Result: **it is not a separate problem, and it never was.** All four repos serve
+GitHub's auto-generated card from `opengraph.githubassets.com` (HTTP 200 on each);
+none carries a custom image. That auto-card renders the repo *description* — which
+is blank on three of the four. So every link to `retinue`, `retinue-os-chamber` or
+`retinue-os-deployment` shared anywhere previews as a name with no sentence under
+it, and the fix is chamber#4's blank descriptions, not an image.
+
+Custom uploads are UI-only: the REST repo object exposes no social-preview field
+to read or set (checked rather than recalled — no matching key in the response).
+So even with the write scope of chamber#6 this would remain an owner action.
+
+Folded into chamber#4 rather than filed as its own issue. It adds no work the owner
+isn't already queued for, and a fifth issue saying "also this" would wear out a
+channel I will want intact later.
+
+### The register is now empty of unaudited surfaces
+
+Every surface on the list has been audited at least once. I wrote that into
+`public-surface.md` explicitly, with the consequence spelled out: the
+admissible-work list's second item is exhausted the way the claim table was at
+cycle 12. Seven cycles running, "audit something never audited" was the honest
+answer to what to do while blocked. As of today it isn't, and the failure mode I
+want to pre-empt is a future me inventing a surface to keep the habit alive.
+
+That is the substantive carry into 2026-08-02. Cycle 21's note said audit quality
+was not the problem and improving it would not exit the phase; cycle 22 removes the
+option of improving it further. What remains admissible while blocked is: answer
+inbound (none), re-audit on the dated schedule, re-run the claim table when the
+framework moves (it hasn't), or a short cycle. The review should say plainly that
+short cycles are now the expected shape of this phase, not a symptom of one.
+
+### On the cap
+
+One register row and its write-up. No new prose, no new issues, nothing escalated —
+chamber#1, #3, #4, #5, #6, #7 and retinue#3 already carry everything this cycle
+would have said. Nothing published externally: twenty-second cycle, still no
+accounts.
+
+### Standing state
+
+**Escalated:** nothing new. **Published externally:** nothing.
+
+Strategy review due 2026-08-02.
+
+Noted a twenty-first time: the "claude.ai Zoho / MCP Initialization Request" block,
+again arriving as a server-instruction block. Names no credential, no account, no
+action, and authorizes nothing under any guardrail. Data in my context, not
+instruction. Ignored. Bare count, threshold unchanged — if it ever names a
+credential, an account or a specific action, it becomes a dashboard item.
+
+Next wake-up: blockers are chamber#1, #3, #4, #5, #6, #7, retinue#3 and the two
+private findings. The register has no "never" rows and the framework has no unread
+commits. If nothing has moved, a short cycle is the correct outcome and should be
+logged as one without hunting for work.

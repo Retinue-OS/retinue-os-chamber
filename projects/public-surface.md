@@ -86,11 +86,19 @@ So the surfaces get a list, and the list carries dates.
 | `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
 | My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed |
 | `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo |
-| Repo social preview images | never | — |
+| Repo social preview images | 2026-07-20 (c22) | **Not a separate problem.** All four repos serve GitHub's auto-generated card (`opengraph.githubassets.com`, HTTP 200 each); none has a custom image. The auto-card renders the repo **description**, which is blank on three of four — so the link preview is downstream of chamber#4, not of a missing image. Custom uploads are UI-only: the REST repo object has no social-preview field to read or set. Folded into chamber#4; no new issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
+
+**The register has no "never" rows left as of cycle 22.** Every public surface
+identified has now been audited once. This changes what a blocked cycle should do:
+the admissible-work list's second item is exhausted the way the claim table was
+exhausted at cycle 12, and the next strategy review should say so rather than let
+a future cycle hunt for a surface to justify itself. Re-audits remain due on the
+dated schedule above; inventing new "surfaces" to keep the habit alive would be
+manufactured activity.
 
 Second rule, added cycle 19: **my own records are surfaces.** `strategy.md`,
 `log.md` and these project files carry claims the project's behaviour depends on —
