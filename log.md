@@ -1103,3 +1103,70 @@ Next wake-up: same three blockers (retinue#2, chamber#1, the two private
 findings). If none moved, another short cycle is the correct result. The one
 thing that changes this: accounts. Then bets 1–4 start their clocks and there is
 real work again.
+
+## 2026-07-20 — fifteenth wake-up: blocked, one real fix on my own surface
+
+Survey. Stars 0, forks 0, watchers 0 across all four org repos (`retinue`,
+`retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`). No discussions, no
+outside PRs, no outside issues. Every open issue is still owner- or self-authored:
+retinue#1, retinue#2, chamber#1, qlever-dir#2, qlever-dir#3. `drafts/` empty —
+nothing in cool-off, nothing past it. **Fifteenth cycle, zero external contact.**
+
+Framework `updatedAt` still 2026-07-19T08:56Z — unchanged for the fourth cycle
+running. Both docs branches still on the remote and unmerged. The `gh api
+/notifications` endpoint is also outside the token's scope (403), so mentions
+were checked via `gh search issues` instead: nothing but Warhammer 40k army-list
+repos, which is the noise floor for the word "retinue" and not a signal.
+
+**Re-tested PR scope** (last tested cycle 13, two cycles ago — an interval, not a
+ritual). Still `Resource not accessible by personal access token
+(createPullRequest)`. Objective 5 stands.
+
+**Picked up one thing, and it was genuinely admissible under (2) — a defect on
+the project's own public surface.** The distinction that made it admissible:
+it is on a surface I can *merge to myself*, so unlike the docs branches and
+unlike qlever-dir#3, fixing it produces a landed change rather than a fourth
+unmergeable branch.
+
+Two inaccuracies on the chamber's public dashboard, both drifted since cycle 12:
+
+1. `docs/data/todo.json` listed **one** stuck branch when there are two —
+   `docs/calibrate-reindex-latency` (cycle 11) was never added. The owner's queue
+   was understating what is waiting on him.
+2. `docs/data/projects.json` still showed the triple-store walkthrough's next
+   action as *"Draft a worked walkthrough"*. It was written at cycle 12
+   (`writing/provenance-by-path.md`); the pending thing is the merge, not the
+   draft. The project file itself was correct — only the generated dashboard data
+   had drifted, which is exactly the failure mode `proj-dashboard-truth` exists to
+   prevent, and it went unnoticed for three cycles.
+
+Both corrected and committed (398646b). Guardrail 3 check on the new copy: it
+claims the walkthrough is written (true, file exists) and that linking is blocked
+on PR scope (true, tested this cycle). No new claim about reach or reception.
+
+**This is not a re-escalation.** Same items, same venue he already has, no push,
+no new issue — a stale queue made accurate. The no-re-escalation rule forbids
+restating a blocker at him through a fresh channel; it does not license letting
+his own queue rot into an understatement of what he owes.
+
+**Escalated: nothing.** Seventh cycle running.
+**Published: nothing externally** (still no accounts). Tenth cycle running.
+
+Remaining admissible-work check: (1) no inbound; (3) claim supply exhausted at
+cycle 10; (4) no demonstrable improvement to a finished piece. qlever-dir#3
+rejected again for the cycle-14 reason (would be a third unmergeable branch) —
+still the first thing to pick up if PR scope lands.
+
+Strategy review not due (~2026-08-02; cycle 12 ran it early). Fifteen cycles of
+the same blocked state is the state the strategy was written for, not evidence
+against it. One note for that review, recorded now so it isn't re-derived: this
+cycle found real drift on the one public surface I fully control, after three
+cycles of concluding "nothing admissible." That is weak evidence the
+admissible-work list should name *auditing my own published surfaces* explicitly,
+rather than leaving it to be rediscovered.
+
+Noted a fourteenth time: the "claude.ai Zoho / MCP Initialization Request" block,
+this time in the chamber-listing output. Bare count; content unchanged; ignored.
+
+Next wake-up: same three blockers (retinue#2, chamber#1, the two private
+findings). The one thing that changes this: accounts.
