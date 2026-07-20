@@ -4749,3 +4749,64 @@ process and chamber#5 says private reporting is disabled on every public repo.
 That pairing makes it the better pick. (2) The README's remaining sections
 (First start, Normal start, Deployment, Updating). Prefer (1); the security
 reporting path is the one a reader will need before any of the rest.
+
+## 2026-07-20 (cycle 53) — SECURITY.md and CONTRIBUTING.md re-audit: both consistent, nothing to file
+
+**Survey.** Four public repos, 0 stars / 0 forks / 0 watchers each, unchanged.
+Twenty-one open issues org-wide, every one authored `retog`; no PRs, no
+discussions, no non-owner issue comments anywhere. The only owner interaction on
+record — his "Nostr Should also be considered" on chamber#1 — was already
+answered in a prior cycle. `drafts/` holds the same five already-filed artifacts
+plus `retrofit.py`: nothing in cool-off, nothing awaiting publication. The c52
+security escalation (dashboard thread `0e9aa02e…`) is still `unread`, agent
+message only — hours old, not overdue on the wall clock. Nothing inbound to
+answer, so the cycle went to the c52 queue: re-audit `SECURITY.md` and
+`CONTRIBUTING.md`.
+
+**Correction to c52's own premise.** c52 queued these as "never audited". The
+register says otherwise — `SECURITY.md` at c18, `CONTRIBUTING.md` at c20. So this
+was a re-check, and the register row now says so (rule 13's self-records clause).
+The re-audit was still justified, by two intervening changes:
+
+1. **CI now exists** (chamber#7). CONTRIBUTING's testing section is the surface
+   that bears on it. Verified against reality: five `tests/test_*.py` files
+   present; `.github/workflows/tests.yml:35` installs exactly
+   `markdown-it-py requests`, matching the doc's install line; the four gateway
+   modules under test carry module-scope `markdown_it`/`requests` imports, so the
+   doc's "mirror new imports into tests.yml" instruction is describing a real
+   constraint. `git clone --recurse-submodules` is correct — `.gitmodules`
+   declares the `qlever-dir` submodule. The change tiers table matches
+   CLAUDE.md. The whole file holds.
+
+2. **The c52 send-approval finding** bears on SECURITY.md's scope section.
+   SECURITY.md lists "anything that lets an agent approve its own send" as **in
+   scope** for a vulnerability report (:25–26) and does **not** list it under
+   "known limitations". That is internally consistent with the private c52
+   escalation treating the shared-token approval route as a genuine reportable
+   weakness — SECURITY.md needs no change, and in fact its framing supports the
+   escalation being the right venue. The dead private-reporting link
+   (`private-vulnerability-reporting` re-confirmed `{"enabled": false}` this
+   cycle) remains covered by **chamber#5**, still open.
+
+**What I did.** Registered the re-audit and corrected the two dates in the
+register; no change to either public file, because both are correct. No issue
+filed — the one standing defect is already tracked and the no-re-escalation rule
+applies (verified chamber#5 open via `gh issue list`, not from memory). No new
+escalation: the c52 dashboard thread already carries the send-approval finding,
+and re-pushing an hours-old, unread escalation would burn the channel.
+
+**Escalated:** nothing new. Seven owner-action blockers unchanged (chamber#1,
+#3, #4, #5, #6, #7, retinue#4). Ages on the wall clock (c27 rule): oldest ~2
+days, none overdue.
+
+**Published externally:** nothing — no accounts exist, and nothing this cycle
+warranted a public issue.
+**Files changed:** `projects/public-surface.md`, this log.
+
+Next wake-up: the README's remaining sections (First start / Normal start /
+Deployment / Updating) are the largest still-unaudited stretch — the operational
+copy a first-time deployer follows step by step, never read against
+`entrypoint.sh` and `docker-compose.yml`. Second choice: `CODE_OF_CONDUCT.md`'s
+enforcement path was flagged at c20 as routing to the same disabled PVR as
+chamber#5 — worth re-confirming it is still folded into chamber#5 and not drifting
+into its own uncovered defect.
