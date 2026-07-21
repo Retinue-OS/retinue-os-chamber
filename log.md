@@ -4916,3 +4916,67 @@ Next wake-up: the framework's remaining unaudited prose is thin. Candidates:
 or `.claude/agents/archivist.md` — the ontology table `docs/triple-stores.md`
 points at (line 391) and which this cycle's SOSA spot-check relied on but did
 not audit as its own surface.
+
+## 2026-07-21 (cycle 56) — dashboard freshness re-checked (clean) and the lead-story ontology reference `archivist.md` audited (clean); nothing to file, nothing to escalate
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged. Every open issue org-wide authored by the owner (`retog`); all four
+repos have 0 discussions (GraphQL); `gh search issues --owner Retinue-OS` returns
+only the org's own issues — no external mention, no non-owner PR or comment. The
+three PRs the owner merged earlier remain his own framework work, not community
+contact. `drafts/` holds the same five already-filed qlever-dir/env artifacts
+plus `retrofit.py` — nothing in cool-off, nothing awaiting publication. The c52
+security finding on the dashboard thread is still `unread`; on the wall clock
+~1 day old, not overdue. Nothing inbound. Blocked wake-up — the default short
+outcome.
+
+**Pickup 1 (admissible work: re-audit a surface that decays on the wall clock).**
+The live dashboard's freshness — last checked c29/c46, and the one surface that
+ages regardless of my activity. Current UTC 00:52 on 2026-07-21; served
+`data/*.json` stamped `2026-07-20T17:05:00Z` (~8 h old, well within the daily
+05:00 curation cycle, next regen not yet due). Served bytes byte-match the repo
+copies (both 17:05). Spot-checked the `todo.json` ages against issue `created_at`:
+chamber#1 "43 h, oldest" and chamber#3 "15 h" are consistent with the 17:05
+generation time. **Clean — current, accurate, Pages delivery working; no edit.**
+
+**Pickup 2 (admissible work: audit an unaudited public surface — the c55 queue's
+second candidate).** `.claude/agents/archivist.md`, the ingestion/ontology
+reference `docs/triple-stores.md:391` sends a lead-story (bet 1) reader to, never
+audited as its own surface. Read end to end against `docs/triple-stores.md`'s
+SOSA worked example (lines 157–163) and CLAUDE.md.
+
+- **Clean.** The doc's example resolves predicate-for-predicate to archivist.md's
+  ontology tables: observation URI `urn:obs:ckm:X1234:42` → `urn:obs:{source-type}:{file-stem}:{row-id}`;
+  `urn:health:property:blood-ketone-bhb` → observed-property table; sensor URI
+  → `urn:health:sensor:ckm:{file-stem}`; the five predicates match the doc's
+  "five triples per observation" exactly; the `<file:…>` graph-naming convention
+  matches CLAUDE.md.
+- **The reindex-latency finding class (retinue#2, qlever-dir#3) does not apply
+  here.** archivist.md's "~15 s of any change" (line 23) is about its **`.nt`
+  output**, which is precisely the extension the inotify watcher *does* fire on;
+  the Markdown/frontmatter caveat those issues carry is out of scope for this
+  surface. Not a defect to note against archivist.md.
+- **Not filed:** line 66's "All sensor readings in these files are in mmol/L" is
+  ambiguous read alone but scoped by context to the two properties just tabled.
+  Too thin for an issue.
+- **Outcome:** the lead-story chain `triple-stores.md` → archivist ontology →
+  code is internally consistent end to end. The last bet-1 doc-neighbour surface
+  is now audited.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); verified relevant trackers still open via the survey's
+`gh search`, not from memory. On the wall clock the oldest is ~2 days, none
+overdue. The c52 security finding stays on the dashboard thread; re-pushing a
+day-old unread escalation would burn the channel.
+
+**Published externally:** nothing — no accounts exist, and both pickups were
+clean. **Files changed:** `projects/public-surface.md` (register row c56), this
+log.
+
+Next wake-up: the register's bet-1 doc surfaces are now audited end to end. The
+honest state (c41/c48) is that no unaudited "never" surface I can name and verify
+remains. Candidate re-audits that decay on the wall clock: dashboard freshness
+(this cycle — next due after the 05:00 job regenerates), or the framework `main`
+re-run of the claim table when the repo shows commits I haven't read (c20 rule 3).
+Absent a genuine pickup, the correct outcome is a short survey-only wake-up.
