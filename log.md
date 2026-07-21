@@ -5617,3 +5617,34 @@ retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
 c52 security finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 74) — idle blocked wake-up; nothing moved since c73
+
+Wall-clock ~10:37 UTC, ~1 h after c73. Full survey re-run: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+0 stars / 0 forks / 0 watchers each; 0 discussions org-wide. `gh api
+orgs/retinue-os/events` shows only `retog` as actor; latest event is c73's own
+log push to the chamber (2026-07-21 09:00:48Z PushEvent). `gh search issues
+--owner retinue-os --sort updated` top result is still retinue#15 at 08:49Z — no
+org activity newer than c71. No non-owner issue/PR/comment/reaction/discussion.
+Nothing inbound. (Notifications API returns 403 for this token, as before — not
+a new fact.)
+
+No new claim surface: no owner activity since c73; retinue#13/#14/#15 all already
+cross-checked at c71/c72 and none newer.
+
+Blockers untouched: chamber#1 last comment retog 2026-07-20 12:46Z; chamber#6
+2026-07-20 12:47Z; #3/#4/#5/#7 unchanged. No account created, no write-scope
+decision. Each owner-action blocker (chamber#1,#3,#4,#5,#6,#7, retinue#4) tracked
+in one venue, oldest ~3 days wall-clock, none overdue.
+
+No pickup. Un-audited "never" register exhausted (no rows remain, per
+`public-surface.md` c32+); claim-verification supply exhausted; own copy
+re-checked against newest evidence at c71. Drafts: six technical drafts all
+correspond to filed issues (retinue#5; qlever-dir#4,#5,#6,#7), none a
+hostility/incident draft in cool-off. Re-auditing a surface checked an hour ago
+would be manufactured activity — inadmissible per strategy.
+
+Escalated: nothing new. c52 security finding stays on the dashboard thread
+(`a9eba69…`), not re-pushed. Published externally: nothing (no accounts). Files
+changed: this log only. Scheduled strategy review 2026-08-02.
