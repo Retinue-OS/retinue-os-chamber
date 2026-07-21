@@ -4861,3 +4861,58 @@ retinue#10 already; the remaining unaudited framework prose is thin. Candidate:
 qlever-dir behaviour I've been finding defects in — never audited as a surface,
 and it is the doc the strategy's lead-story bet rests on. Second: re-confirm the
 Pages site freshness (decays on the wall clock; last checked c29/c46).
+
+## 2026-07-21 (cycle 55) — lead-story doc `docs/triple-stores.md` audited as a surface; its one finding is already in retinue#1, nothing new to file
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged. Org-wide: every open issue authored by the owner (`retog`); no PRs,
+issue comments, or discussions from anyone else (all four repos' discussion
+count = 0 via GraphQL). `gh search issues retinue-os` returns only the org's own
+issues — no external mention. Notifications endpoint 403s (no scope; already
+chamber#6). `drafts/` holds the same five already-filed qlever-dir/env artifacts
+plus `retrofit.py` — nothing in cool-off, nothing awaiting publication. The c52
+security finding (dashboard thread) is still unread; on the wall clock ~1 day
+old, not overdue. Nothing inbound. This is a blocked wake-up.
+
+**Picked up (admissible work while blocked, item 2 — audit an unaudited surface,
+the candidate cycle 54 queued).** `docs/triple-stores.md` — the framework's own
+triple-store doc, the surface **bet 1 (triple-store layer is the lead story)**
+rests on, never audited as a public surface. Read end to end against qlever-dir
+source (`/tmp/qd/build_index.sh`, `orchestrator.py`), the shipped converter
+(`projects/.qlever/md2ttl.py`), and `web-gateway.py`.
+
+- **The one finding it yields is already fully tracked → no new issue.** The
+  Advantage-1 headline query (lines 111–125) uses `k: <…/kb#>`, `k:Project`,
+  `k:status` — the broken `web-gateway.py` form, not the converter's
+  `…/project#`/`p:Project`/`goalStatus`. That is [retinue#1](https://github.com/Retinue-OS/retinue/issues/1)
+  verbatim: retinue#1's **body already names this doc** and its fix line and
+  mismatch table already carry both the namespace and the `k:status` vs
+  `p:goalStatus` mismatch. A comment would duplicate the issue body, so none
+  filed. Bonus: this cycle **verified retinue#1's blast-radius claim about the
+  doc is itself accurate** — the doc's central worked example does return zero
+  rows against the shipped converter.
+- **Three claims verified correct / honest:** diagnostic-quad predicate (line
+  374) `urn:qlever-dir:parsingError` matches `build_index.sh:33`; the
+  watcher/converter caveat (lines 135–139) is consistent with qlever-dir#3 and
+  the c46 presence-is-not-a-workaround finding (the good kind of stated limit);
+  the "no downtime" line (25–26) is scoped to the blue-green **rebuild
+  transition** and defensible there — the first-build-502/crash overclaim is
+  qlever-dir#7 against the sibling repo, so no duplicate. Spot-checked clean:
+  the `file:` graph example, `SPARQL_ENDPOINT_LIFE`, and the SOSA 5-triple shape
+  all match CLAUDE.md / the archivist convention.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4). No-re-escalation rule held; verified relevant trackers
+open via `gh issue list`, not from memory. The c52 security finding stays on the
+dashboard thread; re-pushing a day-old unread escalation would burn the channel.
+
+**Published externally:** nothing — no accounts exist, and the one thing this
+audit surfaced is already public in retinue#1.
+**Files changed:** `projects/public-surface.md` (register row c55), this log.
+
+Next wake-up: the framework's remaining unaudited prose is thin. Candidates:
+`docs/` Pages-site freshness re-check (decays on the wall clock; last c29/c46),
+or `.claude/agents/archivist.md` — the ontology table `docs/triple-stores.md`
+points at (line 391) and which this cycle's SOSA spot-check relied on but did
+not audit as its own surface.
