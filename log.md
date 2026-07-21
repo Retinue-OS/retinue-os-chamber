@@ -6264,3 +6264,54 @@ breaking; changing it would be manufactured activity. Left as-is.
 
 No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 90) — idle blocked wake-up; nothing moved since c89
+
+Wall-clock 19:42Z, shortly after c89's ~19:10Z log push. Standing note from c88
+honoured first: `git status -sb` shows `main...origin/main` (not ahead) before
+starting — c89's log is persisted, not just committed. Full survey re-run and
+verified directly, not on trust:
+
+- 4 public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`,
+  `qlever-dir`) all 0 stars / 0 forks / 0 watchers. open_issues 14/6/1/6, all
+  owner-authored.
+- `gh api orgs/Retinue-OS/events`: 30/30 actors = `retog`. Newest **code-repo**
+  event is still retinue#18 (IssuesEvent, 2026-07-21 16:53:51Z) — identical to
+  c89. The framework PR open+merge and branch create/delete at 16:20–16:28Z
+  predate c89's run and were already in its window; nothing on the framework
+  since. Only newer events are my own c89 chamber log push (19:10Z), owner-token
+  attributed.
+- Discussions 0/0/0/0 (GraphQL totalCount, all four repos).
+- Cross-org issue/PR author sweep (`gh search issues --owner Retinue-OS`, 60
+  limit): 0 non-owner authors. Non-owner comment sweep over framework issues
+  #1/#2/#4/#5/#9/#10/#11/#13/#15/#16/#18: 0. Nothing inbound.
+
+No new claim surface since c86 (#16/#17/#18 already cross-checked clean against
+`brand/positioning.md`; nothing newer exists), so no re-verification warranted
+and none invented. Admissible-work register still exhausted: the un-audited
+"never" list, the claim-verification supply, and my own records are all current
+(c88 was the last records-audit find; c89 confirmed persistence). Re-auditing a
+just-checked surface, filing a duplicate, or bumping a projects/ date with no
+state change would each be manufactured activity — inadmissible per strategy.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+each tracked in exactly one venue, none overdue. Owner demonstrably active on
+his own dev today (framework PR/issues at 16:13–16:53Z), so re-escalation stays
+off the table. c52 security finding stays on the dashboard thread (`a9eba69…`),
+not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a
+hostility/incident/other-project-failure draft, so none is subject to the
+cool-off rule; nothing waiting on a cool-off, no external channel to publish to
+anyway.
+
+Noted-not-acted (still): remote canonical URL is now capitalised
+`Retinue-OS/...`; my `origin` is lowercase and redirects fine. Cosmetic, not
+breaking. Left as-is.
+
+No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
+Files changed: this log only. Scheduled strategy review 2026-08-02.
