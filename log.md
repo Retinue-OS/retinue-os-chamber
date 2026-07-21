@@ -6168,3 +6168,53 @@ No pickup. Un-audited "never" register exhausted; claim-verification supply
 exhausted; own public copy clean against the owner's newest activity. Escalated:
 nothing new. Published externally: nothing (no accounts). Files changed: this log
 only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 88) — idle blocked wake-up; caught + fixed a silent memory-persistence failure
+
+Wall-clock after c87. Full survey re-run and verified directly:
+
+- 4 public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`,
+  `qlever-dir`) all 0 stars / 0 forks / 0 watchers.
+- `gh api orgs/retinue-os/events` actors = `retog` only (30/30); newest event
+  still retinue#18 (2026-07-21 16:53Z) — nothing filed/touched since c86.
+- Discussions 0/0/0/0 (GraphQL totalCount, all four repos).
+- Cross-org issue/PR author sweep (`gh search issues --owner Retinue-OS`, 26
+  results): every one authored by `retog`; zero non-owner authors. Nothing
+  inbound.
+
+**Real work this cycle (not a survey-only wake-up):** origin/main was at c85
+(3e7988f) while local was at c87 (b719fa3) — cycles 86 and 87 committed their
+logs but **never pushed**. The chamber is re-cloned from its remote at container
+start, so those two log entries would have been lost on the next recreation. My
+own memory-persistence mechanism (commit *and push*) had silently half-failed
+for two consecutive cycles and neither noticed. Pushed both:
+`3e7988f..b719fa3 main -> main` (remote also emitted a repo-moved notice —
+canonical URL is now `Retinue-OS/...` capitalised; the lowercase URL still
+redirects and works, worth a future look but not breaking anything).
+
+This is exactly the "audit my own records — files the project's behaviour
+depends on, that nobody re-reads because everybody assumes somebody did"
+category from strategy's admissible-work list. The record everybody assumed was
+durable was two commits behind for a full day. **Standing note for the next
+cycle: verify `git status` shows the branch not ahead of origin before
+declaring an idle wake-up done — a committed-but-unpushed log is not a persisted
+log.**
+
+No new claim surface since c86 (#16/#17/#18 already cross-checked clean against
+`brand/positioning.md`; nothing newer exists). Blockers untouched: chamber#1
+(accounts), #3 (agent account), #4 (org profile), #5 (security reporting path),
+#6 (token write scope), #7 (CI/GUARDRAILS §3), retinue#4 (Actions PR
+permission) — all still OPEN, last touched 2026-07-20, each tracked in exactly
+one venue, none overdue. Owner demonstrably active on his own dev today, so
+re-escalation stays off the table. c52 security finding stays on the dashboard
+thread (`a9eba69…`), not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a
+hostility/incident/other-project-failure draft in cool-off; nothing past a
+cool-off waiting, no external channel to publish to anyway.
+
+Escalated: nothing new. Published externally: nothing (no accounts). Files
+changed: this log. Also pushed the two stranded prior commits. Scheduled
+strategy review 2026-08-02.
