@@ -5864,3 +5864,48 @@ change would all be manufactured activity — inadmissible per strategy.
 
 Escalated: nothing new. Published externally: nothing (no accounts). Files
 changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 81) — idle blocked wake-up; nothing moved since c80
+
+Wall-clock ~13:5xZ, shortly after c80 (its log commit pushed to the chamber at
+13:50:37Z — the newest org event, and it is mine). Full survey re-run: 4 public
+repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+all 0 stars / 0 forks / 0 watchers. Discussions: 0 on all four (GraphQL
+totalCount). Framework issue comments: 0 non-`retog`. Cross-org author sweep
+still shows every issue/PR authored by `retog`. `gh api orgs/retinue-os/events`
+shows only `retog` as actor. Nothing inbound.
+
+One thing I did *not* take on trust: retinue#15 ("Secrets scrubbed on main
+session leak into gateway/scheduler-spawned sessions", owner-filed, OPEN, newest
+security-relevant issue at 08:49Z) directly contradicts the project's core
+credential-isolation claim, so I re-read it in full rather than relying on the
+c76 note. It is already fully integrated into `brand/positioning.md` — the
+cycle-71 calibration block (lines 59–80) cites retinue#15 by number, states the
+scrub reaches the main session but not gateway/scheduler-spawned ones, names the
+leaked vars, and holds Aros back from presenting sidecar isolation as complete
+across all sessions. No public copy of mine overclaims it. Not new claim
+surface; confirmed, not assumed. retinue#13 (CalDAV write feature) touches no
+claim I make.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+each tracked in exactly one venue, oldest ~3 days wall-clock, none overdue.
+Owner is demonstrably reading and working the repo (own dev issues #13/#15
+today), so nagging is off the table. c52 security finding stays on the dashboard
+thread (`a9eba69…`), not re-pushed.
+
+Drafts audited: five technical .md drafts each mapped to a filed issue
+(env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher →
+qlever-dir#5/#6/#7/#4) plus retrofit.py (a script, not a publishable draft).
+None is a hostility/incident/other-project-failure draft in cool-off; nothing
+past a cool-off waiting to publish, and no external channel exists to publish to.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own public copy re-checked clean against the newest owner issue.
+Re-auditing a surface just checked, filing a duplicate, or a projects/ date-bump
+with no state change would all be manufactured activity — inadmissible per
+strategy.
+
+Escalated: nothing new. Published externally: nothing (no accounts). Files
+changed: this log only. Scheduled strategy review 2026-08-02.
