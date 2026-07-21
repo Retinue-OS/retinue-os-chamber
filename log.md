@@ -5164,3 +5164,92 @@ cool-off, nothing awaiting publication. **Files changed:** this log only.
 Next wake-up: same discipline. The phase is owner-blocked; the accounts and
 write-scope decision are his. The correct outcome of a wake-up with no inbound
 and no genuinely-due audit is a short survey-only one.
+
+## 2026-07-21 (cycle 61) — survey-only blocked wake-up; nothing moved since c60
+
+Wall-clock: 03:36 UTC, ~33 min after c60.
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged (`gh repo list retinue-os --json`). **0 discussions** on all four
+(`gh api graphql` per repo). Org-wide open issues (`gh search issues --owner
+retinue-os --state open`): every one authored by `retog`; newest issue activity
+is retinue#12 at 2026-07-20 23:44Z — c54's own filing, already logged. Org
+event stream (`gh api /orgs/retinue-os/events`) is 100% `retog`: chamber
+PushEvents at 00:20 / 00:54 / 01:59 / 02:32 (my own prior-cycle log commits),
+plus prior README-issue filings. No non-owner issue, PR, comment, or discussion.
+Nothing inbound.
+
+**No new owner decision.** Latest comment on chamber#1 (accounts) is my own
+Nostr answer of 2026-07-19 19:50Z; latest on chamber#6 (token scope) is my own
+2026-07-20 12:47Z note. The only genuinely owner-authored input on record
+remains the 2026-07-19 Nostr line, already answered in full. No account created,
+no write-scope decision, nothing unblocked.
+
+**No pickup.** Register (`projects/public-surface.md`) carries no remaining
+un-audited "never" surface; cheap claim-verification supply exhausted; the
+framework `main` claim-table re-run is still not actionable as an isolated
+subagent (no reachable framework git history, no live SPARQL store). Dashboard
+freshness not re-checked — the 05:00 curation job has not run since c56's
+verified-clean check, so the served data is unchanged and re-checking would be
+manufactured. No inbound to answer, no defect newly found.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); each tracked in one venue, oldest ~3 days on the wall
+clock, none overdue. The c52 security finding stays on the dashboard thread
+(`a9eba69…`, pushed 2026-07-19 21:33Z); re-pushing an unread, not-overdue
+escalation would burn the channel I will need when something urgent arrives.
+
+**Published externally:** nothing — no accounts exist and nothing warranted a
+post. **drafts/** unchanged: five already-filed artifacts (env-example →
+retinue#5; watcher → qlever-dir#4; graph-iri → qlever-dir#5; md2ttl →
+qlever-dir#6; supervision → qlever-dir#7) plus `retrofit.py`; nothing in
+cool-off, nothing awaiting publication. **Files changed:** this log only.
+
+Next wake-up: same discipline. Phase is owner-blocked; accounts and write-scope
+are his calls. Correct outcome of a wake-up with no inbound and no genuinely-due
+audit is a short survey-only one. Scheduled strategy review still 2026-08-02.
+
+## 2026-07-21 (cycle 62) — survey-only blocked wake-up; nothing moved since c61
+
+Wall-clock: 04:08 UTC, ~32 min after c61.
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged (`gh repo list retinue-os --json`). **0 discussions** on all four
+(`gh api graphql` per repo). Org-wide open issues (`gh search issues --owner
+retinue-os --state open`): every one authored by `retog`; newest activity is
+retinue#12 at 2026-07-20 23:44Z — c54's own filing, already logged. Org event
+stream (`gh api /orgs/retinue-os/events`) filtered for non-`retog` actors:
+empty; latest six events are all `retog` (my own prior-cycle chamber log
+PushEvents at 00:20/00:54/01:59/02:32 plus the owner's retinue#12 IssuesEvent).
+No non-owner issue, PR, comment, or discussion. Nothing inbound.
+
+**No new owner decision.** chamber#1 (accounts) latest comment is my own Nostr
+answer of 2026-07-19 19:50Z; chamber#6 (token scope) latest is my own
+2026-07-20 12:47Z note. No new owner-authored input on either since c61. No
+account created, no write-scope decision, nothing unblocked.
+
+**No pickup.** Register (`projects/public-surface.md`) carries no remaining
+un-audited "never" surface; cheap claim-verification supply exhausted; the
+framework `main` claim-table re-run is still not actionable as an isolated
+subagent (no reachable framework git history, no live SPARQL store). Dashboard
+freshness unchanged since c56's verified-clean check (05:00 curation job has not
+run); re-checking would be manufactured. No inbound to answer, no defect newly
+found.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); each tracked in one venue, oldest ~3 days on the wall
+clock, none overdue. The c52 security finding stays on the dashboard thread
+(`a9eba69…`, pushed 2026-07-19 21:33Z); re-pushing an unread, not-overdue
+escalation would burn the channel I will need when something urgent arrives.
+
+**Published externally:** nothing — no accounts exist and nothing warranted a
+post. **drafts/** unchanged: five already-filed artifacts (env-example →
+retinue#5; watcher → qlever-dir#4; graph-iri → qlever-dir#5; md2ttl →
+qlever-dir#6; supervision → qlever-dir#7) plus `retrofit.py`; nothing in
+cool-off, nothing awaiting publication. **Files changed:** this log only.
+
+Next wake-up: same discipline. Phase is owner-blocked; accounts and write-scope
+are his calls. Correct outcome of a wake-up with no inbound and no genuinely-due
+audit is a short survey-only one. Scheduled strategy review still 2026-08-02.
