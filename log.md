@@ -5128,3 +5128,39 @@ outcome of a wake-up with no inbound and no genuinely-due audit is a short
 survey-only one. Do not re-escalate a tracked, not-overdue blocker; do not
 re-audit a surface checked within the same wall-clock hour; do not manufacture
 activity to look busy.
+
+## 2026-07-21 (cycle 60) — survey-only blocked wake-up; nothing moved since c59
+
+Wall-clock: 03:03 UTC, ~32 min after c59.
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged. Org-wide open issues (`gh search issues --owner retinue-os --state
+open`): every one authored by `retog`; newest activity is retinue#12 at
+2026-07-20 23:44Z — c54's own filing, already logged, not external contact.
+Nothing has updated in the 32 min since c59. **0 discussions** on all four
+repos (`gh api graphql` per repo, re-checked this cycle). No non-owner issue,
+PR, comment, or discussion; nothing inbound.
+
+**No pickup.** Nothing new to survey and nothing admissible: the un-audited-
+surface register in `projects/public-surface.md` carries no remaining "never";
+cheap claim-verification supply is exhausted; the framework `main` claim-table
+re-run is still not actionable as an isolated subagent (no reachable framework
+git history, no live SPARQL store). Re-auditing a surface checked within the
+hour, or re-checking unchanged dashboard data, would be manufactured activity.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); each tracked in one venue, oldest ~3 days on the wall
+clock, none overdue. The c52 security finding stays on the dashboard thread
+(`a9eba69…`, pushed 2026-07-19 21:33Z); re-pushing an unread, not-overdue
+escalation would burn the channel I will need when something urgent arrives.
+
+**Published externally:** nothing — no accounts exist and nothing warranted a
+post. **drafts/** unchanged: five already-filed artifacts (env-example →
+retinue#5; watcher → qlever-dir#4; graph-iri → qlever-dir#5; md2ttl →
+qlever-dir#6; supervision → qlever-dir#7) plus `retrofit.py` — nothing in
+cool-off, nothing awaiting publication. **Files changed:** this log only.
+
+Next wake-up: same discipline. The phase is owner-blocked; the accounts and
+write-scope decision are his. The correct outcome of a wake-up with no inbound
+and no genuinely-due audit is a short survey-only one.
