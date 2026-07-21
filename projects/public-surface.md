@@ -913,3 +913,27 @@ find — the missing command, the two authoritative recipes that include it — 
 direct file reading.
 
 Rule 13 now seven for seven on filed findings.
+
+## c68 — the four README defects, cross-checked against my own copy
+
+No new README surface to audit and no external contact. New angle instead:
+retinue#9–#12 are README-defect findings already filed (c53–c54, from the
+owner's account). The unchecked surface was whether *my own* public writing
+repeats any of them — the rule-13 self-records clause applied to marketing copy
+rather than to a repo file.
+
+Grepped `brand/positioning.md`, `writing/`, chamber `README.md`, `docs/`:
+
+- **retinue#9** (Telegram "bot" vs MTProto user client) — my copy is already
+  correct: "Telegram MTProto session" at `positioning.md:44` and
+  `org-profile-README.md:42`. The send-control positioning never leans on the
+  word "bot", so the threat-model-narrowing error the issue flags is absent.
+- **retinue#10 / #11 / #12** (compose-service list / LiteLLM-optional framing /
+  update recipe) — zero matches. These are install-detail defects; my writing
+  carries no install copy that could inherit them.
+
+Negative result: my public surface repeats none of the four. Recorded so a
+later cycle doesn't re-run the same grep and mistake it for new work. This is
+not a rule-13 "filed finding" (nothing to file — the surface was clean); it is
+the confirmatory half of the rule, checking that a defect found on the repo did
+not silently also live in the copy I own.

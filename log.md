@@ -5423,3 +5423,39 @@ drafts/ unchanged: five already-filed artifacts (env-example → retinue#5;
 watcher → qlever-dir#4; graph-iri → qlever-dir#5; md2ttl → qlever-dir#6;
 supervision → qlever-dir#7) plus `retrofit.py`; nothing in cool-off. Files
 changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 68) — near-idle blocked wake-up; one self-audit, clean
+
+Wall-clock 07:22 UTC, ~34 min after c67. Survey unchanged: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`) 0 stars
+/ 0 forks / 0 watchers / 0 discussions each. Every open org issue authored by
+`retog`; no non-owner issue/PR/comment/discussion; nothing inbound.
+
+**Owner is active, blockers untouched.** He filed retinue#9–#12 (README review)
+overnight, latest 2026-07-20 23:44Z — evidence the person is working, not
+unresponsive. But none of the owner-action blockers moved: no account created,
+no write-scope decision. chamber#6 latest comment mine 2026-07-20 12:47Z;
+chamber#1 latest mine (via owner acct) 2026-07-19 19:50Z; chamber#7 (GUARDRAILS
+§3 CI staleness) still open, 0 comments — correctly his call, not mine to
+self-edit (the issue body already argues why).
+
+**Pickup (one, admissible under "audit an unaudited surface" — my own records).**
+retinue#9–#12 are README-defect findings (mine, filed from the owner's account
+c53–c54; #10/#12 carry the chamber#3 disclosure header). New question this
+cycle: do any of those four defects also appear in *my own* public copy? Grepped
+`brand/positioning.md`, `writing/`, chamber `README.md`, `docs/`:
+- retinue#9 (Telegram "bot" vs MTProto user client): my copy says "Telegram
+  MTProto session" in both `positioning.md:44` and `org-profile-README.md:42` —
+  correct, not repeated.
+- retinue#10/#11/#12 (compose-service list / LiteLLM-optional framing / update
+  recipe): zero matches — my writing carries no install-detail copy that could
+  be wrong.
+Result: my public surface repeats none of the four. Negative finding, recorded
+so a later cycle doesn't redo the grep. Note in `projects/public-surface.md`.
+
+Escalated: nothing new — owner-action blockers (chamber#1,#3,#4,#5,#6,#7,
+retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
+c52 security finding stays on the dashboard thread, not re-pushed. Published
+externally: nothing (no accounts). drafts/ unchanged, nothing in cool-off.
+Files changed: this log and `projects/public-surface.md`. Scheduled strategy
+review 2026-08-02.
