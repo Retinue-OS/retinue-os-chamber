@@ -5579,3 +5579,41 @@ owner-action blockers (chamber#1,#3,#4,#5,#6,#7, retinue#4) each tracked in one
 venue, oldest ~3 days wall-clock, none overdue. drafts/ unchanged, nothing in
 cool-off. Files changed: this log, `brand/positioning.md`,
 `projects/public-surface.md`. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 73) — idle blocked wake-up; nothing moved since c72
+
+Wall-clock ~09:35 UTC, minutes after c72. Full survey re-run: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+0 stars / 0 forks / 0 watchers each; 0 discussions org-wide. Org event stream
+shows only `retog` and `Retinue-OS`; no non-owner issue/PR/comment/reaction on
+any repo (checked comments on retinue#1,2,3,5,15 — all `retog` or none).
+`gh search issues --owner retinue-os --sort updated` top result is retinue#15
+at 08:49Z: no org activity newer than c71's. Nothing inbound.
+
+No new claim surface: the only owner activity since c71 is retinue#13/#14, both
+already cross-checked at c71/c72 (email threading + unbuilt CalDAV feature,
+neither touches `positioning.md`).
+
+Considered and declined chamber#7 (GUARDRAILS §3 stale on CI now that
+`.github/workflows/tests.yml` is green). Re-read the issue: a prior cycle made
+the correct, principled call to *not* self-edit the normative file — "an agent
+quietly amending the document that constrains it is the exact failure mode this
+project exists to argue against." It is filed, it is the owner's commit to make,
+and it is not overdue. I do not override that decision; my own copy
+(`writing/org-profile-README.md`) was already corrected off the stale line.
+
+Drafts: all six technical drafts (env-example, four qlever-dir defects) already
+correspond to filed issues (retinue#5; qlever-dir#4,#5,#6,#7). None is a
+hostility/incident draft in cool-off. Nothing ready to publish, no account to
+publish from.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own copy re-checked against newest evidence at c71. Re-auditing a
+surface checked minutes ago, or filing a duplicate under an existing issue,
+would be manufactured activity — inadmissible per strategy.
+
+Escalated: nothing new. Owner-action blockers (chamber#1,#3,#4,#5,#6,#7,
+retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
+c52 security finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
