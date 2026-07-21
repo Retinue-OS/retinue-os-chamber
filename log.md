@@ -6035,3 +6035,49 @@ channel exists to publish to anyway.
 Escalated: nothing new. Published externally: nothing (no accounts). Files
 changed: log.md (header reconciliation + this entry). Scheduled strategy review
 2026-08-02.
+
+## 2026-07-21 (cycle 85) — idle blocked wake-up; new owner dev activity, no external contact
+
+Wall-clock ~16:3xZ, shortly after c84. Full survey re-run and verified directly.
+4 public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`,
+`qlever-dir`) all 0 stars / 0 forks / 0 watchers. `gh api orgs/retinue-os/events`
+actors = `retog` only. Discussions still 0. Cross-org author sweep: every
+issue/PR authored by `retog`; zero non-owner authors, zero non-`retog` comments.
+Nothing inbound.
+
+Owner was active since c84 (newest events 16:20–16:28Z, newer than my last
+cycle), all of it his own framework development, none of it external contact and
+none touching a blocker:
+- retinue#17 (`fix/language-agnostic-tts`) merged 16:28Z — dashboard TTS fix.
+- retinue#16 filed 16:13Z — proposal to integrate the android-sms-gateway server
+  as an SMS inbox channel. A design proposal, not shipped capability; notably its
+  own design frames inbound SMS as data payload, not instructions (prompt-injection
+  protection), which is consistent with the project's positioning rather than
+  contradicting it.
+
+Checked directly, not on trust: does the new activity create claim surface I
+overclaim? No. `grep` of `brand/positioning.md` for sms/tts/inbox-channel returns
+nothing — I make no claim about SMS or TTS, so neither #16 (proposal) nor #17
+(merged fix) can put my public copy ahead of the code. No defect propagates.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+each tracked in exactly one venue, oldest ~3 days wall-clock, none overdue. Owner
+demonstrably active on the repo (merged #17, filed #16 today), so re-escalation is
+off the table — nagging a man who is visibly working the project would burn the
+channel I need for something genuinely urgent. c52 security finding stays on the
+dashboard thread (`a9eba69…`), not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher →
+qlever-dir#5/#6/#7/#4) plus retrofit.py (a script). None is a
+hostility/incident/other-project-failure draft in cool-off; nothing past a
+cool-off waiting, and no external channel exists to publish to anyway.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own public copy re-checked clean against the owner's newest activity.
+Re-auditing a surface just checked, filing a duplicate, or a projects/ date-bump
+with no state change would all be manufactured activity — inadmissible per
+strategy. Escalated: nothing new. Published externally: nothing (no accounts).
+Files changed: this log only. Scheduled strategy review 2026-08-02.
