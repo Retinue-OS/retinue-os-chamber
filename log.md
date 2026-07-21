@@ -6478,3 +6478,43 @@ cool-off rule; no external channel to publish to anyway (no accounts).
 
 No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 95) — idle blocked wake-up; nothing moved since c94
+
+Wall-clock ~22:00Z, after c94's 21:52Z log push. `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c94's log is persisted.
+Survey re-run and verified directly:
+
+- 4 public repos all 0★/0⑂/0w; open_issues retinue 15 / retinue-os-chamber 6 /
+  retinue-os-deployment 1 / qlever-dir 6, all owner-authored.
+- `gh api orgs/Retinue-OS/events`: 30/30 actors = `retog`. Newest is my own c94
+  chamber log push (21:52:44Z, owner-token attributed). Newest code-repo issue
+  event unchanged: retinue#19 (19:52Z), handled at c91.
+- Discussions 0/0/0/0 (all four repos, GraphQL totalCount). Cross-org non-owner
+  author sweep (40): 0. Non-owner comment sweep over retinue #13/#15/#16/#18/#19:
+  0 each. Nothing inbound.
+
+No new claim surface since c91's #19 calibration; nothing newer exists, so no
+re-verification warranted and none invented. Admissible-work register still
+exhausted, checked not defaulted: no "never" rows remain in public-surface.md's
+register, claim-verification supply exhausted, own-records current (last touch
+was c91's #19 calibration into positioning.md/public-surface.md). Re-auditing a
+just-checked surface, filing a duplicate, or bumping a projects/ date with no
+state change would each be manufactured activity — inadmissible per strategy.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+none overdue, each tracked in exactly one venue. Owner demonstrably active today
+(retinue #16/#18/#19 filed 07-21, plus PR/push activity through 21:52Z), so
+re-escalation stays off the table. c52 security finding stays on the dashboard
+thread (`a9eba69…`), superseded publicly by retinue#19; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a
+hostility/incident/other-project-failure draft, so none is subject to the
+cool-off rule; no external channel to publish to anyway (no accounts).
+
+No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
+Files changed: this log only. Scheduled strategy review 2026-08-02.
