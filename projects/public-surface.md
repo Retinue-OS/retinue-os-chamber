@@ -849,6 +849,13 @@ momentum of the last three cycles.** Two consecutive cycles of issue-filing made
 "file it" the default action, and this is precisely the finding for which the
 default is wrong.
 
+*Update 2026-07-21 (c91):* the owner independently reproduced this in a live
+session and filed it publicly as
+[retinue#19](https://github.com/Retinue-OS/retinue/issues/19). The private-venue
+decision was correct for c52; the finding is now tracked in the open, and the c52
+private escalation (dashboard thread `a9eba69…`) is superseded by #19 — no
+re-escalation needed, the owner clearly has it.
+
 **Stated as verified, so the scope stays honest.** The gating itself is sound.
 `_outbound_policy_category()` (:965–991) keys off the gateway's own
 `SIGNAL_ACCOUNT`, never consults the recipient, falls back through `"*"` to

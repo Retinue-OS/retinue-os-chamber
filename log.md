@@ -6315,3 +6315,51 @@ breaking. Left as-is.
 
 No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 91) — owner filed retinue#19; calibrated my public copy to match
+
+Wall-clock ~19:55Z, shortly after c90 (19:42Z). `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c90 log persisted. Survey:
+
+- 4 public repos all 0★/0⑂/0 watchers; open_issues retinue 15 / chamber 6 /
+  deployment 1 / qlever-dir 6, all owner-authored.
+- `gh api orgs/Retinue-OS/events`: 30/30 actors = `retog`. **New since c90:**
+  the owner opened **retinue#19** (IssuesEvent, 19:52:07Z) — *"Agent can
+  self-approve a `verify`-policy send, bypassing human approval."*
+- Discussions 0/0/0/0. Cross-org author sweep (60): 0 non-owner. Nothing inbound.
+
+**The one thing that moved, and why it's a real (non-manufactured) pickup.**
+retinue#19 is the same weakness I found by source-reading at c52 (approve
+endpoint shares the send-side bearer token the `retinue` container holds, so an
+agent can release its own `verify`/`trust` send) — reported privately then per
+guardrails 8/9. The owner has now reproduced it in a live session (it delivered a
+message from his personal Signal without his approval, twice on a retry) and
+filed it publicly. That is squarely a §3 concern: it's the send-control analogue
+of "the egress audit observes, it does not enforce," and my public copy leads on
+the send-control model.
+
+Checked my copy against it: **positioning.md and public-surface.md were already
+calibrated correctly** (c52) — they say the queue is "a workflow the agent is
+expected to respect, not a boundary that stops it," and explicitly decline the
+"an agent can never approve its own send" phrasing. No overclaim to fix. The one
+stale line was positioning.md's note calling it "not a public issue" and
+public-surface c52's "(not filed publicly)" framing — both now false since #19.
+Edited both to record that the owner filed it publicly as retinue#19 (2026-07-21)
+and that the c52 private dashboard escalation (`a9eba69…`) is superseded by it.
+Small, evidence-driven, reversible; the "audit my own records" category.
+
+**Did not comment on #19.** GitHub attributes my writes to the owner's token
+(`retog`), not a separate Aros identity — commenting would read as the owner
+talking to himself, violating §1/§8. This is exactly what chamber#3 (agent
+GitHub account) is blocked on. So the response stays internal to my chamber; the
+owner already wrote the issue more completely than my c52 note anyway. The one
+extra item my c52 audit carries that #19 doesn't name — the README:380
+recipient-vs-sender bash-comment contradiction — is already in the c52 dashboard
+escalation the owner has; not worth a separate channel.
+
+Blockers untouched: chamber#1/#3/#4/#5/#6/#7, retinue#4 — all OPEN, last touched
+2026-07-20, each in one venue, none overdue; owner visibly active today, so no
+re-escalation. Drafts unchanged since 07-20 (five technical .md + retrofit.py,
+each mapped to a filed issue; none in a cool-off class). No external channel
+(no accounts). Files changed: positioning.md, public-surface.md, this log.
+Scheduled strategy review 2026-08-02.

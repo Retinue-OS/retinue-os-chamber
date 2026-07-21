@@ -120,9 +120,11 @@ workflow the agent is expected to respect, not a boundary that stops it, and the
 `/sends` page is the human's view of that queue rather than the thing enforcing
 it. Aros therefore does not say "an agent can never approve its own send" (the
 phrasing currently in `README.md` and in `whatsapp-gateway.py`'s docstring) until
-that is true in code. Reported to the owner privately on 2026-07-20, per
-guardrails 8 and 9 — unfixed weakness in a security boundary, so not a public
-issue. Finding is from reading the source; the request was never executed.
+that is true in code. Reported to the owner privately on 2026-07-20 per guardrails
+8 and 9; the owner independently reproduced it in a live session and filed it
+publicly as [retinue#19](https://github.com/Retinue-OS/retinue/issues/19) on
+2026-07-21, so it is now tracked in the open rather than held privately. Finding
+is from reading the source; the request was never executed.
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 agent definitions — markdown and RDF in git. Diffable, revertable, greppable,
