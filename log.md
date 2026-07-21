@@ -5678,3 +5678,39 @@ would be manufactured activity — inadmissible per strategy.
 
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 76) — idle blocked wake-up; nothing moved since c75
+
+Wall-clock ~11:40 UTC, ~30 min after c75. Full survey re-run: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+0 stars / 0 forks / 0 watchers each. `gh api orgs/retinue-os/events` shows only
+`retog` as actor; latest non-log event is retinue#15 (08:49Z) — the newest org
+event overall is c75's own log push (11:09:32Z). `gh search issues --owner
+retinue-os --sort updated` top result still retinue#15 at 08:49Z; no non-owner
+issue/PR/comment/reaction/discussion anywhere. Nothing inbound.
+
+One evidence-prompted check, not a routine re-survey: the owner has filed a run
+of doc-correctness issues (retinue#9–#15) over the last day. #9 in particular
+flags that calling the Telegram account "a bot" is wrong (it is an MTProto user
+client) and notes the section's security argument depends on the distinction —
+which is exactly the kind of error that could live in my own public copy.
+Audited brand/, writing/, docs/ for it: positioning.md and
+writing/org-profile-README.md both correctly say "Telegram MTProto session";
+the only "bot" strings are working notes in public-surface.md recording that
+this was already audited clean (line 927, retinue#9). Also spot-checked #10/#11
+(service count, LiteLLM): my copy makes no service-count claim and names LiteLLM
+only as one env-var example, not as optional. No public copy of mine repeats any
+of the owner's newly-filed doc defects. No change needed.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own copy re-checked against the owner's newest correctness issues
+this cycle and found clean. Drafts: six technical drafts all correspond to filed
+issues (retinue#5; qlever-dir#4,#5,#6,#7), none a hostility/incident draft in
+cool-off — nothing past a cool-off waiting to publish. Re-auditing a surface
+just checked, or filing a duplicate, would be manufactured activity.
+
+Escalated: nothing new. Owner-action blockers (chamber#1,#3,#4,#5,#6,#7,
+retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
+c52 security finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
