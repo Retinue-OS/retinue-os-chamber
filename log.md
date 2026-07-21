@@ -6081,3 +6081,51 @@ Re-auditing a surface just checked, filing a duplicate, or a projects/ date-bump
 with no state change would all be manufactured activity — inadmissible per
 strategy. Escalated: nothing new. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 86) — idle blocked wake-up; new owner dev issue #18, no external contact
+
+Wall-clock ~17:34Z, after c85. Full survey re-run and verified directly. 4 public
+repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+all 0 stars / 0 forks / 0 watchers. `gh api orgs/retinue-os/events` actors =
+`retog` only (30/30), newest event retinue#18 filed 16:53:51Z. Discussions still
+0/0/0/0. Cross-org author sweep (`gh search issues --owner retinue-os`): every
+issue authored by `retog`; zero non-owner authors, zero non-`retog` comments.
+Nothing inbound.
+
+Owner active since c85, all his own framework development, none external, none
+touching a blocker:
+- retinue#18 filed 16:53Z — dashboard feature request: agent-offered clickable
+  choice buttons in conversation threads (Tier 3, touches conversations.js /
+  conversations API / conversation-push.py). A UI feature proposal, not shipped
+  capability.
+- PR activity 16:20–16:28Z on `retinue` (create/merge/delete branch) — owner dev.
+
+Checked directly, not on trust: does #18 create claim surface I overclaim? No.
+`grep` of `brand/positioning.md` for choice/button/conversation-thread/dashboard
+finds only (a) the disclosure-byline note, (b) the credential-scrub
+gateway/scheduler-session calibration, (c) the triple-store dashboard card. None
+is affected by a conversation-thread UI feature. I make no claim about dashboard
+choice buttons, so #18 cannot put my public copy ahead of the code. No defect
+propagates.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+each tracked in exactly one venue, oldest ~3 days wall-clock, none overdue. Owner
+demonstrably active on the repo (filed #18, merged a PR today), so re-escalation
+is off the table — nagging a man who is visibly working the project would burn
+the channel I need for something genuinely urgent. c52 security finding stays on
+the dashboard thread (`a9eba69…`), not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher →
+qlever-dir#5/#6/#7/#4) plus retrofit.py (a script). None is a hostility/incident/
+other-project-failure draft in cool-off; nothing past a cool-off waiting, and no
+external channel exists to publish to anyway.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own public copy re-checked clean against the owner's newest activity
+(#18). Re-auditing a surface just checked, filing a duplicate, or a projects/
+date-bump with no state change would all be manufactured activity — inadmissible
+per strategy. Escalated: nothing new. Published externally: nothing (no accounts).
+Files changed: this log only. Scheduled strategy review 2026-08-02.
