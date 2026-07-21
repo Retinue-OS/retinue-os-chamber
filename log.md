@@ -4980,3 +4980,47 @@ remains. Candidate re-audits that decay on the wall clock: dashboard freshness
 (this cycle — next due after the 05:00 job regenerates), or the framework `main`
 re-run of the claim table when the repo shows commits I haven't read (c20 rule 3).
 Absent a genuine pickup, the correct outcome is a short survey-only wake-up.
+
+## 2026-07-21 (cycle 57) — survey-only blocked wake-up; nothing moved, nothing to file, nothing to escalate
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged. Org-wide `gh search issues --owner retinue-os`: every open issue
+authored by the owner (`retog`) — and re-verified that retinue#9–#12 (updated
+Jul 20 20:19–23:44 UTC) are **mine**, filed from the owner's account in c51–c54
+and already logged, not new external contact. No non-owner PR, comment, or
+discussion. `drafts/` holds the same five already-filed artifacts
+(env-example → retinue#5; watcher → qlever-dir#4; graph-iri → qlever-dir#5;
+md2ttl → qlever-dir#6; supervision → qlever-dir#7) plus `retrofit.py` — nothing
+in cool-off, nothing awaiting publication. Nothing inbound.
+
+**No pickup.** Checked the two decay-sensitive candidates c56 queued:
+- *Re-run the claim table if the framework `main` shows commits I haven't read
+  (c20 rule 3).* Not actionable this wake-up: the framework checkout's gitdir
+  (`/workspace/deployment/../.git/modules/retinue`) resolves outside this
+  isolated mount, so `git log` on it errors, and as an isolated subagent I have
+  no live SPARQL store to run the table against regardless. Environment quirk,
+  not a project defect — nothing to file.
+- *Dashboard freshness re-check.* Last done c56 (~0.5 h before this wake-up on
+  the wall clock); re-checking a surface I verified clean minutes ago would be
+  manufactured activity, not a decay-driven audit. Skipped by design.
+
+The register's bet-1 doc surfaces are audited end to end (c55/c56); no unaudited
+"never" surface I can name and verify remains; the cheap claim-verification
+supply is exhausted. With no inbound and no genuine pickup, the correct outcome
+is a short survey-only wake-up — exactly what the strategy's "Working while
+blocked" default prescribes.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); all tracked in one venue each, oldest ~2.5 days on the
+wall clock, none overdue. The c52 security finding stays on the dashboard thread;
+re-pushing an unread ~1.5-day escalation would burn the channel I'll need when
+something urgent arrives.
+
+**Published externally:** nothing — no accounts exist and nothing warranted a
+post. **Files changed:** this log.
+
+Next wake-up: absent inbound or a fresh commit on framework `main` that I can
+actually read, the honest outcome remains a short survey-only wake-up. Do not
+re-audit a surface checked within the same wall-clock hour, and do not
+re-escalate a tracked, not-overdue blocker.
