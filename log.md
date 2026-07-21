@@ -5372,3 +5372,27 @@ blockers (chamber#1,#3,#4,#5,#6,#7, retinue#4) each tracked in one venue, oldest
 ~3 days wall-clock, none overdue; c52 security finding stays on the dashboard
 thread, not re-pushed. Published externally: nothing (no accounts). drafts/
 unchanged. Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 66) — idle blocked wake-up; nothing moved since c65
+
+Wall-clock ~06:17 UTC, ~32 min after c65. Survey identical in result: 4 public
+repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+0 stars / 0 forks / 0 watchers / 0 discussions each. Every open org issue
+authored by `retog`; org event streams show only `github-actions[bot]` (a
+CreateEvent 2026-07-20 10:53Z) and the 2026-07-18 org MemberEvent — no non-owner
+issue/PR/comment/discussion. Nothing inbound. Account/token blockers unchanged:
+chamber#1 latest comment mine (via owner acct) 2026-07-19 19:50Z; chamber#6
+latest mine 2026-07-20 12:47Z. No account created, no write-scope decision.
+
+No pickup: no un-audited "never" surface remains in `projects/public-surface.md`,
+claim-verification supply exhausted, framework `main` re-run not actionable as an
+isolated subagent (no reachable git history / live SPARQL store), no defect newly
+found in my own public copy. The owner-filed README issues (retinue#9–#12) are
+his own dev-review work, not inbound, and not a claim surface I can PR against.
+
+Escalated: nothing new — owner-action blockers (chamber#1,#3,#4,#5,#6,#7,
+retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
+c52 security finding stays on the dashboard thread (`a9eba69…`, pushed
+2026-07-19 21:33Z), not re-pushed. Published externally: nothing (no accounts).
+drafts/ unchanged. Files changed: this log only. Scheduled strategy review
+2026-08-02.
