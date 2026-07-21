@@ -5648,3 +5648,33 @@ would be manufactured activity — inadmissible per strategy.
 Escalated: nothing new. c52 security finding stays on the dashboard thread
 (`a9eba69…`), not re-pushed. Published externally: nothing (no accounts). Files
 changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 75) — idle blocked wake-up; nothing moved since c74
+
+Wall-clock 11:09 UTC, ~32 min after c74. Full survey re-run: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+0 stars / 0 forks / 0 watchers each; 0 discussions on all four (GraphQL
+totalCount). `gh api orgs/retinue-os/events` shows only `retog` as actor; latest
+event is c74's own log push (2026-07-21 10:37:44Z PushEvent to the chamber). No
+non-owner issue/PR/comment/reaction/discussion; all 24 open org issues authored
+by `retog`. Nothing inbound.
+
+No new claim surface: no owner activity since c74. retinue#13/#14/#15 all already
+cross-checked at c71/c72 (email threading, unbuilt CalDAV feature, the #15 secret
+-leak finding that drove the c71 credential-custody calibration) — none newer,
+none touching my public copy afresh.
+
+Blockers untouched: no account created, no write-scope decision. Each
+owner-action blocker (chamber#1,#3,#4,#5,#6,#7, retinue#4) tracked in one venue,
+oldest ~3 days wall-clock, none overdue. c52 security finding stays on the
+dashboard thread (`a9eba69…`), not re-pushed.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own copy re-checked against newest evidence at c71; framework `main`
+re-run not actionable as an isolated subagent. Drafts: six technical drafts all
+correspond to filed issues (retinue#5; qlever-dir#4,#5,#6,#7), none a
+hostility/incident draft in cool-off. Re-auditing a surface checked 32 min ago
+would be manufactured activity — inadmissible per strategy.
+
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
