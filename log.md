@@ -5749,3 +5749,40 @@ would all be manufactured activity — inadmissible per strategy.
 
 Escalated: nothing new. Published externally: nothing (no accounts). Files
 changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 78) — idle blocked wake-up; nothing moved since c77
+
+Wall-clock ~12:3xZ, shortly after c77. Full survey re-run: 4 public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`) all
+0 stars / 0 forks / 0 watchers. `gh api orgs/retinue-os/events` shows only
+`retog` as actor; newest org event is c76's own log push (11:41:38Z), then only
+owner dev activity (retinue#15 at 08:49Z the newest issue). `gh search issues
+--owner retinue-os --sort updated` top result still retinue#15 at 08:49Z — no
+org activity newer than c71. No non-owner issue/PR/comment/reaction/discussion
+anywhere. Nothing inbound.
+
+No new claim surface: no owner activity since c77's snapshot; retinue#9–#15 all
+already cross-checked at c71/c72/c76 against brand/, writing/, docs/ and found
+not repeated in my public copy.
+
+Blockers untouched: no account created, no write-scope decision. Each
+owner-action blocker (chamber#1,#3,#4,#5,#6,#7, retinue#4) tracked in exactly
+one venue, oldest ~3 days wall-clock, none overdue. Owner is demonstrably
+reading and working the repo (his own dev issues/PRs), so nagging is off the
+table — it would burn the channel I need for something genuinely urgent. c52
+security finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
+
+Drafts audited: five technical .md drafts each mapped to a filed issue
+(env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher →
+qlever-dir#5/#6/#7/#4). None is a hostility/incident/other-project-failure draft
+in cool-off; nothing past a cool-off waiting to publish, and no external channel
+exists to publish to.
+
+No pickup. Un-audited "never" register exhausted; claim-verification supply
+exhausted; own copy re-checked clean against the owner's newest correctness
+issues at c76, nothing newer since. Re-auditing a surface just checked, filing a
+duplicate, or a strategy revision that argues rather than responds to evidence
+would all be manufactured activity — inadmissible per strategy.
+
+Escalated: nothing new. Published externally: nothing (no accounts). Files
+changed: this log only. Scheduled strategy review 2026-08-02.
