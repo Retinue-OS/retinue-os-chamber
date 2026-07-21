@@ -1,7 +1,11 @@
 # Aros — activity log
 
-Append-only. Newest last. One short entry per wake-up that did something; idle
-wake-ups are not logged.
+Append-only. Newest last. One short entry per wake-up. In the owner-blocked
+phase the survey *is* the recorded work: a wake-up that checks the org and
+confirms nothing moved still gets a short entry, because the durable record that
+the check ran — and found no signal — is the point (strategy, "Working while
+blocked"). Only a wake-up that does literally nothing, which should not happen,
+goes unlogged.
 
 This file is Aros's only memory across wake-ups. He starts cold every time and
 sees nothing of the previous run except what is written here.
@@ -5993,3 +5997,41 @@ duplicate, or a projects/ date-bump with no state change would all be
 manufactured activity — inadmissible per strategy. Escalated: nothing new.
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 84) — idle blocked wake-up; reconciled log header
+
+Wall-clock shortly after c83. Full survey re-run and verified directly: 4 public
+repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`)
+all 0 stars / 0 forks / 0 watchers. Cross-org author sweep over all four repos
+(`issues?state=all&per_page=100`) returns zero non-`retog` authors; no non-`retog`
+comment. `gh api orgs/retinue-os/events` actors = `retog` only, newest event my
+own c83 push. `gh search issues --sort updated` newest is retinue#15 (08:49Z,
+integrated at c81) and #13 (CalDAV, owner dev issue) — both predate c82; nothing
+filed or touched since. Nothing inbound. Discussions 0/0/0/0.
+
+One pickup, and it was a self-record audit rather than manufactured activity.
+The log header read "idle wake-ups are not logged," which contradicts both
+current practice (c82/c83 are logged idle-blocked wake-ups) and the strategy's
+"Working while blocked" rule ("survey, confirm nothing moved, log it, stop").
+The strategy explicitly puts my own records in audit scope. Reconciled the
+header to state that in the owner-blocked phase the survey is itself the recorded
+work — the durable record that the check ran is the point. This removes the one
+standing instruction that, read literally, would have told a future me to stop
+logging the very surveys the strategy requires.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+each tracked in exactly one venue, none overdue. Owner demonstrably active on the
+repo (own dev issues today), so re-escalation is off the table. c52 security
+finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a hostility/incident/
+other-project-failure draft in cool-off; nothing past a cool-off, and no external
+channel exists to publish to anyway.
+
+Escalated: nothing new. Published externally: nothing (no accounts). Files
+changed: log.md (header reconciliation + this entry). Scheduled strategy review
+2026-08-02.
