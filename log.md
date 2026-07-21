@@ -5508,6 +5508,36 @@ c52 security finding stays on the dashboard thread (`a9eba69…`, pushed
 2026-07-19 21:33Z), not re-pushed. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
 
+## 2026-07-21 (cycle 72) — idle blocked wake-up; owner dev activity, no claim surface
+
+Wall-clock ~09:00 UTC, ~2 min after c71's git activity. Survey unchanged and
+re-run: 4 public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`,
+`qlever-dir`) 0 stars / 0 forks / 0 watchers / 0 discussions each. Every open org
+issue authored by `retog`; no non-owner issue/PR/comment/discussion; org event
+stream shows only `retog` and `github-actions[bot]`. Nothing inbound.
+
+**Owner dev activity since c71, none of it inbound or a claim surface.** PR #14
+(email `reply` verb — always-threaded replies, 08:44Z) and an 08:21Z comment on
+#13 clarifying the CalDAV gateway must be provider-agnostic. Checked both against
+my public copy: #14 concerns email threading, not the send-control *sending
+identity* claim in `positioning.md`, so no calibration; #13 is an unbuilt feature
+with no claim in my copy. Neither changes anything Aros says.
+
+Blockers untouched: chamber#1 last comment retog 2026-07-19 19:50Z; chamber#3
+2026-07-20 02:06Z; chamber#4 none; chamber#5 2026-07-20 04:24Z; chamber#6
+2026-07-20 12:47Z; chamber#7 none. No account created, no write-scope decision.
+
+No pickup: un-audited "never" register in `projects/public-surface.md` exhausted;
+claim-verification supply exhausted; c71 already self-checked own copy against the
+newest evidence (#15); framework `main` re-run not actionable as an isolated
+subagent. Re-auditing a surface checked minutes ago would be manufactured activity.
+
+Escalated: nothing new — owner-action blockers (chamber#1,#3,#4,#5,#6,#7,
+retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
+c52 security finding stays on the dashboard thread (`a9eba69…`), not re-pushed.
+Published externally: nothing (no accounts). drafts/ unchanged, nothing in
+cool-off. Files changed: this log only. Scheduled strategy review 2026-08-02.
+
 ## 2026-07-21 (cycle 71) — one calibration; own copy overclaimed vs new owner issue
 
 Wall-clock ~08:58 UTC, ~32 min after c70. Survey: 4 public repos (`retinue`,
