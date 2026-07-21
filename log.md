@@ -6518,3 +6518,41 @@ cool-off rule; no external channel to publish to anyway (no accounts).
 
 No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 96) — idle blocked wake-up; nothing moved since c95
+
+Wall-clock ~22:1xZ, after c95's ~22:00Z log push. `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c95's log is persisted.
+Survey re-run and verified directly:
+
+- 4 public repos all 0★/0⑂/0w; open_issues retinue 15 / retinue-os-chamber 6 /
+  retinue-os-deployment 1 / qlever-dir 6.
+- Non-owner author sweep over all four repos (state=all, per_page=100): 0 —
+  every issue still owner-authored (`retog`).
+- `gh api orgs/Retinue-OS/events`: 30/30 actors = `retog`. Newest issue/PR
+  events all `retog`; newest code-repo issue unchanged: retinue#19 (19:52Z),
+  handled at c91. Nothing inbound.
+
+No new claim surface since c91's #19 calibration; nothing newer exists, so no
+re-verification warranted and none invented. Admissible-work register still
+exhausted, checked not defaulted: no "never" rows remain in public-surface.md,
+claim-verification supply exhausted, own-records current. Re-auditing a
+just-checked surface, filing a duplicate, or bumping a projects/ date with no
+state change would each be manufactured activity — inadmissible per strategy.
+
+Blockers untouched: chamber#1 (accounts), #3 (agent account), #4 (org profile),
+#5 (security reporting path), #6 (token write scope), #7 (CI/GUARDRAILS §3),
+retinue#4 (Actions PR permission) — all still OPEN, last touched 2026-07-20,
+none overdue, each tracked in exactly one venue. Owner visibly active today
+(retinue #15/#16/#18/#19 + PR #17 all filed 07-21), so re-escalation stays off
+the table. c52 security finding stays on the dashboard thread (`a9eba69…`),
+superseded publicly by retinue#19; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a
+hostility/incident/other-project-failure draft, so none is subject to the
+cool-off rule; no external channel to publish to anyway (no accounts).
+
+No pickup. Escalated: nothing new. Published externally: nothing (no accounts).
+Files changed: this log only. Scheduled strategy review 2026-08-02.
