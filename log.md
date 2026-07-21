@@ -5253,3 +5253,105 @@ cool-off, nothing awaiting publication. **Files changed:** this log only.
 Next wake-up: same discipline. Phase is owner-blocked; accounts and write-scope
 are his calls. Correct outcome of a wake-up with no inbound and no genuinely-due
 audit is a short survey-only one. Scheduled strategy review still 2026-08-02.
+
+
+## 2026-07-21 (cycle 63) — survey-only; new evidence that the owner is actively developing, blockers still untouched
+
+Wall-clock: 04:41 UTC, ~33 min after c62.
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged (`gh repo list retinue-os --json`). **0 discussions** on all four.
+Org-wide open issues (`gh search issues --owner retinue-os --state open`): every
+one authored by `retog`. Confirmed retinue#9-#12 are my own filings from the
+owner's account (chamber#3 problem), already logged c50-c54 - not external
+contact. No non-owner issue, PR, comment, or discussion. Nothing inbound.
+
+**New this cycle - the owner has been actively developing the framework.** The
+org event stream and `gh pr list` show three merged PRs authored by `retog`
+(Reto Gmuer), all his own code, all merged 2026-07-20 18:28-20:25 UTC:
+- retinue#6 `fix(whatsapp): repair pairing against neonize >= 0.4`
+- retinue#7 `feat(dashboard): Web Push notifications for agent-initiated conversations`
+- retinue#8 `fix(whatsapp): resolve LID recipients to a deliverable phone-number JID`
+
+None resolves or touches an issue I filed; none creates claim-drift in my public
+copy (brand/positioning, writing/) - they are messaging-gateway fixes and a
+dashboard feature, orthogonal to the credential-isolation / egress / triple-store
+claims. So they are **not** an actionable surface for me.
+
+Their value is as evidence, not as work: this is fresh, direct confirmation of
+the cycle-27 conclusion that *the owner is not unresponsive*. He was demonstrably
+active on these repos within the last ~9 hours - merging his own PRs and doing
+his own dev work - while the owner-action blockers (chamber#1 accounts, chamber#6
+token scope) remain untouched. Read correctly, that is **prioritisation, not
+silence**: he is doing framework development and has not yet reached the
+account/token decisions. The blockers are ~3 days old on the wall clock, none is
+overdue, and this is exactly the situation the standing no-re-escalation rule
+exists for. Re-pinging a man who is visibly busy in the same repos, about issues
+he has demonstrably seen the venue of, would burn the channel. Recorded, not
+escalated.
+
+**No pickup.** Register (`projects/public-surface.md`) carries no remaining
+un-audited "never" surface; cheap claim-verification supply exhausted; the merged
+PRs are not a claim surface I own. No inbound to answer, no defect newly found in
+my own public copy.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); each tracked in one venue, oldest ~3 days, none overdue.
+The c52 security finding stays on the dashboard thread (`a9eba69...`, pushed
+2026-07-19 21:33Z); not re-pushed.
+
+**Published externally:** nothing - no accounts exist and nothing warranted a
+post. **drafts/** unchanged: five already-filed artifacts (env-example ->
+retinue#5; watcher -> qlever-dir#4; graph-iri -> qlever-dir#5; md2ttl ->
+qlever-dir#6; supervision -> qlever-dir#7) plus `retrofit.py`; nothing in
+cool-off, nothing awaiting publication. **Files changed:** this log only.
+
+Next wake-up: same discipline. Phase is owner-blocked; accounts and write-scope
+are his calls, and he is actively working the repos, so they will come when he
+reaches them. Scheduled strategy review still 2026-08-02. No bet changed - the
+owner-activity observation supports the existing cycle-27 reading rather than
+altering it, so it belongs in the log, not in a strategy revision.
+
+## 2026-07-21 (cycle 64) — survey-only blocked wake-up; nothing moved since c63
+
+Wall-clock: ~05:15 UTC, ~34 min after c63.
+
+**Survey.** Four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0 stars / 0 forks / 0 watchers each,
+unchanged (`gh repo list retinue-os --json`). **0 discussions** on all four.
+Org-wide open issues (`gh search issues --owner retinue-os --state open`): every
+one authored by `retog`; newest activity retinue#12 at 2026-07-20 23:44Z (c54's
+own filing). Org event stream filtered for non-`retog` actors: empty; latest
+events all `retog` — chamber PushEvents at 00:20/00:54/01:59/02:32/04:08
+(my own prior-cycle log commits). Open PRs: none. No non-owner issue, PR,
+comment, or discussion. Nothing inbound.
+
+**No new owner decision.** chamber#1 (accounts) latest comment is my own Nostr
+answer 2026-07-19 19:50Z; chamber#6 (token scope) latest is my own 2026-07-20
+12:47Z note. No new owner-authored input on either. No account created, no
+write-scope decision, nothing unblocked. The three owner PRs seen at c63
+(retinue#6/#7/#8) remain the last owner dev activity; nothing since.
+
+**No pickup.** Register (`projects/public-surface.md`) carries no remaining
+un-audited "never" surface (re-confirmed by grep this cycle); cheap
+claim-verification supply exhausted; framework `main` claim-table re-run still
+not actionable as an isolated subagent (no reachable framework git history, no
+live SPARQL store). No inbound to answer, no defect newly found in my own public
+copy. Re-auditing a surface checked within the same wall-clock hour, or
+re-checking unchanged dashboard data, would be manufactured activity.
+
+**Escalated:** nothing new. Owner-action blockers unchanged (chamber#1, #3, #4,
+#5, #6, #7, retinue#4); each tracked in one venue, oldest ~3 days on the wall
+clock, none overdue. The c52 security finding stays on the dashboard thread
+(`a9eba69…`, pushed 2026-07-19 21:33Z); not re-pushed.
+
+**Published externally:** nothing — no accounts exist and nothing warranted a
+post. **drafts/** unchanged: five already-filed artifacts (env-example →
+retinue#5; watcher → qlever-dir#4; graph-iri → qlever-dir#5; md2ttl →
+qlever-dir#6; supervision → qlever-dir#7) plus `retrofit.py`; nothing in
+cool-off, nothing awaiting publication. **Files changed:** this log only.
+
+Next wake-up: same discipline. Phase is owner-blocked; accounts and write-scope
+are his calls, and he is actively working the repos, so they will come when he
+reaches them. Scheduled strategy review still 2026-08-02.
