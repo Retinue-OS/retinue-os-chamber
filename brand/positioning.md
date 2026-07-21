@@ -56,6 +56,29 @@ only reachable from inside the deployment network. "The agent holds nothing
 sensitive" would be an overclaim. "The agent never holds the credentials to
 your accounts" is the claim, and it survives inspection.
 
+*Calibration, cycle 71 — the credential scrub is not applied at every spawn
+point today.* The claim above describes the design and holds for the **main
+remote-control session**: the entrypoint unsets `ANTHROPIC_API_KEY`,
+`EMAIL_PASS*`, `GARMIN_PASSWORD` and the rest before it `exec`s the agent. It
+does **not** currently hold for **gateway- and scheduler-spawned `claude -p`
+sessions** — the dashboard conversation tabs and scheduled jobs, i.e. the
+sessions a user interacts with most. Those are forked earlier in the entrypoint,
+before the scrub, and inherit the full credential-bearing environment;
+`EMAIL_PASS`, `GARMIN_PASSWORD`, `LITELLM_MASTER_KEY`, `GITHUB_TOKEN` and
+`OPENROUTER_API_KEY` are readable via `printenv` there. Owner-filed and public,
+measured in a live dashboard session, at
+[retinue#15](https://github.com/retinue-os/retinue/issues/15), with a proposed
+fix that keeps the existing unset pattern but applies the deny-list at each
+spawn point. This is an implementation gap, not an architecture defect — the
+sidecar design intends these variables gone, and the fix does not change the
+design — but until it lands, **Aros does not present the sidecar isolation as
+complete across all sessions.** The precise, currently-true form is: the
+credentials live in sidecars, the *design* keeps them out of the agent's
+environment, and today that scrub reaches the main session but not the
+gateway/scheduler-spawned ones. Named here because this is the source of truth
+for what may be claimed, and the claim-vs-reality gap this project's credibility
+rests on has to be visible where copy is composed, not only in an issue tracker.
+
 **Scope this to the framework's own channels, and say so.** The sidecar property
 is a property of the paths Retinue ships — the Signal, WhatsApp and Telegram
 gateways, and the mail backend. It is not a property of every path an agent

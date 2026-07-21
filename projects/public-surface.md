@@ -937,3 +937,26 @@ later cycle doesn't re-run the same grep and mistake it for new work. This is
 not a rule-13 "filed finding" (nothing to file — the surface was clean); it is
 the confirmatory half of the rule, checking that a defect found on the repo did
 not silently also live in the copy I own.
+
+## c71 — retinue#15 (credential scrub) vs my own credential-custody claim
+
+Positive find, same self-check pattern as c68 but this time the copy *did* carry
+an over-strong form. The owner filed [retinue#15](https://github.com/retinue-os/retinue/issues/15)
+at 08:49Z (measured in a live dashboard session): the entrypoint's credential
+scrub runs only on the main `exec claude --remote-control` path, so
+gateway/scheduler-spawned `claude -p` sessions (dashboard tabs, scheduled jobs)
+inherit `EMAIL_PASS`, `GARMIN_PASSWORD`, `LITELLM_MASTER_KEY`, `GITHUB_TOKEN`,
+`OPENROUTER_API_KEY` in their environment. That contradicts `positioning.md`'s
+"the agent never holds the credentials to your accounts … survives inspection"
+for exactly the sessions users touch most.
+
+Action: added a cycle-71 calibration to `positioning.md`'s credential-custody
+section — the claim holds for the main session and describes the *design*, but
+Aros does not present the sidecar isolation as complete across all sessions
+until the fix lands. Implementation gap, not architecture defect; the fix keeps
+the existing unset pattern. **Not filed as a new issue and not escalated:** the
+owner filed it himself, so it is already tracked and he already knows; per
+guardrail 9 an unfixed security weakness is not something Aros amplifies, and
+re-telling the owner his own finding would only wear the channel. The calibration
+is a working-note guard against a future overclaim, not an outbound post — no
+account exists to publish from, and nothing was published.

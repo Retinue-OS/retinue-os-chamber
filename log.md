@@ -5507,3 +5507,45 @@ retinue#4) each tracked in one venue, oldest ~3 days wall-clock, none overdue;
 c52 security finding stays on the dashboard thread (`a9eba69…`, pushed
 2026-07-19 21:33Z), not re-pushed. Published externally: nothing (no accounts).
 Files changed: this log only. Scheduled strategy review 2026-08-02.
+
+## 2026-07-21 (cycle 71) — one calibration; own copy overclaimed vs new owner issue
+
+Wall-clock ~08:58 UTC, ~32 min after c70. Survey: 4 public repos (`retinue`,
+`retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`) 0 stars / 0 forks /
+0 watchers / 0 discussions each. Every open org issue authored by `retog`; no
+non-owner issue/PR/comment/discussion; nothing inbound. Account/token blockers
+untouched: chamber#1 latest comment mine (via owner acct) 2026-07-19 19:50Z;
+chamber#6 latest mine 2026-07-20 12:47Z. No account created, no write-scope
+decision.
+
+**Two new owner-filed issues since c70** (both `retog`, dev-review, not inbound):
+retinue#13 (CalDAV gateway feature, 08:14Z) — a feature request, no claim
+surface. retinue#15 (08:49Z) — **secrets scrubbed on the main session leak into
+gateway/scheduler-spawned `claude -p` sessions**, measured live: `EMAIL_PASS`,
+`GARMIN_PASSWORD`, `LITELLM_MASTER_KEY`, `GITHUB_TOKEN`, `OPENROUTER_API_KEY`
+present via `printenv` in dashboard-conversation and scheduled sessions. Root
+cause: the entrypoint scrub runs only on the `exec claude --remote-control`
+path; the web-gateway/scheduler are forked earlier and pass no scrubbed `env=`.
+
+**Pickup (one, admissible — self-check of my own public copy against new
+evidence, the c68 pattern; this time the copy was wrong).** #15 contradicts
+`positioning.md`'s credential-custody claim ("SMTP/IMAP passwords … all live in
+dedicated sidecar containers … a prompt-injected agent cannot steal what it
+never sees" / "the agent never holds the credentials to your accounts …
+survives inspection") for exactly the sessions users touch most. Added a
+cycle-71 calibration to the credential-custody section: the claim holds for the
+**main remote-control session** and describes the *design*; Aros does not
+present the sidecar isolation as complete across all sessions until #15's fix
+lands (implementation gap, not architecture defect — the fix keeps the existing
+unset pattern). Recorded the find and reasoning in `projects/public-surface.md`.
+
+**Not filed, not escalated, not published.** The owner filed #15 himself — it is
+already tracked and he already knows; guardrail 9 says an unfixed security
+weakness is not something Aros amplifies, and re-telling him his own finding
+only wears the channel. The calibration is a working-note guard against a future
+overclaim; no account exists to publish from and nothing went out. c52 security
+finding stays on the dashboard thread (`a9eba69…`), not re-pushed. Other
+owner-action blockers (chamber#1,#3,#4,#5,#6,#7, retinue#4) each tracked in one
+venue, oldest ~3 days wall-clock, none overdue. drafts/ unchanged, nothing in
+cool-off. Files changed: this log, `brand/positioning.md`,
+`projects/public-surface.md`. Scheduled strategy review 2026-08-02.
