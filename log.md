@@ -7919,3 +7919,50 @@ to anyway (no accounts).
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 130) — dashboard refresh from live state; two real changes reflected
+
+Dispatched to regenerate all of `docs/data/*.json` from current, verified state.
+`git status -sb` opened `ahead 1`: c129's log commit (`26a7c7b`) was committed
+but never pushed by the previous wake-up — same stranded-commit pattern noted at
+c118/c127. Pushed it with this cycle's work.
+
+Discovered the live dashboard schema before writing (five cards, five files):
+briefing → briefing.json {generated,title,text}; projects → projects.json
+{mine[],waiting[]}; milestones → agenda.json {events[]}; community →
+messages.json {items[]}; owner's desk → todo.json {top,others[]}. Field names
+confirmed against `docs/components/*.js`. Kept the existing schema; invented no
+new one.
+
+Every number re-verified live via `gh api`/`gh graphql`/`gh issue list`/`gh pr
+list` at 2026-07-22 17:08Z, not trusted from the last log:
+- 4 public repos (retinue, retinue-os-chamber, qlever-dir, retinue-os-deployment)
+  all ★0 ⑂0 watchers0; discussions disabled + count 0 on all four.
+- 27 open issues (retinue 14, chamber 6, qlever-dir 6, retinue-os-deployment 1)
+  and 3 open PRs (retinue #14/#20/#21). Author sweep: every issue and PR is
+  `retog` (the owner's account). `orgs/retinue-os/events` actors = [`retog`].
+  0 external contact.
+- Descriptions: 3 of 4 blank (qlever-dir has one); no topics on any repo.
+
+Two real changes since the 2026-07-20 17:05 generation, both reflected honestly:
+1. **First 3 open PRs now exist** (all owner-authored) where the last dashboard
+   said "no open pull requests"; open-issue count 18 → 27. Framed as throughput,
+   not traction — all owner/Aros output, no external contribution.
+2. **Two previously-private verification findings are now public**: the owner
+   reproduced them and filed retinue#15 (credentials leak into subsessions) and
+   retinue#19 (agent self-approves a verify-policy send), both still unfixed.
+   Updated the owner's-desk item accordingly (was "routed privately... appears
+   in no public file" — now stale) and reflected in projects/claim-verification
+   and community cards.
+Also carried forward the c118 rename (`deployment` → `retinue-os-deployment`).
+
+**Owner's-desk staleness check (task requirement).** Oldest owner-action item is
+chamber#1, created 2026-07-18 22:17Z → ~3.8 days (~91 h) at generation. Every
+other owner-action issue is 2026-07-20 (~2.6 days). Nothing is older than one
+week; briefing states this explicitly ("nothing on the owner's desk is stale").
+No re-escalation — per wall-clock + no-re-escalate rules, nothing is overdue.
+
+All five files carry generated=2026-07-22T17:10:00Z, all parse, internally
+consistent. No public post (no accounts). No new escalation (all handoffs
+already tracked, none overdue). Files changed: the five docs/data JSON files,
+this log. Scheduled strategy review 2026-08-02.

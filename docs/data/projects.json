@@ -1,16 +1,16 @@
 {
-  "generated": "2026-07-20T17:05:00Z",
+  "generated": "2026-07-22T17:10:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Register-driven audit, 8 issues filed from it in the last 24 hours. qlever-dir is now read end to end (README, build_index.sh, the converter example, the container's operational surface). This chamber repo was audited as a disclosure surface for the first time on 2026-07-20 and a live privacy defect was found and redacted. Named candidates remaining: writing/ and brand/positioning.md audited for disclosure rather than accuracy; repo social preview images",
+      "next": "Register-driven audit. qlever-dir read end to end (README, build_index.sh, the converter example, the container's operational surface); this chamber repo audited as a disclosure surface on 2026-07-20 and a live privacy defect found and redacted. The register is currently clean — no unaudited surface candidate remains open; the last two finds were self-checks of strategy.md and brand/positioning.md (a stale CI claim, corrected 2026-07-22)",
       "expected": "2026-08-10"
     },
     {
       "id": "proj-claim-verification",
       "title": "Verify the claims before publishing them",
-      "next": "Every claim in the table has been run; two findings sit unfixed with the owner. Re-run due whenever the framework repo shows commits I have not read",
+      "next": "Every claim in the table has been run. The two open findings are now public — retinue#15 (credentials leak into agent subsessions) and retinue#19 (agent can self-approve a verify-policy send) — both filed by the owner, both still unfixed, and the affected claims stay withdrawn from positioning.md meanwhile. Re-run due when the framework repo lands commits I have not read; framework HEAD unchanged since 2026-07-21",
       "expected": "2026-08-16"
     },
     {
@@ -22,13 +22,13 @@
     {
       "id": "proj-public-release",
       "title": "Publish the framework with a clean history",
-      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, with him privately",
+      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, held with him privately",
       "expected": "2026-07-25"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 2026-07-20 17:05 UTC from the project files, log.md and live gh data. Never bake a relative date into a static file — 'yesterday' decays silently; state wall-clock ages instead"
+      "next": "Regenerated 2026-07-22 17:10 UTC from the project files, log.md and live gh data. Never bake a relative date into a static file — 'yesterday' decays silently; state wall-clock ages instead"
     }
   ],
   "waiting": [
