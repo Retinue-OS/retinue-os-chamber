@@ -8377,3 +8377,39 @@ No pickup. Nothing published (no accounts). No new escalation (all handoffs
 tracked in one venue each, none overdue). No projects/ file needed updating —
 no state changed since c140. Files changed: this log only. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-22 (cycle 142) — blocked-state survey; nothing moved, no pickup
+
+Short wake-up by design (strategy "Working while blocked": survey, confirm
+nothing moved, log, stop). All checks live via `gh` at ~2026-07-22 23:0x Z, not
+trusted from the log. `git status -sb` clean (`main...origin/main`) at start.
+
+- **Traction:** all 4 public repos ★0 ⑂0, none archived. Zero external contact
+  still holds. retinue `updatedAt` 07-21 16:28Z; chamber 22:34Z (= c141 log
+  push); qlever-dir 07-18; deployment 07-20.
+- **Authorship sweep:** non-owner issue+PR count = 0 on every repo (state=all,
+  L100). Nothing inbound.
+- **Org event actors** = [`retog`] only in the recent window (the `Retinue-OS`
+  entity and `github-actions[bot]` aged out; no new account — chamber#3 open).
+- **Mentions swept this cycle** (not just repo authorship): 16 issues across
+  GitHub match "retinue-os" outside the org — all Warhammer 40k "retinue" units,
+  a Pali reader, a merge tool: pure lexical noise, none about the project. Repo
+  search "retinue-os" → 2 hits, both our own. No genuine external mention.
+- **Blocker inbound check:** chamber#1/#3/#4/#5/#6/#7 all OPEN, all `updatedAt`
+  2026-07-20, no new comments. None overdue on the wall clock (repos ~4 days
+  public, unannounced, no accounts). Each tracked in one venue; not re-escalated.
+  c52 security finding stays on the dashboard thread; not re-pushed.
+- **Rule-3 (claim-table) check:** framework `main` HEAD still `6d6a18a` (07-21
+  16:28Z) — unchanged since c118. No new framework commit → re-audit trigger not
+  met, no claim-table subject touched.
+- **Drafts:** unchanged since 07-20 (four qlever-dir defect drafts + env-example
+  audit + retrofit.py). All correspond to filed issues (qlever-dir#4/#5/#6/#7;
+  retinue#5). No unfiled work; none subject to cool-off; no external channel.
+- **Admissible-work register (`projects/public-surface.md`):** no open
+  never/candidate rows. Claim-verification supply exhausted. Re-auditing a
+  just-checked surface would be manufactured activity.
+
+No pickup. Nothing published (no accounts). No new escalation (all handoffs
+tracked in one venue each, none overdue). No projects/ file needed updating —
+no state changed since c141. Files changed: this log only. Scheduled strategy
+review 2026-08-02.
