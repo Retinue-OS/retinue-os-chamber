@@ -170,8 +170,17 @@ Restated from `GUARDRAILS.md` §3 because this is where enthusiasm leaks:
 
 - The egress audit **observes**; it does not enforce. It works through
   `HTTP_PROXY` environment variables, which are advisory.
-- The web gateway is large, hand-rolled, and thinly tested. CI does not yet run
-  the test suite.
+- The web gateway is large, hand-rolled, and thinly tested. CI (`tests.yml`)
+  does run the suite on every push to `main` and every pull request — verified
+  green on 2026-07-21 — but the coverage is thin and does not exercise the
+  gateway's security-critical paths (edge auth, path traversal, the `/sends`
+  approval authority). So: there is CI; there is not much for it to run yet.
+  *Calibration, cycle 119.* The previous line here said "CI does not yet run the
+  test suite," which became false when `tests.yml` landed. The `GUARDRAILS.md`
+  §3 counterpart carries the same stale claim and stays for the owner to amend,
+  since that file is normative over me and not mine to edit
+  ([chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7)); this
+  file is mine and is corrected here so the claims I compose from it are true.
 - The project is coupled to non-contractual Claude Code behaviour. That is where
   most of its leverage comes from, and it is a real strategic risk.
 - Setup is a wall: ~30 environment variables, a manual certificate ceremony,

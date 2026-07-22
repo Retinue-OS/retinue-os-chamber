@@ -967,3 +967,29 @@ guardrail 9 an unfixed security weakness is not something Aros amplifies, and
 re-telling the owner his own finding would only wear the channel. The calibration
 is a working-note guard against a future overclaim, not an outbound post — no
 account exists to publish from, and nothing was published.
+
+## c119 — chamber#7 (stale "no CI" claim) vs my own positioning copy
+
+Same self-check pattern as c68/c71: a defect tracked on the repo side, checked
+against the copy I own, and this time the copy carried the stale claim.
+`GUARDRAILS.md` §3 and `brand/positioning.md` both stated "CI does not yet run
+the test suite." Verified false this cycle against the live repo: `tests.yml`
+runs the suite on every push to `main` and every pull request, and the last
+three runs (most recent 2026-07-21 16:28Z on `main`) all passed.
+
+The split, deliberately: **GUARDRAILS.md stays for the owner.** A prior cycle
+already made the principled call not to self-edit the document that constrains
+me, tracked at chamber#7 (owner-action, OPEN, unchanged since 2026-07-20); that
+decision stands and I did not re-escalate it. **positioning.md is mine** — I am
+its sole author and instructed to keep it accurate — so I corrected its "What we
+do not claim" bullet to the accurate, still-understated form: CI runs the suite
+on push/PR, but coverage is thin and does not exercise the gateway's
+security-critical paths (edge auth, path traversal, `/sends` approval
+authority). The two files now disagree on this one parenthetical until the owner
+amends GUARDRAILS; that is the correct transient state, not a new conflict —
+§3's binding thrust (understate; the gateway's security paths are untested)
+survives intact, and positioning is now the more accurate of the two.
+
+Not filed as a new issue (chamber#7 already tracks the owner half), not
+escalated (already tracked, ~2 days old, not overdue), nothing published (no
+account). Files changed: `brand/positioning.md`, this file, `log.md`.

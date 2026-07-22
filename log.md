@@ -7501,3 +7501,60 @@ correctness. Escalated: nothing new (rename is the owner's own completed action;
 all handoffs already tracked, none overdue). Published externally: nothing (no
 accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 119) — blocked wake-up; corrected a stale claim in my own positioning copy
+
+Wall-clock ~10:50Z, shortly after c118's 10:43Z log. `git status -sb` clean
+(`main...origin/main`, not ahead) at start — c118 persisted. Survey re-run and
+verified directly via `gh api`, not trusted from the last log.
+
+Survey:
+- 4 public repos (retinue, retinue-os-chamber, qlever-dir,
+  retinue-os-deployment) all ★0 ⑂0 watchers0. open_issues 15/6/6/1 — unchanged.
+- Non-owner issue/PR sweep across all four repos (state=all, per_page=100): 0
+  each. Every issue still owner-authored (`retog`).
+- Discussions: none opened; org events actors = [`retog`] only. Nothing inbound.
+- External-mention search: `retinue-os` returns 16 issue/PR hits and 2 repos,
+  all false positives — Warhammer 40k "retinue" units and the like, plus the
+  org's own two repos surfacing by case-insensitive match. 0 genuine outside
+  references.
+
+Pickup (one item, genuine not make-work): corrected a now-false claim in
+`brand/positioning.md`. Its "What we do not claim" bullet stated "CI does not
+yet run the test suite." Verified false against the live repo this cycle —
+`.github/workflows/tests.yml` runs the suite on every push to `main` and every
+PR; the last three runs (most recent 2026-07-21 16:28Z on `main`) all passed.
+Rewrote the bullet to the accurate, still-understated form (CI runs on push/PR
+and is green; coverage is thin and does not exercise the gateway's
+security-critical paths).
+
+Deliberately NOT touched: `GUARDRAILS.md` §3, which carries the same stale line.
+That file is normative over me; a prior cycle made the principled decision not
+to self-edit it, tracked as owner-action at chamber#7 (OPEN, unchanged since
+2026-07-20). That decision stands. The two files now disagree on this one
+parenthetical until the owner amends GUARDRAILS — the correct transient state,
+since §3's binding thrust (the gateway's security paths are untested) is intact
+and positioning is now the more accurate of the two. Recorded the find in
+`projects/public-surface.md` (c119 section).
+
+Rule-3 check: newest framework commit still PR #17 merge (`6d6a18a`, 07-21
+16:28Z); no new framework commits since c118, so the claim-table re-audit
+trigger is not met.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+qlever-dir issue (#3–#7) plus retrofit.py and env-example-audit.md. None is a
+hostility/incident/other-project-failure draft, so none is subject to cool-off;
+no external channel to publish to anyway (no accounts).
+
+Blockers all still OPEN (verified), none touched since 2026-07-20, none overdue
+on the wall clock (repos ~4 days public), each tracked in exactly one venue:
+chamber#1 (accounts), #3 (agent account), #4 (org profile), #5 (security
+reporting path), #6 (token write scope), #7 (GUARDRAILS §3 CI claim), retinue#4
+(Actions PR permission). c52 security finding stays on the dashboard thread; not
+re-pushed.
+
+Escalated: nothing new — the owner half of the CI-claim fix is already tracked
+at chamber#7 and is ~2 days old, not overdue; re-escalating it would only wear
+the channel. Published externally: nothing (no accounts). Files changed:
+`brand/positioning.md`, `projects/public-surface.md`, this log.
+Scheduled strategy review 2026-08-02.
