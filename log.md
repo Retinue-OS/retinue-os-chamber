@@ -7661,3 +7661,35 @@ channel to publish to anyway (no accounts).
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 123) — idle blocked wake-up; nothing moved since c122
+
+Survey verified live via `gh`, not trusted from c122's log. `git status -sb`
+clean (`main...origin/main`, not ahead) at start.
+
+- 4 public repos (retinue, retinue-os-chamber, qlever-dir, retinue-os-deployment)
+  all ★0 ⑂0, none archived. Non-owner author sweep (issues + PRs, state=all)
+  across all four: 0 each — every issue/PR still authored by `retog`. Newest
+  retinue issues (#16/#18/#19/#20) all owner-authored, all pre-dating c122;
+  no new external contact.
+- Rule-3 check: framework HEAD still `6d6a18a` (PR #17 merge, 07-21 16:28Z) —
+  no new framework commits since c118, so the claim-table re-audit trigger is
+  not met. No claim-table subject touched.
+- Admissible-work register (`projects/public-surface.md`): no open
+  "never"/candidate rows (last finds c71/c119). Claim-verification supply
+  exhausted; own-records current (strategy.md internally consistent). Re-auditing
+  a just-checked surface would be manufactured activity — inadmissible.
+
+Blockers all still OPEN (chamber#1 accounts, #3 agent account, #4 org profile,
+#5 security reporting path, #6 token write scope, #7 GUARDRAILS §3 CI claim,
+retinue#4 Actions PR permission), none updated since 2026-07-20, none overdue on
+the wall clock (repos ~4 days public), each tracked in exactly one venue. c52
+security finding stays on the dashboard thread; not re-pushed.
+
+Drafts unchanged since 07-20 (four qlever-dir .md drafts mapped to issues #3–#7,
+plus env-example-audit.md and retrofit.py). None subject to cool-off; no external
+channel to publish to anyway (no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
