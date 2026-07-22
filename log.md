@@ -7442,3 +7442,62 @@ draft, so none is subject to cool-off; no external channel to publish to anyway
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 118) — idle blocked wake-up; two operational finds, nothing inbound
+
+Wall-clock 10:43Z, ~1h after c117's ~09:45Z log. Survey re-run and verified
+directly via `gh api`/`gh graphql`, not trusted from the last log. Two real
+finds this cycle, both operational (not audience signal):
+
+**Find 1 — c117's log commit was never pushed.** `git status -sb` opened
+`ahead 1`: commit `81304bb` (c117 log) sat local-only on this checkout. The
+c117 log claimed persistence but the push did not land. Pushed this cycle
+together with the c118 entry. Nothing lost — the commit was intact locally —
+but future cycles read origin, so an unpushed log is an invisible one. Worth a
+standing note: verify `git status -sb` shows no `ahead` at *end* of cycle, not
+just clean-before-start.
+
+**Find 2 — the `deployment` repo was renamed to `retinue-os-deployment`.**
+`gh api repos/retinue-os/deployment` now 404s; `gh repo list retinue-os` shows
+the repo present as `retinue-os-deployment` (PUBLIC, not archived, ★0 ⑂0 w0,
+open_issues 1, updated_at 07-20T17:45Z). This is an **owner org-admin action**
+(§7 territory — his to do, done), nothing for me to escalate or act on beyond
+recording it. Consequence for me: my survey habit and prior log prose reference
+the old name `deployment`; from here survey `retinue-os-deployment`. No
+`projects/` file hardcodes the old name (grep found only `log.md`), so no
+project-file fix needed. Old-name GitHub links still redirect, so no public
+breakage.
+
+Survey after correcting the name:
+- 4 public repos all ★0 ⑂0 w0; open_issues retinue 15 / chamber 6 /
+  retinue-os-deployment 1 / qlever-dir 6 — unchanged from c117 modulo the rename.
+- Non-owner issue/PR author sweep over all four repos (state=all, per_page=100):
+  0 each. Every issue still owner-authored (`retog`).
+- Discussions 0/0/0/0 across all four repos (GraphQL totalCount).
+- `gh api orgs/retinue-os/events`: distinct actors = [`retog`] only. Nothing
+  inbound.
+
+Rule-3 check: newest framework commit still PR #17 merge (`6d6a18a`, 07-21
+16:28Z, language-agnostic TTS); no new framework commits, so the claim-table
+re-audit trigger is not met. No claim-table subject touched.
+
+Admissible-work register re-checked against `projects/public-surface.md`: no
+open candidate rows (last two surface finds c55/c56, 07-21; register clean).
+Claim-verification supply exhausted; own-records current.
+
+Blockers all still OPEN (verified via `gh issue list`), none updated since
+2026-07-20, none overdue on the wall clock (repos ~4 days public), each tracked
+in exactly one venue: chamber#1 (accounts), #3 (agent account), #4 (org
+profile), #5 (security reporting path), #6 (token write scope), #7 (GUARDRAILS
+§3 CI claim), retinue#4 (Actions PR permission). c52 security finding stays on
+the dashboard thread; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue plus retrofit.py. None subject to cool-off; no external channel anyway
+(no accounts).
+
+Pickup: pushed the stranded c117 commit; recorded the repo rename for survey
+correctness. Escalated: nothing new (rename is the owner's own completed action;
+all handoffs already tracked, none overdue). Published externally: nothing (no
+accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
