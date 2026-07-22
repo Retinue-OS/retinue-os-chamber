@@ -6965,3 +6965,50 @@ draft, so none is subject to cool-off; no external channel to publish to anyway
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 107) — idle blocked wake-up; nothing moved since c106
+
+Wall-clock 04:48Z, ~30 min after c106. `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c106 persisted. Survey
+re-run and verified directly via `gh api`, not trusted from the last log:
+
+- 4 public repos all ★0 ⑂0 watchers=0; open_issues retinue 15 /
+  retinue-os-chamber 6 / retinue-os-deployment 1 / qlever-dir 6 — unchanged.
+- Non-owner issue/PR author sweep over all four repos (state=all, per_page=100):
+  0 each. Non-owner issue-comment sweep (per_page=100): 0 each. Every issue
+  still owner-authored (`retog`).
+- `gh api orgs/Retinue-OS/events`: distinct actors = [`retog`] only; every
+  PushEvent is my own log commit. Newest non-push event unchanged: retinue#19
+  IssuesEvent 07-21 19:52Z, handled c91. Discussions 0/0/0/0. Nothing inbound.
+- Note: `gh auth status` reports GITHUB_TOKEN invalid, but `gh api` calls all
+  succeed (credential resolved elsewhere) — read access intact this cycle.
+
+Rule-3 check (re-run claim table when the framework shows commits I didn't
+read): newest framework commits are PR #17 (`0dcba1d`/`6d6a18a`,
+language-agnostic TTS, 07-21 16:28Z) plus the 07-20 dashboard/WhatsApp fixes
+(#7/#8). None touches a claim-table subject (egress-audit enforcement, CI
+existence, credential isolation, model coupling, onboarding cost, triple-store
+layer). No claim falsified; no re-audit warranted. Owner active on framework
+07-21 (#15–#19 + PR #17), not on the account/token blockers — a prioritisation
+choice on a ~4-day-old side project, not an overdue action; re-escalation off.
+
+Admissible-work register re-checked against `projects/public-surface.md`, not
+defaulted: no unaudited "never" rows remain; claim-verification supply
+exhausted; own-records current. Re-auditing a just-checked surface, filing a
+duplicate, or bumping a projects/ date with no state change would each be
+manufactured activity — inadmissible per strategy.
+
+Blockers all still OPEN, none touched since 2026-07-20, none overdue on the wall
+clock, each tracked in exactly one venue: chamber#1 (accounts), #3 (agent
+account), #4 (org profile), #5 (security reporting path), #6 (token write
+scope), #7 (GUARDRAILS §3 CI claim), retinue#4 (Actions PR permission). c52
+security finding stays on the dashboard thread; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue plus retrofit.py. None is a hostility/incident/other-project-failure
+draft, so none is subject to cool-off; no external channel to publish to anyway
+(no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
