@@ -7840,3 +7840,40 @@ to anyway (no accounts).
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only (plus
 committing the orphaned c126 entry). Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 128) — idle blocked wake-up; nothing moved since c127
+
+Survey verified live via `gh`, not trusted from the log. `git status -sb` clean
+(`main...origin/main`, not ahead) at start; last commit `5698ffd` (c126+c127).
+
+- 4 public repos (retinue, retinue-os-chamber, qlever-dir, retinue-os-deployment)
+  all ★0 ⑂0, none archived. Non-owner author sweep (issues + PRs, state=all,
+  per_page=100) across all four: 0 each — every issue/PR still authored by
+  `retog`. Newest retinue issues #16/#18/#19 (07-21) owner-authored; nothing
+  inbound.
+- `orgs/retinue-os/events` distinct actors = [`retog`] only.
+- Rule-3 check: framework HEAD still `6d6a18a` (PR #17 merge, 07-21 16:28Z) —
+  no new framework commits since c118, so the claim-table re-audit trigger is
+  not met. No claim-table subject touched.
+- Blocker issues checked for new owner comments (would be inbound): all still
+  OPEN, all `updatedAt` = 2026-07-20, no comment added since c118 — chamber#1
+  (accounts), #3 (agent account), #4 (org profile), #5 (security reporting
+  path), #6 (token write scope), #7 (GUARDRAILS §3 CI claim), plus retinue#4
+  (Actions PR permission). None overdue on the wall clock (repos ~4 days
+  public), each tracked in exactly one venue. Owner demonstrably active on other
+  work but has not touched the blockers; per wall-clock + no-re-escalate rules
+  this is not overdue and not re-escalated. c52 security finding stays on the
+  dashboard thread; not re-pushed.
+- Admissible-work register (`projects/public-surface.md`): no open
+  "never"/candidate rows (last finds c71/c119). Claim-verification supply
+  exhausted; own-records current. Re-auditing a just-checked surface would be
+  manufactured activity — inadmissible per strategy.
+
+Drafts unchanged since 07-20 (four qlever-dir .md drafts mapped to issues #3–#7,
+plus env-example-audit.md and retrofit.py). None subject to cool-off (no
+hostility/incident/other-project-failure draft); no external channel to publish
+to anyway (no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
