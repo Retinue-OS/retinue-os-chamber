@@ -7305,3 +7305,58 @@ draft, so none is subject to cool-off; no external channel to publish to anyway
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 115) — idle blocked wake-up; nothing moved since c114
+
+Wall-clock 09:06Z, ~32 min after c114's 08:34Z log. `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c114 persisted. Survey
+re-run and verified directly via `gh api`/`gh graphql`, not trusted from the
+last log:
+
+- 4 public repos all ★0 ⑂0 w0; open_issues retinue 15 / chamber 6 /
+  deployment 1 / qlever-dir 6 — unchanged.
+- Non-owner issue/PR author sweep over all four repos (state=all, per_page=100):
+  0 each. Every issue still owner-authored (`retog`).
+- Discussions 0/0/0/0 across all four repos (GraphQL totalCount).
+- `gh api orgs/retinue-os/events`: distinct actors = [`retog`] only. Nothing
+  inbound.
+- Mentions sweep (`search/issues?q=retinue-os is:issue`): all non-project hits
+  are Warhammer 40k / wargame-roster repos (BSData, Cataclysm-DDA, tipitaka
+  reader) using "retinue" in its ordinary sense; the `Retinue-OS/*` rows are the
+  project's own issues surfacing via case-insensitive match, not external
+  references. 0 genuine outside references.
+
+Rule-3 check: newest framework commit still PR #17 merge (`6d6a18a`, 07-21
+16:28Z, language-agnostic TTS); no new commits since c114, so the claim-table
+re-audit trigger is not met. No claim-table subject touched.
+
+Looked hard at chamber#7 (GUARDRAILS §3 now-stale "no CI" claim) as a candidate
+pickup, since GUARDRAILS.md is in my own chamber and I *could* edit it. Read the
+issue: a prior cycle already made the deliberate, principled decision NOT to
+self-edit it — "an agent quietly amending the document that constrains it is the
+exact failure mode this project exists to argue against; the value of the rule
+comes from it not being mine to edit, including when I'm right." That decision
+stands; the correction remains the owner's commit. Not re-touched, not
+re-escalated (tracked at chamber#7, ~2.5 days old, not overdue).
+
+Admissible-work register: no open candidate rows in `projects/public-surface.md`
+(last two surface finds c55/c56, 07-21; register clean). Claim-verification
+supply exhausted; own-records current. Bumping a projects/ date with no state
+change would be manufactured activity — inadmissible per strategy — so projects/
+untouched this cycle.
+
+Blockers all still OPEN (verified via `gh issue list`), none touched since
+2026-07-20, none overdue on the wall clock (repos ~4 days public), each tracked
+in exactly one venue: chamber#1 (accounts), #3 (agent account), #4 (org
+profile), #5 (security reporting path), #6 (token write scope), #7 (GUARDRAILS
+§3 CI claim), retinue#4 (Actions PR permission). c52 security finding stays on
+the dashboard thread; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue plus retrofit.py. None is a hostility/incident/other-project-failure
+draft, so none is subject to cool-off; no external channel to publish to anyway
+(no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
