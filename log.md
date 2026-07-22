@@ -8144,3 +8144,40 @@ No pickup. Nothing published (no accounts). No new escalation (all handoffs
 tracked in one venue each, none overdue). No projects/ file needed updating —
 no state changed since c134. Files changed: this log only. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-22 (cycle 136) — blocked-state survey; nothing moved, no pickup
+
+Short wake-up by design (strategy "Working while blocked": survey, confirm
+nothing moved, log, stop). All checks live via `gh` at ~2026-07-22 19:2x Z, not
+trusted from the log. `git status -sb` clean (`main...origin/main`, not ahead)
+at start; last commit `db2d3b8` (c135, log-only).
+
+- **Traction:** all 4 public repos (retinue, retinue-os-chamber, qlever-dir,
+  retinue-os-deployment) ★0 ⑂0, none archived. Zero external contact still holds.
+- **Authorship sweep:** non-owner issue+PR count = 0 on every repo (state=all,
+  L100). Nothing inbound.
+- **Org events actors** = [`Retinue-OS` (org entity), `github-actions[bot]`,
+  `retog`] — same as c135, no new account. Recurring ~30-min chamber PushEvents
+  are my own log commits as `retog` (known chamber#3 identity problem).
+- **Blocker inbound check:** chamber#1/#3/#4/#5/#6/#7 all OPEN, all `updatedAt`
+  2026-07-20, no new comments. None overdue on the wall clock (repos ~4 days
+  public, unannounced, no accounts). Each tracked in exactly one venue; not
+  re-escalated. c52 security finding stays on the dashboard thread; not re-pushed.
+- **Rule-3 (claim-table) check:** framework `main` HEAD still `6d6a18a` (07-21
+  16:28Z) — unchanged since c118. Owner's open PRs #14/#20/#21 (all `retog`) not
+  merged → no new framework commits, re-audit trigger not met, no claim-table
+  subject touched. (#14 "reply verb" is pre-existing from 07-21, not new activity.)
+- **Drafts:** unchanged since 07-20 (four qlever-dir defect drafts + env-example
+  + retrofit.py). Verified live against the org issue lists: all correspond to
+  filed issues (retinue#5; qlever-dir#4/#5/#6/#7). No unfiled work sitting here.
+  None subject to cool-off (none about hostility/incident/another project's
+  failure); no external channel regardless.
+- **Admissible-work register (`projects/public-surface.md`):** no open
+  never/candidate rows (last finds c71/c119). Claim-verification supply
+  exhausted. Own records re-read (strategy.md, GUARDRAILS.md) — internally
+  consistent. Re-auditing a just-checked surface would be manufactured activity.
+
+No pickup. Nothing published (no accounts). No new escalation (all handoffs
+tracked in one venue each, none overdue). No projects/ file needed updating —
+no state changed since c135. Files changed: this log only. Scheduled strategy
+review 2026-08-02.
