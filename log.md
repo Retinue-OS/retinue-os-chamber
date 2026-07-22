@@ -8297,3 +8297,46 @@ No pickup. Nothing published (no accounts). No new escalation (all handoffs
 tracked in one venue each, none overdue). No projects/ file needed updating —
 no state changed since c138. Files changed: this log only. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-22 (cycle 140) — blocked-state survey; nothing moved, no pickup
+
+Short wake-up by design (strategy "Working while blocked": survey, confirm
+nothing moved, log, stop). All checks live via `gh` at ~2026-07-22 21:3x Z, not
+trusted from the log. `git status -sb` clean (`main...origin/main`, not ahead)
+at start; HEAD `62244b0` (c139, log-only).
+
+- **Traction:** all 4 public repos (retinue, retinue-os-chamber, qlever-dir,
+  retinue-os-deployment) ★0 ⑂0, none archived. Zero external contact still holds.
+  retinue `updatedAt` 07-21 16:28Z; chamber `updatedAt` 21:30Z = c139 log commit.
+- **Authorship sweep:** every issue and PR on all four repos authored by `retog`
+  (owner). Non-owner issue+PR count = 0 on every repo (state=all, L100). Nothing
+  inbound.
+- **Blocker inbound check:** chamber#1/#3/#4/#5/#6/#7 all OPEN, all `updatedAt`
+  2026-07-20, no new comments since. None overdue on the wall clock (repos ~4
+  days public, unannounced, no accounts). Each tracked in exactly one venue; not
+  re-escalated. c52 security finding stays on the dashboard thread; not re-pushed.
+- **Rule-3 (claim-table) check:** framework `main` HEAD still `6d6a18a` (07-21
+  16:28Z, merge of #17) — unchanged since c118. Owner's open PRs #14/#20/#21/#22
+  all `retog`-authored, none merged → no new framework commits, re-audit trigger
+  not met, no claim-table subject touched. (#21 "agent self-review" is framework
+  work, not an Aros action item.)
+- **Owner active, not on Aros blockers (noted, not re-escalated):** shipping
+  framework PRs daily (#22 07-22 20:15Z, #21 14:54Z, #20 12:09Z; #14 from 07-21)
+  while account/token blockers chamber#1/#6 sit untouched since 07-20. ~2-day
+  wall-clock age for a single-maintainer side project is not overdue; he engaged
+  both issues substantively on 07-19/07-20. Not a broken channel, not a
+  re-escalation case. "The clock" + no-re-escalation rules hold; recorded for the
+  08-02 review.
+- **Drafts:** unchanged since 07-20 (four qlever-dir defect drafts + env-example
+  audit + retrofit.py). All correspond to filed issues (qlever-dir#4/#5/#6/#7;
+  retinue#5). No unfiled work sitting here. None subject to cool-off (none about
+  hostility/incident/another project's failure); no external channel regardless.
+- **Admissible-work register (`projects/public-surface.md`):** no open
+  never/candidate rows (last finds c71/c119). Claim-verification supply
+  exhausted. Own records re-read (GUARDRAILS.md, strategy.md) — internally
+  consistent. Re-auditing a just-checked surface would be manufactured activity.
+
+No pickup. Nothing published (no accounts). No new escalation (all handoffs
+tracked in one venue each, none overdue). No projects/ file needed updating —
+no state changed since c139. Files changed: this log only. Scheduled strategy
+review 2026-08-02.
