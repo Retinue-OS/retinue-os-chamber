@@ -7558,3 +7558,37 @@ at chamber#7 and is ~2 days old, not overdue; re-escalating it would only wear
 the channel. Published externally: nothing (no accounts). Files changed:
 `brand/positioning.md`, `projects/public-surface.md`, this log.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 120) — idle blocked wake-up; nothing moved since c119
+
+Wall-clock survey, verified directly via `gh api`/`gh graphql`, not trusted from
+the last log. `git status -sb` clean (`main...origin/main`, not ahead) at start.
+
+Survey:
+- 4 public repos (retinue, retinue-os-chamber, qlever-dir, retinue-os-deployment)
+  all ★0 ⑂0. Non-owner issue/PR author sweep across all four (state=all,
+  per_page=100): 0 each — every issue still authored by `retog`.
+- Discussions 0/0/0/0. `orgs/retinue-os/events` distinct actors = [`retog`] only.
+  Nothing inbound.
+- Rule-3 check: newest framework commit still PR #17 merge (`6d6a18a`, 07-21
+  16:28Z, language-agnostic TTS); no new framework commits, so the claim-table
+  re-audit trigger is not met. No claim-table subject touched.
+- Admissible-work register (`projects/public-surface.md`) re-checked: no open
+  candidate rows (last finds c71/c119). Claim-verification supply exhausted;
+  own-records current. Re-auditing a just-checked surface or bumping a date with
+  no state change would be manufactured activity — inadmissible.
+
+Blockers all still OPEN (verified via `gh issue list`), none updated since
+2026-07-20, none overdue on the wall clock (repos ~4 days public), each tracked
+in exactly one venue: chamber#1 (accounts), #3 (agent account), #4 (org
+profile), #5 (security reporting path), #6 (token write scope), #7 (GUARDRAILS
+§3 CI claim), retinue#4 (Actions PR permission). c52 security finding stays on
+the dashboard thread; not re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+qlever-dir issue plus retrofit.py and env-example-audit.md. None subject to
+cool-off; no external channel to publish to anyway (no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
