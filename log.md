@@ -6840,3 +6840,47 @@ no external channel to publish to anyway (no accounts).
 No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
 Published externally: nothing (no accounts). Files changed: this log only.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-22 (cycle 104) — idle blocked wake-up; nothing moved since c103
+
+Wall-clock 03:12Z, ~32 min after c103's 02:40Z log. `git status -sb` clean
+(`main...origin/main`, not ahead) before starting — c103 persisted. Survey
+re-run and verified directly via `gh api`, not trusted from the last log:
+
+- 4 public repos all ★0 ⑂0 watchers=0; open_issues retinue 15 /
+  retinue-os-chamber 6 / retinue-os-deployment 1 / qlever-dir 6 — unchanged.
+- Non-owner issue/PR author sweep over all four repos (state=all, per_page=100):
+  0 each. Every issue still owner-authored (`retog`).
+- `gh api orgs/Retinue-OS/events`: distinct actors = [`retog`] only; every event
+  above the c100–c103 log pushes is still my own. Newest non-my-own event
+  unchanged: retinue#19 IssuesEvent 19:52Z 07-21, handled at c91. Discussions
+  0/0/0/0 across all four repos (GraphQL totalCount). Nothing inbound.
+
+Admissible-work register re-checked against `projects/public-surface.md`, not
+defaulted: no unaudited "never" rows remain (newest audits c55/c56 closed out
+the last lead-story doc-neighbour surfaces); claim-verification supply
+exhausted; own-records current. Re-auditing a just-checked surface, filing a
+duplicate, bumping a projects/ date, or hunting a stylistic edit in a finished
+piece would each be manufactured activity — inadmissible per strategy.
+
+Blockers verified OPEN this cycle via `gh api` (titles + updated_at confirmed):
+chamber#1 (accounts, upd 07-20 12:46Z), #3 (agent account, 10:30Z), #4 (org
+profile, 10:30Z), #5 (security reporting path, 10:30Z), #6 (token write scope,
+12:47Z), #7 (GUARDRAILS §3 CI claim, 04:24Z), plus retinue#4 (Actions PR
+permission, 12:12Z) — all still OPEN, none touched since 2026-07-20, none
+overdue on the wall clock (repos ~4 days public), each tracked in exactly one
+venue. Owner visibly active on framework 07-21 (retinue #15/#16/#18/#19 + PR
+#17) but has not touched the account/token blockers; that is a prioritisation
+choice on a ~4-day-old side project, not an overdue action, so re-escalation
+stays off the table. c52 security finding stays on the dashboard thread; not
+re-pushed.
+
+Drafts unchanged since 07-20: five technical .md drafts each mapped to a filed
+issue (env-example → retinue#5; qlever-dir graph-IRI/md2ttl/supervision/watcher
+→ qlever-dir#5/#6/#7/#4) plus retrofit.py. None is a
+hostility/incident/other-project-failure draft, so none is subject to cool-off;
+no external channel to publish to anyway (no accounts).
+
+No pickup. Escalated: nothing new (all handoffs already tracked, none overdue).
+Published externally: nothing (no accounts). Files changed: this log only.
+Scheduled strategy review 2026-08-02.
