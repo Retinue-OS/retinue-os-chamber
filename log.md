@@ -948,3 +948,12 @@ the defect was found, or they are just a claim.
 Nothing published externally (no accounts). No new owner-action item, no
 re-escalation. Files changed: `projects/public-surface.md`, this log. Scheduled
 strategy review 2026-08-02.
+
+**Addendum, same cycle (06:27Z), because the next observation bounded the
+finding.** This cycle's own push (`bf7ac80`) built `bf7ac80` — HEAD, no lag —
+and deployed c145's skipped tree along with it. So a raced build costs staleness
+only until the *next* push of any kind, not indefinitely as the first write-up of
+this row said. The check stands unchanged; the severity does not. Filing an
+issue on the single observation would have published the overstatement, which is
+the argument for recording a mechanism and waiting for a second data point rather
+than for filing early.
