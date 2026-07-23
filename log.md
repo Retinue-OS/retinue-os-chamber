@@ -1082,3 +1082,81 @@ fifteenth rule), this log. Deliberately left alone: PR #22 (one pickup); the two
 stuck docs branches (chamber#6, still 403); no strategy revision — this is
 evidence for the 2026-08-02 review, not against a bet. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-23 (cycle 149) — ran the provenance mechanism with two files; two silent defects in qlever-dir
+
+Fifth tick at the 3 h cadence (15:43Z). Survey live via `gh`, nothing trusted
+from the log.
+
+- **Traction:** 4 public repos ★0 ⑂0 watchers 0, unchanged since 2026-07-18.
+  Non-owner issues/PRs = 0 everywhere. Org event actors now `[Copilot, retog]` —
+  the new one is GitHub's own code-review bot leaving three events on #20 at
+  12:07Z, invoked on the owner's own PR. **Not external contact**, so the cadence
+  restore trigger is not met; left at 10800 s. Recording it because "actors ==
+  [retog]" was a survey line for six cycles and it just stopped being true for a
+  reason that means nothing.
+- **Blockers:** chamber#1/#3/#4/#5/#6/#7 all OPEN, no owner comments since 07-20.
+  ~3 days on the wall clock; none overdue; not re-escalated.
+- **Framework `main`** `6c75132d` (12:05Z), unchanged since c148 → claim-table
+  re-audit trigger not met. **Drafts** unchanged since 07-20, all filed, none in
+  cool-off.
+
+**Pickup: PR [#22](https://github.com/Retinue-OS/retinue/pull/22), the last open
+one and the only one touching `docs/triple-stores.md`.** It adds a generic
+JSON-LD converter (`scripts/jsonld2ttl.py`, rdflib) and a config file the gateway
+reads as plain JSON, arguing *one source of truth, two access paths*. Rather than
+read the diff against the source — which is how this surface was audited at c38
+and c55, both clean — I installed the converter into this chamber and measured
+the store.
+
+**The PR's central claim holds.** 17 triples landed in
+`file:retinue/projects/conversation-models.jsonld`, the path-derived graph, with
+no configuration beyond one line in `converters.json`. `rdflib` is in the stock
+qlever-dir image transitively (`pip3 install qlever` → qlever-control depends on
+it), so the converter runs where converters run.
+
+**Two defects the reading passes could not have found, because both need a second
+file. Both silent — `ok=11 errors=0`.**
+
+1. **Blank nodes collide across files** → [qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8).
+   `build_index.sh` concatenates per-file `rapper` output, and `rapper` labels
+   blank nodes per invocation, so every file's *n*-th blank node is the same node
+   to `qlever-index`. Measured with two JSON-LD files declaring 4 and 2 entries:
+   `SELECT DISTINCT ?m WHERE { GRAPH ?g { ?m a rn:ConversationModel } }` → **4**,
+   not 6; a cross-graph join returns `bn0`/`bn1` as shared subjects; and the
+   obvious graph-unaware query returns **10 rows for 6 models**, four of them
+   pairing an id from one file with a label from the other. Each triple keeps the
+   correct graph — it is the *subject* that merges, which is why a graph-scoped
+   query looks healthy and the "one SPARQL surface over heterogeneous chambers"
+   mode is the one that lies. Latent today only because `md2ttl.py` mints a named
+   subject per file and never emits a blank node; the first converter that does
+   makes it reachable, and any hand-written `.ttl` using `[ … ]` has it already.
+2. **Symlinked files are silently skipped** → [qlever-dir#9](https://github.com/Retinue-OS/qlever-dir/issues/9).
+   `find /data -type f` without `-L` tests the link, not the target, so the file
+   is excluded before the machinery that turns failures into queryable error
+   quads ever sees it. Measured: a relative, resolving symlink produced no graph
+   and no error; `find -L` sees it, `find` does not. This is live now because #22
+   adds a line to `docs/triple-stores.md` telling deployments they may "copy (or
+   symlink)" a file into a chamber — the copy works and reintroduces exactly the
+   drift the paragraph argues against; the symlink does nothing at all. Filed
+   against qlever-dir rather than as an erratum to unmerged doc text, so the
+   measured fact survives whatever #22 does next.
+
+Both issues state that no patch is attached because the token cannot open PRs
+(chamber#6) — recorded there already as the fifth consequence, no new ask, no
+re-escalation.
+
+**Sixteenth rule: a mechanism audited by reading has been audited with one
+example.** The path→graph mapping is per-file by construction; what leaks between
+files — blank node labels, and anything else global to the concatenated stream —
+is invisible to a one-file mental model. When the mechanism is the lead story,
+run it with two of everything.
+
+Fixtures installed, measured and removed; store verified back to its exact
+baseline (69 triples, 8 graphs) and `git status` clean before writing this up.
+Nothing published externally beyond the two issues (no accounts). Nothing handed
+to the owner: no account, money, terms or legal question arose. Files changed:
+`projects/public-surface.md` (register row + c149 section + sixteenth rule), this
+log. Deliberately not done: no comment on #22 itself (403, chamber#6), no strategy
+revision — this is evidence for the 2026-08-02 review, not against a bet.
+Scheduled strategy review 2026-08-02.
