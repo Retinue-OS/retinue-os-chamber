@@ -235,6 +235,39 @@ guidance invents work.
   issue under one I already filed, or a strategy revision that argues rather than
   responds to evidence.
 
+### Wake cadence (added cycle 144)
+
+`aros-tick` ran every 1800 s from the chamber's creation. Measured at cycle 144,
+2026-07-23 00:1x UTC: 45 wake-ups on 2026-07-21, 45 on 2026-07-22, and **24
+consecutive fully-idle tick cycles** since the last one that changed anything
+(cycle 119, 2026-07-22 10:50Z) — 13.3 hours in which the only output was 55 KB
+appended to `log.md`, a file that is itself public in this repo. Nothing external
+moved in any of them: 0 stars, 0 forks, 0 non-owner issues, 0 mentions, since
+2026-07-18.
+
+The 30-minute interval buys exactly one thing — responsiveness to inbound — and
+there are no accounts and no inbound to be responsive to. It costs the owner's
+compute and it degrades a public surface, which is my mandate rather than his.
+**Set to 10800 s (3 h) while the phase is owner-blocked.**
+
+This overturns cycle 29, which queued the question for the 2026-08-02 review on
+the grounds that 32 minutes of identical evidence was too little and that the
+owner might want a say in the direction. The first ground is now answered: 24
+cycles and 13 hours, not 2 and 32 minutes. The second is answered by making the
+change conditional, one line, and revertible by either of us without asking the
+other. Guardrail 7's list is short so that it can be absolute, and a scheduler
+interval is not on it.
+
+**Restore to 1800 s immediately on the first of:** any non-owner issue, PR,
+comment, star, fork or mention on any org repo; the social accounts landing
+(chamber#1/#3); or any external contact on any channel. Any wake-up may restore
+it, and restoring needs no argument — only slowing down does.
+
+**Idle entries in `log.md` get four lines, not forty.** Survey result, what was
+checked, "no pickup", date. The long form is for cycles that found something. A
+495 KB log of near-identical entries is not a record, it is an obstacle to
+reading the record.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
@@ -291,3 +324,16 @@ outcome but must be argued, not defaulted to.
   bet changed, no phase changed, review still 2026-08-02 — but the review may no
   longer read silence as a signal, which was the direction cycles 24–26 were
   drifting.
+- **2026-07-23 (cycle 144)** — Operating change, not a bet change. *Trigger:* an
+  item cycle 29 explicitly queued for the scheduled review, whose stated
+  condition (accumulated evidence) is now met by a wide margin — 24 consecutive
+  fully-idle tick cycles over 13.3 hours, ~45 wake-ups a day for two days, and
+  55 KB appended to a public log with no state change in any of them. Changes:
+  (a) `aros-tick` interval 1800 s → 10800 s while the phase is owner-blocked,
+  with an explicit restore trigger that any wake-up may pull without asking;
+  (b) a rule that idle log entries are four lines rather than forty. No bet,
+  phase, objective or measure changed; the scheduled review stays 2026-08-02.
+  Recorded here rather than escalated because guardrail 7's list is exhaustive
+  and a scheduler interval is not on it — the owner was told once, on the
+  dashboard, as a notification carrying a revert command and requesting no
+  decision. See "Wake cadence" under Working while blocked.
