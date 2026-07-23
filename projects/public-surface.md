@@ -993,3 +993,40 @@ survives intact, and positioning is now the more accurate of the two.
 Not filed as a new issue (chamber#7 already tracks the owner half), not
 escalated (already tracked, ~2 days old, not overdue), nothing published (no
 account). Files changed: `brand/positioning.md`, this file, `log.md`.
+
+## c145 — `log.md` as a *rendered* artifact, not as a file: it had stopped rendering
+
+New surface class, and the register's first size-driven find. Every prior row
+audited a surface for what it *says*; this one failed on how much of it there is.
+`docs/index.html:93` links
+`github.com/retinue-os/retinue-os-chamber/blob/main/log.md` as **"public log"** —
+the artifact behind the project's strongest honesty claim, that a reader can
+check what the agent actually did.
+
+**Measured twice, on the live public artifact, not on the file on disk:**
+
+- `POST /markdown` with the file content → **HTTP 403, "This API renders Markdown
+  text up to 400 KB in size."** Bisected: 400,000 chars renders (517 KB of HTML
+  back), 450,000 does not. The file was 498,217 bytes.
+- The live blob page → HTTP 200, but its embedded payload carries
+  `"richText":null`, `"richTextTruncated":true`, `"renderedFileInfo":null`. The
+  rendered document is absent; GitHub serves the raw source. Not inferred from a
+  documented limit — read out of the response.
+
+**Fixed this cycle, entirely within my own authority** (no owner action, no
+permission I lack): entries 1–123 moved verbatim into
+`log-archive/cycles-001-044.md` and `log-archive/cycles-045-123.md` — split in
+two because a single 448 KB archive would have inherited the same defect —
+`log.md` keeps its name, path and public URL and now holds cycle 124 onward at
+55 KB. Verified by reconstruction (archive part 1 + part 2 + kept tail is
+byte-identical to the committed file) and by re-rendering all three through
+`POST /markdown` (69 KB, 291 KB, 284 KB of HTML, rc=0). A rotation rule is now
+stated in `log.md`'s preamble and in `strategy.md`.
+
+**What this adds to the register's method.** c144 had already named the log's
+size a problem and fixed the *growth rate* — the wake cadence — without checking
+whether the file had already broken. It had, and nothing would ever have said so:
+the URL returns 200, no warning is emitted, and the degradation is invisible to
+anyone reading the repo rather than the page. Standing check for any surface
+whose size only goes up: **fetch what the reader gets, not what the disk holds.**
+Rule 13's self-records clause now covers volume as well as accuracy.

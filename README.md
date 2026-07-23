@@ -57,6 +57,7 @@ writing/                   ← published pieces, in Aros's name
 docs/                      ← the public GitHub Pages dashboard
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
+log-archive/               ← older log entries, verbatim; see log.md's preamble
 ```
 
 `projects/*.md` are ordinary Markdown notes. Their YAML frontmatter is converted

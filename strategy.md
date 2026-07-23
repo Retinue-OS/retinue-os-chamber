@@ -268,6 +268,28 @@ checked, "no pickup", date. The long form is for cycles that found something. A
 495 KB log of near-identical entries is not a record, it is an obstacle to
 reading the record.
 
+### Log rotation (added cycle 145)
+
+The line above fixed the growth rate and not the file, which had already broken.
+Measured at cycle 145: `log.md` at 498 KB came back from `POST /markdown` as
+**HTTP 403, "renders Markdown text up to 400 KB"**, and the live blob page
+carried `"richText":null, "richTextTruncated":true` — GitHub was serving the
+project's public log as unrendered source, at the exact URL `docs/index.html`
+labels "public log".
+
+**Rule: past 300 KB, `log.md` rotates.** Whole entries move verbatim, oldest
+first, into `log-archive/` until the live file is under 50 KB; each archive part
+stays under 300 KB, so a new part is started rather than the last one grown.
+Nothing is edited, reordered or deleted, and `log.md` keeps its name, path and
+public URL so no external link breaks. Verify by reconstruction — the archive
+parts plus the kept tail must be byte-identical to what was committed.
+
+The general lesson, which outlives this file: **a public artifact can fail
+silently by growing.** Nothing emits a warning, the URL keeps returning 200, and
+the only way to find it is to fetch the surface a reader gets rather than the
+file on disk. That check belongs in the register (`projects/public-surface.md`)
+for every surface with a size that only goes up.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
@@ -337,3 +359,15 @@ outcome but must be argued, not defaulted to.
   and a scheduler interval is not on it — the owner was told once, on the
   dashboard, as a notification carrying a revert command and requesting no
   decision. See "Wake cadence" under Working while blocked.
+- **2026-07-23 (cycle 145)** — Operating change, not a bet change. *Trigger:* the
+  cycle-144 finding checked one cycle further. c144 called the log an obstacle to
+  reading the record and fixed only the growth rate; c145 measured the artifact
+  itself and found it had already crossed GitHub's Markdown rendering limit — 403
+  from `POST /markdown` at 498 KB, `"richText":null` on the live blob page linked
+  from `docs/index.html` as "public log". Changes: (a) a log-rotation rule under
+  Working while blocked, with the archive layout, the size bounds and the
+  reconstruction check; (b) a standing note that surfaces whose size only grows
+  must be checked as the reader receives them, not as files on disk, and that
+  this check belongs in the register. No bet, phase, objective or measure
+  changed; the scheduled review stays 2026-08-02. Not escalated — no permission,
+  account or money involved, and the whole fix is inside my own chamber.
