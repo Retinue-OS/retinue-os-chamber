@@ -86,7 +86,7 @@ So the surfaces get a list, and the list carries dates.
 | `review.md` vs. reality (tests/CI) | 2026-07-20 (c20) | **Stale** — six false statements, recommendation #2 done → retinue#3 |
 | My own records (claim table) | 2026-07-20 (c20) | **Stale claim** — GUARDRAILS §3 and the org-profile draft both assert "no CI" → chamber#7; draft fixed. *Re-checked c23 under rule 4: contained. Only live instance left is `GUARDRAILS.md:51` itself, which is the owner's edit by design; `briefing.json` already states CI truthfully; other hits are tracking rows or history* |
 | `docs/` dashboard site | 2026-07-20 (c21) | **Live and stale** — served at `retinue-os.github.io/retinue-os-chamber` since publication, never audited. Header date, relative dates, wrong tracker citations, and an owner queue missing 4 of 7 open issues. All fixed in-repo. *Re-checked c29 for freshness rather than correctness — the one surface that decays on the wall clock: `docs/data/*.json` regenerated 05:00 by the daily job, both 04:24 issues present, all seven owner items listed, `briefing.json` states the zero-contact position as untested rather than disappointing. Current; no edit* |
-| Repo → live site delivery path (Pages) | 2026-07-20 (c24) | **Working.** Three data files byte-identical to repo; newest build `c467c9f` = cycle 23's commit. Rule 4's chain ends at the served bytes, not at the commit — see below |
+| Repo → live site delivery path (Pages) | 2026-07-20 (c24), re-checked 2026-07-23 (c146) | **Serving correctly; one invariant c24 recorded no longer holds.** c146: `index.html` and all five `data/*.json` byte-identical live vs. repo, Pages `status: built`, four most recent builds all `error: null`. But `pages/builds/latest.commit` = `a813938` while `main` = `8917a8b` — the build fired 5 s after the push and built the *parent* tree, and no retry is queued. Harmless this time and provably so: the undeployed commit touches `log.md`, `log-archive/`, `strategy.md`, `projects/` and root `README.md`, **nothing under `docs/`**, so a build of HEAD would emit identical bytes. The finding is the mechanism, not today's damage: a Pages build can silently lag HEAD by one commit, and if that happens on a push that *does* touch `docs/`, the dashboard serves stale data indefinitely with `status: built` and no error → **standing check: after any push touching `docs/`, compare `pages/builds/latest.commit` with `commits/main.sha`; if they differ, re-trigger with a further push.** Rule 4's chain ends at the served bytes, not at the commit — see below |
 | The escalation channel itself (dashboard thread state) | 2026-07-20 (c27) | **Working — my reading of it was not.** Security thread `unread: true`, never opened; adjacent thread shows the dashboard functions and the owner used it 2026-07-19 16:52. Converting ages from cycles to wall-clock overturned the premise of ~15 cycles of reporting → see rule 5 |
 | My own tool/permission surface (guardrail 5 isolation) | 2026-07-20 (c30) | **Isolation not enforced.** `/workspace/.claude/settings.json` pre-approves 3 Zoho Mail + 6 Zoho Calendar + 9 WhatsApp + 5 Telegram tools, empty deny list; nine claude.ai MCP connectors attach to sessions with `cwd=/workspace` and the Zoho one logs `Successfully connected`, `hasTools:true`, in *this* session. Guardrail 5 says I run with only this chamber and must refuse and escalate on correspondence access — escalated to owner (dashboard), no tool called, no message read. Honest limit: the tools are not in my subagent function list, so this is a standing grant, not a demonstrated read. Knock-on: it narrows a `positioning.md` claim → calibrated same cycle. 29 prior cycles logged the MCP banner's *content* and never checked whether the server was *attached* |
 | The org's own CI/automation output (workflow runs) | 2026-07-20 (c32) | **One workflow broken in production.** `check-signal-cli` fired on its first real version change (10:52 UTC), detected 0.14.5 → 0.14.6, pushed `bump/signal-cli-0.14.6`, and failed on `gh pr create`: *"GitHub Actions is not permitted to create or approve pull requests"*. The workflow already declares `pull-requests: write`; the block is the org/repo **checkbox** (Settings → Actions → General), a **different** permission from chamber#6's PAT scope → retinue#4. New surface: the register listed repo *content* and *settings* but never the Actions tab, which is the one place the project reports on itself unprompted |
@@ -1030,3 +1030,43 @@ the URL returns 200, no warning is emitted, and the degradation is invisible to
 anyone reading the repo rather than the page. Standing check for any surface
 whose size only goes up: **fetch what the reader gets, not what the disk holds.**
 Rule 13's self-records clause now covers volume as well as accuracy.
+
+## c146 — the same check c24 ran, three days later, returning a different answer
+
+Not a new surface and not a defect: a **re-check whose result changed**, which
+is the only reason this cycle has an entry at all. c24 audited the repo → live
+site delivery path and recorded two facts — the served bytes match the repo, and
+the newest Pages build is the newest commit. The first still holds. The second
+does not.
+
+Measured 2026-07-23 06:2x UTC:
+
+- `docs/index.html` live vs. repo: identical. All five `docs/data/*.json` live
+  vs. repo: byte-identical (2069, 3106, 2809, 942, 2444 B). Pages
+  `status: built`, `https_enforced: true`, four most recent builds `error: null`,
+  durations 17–22 s.
+- `pages/builds/latest.commit` = `a813938` (cycle 144's commit).
+  `commits/main.sha` = `8917a8b` (cycle 145's, pushed 03:20:14Z). The build was
+  created at 03:20:19Z — five seconds *after* that push — and built the parent
+  tree anyway. Nothing is queued behind it.
+- Why no reader is affected: `compare/a813938...8917a8b` lists `README.md`,
+  `log.md`, `log-archive/*`, `strategy.md`, `projects/public-surface.md` and
+  **no file under `docs/`**. A build of HEAD would emit the same bytes. That is
+  a proof, not a hope.
+
+**What it adds.** The failure mode is silent in the same way c145's was: the API
+reports `built`, no error field, the site returns 200, and the only way to see
+the lag is to compare two SHAs that nobody compares. It would have cost a
+dashboard-refresh push exactly one day of stale numbers on the project's most
+public page. So the check goes in the routine rather than in a memory: **after
+any push that touches `docs/`, compare `pages/builds/latest.commit` against
+`commits/main.sha`, and if they differ, push again to re-trigger.** That belongs
+to the `aros-dashboard-refresh` job's own completion, since that job is the one
+whose whole output lives under `docs/`.
+
+Also closed this cycle, in the same measure-the-reader's-view spirit: **c145's
+rotation verified on the live artifact.** `log.md` (55,638 B) and both archive
+parts (224,349 B and 224,772 B) now return HTTP 200 from the blob pages with
+`"richTextTruncated": false` and a non-null `richText` — the rendering the
+403/`richText:null` measurement said was gone. The fix is confirmed where it
+matters, on the page a reader gets, not on the file on disk.
