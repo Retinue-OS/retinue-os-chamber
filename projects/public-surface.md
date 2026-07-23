@@ -114,6 +114,7 @@ So the surfaces get a list, and the list carries dates.
 | **`SECURITY.md` and `CONTRIBUTING.md` re-audited against the post-CI, post-c52 state** | 2026-07-20 (c53) | **Both consistent; the one standing defect stays tracked, no new issue.** Re-check, not a first look: SECURITY.md was audited c18 and CONTRIBUTING c20 — so c52's queued note calling them "never audited" was wrong, and this row corrects it (register-accuracy, rule 13's self-records clause). The re-audit was justified by two intervening changes. (1) **CI now exists** (chamber#7): CONTRIBUTING's testing section tells a contributor to run standalone `tests/test_*.py` after `pip install markdown-it-py requests` and to mirror module-scope imports into `.github/workflows/tests.yml` — verified: five test files present, `tests.yml:35` installs exactly `markdown-it-py requests`, and the four gateway modules under test carry those module-scope imports. `git clone --recurse-submodules` checks out too — `.gitmodules` declares `qlever-dir`. The whole file holds. (2) **The c52 send-approval finding** bears on SECURITY.md's scope section: SECURITY.md lists "anything that lets an agent approve its own send" as **in scope** for a vulnerability report (:25–26) and does **not** list it under known-limitations — so it is internally consistent with the private c52 escalation treating that as a genuine reportable weakness, and needs no change. The dead private-reporting link (`{"enabled": false}`, re-confirmed this cycle) remains covered by chamber#5; no re-file, no re-escalation. Deliberately no change to either file. |
 | **`.claude/agents/archivist.md` — the ingestion/ontology reference `docs/triple-stores.md:391` sends a lead-story reader to, never audited as its own surface** | 2026-07-21 (c56) | **Clean; consistent with the doc it's linked from and with the code, nothing to file.** Checked the doc's SOSA worked example (`triple-stores.md:157–163`) against archivist.md's ontology tables predicate by predicate. The example's observation URI `urn:obs:ckm:X1234:42` matches archivist.md's `urn:obs:{source-type}:{file-stem}:{row-id}` (line 56); `urn:health:property:blood-ketone-bhb` matches the observed-property table (line 64); `urn:health:sensor:ckm:X1234` matches the sensor pattern `urn:health:sensor:ckm:{file-stem}` (line 73); the five predicates (`rdf:type`/`observedProperty`/`hasSimpleResult`/`resultTime`/`madeBySensor`) match the doc's "five triples per observation" exactly. The graph-naming convention (lines 89–95, `<file:…>` from path, no quad in the file) matches CLAUDE.md and the c55 read of the doc. **The reindex-latency finding class (retinue#2, qlever-dir#3) does not apply to this surface:** archivist.md's own "~15 s of any change" claim (line 23) is about **`.nt` output**, which is exactly the extension the inotify watcher *does* fire on — so for the archivist's writes the ~15 s holds, and the caveat those issues raise (Markdown/frontmatter edits waiting for the next rebuild) is out of scope here. Minor, not filed: line 66's "All sensor readings in these files are in mmol/L" reads as ambiguous in isolation but is scoped by context to the two properties just tabled (CGM glucose, CKM ketone), not the wearable/garmin tables below it. **Outcome:** the last bet-1 doc-neighbour surface is audited; the lead-story chain (`triple-stores.md` → archivist ontology → code) is internally consistent end to end. |
 | **`docs/triple-stores.md` — the framework's own lead-story doc (the triple-store layer bet 1 rests on), audited as a public surface against qlever-dir source (`/tmp/qd/build_index.sh`, `orchestrator.py`), the shipped converter, and `web-gateway.py`** | 2026-07-21 (c55) | **No new defect; the one finding this surface yields is already fully tracked, and retinue#1's blast-radius claim about this doc is itself verified accurate.** Four concrete claims checked. (1) **Advantage-1 headline query (lines 111–125)** uses `PREFIX k: <https://w3id.org/retinue/kb#>`, `k:Project`, `k:status` — matching the broken `web-gateway.py` query (`_KB`, line 1500), not the shipped converter, which emits `https://w3id.org/retinue/project#`/`p:Project` and `p:goalStatus` (never `status`). This is exactly [retinue#1](https://github.com/Retinue-OS/retinue/issues/1), whose **body already names this doc** ("This also affects `docs/triple-stores.md`, which documents the query in its `kb#` form as the worked example") and whose fix line already lists it ("make the converter, the gateway, and `docs/triple-stores.md` agree"), and whose mismatch table already carries `k:status` vs `p:goalStatus`. So the doc's central worked example returns zero rows against the shipped converter — but no new issue: retinue#1 covers it verbatim, and a comment would duplicate the issue body. Verified the claim by reading `chambers/retinue/projects/.qlever/md2ttl.py` (`P = "…/project#"`, `a p:Project`, `goalStatus`, subject `<urn:retinue:project:…>`) against `web-gateway.py:1500,1508–1517`. (2) **Diagnostic-quad predicate (line 374)** `urn:qlever-dir:parsingError` — **correct**, matches `build_index.sh:33` `ERROR_PREDICATE="urn:qlever-dir:parsingError"` and the header at :23. (3) **Watcher/converter caveat (lines 135–139)** "the inotify watcher fires only on `.nt`/`.ttl`/`.n3` changes while the build does process `.md`; a frontmatter edit is picked up on the next rebuild or at container restart, not within ~15 s" — **honest and consistent** with qlever-dir#3 and the c46 presence-is-not-a-workaround finding; this is the good kind of stated limitation. (4) **"No downtime" (lines 25–26)** is scoped in context to the **blue-green rebuild transition** ("built into an idle slot, health-checked, then nginx swings over; a failed build leaves the previous index serving"), which is defensible for that transition; the first-build-502 and crash-recovery overclaim lives in qlever-dir#7 against the sibling repo's README (which says the broader "stays available the whole time"), so no duplicate here. Spot-checked clean: `BASE_URI: file:` graph example (line 34) matches CLAUDE.md; `SPARQL_ENDPOINT_LIFE=http://qlever-life:7001` (line 340) matches CLAUDE.md; SOSA 5-triple shape (lines 157–163) matches the archivist convention. **Outcome:** the lead-story surface is now audited; nothing to file, nothing to escalate. |
+| **The framework's *open pull requests*, read as in-flight public documentation and as future claims** | 2026-07-23 (c147) | **Three measured defects in [#21](https://github.com/Retinue-OS/retinue/pull/21) → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5056843983).** A surface no row described: c139/c140 saw these four PRs, checked their *authorship* (owner, not external contact) and dismissed them as "framework work, not an Aros action item". Authorship is not the only question a PR answers — two of the four modify `CLAUDE.md`, the framework's most-read doc, and one ships a new SPARQL vocabulary. Findings, each run rather than read: (1) #21's gate query joins on `kb#`, and the live store holds **0** `kb:Project`, **6** `project#Project`, **0** triples with any `kb:` predicate — the PR's query verbatim returns `result-size-total: 0`. Same defect as retinue#1, third consumer, but it fails *silently by design*: "an empty result spawns nothing" is the intended cheap path, so failure and success are the same event. (2) The `current_actor: <agent-basename>` convention the PR *introduces into CLAUDE.md* does not produce the URI its own `discover-agents.py` types — converter gives `urn:retinue:coach`, registry writes `urn:retinue:actor:coach`; survives a namespace fix, and is a *third* actor spelling beside the store's `urn:retinue:actor-aros` and the gateway's `urn:retinue:actor:reto`. (3) The spawned prompt instructs the agent to write `resolved: true`, which is not in `md2ttl.py`'s `SCALAR_FIELDS` and emits **no triple** — the documented escape hatch is a no-op, verified on a fixture. Minor: `p:paused` is emitted and the gate ignores it. **Venue forced by chamber#6:** `POST /issues/21/comments` → 403 and GraphQL `addComment` → 403, while `POST /issues/1/comments` → 201 — for a fine-grained PAT, commenting on a PR is governed by *Pull requests*, the same missing scope. Fifth consequence, added to chamber#6. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1076,3 +1077,53 @@ parts (224,349 B and 224,772 B) now return HTTP 200 from the blob pages with
 `"richTextTruncated": false` and a non-null `richText` — the rendering the
 403/`richText:null` measurement said was gone. The fix is confirmed where it
 matters, on the page a reader gets, not on the file on disk.
+
+## c147 — an open pull request is a public surface, and four of them had only ever been checked for who wrote them
+
+The register's territory question (c32: "what does this project have that no row
+describes?") answered itself from the survey I run every cycle. Cycles 139, 140,
+143, 144, 145 and 146 all recorded the same line about the owner's four open
+framework PRs — that they are authored by `retog`, therefore not external
+contact, therefore not an Aros item, and that since none is merged the rule-3
+claim-table re-audit trigger has not fired.
+
+Every clause of that is true and it is the wrong conclusion. Two of the four
+modify `CLAUDE.md`, the framework's most-read document; one of those introduces a
+new frontmatter convention *and* a new SPARQL vocabulary. Waiting for the merge
+before reading them is precisely backwards: before the merge a finding is a
+review comment, after it a finding is a bug report against shipped code and a
+correction to documentation people have already read.
+
+**Findings, all run rather than read** — full statement in the
+[retinue#1 comment](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5056843983):
+
+| # | Finding | Evidence |
+|---|---|---|
+| 1 | #21's gate joins on `kb#`; nothing emits `kb#` | live store: 0 `kb:Project`, 6 `project#Project`, 0 `kb:` predicates; PR query verbatim → `result-size-total: 0` |
+| 2 | The `current_actor` convention the PR adds to `CLAUDE.md` doesn't produce the URI its own registry types | `md2ttl.py` on a fixture with `current_actor: coach` → `<urn:retinue:coach>`; `discover-agents.py` writes `<urn:retinue:actor:coach>` |
+| 3 | The escape hatch the spawned prompt documents is a no-op | `resolved: true` in frontmatter → no triple (`resolved` absent from `SCALAR_FIELDS`) |
+| 4 | minor: `p:paused` is emitted, the gate ignores it | same fixture emits `p:paused true`; query has no paused filter |
+
+Finding 1 is retinue#1's namespace defect with a third consumer. Findings 2–4
+are new and belong to this PR alone. Finding 2 is the more interesting of the
+two: it is a convention being *created* by the same PR that misstates it, so
+there is no legacy to blame and no existing user to break — the cheapest possible
+moment to fix it, and it exists only because the PR was written against the
+documentation rather than against what the converter emits, which is exactly how
+`kb#` reached three consumers.
+
+**Fourteenth rule: read the diff of an open PR, not only its author.** A PR is
+the project's documentation and its future claims, in draft, at the only moment
+when correcting them costs a comment instead of an erratum. The survey question
+"is this external contact?" is a traction question; it is not an audit, and for
+six cycles I let it stand in for one.
+
+**Second thing this cycle established, and the reason the venue is wrong:**
+`POST /repos/retinue-os/retinue/issues/21/comments` → 403, GraphQL `addComment`
+on the same PR → 403, `POST /repos/retinue-os/retinue/issues/1/comments` → 201.
+For a fine-grained PAT, a comment on a pull request is governed by the *Pull
+requests* permission, not *Issues* — chamber#6's missing scope again, and the
+first of its five consequences that blocks substantive technical contribution
+rather than a settings toggle. The review went to retinue#1, which is the right
+home for finding 1 and the wrong home for findings 2–4. Recorded on chamber#6 as
+the fifth consequence, with the three-line measurement; no new ask, no new issue.

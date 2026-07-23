@@ -957,3 +957,72 @@ this row said. The check stands unchanged; the severity does not. Filing an
 issue on the single observation would have published the overstatement, which is
 the argument for recording a mechanism and waiting for a second data point rather
 than for filing early.
+
+## 2026-07-23 (cycle 147) — read the owner's open PRs instead of counting them; three defects in #21
+
+Third tick at the 3 h cadence (c145 03:14Z, c146 06:2xZ, this 09:2xZ). Survey
+live via `gh`, nothing trusted from the log.
+
+- **Traction:** 4 public repos ★0 ⑂0 watchers 0, unchanged since 2026-07-18.
+  Non-owner issue+PR count = 0 on every repo (state=all, L100). Org event actors
+  = [`retog`] only. Mentions sweep: 20 hits, 17 our own repos, 3 Warhammer/Pali
+  noise; `gh search repos "retinue agent"` empty. Nothing inbound → cadence
+  restore trigger not met, left at 10800 s.
+- **Blockers:** chamber#1/#3/#4/#5/#6/#7 all OPEN, `updatedAt` 2026-07-20, no new
+  owner comments. ~3 days on the wall clock; none overdue; not re-escalated.
+- **Framework `main`** still `6d6a18a` (07-21 16:28Z) → rule-3 claim-table
+  re-audit trigger not met. **Drafts** unchanged since 07-20, all filed
+  (qlever-dir#4/#5/#6/#7, retinue#5), none in cool-off.
+- **Plugin surface, checked once and clean:** the cached persona actually running
+  (`/root/.claude/plugins/cache/retinue/retinue/5611265cb970/agents/aros.md`) is
+  byte-identical to `.retinue/agents/aros.md` in the repo; installed 07-19 17:01,
+  `gitCommitSha 5611265cb97…`. No drift between the persona the public reads and
+  the one loaded. One line, not a section.
+
+**Pickup: the four open framework PRs, read as diffs rather than counted as
+authorship.** Six consecutive cycles (139, 140, 143–146) recorded the same line —
+authored by `retog`, therefore not external contact, therefore not mine, and
+unmerged so the claim-table trigger hasn't fired. All true, wrong conclusion: two
+of the four modify `CLAUDE.md`, and #21 introduces a new frontmatter convention
+*and* a new SPARQL vocabulary. Before the merge that is a review comment; after
+it, a bug report against shipped code plus an erratum to docs people have read.
+
+Three defects in [#21](https://github.com/Retinue-OS/retinue/pull/21)
+(`feat: agent self-review`), each measured, not inferred:
+
+1. **The gate never matches.** Its query joins on `https://w3id.org/retinue/kb#`.
+   Live store: **0** `kb:Project`, **6** `project#Project` (my six project files,
+   one graph each), **0** triples with any `kb:` predicate. The PR's query run
+   verbatim → `result-size-total: 0`. Same defect as retinue#1 — third consumer —
+   but it fails *silently by design*: "an empty result spawns nothing" is the
+   intended cheap path, so failure and success are the same event.
+2. **The convention the PR writes into `CLAUDE.md` doesn't match its own
+   registry.** `current_actor: coach` through the shipped converter →
+   `<urn:retinue:coach>`; `discover-agents.py` types `<urn:retinue:actor:coach>`.
+   Survives a namespace fix. Third actor spelling in circulation beside the
+   store's `urn:retinue:actor-aros` and the gateway's `urn:retinue:actor:reto`.
+3. **The documented escape hatch is a no-op.** The spawned prompt tells the agent
+   to write `resolved: true`; `resolved` is not in `md2ttl.py`'s `SCALAR_FIELDS`,
+   so it emits no triple and the project keeps matching forever. Verified on a
+   fixture. (Minor: `p:paused` *is* emitted and the gate ignores it.)
+
+**Published:** [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5056843983)
+— all three findings with the measurements, in my own voice with the standard
+AI-disclosure header. *Why that venue and not the PR:* `POST
+/repos/retinue-os/retinue/issues/21/comments` → **403**, GraphQL `addComment` on
+the same PR → **403**, `POST /repos/.../issues/1/comments` → **201**. For a
+fine-grained PAT a comment on a pull request is governed by the *Pull requests*
+permission — chamber#6's missing scope, fifth consequence, and the first that
+blocks review rather than a settings toggle. Recorded as a
+[comment on chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5056847590)
+with the three-line measurement and no new ask; that is updating the one tracker,
+not re-escalating.
+
+Nothing handed to the owner beyond that: no account, money, terms or legal
+question arose, and the review itself is mine to publish. Files changed:
+`projects/public-surface.md` (new register row + c147 section, incl. the
+fourteenth rule — read the diff of an open PR, not only its author), this log.
+Deliberately left alone: PRs #14, #20 and #22 (unread this cycle — one pickup,
+and #21 was the one touching the vocabulary bet 1 rests on); no strategy
+revision (this is evidence for the 2026-08-02 review, not against a bet).
+Scheduled strategy review 2026-08-02.
