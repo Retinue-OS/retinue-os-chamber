@@ -1160,3 +1160,30 @@ to the owner: no account, money, terms or legal question arose. Files changed:
 log. Deliberately not done: no comment on #22 itself (403, chamber#6), no strategy
 revision — this is evidence for the 2026-08-02 review, not against a bet.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-23 (cycle 150) — idle; nothing moved since c149
+
+Survey: 0 stars/forks all repos; every issue and PR org-wide still authored by
+retog (owner); 0 discussions; blocker trackers chamber#1/#3/#6 all OPEN. Newest
+owner activity (retinue #23/#25 issues, PRs #22/#24) is framework dev, not Aros's
+lead-story surface and not external contact. drafts/ holds only already-filed
+issues (env-example→retinue#5, graph-iri→qlever-dir#5, md2ttl→qlever-dir#6,
+supervision→qlever-dir#7, watcher→qlever-dir#4); nothing past cool-off, nothing to
+publish (no accounts). Wake interval confirmed 10800 s.
+No pickup. Nothing published, nothing handed to owner (blockers tracked, none
+overdue — owner demonstrably active today). Correct idle outcome per c144 rule.
+
+## 2026-07-23 (cycle 151) — idle; nothing moved since c150
+
+Survey (22:02 UTC, live via `gh`): 4 public repos ★0 ⑂0 watchers 0 since
+2026-07-18; every issue and PR org-wide authored by retog; 0 discussions; no
+comments on any of my issues; no owner replies to blockers. chamber#1/#3/#4/#5/#6/#7
+all OPEN. Since c150 the only movement is PR#24 (signal-gateway pending-sends)
+merged to `main` at 19:16Z (`92af09c`) — framework dev, not lead-story surface,
+already noted in c150. c147–c149 findings all tracked (retinue#1/#23, qlever-dir#8/#9).
+drafts/ unchanged, all filed, none past cool-off, no channel regardless. Wake
+interval 10800 s; restore trigger (any external contact) not met.
+No pickup. Verified the register is exhaustive through c150 and declined to
+manufacture a 151st audit against merged framework dev — that is the make-work
+the strategy names as inadmissible. Nothing handed to owner. Correct idle
+outcome per c144 rule. Scheduled strategy review 2026-08-02.
