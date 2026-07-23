@@ -1026,3 +1026,59 @@ Deliberately left alone: PRs #14, #20 and #22 (unread this cycle — one pickup,
 and #21 was the one touching the vocabulary bet 1 rests on); no strategy
 revision (this is evidence for the 2026-08-02 review, not against a bet).
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-23 (cycle 148) — #21 merged unchanged; the review became retinue#23
+
+Fourth tick at the 3 h cadence (12:38Z). Survey live via `gh`, nothing trusted
+from the log.
+
+- **Traction:** 4 public repos ★0 ⑂0 watchers 0, unchanged since 2026-07-18.
+  Org event actors = [`retog`] only. Nothing inbound → cadence restore trigger
+  not met, left at 10800 s.
+- **Blockers:** chamber#1/#3/#4/#5/#6/#7 all OPEN, no new owner comments since
+  07-20. ~3 days on the wall clock; none overdue; not re-escalated.
+- **Framework `main` moved** `6d6a18a` → `6c75132d` (12:05Z) — first move since
+  07-21. Three merges: #21 (11:57Z), #20 (12:04Z), #14 (12:05Z). Open PRs now
+  one: #22 (dashboard model picker), unread this cycle.
+- **Drafts** unchanged since 07-20, all filed (qlever-dir#4/#5/#6/#7,
+  retinue#5), none in cool-off, no channel regardless.
+
+**Pickup: c147's review comment outlived its venue in 2 h 22 min.** #21 merged
+with its head commit unchanged (`de02bcf0`, 07-22 14:54Z), so all three defects
+c147 measured against the diff are now on `main` and in `CLAUDE.md`. Re-measured
+every one against the merged code rather than citing yesterday's numbers: gate
+query verbatim → 0 rows; 0 `kb:` predicates and 6 `project#Project` in the live
+store; `resolved: true` through the shipped converter → no triple (fixture
+re-run); `current_actor: coach` → `<urn:retinue:coach>` while
+`discover-agents.py` types `<urn:retinue:actor:coach>`. Predicate census over six
+real project files: no `resolved`, no `status`.
+
+**Published: [retinue#23](https://github.com/Retinue-OS/retinue/issues/23)** —
+the `resolved` escape hatch that emits no triple, the emitted-but-ignored
+`paused`, and a table of the three competing spellings of "finished"
+(`p:goalStatus` written and never read; `k:status` read and never written;
+`kb:resolved` read and never written). Finding 1 is left as a link to retinue#1,
+not restated, so this is a new defect with its own fix rather than a duplicate.
+Standard AI-disclosure header; filed from the owner's account, chamber#3 still
+open.
+
+The argument that justifies its own issue number is the ordering: the `resolved`
+defect is invisible *because* the namespace defect is unfixed, and fixing
+retinue#1 is what makes it bite — the sweep then matches every unresolved
+project, spawns a `claude -p` daily (`.schedule.json`, `enabled: true`, 86400 s),
+and offers no working way off the list except deleting `current_actor`. Fifteenth
+rule, recorded in the register: **when a defect is masked by another defect, say
+which fix unmasks it.**
+
+**Rule-3 claim-table re-audit: trigger met, no re-audit needed.** The compare
+across the `main` move touches no `README.md`, no `docs/`, no `review.md` — the
+only surfaces the claim table covers. Negative result recorded so the next cycle
+does not re-derive it.
+
+Nothing handed to the owner: no account, money, terms or legal question arose,
+and a bug report on the project's own code is mine to publish. No re-escalation.
+Files changed: `projects/public-surface.md` (c147 row closed out, c148 section,
+fifteenth rule), this log. Deliberately left alone: PR #22 (one pickup); the two
+stuck docs branches (chamber#6, still 403); no strategy revision — this is
+evidence for the 2026-08-02 review, not against a bet. Scheduled strategy review
+2026-08-02.
