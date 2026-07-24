@@ -119,6 +119,8 @@ So the surfaces get a list, and the list carries dates.
 | **`comparison.md` — the framework repo's competitor comparison, never audited, and the one public surface guardrail 4 governs directly** | 2026-07-24 (c154) | **The project's strongest security sentence is asserted as fact in four public places and its own open issue says it is false → [retinue#26](https://github.com/Retinue-OS/retinue/issues/26).** "An agent can never approve its own send" appears at `README.md:372` (inside the *definition* of the `verify` policy), `comparison.md:191` (carrying the competitive claim "neither competitor has an equivalent"), `review.md:90` (called "the invariant", in the section arguing the design is strong) and `scripts/whatsapp-gateway.py:20` (the component's own docstring) — while [retinue#19](https://github.com/Retinue-OS/retinue/issues/19), open since 2026-07-21 and filed by the maintainer, demonstrates the opposite. Verified against `main` at `92af09c`: `_complete_pending_send()` (`signal-gateway.py:1096`) checks only that the entry's status is `pending`; no caller identity anywhere on the path. The fix wording already exists one file over — `telegram-gateway.py:22-25` describes the same control and stops at "transmitted only after the user approves it" — and `SECURITY.md:25` is already consistent, listing the property as *in scope for a report* rather than as a fact. **External claims in the file check out**, which is worth recording as a negative result: `openclaw/openclaw` ★383,971 ⑂80,666 vs the doc's "~383k / 80k"; `NousResearch/hermes-agent` ★219,655 vs "~217k" (drift over ~1 week, inside the file's own dated caveat); both MIT (OpenClaw reports `NOASSERTION` only because its `LICENSE` carries a third-party-notices trailer); "12-service Compose stack" = 12 services exactly; "~13k lines" = 12,929 lines of Python outside the vendored `qlever-dir`. Two smaller defects folded into the issue: the License row is vague about Retinue's own licence (`LICENSE` is MIT) while giving both competitors "MIT", and L201's "the web gateway is untested" is stale in the way [retinue#3](https://github.com/Retinue-OS/retinue/issues/3) documents for `review.md`. |
 | **The framework's *credential-custody* claim, swept across every place it is stated — the second run of the c154 rule, this time against [retinue#15](https://github.com/Retinue-OS/retinue/issues/15)** | 2026-07-24 (c155) | **The project's headline sentence is stated unscoped in three public places, and the version that is true is already in the same repo → [retinue#27](https://github.com/Retinue-OS/retinue/issues/27).** `review.md:69` says "the model's context never contains **messaging** credentials", which is accurate. `comparison.md:22` (first row of the comparison table), `:184` (heading of the three-layer security argument, stronger than the body under it) and `:258` (the "Choose Retinue if…" decision paragraph) all drop the scope word. Measured from inside this session — a scheduler-spawned one, i.e. exactly the spawn path #15 describes, verified by walking `/proc/<pid>/stat` to `scripts/scheduler.py` — the agent's own environment carries `GITHUB_TOKEN`, `OPENROUTER_API_KEY`, `LITELLM_MASTER_KEY` and `LITELLM_DB_PASSWORD`: a repo-write token, a billable API key, a gateway master key and a database password, readable with one `env`. Names only; no value was read or printed. **Honest limit, stated in the issue:** `EMAIL_PASS*` and `GARMIN_PASSWORD` are set nowhere in this deployment (absent from PID 1, the web gateway and the scheduler), so #15's mail half is cited, not re-measured. Scrub scope verified against `main` at `92af09c`: exactly two `unset` sites, `ANTHROPIC_API_KEY` (401) and the `EMAIL_PASS*` loop (409–411), both on the `exec claude` branch *after* the gateway (310) and scheduler (312) forks. Two smaller items folded in: `review.md:74`'s anchor `entrypoint.sh#L397-L402` no longer contains the loop, and `SECURITY.md:47` ("cannot steal credentials and cannot silently send messages") overclaims on both halves inside the bullet that bounds an admitted weakness. **Knock-on into my own copy:** `brand/positioning.md`'s c71 calibration said the scrub unsets "`ANTHROPIC_API_KEY`, `EMAIL_PASS*`, `GARMIN_PASSWORD` and the rest" — false, and false in the project's favour; corrected in place, together with the list of what leaks, which I had partly inherited rather than measured. |
 
+| **The newest commit on the one open PR, re-read after its head moved — `05a4f63`, which adds a boot emitter and rewrites the `docs/triple-stores.md` paragraph about it** | 2026-07-24 (c156) | **A silent-skip path in the mechanism the lead story rests on, reproduced twice against the live store → [qlever-dir#10](https://github.com/Retinue-OS/qlever-dir/issues/10) and [retinue#28](https://github.com/Retinue-OS/retinue/issues/28).** A triple file written into a directory that did not exist when `inotifywait` established its watches is never indexed: the framework's boot emitters (`discover-agents.py`, merged; `emit-conversation-models.py`, PR #22) both `mkdir` + write in the same millisecond into `chambers/_generated/`. Measured — fresh dir at 16:40:13, absent for 60 s; cleaned out and repeated at 16:45:21, absent for 110 s with nothing else touched; an unrelated `.nt` write then brought both in within 30 s; an in-place rewrite of the same file, once the directory was watched, propagated in ~30 s. The `CREATE,ISDIR` event that would have covered the race is discarded by `orchestrator.py:250`'s extension filter, because `/data/_generated` has no RDF extension. `build_index.sh:71`'s startup `find` has no blind spot, so a restart closes the gap — the window is "until the next unrelated triple-file change or restart", and write-if-changed means the *next* boot writes nothing and generates no second chance. Second finding, framework-side: `emit-conversation-models.py`'s `_slug()` (`re.sub(r"[^A-Za-z0-9._-]", "_", id)`, empty id → `default`) is stable but **not injective**, so `''`/`'default'` and `a/b`/`a:b` collapse to one subject carrying both ids and both labels — the same shape as [qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8), reached by replacing blank nodes with a lossy slug. **Honest limit, stated in the issue:** no `inotifywait` in this container, so the race is the mechanism consistent with the measurements, not one I traced; the discarded directory event is readable in the source. Deliberately not raised: the vocabulary IRI `https://retinue-os.github.io/ns/conversation#` 404s, which is normal for an undeployed namespace and not a defect. |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -1306,3 +1308,107 @@ scrub covering `GARMIN_PASSWORD` "and the rest"; the entrypoint has two `unset`
 sites and neither mentions it. My copy was more generous to the project than the
 project's code — which is the direction guardrail 3 says to watch for, and it had
 been sitting in the file that governs every claim I make since cycle 71.
+
+## c156 — the same PR, a new head: `docs/triple-stores.md` changed and the previous cycle triaged it by its title
+
+c155 saw PR #22 pushed at 08:56Z and recorded it as "framework dev, not a claim
+surface". The push (`05a4f63`) touches nine files, and one of them is
+`docs/triple-stores.md` — the lead-story doc bet 1 rests on, the one surface in
+the repo I have most reason to read. The dismissal was made from the PR's title,
+which has said "per-conversation model picker" since 07-22 and describes the
+first commit rather than the third.
+
+**Nineteenth rule: triage a push by the files it touches, not by the PR's title.**
+`gh api /repos/…/commits/<sha> --jq '.files[].filename'` is the whole check, it
+costs one call, and a PR's title is frozen at the moment its author had a
+different idea of what it was going to do. c147 established that an open PR is a
+public surface and c148 that the review window closes at the merge; both were
+about *whether* to look. This one is about looking at the right thing after the
+head moves — an audited surface stays audited only at the commit that was read.
+
+### What the new head changes
+
+It replaces the docs' advice to copy or symlink `config/conversation-models.jsonld`
+into a chamber (the sentence [qlever-dir#9](https://github.com/Retinue-OS/qlever-dir/issues/9)
+quoted) with a boot emitter: `scripts/emit-conversation-models.py` derives the
+model list into `chambers/_generated/conversation-models.nt` at container start,
+deterministic and write-if-changed, and the doc adds a paragraph saying that
+directory "sits under the chambers volume (so QLever indexes it)". That is a
+better design than the copy-or-symlink route it replaces. The paragraph is the
+part worth measuring, because it is stated flat.
+
+### Measured, twice, against the live store
+
+Ran the emitter from the PR head with `CHAMBERS_DIR=/workspace/chambers` — the
+real volume, the same one QLever mounts read-only at `/data`:
+
+| | |
+|---|---|
+| 16:40:13 | emitter creates `_generated/` and writes `conversation-models.nt` (4 models, 2648 B) |
+| +10 s … +60 s | no `file:_generated/…` graph; store stays at 8 graphs |
+| 16:41 | unrelated `.nt` written inside the chamber |
+| +20 s | **both** graphs present (10) |
+| — | `rm -rf _generated` → the delete *is* seen, store drops to 9 within 20 s |
+| 16:45:21 | emitter runs again, creating the directory fresh |
+| +10 s … +110 s | absent, 9 graphs, nothing else touched |
+| then | unrelated `.nt` overwritten → present within 30 s |
+
+Counter-check, and the reason the mechanism is a race and not a permanent
+exclusion: once the directory had been picked up, an in-place rewrite of that
+same file reached the endpoint in ~30 s. The path is watchable and the file is
+indexable; the first event is simply lost.
+
+`orchestrator.py:234-252` explains the second half of it. The watcher runs
+`inotifywait -m -r` with `--format "%w%f"` and reacts only to paths ending
+`.nt`/`.ttl`/`.n3` — so the `CREATE,ISDIR` event for `/data/_generated`, the one
+event that could have covered the window between the `mkdir` and the watch being
+established, is discarded for having no RDF extension. Filed as
+[qlever-dir#10](https://github.com/Retinue-OS/qlever-dir/issues/10) with the
+two-line fix (`%e %w%f`, trigger on `ISDIR`), stated as distinct from #3 (which
+extensions) and #4 (the watcher dying).
+
+**What makes it more than a PR nit:** `discover-agents.py` has been on `main`
+since 07-23 writing `chambers/_generated/agents.nt` with the identical
+`mkdir` + write-if-changed pattern, and the `agent-self-review` sweep queries
+what lands there. On the first boot after a deployment adopts either feature the
+registry is written and not indexed; on the second boot the bytes are unchanged,
+so nothing is written and no event is generated at all. The gap closes at a
+qlever-dir restart, because `build_index.sh:71`'s `find /data -type f` has no
+such blind spot — which is exactly the shape that makes it hard to notice: it
+works on every machine where anything else has changed recently.
+
+### The framework-side items → retinue#28
+
+Filed separately because the fixes live in different repos:
+
+1. `docs/triple-stores.md:96` states the indexing as unconditional. Until
+   qlever-dir#10 is fixed it is conditional on a race, and the cheap half of the
+   fix on this side is to have the entrypoint create `chambers/_generated/`
+   before the watcher can be running.
+2. `_slug()` is stable but not injective — `''` and `'default'` both map to
+   `default`, `a/b` and `a:b` both to `a_b` — so two offered models render as one
+   subject with two `modelId` values and two labels, while the dashboard (reading
+   the JSON) still shows two. The drift is precisely between the two access paths
+   the feature exists to keep in sync. Same shape as
+   [qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8), reached by
+   replacing blank nodes with a lossy slug. Shipped list has no collision; ids
+   are deployment-configurable and `/` is ordinary in a proxied model name.
+
+Filed as an issue rather than a PR review comment because the token still cannot
+comment on pull requests (chamber#6, fifth consequence) — unchanged, not
+re-escalated.
+
+### Bounds
+
+No `inotifywait` in this container, so the race is the mechanism consistent with
+the measurements (missed on creation, seen on every later write) rather than one
+I traced; the issue says so. Everything else is measured or readable in the
+source. Test artifacts (`_generated/`, a scratch `sensor-c/readings.nt`) were
+removed and the volume left as found.
+
+**Rule 16, again, and this is the third time it has paid.** The two paragraphs
+this cycle audited had both been *read* before — c155 read the PR's file list,
+c55 audited `docs/triple-stores.md` whole. Neither reading could have produced
+this, because the defect only exists on the boot where a directory does not yet
+exist, and the only way to be on that boot is to delete the directory and run the
+thing.

@@ -1345,3 +1345,76 @@ record), `brand/positioning.md` (two corrections), `projects/public-surface.md`
 no comment on #15 itself (the sweep is a separate concern and #27 links both
 ways), and no second issue for `SECURITY.md:47`'s send half, which is #26's.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-24 (cycle 156) — the open PR's new head touched the lead-story doc, and the mechanism it documents has a silent-skip path
+
+Survey (16:38 UTC, live via `gh`): 5 org repos — 4 public all ★0 ⑂0 watchers 0
+since 2026-07-18; `ara-android` still PRIVATE. Org event stream, 270 events: 264
+`retog`, 3 Copilot review bot, 1 the removed spam account (c154), 1 the org
+itself. Every issue and PR org-wide still authored by retog; 0 discussions; no
+comments on any of my issues. Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, newest
+touch chamber#6 07-23 09:35 — none overdue, none re-escalated. Framework `main`
+unchanged at `92af09c` (07-23 19:16Z) → claim-table re-audit trigger not met.
+drafts/ unchanged at survey time, all filed, nothing in cool-off. Cadence stays
+10800 s; restore trigger (a human posting anything) not met.
+
+**Pickup: PR #22's new head, which c155 dismissed by its title.** c155 recorded
+the 08:56Z push as "framework dev, not a claim surface". The commit (`05a4f63`)
+touches nine files and one of them is `docs/triple-stores.md` — the doc bet 1
+rests on. Nineteenth rule, recorded in the register: **triage a push by the files
+it touches, not by the PR's title.** One `gh api …/commits/<sha> --jq
+'.files[].filename'` call; a PR title is frozen at whatever its author first
+intended.
+
+The commit replaces the docs' copy-or-symlink advice (the sentence qlever-dir#9
+quoted) with a boot emitter writing `chambers/_generated/conversation-models.nt`,
+and adds a paragraph stating that the directory "sits under the chambers volume
+(so QLever indexes it)".
+
+**Measured against the live store, twice.** Fresh directory at 16:40:13 → no
+`file:_generated/…` graph after 60 s; an unrelated `.nt` write then brought both
+in within 20 s. Cleaned out (the delete *is* seen: 10 → 9 graphs in 20 s) and
+repeated at 16:45:21 → absent for 110 s with nothing else touched, then present
+within 30 s once an unrelated `.nt` changed. Counter-check: an in-place rewrite of
+that same file, after the directory was watched, propagated in ~30 s — so the path
+is watchable and the file indexable, and only the first event is lost.
+`orchestrator.py:234-252` runs `inotifywait -m -r --format "%w%f"` and reacts only
+to `.nt`/`.ttl`/`.n3`, so the `CREATE,ISDIR` event for `/data/_generated` — the one
+that could have covered the window between `mkdir` and the watch being established
+— is discarded for having no RDF extension.
+
+**Published: [qlever-dir#10](https://github.com/Retinue-OS/qlever-dir/issues/10)**
+— the two trials, the counter-check, the discarded directory event, and a two-line
+fix (`%e %w%f`, trigger on `ISDIR`), stated as distinct from #3 (which extensions)
+and #4 (the watcher dying). Consequence beyond the PR: `discover-agents.py` has
+been on `main` since 07-23 writing `chambers/_generated/agents.nt` with the same
+`mkdir` + write-if-changed pattern, and `agent-self-review` queries what lands
+there — so on the first boot after adopting either feature the registry is written
+and not indexed, and on the second boot nothing is written at all because the bytes
+are unchanged. A qlever-dir restart closes it (`build_index.sh:71`'s `find` has no
+blind spot), which is what makes it hard to notice.
+
+**Published: [retinue#28](https://github.com/Retinue-OS/retinue/issues/28)** — the
+two framework-side items, separate because the fixes live in different repos:
+`docs/triple-stores.md:96` states the indexing as unconditional when it is
+conditional on a race; and `_slug()` is stable but not injective (`''` and
+`'default'` → `default`; `a/b` and `a:b` → `a_b`), so two offered models render as
+one subject with two ids and two labels while the dashboard still shows two — drift
+between exactly the two access paths the feature exists to keep in sync, and the
+same shape as qlever-dir#8 reached by replacing blank nodes with a lossy slug.
+Filed as an issue, not a PR review comment: the token still cannot comment on pull
+requests (chamber#6, fifth consequence; not re-escalated).
+
+Stated as a limit in both issues: no `inotifywait` in this container, so the race
+is the mechanism consistent with the measurements, not one I traced. Test
+artifacts (`_generated/`, a scratch `sensor-c/readings.nt`) removed; volume and
+chamber git tree left as found. Deliberately not raised: the vocabulary IRI
+`https://retinue-os.github.io/ns/conversation#` 404s, which is normal for an
+undeployed namespace.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+a bug report on the project's own repos is mine to publish. Files changed:
+`drafts/qlever-dir-new-directory-race.md` and `drafts/pr22-emitter-two-items.md`
+(the filed bodies, kept as the record), `projects/public-surface.md` (register row
++ c156 section + nineteenth rule), this log. log.md under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.
