@@ -57,15 +57,27 @@ sensitive" would be an overclaim. "The agent never holds the credentials to
 your accounts" is the claim, and it survives inspection.
 
 *Calibration, cycle 71 — the credential scrub is not applied at every spawn
-point today.* The claim above describes the design and holds for the **main
-remote-control session**: the entrypoint unsets `ANTHROPIC_API_KEY`,
-`EMAIL_PASS*`, `GARMIN_PASSWORD` and the rest before it `exec`s the agent. It
+point today.* The claim above describes the design and holds, **in part**, for
+the **main remote-control session**: the entrypoint unsets `ANTHROPIC_API_KEY`
+and `EMAIL_PASS*` before it `exec`s the agent — and nothing else. (*Corrected
+cycle 155: this sentence read "`ANTHROPIC_API_KEY`, `EMAIL_PASS*`,
+`GARMIN_PASSWORD` and the rest", which overstates the scrub in the project's
+favour. Measured against `main` at `92af09c`: `scripts/entrypoint.sh` has
+exactly two `unset` sites, line 401 and the `EMAIL_PASS*` loop at 409–411.
+`GARMIN_PASSWORD` appears nowhere in it, and neither do the model-gateway keys
+or the GitHub token — so even the scrubbed main session keeps those.*) It
 does **not** currently hold for **gateway- and scheduler-spawned `claude -p`
 sessions** — the dashboard conversation tabs and scheduled jobs, i.e. the
 sessions a user interacts with most. Those are forked earlier in the entrypoint,
 before the scrub, and inherit the full credential-bearing environment;
 `EMAIL_PASS`, `GARMIN_PASSWORD`, `LITELLM_MASTER_KEY`, `GITHUB_TOKEN` and
-`OPENROUTER_API_KEY` are readable via `printenv` there. Owner-filed and public,
+`OPENROUTER_API_KEY` are readable via `printenv` there. (*Amended cycle 155,
+re-measured from inside a scheduler-spawned session: `GITHUB_TOKEN`,
+`OPENROUTER_API_KEY`, `LITELLM_MASTER_KEY` and `LITELLM_DB_PASSWORD` are present;
+`EMAIL_PASS*` and `GARMIN_PASSWORD` are set nowhere in this deployment — absent
+from PID 1, the web gateway and the scheduler — so that half of the list rests on
+retinue#15's measurement and not on mine. Say "the variables this deployment
+sets" rather than naming a list I have only partly seen.*) Owner-filed and public,
 measured in a live dashboard session, at
 [retinue#15](https://github.com/retinue-os/retinue/issues/15), with a proposed
 fix that keeps the existing unset pattern but applies the deny-list at each

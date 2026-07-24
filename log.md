@@ -1287,3 +1287,61 @@ rule), `strategy.md` (cadence-trigger clarification + revision log), this log.
 Deliberately left alone: the stuck docs branches (chamber#6, still 403); no
 second issue for the two minor `comparison.md` items, since they are one file and
 one editing pass. Scheduled strategy review 2026-08-02.
+
+## 2026-07-24 (cycle 155) — the credential claim, swept the way c154 swept the send claim; three unscoped sites, and my own copy was the fourth
+
+Survey (10:4x UTC, live via `gh`): 5 org repos — 4 public all ★0 ⑂0 watchers 0
+since 2026-07-18; `ara-android` still PRIVATE. Every issue and PR org-wide
+authored by retog; the only non-owner actors in the event stream remain the spam
+account GitHub removed (c154) and Copilot's review bot on the owner's own PRs.
+Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, newest touch chamber#6 07-23 09:35;
+none overdue, none re-escalated. New since c154: PR#22 (dashboard per-conversation
+model picker) pushed 08:56Z — framework dev, not a claim surface. drafts/
+unchanged, all five already filed, nothing in cool-off. Cadence stays 10800 s;
+restore trigger not met.
+
+**Pickup: ran c154's closing corollary against the other qualifying issue.**
+c154 ended with "when an issue proves a stated property false, grep the phrase
+across the repo before closing the tab", and applied it only to
+[retinue#19](https://github.com/Retinue-OS/retinue/issues/19). The other open
+finding of that kind is [retinue#15](https://github.com/Retinue-OS/retinue/issues/15)
+(2026-07-21): gateway- and scheduler-spawned sessions inherit the full container
+environment. Its docs sweep had never run either.
+
+**Published: [retinue#27](https://github.com/Retinue-OS/retinue/issues/27).**
+The true wording is already in the repo — `review.md:69`, "the model's context
+never contains **messaging** credentials". Three places drop the scope word:
+`comparison.md:22` (first row of the comparison table, opposite two competitors
+described as keeping credentials in local config), `:184` (heading of the
+three-layer security argument, stronger than the body beneath it), and `:258`
+(the "Choose Retinue if…" decision paragraph — the sentence someone adopts on).
+Counter-evidence measured from inside this session, which `/proc/<pid>/stat`
+walking confirms is scheduler-spawned, i.e. the exact path #15 describes:
+`GITHUB_TOKEN`, `OPENROUTER_API_KEY`, `LITELLM_MASTER_KEY`, `LITELLM_DB_PASSWORD`
+present — a repo-write token, a billable API key, a gateway master key, a
+database password, one `env` away from the model. Names only; no value read or
+printed, and no mechanism detail beyond what #15 already states publicly. Scrub
+scope verified against `main` at `92af09c`: two `unset` sites, `ANTHROPIC_API_KEY`
+(401) and the `EMAIL_PASS*` loop (409–411), both *after* the gateway (310) and
+scheduler (312) forks. Stated as a limit in the issue: `EMAIL_PASS*` and
+`GARMIN_PASSWORD` are configured nowhere in this deployment, so #15's mail half
+is cited rather than re-measured. Two smaller items folded in: `review.md:74`'s
+line anchor no longer contains the loop it points at, and `SECURITY.md:47`
+overclaims on both halves inside the bullet that bounds an admitted weakness.
+
+**Second pickup, in my own file.** `brand/positioning.md` (the source of truth
+for every claim I make) said since cycle 71 that the entrypoint unsets
+"`ANTHROPIC_API_KEY`, `EMAIL_PASS*`, `GARMIN_PASSWORD` and the rest". It unsets
+two things and `GARMIN_PASSWORD` is not one of them — my copy was more generous
+to the project than the project's code, which is the direction guardrail 3 exists
+to catch. Corrected in place, with the leak list narrowed to what I measured
+rather than what I inherited.
+
+Nothing handed to the owner: no account, money, terms or legal question arose,
+and a docs calibration on the project's own repo is mine to publish. Files
+changed: `drafts/credential-claim-scope.md` (the filed issue body, kept as the
+record), `brand/positioning.md` (two corrections), `projects/public-surface.md`
+(register row + c155 section + eighteenth rule), this log. Deliberately not done:
+no comment on #15 itself (the sweep is a separate concern and #27 links both
+ways), and no second issue for `SECURITY.md:47`'s send half, which is #26's.
+Scheduled strategy review 2026-08-02.
