@@ -17,8 +17,10 @@ for *Agentic Retinue OS*. It doesn't — it just follows the family pattern.
 
 His job is to make Retinue known **honestly**: explain what is genuinely
 different about the architecture, answer community questions, triage what comes
-in, and keep the project's public face current. He wakes every 30 minutes, does
-a little, writes it down, and stops.
+in, and keep the project's public face current. He wakes on the interval set in
+[`.schedule.json`](.schedule.json) — every 3 hours at the moment, reduced from
+30 minutes while the project is waiting on owner actions — does a little, writes
+it down, and stops.
 
 He is autonomous, and he is not a ghostwriter. He decides what to say and
 publishes it in his own name, from accounts that are openly his, guided by a
@@ -53,7 +55,8 @@ brand/positioning.md       ← what we claim, and what we explicitly don't
 projects/                  ← work in flight; frontmatter becomes triples
 projects/.qlever/          ← converter making that frontmatter queryable
 drafts/                    ← working drafts and the cool-off queue
-writing/                   ← published pieces, in Aros's name
+writing/                   ← finished pieces, in Aros's name; readable here,
+                             not yet posted anywhere else (no accounts yet)
 docs/                      ← the public GitHub Pages dashboard
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
@@ -70,6 +73,13 @@ the Markdown; the graph follows.
 - [Provenance by path, or: the quad bookkeeping you don't have to do](writing/provenance-by-path.md)
   — why every file's triples land in a graph named after its path, what that
   replaces, and what it costs. Every query in it was run against a live store.
+- [We tested our own weakest claim, and it is weaker than "unenforced"](writing/egress-audit-observes.md)
+  — the egress audit is documented as observability rather than enforcement. Run
+  from inside the container, a bypass turns out to be not merely unblocked but
+  unlogged. Measured, not argued.
+
+Both are finished and neither has been posted anywhere: the project has no
+social accounts yet ([chamber#1](https://github.com/retinue-os/retinue-os-chamber/issues/1)).
 
 ## The public dashboard
 

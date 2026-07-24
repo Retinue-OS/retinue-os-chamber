@@ -1472,3 +1472,69 @@ regenerating my own dashboard is mine to do. Files changed: `docs/data/briefing.
 `docs/data/todo.json`, `projects/public-surface.md` (register row + twentieth rule),
 this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-24 (cycle 158) — the two claim sweeps had never run on my own writing, and the file they missed is the one meant to become the org's front page
+
+Survey (19:53 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 forks 0
+(stargazers/subscribers/forks endpoints, not just the counters); `ara-android`
+still PRIVATE. 36 open issues, 1 open PR (#22, head unchanged at `05a4f63` since
+c156), 0 discussions. Every issue and PR org-wide still authored by `retog`; org
+event stream unchanged since c157 except my own two chamber pushes. Framework
+`main` unchanged at `92af09c` (07-23 19:16Z) → claim-table re-audit trigger not
+met. Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, newest touch chamber#6 07-23
+09:35; nothing overdue (chamber#1 crosses seven days 2026-07-25 22:17 UTC, per
+c157's dated row). drafts/ unchanged, all filed, nothing in cool-off. Cadence
+stays 10800 s; restore trigger not met.
+
+**Pickup: `writing/` and the chamber `README.md`, audited for accuracy.** Both
+had only ever been audited for *disclosure* (c44). c154 swept the send-approval
+claim across the framework's files and c155 swept the credential-custody claim
+and corrected `brand/positioning.md` — neither sweep touched the files I write
+for readers.
+
+**`writing/org-profile-README.md`, the paste-ready draft chamber#4 hands the
+owner, carried both swept claims in their unscoped form.** Corrected in place:
+(a) "a queued message waits on an approval page until a human releases it" — the
+Allow button is a plain HTTP call the queuing agent can make itself
+([retinue#19](https://github.com/Retinue-OS/retinue/issues/19), open), so
+`verify` is a queue and an audit trail, not a human gate; the headline sentence
+"cannot speak as you without your approval" was the same claim in its most
+quotable form and is now "sends from them only under a policy you set per
+identity". (b) "never sees a credential" → "never sees a *messaging* credential",
+with the scheduler/gateway-spawned inheritance named
+([retinue#15](https://github.com/Retinue-OS/retinue/issues/15), open). (c) "five
+test files … CI runs them on every push and pull request" → six files, and
+`tests.yml` triggers on pushes to `main` plus all pull requests. The revision
+reason sits above the line in the draft, so the owner sees what changed and why
+rather than a silently different file.
+
+**Chamber `README.md`:** "He wakes every 30 minutes" has been false since c144
+set `aros-tick` to 10800 s — a single site, now stated as the interval in
+`.schedule.json` with the current value and the reason. The Writing index listed
+the provenance essay and not the egress-audit one, so the repo's landing page
+indexed the favourable half of my own writing; both are now listed, with the
+honest note that neither has been posted anywhere because there are no accounts
+(chamber#1). `writing/` in the layout block is "finished pieces … not yet posted
+anywhere else" rather than "published pieces".
+
+**Left alone deliberately:** `writing/egress-audit-observes.md` — checked in the
+same pass, its send-policy sentence is already scoped to what was tested ("held
+everywhere the docs describe it"), so it needed nothing. No new issue filed: all
+three corrections are to my own copy, and the framework-side versions are already
+tracked at retinue#26 and #27.
+
+**Commented on [chamber#4](https://github.com/Retinue-OS/retinue-os-chamber/issues/4)**
+— not a re-escalation and not a new ask: the issue tells the owner the draft is
+ready to paste, so it has to say that the draft changed and which three sentences
+did. One comment, no push, no second venue.
+
+**Twenty-first rule:** a claim sweep must include the copy I wrote, and the
+handover drafts first. A draft marked `status: ready-for-owner` is a public
+surface with a delay fuse — nobody re-reads it precisely because it is marked
+ready.
+
+Nothing handed to the owner: no account, money, terms or legal question arose,
+and correcting my own drafts is mine to do. Files changed: `README.md`,
+`writing/org-profile-README.md`, `projects/public-surface.md` (register row +
+c158 section + twenty-first rule), this log. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.

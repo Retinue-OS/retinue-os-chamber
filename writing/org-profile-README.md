@@ -4,6 +4,7 @@ title: "Org profile README for github.com/retinue-os"
 status: ready-for-owner
 drafted_by: aros
 drafted: 2026-07-20
+revised: 2026-07-24
 target: "retinue-os/.github → profile/README.md"
 ---
 
@@ -27,22 +28,40 @@ framework `README.md`, or `docs/triple-stores.md`. The 15–20 s figure is the
 measured range from cycle 11, not the docs' rounded "~15 seconds". The Markdown
 reindex caveat is [qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3).
 
+**Revised 2026-07-24, and the reason matters more than the diff.** Two claim
+sweeps run against the framework's own docs
+([retinue#26](https://github.com/retinue-os/retinue/issues/26),
+[retinue#27](https://github.com/retinue-os/retinue/issues/27)) never ran against
+this file, which is the one artifact of mine written to become somebody else's
+front page. Three sentences here were stronger than the tracker: the approval
+step described as a human gate, which
+[retinue#19](https://github.com/retinue-os/retinue/issues/19) shows it is not;
+"never sees a credential", unscoped, which
+[retinue#15](https://github.com/retinue-os/retinue/issues/15) narrows; and a
+test-file count that a fix has since made stale. All three are corrected below.
+Had this been pasted as drafted, the org's front page would have carried a claim
+the project's own issue tracker contradicts.
+
 ---
 
 ## Retinue
 
 A self-hosted personal agent system where the agent has real reach into your
-messaging, files and data — but never holds your credentials, cannot speak as
-you without your approval, and keeps everything it knows as files in a git repo
-you own.
+messaging, files and data — but never holds the credentials to your accounts,
+sends from them only under a policy you set per identity, and keeps everything
+it knows as files in a git repo you own.
 
 ### The architecture, in four claims
 
 **Capability without credential custody.** Signal keys, the WhatsApp session,
 the Telegram MTProto session, SMTP/IMAP passwords — each lives in a dedicated
-sidecar container. The model talks to thin HTTP APIs and never sees a
-credential. It does still hold capability tokens for the services it drives; the
-difference is blast radius. A stolen mail password is your mailbox from
+sidecar container. The model talks to thin HTTP APIs and never sees a *messaging*
+credential. That scope word is load-bearing: the session does hold capability
+tokens for the sidecars it drives, and, in a session spawned by the scheduler or
+a gateway rather than by the entrypoint, whatever else the container's
+environment carries — a model-gateway key, a repo token
+([retinue#15](https://github.com/retinue-os/retinue/issues/15), open). The
+difference the design buys is blast radius, not an empty environment. A stolen mail password is your mailbox from
 anywhere, until you notice. A stolen backend token is a request to a sidecar
 that still applies send policy, reachable only from inside the deployment
 network.
@@ -59,7 +78,11 @@ mailbox has no use for the password.
 to the *sending* identity, not the recipient. A dedicated, labelled agent
 account can run `allow` while your own accounts stay locked. An undeclared
 account fails safe to "needs approval", and a queued message waits on an
-approval page until a human releases it.
+approval page. What the approval page does *not* currently do is distinguish the
+human from the agent: the Allow button is a plain HTTP call the agent can make
+itself, so `verify` is a queue and an audit trail rather than a human gate
+([retinue#19](https://github.com/retinue-os/retinue/issues/19), open). The
+identity-keyed policy is the part that holds today.
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 the agent definitions themselves are Markdown and RDF in git. Diffable,
@@ -105,9 +128,10 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk.
 - **Not hardened.** The credential-isolation design is the strong part. The web
-  gateway is a large hand-rolled file, and test coverage is thin: five test
-  files, concentrated on send-policy and contact-lookup logic. CI runs them on
-  every push and pull request; it has little to run.
+  gateway is a large hand-rolled file, and test coverage is thin: six test
+  files, mostly send-policy and contact-lookup logic, plus one covering the web
+  gateway's projects endpoints. CI runs them on pushes to `main` and on every
+  pull request; it has little to run.
 - **Not a guarantee about your whole deployment.** Credential isolation covers
   the channels the framework ships. It says nothing about other paths you attach
   to the same accounts, and a deployment that adds one has given the model reach

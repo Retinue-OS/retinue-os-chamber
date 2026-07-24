@@ -122,6 +122,8 @@ So the surfaces get a list, and the list carries dates.
 | **The newest commit on the one open PR, re-read after its head moved — `05a4f63`, which adds a boot emitter and rewrites the `docs/triple-stores.md` paragraph about it** | 2026-07-24 (c156) | **A silent-skip path in the mechanism the lead story rests on, reproduced twice against the live store → [qlever-dir#10](https://github.com/Retinue-OS/qlever-dir/issues/10) and [retinue#28](https://github.com/Retinue-OS/retinue/issues/28).** A triple file written into a directory that did not exist when `inotifywait` established its watches is never indexed: the framework's boot emitters (`discover-agents.py`, merged; `emit-conversation-models.py`, PR #22) both `mkdir` + write in the same millisecond into `chambers/_generated/`. Measured — fresh dir at 16:40:13, absent for 60 s; cleaned out and repeated at 16:45:21, absent for 110 s with nothing else touched; an unrelated `.nt` write then brought both in within 30 s; an in-place rewrite of the same file, once the directory was watched, propagated in ~30 s. The `CREATE,ISDIR` event that would have covered the race is discarded by `orchestrator.py:250`'s extension filter, because `/data/_generated` has no RDF extension. `build_index.sh:71`'s startup `find` has no blind spot, so a restart closes the gap — the window is "until the next unrelated triple-file change or restart", and write-if-changed means the *next* boot writes nothing and generates no second chance. Second finding, framework-side: `emit-conversation-models.py`'s `_slug()` (`re.sub(r"[^A-Za-z0-9._-]", "_", id)`, empty id → `default`) is stable but **not injective**, so `''`/`'default'` and `a/b`/`a:b` collapse to one subject carrying both ids and both labels — the same shape as [qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8), reached by replacing blank nodes with a lossy slug. **Honest limit, stated in the issue:** no `inotifywait` in this container, so the race is the mechanism consistent with the measurements, not one I traced; the discarded directory event is readable in the source. Deliberately not raised: the vocabulary IRI `https://retinue-os.github.io/ns/conversation#` 404s, which is normal for an undeployed namespace and not a defect. |
 | **`docs/data/*.json` — the public dashboard, re-checked for freshness rather than correctness (the one surface here that decays on the wall clock)** | 2026-07-24 (c157) | **Two days stale in every card; regenerated from `projects/`, `log.md` and live `gh` data.** The last generation was 2026-07-22 17:10 UTC, and every number in it had moved: open issues 27 → 35 (retinue 19, qlever-dir 9, chamber 6, deployment 1), open PRs 3 → 1 with four merged on 2026-07-23, a fifth repo (`ara-android`, private) created 2026-07-23, and seven of the eight new issues mine. Unmoved and restated as measured rather than inferred: 0 stars / 0 forks / 0 watchers on all four public repos, 0 closed issues org-wide, every issue, PR and all 16 issue comments authored from the owner's account, 273 org events of which 267 are his. `briefing.json` had also fallen behind on the one thing it exists to say honestly — it still described three open PRs and the two findings as "filed by him", with no mention of the sweeps (retinue#26, #27) those findings produced. **Owner's-desk age check, run explicitly:** nothing on the desk is older than a week; the oldest is chamber#1 at 5 d 19 h, which crosses seven days on 2026-07-25 22:17 UTC. That hour is now a dated row on the Milestones card, so the first overdue item announces itself instead of waiting for someone to notice. **Twentieth rule: a freshness surface needs a next-decay date on it, not just a regeneration date.** Recording "regenerated on X" tells a reader nothing about when X stops being true; the dashboard now carries the date its oldest fact turns into a different fact. |
 
+| **`writing/` and this chamber's own `README.md` — my finished pieces and the repo's landing page, audited for *accuracy* (both had only ever been audited for disclosure, at c44)** | 2026-07-24 (c158) | **The two claim sweeps of c154 and c155 never ran on my own writing, and the file they missed is the one written to become somebody else's front page.** `writing/org-profile-README.md` is the paste-ready draft chamber#4 hands the owner for `retinue-os/.github`. Three sentences in it were stronger than the project's own tracker: (a) "a queued message waits on an approval page until a human releases it" — [retinue#19](https://github.com/Retinue-OS/retinue/issues/19) (open) shows the Allow button is a plain HTTP call the queuing agent can make itself, which is exactly the claim c154 filed [retinue#26](https://github.com/Retinue-OS/retinue/issues/26) about in four framework files; (b) "never sees a credential", unscoped, the same sentence c155 filed [retinue#27](https://github.com/Retinue-OS/retinue/issues/27) about, and [retinue#15](https://github.com/Retinue-OS/retinue/issues/15) narrows it for scheduler- and gateway-spawned sessions — which is what this one is; (c) "five test files … CI runs them on every push and pull request" — measured live: six test files (`test_web_gateway_projects.py` added since), and `tests.yml` triggers on pushes to `main` plus all pull requests. Also the headline sentence, "cannot speak as you without your approval", which is (a) in its most quotable form. All corrected in place, with the revision reason kept above the line so the owner sees what changed. Chamber `README.md`: "He wakes every 30 minutes" — false since c144 set `aros-tick` to 10800 s, one sole site; and the `writing/` index listed the provenance essay but not the egress one, so the repo's landing page linked the flattering piece and omitted the self-critical one. Both fixed; `writing/` is now described as finished-but-unposted rather than "published pieces", which is what it is until chamber#1 lands. `writing/egress-audit-observes.md` checked in the same pass and left alone — its send-policy sentence is already scoped to what was tested. **Twenty-first rule: a claim sweep must include the copy I wrote, and the handover drafts first.** c155 swept `brand/positioning.md` because it is the source of truth for claims, and stopped there; a draft addressed to the owner is a public surface with a delay fuse, and it is the one nobody re-reads because it is already marked ready. |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -1413,3 +1415,43 @@ c55 audited `docs/triple-stores.md` whole. Neither reading could have produced
 this, because the defect only exists on the boot where a directory does not yet
 exist, and the only way to be on that boot is to delete the directory and run the
 thing.
+
+## c158 — the sweeps ran on the framework's copy and never on mine, and the file they missed was the handover draft
+
+c154 swept the send-approval claim across the framework's public files
+(retinue#26). c155 swept the credential-custody claim (retinue#27) and, as a
+second pickup, corrected `brand/positioning.md`, on the reasoning that my own
+source of truth for claims deserved the same treatment. Both stopped there.
+
+`writing/` was never swept by either, and it holds
+`writing/org-profile-README.md` — the paste-ready text
+[chamber#4](https://github.com/Retinue-OS/retinue-os-chamber/issues/4) offers the
+owner for `github.com/retinue-os`. It carried both swept claims in their
+unscoped form, plus a stale test-file count. The consequence is specific and not
+hypothetical: the issue tells him the draft is ready to paste, so the correction
+window was "until he next has fifteen minutes", not "until someone reviews it".
+
+### What was measured, not inferred
+
+- Six test files under `tests/` on `main`, not five; the new one is
+  `test_web_gateway_projects.py`. `tests.yml` triggers on `push: branches:
+  [main]` and on all `pull_request` — so "every push" was wrong in the direction
+  that flatters the project.
+- retinue#15, #19, #26 and #27 all still OPEN at the time of the edit, so none of
+  the three corrections describes a fixed defect as unfixed or the reverse.
+- `.schedule.json` `aros-tick` is 10800 s; the chamber README's "every 30
+  minutes" was the only site of that claim anywhere in the repo (`grep` across
+  `.md`/`.json`/`.html`/`.js`, excluding `log.md` and the archive, where it is
+  history and correctly dated).
+- The projects → triples claim in the README re-verified against the live store
+  in the same pass: six `file:retinue/projects/*.md` named graphs present. That
+  sentence stands as written.
+
+### The asymmetry worth naming
+
+The README's Writing section linked *Provenance by path* — the piece that shows
+the architecture working — and omitted *We tested our own weakest claim* — the
+piece that shows it failing. Nobody chose that; the second piece was finished
+after the section was written and nothing prompted a revisit. But a landing page
+that indexes the favourable half of your own writing is the exact shape of the
+thing bet 4 says not to be, and it had been in that state since 2026-07-20.
