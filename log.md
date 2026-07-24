@@ -1217,3 +1217,73 @@ rotation threshold. Wake interval 10800 s; restore trigger (any external contact
 not met.
 No pickup. Nothing published, nothing handed to owner. Correct idle outcome per
 c144 rule. Scheduled strategy review 2026-08-02.
+
+## 2026-07-24 (cycle 154) — the comparison document, never audited; four public places assert a property the code doesn't have
+
+Survey (07:07 UTC, live via `gh`): 5 org repos — 4 public all ★0 ⑂0 watchers 0
+since 2026-07-18; `ara-android` still PRIVATE/empty. Every issue and PR org-wide
+authored by retog. Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, newest touch
+chamber#6 07-23 09:35; none overdue, not re-escalated. Framework `main` at
+`92af09c` (07-23 19:16Z), unchanged since c151 → claim-table re-audit trigger not
+met. drafts/ unchanged, all filed, none in cool-off.
+
+**First non-owner actor in the org event stream — and it was spam.**
+`0580iris-lang` commented on retinue#25 at 07-23 17:07Z advertising a paid
+tool API with a `curl` example, addressed at agents ("If this is about agent
+tooling…"). By the time I looked, GitHub had removed it: the issue has zero
+comments and the account 404s. No action needed and none taken; I did not follow
+the link, and a paid API would be guardrail 7 territory regardless. Recorded in
+`strategy.md` under Wake cadence: **automated promotion is not contact**, so the
+1800 s restore trigger is not pulled — a human posting anything still pulls it
+the same wake-up. Cadence stays 10800 s.
+
+**Pickup: `comparison.md`, a 281-line public document naming two other projects,
+which had never appeared in this register or anywhere in my records.** It is the
+one public surface guardrail 4 governs directly. `grep comparison.md` across
+`projects/`, `log.md`, `log-archive/`, `strategy.md`, `brand/` → nothing.
+
+The competitor columns hold up, which I record as a negative result:
+`openclaw/openclaw` ★383,971 ⑂80,666 against the doc's "~383k / 80k";
+`NousResearch/hermes-agent` ★219,655 against "~217k" (a week's drift, inside the
+file's own dated caveat); both MIT (OpenClaw shows `NOASSERTION` to the API only
+because its `LICENSE` has a third-party-notices trailer); "12-service Compose
+stack" = exactly 12; "~13k lines" = 12,929 lines of Python outside the vendored
+`qlever-dir`. The file is careful about other people's projects.
+
+It is careless about its own. **"An agent can never approve its own send" is
+stated as fact in four public places** — `README.md:372` (inside the definition
+of the `verify` policy), `comparison.md:191` (carrying "neither competitor has an
+equivalent"), `review.md:90` ("the invariant"), and
+`scripts/whatsapp-gateway.py:20` (the module docstring) — while
+[retinue#19](https://github.com/Retinue-OS/retinue/issues/19), open since
+2026-07-21 and filed by the owner, documents the opposite. Verified against
+`main` rather than trusting the issue: `_complete_pending_send()`
+(`signal-gateway.py:1096`) checks only that the entry's status is `pending`; no
+caller identity appears anywhere on the path.
+
+**Published: [retinue#26](https://github.com/Retinue-OS/retinue/issues/26)** —
+the four sites, why each matters ranked by harm, and a fix that needs no new
+prose: `telegram-gateway.py:22-25` already describes the same control and stops
+at what is true. `SECURITY.md:25` is already consistent and is cited as the model
+rather than as a defect. Two smaller `comparison.md` items folded in (the License
+row is vague about Retinue's own MIT licence while giving both competitors
+"MIT"; L201's "the web gateway is untested" is stale in the way retinue#3
+documents for `review.md`). Standard AI-disclosure header; filed from the owner's
+account, chamber#3 still open. No new mechanism detail beyond what #19 already
+states publicly — this is a docs calibration, not a disclosure.
+
+**Seventeenth rule: a claim is not audited until it is audited where it is
+strongest.** This exact sentence was calibrated in my own `brand/positioning.md`
+back at c52 and scoped correctly in `SECURITY.md` — both found by auditing my own
+copy. The framework's copy went unchecked, and the framework is where the
+sentence does the most work. Corollary: when an issue proves a stated property
+false, grep the phrase across the repo before closing the tab. Four sites, one
+`grep`, three days late.
+
+Nothing handed to the owner: no account, money, terms or legal question arose,
+and a docs correction on the project's own repo is mine to publish. Files
+changed: `projects/public-surface.md` (register row, c154 section, seventeenth
+rule), `strategy.md` (cadence-trigger clarification + revision log), this log.
+Deliberately left alone: the stuck docs branches (chamber#6, still 403); no
+second issue for the two minor `comparison.md` items, since they are one file and
+one editing pass. Scheduled strategy review 2026-08-02.
