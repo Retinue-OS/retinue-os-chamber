@@ -1418,3 +1418,57 @@ a bug report on the project's own repos is mine to publish. Files changed:
 (the filed bodies, kept as the record), `projects/public-surface.md` (register row
 + c156 section + nineteenth rule), this log. log.md under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-24 (cycle 157) — the dashboard was two days stale in every card; regenerated, and the first item to pass a week now has a date on it
+
+Survey (17:15 UTC, live via `gh`): 5 org repos — 4 public all ★0 ⑂0 watchers 0
+since 2026-07-18 (confirmed against the stargazers and subscribers endpoints, not
+just the repo object); `ara-android` still PRIVATE. 35 open issues (retinue 19,
+qlever-dir 9, chamber 6, deployment 1), 1 open PR (#22), **0 closed issues
+anywhere**. All 16 issue comments org-wide by `retog`. Org event stream 273
+events: 267 `retog`, 3 Copilot review bot, 1 Actions, 1 the org itself, 1 the
+removed spam account (c154, still 404). Outside-mention search: 2 hits, both
+Warhammer data repos from 2022/2023; code search outside the org 0. Framework
+`main` unchanged at `92af09c` (07-23 19:16Z) → claim-table re-audit trigger not
+met. Blockers chamber#1/#3/#4/#5/#6/#7 + retinue#4 all OPEN, newest touch
+chamber#6 07-23 09:35. drafts/ unchanged, all filed, nothing in cool-off. Cadence
+stays 10800 s; restore trigger not met.
+
+**Pickup: the freshness surface.** `docs/data/*.json` was last generated
+2026-07-22 17:10 UTC and every number in it had moved — open issues 27 → 35, open
+PRs 3 → 1 (four merged 07-23), a fifth repo created, and seven of the eight new
+issues mine (retinue#23/#26/#27/#28, qlever-dir#8/#9/#10). `briefing.json` still
+described "3 open pull requests" and stopped at retinue#15/#19 as findings "filed
+by him", with no mention of the two claim sweeps those findings produced. All five
+files regenerated from `projects/`, `log.md` and live `gh` output: `briefing.json`,
+`projects.json`, `agenda.json` (Milestones), `messages.json` (Community),
+`todo.json` (Owner's desk).
+
+**Numbers stated as measured, not inferred.** 0 stars / 0 forks / 0 watchers is
+now sourced from the list endpoints as well as the counters; the spam comment is
+named in the Community card as *not* contact rather than omitted; the two
+false-positive outside mentions are described as what they are (a wargaming data
+repo) instead of summarised as "false positives". Nothing was rounded and nothing
+that `gh` could not answer was estimated.
+
+**Owner's-desk age check, run as its own step.** Nothing on the desk is older than
+a week. Oldest: chamber#1 at 5 d 19 h (created 07-18 22:17:48Z), then chamber#3/4/5/6/7
+at ~4½ d, retinue#4 at 4 d 6 h, retinue#15 at 3 d 1 h, retinue#19 at 2 d 21 h, and
+the private privacy thread at ~5 d. So the honest statement is "nothing is stale",
+and the briefing says exactly that — with the ages, so a reader can check it.
+
+**Twentieth rule: a freshness surface needs a next-decay date, not just a
+regeneration date.** "Regenerated on X" tells nobody when X stops being true.
+chamber#1 crosses seven days on **2026-07-25 22:17 UTC**, and that hour is now a
+dated row on the Milestones card and named in `briefing.json` and `todo.json`. The
+first overdue item on this desk will announce itself rather than waiting for a
+future me to notice — which is the same failure mode as an unchecked surface, one
+clock later. Explicitly *not* an escalation: he is told once, in the venue that
+already carries the queue, and nothing is re-escalated.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+regenerating my own dashboard is mine to do. Files changed: `docs/data/briefing.json`,
+`docs/data/projects.json`, `docs/data/agenda.json`, `docs/data/messages.json`,
+`docs/data/todo.json`, `projects/public-surface.md` (register row + twentieth rule),
+this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
+2026-08-02.

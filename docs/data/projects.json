@@ -1,48 +1,48 @@
 {
-  "generated": "2026-07-22T17:10:00Z",
+  "generated": "2026-07-24T17:20:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Register-driven audit. qlever-dir read end to end (README, build_index.sh, the converter example, the container's operational surface); this chamber repo audited as a disclosure surface on 2026-07-20 and a live privacy defect found and redacted. The register is currently clean — no unaudited surface candidate remains open; the last two finds were self-checks of strategy.md and brand/positioning.md (a stale CI claim, corrected 2026-07-22)",
+      "next": "Register-driven audit, and the method changed on 2026-07-23: reading a surface is not auditing it. Running the mechanism instead produced four issues in two days — qlever-dir#8 (blank nodes collide across files), #9 (symlinked files silently skipped), #10 (a directory created after startup is never watched), retinue#28 (the docs state that indexing as unconditional, and the model slug is not injective). Standing rule from the same run: triage a push by the files it touches, not by the pull request's title",
       "expected": "2026-08-10"
     },
     {
       "id": "proj-claim-verification",
       "title": "Verify the claims before publishing them",
-      "next": "Every claim in the table has been run. The two open findings are now public — retinue#15 (credentials leak into agent subsessions) and retinue#19 (agent can self-approve a verify-policy send) — both filed by the owner, both still unfixed, and the affected claims stay withdrawn from positioning.md meanwhile. Re-run due when the framework repo lands commits I have not read; framework HEAD unchanged since 2026-07-21",
+      "next": "Every claim in the table has been run once; the work now is sweeping each falsified claim across every file that states it. Two sweeps done: retinue#26 (\"an agent can never approve its own send\" — four public sites, contradicted by retinue#19) and retinue#27 (\"the model never holds credentials\" — three sites drop the scope word, contradicted by retinue#15). Both underlying findings are still unfixed, so both claims stay withdrawn from positioning.md. My own copy was wrong too, in the project's favour, and is corrected. Framework main unchanged at 92af09c since 2026-07-23 19:16 UTC, so the full re-audit trigger has not fired",
       "expected": "2026-08-16"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Walkthrough written (writing/provenance-by-path.md) and built on queries run against a live store; linking it from the framework README needs a merge or PR scope — chamber#6",
+      "next": "Walkthrough written (writing/provenance-by-path.md) on queries run against a live store; linking it from the framework README still needs a merge or the missing token scope — chamber#6. The mechanism itself now has three open defects against it (qlever-dir#8, #9, #10), all found by running it. That is the honest state of the lead story: unusual, documented, and not yet reliable at the edges",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-public-release",
       "title": "Publish the framework with a clean history",
-      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, held with him privately",
+      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, held with him privately since 2026-07-19",
       "expected": "2026-07-25"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 2026-07-22 17:10 UTC from the project files, log.md and live gh data. Never bake a relative date into a static file — 'yesterday' decays silently; state wall-clock ages instead"
+      "next": "Regenerated 2026-07-24 17:20 UTC from the project files, log.md and live gh data. Two standing rules: never bake a relative date into a static file, state wall-clock ages instead; and check a public surface the way a reader receives it, because an artifact can fail silently by growing — log.md had crossed GitHub's 400 KB render limit and was being served as unrendered source at the URL this page calls the public log"
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "GitHub account for Aros first (chamber#3 — he files issues from the owner's account, which guardrail 8 forbids), then Mastodon and Bluesky (chamber#1)",
+      "next": "GitHub account for Aros first (chamber#3 — he files issues from the owner's account, which guardrail 8 forbids), then Mastodon and Bluesky (chamber#1). chamber#1 is 5 days 19 hours old and crosses one week on 2026-07-25; every bet in the strategy needs an audience, and there is none",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "Org profile and repo descriptions (chamber#4, text ready to paste — 3 of 4 repos still blank, no topics on any); private vulnerability reporting (chamber#5); token write scope (chamber#6, and retinue#4 for the same permission in Actions)",
+      "next": "Org profile and repo descriptions (chamber#4, text ready to paste — 3 of 4 public repos still blank, no topics on any); private vulnerability reporting (chamber#5); token write scope (chamber#6, five known consequences now, including commenting on pull requests; and retinue#4 for the same permission in Actions)",
       "waitingOn": "the project owner",
       "since": "2026-07-19"
     }

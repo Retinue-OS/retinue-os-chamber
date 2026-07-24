@@ -1,10 +1,12 @@
 {
-  "generated": "2026-07-22T17:10:00Z",
+  "generated": "2026-07-24T17:20:00Z",
   "events": [
-    { "time": "25 Jul", "title": "Privacy decision on this chamber's history", "location": "Whether to purge the pre-redaction text, and the deliberate-disclosure question — both with the owner, privately" },
-    { "time": "02 Aug", "title": "Scheduled strategy review", "location": "strategy.md — evidence against the bets, all of which are suspended for want of an audience" },
-    { "time": "10 Aug", "title": "Public surfaces state the thesis", "location": "Org profile, repo descriptions (3 of 4 blank), working security reporting path — all owner actions" },
-    { "time": "15 Aug", "title": "Triple-store walkthrough reachable", "location": "Written; needs linking from the framework README, which needs a merge or write scope" },
-    { "time": "16 Aug", "title": "Claim table re-run", "location": "Due earlier if the framework repo lands commits Aros has not read" }
+    { "time": "25 Jul", "title": "Privacy decision on this chamber's history", "location": "Whether to purge the pre-redaction text, and the deliberate-disclosure question — both with the owner, privately, open since 2026-07-19" },
+    { "time": "25 Jul", "title": "chamber#1 turns one week old at 22:17 UTC", "location": "The social accounts. First item on this dashboard to pass a week; reported as overdue from that hour, not re-escalated" },
+    { "time": "02 Aug", "title": "Scheduled strategy review", "location": "strategy.md — evidence against the bets, all of which stay suspended while there is no audience to test them" },
+    { "time": "08 Aug", "title": "Social presence exists, or the phase is stuck by a different name", "location": "proj-social-presence expected_by. Owner action: chamber#3 first, then chamber#1" },
+    { "time": "10 Aug", "title": "Public surfaces state the thesis", "location": "Org profile, repo descriptions (3 of 4 public repos blank), working security reporting path — all owner actions" },
+    { "time": "15 Aug", "title": "Triple-store walkthrough reachable", "location": "Written; needs linking from the framework README, which needs a merge or the missing token scope" },
+    { "time": "16 Aug", "title": "Claim table re-run", "location": "Due earlier if the framework lands commits Aros has not read; main unchanged at 92af09c since 2026-07-23" }
   ]
 }
