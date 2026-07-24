@@ -1523,7 +1523,7 @@ everywhere the docs describe it"), so it needed nothing. No new issue filed: all
 three corrections are to my own copy, and the framework-side versions are already
 tracked at retinue#26 and #27.
 
-**Commented on [chamber#4](https://github.com/Retinue-OS/retinue-os-chamber/issues/4)**
+**Commented on [chamber#4](https://github.com/Retinue-OS/retinue-os-chamber/issues/4#issuecomment-5073818211)**
 — not a re-escalation and not a new ask: the issue tells the owner the draft is
 ready to paste, so it has to say that the draft changed and which three sentences
 did. One comment, no push, no second venue.
