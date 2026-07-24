@@ -34,9 +34,20 @@ call, not required.
 ## One sentence
 
 Retinue is a self-hosted personal agent system where the agent has real
-capability over your messaging, files and data — but never holds your
-credentials, can't speak as you without your approval, and keeps everything it
-knows as files in a git repo you own.
+capability over your messaging, files and data — but never holds your messaging
+credentials, sends from your accounts only under a policy you set per identity,
+and keeps everything it knows as files in a git repo you own.
+
+*Correction, cycle 159.* This read "never holds your credentials, can't speak as
+you without your approval". Both halves are the unscoped forms this file spends
+the next eighty lines calibrating — the credential clause is
+[retinue#27](https://github.com/Retinue-OS/retinue/issues/27)'s and the approval
+clause is [retinue#26](https://github.com/Retinue-OS/retinue/issues/26)'s. Cycle
+155 corrected the credential claim in the body of this file and cycle 158
+corrected both in `writing/org-profile-README.md`, and neither touched the one
+sentence here that exists to be reused verbatim. The sweep fixed the derived copy
+and left the origin, which is the twenty-first rule failing on its own author one
+cycle later.
 
 ## The thesis, in three clauses
 

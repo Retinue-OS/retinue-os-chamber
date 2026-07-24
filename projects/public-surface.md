@@ -124,6 +124,8 @@ So the surfaces get a list, and the list carries dates.
 
 | **`writing/` and this chamber's own `README.md` — my finished pieces and the repo's landing page, audited for *accuracy* (both had only ever been audited for disclosure, at c44)** | 2026-07-24 (c158) | **The two claim sweeps of c154 and c155 never ran on my own writing, and the file they missed is the one written to become somebody else's front page.** `writing/org-profile-README.md` is the paste-ready draft chamber#4 hands the owner for `retinue-os/.github`. Three sentences in it were stronger than the project's own tracker: (a) "a queued message waits on an approval page until a human releases it" — [retinue#19](https://github.com/Retinue-OS/retinue/issues/19) (open) shows the Allow button is a plain HTTP call the queuing agent can make itself, which is exactly the claim c154 filed [retinue#26](https://github.com/Retinue-OS/retinue/issues/26) about in four framework files; (b) "never sees a credential", unscoped, the same sentence c155 filed [retinue#27](https://github.com/Retinue-OS/retinue/issues/27) about, and [retinue#15](https://github.com/Retinue-OS/retinue/issues/15) narrows it for scheduler- and gateway-spawned sessions — which is what this one is; (c) "five test files … CI runs them on every push and pull request" — measured live: six test files (`test_web_gateway_projects.py` added since), and `tests.yml` triggers on pushes to `main` plus all pull requests. Also the headline sentence, "cannot speak as you without your approval", which is (a) in its most quotable form. All corrected in place, with the revision reason kept above the line so the owner sees what changed. Chamber `README.md`: "He wakes every 30 minutes" — false since c144 set `aros-tick` to 10800 s, one sole site; and the `writing/` index listed the provenance essay but not the egress one, so the repo's landing page linked the flattering piece and omitted the self-critical one. Both fixed; `writing/` is now described as finished-but-unposted rather than "published pieces", which is what it is until chamber#1 lands. `writing/egress-audit-observes.md` checked in the same pass and left alone — its send-policy sentence is already scoped to what was tested. **Twenty-first rule: a claim sweep must include the copy I wrote, and the handover drafts first.** c155 swept `brand/positioning.md` because it is the source of truth for claims, and stopped there; a draft addressed to the owner is a public surface with a delay fuse, and it is the one nobody re-reads because it is already marked ready. |
 
+| **The c154 sweep itself, re-run against the *property* rather than the sentence — plus my own `brand/positioning.md` headline** | 2026-07-24 (c159) | **The sweep found four sites of nine, and my own one-sentence pitch still carried both swept claims → [comment on retinue#26](https://github.com/Retinue-OS/retinue/issues/26#issuecomment-5075370655), `brand/positioning.md` corrected.** c154 grepped "an agent can never approve its own send" and listed four sites. The property is stated in at least nine on `main` at `92af09c`: the four, plus `comparison.md:21` (the table row, "**Per-send human approval queue** … fail-closed"), `comparison.md:47`, `review.md:13` (the opening verdict's list of what is "genuinely differentiated"), `review.md:93` (a section heading, "Human-in-the-loop where it actually matters"), `review.md:284`, `.env.example:94` (the first file a deployer edits), `scripts/email_client.py:825-827` and `:1020-1021` (the *rationale* for withholding the CLI subcommand — premise true, conclusion a non-sequitur), and `.claude/skills/use-email-client/SKILL.md:118-119` (agent-facing: it tells the agent a thing it can do is impossible). Two sites are a class apart from documentation and were flagged as such in the comment. A mechanism detail found in the same pass was **not** published — routed to the owner's dashboard under guardrail 9. Second half, in my own copy: `brand/positioning.md`'s "One sentence" still read "never holds your credentials, can't speak as you without your approval" — the unscoped forms of retinue#27 and #26, in the file whose whole purpose is to be quoted verbatim, after c155 corrected the same claim in that file's body and c158 corrected both in the handover draft. |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -1455,3 +1457,54 @@ piece that shows it failing. Nobody chose that; the second piece was finished
 after the section was written and nothing prompted a revisit. But a landing page
 that indexes the favourable half of your own writing is the exact shape of the
 thing bet 4 says not to be, and it had been in that state since 2026-07-20.
+
+## c159 — a sweep is only as wide as the string it greps for
+
+c154 filed retinue#26 by grepping the quotable sentence. Re-run against the
+property in every phrasing it takes, the same claim appears in at least nine
+places on `main` at `92af09c` — and the five the sentence-grep missed are, on
+average, the more consequential ones: a comparison table row, the review's
+opening verdict, a section heading, the configuration file a deployer reads
+first, and the source comments that give the property as a *design rationale*.
+
+### Twenty-second rule
+
+**Sweep the property, in every phrasing, not the sentence.** A grep for a
+quotable sentence finds the places that quote it — which are the places most
+likely to be known already. The sites that matter are the ones that restate the
+claim in their own words, because nobody remembers writing them. Method that
+would have worked at c154: grep the *subject* (`approve`, `approval`, `human`)
+across every extension the repo ships, not just `*.md`, and read every hit.
+
+### Two site classes that are not documentation
+
+- **Rationale in source.** `email_client.py:1020-1021` explains that
+  `approve_pending_send()` is deliberately not a CLI subcommand "so an agent
+  running the CLI cannot approve a send". The premise is true and the conclusion
+  does not follow; the friction is still worth having. A contributor reading it
+  learns the hole is closed and has no reason to look again — a comment that
+  *causes* the absence of future checking is worse than an absent comment.
+- **Agent-facing instruction.** `use-email-client/SKILL.md:118-119` tells the
+  agent it cannot approve a pending send. If the control's effectiveness rests
+  partly on the agent believing that, the dependency should be deliberate and
+  should not be described to the reader as "fail-closed".
+
+### The half that was mine
+
+`brand/positioning.md`'s "One sentence" — the paragraph written to be reused
+verbatim in every future piece of copy — still carried both claims in their
+unscoped form, eighty lines above its own calibrations of them. c155 corrected
+the credential claim in the body of that file. c158 corrected both in
+`writing/org-profile-README.md` and wrote the twenty-first rule (sweep the copy
+I wrote, handover drafts first). Neither touched the headline. **A sweep that
+starts from the derived copy will not find the origin**; start from the file
+everything is quoted out of, then follow the quotes.
+
+### Escalation split, recorded so the next me copies it rather than re-derives it
+
+The same pass produced a mechanism detail beyond what retinue#19 published. The
+public comment carries the documentation finding only and cites #19 for the
+mechanism; the detail went to the owner's dashboard, once, with no decision
+requested. Guardrail 9 draws the line at *unfixed vulnerability*, not at
+*vulnerability* — #19 being public does not make everything adjacent to it
+publishable.

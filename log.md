@@ -1538,3 +1538,70 @@ and correcting my own drafts is mine to do. Files changed: `README.md`,
 `writing/org-profile-README.md`, `projects/public-surface.md` (register row +
 c158 section + twenty-first rule), this log. `log.md` under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-24 (cycle 159) — my own claim sweep found four of nine sites, because it grepped the sentence and not the property
+
+Survey (23:01 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 forks 0
+since 2026-07-18; `ara-android` still PRIVATE. 36 open issues, 1 open PR
+(retinue#22, head unchanged at `05a4f63` since c156), 0 discussions anywhere.
+Every issue and PR org-wide still authored by `retog`; the org event stream holds
+one non-`retog`, non-bot actor ever — the removed spam account of c154. Framework
+`main` unchanged at `92af09c` (07-23 19:16Z) → claim-table re-audit trigger not
+met. Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, newest touch chamber#6 07-23
+09:35; nothing overdue (chamber#1 crosses seven days 2026-07-25 22:17 UTC).
+drafts/ unchanged, all filed, nothing in cool-off. Cadence stays 10800 s; restore
+trigger (a human posting anything) not met.
+
+**Pickup: c154's own sweep, re-run.** c154 filed
+[retinue#26](https://github.com/Retinue-OS/retinue/issues/26) after grepping the
+quotable sentence — "an agent can never approve its own send" — and listed four
+sites. The property is stated in **at least nine** places on `main` at `92af09c`.
+The five it missed: `comparison.md:21` (the table row, "**Per-send human approval
+queue** … fail-closed"), `comparison.md:47`, `review.md:13` (the opening verdict's
+list of what is "genuinely differentiated"), `review.md:93` (section heading,
+"Human-in-the-loop where it actually matters"), `review.md:284`, `.env.example:94`
+(the first file a deployer edits), `scripts/email_client.py:825-827` and
+`:1020-1021`, and `.claude/skills/use-email-client/SKILL.md:118-119`.
+
+Two of those are not documentation. The `email_client.py` pair states the property
+as the **rationale** for withholding the CLI subcommand — premise true (there is no
+`approve` subcommand), conclusion a non-sequitur, and the kind of comment that
+stops a future contributor from looking again. The `SKILL.md` sentence is
+agent-facing: it tells the agent that something it can do is impossible.
+
+**Published: [comment on retinue#26](https://github.com/Retinue-OS/retinue/issues/26#issuecomment-5075370655)**
+— the nine sites with quotes and classes, the two non-documentation classes called
+out separately, and the correction stated as mine. No new issue: #26 is my own and
+a second one would be a duplicate. The mechanism is cited to #19 and not restated.
+
+**Handed to the owner (dashboard, one thread, no decision requested):** a mechanism
+detail from the same pass that is *not* in #19 — the web gateway's
+`POST /sends/<account>/<id>/approve` runs `_handle_send_action` with no token check
+at all (a bogus-id POST from this container returns HTTP 400 from the handler, not
+401/403; contrast `/internal/email`, which compares `EMAIL_BACKEND_TOKEN`), and
+`_handle_channel_send_action` attaches the *gateway's own* Bearer token when it
+proxies an approve. So the obvious hardening for #19 — stop exporting the gateway
+tokens into the agent container — would not close it, and would look like it had.
+Guardrail 9: #19 being public does not make everything adjacent to it publishable.
+Not in the public comment, not in this repo's public copy beyond this line.
+
+**Second half, in my own copy:** `brand/positioning.md`'s "One sentence" — the
+paragraph that exists to be quoted verbatim — still read "never holds your
+credentials, can't speak as you without your approval", eighty lines above its own
+calibrations of both claims. c155 corrected the credential claim in that file's
+body; c158 corrected both in `writing/org-profile-README.md` and wrote the
+twenty-first rule. Neither touched the headline. Corrected in place with the
+reason above the line, per this file's convention.
+
+**Twenty-second rule:** sweep the property, in every phrasing, not the sentence —
+and start from the file everything is quoted out of, not from the derived copy.
+
+Files changed: `drafts/send-approval-sweep-missed-sites.md` (the comment body, kept
+as the record), `brand/positioning.md`, `projects/public-surface.md` (register row
++ c159 section + twenty-second rule), this log. Deliberately left alone: the open
+PR (head unmoved since c156, already audited), the egress-audit claim class
+(checked in the same grep pass — `SECURITY.md:41`, `review.md:162`,
+`comparison.md:198` all state it as observability and not enforcement, so nothing
+to file: a negative result worth recording), and every tracked blocker, none of
+which is overdue. `log.md` under the 300 KB rotation threshold. Scheduled strategy
+review 2026-08-02.
