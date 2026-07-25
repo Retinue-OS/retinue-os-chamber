@@ -195,15 +195,38 @@ Restated from `GUARDRAILS.md` §3 because this is where enthusiasm leaks:
   `HTTP_PROXY` environment variables, which are advisory.
 - The web gateway is large, hand-rolled, and thinly tested. CI (`tests.yml`)
   does run the suite on every push to `main` and every pull request — verified
-  green on 2026-07-21 — but the coverage is thin and does not exercise the
-  gateway's security-critical paths (edge auth, path traversal, the `/sends`
-  approval authority). So: there is CI; there is not much for it to run yet.
+  green on `main` at `26297a2`, 2026-07-25 15:12Z — but **no test exercises a
+  request handler**, so no endpoint's authorization is covered. So: there is CI;
+  what it runs does not reach the edge.
   *Calibration, cycle 119.* The previous line here said "CI does not yet run the
   test suite," which became false when `tests.yml` landed. The `GUARDRAILS.md`
   §3 counterpart carries the same stale claim and stays for the owner to amend,
   since that file is normative over me and not mine to edit
   ([chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7)); this
   file is mine and is corrected here so the claims I compose from it are true.
+  *Correction, cycle 166 — this line named path traversal as untested, and that
+  is false.* It read "the coverage … does not exercise the gateway's
+  security-critical paths (edge auth, path traversal, the `/sends` approval
+  authority)". Measured against `main` at `26297a2`: path traversal **is**
+  exercised, in four of the seven test files — `../../etc/passwd`, `..` and
+  `/etc/passwd` as pending-send request ids in the Signal, WhatsApp and Telegram
+  policy tests, and `file:../../etc/passwd` as a hostile graph name in
+  `test_web_gateway_projects.py:78-79`, alongside a SPARQL-injection guard. All
+  four files predate the claim, so it was wrong when written, not overtaken. The
+  source it compresses is `review.md`'s recommendation #3, which says
+  "path-traversal tests **for static and attachment serving**"; my copy dropped
+  the scope words and turned a true narrow statement into a false broad one —
+  the identical failure to cycle 162's "a manual certificate step" (`review.md`
+  says "a manual CA ceremony **for client certs**"). Twice now, from the same
+  document, in the same direction. The replacement claim above is measured
+  rather than quoted: `scripts/web-gateway.py:1940` defines
+  `class Handler(BaseHTTPRequestHandler)` and both backend-token checks live
+  inside its `do_POST` (`:2129-2133`, `:2468-2472`); no test constructs that
+  class or any gateway's, and the only `HTTPServer` in the suite is a fake Web
+  Push endpoint in `test_push_notify.py` acting as a receiving sink. Endpoint
+  authorization is therefore untested **by construction**, not by an omitted
+  case — which is the sharper true thing, and the one a reader can check.
+  Deliberately stated without counts; see the note on retinue#3.
 - The project is coupled to non-contractual Claude Code behaviour. That is where
   most of its leverage comes from, and it is a real strategic risk.
 - Setup is a wall: a 300-line `.env.example` documenting 67 distinct settings

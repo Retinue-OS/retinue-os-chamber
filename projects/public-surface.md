@@ -133,6 +133,8 @@ So the surfaces get a list, and the list carries dates.
 | **My own copy re-checked against yesterday's finding rather than filed and forgotten (`brand/positioning.md`, `writing/org-profile-README.md`)** | 2026-07-25 (c162) | **Both carried the onboarding-cost claim c161 measured false; corrected in place.** c161 measured `GUARDRAILS.md` §3 row 3 and reported it to the owner, because that file is normative over me — and left the same two errors standing in the two files that *are* mine, and out of which public copy is quoted. `positioning.md:209` and `org-profile-README.md:125` both said "~30 environment variables" and "a manual certificate step". Replaced with the measured version: 67 settings over 300 lines of `.env.example` (35 passed by name in compose), a domain and reverse proxy for TLS, per-account volume discipline — and no certificate step, since the egress CA is generated at first start and the client cert is optional |
 
 | **The issue backlog as a whole — my own output measured as its only reader receives it, rather than issue by issue for accuracy** | 2026-07-25 (c163) | **37 open, 0 ever closed, 0 authored by anyone else, 2 non-Aros comments in seven days; filing 5.6/day against a drain of 0.** Not evidence of neglect — 18 commits landed on framework `main` in the same window and seven days over a weekend is nothing, per rule 5. Evidence about *me*: the strategy attributed the zero on "corrections accepted" to the missing PR scope (chamber#6), which is unsupported — a PR joins the same unreviewed queue. **Filed had been counted as corrected.** → strategy correction + an operating rule capping new issues while the drain is zero |
+| **A merge conflict resolved by an automated agent, in the file that carries the credential-custody claim (`scripts/entrypoint.sh`), read as a surface rather than trusted** | 2026-07-25 (c166) | **Clean — negative result, recorded because the check had never been run.** At 15:06Z the maintainer asked `@copilot` to resolve the conflicts on PR#22; `copilot-swe-agent[bot]` pushed the merge `2ac5589` at 15:08:41Z and it reached `main` as `26297a2` at 15:12Z, 45 minutes before this cycle. The conflict was in the one file whose two `unset` sites are the entire mechanical basis of the claim `positioning.md` calibrates hardest (retinue#15). Diffed `92af09c` → `26297a2`: exactly the branch's 11 lines added, one hunk, the new `emit-conversation-models.py` block placed above the pre-existing `discover-agents.py` block with both intact; the scrub (`unset ANTHROPIC_API_KEY` at `:412`, the `EMAIL_PASS*` loop at `:421`) and the `exec` at `:431` are byte-identical and still in the same order. Copilot's own summary of what it did is accurate. **The register row is the point, not the finding:** machine-authored commits are now a class of change arriving in this project's public code, and "who wrote it" is not a property any previous row tracked |
+| **The test suite as a *reach* measurement rather than a size one — what the CI actually exercises, never audited (every prior row counted files and lines)** | 2026-07-25 (c166) | **A false claim in my own `brand/positioning.md`, wrong when written.** It said the coverage "does not exercise the gateway's security-critical paths (edge auth, path traversal, the `/sends` approval authority)". Path traversal **is** exercised, in four of seven files — `../../etc/passwd`, `..`, `/etc/passwd` as pending-send request ids (`test_signal_send_policy.py:161`, `test_whatsapp_send_policy.py:169`, `test_telegram_send_policy.py:142`) and `file:../../etc/passwd` as a hostile graph name (`test_web_gateway_projects.py:78-79`), all four files unchanged since before the claim was recorded. Source is `review.md` recommendation #3, "path-traversal tests **for static and attachment serving**"; my copy dropped the scope words. **Second time in five cycles that the same document lost a qualifier in my copy** (c162: "a manual CA ceremony **for client certs**" → "a manual certificate step"). Replacement claim measured, not quoted: `web-gateway.py:1940` defines `class Handler(BaseHTTPRequestHandler)` with both backend-token checks inside its `do_POST` (`:2129-2133`, `:2468-2472`); no test constructs that class or any gateway's, and the only `HTTPServer` in `tests/` is a fake Web Push sink in `test_push_notify.py`. **Endpoint authorization is untested by construction.** → `positioning.md` corrected; [comment on retinue#3](https://github.com/Retinue-OS/retinue/issues/3#issuecomment-5079176054) carrying the correction, the third round of counts (7 files / 1,313 lines / `web-gateway.py` 2,786) and the argument to delete the counts from the edit list rather than refresh them |
 | **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -1872,3 +1874,57 @@ to the backlog it was written about. Register row below updated accordingly.
 |---|---|---|---|
 | Code offered inside my own issues and comments | The part of a filed issue a reader executes rather than reads | 2026-07-25 (c165) | Second one executed; wrong again, and this time it was a one-word library call, not a shell pattern. The unverified backlog from c164 stands. **Check the call site, not just the call.** |
 | Merged PRs that close or touch an issue I filed | Whether a close is a fix | 2026-07-25 (c165) | New row. qlever-dir#9 verified against a fixture and holds. Nothing else in the org has ever been closed, so this row has one datum. |
+
+## 2026-07-25 (cycle 166) — a dropped qualifier, twice from the same document
+
+Two surfaces, both never checked before, both cheap. One is a negative result and
+one is a false claim of mine.
+
+### The machine-authored merge (negative result)
+
+`copilot-swe-agent[bot]` resolved a merge conflict in `scripts/entrypoint.sh` at
+15:08Z on the maintainer's request and it reached `main` at 15:12Z. That file
+holds the only two credential-scrub sites in the project, and every calibration
+in `positioning.md`'s lead claim cites them by line. Diffed old `main` against
+new: exactly the branch's 11 lines, both emitter blocks present, scrub and `exec`
+byte-identical and in order. The bot's own description of what it did is accurate.
+
+Recorded anyway, because the class is new: **code written by an automated agent is
+now arriving in this project's public repos**, and no register row had ever asked
+who authored a change. The check is cheap (one diff) and only worth running when
+the touched file carries a claim. This one did.
+
+### The claim I got wrong
+
+`brand/positioning.md` told me, and would have told any post composed from it,
+that the test suite "does not exercise the gateway's security-critical paths (edge
+auth, path traversal, the `/sends` approval authority)". Path traversal is
+exercised in four of seven test files, and was in all of them before I wrote the
+sentence. It was never overtaken by events; it was wrong on the day.
+
+The mechanism matters more than the error. `review.md` recommendation #3 says
+"path-traversal tests **for static and attachment serving**" — true and narrow. My
+copy kept the noun and dropped the scope, which converts it into a false broad
+claim. That is exactly what cycle 162 found five cycles ago: `review.md:268` says
+"a manual CA ceremony **for client certs**" and my copy said "a manual certificate
+step". Same source document, same direction, same two-word omission.
+
+### Twenty-ninth rule
+
+**A compressed quote is a new claim and must be measured, not trusted.** When copy
+paraphrases a source document, either keep the source's qualifiers verbatim or
+verify the shortened form independently. A summary that drops a scope word is not
+a shorter claim, it is a different and usually false one — and it survives review
+because it reads as a citation of something already checked.
+
+The corollary that produced this cycle's better sentence: measuring instead of
+quoting usually finds something sharper than the quote. "No test constructs a
+request handler, so endpoint authorization is untested by construction" is both
+true and more useful than the list of untested paths it replaces, and it took one
+grep.
+
+### Register update
+
+Two rows added above (the machine-authored merge; the suite as reach rather than
+size). The second retires a claim rather than filing an issue — the false copy was
+mine, and `review.md` and retinue#3 are both already correct on the point.

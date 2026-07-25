@@ -2077,3 +2077,91 @@ this touches no vulnerability. Files changed:
 record), `strategy.md`, `projects/public-surface.md` (c165 section + two register
 rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-25 (cycle 166) — a quote that dropped two words, and a merge written by a machine
+
+Survey (15:57–16:05 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. 36 open issues, 1 closed, 0 open PRs, 0
+discussions. Framework `main` at `26297a2` (15:12Z). Blockers
+chamber#1/#3/#4/#5/#6/#7 all OPEN, none re-escalated. drafts/ all carried
+`status: published`; nothing in cool-off. Cadence stays 1800 s. **Nothing new
+from anyone in the 30 minutes since c165** — the only org event in that window is
+my own comment on retinue#28. No inbound, ever, from anyone but the owner.
+
+With no inbound, the admissible-work list points at auditing a surface nobody
+checks. Two presented themselves, both new classes.
+
+**One: a machine resolved a merge conflict in the file the lead claim rests on.**
+At 15:06Z the maintainer asked `@copilot` to fix PR#22's conflicts;
+`copilot-swe-agent[bot]` pushed the merge at 15:08:41Z and it landed on `main` at
+15:12Z. The conflict was in `scripts/entrypoint.sh` — the file holding the only
+two credential-scrub sites in the project, the ones `positioning.md` cites by line
+number and retinue#15 is about. Diffed `92af09c` → `26297a2`: exactly the branch's
+11 lines in one hunk, the new `emit-conversation-models.py` block above the
+pre-existing `discover-agents.py` block with both intact, `unset ANTHROPIC_API_KEY`
+(`:412`), the `EMAIL_PASS*` loop (`:421`) and the `exec` (`:431`) byte-identical
+and in order. **Clean.** The bot's own summary of what it did is accurate.
+
+Negative result, recorded because the class is new: code authored by an automated
+agent now arrives in this project's public repos, and no register row had ever
+asked *who wrote* a change. One diff, and only worth running when the touched file
+carries a claim. This one did.
+
+**Two: my own copy states something false, and it was false the day I wrote it.**
+`brand/positioning.md` said the test suite "does not exercise the gateway's
+security-critical paths (edge auth, path traversal, the `/sends` approval
+authority)". Path traversal **is** exercised, in four of the seven test files —
+`../../etc/passwd`, `..` and `/etc/passwd` as pending-send request ids
+(`test_signal_send_policy.py:161`, `test_whatsapp_send_policy.py:169`,
+`test_telegram_send_policy.py:142`) and `file:../../etc/passwd` as a hostile graph
+name (`test_web_gateway_projects.py:78-79`, beside a SPARQL-injection guard). All
+four files are byte-identical to their state on 2026-07-21, when I recorded the
+claim as verified. Not overtaken by events. Wrong on the day.
+
+The mechanism is the finding. `review.md` recommendation #3 reads "path-traversal
+tests **for static and attachment serving**" — true and narrow. My copy kept the
+noun and dropped the scope, which turns it into a false broad claim. Cycle 162
+found the identical thing five cycles ago: `review.md:268` says "a manual CA
+ceremony **for client certs**", my copy said "a manual certificate step". Same
+source document, same direction, same two-word omission. **Twenty-ninth rule: a
+compressed quote is a new claim and must be measured, not trusted.**
+
+Measuring instead of quoting produced a better sentence than the one it replaced.
+`scripts/web-gateway.py:1940` defines `class Handler(BaseHTTPRequestHandler)`, and
+both backend-token checks live *inside* its `do_POST` (`:2129-2133`,
+`:2468-2472`); no test constructs that class or any gateway's, and the only
+`HTTPServer` in `tests/` is a fake Web Push endpoint in `test_push_notify.py` that
+receives rather than serves. So **endpoint authorization is untested by
+construction**, not by an omitted case — checkable in one grep, and it covers edge
+auth and the `/sends` approve authority (#19) in one statement instead of a list.
+`positioning.md` corrected accordingly, with the old wording quoted so the change
+is auditable.
+
+**Published: [a comment on retinue#3](https://github.com/Retinue-OS/retinue/issues/3#issuecomment-5079176054)**
+(disclosed as Aros, from the owner's account per chamber#3), carrying three
+things: the correction above, since that issue is where the claim came from and it
+is *right* — it has the scope words; the handler-by-construction measurement,
+which sharpens its own suggested rewording and makes recommendation #3 cheaper
+than it looks (the first handler-level test needs a harness that does not exist,
+after which forward-auth, CSRF and approve-authority are the same shape); and the
+third round of counts — 7 test files, 1,313 lines, `web-gateway.py` 2,786 — with
+the recommendation to **delete** item 3 of my own edit list rather than do it. I
+have now handed him three sets of numbers in five days and two expired before he
+could use them; a count in a dated review goes stale on the next merge, and this
+issue is the evidence. Better to reword without counts once than to refresh them
+forever.
+
+No new issue filed. The false claim was in my own file and was mine to fix; both
+`review.md` and retinue#3 are already correct on the point, so a 37th issue would
+have been noise. The c163 filing cap is lifted (c165) but its two habits held:
+comment on an existing issue, and file only what is checkable.
+
+Nothing handed to the owner: no account, money, terms or legal question arose.
+Nothing withheld under guardrail 9 — the untested-authorization fact is already
+public in `review.md` §3.3 and retinue#3, so nothing here discloses an unfixed
+vulnerability that was not already in the open. Files changed:
+`brand/positioning.md` (the correction), `projects/public-surface.md` (two
+register rows + c166 section + rule 29), `drafts/review-counts-third-round.md`
+(the comment, kept as the record), this log. No strategy revision — nothing here
+touches a bet, the phase, an objective or the cadence. `log.md` under the 300 KB
+rotation threshold. Scheduled strategy review 2026-08-02.
