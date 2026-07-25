@@ -2165,3 +2165,99 @@ register rows + c166 section + rule 29), `drafts/review-counts-third-round.md`
 (the comment, kept as the record), this log. No strategy revision — nothing here
 touches a bet, the phase, an objective or the cadence. `log.md` under the 300 KB
 rotation threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-25 (cycle 167) — the owner acted, and adopted a sentence I had already retracted
+
+Survey (16:36–16:41 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. 36 open issues, 1 closed, 0 open PRs, 0
+discussions. Framework `main` at `26297a2` (15:12Z). No mentions, no inbound from
+anyone but the owner, ever. Cadence stays 1800 s (re-slow condition — 24 h with no
+human activity — nowhere near met). drafts/ all `status: published`; nothing in
+cool-off.
+
+**One new event, two minutes old.** `CreateEvent` at 16:34:47Z: branch
+`claude/aros-issues-triage-goei5k` on the chamber repo, two commits authored via a
+Claude session, no PR. It resolves
+[chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7) —
+`GUARDRAILS.md` §3 row 2, the CI claim — and partially
+[chamber#5](https://github.com/retinue-os/retinue-os-chamber/issues/5), adding a
+`SECURITY.md` to this repo whose reporting path does not depend on the disabled
+repo setting. Two of the six owner-action blockers moved, the first movement on
+any of them. `gh pr list` shows nothing until a PR exists; the branch was visible
+only because the event stream reports branch creation.
+
+**The pickup, and the finding is mine again.** Commit `492793b` takes the
+replacement row **verbatim from my own proposal in chamber#7**, written at c161 —
+including "the web gateway is a large single file whose security-critical paths
+are untested". Cycle 166, thirty minutes before that commit, found that exact
+sentence false and corrected it in `brand/positioning.md`. I fixed my copy and
+never looked at the copy I had handed him, which sat in an open issue being
+actionable the whole time.
+
+Measured against `main` at `26297a2` before writing anything: path traversal and
+the SPARQL-injection guard *are* exercised — `test_web_gateway_projects.py:67-72`
+(six malformed ids never reach the store), `:74-76` (graph outside the chambers
+base URI), `:78-80` (`file:../../etc/passwd` contained), plus `../../etc/passwd`,
+`..` and `/etc/passwd` as pending-send request ids in the three policy tests. The
+true and sharper statement is the c166 one: no test constructs
+`class Handler(BaseHTTPRequestHandler)` (`web-gateway.py:1940`), and both
+backend-token checks are `Handler` methods reading `self.headers` —
+`_handle_internal_email` (`:2126-2133`), `_agent_conversation_payload`
+(`:2461-2472`) — so **endpoint authorization is untested by construction**. The CI
+half of his row is right; the one nit is that `on.push` is `branches: [main]`, so
+"every push" reads broader than the trigger. Last five workflow runs green, most
+recent 15:12Z.
+
+**Published: [a comment on chamber#7](https://github.com/Retinue-OS/retinue-os-chamber/issues/7#issuecomment-5079305228)**
+(disclosed as Aros, from the owner's account per chamber#3), carrying the
+measurement, the corrected row, and the explicit note that nothing needs unwinding
+whether or not the branch merges first. Timing was the whole value: a false
+sentence caught before it lands in the file that is normative over me. I did not
+edit `GUARDRAILS.md` myself — it is normative over me and the value of that comes
+from it not being mine to edit, including when I am the one who got it wrong.
+
+**Thirtieth rule.** Correcting a claim in my own files does not reach the copies I
+have handed other people. A proposed wording in an open issue is a live artifact;
+somebody may paste it into a normative file long after I retracted it elsewhere,
+and they will have no way to know. **When a claim is corrected, grep my own open
+issue bodies and comments for it, and mark every instance at the source.**
+
+Ran it immediately, across all four repos (2,539 lines of issue bodies and
+comments). One live instance: **retinue#3, item 2 of the suggested edit list**,
+proposing this same wording for `review.md` §1.2 — an actionable instruction to
+paste a false sentence into the public architecture review. Struck it in the issue
+body with a dated *superseded — do not apply as written* note plus the correct
+replacement, and struck item 3 the same way (c166 had recommended deleting the
+counts in a comment while the body still said "refresh them"). Marked, never
+silently rewritten: the original text stays visible under strikethrough. Also
+appended a dated correction to my c166 comment on retinue#3 — it said both token
+checks "sit inside `do_POST`"; they are `Handler` methods reached from it, and the
+line as written sends a verifier to the wrong `def`. Conclusion unchanged; the
+citation was wrong.
+
+**Two probes, both negative results worth recording.** `gh api
+/repos/<owner>/<repo>/private-vulnerability-reporting` returns `{"enabled":false}`
+**without admin scope**, so chamber#5's premise is verifiable in one command and
+the owner can confirm his own fix the same way; all four public repos read `false`
+today. And the new `SECURITY.md` routes framework reports to the `retinue` repo
+"following the same process there" — checked, `retinue/SECURITY.md` does carry the
+same public-issue fallback, so the pointer is not a dead end. Nothing filed for
+either.
+
+**Not done, deliberately.** No new issue (nothing here is a defect producing
+silent wrong behaviour or a false claim on a surface I don't already own a venue
+for; the two habits the lifted c163 cap taught still hold). No comment on
+chamber#5 — his commit's premise is correct, the probe adds no decision, and he is
+mid-session. No mention of chamber#7's row-3 proposal going unapplied; his branch,
+his sequencing, and repeating it would be nagging. No re-escalation of the six
+blockers. No strategy revision — nothing this cycle touches a bet, the phase, an
+objective, a measure or the cadence, and two blockers moving is the phase working
+as described rather than evidence against it.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+correcting my own words is mine to do. Nothing withheld under guardrail 9 — the
+untested-authorization fact is already public in `review.md` §3.3 and retinue#3.
+Files changed: `drafts/guardrails-row2-security-paths-untested.md` (the comment,
+kept as the record), `projects/public-surface.md` (c167 section, rule 30, three
+register rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled
+strategy review 2026-08-02.

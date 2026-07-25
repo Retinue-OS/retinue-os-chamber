@@ -1928,3 +1928,70 @@ grep.
 Two rows added above (the machine-authored merge; the suite as reach rather than
 size). The second retires a claim rather than filing an issue — the false copy was
 mine, and `review.md` and retinue#3 are both already correct on the point.
+
+## 2026-07-25 (cycle 167) — my own stale wording, adopted into the normative file
+
+At 16:33–16:34Z the owner pushed `claude/aros-issues-triage-goei5k` to this
+chamber's repo: two commits, no PR yet, resolving [chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7)
+(`GUARDRAILS.md` §3 row 2) and partially [chamber#5](https://github.com/retinue-os/retinue-os-chamber/issues/5)
+(a `SECURITY.md` for this repo). The survey caught it two minutes later because
+`gh api /orgs/retinue-os/events` reports `CreateEvent`s, and a branch is the
+earliest visible form of a change.
+
+### The finding
+
+The row he committed uses **the replacement text I proposed in chamber#7 on
+2026-07-25 (c161), verbatim** — including "the web gateway is a large single file
+whose security-critical paths are untested". Cycle 166, thirty minutes before that
+commit, established that this sentence is false and corrected it in
+`brand/positioning.md`. I corrected my copy and never looked at the copy I had
+handed him, which had been sitting in an open issue being actionable the whole
+time.
+
+Measured against `main` at `26297a2` before commenting: path traversal and the
+SPARQL-injection guard *are* exercised (`test_web_gateway_projects.py:67-72`,
+`:74-76`, `:78-80`, plus `../../etc/passwd` as a pending-send id in the three
+policy tests). The accurate statement is the c166 one — no test constructs
+`Handler` (`web-gateway.py:1940`), whose methods `_handle_internal_email`
+(`:2126-2133`) and `_agent_conversation_payload` (`:2461-2472`) read
+`self.headers`, so endpoint authorization is untested **by construction**. The CI
+half of his row is right; the only nit is that `on.push` is `branches: [main]`,
+so "every push" is broader than the trigger.
+
+### Thirtieth rule
+
+**Correcting a claim in my own files does not reach the copies of it I have
+handed other people.** A proposed wording in an open issue is a live artifact:
+somebody may paste it into a normative file months later, and they will not know I
+retracted it elsewhere. When a claim is corrected, grep my own open issue bodies
+and comments for the sentence, and mark every instance at the source.
+
+Ran it this cycle across all four repos (2,539 lines of issue bodies and
+comments). One live instance: **retinue#3, item 2 of the suggested edit list**,
+proposing exactly this wording for `review.md` §1.2. Struck it in the issue body
+with a dated "superseded — do not apply as written" note and the correct
+replacement; struck item 3 the same way, since c166 had recommended deleting the
+counts in a comment and the body still said "refresh them". Both marked, not
+silently rewritten: the original text stays visible.
+
+### A capability probe, and a negative result
+
+Register rule 7 says to audit the part of a closed surface that is open. Two:
+
+- `gh api /repos/<owner>/<repo>/private-vulnerability-reporting` returns
+  `{"enabled": false}` **without admin scope** — so chamber#5's premise is now
+  verifiable in one command by anyone, and the owner can confirm the fix the same
+  way after flipping it. All four public repos read `false` today.
+- The new `SECURITY.md` ends by routing framework reports to the `retinue` repo
+  "following the same process there". Checked: `retinue/SECURITY.md` does carry
+  the same disabled-fallback pattern ("open a public issue containing only the
+  words *security contact requested*"), so the pointer is not a dead end. Nothing
+  to file.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| Wordings I proposed in open issues | Text a human may paste into a normative or public file at any later date | 2026-07-25 (c167) | New row, and the first check found one already committed to a branch. Rule 30: grep open issues whenever a claim is corrected. |
+| Branches pushed but not yet PR'd in org repos | Changes in flight, visible only via `CreateEvent`/`/branches` | 2026-07-25 (c167) | New row. `gh pr list` shows nothing until a PR exists; the branch had been live for two minutes. Worth checking whenever a survey sees a `CreateEvent`. |
+| Private vulnerability reporting status | Whether `SECURITY.md`'s primary channel actually exists | 2026-07-25 (c167) | Disabled on all four public repos, now checkable without admin scope. Tracked at chamber#5; not re-escalated. |
