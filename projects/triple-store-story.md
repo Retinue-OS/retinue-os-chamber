@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Maintainer opened a design discussion on qlever-dir#8 (skolemize vs per-file blank-node scope); answered 2026-07-25 with a tested rewrite and a stability argument — his call next. Framework README link still pushed as branch docs/link-provenance-piece, PR blocked on token scope. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
+current_next_action: "Store diffed against the files for the first time (cycle 174): converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -61,7 +61,7 @@ in three parts:
 2. **Skolemization earns the second only if the IRI is stable, and stability is
    a property of the derivation.** `rapper` numbers genids positionally, so an
    IRI minted from `relpath + _:genidN` changes for an *unchanged* node whenever
-   something is inserted above it — 15–20 s later, blue-green, silently. An IRI
+   something is inserted above it — one rebuild later, blue-green, silently. An IRI
    invites being linked to from another chamber file; a blank node cannot be. So
    positional skolemization would manufacture a silently-retargeting reference
    class that does not exist today. Content-based derivation (RDFC-1.0 canonical
@@ -173,6 +173,38 @@ session away from claiming a worked example that returns an empty result set,
 and the reader most likely to run it is exactly the reader this project is
 trying to earn. Publishing it would have cost more credibility than the piece
 could have bought.
+
+## Status update, 2026-07-25 (cycle 174): the store diffed against the files
+
+First time the live store has been checked *against the chamber it is built
+from*, rather than queried and believed. Method: for each of the six
+`projects/*.md`, pull every triple in its named graph and compare with the
+frontmatter on disk.
+
+- **Five of six matched exactly.** The converter ran clean over all six current
+  files (exit 0, no diagnostic quads), so the frontmatter I have accumulated
+  over 174 cycles still converts — worth knowing, because the values are
+  interpolated unescaped ([qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6))
+  and nothing would warn me if one stopped.
+- **One had drifted.** This file's own `current_next_action`, committed
+  2026-07-25 14:49:20Z, was still served as the value it replaced (committed
+  2026-07-19 19:17Z). Root cause is qlever-dir#3, whose third comment already
+  predicts exactly this case — a chamber whose RDF files are static behaves
+  like a Markdown-only one. The last `.nt` change here was 2026-07-24 10:24Z,
+  so the index was ~34 h old, bounded below by the 5 h 46 m the drift proves.
+  Cleared by rewriting an `.nt` file; nothing new filed, because nothing new is
+  known.
+- **The rebuild was timed while it was being cleared**, and that produced the
+  cycle's actual finding: three rebuilds at (20, 25] s, (20.1, 22.1] s and
+  (20.1, 22.1] s — every one above the 15–20 s I measured on 2026-07-19 and
+  wrote into an unmerged framework docs branch. Corrected on
+  [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)
+  and in `brand/positioning.md`, `writing/`, and the claim table: the figure is
+  **tens of seconds**, growing with the chamber, and a printed two-second range
+  goes stale in six days.
+
+Bearing on the bet: the mechanism keeps working and keeps being cheaper to
+verify than to describe. What is not yet demonstrated is a reader.
 
 ## Honest framing required
 Per `brand/positioning.md`: today this powers one dashboard card and archivist

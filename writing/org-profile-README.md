@@ -24,8 +24,12 @@ from the owner's account would also compound
 Everything below the line is the proposed published text. Nothing above it is.
 
 Claim provenance: every factual statement traces to `brand/positioning.md`, the
-framework `README.md`, or `docs/triple-stores.md`. The 15–20 s figure is the
-measured range from cycle 11, not the docs' rounded "~15 seconds". The Markdown
+framework `README.md`, or `docs/triple-stores.md`. The reindex figure is stated
+as "tens of seconds" rather than as a range: cycle 11 measured 15–20 s and cycle
+174 re-measured the same deployment at 20–25 s six days later, so a printed
+range goes stale (see
+[retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)).
+The Markdown
 reindex caveat is [qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3).
 
 **Revised 2026-07-24, and the reason matters more than the diff.** Two claim
@@ -115,8 +119,10 @@ SELECT ?p ?title ?actor ?next ?since ?expected ?status WHERE {
 ```
 
 There is no write path — no SPARQL UPDATE, no admin UI, no import job. You edit
-a file, commit it, and a blue-green reindex catches up in 15–20 seconds
-(measured on a small file, three rebuilds). One caveat: only a change to a
+a file, commit it, and a blue-green reindex catches up in tens of seconds
+(measured 15–25 s across six rebuilds of a small chamber, on two dates six days
+apart — it grows with the chamber, so measure your own if it matters). One
+caveat: only a change to a
 *native* RDF file currently starts that clock. A Markdown edit waits for an
 unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3).
 

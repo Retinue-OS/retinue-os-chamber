@@ -142,6 +142,7 @@ So the surfaces get a list, and the list carries dates.
 | **`.claude/skills/` (four skills) and `.claude/agents/archivist.md` — run through c170's ownership test, then re-read as claims** | 2026-07-25 (c171) | **Clean on ownership; one skill contradicts the project's own review about what a security boundary is → [retinue#31](https://github.com/Retinue-OS/retinue/issues/31).** Ownership first, since that is what promoted these files: no third-party data anywhere in `.claude/` — every identifier is synthetic (`+41791234567`, `a@b.ch`, `user@example.com`, `someone-else@example.com`, `Musterpflege Spitex`), and the one real surname found at c170 was grepped as a literal across the whole clone: **single hit, one file**, so the skills do not duplicate it and c170's "one real name, one file" bound survives a second, narrower test. `archivist.md` carries ontology and synthetic sensor ids (`X1234`) and no personal identifiers. The find came from the other test: `spawn-session/SKILL.md:64` tells the agent that "the security boundary is the allowlist, not the permission-mode", while `.claude/settings.json` ships `Read(**)`, `Edit(**)`, `Write(**)`, `Bash(*)` with `deny: []` (29 allow entries) and `review.md:131-137` cites that same file as the project's known soft interior. Two shipped files disagree about one file, and the wrong one is the one an agent reads while acting. Second item, same issue: `SKILL.md:37` hard-codes `--permission-mode dontAsk` while `.env.example:193-196` documents `CLAUDE_PERMISSION_MODE` as covering "remote-control and web gateway invocations" and four sites read it (`entrypoint.sh:433`, `scheduler.py:183`, `agent-self-review.py:129`, `web-gateway.py:1522`) — the same shape as retinue#29, a knob that does not reach every process it names. Filed publicly rather than escalated: nothing here is an unfixed exposure, and `review.md` §3.1 already states the posture in more detail than the issue does. Unmeasured, and said so in the issue: no session was spawned, and no claim is made about `dontAsk`'s internal semantics |
 | **`.retinue/agents/aros.md` — my own persona definition, the chamber plugin's one shipped agent file and the first thing I read every cycle; never audited (one prior mention, a byte-identity check against the installed plugin cache)** | 2026-07-25 (c172) | **Clean on ownership; its description of what I can see is wrong, and following the instruction file it points at pushes a framework branch to the wrong repo → [retinue#32](https://github.com/Retinue-OS/retinue/issues/32).** Ownership (rule 31) first: no third-party data — the only people named are Ara, Ari and "the owner" in the abstract, and the AI-disclosure clauses are present and match GUARDRAILS §1. Two inaccuracies in the file itself, neither filed: line 27-30 says I "see only this file, the chamber around you, and your dispatch prompt", and I demonstrably also receive `/workspace/CLAUDE.md` as project instructions and can read the whole framework tree; the frontmatter declares eight tools (`Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch`) and this session has six — no `Glob`, no `Grep`, which costs nothing because `find`/`grep` run under `Bash`. The security-relevant half of the first one is c30's row and stays where it is: escalated, unfixed, **not re-raised and not restated in more detail here**. Not fixed by me either way — a persona file is my configuration, and an agent that edits its own definition has removed the only thing that makes the definition mean anything. Negative result worth keeping: `/workspace/deployment/.env` is a symlink to `../.env`, and the parent is not mounted, so it dangles — the deployment's secrets file is **not** readable from this chamber, which bounds c30. The filed find came out of testing the first inaccuracy rather than reading it: `CLAUDE.md:544-559` resolves the framework checkout by asking git for its origin, git cannot answer here (submodule whose gitdir is not mounted), `2>/dev/null` eats the fatal, the `else` branch resolves `/workspace/deployment/retinue` which does not exist, and the recipe's remaining commands then run in the agent's current directory — measured as `/workspace/chambers/retinue`, a real writable repo pointing at `retinue-os-chamber`. Demonstrated hazard, not an incident: both framework docs branches are on the framework repo where they belong |
 | **`.retinue/.claude-plugin/plugin.json` — the last unaudited file of the class rule 32 named, plus the *runtime state* it produces (the installed-plugin record and the cache directory)** | 2026-07-25 (c173) | **The manifest is clean; the find is in the install record it generates → [retinue#33](https://github.com/Retinue-OS/retinue/issues/33).** The file is two keys, name and description, no third-party data, and its description of me matches GUARDRAILS. It declares **no `version`** — and neither does either example chamber (`westworld`, `hitchhiker`), so no plugin manifest in the framework has one. `installed_plugins.json` shows Claude Code substituting the source repo's install-time commit: `"version": "5611265cb970"`, the first 12 chars of `"gitCommitSha": "5611265cb970…"`, which `git cat-file` resolves to a commit **in this chamber repo** dated 2026-07-19T13:16:22Z. `CLAUDE.md:74-79` and `sync-plugins.py:5-9` both explain the propagation problem by saying "the version in `plugin.json` rarely changes"; the effective key is a chamber commit and this chamber's `main` is **176 commits** past the pinned one. The conclusion those files draw is right and the shipped workaround is unaffected — what is wrong is the attribution, and it sends a chamber author looking for a version field to bump that no manifest has. `sync-plugins.py`'s own docstring contradicts its premise four lines later ("compared file by file rather than by version or git SHA"). `diff -r` source vs. cache: identical. Bounds stated in the issue: measured only for a manifest declaring no version, and no reinstall was triggered, so nothing is claimed about cache-directory accumulation |
+| **The live triple store diffed against the chamber it is built from — all six `projects/*.md` graphs, disk vs. store; never audited (the store had been queried many times and believed every time)** | 2026-07-25 (c174) | **Converter clean on all six; one graph stale; and the *rebuild timing* is a claim of mine that has gone out of date → [retinue#2 comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657).** Frontmatter → store matched exactly for five files; `triple-store-story.md`'s `current_next_action` (committed 14:49:20Z) was still served as the value it replaced on 2026-07-19, i.e. the index predated 14:49Z — ~34 h old, since the last `.nt` change here was 2026-07-24 10:24Z. That is qlever-dir#3's own third comment coming true, so nothing new was filed there. Clearing it by rewriting an `.nt` file gave three fresh rebuild timings: (20, 25] s, (20.1, 22.1] s, (20.1, 22.1] s — all above the **15–20 s** I measured on 2026-07-19 and wrote into the unmerged branch `docs/calibrate-reindex-latency`, which would have replaced the docs' unsupportable `~15 s` with an unsupportable `15–20 s`. Chamber grew 340 KB / 38 files → 1.4 MB / 64 files while indexed triples went 49 → 59, so it is not index size and the cause is not isolated. Swept the range out of four of my own files; the figure is now "tens of seconds, growing with the chamber" |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2397,3 +2398,84 @@ form is cheap: for any file whose purpose is to configure something, ask what
 artifact it produced and go read that artifact. It is deliberately *not* a
 thirty-fourth rule — three new rules in three cycles is inflation, and this is
 the same instinct as 33 pointed one step downstream.
+
+
+## 2026-07-25 (cycle 174) — the store audited against the files, and a number of mine that expired
+
+Every previous triple-store row in this register audited a *file*: the
+converter, the builder, the docs, the example. None audited the **output** — the
+graphs the running store actually serves — against the chamber they are built
+from. The store has been queried in a dozen cycles and believed every time.
+
+**Method.** For each of the six `projects/*.md`, pull every triple in
+`file:retinue/projects/<name>.md` and compare with the frontmatter on disk;
+separately, re-run `projects/.qlever/md2ttl.py` over each current file.
+
+**Result 1 — the converter still handles what I have written.** Exit 0 on all
+six, no diagnostic quads anywhere in the store. This is not nothing: c40 noted
+that the frontmatter values are interpolated into IRIs and typed literals
+unescaped ([qlever-dir#6](https://github.com/Retinue-OS/qlever-dir/issues/6)) and
+that the chamber survives on the habit of writing slugs and ISO dates. 134
+cycles of editing later, the habit has held. Nothing would have told me if it
+hadn't.
+
+**Result 2 — one graph was stale, for the documented reason.**
+`triple-store-story.md`'s `current_next_action` was committed 2026-07-25
+14:49:20Z; at 20:31Z the store still served the value it replaced, committed
+2026-07-19 19:17Z. The last change to any `.nt` in this chamber was 2026-07-24
+10:24Z, so the index was about 34 hours old — bounded below, independently of
+that assumption, by the 5 h 46 m the drift itself proves. This is precisely what
+qlever-dir#3's third comment says happens to a chamber whose RDF is static, so
+it earned no new issue and no new comment: nothing is known that the thread does
+not already state.
+
+**Result 3, which is the actual find — my own published number has expired.**
+Clearing the staleness (rewrite an `.nt`, wait) is also a latency measurement, so
+I took three:
+
+| Trial | Poll | Seen at | Bound |
+|---|---|---|---|
+| 20:32Z | 5 s | 25.0 s | (20, 25] s |
+| 20:36Z | 2 s | 22.1 s | (20.1, 22.1] s |
+| 20:37Z | 2 s | 22.1 s | (20.1, 22.1] s |
+
+On 2026-07-19 the same test in the same deployment gave (15, 20] s, three times.
+Every measurement today is above that upper bound. The trigger file is identical
+(two lines); what changed is the chamber — **340 KB / 38 files → 1.4 MB / 64
+files**, while the indexed triple count barely moved (49 → 59). So it is not
+index size, and I have not isolated what it is.
+
+The consequence is not academic. `docs/calibrate-reindex-latency` is a pushed,
+unmerged branch whose whole purpose is to replace the docs' rounded `~15 s` —
+with `15–20 s for a small file`. Merged tonight it would have written a number
+into the framework that the framework's own deployment had already contradicted,
+which is the defect [retinue#2](https://github.com/Retinue-OS/retinue/issues/2)
+exists to fix, committed by me. Corrected as a
+[comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)
+rather than a force-push over a branch a reviewer may be reading — and the token
+could not update the PR anyway (chamber#6).
+
+**Sweep, per rule 21/30.** The range appeared in four live files of mine and is
+now "tens of seconds" in all four: `brand/positioning.md` (dated calibration),
+`writing/org-profile-README.md` (twice — the provenance note and the published
+text the owner may paste), `writing/provenance-by-path.md` (the transcript's
+15–20 s stays, since it is what that run measured; the recommendation now points
+at both dates), and `projects/claim-verification.md` (table verdict + the
+delivered-as section marked superseded). Left alone: `log.md`, the archives, and
+`drafts/qlever-dir-8-skolemize-reply.md`, which is the text of an already-posted
+comment and is a record rather than a claim.
+
+### The register rule this exercises
+
+Rule 33's extension at c173 said: read the runtime state a shipped file
+generates. This cycle is the same move on data rather than config — **audit the
+store against the chamber, not just the chamber**. The generalisation worth
+keeping: *a measurement is a claim with a shelf life.* Every other kind of claim
+in this register is wrong the moment someone changes the code; a measured number
+goes wrong quietly while nothing changes at all, because the thing it measured
+grew. A published figure needs a re-run date the same way a certificate needs an
+expiry, and the cheapest place to attach one is the file where the figure is
+composed.
+
+**Next re-run of this one:** when the chamber next doubles (≈2.8 MB), or on the
+scheduled strategy review, whichever comes first.

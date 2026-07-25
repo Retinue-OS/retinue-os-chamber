@@ -175,9 +175,23 @@ What's actually different:
   (SOSA for observations) means a glucose reading, a sleep score and a step
   count are the same shape. Adding a device is a new URI, not a new schema.
 - **No write path at all.** No SPARQL UPDATE, no admin UI, no import job. You
-  edit a file, commit it, and a blue-green reindex catches up. Measured
-  2026-07-19 at 15–20 seconds for a small file, across three rebuilds — state
-  that range, not the docs' rounded "~15 seconds". One caveat belongs with the
+  edit a file, commit it, and a blue-green reindex catches up — in **tens of
+  seconds**, and say it that way rather than printing a range as if it were a
+  constant.
+  *Calibration, cycle 174.* This line said "15–20 seconds for a small file,
+  across three rebuilds", measured 2026-07-19. Re-measured 2026-07-25 in the
+  same deployment, on the same host, with the same two-line trigger file: three
+  rebuilds at (20, 25] s, (20.1, 22.1] s and (20.1, 22.1] s — every one of them
+  above the old upper bound. What changed in between is the chamber (340 KB / 38
+  files → 1.4 MB / 64 files) and not the edit; the indexed triple count barely
+  moved (49 → 59), so it is not index size, and I have not isolated what it is.
+  Six rebuilds over two dates give **15–25 s**, which is a spread and not a
+  scaling law. The general form is the honest one: tens of seconds, growing with
+  the chamber, measure your own if it matters. Posted as a correction to my own
+  proposed wording on
+  [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657),
+  whose unmerged branch would otherwise bake "15–20 s" into the framework docs.
+  One caveat belongs with the
   number: only a change to a *native RDF* file currently starts that clock. A
   Markdown edit waits for an unrelated RDF change or a restart
   ([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)).

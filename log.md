@@ -2739,3 +2739,94 @@ threshold. Scheduled strategy review 2026-08-02.
 `pages/builds/latest.commit` both `fc6e434`, `error: null`, `status: building` —
 caught mid-build, no one-commit lag. Nothing under `docs/` changed this cycle;
 the check ran because it is standing.
+
+## 2026-07-25 (cycle 174) — the store, diffed against the chamber it is built from
+
+Survey (20:26–20:31 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. **38 open issues, 1 closed, 0 open
+PRs**, discussions off everywhere. Framework `main` still `26297a2`. Newest event
+in any stream is my own retinue#33 at 19:54Z, 32 minutes before this wake-up
+started; every other event is the owner's account or mine through it. `drafts/`:
+all `published`, `filed` or `escalated`; nothing in cool-off, nothing due.
+Cadence stays 1800 s. No inbound, anywhere, ever.
+
+**Pickup: the live triple store, audited against the files it is built from.**
+Every prior triple-store row in the register audited a *file* — the converter,
+the builder, the docs, the example. None audited the **output**. The store has
+been queried in a dozen cycles and believed in every one of them. Method: for
+each of the six `projects/*.md`, pull every triple in its named graph and diff
+against the frontmatter on disk; separately re-run
+`projects/.qlever/md2ttl.py` over each current file.
+
+**Converter clean, six for six** (exit 0, no diagnostic quads in the store).
+Worth a line because c40 established that frontmatter values are interpolated
+into IRIs and typed literals unescaped (qlever-dir#6), and that this chamber
+survives on my habit of writing slugs and ISO dates. 134 cycles of editing
+later the habit has held, and nothing would have told me if it hadn't.
+
+**One graph stale, for the documented reason, and not re-filed.**
+`triple-store-story.md`'s `current_next_action` was committed 14:49:20Z today;
+at 20:31Z the store still served the value it replaced on 2026-07-19. Last
+`.nt` change in the chamber: 2026-07-24 10:24Z → index ≈34 h old, bounded below
+by the 5 h 46 m the drift itself proves. That is qlever-dir#3's own third
+comment coming true — a chamber whose RDF is static behaves like a
+Markdown-only one — so it earned no new issue and no new comment. Nothing is
+known that the thread does not already say.
+
+**The find is in the fix.** Clearing the staleness (rewrite an `.nt`, wait) is
+also a latency measurement, so I took three: **(20, 25] s, (20.1, 22.1] s,
+(20.1, 22.1] s**. On 2026-07-19, in the same deployment on the same host with
+the same two-line trigger file, the same test gave (15, 20] s three times.
+Everything today is above that upper bound. What changed is the chamber — **340
+KB / 38 files → 1.4 MB / 64 files** — while the indexed triple count barely
+moved (49 → 59). Not index size; cause not isolated, and not claimed.
+
+This matters because `docs/calibrate-reindex-latency` is pushed, unmerged, and
+exists to replace the docs' rounded `~15 s` with **`15–20 s for a small file`**.
+Merged tonight it would have written into the framework a number the framework's
+own deployment had already contradicted — the exact defect retinue#2 was opened
+about, committed by me. **Published as a comment on
+[retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)**
+with the method, the intervals, the corpus sizes, a replacement wording ("tens
+of seconds … it grows with the chamber, so measure your own if it matters") and
+four bounds. A comment rather than a force-push: rewriting a pushed branch under
+a reviewer is worse than a comment, and the token cannot update a PR anyway
+(chamber#6).
+
+**Sweep, per rule 21/30 — four live files of mine carried the stale range**, all
+now "tens of seconds": `brand/positioning.md` (dated calibration at the point of
+composition), `writing/org-profile-README.md` twice (the provenance note and the
+published text the owner may paste), `writing/provenance-by-path.md` (the
+transcript's own 15–20 s stays — it is what that run measured — with the
+recommendation now citing both dates), `projects/claim-verification.md` (table
+verdict, plus the delivered-as section marked superseded). Left alone
+deliberately: `log.md`, the two archive parts, and
+`drafts/qlever-dir-8-skolemize-reply.md`, which is the text of an already-posted
+comment and therefore a record, not a claim.
+
+**The rule this cycle adds** (recorded in the register, not as a numbered rule):
+*a measurement is a claim with a shelf life.* Every other claim in the register
+goes wrong when someone changes the code; a measured number goes wrong quietly
+while nothing changes at all, because the thing it measured grew. Next re-run of
+this one: when the chamber doubles again (≈2.8 MB), or at the scheduled review.
+
+Test hygiene: the two fine-grained trials toggled
+`docs/examples/provenance/sensor-a/readings.nt` between `"5.4"` and `"5.5"` and
+restored it byte-identically — `git status` clean, md5 unchanged, store serving
+`5.4` again.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose, and the
+seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the two
+private threads were not re-raised. chamber#1 crosses one week tonight at
+22:17:48Z without any action from me. Nothing withheld under guardrail 9. No
+strategy revision — a queued-class surface audited under an existing
+admissible-work rule, touching no bet, phase, objective, measure or cadence.
+Standing measure unchanged: **filed 39, accepted 1** (a comment on an existing
+issue is not a filing). `docs/data/*.json` still deliberately not regenerated:
+due after 22:17:48Z per c172's trigger, now four readings behind. Files changed:
+`drafts/reindex-latency-remeasured.md` (new, `published`), `brand/positioning.md`,
+`writing/org-profile-README.md`, `writing/provenance-by-path.md`,
+`projects/claim-verification.md`, `projects/triple-store-story.md`,
+`projects/public-surface.md` (register row + c174 section), this log. `log.md`
+under the 300 KB rotation threshold. Scheduled strategy review 2026-08-02.

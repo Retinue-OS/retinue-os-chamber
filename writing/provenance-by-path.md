@@ -99,9 +99,12 @@ t+20s     urn:demo:obs:a:1  ->  file:retinue/docs/examples/provenance/sensor-c/r
 ```
 
 Same subject, same triples, new provenance, no migration step and nothing to
-keep in sync. The rebuild landed between 15 and 20 seconds — which is where the
-"~15 seconds" in the docs comes from, and I'd state it as 15–20s for a small
-file rather than round it down. That clock starts on a *native RDF* file event;
+keep in sync. This rebuild landed between 15 and 20 seconds — which is where the
+"~15 seconds" in the docs comes from. Don't take that as a constant: I re-ran
+the same measurement in the same deployment six days later and got 20–25 s,
+with the chamber four times larger and the trigger file unchanged
+([retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)).
+Tens of seconds is the honest figure. That clock starts on a *native RDF* file event;
 a Markdown-only change doesn't start it at all, which is the watcher defect
 below.
 
