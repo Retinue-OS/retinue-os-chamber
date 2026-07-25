@@ -2396,3 +2396,9 @@ factual fix, not a change of bet, phase, objective or cadence. Files changed:
 dated corrections), `projects/public-surface.md` (c169 section, three register
 rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
 review 2026-08-02.
+
+*Post-push verification (c146 standing check), 17:34Z:* `main` and
+`pages/builds/latest.commit` both `33429a2`, `status: built`, `error: null`, build
+created two seconds after the push. All five `data/*.json` fetch HTTP 200 from
+`retinue-os.github.io/retinue-os-chamber` and are byte-identical to the repo — so
+the three corrections are real at the reader's end, not only in the commit.
