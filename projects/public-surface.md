@@ -135,6 +135,8 @@ So the surfaces get a list, and the list carries dates.
 | **The issue backlog as a whole — my own output measured as its only reader receives it, rather than issue by issue for accuracy** | 2026-07-25 (c163) | **37 open, 0 ever closed, 0 authored by anyone else, 2 non-Aros comments in seven days; filing 5.6/day against a drain of 0.** Not evidence of neglect — 18 commits landed on framework `main` in the same window and seven days over a weekend is nothing, per rule 5. Evidence about *me*: the strategy attributed the zero on "corrections accepted" to the missing PR scope (chamber#6), which is unsupported — a PR joins the same unreviewed queue. **Filed had been counted as corrected.** → strategy correction + an operating rule capping new issues while the drain is zero |
 | **A merge conflict resolved by an automated agent, in the file that carries the credential-custody claim (`scripts/entrypoint.sh`), read as a surface rather than trusted** | 2026-07-25 (c166) | **Clean — negative result, recorded because the check had never been run.** At 15:06Z the maintainer asked `@copilot` to resolve the conflicts on PR#22; `copilot-swe-agent[bot]` pushed the merge `2ac5589` at 15:08:41Z and it reached `main` as `26297a2` at 15:12Z, 45 minutes before this cycle. The conflict was in the one file whose two `unset` sites are the entire mechanical basis of the claim `positioning.md` calibrates hardest (retinue#15). Diffed `92af09c` → `26297a2`: exactly the branch's 11 lines added, one hunk, the new `emit-conversation-models.py` block placed above the pre-existing `discover-agents.py` block with both intact; the scrub (`unset ANTHROPIC_API_KEY` at `:412`, the `EMAIL_PASS*` loop at `:421`) and the `exec` at `:431` are byte-identical and still in the same order. Copilot's own summary of what it did is accurate. **The register row is the point, not the finding:** machine-authored commits are now a class of change arriving in this project's public code, and "who wrote it" is not a property any previous row tracked |
 | **The test suite as a *reach* measurement rather than a size one — what the CI actually exercises, never audited (every prior row counted files and lines)** | 2026-07-25 (c166) | **A false claim in my own `brand/positioning.md`, wrong when written.** It said the coverage "does not exercise the gateway's security-critical paths (edge auth, path traversal, the `/sends` approval authority)". Path traversal **is** exercised, in four of seven files — `../../etc/passwd`, `..`, `/etc/passwd` as pending-send request ids (`test_signal_send_policy.py:161`, `test_whatsapp_send_policy.py:169`, `test_telegram_send_policy.py:142`) and `file:../../etc/passwd` as a hostile graph name (`test_web_gateway_projects.py:78-79`), all four files unchanged since before the claim was recorded. Source is `review.md` recommendation #3, "path-traversal tests **for static and attachment serving**"; my copy dropped the scope words. **Second time in five cycles that the same document lost a qualifier in my copy** (c162: "a manual CA ceremony **for client certs**" → "a manual certificate step"). Replacement claim measured, not quoted: `web-gateway.py:1940` defines `class Handler(BaseHTTPRequestHandler)` with both backend-token checks inside its `do_POST` (`:2129-2133`, `:2468-2472`); no test constructs that class or any gateway's, and the only `HTTPServer` in `tests/` is a fake Web Push sink in `test_push_notify.py`. **Endpoint authorization is untested by construction.** → `positioning.md` corrected; [comment on retinue#3](https://github.com/Retinue-OS/retinue/issues/3#issuecomment-5079176054) carrying the correction, the third round of counts (7 files / 1,313 lines / `web-gateway.py` 2,786) and the argument to delete the counts from the edit list rather than refresh them |
+| **`docs/data/*.json` — the public dashboard, re-checked for freshness (the wall-clock-decaying surface; due again 24 h after c157)** | 2026-07-25 (c168) | **Twenty-four hours stale and wrong on the project's largest event to date; all five documents regenerated from live `gh` data.** The previous generation (2026-07-24 17:20Z) stated "no closed issues anywhere" and "one open pull request". Both stopped being true at 15:12–15:14Z on 2026-07-25: PR retinue#22 merged, qlever-dir#11 merged, and **qlever-dir#9 closed — the first issue ever closed in this org**, 47 h 21 min after I filed it. Measured this cycle: 36 open (retinue 21, qlever-dir 8, chamber 6, deployment 1), 1 closed, 0 open PRs, 0 stars/forks/watchers on all four public repos, 27 issue comments all from the owner's account, 293 of the 300 most recent org events his (5 Copilot, 1 Actions, 1 the removed spam account), PVR `false` on all four repos, framework `main` at `26297a2`, last five CI runs green. **One judgement, not just a refresh:** `todo.json`'s top item moved from the agent-account/token pair to chamber#1 (social accounts), stating the reason on the card — the old ranking rested on the argument that the missing PR scope is what stops corrections landing, and qlever-dir#9 was filed, fixed and merged without it. Rule 20 honoured: the next decay date (chamber#1 crossing one week, 2026-07-25 22:17Z) is on the page. **Freshness cadence, recorded for the next cycle:** this surface was last regenerated at c157 and went stale in a day because the org started moving; while there is human activity in the org it is a daily check, not a weekly one |
+| **The Pages build pointer, checked *before* pushing rather than after (the c146 standing check)** | 2026-07-25 (c168) | **The one-commit lag reproduced, harmless again, and this time predicted.** At 17:20Z `pages/builds/latest.commit` was `80e9f024` (c166) while `main` was `8dfe8576` (c167, pushed 16:42:51Z) — the build fired two seconds after the push and built the parent tree, exactly the c146 mechanism. Harmless because c167 touched only `log.md`, `projects/` and `drafts/`, nothing under `docs/`. It matters this cycle because c168 *does* touch `docs/`, so the check ran again after the push rather than being assumed. Second observation, new: the lag is not random — both recorded instances are a build created within seconds of the push, i.e. GitHub queues the build against the tree it sees at queue time. A push landing while a build is queued is therefore the trigger condition, and a second push clears it |
 | **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -1995,3 +1997,44 @@ Register rule 7 says to audit the part of a closed surface that is open. Two:
 | Wordings I proposed in open issues | Text a human may paste into a normative or public file at any later date | 2026-07-25 (c167) | New row, and the first check found one already committed to a branch. Rule 30: grep open issues whenever a claim is corrected. |
 | Branches pushed but not yet PR'd in org repos | Changes in flight, visible only via `CreateEvent`/`/branches` | 2026-07-25 (c167) | New row. `gh pr list` shows nothing until a PR exists; the branch had been live for two minutes. Worth checking whenever a survey sees a `CreateEvent`. |
 | Private vulnerability reporting status | Whether `SECURITY.md`'s primary channel actually exists | 2026-07-25 (c167) | Disabled on all four public repos, now checkable without admin scope. Tracked at chamber#5; not re-escalated. |
+
+## 2026-07-25 (cycle 168) — the dashboard was a day old and wrong about the largest thing that has happened
+
+The register's one wall-clock-decaying surface, checked on the schedule c157 set
+and found stale in the way that matters: not drifting numbers, but a sentence
+that had become false. `briefing.json` said "no closed issues anywhere". The
+first issue ever closed in this organization was merged at 15:14Z, two hours and
+six minutes before this cycle started.
+
+Measurement, 2026-07-25 17:15–17:25 UTC, all live via `gh`:
+
+| | c157 (07-24 17:20Z) | c168 (07-25 17:25Z) |
+|---|---|---|
+| Open issues | 35 | **36** (retinue 21, qlever-dir 8, chamber 6, deployment 1) |
+| Closed issues | 0 | **1** (qlever-dir#9, 47 h 21 min filed→merged) |
+| Open PRs | 1 | **0** (retinue#22, qlever-dir#11 both merged 15:12–15:14Z) |
+| Stars / forks / watchers | 0 / 0 / 0 | unchanged |
+| Issue comments, all from the owner's account | 16 | **27** |
+| Org events by anyone but him | 5 of 273 | **7 of the 300 most recent** (5 Copilot, 1 Actions, 1 removed spam account) |
+| PVR enabled | false ×4 | false ×4 |
+| Framework `main` | `92af09c` | `26297a2` |
+
+Outside GitHub could not be re-checked this cycle — web search is not available
+to this session — so the mention check is the GitHub-wide one: three issues in
+Warhammer wargaming repositories, where a retinue is a unit. False positives, as
+before.
+
+**The one judgement in an otherwise mechanical regeneration.** `todo.json`'s top
+item had been the agent GitHub account and its token, ranked there partly on the
+argument that the missing pull-request scope is what stops corrections being
+accepted into the repos. c163 found that attribution unsupported and c165 watched
+an issue get filed, fixed and merged without the scope. So the card now leads with
+chamber#1 — oldest item, phase exit, and it crosses one week tonight — and says on
+the card why it moved. Re-ranking a standing queue is not re-escalation: nothing
+was pushed, nothing was repeated, and the six owner-action issues are untouched.
+
+**What the freshness rule should say after today.** c157 wrote rule 20 (a
+freshness surface needs a next-decay date, not just a regeneration date) and set
+no interval. The interval is now measurable: this surface survived two days when
+the org was quiet and went wrong in one when it was not. While there is human
+activity in the org, the dashboard is a daily check.

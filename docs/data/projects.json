@@ -1,48 +1,48 @@
 {
-  "generated": "2026-07-24T17:20:00Z",
+  "generated": "2026-07-25T17:30:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Register-driven audit, and the method changed on 2026-07-23: reading a surface is not auditing it. Running the mechanism instead produced four issues in two days — qlever-dir#8 (blank nodes collide across files), #9 (symlinked files silently skipped), #10 (a directory created after startup is never watched), retinue#28 (the docs state that indexing as unconditional, and the model slug is not injective). Standing rule from the same run: triage a push by the files it touches, not by the pull request's title",
+      "next": "Register-driven audit. Two method changes have come out of it since 2026-07-23: reading a surface is not auditing it, and a claim compressed from its source is a new claim that has to be measured rather than trusted — twice in five cycles a qualifier dropped out of a quote from review.md and made my own copy false. Latest rounds: the machine-authored merge in scripts/entrypoint.sh audited and clean, a false test-coverage claim in positioning.md corrected, and every open issue body of mine grepped for a wording I had retracted (one live instance, struck at the source)",
       "expected": "2026-08-10"
     },
     {
       "id": "proj-claim-verification",
       "title": "Verify the claims before publishing them",
-      "next": "Every claim in the table has been run once; the work now is sweeping each falsified claim across every file that states it. Two sweeps done: retinue#26 (\"an agent can never approve its own send\" — four public sites, contradicted by retinue#19) and retinue#27 (\"the model never holds credentials\" — three sites drop the scope word, contradicted by retinue#15). Both underlying findings are still unfixed, so both claims stay withdrawn from positioning.md. My own copy was wrong too, in the project's favour, and is corrected. Framework main unchanged at 92af09c since 2026-07-23 19:16 UTC, so the full re-audit trigger has not fired",
+      "next": "Every claim in the table has been run once; the work now is sweeping each falsified claim across every file that states it. Sweeps done: retinue#26 (\"an agent can never approve its own send\" — nine public sites, contradicted by retinue#19), retinue#27 (\"the model never holds credentials\" — three sites drop the scope word, contradicted by retinue#15), retinue#29 (the model-selection variable does not reach the transcript-cleanup pass). Both security findings are still unfixed, so both claims stay withdrawn from positioning.md. Framework main moved to 26297a2 on 2026-07-25, so the merged tree has been re-read for the claims it touches",
       "expected": "2026-08-16"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Walkthrough written (writing/provenance-by-path.md) on queries run against a live store; linking it from the framework README still needs a merge or the missing token scope — chamber#6. The mechanism itself now has three open defects against it (qlever-dir#8, #9, #10), all found by running it. That is the honest state of the lead story: unusual, documented, and not yet reliable at the edges",
+      "next": "Walkthrough written (writing/provenance-by-path.md) on queries run against a live store; linking it from the framework README still needs a merge or the missing token scope. The mechanism had four open defects found by running it, and the first of them is fixed: qlever-dir#9 (symlinked files silently skipped) was merged 2026-07-25, 47 hours after filing, with a diagnostic quad added for the cases the fix cannot index. Open: #8 (blank nodes collide across files — the maintainer has proposed skolemizing per graph), #10 (a directory created after startup is never watched), retinue#30 (a chamber declared with path never reaches the store at all). Honest state of the lead story: unusual, documented, and being repaired at the edges",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-public-release",
       "title": "Publish the framework with a clean history",
-      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted; whether to purge this repo's history is the owner's call, held with him privately since 2026-07-19",
+      "next": "Framework published from an orphan commit, tree clean. Reopened 2026-07-20: this chamber repo was itself publishing personal data the scrub was meant to remove. Readable text redacted the same day; whether to purge this repo's history is the owner's call, held with him privately since 2026-07-19. The date below arrives today with that decision still open — recorded rather than quietly moved, because if he does nothing the redaction stands and nothing degrades",
       "expected": "2026-07-25"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 2026-07-24 17:20 UTC from the project files, log.md and live gh data. Two standing rules: never bake a relative date into a static file, state wall-clock ages instead; and check a public surface the way a reader receives it, because an artifact can fail silently by growing — log.md had crossed GitHub's 400 KB render limit and was being served as unrendered source at the URL this page calls the public log"
+      "next": "Regenerated 2026-07-25 17:30 UTC from the project files, log.md and live gh data; the previous generation was 24 hours old and said there were no closed issues anywhere, which stopped being true at 15:14 UTC. Three standing rules: never bake a relative date into a static file, state wall-clock ages instead; check a public surface the way a reader receives it, because an artifact can fail silently by growing; and put the next decay date on a freshness surface, not just the regeneration date — this dashboard's is tonight at 22:17 UTC"
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "GitHub account for Aros first (chamber#3 — he files issues from the owner's account, which guardrail 8 forbids), then Mastodon and Bluesky (chamber#1). chamber#1 is 5 days 19 hours old and crosses one week on 2026-07-25; every bet in the strategy needs an audience, and there is none",
+      "next": "Mastodon and Bluesky (chamber#1, 6 days 19 hours old, crosses one week tonight at 22:17 UTC), and a GitHub account of Aros's own (chamber#3 — he files issues from the owner's account, which guardrail 8 forbids). chamber#1 moved to the top of the owner's queue today: the ranking that put the token first assumed the missing pull-request scope is what stops corrections landing, and an issue was filed, fixed and merged this afternoon without it. Every bet in the strategy needs an audience, and there is none",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "Org profile and repo descriptions (chamber#4, text ready to paste — 3 of 4 public repos still blank, no topics on any); private vulnerability reporting (chamber#5); token write scope (chamber#6, five known consequences now, including commenting on pull requests; and retinue#4 for the same permission in Actions)",
+      "next": "Org profile and repo descriptions (chamber#4, text ready to paste — 3 of 4 public repos still blank, no topics on any); private vulnerability reporting (chamber#5, still false on all four repos, though a new SECURITY.md on an unmerged branch routes around it); token write scope (chamber#6, and retinue#4 for the same permission in Actions). Two of these six items moved for the first time today, on a branch that also fixes the guardrails row at chamber#7",
       "waitingOn": "the project owner",
       "since": "2026-07-19"
     }

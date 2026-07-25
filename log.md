@@ -2261,3 +2261,74 @@ Files changed: `drafts/guardrails-row2-security-paths-untested.md` (the comment,
 kept as the record), `projects/public-surface.md` (c167 section, rule 30, three
 register rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled
 strategy review 2026-08-02.
+
+## 2026-07-25 (cycle 168) — the public dashboard was a day old and said the wrong thing about the best day the project has had
+
+Survey (17:13–17:25 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` still private. **36 open issues, 1 closed, 0 open
+PRs**, 0 discussions. Framework `main` at `26297a2`. 27 issue comments org-wide,
+every one from the owner's account (by him or by me). Of the 300 most recent org
+events — the API's cap, back to 2026-07-20 00:25Z — 293 are his, 5 Copilot, 1
+Actions, 1 the removed spam account. GitHub-wide search for the project's name:
+three Warhammer wargaming issues, false positives. No inbound, ever, from anyone
+outside the project. Web search is not available to this session, so the
+outside-GitHub check is the one I could actually run, and the log says so.
+drafts/: every file carries `status: published` or `status: filed`; nothing in
+cool-off. Cadence stays 1800 s. Nothing new from the owner in the 32 minutes
+since c167 — the branch `claude/aros-issues-triage-goei5k` is still unmerged with
+no PR.
+
+**Pickup: regenerate `docs/data/*.json`.** Last generated 2026-07-24 17:20Z. In
+the 24 hours since, `briefing.json`'s sentence "no closed issues anywhere" became
+false — qlever-dir#9 closed at 15:14Z, the first issue ever closed in this org,
+47 h 21 min after I filed it — and "one open pull request" became false at 15:12Z.
+A stale dashboard is not a cosmetic problem here: it is the one surface a stranger
+reaching the org actually reads, and yesterday's copy understated the project on
+the single most encouraging fact available to it.
+
+All five documents regenerated from live measurement (numbers in the register row
+and the c168 section of `projects/public-surface.md`). What changed beyond the
+counts:
+
+- **briefing.json** leads with the close and what the fix actually does — `find
+  -xtype f` plus a second pass emitting a `parsingError` quad for a symlink it
+  still cannot index, so the silent-skip mode is gone rather than narrowed — and
+  keeps the limit attached: one close out of 37 filed is not a drain rate, and the
+  standing measure stays **filed 37, accepted 1**.
+- It also records, in the owner's own briefing, that the GUARDRAILS row on his
+  branch is my wording and that one sentence of it is false. That belongs on the
+  dashboard and not only in an issue comment, because the branch is his to merge
+  and the correction is mine to make loud.
+- **CI sentence corrected while I was in the file:** "on every push" → "on pushes
+  to main and on pull requests", which is what `tests.yml`'s trigger says. Also
+  "last eight runs green" → last five, measured.
+- **todo.json re-ranked.** The top item was the agent GitHub account and its
+  token, ranked there partly on the argument that the missing PR scope is what
+  stops corrections being accepted. c163 found that unsupported; c165 watched an
+  issue get filed, fixed and merged without it. chamber#1 (social accounts) is now
+  top — oldest item, phase exit, crosses one week tonight at 22:17 UTC — with the
+  reason for the move stated on the card. Re-ranking a standing queue is not
+  re-escalation: nothing pushed, nothing repeated, the six owner-action issues
+  untouched.
+- **projects.json** `proj-public-release` keeps its `expected: 2026-07-25` rather
+  than being quietly moved, and says on the card that the date arrives with the
+  owner's privacy decision still open and that nothing degrades if he does nothing.
+  A due date that slides whenever it is inconvenient measures nothing.
+
+**Second finding, from running the c146 standing check before the push instead of
+after.** At 17:20Z `pages/builds/latest.commit` was `80e9f024` (c166) while `main`
+was `8dfe8576` (c167) — the Pages build fired two seconds after c167's push and
+built the parent tree. Harmless, because c167 touched nothing under `docs/`; it
+mattered today only because this cycle *does*. New detail worth keeping: both
+recorded instances of the lag are builds created within seconds of a push, so the
+trigger condition is a push landing while a build is queued, and any later push
+clears it. Re-checked after this cycle's own push — result in the register row.
+
+Nothing published externally this cycle: no comment, no issue, no post. Nothing
+handed to the owner — no account, money, terms or legal question arose, and the
+dashboard is the standing channel he already has. Nothing withheld under guardrail
+9. Files changed: `docs/data/{briefing,messages,todo,projects,agenda}.json`,
+`projects/public-surface.md` (two register rows + c168 section), this log. No
+strategy revision — a stale surface refreshed on its own schedule touches no bet,
+phase, objective, measure or cadence. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.
