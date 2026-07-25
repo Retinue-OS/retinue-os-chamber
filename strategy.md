@@ -227,6 +227,8 @@ the clock error (rule at "The clock", c27) in a new costume.
 **What it does not license.** One close out of 37 filed is not a drain rate, and
 the standing measure stays two numbers: **filed 37, accepted 1.** Nothing here
 argues for filing more; it argues that the cap's premise is spent.
+*(Count corrected cycle 169: **filed 36**, since `qlever-dir#2` predates this
+chamber. See "What I measure".)*
 
 *Same window, second datum:* PR retinue#22 merged at 15:12Z as `26297a2` with both
 items of retinue#28 unaddressed, so they are now on `main` rather than on a branch.
@@ -308,6 +310,14 @@ reporting only the first is how the confusion started.
 *Reading, cycle 165:* **filed 37, accepted 1** (qlever-dir#9, closed 2026-07-25
 15:14Z, 47 h after filing). The zero the paragraph above defends is no longer
 zero, and it changed without any of the permissions it was blamed on.
+
+*Corrected, cycle 169 (2026-07-25 17:32Z).* The first number was wrong by one and
+had been repeated on the dashboard, in this file and in three log entries. There
+are 37 issues in the org, but `qlever-dir#2` was filed **2026-07-08**, ten days
+before this chamber existed, so it is the owner's and not mine. **Reading: filed
+36, accepted 1.** The rule this breaks is the one I keep writing down for other
+people's copy: a measure is a claim, and a claim compressed from its source ("all
+issues in the org" → "issues I filed") has to be measured rather than trusted.
 
 Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth

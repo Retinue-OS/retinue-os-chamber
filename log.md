@@ -2335,3 +2335,64 @@ dashboard is the standing channel he already has. Nothing withheld under guardra
 strategy revision — a stale surface refreshed on its own schedule touches no bet,
 phase, objective, measure or cadence. `log.md` under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-25 (cycle 169) — regenerated the dashboard eleven minutes after the last one, and it was still wrong in three places
+
+Dispatched task: regenerate `docs/data/*.json` from `projects/`, `log.md` and live
+`gh`, keep the numbers traceable, name any owner's-desk item older than a week,
+commit and push. c168 had pushed the same five documents at 17:21Z, so the
+expected outcome was a timestamp bump. It wasn't.
+
+Survey (17:24–17:32Z, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0,
+`ara-android` private. **36 open issues** (retinue 21, qlever-dir 8, chamber 6,
+deployment 1), **1 closed**, **0 open PRs**, discussions off everywhere. PVR
+`false` ×4. Framework `main` `26297a2`. Chamber branch `claude/aros-issues-triage-goei5k`
+still unmerged, still no PR — this repo has never had one. Pages: `built`,
+`98681e9`, `error: null`, built 17:22:15Z, no lag. Last 20 `tests` runs green.
+Nothing new from the owner.
+
+**Three wrong numbers on a page eleven minutes old**, all found by re-running the
+measurement instead of re-reading the copy:
+
+1. **qlever-dir labels** read "8 bug, 1 enhancement" — that 8 included `#9`,
+   closed at 15:14Z. Open: **7 bug, 1 enhancement**. The sum contradicted the
+   "qlever-dir 8" on the same card.
+2. **"All 27 issue comments … from the owner's account."** There are 27 comments,
+   but `/issues/comments` includes pull-request conversation comments: **25 on
+   issues** (all his, by him or by me) and 2 on PR retinue#22, **one of them
+   Copilot's**. The card's own qualifier is what made it false.
+3. **The standing measure, "filed 37, accepted 1."** 37 is every issue in the org;
+   `qlever-dir#2` was filed **2026-07-08**, ten days before this chamber existed.
+   Reading is **filed 36, accepted 1**. Corrected in `strategy.md` in both places
+   it appears, dated, with the original left visible.
+
+Fourth, smaller: c168 stamped all five documents `17:30:00Z` and pushed at
+**17:21Z**. A page arguing that every number on it is traceable should not carry a
+timestamp nine minutes in the future. This generation is stamped `17:32Z` and was
+committed after 17:32Z; the rule is now on the `proj-dashboard-truth` card.
+
+**The one-week question, answered by measurement rather than by its framing.**
+Nothing on the owner's desk has been waiting a full week. chamber#1 is 6 d 19 h
+and crosses one week **tonight at 22:17:48Z** — the first item ever to do so;
+chamber#3 5 d 15 h, chamber#4 5 d 14 h, chamber#5 5 d 14 h, chamber#6 5 d 13 h,
+chamber#7 5 d 13 h, retinue#4 5 d 6 h, private privacy decision 5 d 19 h. The
+briefing states that nothing is overdue yet and lists every age, which is the
+honest answer to a question that assumed something was.
+
+**Two additions.** `proj-github-org`'s `expected_by` is today and arrives unmet on
+every criterion — now a dated milestone on the agenda card, recorded rather than
+moved. And a repository search for "retinue agent" returns exactly one repo:
+`Disaster-Terminator/Retinue` (★3, created 2026-05-03), an unrelated tool for
+running Claude Code and OpenCode as Codex subagents. Recorded factually as what a
+stranger searching the name finds. Not filed, not escalated, no comparison drawn:
+a shared name is a trademark-shaped question and those are the owner's (§7).
+
+Nothing published externally: no post, comment or issue. Nothing handed to the
+owner — no account, money, terms or legal question arose, and the dashboard is the
+standing channel he already has; the desk is unchanged apart from ages. Nothing
+withheld under guardrail 9. No strategy revision: a measure corrected by one is a
+factual fix, not a change of bet, phase, objective or cadence. Files changed:
+`docs/data/{briefing,messages,projects,agenda,todo}.json`, `strategy.md` (two
+dated corrections), `projects/public-surface.md` (c169 section, three register
+rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
+review 2026-08-02.

@@ -2038,3 +2038,50 @@ freshness surface needs a next-decay date, not just a regeneration date) and set
 no interval. The interval is now measurable: this surface survived two days when
 the org was quiet and went wrong in one when it was not. While there is human
 activity in the org, the dashboard is a daily check.
+
+## 2026-07-25 (cycle 169) — regenerating a surface eleven minutes old, and finding three wrong numbers in it
+
+c168 pushed the dashboard at 17:21Z. This cycle regenerated it again at 17:32Z on
+a dispatched task, which should have been a no-op and was not. The point is
+method, not diligence: **c168 wrote its copy from a live measurement and this
+cycle re-ran the measurement instead of re-reading the copy**, which is register
+rule 2 (reading a surface is not auditing it) applied to my own eleven-minute-old
+output. Three defects, all of the same class — a count compressed from its source
+into a claim about something narrower:
+
+| Stated | Measured 17:24–17:32Z | Why it was wrong |
+|---|---|---|
+| qlever-dir labels: 8 bug, 1 enhancement | **7 bug, 1 enhancement** | The 8 counted `#9`, closed at 15:14Z that afternoon. The sum also exceeded the 8 open issues on the same card. |
+| "All 27 issue comments … from the owner's account" | **25 on issues**, all his; 2 on PR retinue#22, one of them **Copilot's** | `/issues/comments` returns pull-request conversation comments too. The card's own qualifier ("issue comments") was the thing that made it false. |
+| Standing measure: **filed 37**, accepted 1 | **filed 36**, accepted 1 | 37 is every issue in the org. `qlever-dir#2` was filed 2026-07-08, ten days before this chamber existed. Corrected in `strategy.md` under "What I measure" and at "The drain rate is not zero". |
+
+A fourth, smaller: c168 stamped every document `generated: 17:30:00Z` and pushed
+at **17:21Z** — a timestamp nine minutes in the future on a page whose whole
+argument is that its numbers are traceable. Fixed here (`17:32Z`, pushed after
+17:32Z) and written onto the `proj-dashboard-truth` card as a rule.
+
+**Two facts added rather than corrected.** `proj-github-org`'s `expected_by` is
+today and arrives unmet on every criterion, which c168's agenda did not carry —
+now a dated milestone, unmoved. And a GitHub-wide repository search for "retinue
+agent" returns exactly one repo: `Disaster-Terminator/Retinue` (★3, created
+2026-05-03), an unrelated tool for running Claude Code and OpenCode as Codex
+subagents. Recorded as what a stranger searching the name finds. Nothing follows
+from it, nothing was filed, and it is not escalated: a name shared with another
+public project is a trademark-shaped question, and those are the owner's (§7).
+
+**The one-week check, run because it was asked for and answered by measurement.**
+Nothing on the owner's desk has been waiting a full week. Ages at 17:32Z:
+chamber#1 6 d 19 h (one week at **22:17:48Z tonight**, the first item ever to
+cross it), chamber#3 5 d 15 h, chamber#4 5 d 14 h, chamber#5 5 d 14 h, chamber#6
+5 d 13 h, chamber#7 5 d 13 h, retinue#4 5 d 6 h, and the private privacy decision
+5 d 19 h (unread since 2026-07-19 21:33Z). The briefing says exactly that — that
+nothing is overdue yet, with every age listed — rather than borrowing the framing
+of the question.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `docs/data/*.json` (this dashboard) | The one surface a stranger reaching the org actually reads | 2026-07-25 (c169) | Re-measured 11 minutes after its own regeneration; three counts wrong, all compressions of a wider source into a narrower claim. Daily while there is human activity in the org — and re-measured, never re-read. |
+| Generated timestamps on static data | Whether a freshness surface's own stamp is true | 2026-07-25 (c169) | c168's stamp was 9 minutes ahead of its push. New rule: stamp with a time that has already passed at commit. |
+| GitHub-wide name search | What a stranger searching "retinue" finds before finding us | 2026-07-25 (c169) | New row. One unrelated repo of the same name, ★3. No action; naming is owner territory. |
