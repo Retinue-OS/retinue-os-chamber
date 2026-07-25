@@ -1761,3 +1761,84 @@ a vulnerability. Files changed: `drafts/guardrails-row3-onboarding-cost.md` and
 `projects/public-surface.md` (two register rows + c161 section + twenty-fourth
 rule), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-25 (cycle 162) — the surface the project hands you to run, never audited
+
+Survey (08:26–08:30 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. 36 open issues before this cycle, 1 open
+PR (retinue#22, head unmoved), 0 discussions. Org event stream (100 events):
+`retog` 96, `Copilot` 3, and the removed spam account of c154 — still no human
+other than the owner, ever. Framework `main` unchanged at `92af09c`
+(07-23 19:16Z). Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN; nothing overdue, and
+chamber#1 passed seven days last night with the dashboard Milestones row already
+carrying it — not re-escalated. drafts/ all filed, nothing in cool-off. Cadence
+stays 10800 s; the restore trigger (a human posting anything) is not met.
+
+**Pickup 1: `examples/chambers/` — the framework's two shipped example chambers.**
+Chosen because the register's second column had no entry for it and neither
+`log.md` nor either archive part mentions it: zero coverage in 161 cycles. It is
+also the default `docker compose up` and the only runnable answer to "what is a
+chamber".
+
+The agent half is accurate — plugin manifests well-formed, both subagents carry
+frontmatter, both scheduled jobs ship `"enabled": false` as promised, autodetect
+behaves as `README.md` describes. The **data** half is not, and the fault is in the
+`path` mount the examples demonstrate rather than in the examples.
+`scripts/entrypoint.sh:78` symlinks `/workspace/chambers/<name>` →
+`/workspace/<path>`. The symlink is inside the shared `chambers` volume; the target
+is not. `qlever-life` mounts `chambers:/data:ro` and nothing else, so the chamber
+is a **dangling link in the container that indexes it** — plus two independent
+further reasons (`build_index.sh:72` scans with `find /data -type f`, no `-L`;
+`orchestrator.py:237-244` watches with `inotifywait -r`, which watches the link and
+not the target).
+
+Four public surfaces say the opposite in the strongest words available:
+`README.md:503` "all chambers equally", `docs/triple-stores.md:20-23` "**every**
+RDF file … across every mounted chamber", `CLAUDE.md:107` "**all** mounted
+chambers", `docker-compose.yml:51`/`:429` "every chamber is indexed equally".
+
+**Measured, not read.** Two one-triple chambers created in the same second: the
+real directory's graph appeared within 40 s; the symlinked chamber was absent at
+T+40, T+85 and T+125 s. The T+85 s reading is the one that carries the argument —
+an unrelated `.nt` write into a directory that existed at start forced a full
+rescan, whose own graph appeared, ruling out qlever-dir#10 (the new-directory
+race) as the explanation. Probes and trigger removed; store verified back at its
+8-graph baseline.
+
+**Filed [retinue#30](https://github.com/Retinue-OS/retinue/issues/30)**, with three
+options and no preference expressed, since which one to take is a design call and
+not mine. The disclosure footer was missing from the first submission and added by
+edit within the minute — guardrail 1 applies to every issue, and the convention
+only holds if it survives the cycle that is pleased with its finding.
+
+Silent and one-sided is what makes it worth an issue: a `path`-mounted chamber's
+plugin installs, its subagent runs, its jobs fire, its git hooks are installed, and
+its triples are simply not there, with no error anywhere. This is the lead-story
+claim (bet 1) at its weakest point — not the mechanism, which works, but the
+boundary of what the mechanism covers.
+
+**Pickup 2 (finishing yesterday, not starting anything): my own copy still carried
+the claim c161 measured false.** c161 measured `GUARDRAILS.md` §3 row 3 —
+"~30 environment variables, a manual certificate step" — and reported it to the
+owner because that file is normative over me. It then left the identical two errors
+in the two files that *are* mine and that public copy gets quoted out of:
+`brand/positioning.md:209` and `writing/org-profile-README.md:125`. Both corrected
+to the measured version (67 settings over 300 lines of `.env.example`, 35 passed by
+name in compose, a domain and reverse proxy for TLS, per-account volume discipline;
+no certificate step, since the egress CA is generated at first start and the client
+cert is an optional alternative to the password). The correction is stated above
+the line in `positioning.md`, per that file's convention.
+
+**Twenty-fifth rule:** audit the surfaces a newcomer reaches by *following
+instructions*, not only the ones a maintainer edits. Every previously audited
+surface is something the project says; `examples/chambers/` is something it hands
+you to run, and it emits no signal when it fails.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+a documentation/config defect in a public repo is mine to file. Nothing withheld
+under guardrail 9 — this touches no vulnerability. Files changed:
+`drafts/path-chambers-invisible-to-life-store.md` (the issue body, kept as the
+record), `brand/positioning.md`, `writing/org-profile-README.md`,
+`projects/public-surface.md` (two register rows + c162 section + twenty-fifth
+rule), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
+review 2026-08-02.

@@ -206,8 +206,23 @@ Restated from `GUARDRAILS.md` §3 because this is where enthusiasm leaks:
   file is mine and is corrected here so the claims I compose from it are true.
 - The project is coupled to non-contractual Claude Code behaviour. That is where
   most of its leverage comes from, and it is a real strategic risk.
-- Setup is a wall: ~30 environment variables, a manual certificate ceremony,
-  per-account volume discipline. Single maintainer, early days.
+- Setup is a wall: a 300-line `.env.example` documenting 67 distinct settings
+  (35 of which `docker-compose.yml` passes into the container by name), a domain
+  and reverse proxy to terminate TLS, and per-account volume discipline. Single
+  maintainer, early days.
+  *Correction, cycle 162.* This line said "~30 environment variables, a manual
+  certificate ceremony" until today. Both were wrong, and both were mine: the
+  count matched neither `.env.example` (67) nor the compose pass-through (35),
+  and there is **no** manual certificate step in the default path — the
+  egress-audit CA is generated at first container start
+  (`scripts/entrypoint.sh:22-37`), and `scripts/gen-client-cert.sh` issues an
+  *optional* client certificate that is an alternative to the basic-auth
+  password (`README.md:162-173`), not a prerequisite. The phrase was quoted from
+  `review.md:268`, which says "a manual CA ceremony **for client certs**"; my
+  copy dropped the three words that made it true. Measured at `92af09c`. The
+  same two errors sit in `GUARDRAILS.md` §3, which is normative over me and not
+  mine to edit — reported at
+  [chamber#7](https://github.com/retinue-os/retinue-os-chamber/issues/7).
 
 Saying these first is not modesty, it's strategy. The audience most likely to
 contribute is the audience most likely to notice them unaided.

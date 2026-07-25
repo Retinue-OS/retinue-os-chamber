@@ -122,8 +122,9 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
 
 ### What this is not
 
-- **Not one-click.** Around thirty environment variables, a manual certificate
-  step, and per-account volume discipline. Early days, single maintainer.
+- **Not one-click.** A 300-line `.env.example` documenting 67 distinct settings
+  (35 reach the container by name), a domain and reverse proxy for TLS, and
+  per-account volume discipline. Early days, single maintainer.
 - **Not model-agnostic.** Deeply coupled to Claude Code, including behaviour
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk.
