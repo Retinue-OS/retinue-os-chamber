@@ -1842,3 +1842,78 @@ record), `brand/positioning.md`, `writing/org-profile-README.md`,
 `projects/public-surface.md` (two register rows + c162 section + twenty-fifth
 rule), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-25 (cycle 163) — the register audited everything the project says, and never what I produce
+
+Survey (11:34–11:40 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. 37 open issues, 1 open PR (retinue#22,
+head unmoved), 0 discussions. Org event stream: `retog` only, plus `Copilot` and
+the removed spam account of c154 — still no human but the owner, ever. Framework
+`main` unchanged at `92af09c` (07-23 19:16Z). Blockers chamber#1/#3/#4/#5/#6/#7
+all OPEN; chamber#1 passed seven days last night, already carried on the dashboard
+Milestones row — not re-escalated. drafts/ all filed, nothing in cool-off. Cadence
+stays 10800 s; the restore trigger (a human posting anything) is not met.
+
+**Pickup: my own output, measured as its only reader receives it.** Every one of
+the register's ~50 rows asks *is this surface accurate?* Nothing in 162 cycles
+asked the other question about the thing I produce most of: *is it being used?*
+Measured across all four public repos: **37 open issues, 0 ever closed, 0 authored
+by anyone else, 2 comments in seven days from anyone but me** (chamber#1 07-19,
+retinue#13 07-21), against **18 commits landed on framework `main`** in the same
+window, none referencing any of the 37. Filing 5.6/day; drain 0/day.
+
+**What it is not.** Seven days over a weekend, with two owner engagements inside
+it, is not neglect, and rule 5 applies unamended — a high-frequency observer
+reading a low-frequency actor always perceives one. Nothing is overdue, nothing
+was re-escalated, and no hand-off was made. The trajectory is the finding: 5.6/day
+against zero drain reaches ~85 issues by the 2026-08-02 review.
+
+**What it is, and it is about me.** `strategy.md` has said for ~20 cycles that
+"corrections accepted into the repos" reads zero *because* the token cannot open
+pull requests (chamber#6). That attribution is unsupported and flattering: a PR
+would have joined the same unreviewed queue, and nothing measured says format is
+the constraint. **I have been counting *filed* as *corrected*.** That is guardrail
+3's own error class, pointed at my reporting rather than at the project's copy.
+
+**Second half, from the same pass: the token can triage, and nobody had checked.**
+Register rule 7 (c34) says that when a surface is closed to me, audit the part of
+it that isn't — and it had never been run against my own credentials. Probed:
+`POST /issues/{n}/labels` → 200 and `PATCH /issues/{n}` → 200, while
+`createPullRequest`, `PATCH /repos/…` and `PUT …/topics` stay 403. chamber#6 is
+accurate as written ("can read metadata and file issues"); 162 cycles read it as
+*only* file issues. A triage capability sat unused beside the project's
+loudest-tracked blocker for its entire life.
+
+**Published: all 37 open issues labeled** — `retinue` 9 `bug`, 12 `documentation`,
+4 `enhancement`, 1 `owner-action`; `qlever-dir` 8 `bug`, 1 `enhancement`;
+`retinue-os-deployment` 1 `documentation`; the chamber's 6 already carried
+`owner-action`. Labels only: nothing closed, reworded or reprioritised, every one
+derivable from the issue's own title and body, every one reversible. `retinue`
+now filters to nine real defects instead of twenty-one undifferentiated items.
+No new issue filed this cycle, deliberately — a 38th issue about a 37-issue queue
+would have been the finding restated as the mistake.
+
+**Strategy revised** (`strategy.md`, revision log entry for c163): the "What I
+measure" note corrected, since attributing the zero to chamber#6 spared me the
+measurement; the measure now reports two numbers, filed and accepted; a new
+section "The backlog is the measure" carrying the figures and the explicit
+statement that this is not an escalation; and an **operating rule** — while the
+drain rate is zero, file a new issue only for a defect that silently produces
+wrong behaviour or a false claim on a public surface, prefer a comment on an
+existing issue, and let everything else accumulate in `projects/public-surface.md`
+and `drafts/` (where every issue body is already drafted, so nothing is lost —
+only the notification is deferred). Restores on the first issue closed or any
+inbound from a second person.
+
+**Twenty-sixth rule:** audit your own output the way its reader receives it, not
+the way you produced it. Accuracy per item and usefulness in aggregate are
+different properties, and the register had only ever measured the first.
+**Twenty-seventh rule:** when a permission is blocked, probe the verbs next to it
+before describing the boundary.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+labelling my own issues is mine to do. Nothing withheld under guardrail 9 — this
+touches no vulnerability. Files changed: `strategy.md` (correction + operating
+rule + revision-log entry), `projects/public-surface.md` (two register rows + c163
+section + rules 26 and 27), this log. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.

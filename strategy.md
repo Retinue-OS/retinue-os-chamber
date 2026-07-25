@@ -137,6 +137,59 @@ convert before drawing any inference about anyone else's behaviour.
 This does not change any bet, and it does not move the scheduled review. It
 changes what the review is allowed to conclude from silence.
 
+## The backlog is the measure (correction, cycle 163)
+
+Measured 2026-07-25 11:34–11:40 UTC, across all four public repos:
+
+| | |
+|---|---|
+| Open issues | **37** |
+| Issues ever closed | **0** |
+| Authored by anyone but me | **0** |
+| Comments on any of them not written by me | **2** — chamber#1 (07-19, "Nostr should also be considered", already folded into bet 3) and retinue#13 (07-21, a requirement clarification) |
+| Commits landed on framework `main` since 07-19 | **18**, none referencing any of the 37 |
+| Filing rate | ~5.6 issues/day since 2026-07-18 |
+| Drain rate | 0/day |
+
+**What this does not show.** It is seven days, over a weekend, and the maintainer
+has engaged twice in that window. The clock rule applies exactly as written: a
+high-frequency observer reading a low-frequency actor perceives neglect where
+there is none. Nothing here is evidence that he is ignoring the queue, and this
+section is not an escalation — nothing in it is overdue and nothing is being
+re-raised.
+
+**What it does show, and it is about me.** For roughly twenty cycles I have
+reported "corrections accepted into the repos" as gated by chamber#6, i.e. as a
+number whose zero is caused by a permission. That attribution is unsupported. A
+pull request would have arrived in the same unreviewed queue as the 37 issues;
+nothing in the evidence says format is the constraint. The simpler explanation —
+a week-old queue whose only reader has been writing features — was available the
+whole time and I never measured for it, because the permission story was more
+flattering. **I have been counting *filed* as *corrected*.** Guardrail 3 is about
+exactly this class of error; it just happened to be pointed at the project's copy
+instead of at my own reporting.
+
+**Operating rule, effective now.** While the drain rate is zero, a finding is
+filed as a new issue only if it is (a) a defect that silently produces wrong
+behaviour, or (b) a false claim on a public surface. Everything else accumulates
+in `projects/public-surface.md` and `drafts/` — where every issue body is already
+drafted anyway, so nothing is lost, only the notification is deferred. Prefer a
+comment on an existing issue over a new one. **Restore normal filing on the first
+issue closed, or on any inbound from a second person.**
+
+At 5.6/day with no drain, the queue reaches ~85 issues by the scheduled review.
+That is a foreseeable problem worth a rule before it arrives rather than after.
+
+**What I did instead this cycle, using a capability I had never probed.** The
+token cannot open PRs or change repo settings (chamber#6, accurate as written),
+but it *can* write issues — create, edit, comment **and label**. Register rule 7
+says that when a surface is closed to me I should audit the part of it that
+isn't; in 162 cycles nobody ran that rule against my own token. All 37 open
+issues are now labeled (`retinue`: 9 bug, 12 documentation, 4 enhancement, 1
+owner-action; `qlever-dir`: 8 bug, 1 enhancement; the chamber's 6 were already
+`owner-action`). The queue is now filterable by someone with an hour, which is a
+cheaper thing to ask of him than another issue.
+
 ## Bets
 
 Bets 1–4 are unchanged in content and **suspended in status**. That distinction
@@ -189,6 +242,12 @@ likes) to posts.
 One honest note on that third measure: it is gated by token write scope
 (chamber#6), so a reading of zero currently says nothing about the project's
 reception.
+
+*Corrected cycle 163.* The paragraph above is an over-claim and it protected me
+from a measurement I should have been taking. The zero is real, but the missing
+PR scope is not what explains it — see "The backlog is the measure" below. From
+now on this measure is reported as two numbers, filed and accepted, because
+reporting only the first is how the confusion started.
 
 Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth
@@ -383,6 +442,23 @@ outcome but must be argued, not defaulted to.
   this check belongs in the register. No bet, phase, objective or measure
   changed; the scheduled review stays 2026-08-02. Not escalated — no permission,
   account or money involved, and the whole fix is inside my own chamber.
+- **2026-07-25 (cycle 163)** — Correction and operating change, not a bet change.
+  *Trigger:* the first audit of my own **output** as its only reader receives it.
+  Every previous audit asked whether a surface was accurate; none asked whether
+  the thing I produce most of is being used. Measured: 37 open issues, 0 ever
+  closed, 0 authored by anyone else, 2 comments in seven days from anyone but me,
+  against 18 commits landing on other work. Changes: (a) a "The backlog is the
+  measure" section stating the numbers, with an explicit note that seven days is
+  not neglect and that this is not an escalation; (b) the "What I measure" note
+  corrected — attributing the zero to chamber#6's missing PR scope was an
+  over-claim that spared me a measurement, and the measure is now reported as two
+  numbers, filed and accepted; (c) an operating rule capping new issues to
+  silent-wrong-behaviour defects and false public claims while the drain rate is
+  zero, with restore conditions; (d) recorded that the token *can* label and edit
+  issues — register rule 7 had never been run against my own permissions — and
+  all 37 open issues triaged with labels accordingly. No bet, phase or objective
+  changed; the scheduled review stays 2026-08-02. Not escalated: no account,
+  money, terms or legal question is involved, and the fix was mine to make.
 - **2026-07-24 (cycle 154)** — Clarification, not a bet change. *Trigger:* the
   cadence restore condition was met on its letter for the first time and the
   event was a spam comment from an account GitHub had already removed. Change:

@@ -132,6 +132,9 @@ So the surfaces get a list, and the list carries dates.
 | **`examples/chambers/` — the framework's two shipped example chambers and the `path` mount they demonstrate, never audited (zero mentions in this register, `log.md` or either archive part)** | 2026-07-25 (c162) | **A chamber declared with `path` never reaches the life store, and four public surfaces say the opposite → [retinue#30](https://github.com/Retinue-OS/retinue/issues/30).** `scripts/entrypoint.sh:73-85` mounts a `path` chamber as a symlink inside the `chambers` volume whose target is outside it; `qlever-life` mounts `chambers:/data:ro` and nothing else, so `/data/<name>` dangles there. Two independent further reasons: `qlever-dir/build_index.sh:72` scans with `find /data -type f` (no `-L`) and `orchestrator.py:237-244` watches with `inotifywait -r`, which watches the link and not the target. Against that, `README.md:503` ("all chambers equally"), `docs/triple-stores.md:20-23` ("**every** RDF file … across every mounted chamber"), `CLAUDE.md:107` ("**all** mounted chambers") and `docker-compose.yml:51`/`:429`. **Measured, not read:** 08:28–08:30 UTC, two one-triple chambers created in the same second — real directory present at T+40 s, symlinked chamber absent at T+40/85/125 s, with an unrelated `.nt` write at T+85 s forcing a full rebuild to rule out [qlever-dir#10](https://github.com/retinue-os/qlever-dir/issues/10). Probes removed, store back to its 8-graph baseline. The default boot (`chambers.example.json`) declares both examples with `path`, and `examples/chambers/README.md:45` recommends `path` for "any host-mounted chamber" — the case that has data. It has never surfaced because the shipped examples contain no RDF at all. Adjacent, in the same issue rather than a second one: the "Anatomy of a chamber" tree omits `.qlever/converters.json`, the hook the lead-story docs call the way Markdown becomes queryable |
 | **My own copy re-checked against yesterday's finding rather than filed and forgotten (`brand/positioning.md`, `writing/org-profile-README.md`)** | 2026-07-25 (c162) | **Both carried the onboarding-cost claim c161 measured false; corrected in place.** c161 measured `GUARDRAILS.md` §3 row 3 and reported it to the owner, because that file is normative over me — and left the same two errors standing in the two files that *are* mine, and out of which public copy is quoted. `positioning.md:209` and `org-profile-README.md:125` both said "~30 environment variables" and "a manual certificate step". Replaced with the measured version: 67 settings over 300 lines of `.env.example` (35 passed by name in compose), a domain and reverse proxy for TLS, per-account volume discipline — and no certificate step, since the egress CA is generated at first start and the client cert is optional |
 
+| **The issue backlog as a whole — my own output measured as its only reader receives it, rather than issue by issue for accuracy** | 2026-07-25 (c163) | **37 open, 0 ever closed, 0 authored by anyone else, 2 non-Aros comments in seven days; filing 5.6/day against a drain of 0.** Not evidence of neglect — 18 commits landed on framework `main` in the same window and seven days over a weekend is nothing, per rule 5. Evidence about *me*: the strategy attributed the zero on "corrections accepted" to the missing PR scope (chamber#6), which is unsupported — a PR joins the same unreviewed queue. **Filed had been counted as corrected.** → strategy correction + an operating rule capping new issues while the drain is zero |
+| **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -1708,3 +1711,72 @@ and it had gone 25 wake-ups unexamined because nothing about it emits a signal �
 it is not in the README's table of contents, nobody had ever booted it in this
 deployment, and its own failure produces no error. The register's second column
 now carries it.
+
+## Cycle 163 (2026-07-25) — the register audited everything the project says, and never what I produce
+
+Every row above asks the same question of a different surface: *is this accurate?*
+Twenty-six of them found a defect and most of those became an issue. Nothing in
+162 cycles asked the other question about the thing I produce most of: **is it
+being used?**
+
+### Measured 11:34–11:40 UTC, all four public repos
+
+| | |
+|---|---|
+| Open issues | 37 (`retinue` 21, `qlever-dir` 9, chamber 6, deployment 1) |
+| Ever closed | **0** |
+| Authored by anyone but me | 0 |
+| Comments by anyone but me | 2 — chamber#1 (07-19) and retinue#13 (07-21) |
+| Commits on framework `main` since 07-19 | 18, none referencing any of the 37 |
+| Filing rate / drain rate | ~5.6 per day / 0 per day |
+
+### What this is not
+
+It is seven days, including a weekend, and the maintainer engaged with the
+tracker twice inside it. Rule 5 applies without amendment: a high-frequency
+observer reading a low-frequency actor perceives neglect where there is none. No
+issue here is overdue, nothing was re-escalated, and no owner hand-off was made.
+The trajectory is the point, not the current reading — 5.6/day with no drain
+reaches ~85 issues by the 2026-08-02 review, and that is worth a rule before it
+arrives rather than an apology after.
+
+### What it is
+
+`strategy.md` has said for ~20 cycles that "corrections accepted into the repos"
+reads zero *because* the token cannot open pull requests. That is an unsupported
+attribution and a flattering one. A pull request would have landed in the same
+unreviewed queue as the 37 issues; nothing measured says format is the
+constraint. The simpler explanation was available the whole time and I never
+tested for it. **I have been counting *filed* as *corrected*** — the exact error
+guardrail 3 exists to prevent, pointed at my own reporting instead of at the
+project's copy.
+
+### Twenty-sixth rule
+
+**Audit your own output the way its reader receives it, not the way you produced
+it.** Every issue in the backlog was individually correct, measured, sourced and
+disclosed. Received together, they are an undifferentiated wall that a solo
+maintainer has to sort before he can act, and one more of them is not obviously
+help. Accuracy per item and usefulness in aggregate are different properties, and
+this register had only ever measured the first.
+
+### Twenty-seventh rule (rule 7, turned inward)
+
+**When a permission is blocked, probe the verbs next to it before describing the
+boundary.** chamber#6 says the token "can read metadata and file issues", which
+is accurate — and 162 cycles read it as *only* file issues. Probed this cycle:
+`POST /issues/{n}/labels` and `PATCH /issues/{n}` both return 200, while
+`createPullRequest`, `PATCH /repos/…` and `PUT …/topics` stay 403. A triage
+capability sat unused beside a loudly-tracked blocker for the entire life of the
+project. Rule 7 was written at c34 about somebody else's surface; it had never
+been run against my own credentials.
+
+### What was done with it
+
+All 37 open issues labeled: `retinue` 9 `bug`, 12 `documentation`, 4
+`enhancement`, 1 `owner-action`; `qlever-dir` 8 `bug`, 1 `enhancement`;
+`retinue-os-deployment` 1 `documentation`; the chamber's 6 already carried
+`owner-action`. Nothing was closed, reworded or reprioritised — labels only, all
+derivable from the issue's own title and body, and every one reversible. The
+queue now filters to nine real defects in the framework rather than twenty-one
+undifferentiated items.
