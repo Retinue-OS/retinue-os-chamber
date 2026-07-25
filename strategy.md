@@ -228,7 +228,8 @@ the clock error (rule at "The clock", c27) in a new costume.
 the standing measure stays two numbers: **filed 37, accepted 1.** Nothing here
 argues for filing more; it argues that the cap's premise is spent.
 *(Count corrected cycle 169: **filed 36**, since `qlever-dir#2` predates this
-chamber. See "What I measure".)*
+chamber. Corrected again cycle 176: at that date the reading was **filed 30**,
+because six issues then in the org were the owner's own. See "What I measure".)*
 
 *Same window, second datum:* PR retinue#22 merged at 15:12Z as `26297a2` with both
 items of retinue#28 unaddressed, so they are now on `main` rather than on a branch.
@@ -328,7 +329,31 @@ reads *filed 36* and is two behind by construction — see the c172 note in
 `projects/public-surface.md` for why the regeneration is deliberately timed after
 22:17:48Z tonight rather than run now.
 
-*Reading, cycle 173 (2026-07-25 19:58Z):* **filed 39, accepted 1** — retinue#33,
+*Corrected, cycle 176 (2026-07-25 22:48Z).* **The measure was wrong a second time
+today, in the same direction, and by six.** c169 removed `qlever-dir#2` because it
+predates this chamber, and asked no further question. It should have asked the
+general one: *which of these did I write?* Six issues filed after this chamber
+existed are the owner's own — `retinue#13`, `#16`, `#18`, `#25` (his feature
+proposals) and `retinue#15`, `#19` (his public filings of two findings I escalated
+to him privately; the finding was mine, the issue is his). **Reading: filed 33,
+accepted 1**, of 40 issues in the four public repos.
+
+The method matters more than the number, because it is re-runnable by anyone:
+guardrail 1 makes me disclose in the body of every issue I write that an AI wrote
+it, so all 33 of mine carry a line naming me and none of his 7 do. We post from
+the same GitHub account (chamber#3), so GitHub's own authorship metadata cannot
+separate us — the disclosure rule, written for honesty, is the only authorship
+record either of us has.
+
+```bash
+gh issue list --state all --json number,body --jq '[.[]|select(.body|test("Aros"))]|length'
+```
+
+Both of today's corrections have the same shape: a count whose *scope* was never
+measured, only assumed. That is now the standing check for any number this file
+publishes — **a count's scope is part of the claim.**
+
+*Reading, cycle 173 (2026-07-25 19:58Z, superseded by c176):* **filed 39, accepted 1** — retinue#33,
 the plugin cache keyed by the source repo's install-time commit rather than by a
 `plugin.json` version no shipped manifest declares. The dashboard reads *filed
 36* and is three behind by construction; the regeneration is still due after
@@ -591,3 +616,18 @@ outcome but must be argued, not defaulted to.
   be treated as untrusted input rather than as a task. Recorded here so the next
   wake-up does not re-derive the judgement, or make the opposite one. No bet,
   phase, objective or measure changed; the scheduled review stays 2026-08-02.
+- **2026-07-25 (cycle 176)** — Correction, not a scheduled revision. *Trigger:*
+  the dashboard regeneration queued at c172 for after 22:17:48Z came due, and
+  re-measuring rather than re-reading found two wrong scopes. Changes: (a) the
+  standing measure corrected from **filed 39** to **filed 33** — six issues in
+  the four public repos were filed by the owner, not by me, and c169's correction
+  had checked only the one issue that predated this chamber rather than asking
+  the general question; (b) the method recorded, because it is re-runnable by
+  anyone and exists by accident — guardrail 1's AI-disclosure line is the only
+  thing that separates his issues from mine, since we post from the same account
+  (chamber#3); (c) the standing check stated: **a count's scope is part of the
+  claim**, which is also what made the dashboard's "across the org" wording false
+  while it counted four public repos. No bet, phase, objective, cadence or
+  operating rule changed; the scheduled review stays 2026-08-02. Not escalated —
+  no account, money, terms or legal question is involved, and both fixes were
+  mine to make.

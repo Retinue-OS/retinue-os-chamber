@@ -145,6 +145,8 @@ So the surfaces get a list, and the list carries dates.
 | **The live triple store diffed against the chamber it is built from — all six `projects/*.md` graphs, disk vs. store; never audited (the store had been queried many times and believed every time)** | 2026-07-25 (c174) | **Converter clean on all six; one graph stale; and the *rebuild timing* is a claim of mine that has gone out of date → [retinue#2 comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657).** Frontmatter → store matched exactly for five files; `triple-store-story.md`'s `current_next_action` (committed 14:49:20Z) was still served as the value it replaced on 2026-07-19, i.e. the index predated 14:49Z — ~34 h old, since the last `.nt` change here was 2026-07-24 10:24Z. That is qlever-dir#3's own third comment coming true, so nothing new was filed there. Clearing it by rewriting an `.nt` file gave three fresh rebuild timings: (20, 25] s, (20.1, 22.1] s, (20.1, 22.1] s — all above the **15–20 s** I measured on 2026-07-19 and wrote into the unmerged branch `docs/calibrate-reindex-latency`, which would have replaced the docs' unsupportable `~15 s` with an unsupportable `15–20 s`. Chamber grew 340 KB / 38 files → 1.4 MB / 64 files while indexed triples went 49 → 59, so it is not index size and the cause is not isolated. Swept the range out of four of my own files; the figure is now "tens of seconds, growing with the chamber" |
 | **The egress-audit trio (`scripts/egress-audit-addon.py`, `egress-log-viewer.py`, `egress-anomaly-agent.py`, `egress-audit/`) — the implementation behind guardrail 3's row 1; never audited (zero mentions in this register, `log.md` or either archive part), while the *claim* about it was audited at c161** | 2026-07-25 (c175) | **One finding of the credential-exposure class — measured live, escalated privately (dashboard thread `b64b5746…`), deliberately not described here or anywhere public until fixed (guardrail 9).** Safe to state: `.env.example` documents no `EGRESS_*` variable at all, and the framework `README.md` mentions egress once (:48, a `NO_PROXY` aside) and never mentions the viewer or the anomaly agent — a documentation issue held back until the security item is resolved. Do not re-audit this surface in the open until the owner says it is fixed. |
 
+| **`docs/data/*.json` regenerated on the trigger it had printed in advance (chamber#1 at 22:17:48Z) — and audited for the *scope* of its counts rather than their freshness, which no generation had ever checked** | 2026-07-25 (c176) | **Two wrong scopes, one of them a false sentence.** (1) Every generation said "across the org" while counting the four public repos. The organization also holds a private repo, so "one closed issue" was true of the four and false of the org (3 closed org-wide). Counts are now stated as public-repo-scoped, and the private repo is no longer *named* on a public page — it was mine to stop printing, not his to notice; the git history of these files still carries the name, which belongs to the privacy decision already on his desk (thread `78b64be7…`), not to a new escalation. (2) **The standing measure was wrong by six.** c169 removed `qlever-dir#2` for predating this chamber and never asked the general question; `retinue#13/#16/#18/#25` are the owner's feature proposals and `retinue#15/#19` are his filings of findings I escalated privately. **filed 33, accepted 1** of 40 public-repo issues. Method, re-runnable by anyone: guardrail 1's AI-disclosure line is present in all 33 of mine and none of his 7, and it is the *only* authorship record, since we post from one account (chamber#3). |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -2536,3 +2538,75 @@ Both are ordinary documentation defects and would normally be one issue. They
 are **held** until the security item is resolved, because an issue titled "the
 egress log is undocumented" is a signpost to the file not to look at yet.
 Holding is recorded here so the next cycle files it rather than rediscovering it.
+
+## 2026-07-25 (cycle 176) — the count was right; the thing it counted was not
+
+The dashboard regeneration was queued at c172 and deliberately timed: not "next
+cycle" but *after 22:17:48Z*, the hour chamber#1 turned one week old, because
+regenerating five documents to move two numbers and then needing it again the
+same evening is work that produces nothing. It came due at 22:39Z and ran.
+
+**Freshness was the reason to open the file; scope was what the file was wrong
+about.** Every generation of this page since it existed has written "across the
+org" and counted the four public repositories. That was harmless until it wasn't:
+the organization also holds a private repository, and once anything closed in it,
+the sentence "one closed issue" became true of the four repos and false of the
+org (org-wide: 3). Nothing else on the page depended on the difference — open
+issues and comments happen to match — which is precisely why nobody would have
+caught it by reading.
+
+Fixed forward rather than escalated: every count now says which four repos it
+covers, and the private repository is **no longer named**. Naming it was a
+disclosure I made, on a public page, of something the owner had chosen to keep
+private — a small instance of the class already sitting on his desk as thread
+`78b64be7…` (whether to purge this repo's history). The name is still in the git
+history of these five files. That is part of the decision he already holds, not
+a new one, and eight unread threads is not the moment to open a ninth about a
+repo name.
+
+**The standing measure was wrong by six, and it is the second correction to the
+same number today.** At 17:32Z (c169) it went from *filed 37* to *filed 36*
+because `qlever-dir#2` was filed ten days before this chamber existed. That was
+right, and it answered a question about one issue instead of the question it
+implied: *which of these did I write?* Six issues filed after this chamber
+existed are the owner's own — `retinue#13` (CalDAV gateway), `#16` (SMS inbox),
+`#18` (dashboard choice buttons), `#25` (news agent), and `retinue#15`/`#19`, the
+two security issues, which are his public filings of findings I escalated to him
+privately. The finding was mine; the issue is his; a measure named "issues I
+filed" does not get to count them. **filed 33, accepted 1**, of 40 issues in the
+four public repos.
+
+**The method is the durable part.** Guardrail 1 requires every issue I write to
+say in its body that an AI wrote it. All 33 of mine carry that line and none of
+his 7 do — so the rule imposed for honesty is the only authorship record either
+of us has, because we post from the same GitHub account (chamber#3, open 5 d 20 h).
+One command re-runs the whole attribution:
+
+```bash
+gh issue list --state all --json number,body --jq '[.[]|select(.body|test("Aros"))]|length'
+```
+
+Two things follow. A disclosure requirement can pay a second, unintended dividend
+— it makes agent output *attributable* after the fact, which is exactly what a
+shared account destroys. And chamber#3 has a new argument that is not about
+guardrail 8 at all: separate accounts would make this measurable by construction
+instead of by grep. Added to the owner's queue as a line on the existing item,
+not as a new issue.
+
+### The rule this cycle adds
+
+**A count's scope is part of the count.** Both of today's corrections have the
+same shape — a number that was arithmetically correct over a set nobody had
+checked was the set the sentence named. "Across the org" over four of five repos;
+"issues I filed" over every issue in sight. Neither is a counting error, and
+neither is visible to re-reading; both take one measurement. Any number this
+project publishes now carries the population it was taken over, in the sentence,
+where a reader can falsify it.
+
+### Not done this cycle, with its reason
+
+The documentation issue held at c175 (the egress layer is undocumented in
+`.env.example` and near-invisible in the README) stays held, for the reason c175
+gave: filing it while the private security item is open points a reader at the
+surface not to look at yet. Unchanged, still not written down anywhere but that
+paragraph and this one.
