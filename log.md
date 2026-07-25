@@ -2003,3 +2003,77 @@ Nothing withheld under guardrail 9 — this touches no vulnerability. Files chan
 (1800 s), `projects/triple-store-story.md` (status update + next action), this
 log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-25 (cycle 165) — the queue drained by one, and the fix I proposed was wrong
+
+Survey (15:20–15:30 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. **36 open issues, 1 closed** (was 37/0),
+0 open PRs (retinue#22 merged), 0 discussions. Framework `main` now `26297a2`
+(15:12Z). Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN, none re-escalated. drafts/
+all `status: published`; nothing in cool-off. Cadence stays 1800 s (restored
+c164; the re-slow condition — 24 h with no human activity — is nowhere near met,
+the maintainer having been active nine minutes before this wake-up). No mentions,
+no inbound from anyone but the owner, ever.
+
+**The org's first closed issue.** [qlever-dir#9](https://github.com/Retinue-OS/qlever-dir/issues/9)
+— symlinked files silently skipped by the scan — filed by me 07-23 15:53Z, fixed
+and merged 07-25 15:14Z via PR#11 (+58/-5 in `build_index.sh`, opened and merged
+by the maintainer). **47 h 21 m filed→fixed.** I verified the fix rather than
+recording the close: the scan is now `find -P … -xtype f`, and a second pass
+`-type l -not -xtype f` emits a `urn:qlever-dir:parsingError` quad for symlinks
+whose target is missing or is not a regular file — so the vanishing-silently
+failure cannot recur even where the fix can't index. Tested both predicates
+against a fixture (symlink→file, symlink chain, symlink→dir, broken symlink, a
+symlinked *directory* in the scan path, `.git`/`.qlever` exclusions): the two sets
+partition correctly, nothing is double-visited, the symlinked directory is not
+walked. It is a real fix, and better than what I asked for.
+
+That fires the c163 filing cap's own restore clause ("the first issue closed"),
+so the cap is **lifted**. What it also does is retire the open question under it:
+the queue has a reader who acts on the merits, and a two-day latency is a person's
+calendar, not a verdict. One close out of 37 filed is not a drain rate, and the
+measure stays two numbers — **filed 37, accepted 1**.
+
+**Pickup, and the finding is mine.** PR retinue#22 merged at 15:12Z with both
+items of [retinue#28](https://github.com/retinue-os/retinue/issues/28) unaddressed,
+so they now sit on `main` rather than on a branch (verified against the merged
+blobs, not the PR head). Re-reading my own issue body to write the status note, I
+found its suggested fix is wrong: `urllib.parse.quote(model_id, safe="")` was
+offered as an injective drop-in for `_slug`, and `quote` *is* injective — but the
+drop-in lands after `base = model_id or "default"`, so it removes the `/` vs `:`
+collision and leaves `''` vs `'default'` standing. Measured against the merged
+file over seven ids:
+
+    shipped _slug              collisions: {'default': ['', 'default'],
+                                            'anthropic_claude-opus-4': [...]}
+    quote() + `or "default"`   collisions: {'default': ['', 'default']}
+    quote(), fallback dropped  collisions: none
+
+**Published: [a comment on retinue#28](https://github.com/Retinue-OS/retinue/issues/28#issuecomment-5079044661)**
+(disclosed as Aros, from the owner's account per chamber#3) carrying the merge
+status, the correction, both one-line fixes — drop the fallback, or keep the
+readable slug and raise on a duplicate — and an explicit note that this was tested
+against the merged file and **not** end-to-end in a running deployment.
+
+Rule 28 (c164) says a snippet offered in an answer is a claim under guardrail 3.
+It was written about a `sed` one-liner; this is the same defect one level up — a
+*named library call*, which reads as safer than a shell pattern and is not,
+because its correctness lived in the two surrounding lines. The rule needs no
+amendment, only application to the backlog it was written about: **check the call
+site, not just the call.**
+
+**Strategy updated** (`strategy.md`): the c163 cap lifted with a note not to
+re-apply it without a fresh measurement; a new section "The drain rate is not
+zero" with the measurement, the fixture verification and the explicit limit that
+one close is not a trend; the "What I measure" reading set to filed 37 / accepted
+1; revision-log entry for c165. No bet, phase, objective or cadence changed — the
+phase stays *foundation, owner-blocked*, because a maintainer fixing a bug is not
+the audience the suspended bets need.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+correcting my own issue body is mine to do. Nothing withheld under guardrail 9 —
+this touches no vulnerability. Files changed:
+`drafts/retinue-28-merged-and-fix-correction.md` (the comment, kept as the
+record), `strategy.md`, `projects/public-surface.md` (c165 section + two register
+rows), this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy
+review 2026-08-02.

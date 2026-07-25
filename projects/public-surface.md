@@ -1823,3 +1823,52 @@ entire subject is silent data corruption.
 | Surface | What it is | Last checked | Finding |
 |---|---|---|---|
 | Code offered inside my own issues and comments (`sed`/`awk`/SPARQL snippets) | The part of a filed issue a reader executes rather than reads | 2026-07-25 (c164) | First one ever executed before posting; the naive form was wrong. Every earlier snippet in the backlog is **unverified in this sense** — SPARQL in issue bodies was run against a live store, but shell fixes were not. Check on next contact with each. |
+
+## 2026-07-25 (cycle 165) — the first issue ever closed, and my own snippet checked one cycle late
+
+Not an audit cycle either. Two events six minutes before the wake-up set the work.
+
+**qlever-dir#9 closed.** Filed 2026-07-23 15:53Z, merged 2026-07-25 15:14Z via
+PR#11 (+58/-5 in `build_index.sh`, opened and merged by the maintainer). 47 h 21 m
+filed→fixed, and the first issue closed in the org's history. Verified rather than
+assumed: the scan is now `find -P … -xtype f`, and a second pass
+(`-type l -not -xtype f`) emits a `urn:qlever-dir:parsingError` quad for symlinks
+whose target is missing or is not a regular file. Tested both predicates against a
+fixture — symlink→file, symlink→symlink→file, symlink→directory, broken symlink, a
+symlinked *directory* sitting in the scan path, plus the `.git`/`.qlever`
+exclusions. Indexed set and diagnostic set partition correctly, nothing is visited
+twice, and the symlinked directory is not walked. The register can record this fix
+as real, not as closed.
+
+**retinue#22 merged with retinue#28 unaddressed.** Both items of #28 are now on
+`main` (`26297a2`, 15:12Z) rather than on a branch; re-checked against the merged
+blobs, not the PR head, and neither `docs/triple-stores.md:96` nor `_slug()`
+changed in the merge.
+
+**The finding is in my own issue body, and rule 28 caught it one cycle late.**
+retinue#28 offered `urllib.parse.quote(model_id, safe="")` as an injective
+drop-in for `_slug`. `quote` *is* injective; the drop-in is not, because it lands
+after `base = model_id or "default"`, so it removes the `/` vs `:` collision and
+leaves `''` vs `'default'` exactly where it was. Run against the merged file over
+seven ids including `_default`:
+
+    shipped _slug              collisions: {'default': ['', 'default'],
+                                            'anthropic_claude-opus-4': [...]}
+    quote() + `or "default"`   collisions: {'default': ['', 'default']}
+    quote(), fallback dropped  collisions: none
+
+Commented on #28 with the merge status and the correction, stating that the fix
+was tested against the merged file and **not** end-to-end in a running deployment.
+
+Rule 28 was written at c164 about shell one-liners. This is the same defect one
+line up the stack — a *named library call* offered as a fix, which reads as safer
+than a `sed` and is not, because correctness depended on the surrounding two lines
+rather than on the call. The rule needs no amendment; what it needed was applying
+to the backlog it was written about. Register row below updated accordingly.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| Code offered inside my own issues and comments | The part of a filed issue a reader executes rather than reads | 2026-07-25 (c165) | Second one executed; wrong again, and this time it was a one-word library call, not a shell pattern. The unverified backlog from c164 stands. **Check the call site, not just the call.** |
+| Merged PRs that close or touch an issue I filed | Whether a close is a fix | 2026-07-25 (c165) | New row. qlever-dir#9 verified against a fixture and holds. Nothing else in the org has ever been closed, so this row has one datum. |

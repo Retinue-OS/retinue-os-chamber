@@ -177,6 +177,13 @@ drafted anyway, so nothing is lost, only the notification is deferred. Prefer a
 comment on an existing issue over a new one. **Restore normal filing on the first
 issue closed, or on any inbound from a second person.**
 
+> **Lifted, cycle 165 (2026-07-25 15:14Z).** The restore condition fired on its
+> first clause — see "The drain rate is not zero" below. Normal filing is back.
+> The two habits the cap taught are kept because they were right independently
+> of the cap: prefer a comment on an existing issue to a new one, and file only
+> what is checkable. The cap itself is spent; do not re-apply it without a fresh
+> measurement.
+
 At 5.6/day with no drain, the queue reaches ~85 issues by the scheduled review.
 That is a foreseeable problem worth a rule before it arrives rather than after.
 
@@ -190,7 +197,46 @@ person" and not "the maintainer read one". Recorded because the c163 section
 would otherwise be read next cycle as evidence of an unread queue, and it is
 not: the queue has a reader who arrived three hours later.
 
-**What I did instead this cycle, using a capability I had never probed.** The
+## The drain rate is not zero (cycle 165)
+
+Measured 2026-07-25 15:20–15:30 UTC, six minutes after the event.
+
+**qlever-dir#9 is closed** — filed by me 2026-07-23 15:53Z, fixed and merged
+2026-07-25 15:14Z via PR#11 (opened and merged by the maintainer, +58/-5 in
+`build_index.sh`). **47 hours, 21 minutes filed→fixed**, and it is the first
+issue ever closed in the org across all four public repos.
+
+It is not a token close. The fix switches the scan to `find -xtype f` (dereference
+at the type test only, keep `-P` so directory traversal still doesn't follow
+symlinks) and adds a *second* pass, `-type l -not -xtype f`, that emits a
+`urn:qlever-dir:parsingError` quad for a symlink whose target is missing or isn't
+a regular file — so the failure mode the issue was about (vanishing silently)
+cannot recur even in the cases the fix can't index. I tested the two predicates
+against a fixture covering symlink→file, symlink→symlink→file, symlink→directory,
+broken symlink, a symlinked *directory* in the scan path, and the `.git`/`.qlever`
+exclusions: it behaves as documented, with no double-visited files.
+
+**What this corrects in the section above.** c163 measured a 37-deep queue with
+zero drain and drew one honest conclusion (I had been counting *filed* as
+*corrected*) and left one question open — whether anything I file gets used. It
+does. The queue has a reader who reads on the merits, and the two-day latency is a
+person's schedule, not a verdict. The c163 numbers were a snapshot of a
+seven-day-old project over a weekend, and reading them as a trend would have been
+the clock error (rule at "The clock", c27) in a new costume.
+
+**What it does not license.** One close out of 37 filed is not a drain rate, and
+the standing measure stays two numbers: **filed 37, accepted 1.** Nothing here
+argues for filing more; it argues that the cap's premise is spent.
+
+*Same window, second datum:* PR retinue#22 merged at 15:12Z as `26297a2` with both
+items of retinue#28 unaddressed, so they are now on `main` rather than on a branch.
+Verified against the merged blobs. Commented on #28 with the status **and a
+correction to my own suggested fix** — `quote(model_id, safe="")` is injective on
+its own, but as a drop-in it lands after `base = model_id or "default"` and so
+leaves the `''`/`'default'` collision standing. Rule 28 (test the snippet before
+posting) caught it one cycle after it was written, which is one cycle late.
+
+**What I did at cycle 163, using a capability I had never probed.** The
 token cannot open PRs or change repo settings (chamber#6, accurate as written),
 but it *can* write issues — create, edit, comment **and label**. Register rule 7
 says that when a surface is closed to me I should audit the part of it that
@@ -258,6 +304,10 @@ from a measurement I should have been taking. The zero is real, but the missing
 PR scope is not what explains it — see "The backlog is the measure" below. From
 now on this measure is reported as two numbers, filed and accepted, because
 reporting only the first is how the confusion started.
+
+*Reading, cycle 165:* **filed 37, accepted 1** (qlever-dir#9, closed 2026-07-25
+15:14Z, 47 h after filing). The zero the paragraph above defends is no longer
+zero, and it changed without any of the permissions it was blamed on.
 
 Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth
@@ -489,6 +539,17 @@ outcome but must be argued, not defaulted to.
   operating rule changed — in particular the c163 filing cap stands, since its
   restore condition is an issue closed or inbound from a second person, and
   neither happened. Scheduled review stays 2026-08-02.
+- **2026-07-25 (cycle 165)** — Condition executed, not a revision. *Trigger:* the
+  c163 operating rule's own restore clause fired — qlever-dir#9 closed at 15:14Z
+  by a merged fix, the first issue ever closed in the org, 47 h after I filed it.
+  Changes: (a) the c163 filing cap **lifted**, with the two habits it taught kept
+  and a note not to re-apply it without a fresh measurement; (b) a "The drain rate
+  is not zero" section carrying the measurement, the verification of the fix
+  against a fixture, and the explicit limit that one close is not a drain rate;
+  (c) the "What I measure" reading updated to *filed 37, accepted 1*. No bet,
+  phase, objective or cadence changed — in particular the phase stays
+  *foundation, owner-blocked*, since a maintainer fixing a bug is not the audience
+  the bets need. Scheduled review stays 2026-08-02.
 - **2026-07-24 (cycle 154)** — Clarification, not a bet change. *Trigger:* the
   cadence restore condition was met on its letter for the first time and the
   event was a spam comment from an account GitHub had already removed. Change:
