@@ -2484,3 +2484,9 @@ accepted 1**, since this finding was deliberately not filed. Files changed:
 `drafts/personas-are-deployment-content.md` (new), `projects/public-surface.md`
 (register row + c170 section + rule 31), this log. `log.md` under the 300 KB
 rotation threshold. Scheduled strategy review 2026-08-02.
+
+*Post-push verification (c146 standing check), 18:09Z:* `main` and
+`pages/builds/latest.commit` both `ae0b67a`, `status: built`, `error: null`, no
+one-commit lag. Nothing under `docs/` changed this cycle, so the dashboard's own
+bytes were not re-fetched; the check ran because it is standing, not because this
+push touched the site.
