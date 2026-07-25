@@ -146,6 +146,7 @@ So the surfaces get a list, and the list carries dates.
 | **The egress-audit trio (`scripts/egress-audit-addon.py`, `egress-log-viewer.py`, `egress-anomaly-agent.py`, `egress-audit/`) — the implementation behind guardrail 3's row 1; never audited (zero mentions in this register, `log.md` or either archive part), while the *claim* about it was audited at c161** | 2026-07-25 (c175) | **One finding of the credential-exposure class — measured live, escalated privately (dashboard thread `b64b5746…`), deliberately not described here or anywhere public until fixed (guardrail 9).** Safe to state: `.env.example` documents no `EGRESS_*` variable at all, and the framework `README.md` mentions egress once (:48, a `NO_PROXY` aside) and never mentions the viewer or the anomaly agent — a documentation issue held back until the security item is resolved. Do not re-audit this surface in the open until the owner says it is fixed. |
 
 | **`docs/data/*.json` regenerated on the trigger it had printed in advance (chamber#1 at 22:17:48Z) — and audited for the *scope* of its counts rather than their freshness, which no generation had ever checked** | 2026-07-25 (c176) | **Two wrong scopes, one of them a false sentence.** (1) Every generation said "across the org" while counting the four public repos. The organization also holds a private repo, so "one closed issue" was true of the four and false of the org (3 closed org-wide). Counts are now stated as public-repo-scoped, and the private repo is no longer *named* on a public page — it was mine to stop printing, not his to notice; the git history of these files still carries the name, which belongs to the privacy decision already on his desk (thread `78b64be7…`), not to a new escalation. (2) **The standing measure was wrong by six.** c169 removed `qlever-dir#2` for predating this chamber and never asked the general question; `retinue#13/#16/#18/#25` are the owner's feature proposals and `retinue#15/#19` are his filings of findings I escalated privately. **filed 33, accepted 1** of 40 public-repo issues. Method, re-runnable by anyone: guardrail 1's AI-disclosure line is present in all 33 of mine and none of his 7, and it is the *only* authorship record, since we post from one account (chamber#3). |
+| **`.github/copilot-instructions.md` — the repository's only file addressed to a *third* agent actor, and the first surface picked from a mechanically-measured never-mentioned list rather than from memory** | 2026-07-25 (c177) | **Scoped to a Copilot mode that has never acted here → [retinue#34](https://github.com/Retinue-OS/retinue/issues/34).** The file's title and first sentence limit it to interactive VS Code sessions; every Copilot event in the repo is the **coding agent** (PR review 07-23 12:07:56Z; push to `feat/conversation-model-picker` 07-25 15:08:51Z, resolving a conflict in `scripts/entrypoint.sh` — a Tier 3 path). The observed push was **not** a violation: the file's own "unless the user asks in this session" exception covers `@copilot please fix the merge conflicts`. The gap is prospective — an agent assigned an issue has no such request, and its only work product is a branch. No `AGENTS.md` (404 on `main`), and the file never points at `CONTRIBUTING.md`, where the conventions, the Tier 3 list and the test command live. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2610,3 +2611,65 @@ The documentation issue held at c175 (the egress layer is undocumented in
 gave: filing it while the private security item is open points a reader at the
 surface not to look at yet. Unchanged, still not written down anywhere but that
 paragraph and this one.
+
+## c177 — the territory question, run mechanically instead of from memory
+
+c32's amendment said the register's real limit is not "which rows are due" but
+"what does this project have that no row describes", and every cycle since has
+answered it by recall. c175 answered it with a measurement for the first time —
+the egress trio had *zero mentions* in this file, `log.md` or either archive
+part — but measured only the four files it had already suspected.
+
+Run over the whole framework tree this cycle, as one command rather than a
+memory:
+
+```bash
+cat log.md log-archive/*.md projects/*.md drafts/*.md writing/*.md \
+    brand/*.md strategy.md > /tmp/allrecords.txt
+cd /workspace/deployment && for f in $(find . -type f -not -path '*/.git/*' \
+    -not -path './chambers/*' | sed 's|^\./||'); do
+  printf '%s\t%s\n' "$(grep -c -F "$(basename "$f")" /tmp/allrecords.txt)" "$f"
+done | sort -n | awk '$1==0'
+```
+
+124 files in the framework tree; **34 have never been named once** in 176 cycles
+of records. The list, grouped, minus the four that are binaries or `.gitignore`:
+
+- **Agent-facing:** `.github/copilot-instructions.md` (this cycle),
+  `.claude-plugin/marketplace.template.json`,
+  `examples/chambers/{hitchhiker,westworld}/.retinue/agents/*.md`.
+- **Security-adjacent:** `scripts/gateway_auth.py`,
+  `scripts/requester_identity.py`, `updater/update-server.py`,
+  `scripts/gen-egress-ca.sh`, `deploy/traefik/dynamic/retinue-mtls.yml`.
+- **Messaging CLIs:** `scripts/{signal,telegram,whatsapp}-push.py`,
+  `scripts/{signal,telegram,whatsapp}-contacts.py`,
+  `tests/test_signal_contacts_read.py`.
+- **Dashboard front-end:** `webapp/sw.js`, `manifest.webmanifest`,
+  `project.html`, `projects.html`, `conversations.html`,
+  `components/{app-launcher,markdown,project-page}.js`.
+- **Operational:** `scripts/{self-update,install-hooks,git-serialize,
+  ingest-sensors}.py|sh`, `.dockerignore`.
+
+**Why the first pick was the smallest file on the list.** Not size: it is the
+only one of the 34 that addresses an *actor*. This repository has three agents
+writing to it — the deployed runtime via `CLAUDE.md`, me via this chamber, and
+GitHub's Copilot coding agent, which has pushed a commit and reviewed a PR — and
+the third one's only file excludes itself from the mode that has commit access.
+A project whose subject is which agent may do what should not have that gap in
+its own `.github/`, and it is checkable in the repo rather than in anyone's
+documentation.
+
+**Recorded for the next cycle that picks from this list, so it is not
+re-derived:** the security-adjacent five will most likely produce findings that
+guardrail 9 sends to the dashboard, not to the tracker. There are already eight
+unread threads there and one unfixed finding from c175. That is not a reason to
+skip them — it is a reason to expect the *output* to be a private escalation and
+to weigh, before starting, whether a ninth thread helps the owner or buries the
+first eight. The dashboard-front-end and CLI groups carry no such constraint and
+are the cheaper picks while the security item is open.
+
+**Rule (register, not numbered): ask the territory question with a command.**
+The list above cost one command and produced 34 candidates after five cycles of
+prose that concluded the territory was hard to see. A surface that has never been
+named cannot be recalled — that is the definition of the failure mode — so the
+question has to be asked of the file tree, not of the record keeper.

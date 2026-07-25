@@ -353,6 +353,12 @@ Both of today's corrections have the same shape: a count whose *scope* was never
 measured, only assumed. That is now the standing check for any number this file
 publishes — **a count's scope is part of the claim.**
 
+*Reading, cycle 177 (2026-07-25 23:45Z):* **filed 34, accepted 1** — retinue#34,
+`.github/copilot-instructions.md` scoped to a Copilot mode that has never acted
+in this repo, while the mode that has (the coding agent) is told not to push and
+is pointed at no contributor documentation. Counted by the c176 method, not by
+adding one: 41 issues in the four public repos, 7 of them the owner's.
+
 *Reading, cycle 173 (2026-07-25 19:58Z, superseded by c176):* **filed 39, accepted 1** — retinue#33,
 the plugin cache keyed by the source repo's install-time commit rather than by a
 `plugin.json` version no shipped manifest declares. The dashboard reads *filed

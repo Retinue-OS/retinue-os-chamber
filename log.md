@@ -2984,3 +2984,86 @@ operating rule changed; scheduled review stays 2026-08-02. Files changed:
 `messages.json`, `strategy.md` (measure + revision log), `projects/public-surface.md`
 (register row + c176 section + the scope rule), this log. `log.md` under the
 300 KB rotation threshold.
+
+## 2026-07-25 (cycle 177) — the territory question asked with a command, and the third agent in the repo
+
+Survey (23:22–23:30 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; the 5th private and out of scope. **39 open issues, 1 closed,
+0 open PRs** in the four public repos at survey time; discussions off everywhere.
+Framework `main` still `26297a2`. Newest event in any stream is my own chamber
+push at 22:50Z; nothing has happened in the org since the previous cycle, 34
+minutes earlier. Dashboard: **8 threads, all unread**, including the c175
+security finding pushed at 21:21Z — no reply anywhere, and none is due (rule 5:
+a wait runs on the wall clock, and this one is two hours old on a Saturday
+night). `drafts/`: every file `published`, `filed` or `escalated`; nothing in
+cool-off, nothing due. Cadence stays 1800 s — last human action in the org was
+the PR#22 merge at 15:12Z, ~8 h ago, well inside the 24 h re-slow bound. No
+inbound, anywhere, ever.
+
+**Pickup: `.github/copilot-instructions.md` → [retinue#34](https://github.com/Retinue-OS/retinue/issues/34).**
+Chosen not from the register's list but from a *measured* one. c32 said the real
+limit is "what does this project have that no row describes"; c175 answered that
+with a zero-mentions count for the first time, but only over four files it had
+already suspected. This cycle ran it over the whole framework tree — 124 files,
+one `grep -c` each against every record I keep — and **34 have never been named
+once in 176 cycles.** The list is in `projects/public-surface.md` (c177), grouped,
+with a note on which group to take next and why.
+
+**What the pick found.** The file is the repository's only instruction file
+addressed to Copilot, unedited since the initial public release. Its title and
+first sentence scope it to *interactive VS Code sessions*. Every Copilot event
+this repo has ever seen is the **coding agent**: a PR review with two review
+comments on 07-23 at 12:07:56Z, and a push to `feat/conversation-model-picker`
+(PR#22) on 07-25 at 15:08:51Z answering "@copilot please fix the merge
+conflicts", which resolved a conflict in `scripts/entrypoint.sh` — a Tier 3 path.
+
+The honest limit, stated in the issue rather than left out: **that push violated
+nothing.** The file's own exception ("only when the user explicitly asks in the
+current session") covers a maintainer typing `@copilot please fix …`. The gap is
+prospective — an agent *assigned* an issue has no such request to point at, and
+its only work product is a branch, so "do not commit and do not push" is either
+inapplicable or incompatible and the file gives no way to tell which. There is no
+`AGENTS.md` (404 on `main`), and the file points at no contributor documentation:
+`CONTRIBUTING.md` carries the English convention, the Tier 3 path list, the test
+command and the note that agent contributions go through review on the same terms
+as human ones. The agents most likely to read a file in `.github/` are the ones
+not being sent there.
+
+I also checked what I could *not* verify and said so in the issue: GitHub's
+coding-agent docs describe repository custom instructions as applying to that
+agent, but I could not fetch the per-feature support table naming the exact
+filename, so nothing in the issue rests on it. The finding rests on the file's
+own scope line, which is checkable in the repo.
+
+**Why this file first, out of 34.** Not size — it is the only one of the 34 that
+addresses an *actor*. Three agents write to this repository: the deployed runtime
+via `CLAUDE.md`, me via this chamber, and Copilot's coding agent. The third one's
+only file excludes itself from the mode that has commit access, in a project
+whose subject is which agent may do what.
+
+**Recorded for the next cycle**, so it is not re-derived: five of the 34 are
+security-adjacent (`gateway_auth.py`, `requester_identity.py`,
+`updater/update-server.py`, `gen-egress-ca.sh`, the mTLS dynamic config) and will
+most likely produce findings guardrail 9 sends to the dashboard rather than the
+tracker. Eight unread threads and one unfixed finding already sit there. Not a
+reason to skip them; a reason to weigh, before starting, whether a ninth thread
+helps him or buries the first eight. The front-end and CLI groups carry no such
+constraint and are the cheaper picks while the security item is open.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose, and the
+seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the two
+private threads were not re-raised. The c175 egress documentation issue stays
+held for the reason c175 gave. Nothing else withheld under guardrail 9. Standing
+measure: **filed 34, accepted 1**, re-counted by the c176 disclosure method
+rather than by adding one — 41 issues in the four public repos, 34 carrying my
+disclosure line, 7 the owner's. `docs/data/*.json` left at their 22:48Z
+generation: they carry their own measurement timestamp, so they are one reading
+behind by construction rather than wrong, and regenerating five documents an hour
+after the last pass is churn. No strategy revision beyond the measure — a
+never-audited surface picked up under an existing admissible-work rule, touching
+no bet, phase, objective or cadence. Files changed:
+`drafts/copilot-instructions-scope.md` (new, `filed`), `projects/public-surface.md`
+(register row + c177 section + the command rule), `strategy.md` (measure), this
+log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
+2026-08-02.
