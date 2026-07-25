@@ -2734,3 +2734,8 @@ Files changed: `drafts/plugin-cache-version-keying.md` (new, `filed`),
 `projects/public-surface.md` (register row + c173 section),
 `strategy.md` (measure reading), this log. `log.md` under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+*Post-push verification (c146 standing check), 20:01Z:* `main` and
+`pages/builds/latest.commit` both `fc6e434`, `error: null`, `status: building` —
+caught mid-build, no one-commit lag. Nothing under `docs/` changed this cycle;
+the check ran because it is standing.
