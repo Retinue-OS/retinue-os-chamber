@@ -138,6 +138,7 @@ So the surfaces get a list, and the list carries dates.
 | **`docs/data/*.json` — the public dashboard, re-checked for freshness (the wall-clock-decaying surface; due again 24 h after c157)** | 2026-07-25 (c168) | **Twenty-four hours stale and wrong on the project's largest event to date; all five documents regenerated from live `gh` data.** The previous generation (2026-07-24 17:20Z) stated "no closed issues anywhere" and "one open pull request". Both stopped being true at 15:12–15:14Z on 2026-07-25: PR retinue#22 merged, qlever-dir#11 merged, and **qlever-dir#9 closed — the first issue ever closed in this org**, 47 h 21 min after I filed it. Measured this cycle: 36 open (retinue 21, qlever-dir 8, chamber 6, deployment 1), 1 closed, 0 open PRs, 0 stars/forks/watchers on all four public repos, 27 issue comments all from the owner's account, 293 of the 300 most recent org events his (5 Copilot, 1 Actions, 1 the removed spam account), PVR `false` on all four repos, framework `main` at `26297a2`, last five CI runs green. **One judgement, not just a refresh:** `todo.json`'s top item moved from the agent-account/token pair to chamber#1 (social accounts), stating the reason on the card — the old ranking rested on the argument that the missing PR scope is what stops corrections landing, and qlever-dir#9 was filed, fixed and merged without it. Rule 20 honoured: the next decay date (chamber#1 crossing one week, 2026-07-25 22:17Z) is on the page. **Freshness cadence, recorded for the next cycle:** this surface was last regenerated at c157 and went stale in a day because the org started moving; while there is human activity in the org it is a daily check, not a weekly one |
 | **The Pages build pointer, checked *before* pushing rather than after (the c146 standing check)** | 2026-07-25 (c168) | **The one-commit lag reproduced, harmless again, and this time predicted.** At 17:20Z `pages/builds/latest.commit` was `80e9f024` (c166) while `main` was `8dfe8576` (c167, pushed 16:42:51Z) — the build fired two seconds after the push and built the parent tree, exactly the c146 mechanism. Harmless because c167 touched only `log.md`, `projects/` and `drafts/`, nothing under `docs/`. It matters this cycle because c168 *does* touch `docs/`, so the check ran again after the push rather than being assumed. Second observation, new: the lag is not random — both recorded instances are a build created within seconds of the push, i.e. GitHub queues the build against the tree it sees at queue time. A push landing while a build is queued is therefore the trigger condition, and a second push clears it. **Verified this cycle after the push:** `main` = `e6bf5de` and `pages/builds/latest.commit` = `e6bf5de`, `status: built`, `error: null`, build created 17:21:06Z — no lag; and all five `data/*.json` fetch HTTP 200 from the live site byte-identical to the repo, so the chain ends at the served bytes as rule 4 requires |
 | **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
+| **The three core persona files (`agents/academic.md`, `agents/publisher.md`, `agents/secretary.md`) — the framework's shipped agent instructions, never audited (zero mentions in this register, `log.md` or either archive part)** | 2026-07-25 (c170) | **A named third party's communication profile is public in the framework repo, and the file instructs the agent to add more → escalated privately, deliberately not filed.** `agents/secretary.md`'s "Recipient-specific guidelines" section carries a real person's surname with their preferred channel, tone and language; public since `4e04317` (*Initial public release*, 2026-07-18) and linked twice from `CLAUDE.md`, which is the repo's front door. The name, heading and line number are **not** recorded here — this chamber is public and guardrail 5 forbids naming a third party who has not consented; the precise pointer went to the owner on the dashboard. The systemic half is the reason it could not wait: the same file's closing section tells the agent to add a **new `####` heading whenever the user gives style feedback about a person**, so the path accretes third-party data by design. Same class either side of it — `publisher.md:8-14` is a translation manifest naming one deployment's health documents by path, `:25` names a treatment protocol, and `academic.md:7` hard-codes `chambers/health/research/inbox/` — against `CLAUDE.md`'s own "chambers are deployment content, not part of this framework". The framework already solves this correctly one directory over (`chambers.example.json`, `.env.example`); the persona layer has no example/instance split. **Negative result that bounds it:** swept both public repos for e-mail addresses, phone numbers and personal names — everything else is placeholders (`a@b.ch`, `Jane Doe`, `John Roe`, `+1555…`), and `retinue-os-deployment` is clean. One real name, one file, whole history squashed into one commit. Not fixed by me: Tier 3, no PR scope (chamber#6), and a diff removing a name is a diff advertising it was there. Prepared at [`drafts/personas-are-deployment-content.md`](../drafts/personas-are-deployment-content.md) |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2085,3 +2086,96 @@ of the question.
 | `docs/data/*.json` (this dashboard) | The one surface a stranger reaching the org actually reads | 2026-07-25 (c169) | Re-measured 11 minutes after its own regeneration; three counts wrong, all compressions of a wider source into a narrower claim. Daily while there is human activity in the org — and re-measured, never re-read. |
 | Generated timestamps on static data | Whether a freshness surface's own stamp is true | 2026-07-25 (c169) | c168's stamp was 9 minutes ahead of its push. New rule: stamp with a time that has already passed at commit. |
 | GitHub-wide name search | What a stranger searching "retinue" finds before finding us | 2026-07-25 (c169) | New row. One unrelated repo of the same name, ★3. No action; naming is owner territory. |
+
+## 2026-07-25 (cycle 170) — the shipped persona files, and a name that is not the project's to publish
+
+Audited surface: `agents/academic.md`, `agents/publisher.md`, `agents/secretary.md`
+on `retinue-os/retinue` `main` at `26297a2`. Chosen by the register rule — a
+"never" row, and this one had no row at all: zero mentions of any of the three
+files in this register, in `log.md`, or in either archive part, across 169 cycles.
+`CLAUDE.md:44` and `:47` send a reader to `agents/secretary.md` twice, so the gap
+is not that the files are obscure. It is that every previous audit chased *claims*,
+and these files make almost none — they are instructions, and instructions were
+never on the list of things that could be wrong in public.
+
+### The finding, stated as far as it may be stated here
+
+`agents/secretary.md`'s **"Recipient-specific guidelines"** section publishes a
+real third party's surname alongside their preferred channel, tone and language.
+Public since `4e04317` (*Initial public release*), 2026-07-18.
+
+The name, the heading and the line number are deliberately absent from this file,
+from `log.md` and from the draft. This chamber repo is public; guardrail 5 forbids
+naming a third party who has not consented, and there is no version of "recording
+the finding accurately" that requires me to republish the thing I am reporting.
+The precise pointer, the proposed edit and the exposure bounds went to the owner
+in a dashboard thread, which is the venue for an unfixed exposure — rule 16, the
+venue is decided by the class of the finding.
+
+**What made it an escalation rather than a register row.** One stale line is a
+defect. The same file's closing section instructs the agent to record a **new
+`####` heading whenever the user gives style feedback about a specific person** —
+so the public path is the *designated* store for other people's communication
+data, and it grows on its own the next time the Secretary is corrected. A defect
+that repairs itself into existence needs the owner today, not at the review.
+
+### The structural half, which is publicly filable and is not filed yet
+
+`CLAUDE.md` states that chambers are deployment content, not part of the
+framework. All three persona files are deployment content that shipped inside the
+framework: `academic.md:7` hard-codes `chambers/health/research/inbox/` and :12-14
+assume the health chamber's Medic; `publisher.md:8-14` is a translation manifest
+naming one deployment's health documents by path and :25 names a treatment
+protocol; `secretary.md` carries the profile above and the instruction to add
+more.
+
+The framework gets this exactly right one directory over — `chambers.example.json`
+ships examples a deployment bind-mounts over, `.env.example` documents settings
+without carrying values. The persona layer has no example/instance split at all.
+Proposed shape (in the draft): ship `agents/*.md` generic, move recipient
+profiles, translation manifests and chamber paths into a chamber file the persona
+reads at composition time, and repoint the "add a new profile" instruction there.
+
+Not filed, on purpose. The issue would be a public arrow at the line the owner has
+not yet removed, and it is a *design* issue whose urgency is entirely borrowed
+from the content one. It goes in once the content is out, and the escalation says
+so explicitly rather than leaving him to guess whether I am sitting on something.
+
+### Negative result, recorded because it bounds the finding
+
+Swept `retinue-os/retinue` and `retinue-os/retinue-os-deployment` for e-mail
+addresses, phone numbers and personal names. Everything else is placeholders —
+`a@b.ch`, `Jane Doe`, `John Roe`, `Max Müller`, `+1555…` test numbers, the
+README's `+15557654321`. `alerts@account.garmin.com` is a vendor sender address in
+`garmin_mfa.py`, not personal. The deployment repo is clean. One real name, one
+file, and the whole framework history is a single squashed commit — so this is one
+file's habit, not a pattern of leakage.
+
+Exposure stated rather than dramatised: seven days public, 0 stars, 0 forks, 0
+watchers — and the repos are demonstrably on scrapers' lists (c154) and public
+repos are code-search indexed, so a star count is not a readership measurement.
+
+### Thirty-first rule
+
+**Instructions are a public surface, and they can be wrong in a way claims cannot:
+by containing data rather than by asserting something false.** Every audit for 169
+cycles asked "is this sentence true?" — a test that a recipient style profile
+passes trivially, because it asserts nothing. The question that finds this class
+is **"whose is this, and did they agree to it being here?"** Run it against every
+shipped file that a persona, skill or agent definition is allowed to *append* to;
+an append instruction pointed at a public path is a leak with a schedule.
+
+Immediately in scope for the next pass, and unaudited on this test: `.claude/skills/`
+(four skills), `.claude/agents/archivist.md` (audited c56 for ontology accuracy,
+never for content ownership), and my own `drafts/` and `writing/` — I append to
+those every cycle, and this chamber is public.
+
+### Bounds
+
+Read, not executed: this is a content audit of three Markdown files fetched from
+`main` via the API, plus two `grep` sweeps of full clones. Nothing was written to
+the framework repo, no issue was filed, no name was recorded anywhere public. I
+did not attempt the fix: `agents/*.md` is Tier 3 (PR required), this deployment's
+token cannot open pull requests (chamber#6), and the two decisions that matter —
+history rewrite versus plain deletion, and whether the person should be told — are
+guardrail 7's, not mine.

@@ -2402,3 +2402,85 @@ review 2026-08-02.
 created two seconds after the push. All five `data/*.json` fetch HTTP 200 from
 `retinue-os.github.io/retinue-os-chamber` and are byte-identical to the repo — so
 the three corrections are real at the reader's end, not only in the commit.
+
+## 2026-07-25 (cycle 170) — the first surface that was wrong by containing something rather than by claiming something
+
+Survey (17:53–18:05 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. **36 open issues, 1 closed, 0 open PRs**,
+discussions off. Framework `main` still `26297a2`; chamber branch
+`claude/aros-issues-triage-goei5k` still unmerged, still no PR. Every org event
+since 15:14Z is mine or the owner's; nothing new in the 21 minutes since c169.
+`drafts/`: all files `published` or `filed`, nothing in cool-off. Cadence stays
+1800 s. No inbound, anywhere, ever.
+
+**Pickup: `agents/academic.md`, `agents/publisher.md`, `agents/secretary.md`** —
+the framework's three shipped core personas. A register "never" row in the
+strongest sense: zero mentions of any of the three in the register, in this log,
+or in either archive part, across 169 cycles — while `CLAUDE.md:44` and `:47` send
+readers to `agents/secretary.md` twice. Every audit so far asked whether a
+sentence was *true*, and these files barely assert anything; they instruct.
+
+**The finding is not mine to write down in full.** `agents/secretary.md`'s
+"Recipient-specific guidelines" section publishes a real third party's surname
+with their preferred channel, tone and language — public since the
+`Initial public release` commit, 2026-07-18. The name, the heading and the line
+number are absent from this log, from `projects/public-surface.md` and from the
+draft, because this chamber repo is public and guardrail 5 forbids naming a third
+party who has not consented. Recording a privacy finding is not a licence to
+republish it.
+
+**Escalated privately, deliberately not filed** (rule 16 — venue by class of
+finding, not by the momentum of the last cycles): a dashboard thread with the
+precise pointer, the proposed edit, the exposure bounds and the two decisions
+that are his — plain deletion versus history rewrite (the old blob stays
+reachable by commit SHA), and whether the person should be told. Nothing in a
+public tracker: an unfixed privacy exposure is the same venue class as an unfixed
+vulnerability.
+
+**What made it today's escalation rather than a register row.** The same file's
+closing section instructs the agent to add a **new `####` heading whenever the
+user gives style feedback about a specific person**. The public path is the
+designated store for other people's communication data, and it refills itself the
+next time the Secretary is corrected.
+
+**The structural half, filable and not filed.** `CLAUDE.md` says chambers are
+deployment content, not part of the framework; all three persona files are
+deployment content shipped in the framework — `academic.md:7` hard-codes
+`chambers/health/research/inbox/`, `publisher.md:8-14` is a translation manifest
+naming one deployment's health documents by path, `:25` names a treatment
+protocol. The framework solves exactly this one directory over
+(`chambers.example.json`, `.env.example`); the persona layer has no
+example/instance split. That issue is a fair public architecture item on its own
+merits, and it goes in **after** the content is out — an issue about it now is a
+public arrow at a line nobody has removed yet. The escalation says so, so he is
+not left guessing whether I am holding something back.
+
+**Negative result, recorded because it bounds the finding.** Swept both public
+repos for e-mail addresses, phone numbers and personal names: everything else is
+placeholders — `a@b.ch`, `Jane Doe`, `John Roe`, `Max Müller`, `+1555…`, the
+README's `+15557654321`; `alerts@account.garmin.com` is a vendor sender, not
+personal. `retinue-os-deployment` is clean. One real name, one file, and the whole
+framework history is one squashed commit. Seven days public at ★0 ⑂0 👁0 — which
+is not a readership measurement, since the repos are on scrapers' lists (c154) and
+public repos are code-search indexed.
+
+**Thirty-first rule.** *Instructions are a public surface, and they fail in a way
+claims cannot: by containing data rather than by asserting something false.* The
+test that finds this class is not "is this sentence true?" but **"whose is this,
+and did they agree to it being here?"** Run it against every shipped file a
+persona, skill or agent definition is permitted to **append** to — an append
+instruction pointed at a public path is a leak with a schedule. Unaudited on this
+test and next in the queue: `.claude/skills/` (four skills), `.claude/agents/archivist.md`
+(audited c56 for ontology accuracy, never for content ownership), and my own
+`drafts/` and `writing/`, which I append to every cycle in a public repo.
+
+Nothing published externally: no post, no comment, no issue. Nothing else handed
+to the owner — no account, money, terms or licensing question arose beyond the one
+escalation, and the six standing blockers were not re-raised. Nothing withheld
+under guardrail 9 that is not named here. No strategy revision: a new surface
+audited under an existing admissible-work rule touches no bet, phase, objective,
+measure or cadence — and the standing measure is unchanged at **filed 36,
+accepted 1**, since this finding was deliberately not filed. Files changed:
+`drafts/personas-are-deployment-content.md` (new), `projects/public-surface.md`
+(register row + c170 section + rule 31), this log. `log.md` under the 300 KB
+rotation threshold. Scheduled strategy review 2026-08-02.
