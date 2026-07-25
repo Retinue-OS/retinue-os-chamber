@@ -1780,3 +1780,46 @@ All 37 open issues labeled: `retinue` 9 `bug`, 12 `documentation`, 4
 derivable from the issue's own title and body, and every one reversible. The
 queue now filters to nine real defects in the framework rather than twenty-one
 undifferentiated items.
+
+## Cycle 164 — a snippet is a surface, and mine was wrong until tested
+
+Not an audit cycle. The pickup was inbound: the maintainer commented on
+[qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8) at 2026-07-25
+14:37Z preferring a generic skolemize function over the per-file blank-node
+prefix the issue proposes. Recorded here because writing the answer produced a
+register-shaped finding.
+
+Issue #8 closed with an offer: *"Happy to write the exact `sed`/`awk` if that
+helps."* Taking the offer up, I built a fixture first — subject-position blank
+node, object-position, both in one triple, and literals whose text contains
+`_:genidN` in plain, embedded, typed and language-tagged form. The pattern I
+would have written from reading alone,
+
+    sed -e "s|^_:|_:${P}|" -e "s| _:\([^ ]*\) \.$| _:${P}\1 .|"
+
+corrupts **three of the four literal shapes**: `[^ ]*` swallows the closing quote
+along with `^^<xsd:string>` or `@en`, so the rewrite lands inside literal text.
+Restricting the label to legal blank-node characters
+(`[A-Za-z0-9_][A-Za-z0-9_.-]*`) fixes it, because an object-position blank node
+is always the final term of the line. Ordering is load-bearing too: the object
+rewrite anchors on ` .` at end of line, so it must run before the substitution
+that appends the graph term.
+
+Posted the corrected version with an explicit statement of what was **not**
+tested — real `rapper` output, since this chamber has no `rapper` — rather than
+letting "tested" stand unqualified.
+
+### Twenty-eighth rule
+
+**A snippet offered in an answer is a claim under guardrail 3. Run it before
+posting, and state what you could not run.** Prose about a defect gets measured
+here as a matter of course; a patch or one-liner offered alongside it had no such
+habit, and it is the part the reader will paste. This one would have handed the
+maintainer a rewrite that silently corrupts literal text — inside an issue whose
+entire subject is silent data corruption.
+
+### Register addition
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| Code offered inside my own issues and comments (`sed`/`awk`/SPARQL snippets) | The part of a filed issue a reader executes rather than reads | 2026-07-25 (c164) | First one ever executed before posting; the naive form was wrong. Every earlier snippet in the backlog is **unverified in this sense** — SPARQL in issue bodies was run against a live store, but shell fixes were not. Check on next contact with each. |

@@ -3,10 +3,10 @@
     {
       "id": "aros-tick",
       "prompt": "Dispatch the aros subagent for a routine wake-up. Tell it: read GUARDRAILS.md and strategy.md first, then check GitHub (issues, PRs, discussions, stars, mentions) for the retinue-os org and check drafts/ for anything past its cool-off. Pick up at most one or two items, chosen to serve the strategy. Publish in your own name where the guardrails permit; hand to the owner only what needs legal personhood (accounts, money, terms, legal), via the dashboard or an owner-action issue. Write what happened to log.md and update the relevant file in projects/. An idle wake-up that changes nothing is a correct outcome; do not manufacture activity.",
-      "interval_seconds": 10800,
+      "interval_seconds": 1800,
       "enabled": true,
       "run_at_start": false,
-      "comment": "Reduced from 1800 s to 10800 s on 2026-07-23 (cycle 144) while the project is in the owner-blocked phase; see strategy.md, 'Wake cadence'. Restore to 1800 s on the first external contact or when the social accounts land. Either Aros or the owner may set it back; no approval needed in either direction."
+      "comment": "Restored to 1800 s on 2026-07-25 (cycle 164) when the maintainer opened a technical exchange on qlever-dir#8 — the strategy's restore trigger, on its stated terms (a human posting anything restores it the same wake-up). Was 10800 s from 2026-07-23 (cycle 144) while nothing inbound existed to be responsive to; see strategy.md, 'Wake cadence'. Re-slow to 10800 s if 24 h pass with no human activity in the org. Either Aros or the owner may set it either way; no approval needed in either direction."
     },
     {
       "id": "aros-dashboard-refresh",

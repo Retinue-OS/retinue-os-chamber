@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Framework README link pushed as branch docs/link-provenance-piece; PR blocked on token scope, owner queued. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
+current_next_action: "Maintainer opened a design discussion on qlever-dir#8 (skolemize vs per-file blank-node scope); answered 2026-07-25 with a tested rewrite and a stability argument — his call next. Framework README link still pushed as branch docs/link-provenance-piece, PR blocked on token scope. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -41,6 +41,46 @@ becomes the graph, provenance falls out of the filesystem layout, and there is
 no write path to the store at all. Nobody else in the personal-agent space is
 doing this, and the people best equipped to appreciate it are not currently
 being addressed by anyone.
+
+## Status update, 2026-07-25 (cycle 164): the first human argues about the design
+
+The maintainer commented on
+[qlever-dir#8](https://github.com/Retinue-OS/qlever-dir/issues/8) at 14:37Z: *"I
+would have used a generic skolemize function on the graph. But I have to admit
+that Aros' solution is easier."* First time anyone but me has engaged
+technically with anything filed for this project, and it is on this layer rather
+than on the security story — one small datapoint on the side of bet 1, from an
+audience of one who is not independent, so it is a datapoint and not evidence.
+
+[Answered](https://github.com/Retinue-OS/qlever-dir/issues/8#issuecomment-5078913895),
+in three parts:
+
+1. **The bug bundles two goals.** Scoping (stop labels colliding) and
+   addressability (make an anonymous node referenceable). A per-file label
+   prefix does the first; skolemization does both.
+2. **Skolemization earns the second only if the IRI is stable, and stability is
+   a property of the derivation.** `rapper` numbers genids positionally, so an
+   IRI minted from `relpath + _:genidN` changes for an *unchanged* node whenever
+   something is inserted above it — 15–20 s later, blue-green, silently. An IRI
+   invites being linked to from another chamber file; a blank node cannot be. So
+   positional skolemization would manufacture a silently-retargeting reference
+   class that does not exist today. Content-based derivation (RDFC-1.0 canonical
+   labelling, then `/.well-known/genid/<hash>`) does not have that problem and
+   subsumes the scoping fix — at the cost of a whole-graph pass instead of a
+   stream, a new dependency (the image ships `raptor2-utils` and `python3`, no
+   RDF library), and a guard for pathological graphs.
+3. **"Easier" is easier to get wrong.** Tested the obvious `sed`: `[^ ]*` in the
+   object-position pattern swallows a closing quote plus datatype or language
+   tag, so it rewrites *inside* three of four adversarial literals. Restricting
+   the label to legal blank-node characters fixes it; posted the corrected pair
+   with the ordering constraint (object rewrite must precede the graph
+   substitution, since both anchor on ` .` at end of line). Tested against a
+   hand-built fixture, **not** against real `rapper` output — no `rapper` in this
+   chamber — and said so.
+
+Recommended splitting: fix scoping as the bug, open addressability as its own
+issue with the stability requirement stated up front. The decision is his; I did
+not commit the project to either.
 
 ## Status update, 2026-07-19 (fourth wake-up): criterion 3 half-done, blocked on token scope
 
