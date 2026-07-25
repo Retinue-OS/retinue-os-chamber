@@ -2830,3 +2830,77 @@ due after 22:17:48Z per c172's trigger, now four readings behind. Files changed:
 `projects/claim-verification.md`, `projects/triple-store-story.md`,
 `projects/public-surface.md` (register row + c174 section), this log. `log.md`
 under the 300 KB rotation threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-25 (cycle 175) — the egress trio, audited for the first time; one finding withheld
+
+Survey (21:11–21:15 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. **38 open issues, 1 closed, 0 open
+PRs**, discussions off everywhere. Framework `main` still `26297a2`. Newest event
+in any stream is my own retinue#33 at 19:54Z; every other event is the owner's
+account or mine through it. `drafts/`: all `published`, `filed` or `escalated`;
+nothing in cool-off, nothing due. Cadence stays 1800 s. No inbound, anywhere,
+ever.
+
+**Pickup: the egress-audit trio** — `scripts/egress-audit-addon.py`,
+`egress-log-viewer.py`, `egress-anomaly-agent.py`, plus `egress-audit/`. Chosen
+by the c32 territory question rather than from the register's list: all four
+files have **zero mentions** in this log, either archive part, or
+`projects/public-surface.md`, in 174 cycles. What *had* been audited is the
+claim *about* them — guardrail 3's row 1, checked at c161 from the compose file
+and confirmed accurate ("observes, does not enforce"). Nobody had ever read the
+implementation, and the question c161 answered was whether the audit can be
+bypassed, never what the audit *contains*.
+
+**The cycle's finding is of the credential-exposure class, and it is not
+recorded here.** It was measured against the live deployment, not inferred from
+reading, and **escalated privately to the owner** on the dashboard (thread
+`b64b5746…`) with the measurement, the blast radius, the rotation step and the
+code fix I will write on his word. Guardrail 9: an unfixed vulnerability goes to
+the owner and the `SECURITY.md` process, never into a public venue — and this
+repo is a public venue. No issue, no branch, no draft file: a diff describes the
+hole as well as an issue does. The next me does **not** re-audit this surface in
+the open until the owner says it is fixed; read the dashboard thread.
+
+**Rule 34: the venue rule governs the *content*, not just the tracker.** c52
+made exactly the right call — found a send-approval weakness, deliberately did
+not file it, and wrote "not filed publicly" as the section heading — and then
+wrote the full reproduction, with file names and line numbers, into
+`projects/public-surface.md`, which is a public file in a public repo. The
+finding was in the open within the hour, in a document nobody thinks of as a
+tracker. (It is moot now: the owner reproduced it independently and filed it as
+retinue#19 at c91.) The lesson is that "don't publish it" is a constraint on
+every file I write, and my own records were the venue I forgot to count. The
+whole of rule 16 depends on this one being applied with it.
+
+**What is safe to state publicly, and worth stating.** Two documentation facts,
+neither of them a defect anyone can use:
+
+- `.env.example` documents **no `EGRESS_*` variable at all** — not the log
+  directory, not the body limit, not retention. A deployer configuring from that
+  file learns nothing about the audit log's existence or its size.
+- The framework `README.md` mentions egress **once**, in a `NO_PROXY` aside
+  (:48), and never mentions the log viewer or the anomaly agent. Three of the
+  twelve compose services are the egress trio; `review.md` §3.2 argues the layer
+  at length and `comparison.md` calls it "rare in this space", so the README is
+  the outlier rather than the rule.
+
+Both belong in a documentation issue that I am **holding until the security item
+is resolved**, because filing "the egress log is undocumented" today points a
+reader straight at the thing not to look at yet. Written up nowhere but this
+paragraph, deliberately.
+
+Nothing published on any social platform — there are still no accounts. Handed
+to the owner: the security finding above, one message, dashboard, with what,
+why, what I prepared and what happens if he does nothing. The seven standing
+items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the two older private
+threads were not re-raised; chamber#1 crossed one week at 22:17:48Z tonight
+without any action from me. Nothing else withheld under guardrail 9. Standing
+measure unchanged: **filed 39, accepted 1** — a privately escalated finding is
+not a filing, and this is the first cycle where that distinction costs the
+number something. No strategy revision: a never-audited surface picked up under
+an existing admissible-work rule, touching no bet, phase, objective, measure or
+cadence. `docs/data/*.json` still not regenerated — c172's trigger is 22:17:48Z
+tonight, still ~55 minutes out at the time of writing; four readings behind and
+due next cycle. Files changed: `projects/public-surface.md` (register row + c175
+section + rule 34), this log. `log.md` under the 300 KB rotation threshold.
+Scheduled strategy review 2026-08-02.

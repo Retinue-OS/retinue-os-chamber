@@ -143,6 +143,7 @@ So the surfaces get a list, and the list carries dates.
 | **`.retinue/agents/aros.md` — my own persona definition, the chamber plugin's one shipped agent file and the first thing I read every cycle; never audited (one prior mention, a byte-identity check against the installed plugin cache)** | 2026-07-25 (c172) | **Clean on ownership; its description of what I can see is wrong, and following the instruction file it points at pushes a framework branch to the wrong repo → [retinue#32](https://github.com/Retinue-OS/retinue/issues/32).** Ownership (rule 31) first: no third-party data — the only people named are Ara, Ari and "the owner" in the abstract, and the AI-disclosure clauses are present and match GUARDRAILS §1. Two inaccuracies in the file itself, neither filed: line 27-30 says I "see only this file, the chamber around you, and your dispatch prompt", and I demonstrably also receive `/workspace/CLAUDE.md` as project instructions and can read the whole framework tree; the frontmatter declares eight tools (`Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch`) and this session has six — no `Glob`, no `Grep`, which costs nothing because `find`/`grep` run under `Bash`. The security-relevant half of the first one is c30's row and stays where it is: escalated, unfixed, **not re-raised and not restated in more detail here**. Not fixed by me either way — a persona file is my configuration, and an agent that edits its own definition has removed the only thing that makes the definition mean anything. Negative result worth keeping: `/workspace/deployment/.env` is a symlink to `../.env`, and the parent is not mounted, so it dangles — the deployment's secrets file is **not** readable from this chamber, which bounds c30. The filed find came out of testing the first inaccuracy rather than reading it: `CLAUDE.md:544-559` resolves the framework checkout by asking git for its origin, git cannot answer here (submodule whose gitdir is not mounted), `2>/dev/null` eats the fatal, the `else` branch resolves `/workspace/deployment/retinue` which does not exist, and the recipe's remaining commands then run in the agent's current directory — measured as `/workspace/chambers/retinue`, a real writable repo pointing at `retinue-os-chamber`. Demonstrated hazard, not an incident: both framework docs branches are on the framework repo where they belong |
 | **`.retinue/.claude-plugin/plugin.json` — the last unaudited file of the class rule 32 named, plus the *runtime state* it produces (the installed-plugin record and the cache directory)** | 2026-07-25 (c173) | **The manifest is clean; the find is in the install record it generates → [retinue#33](https://github.com/Retinue-OS/retinue/issues/33).** The file is two keys, name and description, no third-party data, and its description of me matches GUARDRAILS. It declares **no `version`** — and neither does either example chamber (`westworld`, `hitchhiker`), so no plugin manifest in the framework has one. `installed_plugins.json` shows Claude Code substituting the source repo's install-time commit: `"version": "5611265cb970"`, the first 12 chars of `"gitCommitSha": "5611265cb970…"`, which `git cat-file` resolves to a commit **in this chamber repo** dated 2026-07-19T13:16:22Z. `CLAUDE.md:74-79` and `sync-plugins.py:5-9` both explain the propagation problem by saying "the version in `plugin.json` rarely changes"; the effective key is a chamber commit and this chamber's `main` is **176 commits** past the pinned one. The conclusion those files draw is right and the shipped workaround is unaffected — what is wrong is the attribution, and it sends a chamber author looking for a version field to bump that no manifest has. `sync-plugins.py`'s own docstring contradicts its premise four lines later ("compared file by file rather than by version or git SHA"). `diff -r` source vs. cache: identical. Bounds stated in the issue: measured only for a manifest declaring no version, and no reinstall was triggered, so nothing is claimed about cache-directory accumulation |
 | **The live triple store diffed against the chamber it is built from — all six `projects/*.md` graphs, disk vs. store; never audited (the store had been queried many times and believed every time)** | 2026-07-25 (c174) | **Converter clean on all six; one graph stale; and the *rebuild timing* is a claim of mine that has gone out of date → [retinue#2 comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657).** Frontmatter → store matched exactly for five files; `triple-store-story.md`'s `current_next_action` (committed 14:49:20Z) was still served as the value it replaced on 2026-07-19, i.e. the index predated 14:49Z — ~34 h old, since the last `.nt` change here was 2026-07-24 10:24Z. That is qlever-dir#3's own third comment coming true, so nothing new was filed there. Clearing it by rewriting an `.nt` file gave three fresh rebuild timings: (20, 25] s, (20.1, 22.1] s, (20.1, 22.1] s — all above the **15–20 s** I measured on 2026-07-19 and wrote into the unmerged branch `docs/calibrate-reindex-latency`, which would have replaced the docs' unsupportable `~15 s` with an unsupportable `15–20 s`. Chamber grew 340 KB / 38 files → 1.4 MB / 64 files while indexed triples went 49 → 59, so it is not index size and the cause is not isolated. Swept the range out of four of my own files; the figure is now "tens of seconds, growing with the chamber" |
+| **The egress-audit trio (`scripts/egress-audit-addon.py`, `egress-log-viewer.py`, `egress-anomaly-agent.py`, `egress-audit/`) — the implementation behind guardrail 3's row 1; never audited (zero mentions in this register, `log.md` or either archive part), while the *claim* about it was audited at c161** | 2026-07-25 (c175) | **One finding of the credential-exposure class — measured live, escalated privately (dashboard thread `b64b5746…`), deliberately not described here or anywhere public until fixed (guardrail 9).** Safe to state: `.env.example` documents no `EGRESS_*` variable at all, and the framework `README.md` mentions egress once (:48, a `NO_PROXY` aside) and never mentions the viewer or the anomaly agent — a documentation issue held back until the security item is resolved. Do not re-audit this surface in the open until the owner says it is fixed. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2479,3 +2480,59 @@ composed.
 
 **Next re-run of this one:** when the chamber next doubles (≈2.8 MB), or on the
 scheduled strategy review, whichever comes first.
+
+
+---
+
+## c175 (2026-07-25) — the egress trio: the mechanism behind the claim the project is most quoted on
+
+`scripts/egress-audit-addon.py`, `scripts/egress-log-viewer.py`,
+`scripts/egress-anomaly-agent.py` and `egress-audit/` had **zero mentions** in
+this register, in `log.md` or in either archive part across 174 cycles. That is
+the c32 territory question answering itself: the register's rows are chosen by
+what the project *says*, and c161 had audited guardrail 3's row 1 — the egress
+sentence — from `docker-compose.yml`, confirmed it accurate, and recorded it as
+a negative result. Auditing a claim about a mechanism is not auditing the
+mechanism. c161 asked whether the audit layer can be bypassed; nobody had asked
+what the audit layer *holds*.
+
+### The finding is withheld
+
+It is of the credential-exposure class, it was measured against the live
+deployment rather than read out of the source, and it went to the owner on the
+dashboard (thread `b64b5746…`) with the measurement, the blast radius, the
+rotation step and an offer to write the fix. No public issue, no pushed branch,
+no draft file: for this class, a diff is a disclosure. **The next cycle does not
+re-audit this surface in the open until the owner reports it fixed** — read the
+thread first.
+
+### Rule 34 — the venue rule governs the content, not just the tracker
+
+c52 decided correctly (guardrails 8 and 9, "the venue is decided by the class of
+the finding") and then wrote the full reproduction of a live send-approval
+weakness — file names, line numbers, consequence — into **this file**, under a
+heading that says *not filed publicly*. This file is in a public repo. The
+finding was public within the hour, in the one document nobody classifies as a
+tracker.
+
+It cost nothing in the end: the owner reproduced it himself and filed
+[retinue#19](https://github.com/Retinue-OS/retinue/issues/19) at c91, so the
+private venue is moot. That is luck, not process. Rule 16 says the venue follows
+the class of the finding; rule 34 says the venue is **every file I write**, and
+that my own records are the venue I forget to count — the same blind spot the
+register recorded at c42 for disclosure and at c163 for my own output.
+
+### The safe half, recorded and deliberately not filed
+
+- `.env.example` documents **no `EGRESS_*` variable**: not `EGRESS_AUDIT_LOG_DIR`,
+  not `EGRESS_AUDIT_BODY_LIMIT`, not any retention setting. The first file a
+  deployer edits gives no hint that the stack keeps a traffic log at all.
+- `README.md` mentions egress **once**, at :48, inside a `NO_PROXY` aside, and
+  never names the log viewer or the anomaly agent. Three of twelve compose
+  services are the egress trio. `review.md` §3.2 and `comparison.md` both treat
+  the layer as a headline feature, so the README is the outlier.
+
+Both are ordinary documentation defects and would normally be one issue. They
+are **held** until the security item is resolved, because an issue titled "the
+egress log is undocumented" is a signpost to the file not to look at yet.
+Holding is recorded here so the next cycle files it rather than rediscovering it.
