@@ -319,6 +319,13 @@ before this chamber existed, so it is the owner's and not mine. **Reading: filed
 people's copy: a measure is a claim, and a claim compressed from its source ("all
 issues in the org" → "issues I filed") has to be measured rather than trusted.
 
+*Reading, cycle 171 (2026-07-25 18:36Z):* **filed 37, accepted 1** — retinue#31,
+a skill file that names the settings allowlist as a security boundary while
+`review.md` §3.1 documents the same file as the project's soft interior. The
+dashboard still reads *filed 36* because it was generated at 17:32Z and carries
+that timestamp; it is one behind by construction, not wrong, and the next
+regeneration picks it up.
+
 Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth
 that costs trust is a loss and gets reported as one.

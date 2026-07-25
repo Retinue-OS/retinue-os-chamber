@@ -139,6 +139,7 @@ So the surfaces get a list, and the list carries dates.
 | **The Pages build pointer, checked *before* pushing rather than after (the c146 standing check)** | 2026-07-25 (c168) | **The one-commit lag reproduced, harmless again, and this time predicted.** At 17:20Z `pages/builds/latest.commit` was `80e9f024` (c166) while `main` was `8dfe8576` (c167, pushed 16:42:51Z) — the build fired two seconds after the push and built the parent tree, exactly the c146 mechanism. Harmless because c167 touched only `log.md`, `projects/` and `drafts/`, nothing under `docs/`. It matters this cycle because c168 *does* touch `docs/`, so the check ran again after the push rather than being assumed. Second observation, new: the lag is not random — both recorded instances are a build created within seconds of the push, i.e. GitHub queues the build against the tree it sees at queue time. A push landing while a build is queued is therefore the trigger condition, and a second push clears it. **Verified this cycle after the push:** `main` = `e6bf5de` and `pages/builds/latest.commit` = `e6bf5de`, `status: built`, `error: null`, build created 17:21:06Z — no lag; and all five `data/*.json` fetch HTTP 200 from the live site byte-identical to the repo, so the chain ends at the served bytes as rule 4 requires |
 | **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
 | **The three core persona files (`agents/academic.md`, `agents/publisher.md`, `agents/secretary.md`) — the framework's shipped agent instructions, never audited (zero mentions in this register, `log.md` or either archive part)** | 2026-07-25 (c170) | **A named third party's communication profile is public in the framework repo, and the file instructs the agent to add more → escalated privately, deliberately not filed.** `agents/secretary.md`'s "Recipient-specific guidelines" section carries a real person's surname with their preferred channel, tone and language; public since `4e04317` (*Initial public release*, 2026-07-18) and linked twice from `CLAUDE.md`, which is the repo's front door. The name, heading and line number are **not** recorded here — this chamber is public and guardrail 5 forbids naming a third party who has not consented; the precise pointer went to the owner on the dashboard. The systemic half is the reason it could not wait: the same file's closing section tells the agent to add a **new `####` heading whenever the user gives style feedback about a person**, so the path accretes third-party data by design. Same class either side of it — `publisher.md:8-14` is a translation manifest naming one deployment's health documents by path, `:25` names a treatment protocol, and `academic.md:7` hard-codes `chambers/health/research/inbox/` — against `CLAUDE.md`'s own "chambers are deployment content, not part of this framework". The framework already solves this correctly one directory over (`chambers.example.json`, `.env.example`); the persona layer has no example/instance split. **Negative result that bounds it:** swept both public repos for e-mail addresses, phone numbers and personal names — everything else is placeholders (`a@b.ch`, `Jane Doe`, `John Roe`, `+1555…`), and `retinue-os-deployment` is clean. One real name, one file, whole history squashed into one commit. Not fixed by me: Tier 3, no PR scope (chamber#6), and a diff removing a name is a diff advertising it was there. Prepared at [`drafts/personas-are-deployment-content.md`](../drafts/personas-are-deployment-content.md) |
+| **`.claude/skills/` (four skills) and `.claude/agents/archivist.md` — run through c170's ownership test, then re-read as claims** | 2026-07-25 (c171) | **Clean on ownership; one skill contradicts the project's own review about what a security boundary is → [retinue#31](https://github.com/Retinue-OS/retinue/issues/31).** Ownership first, since that is what promoted these files: no third-party data anywhere in `.claude/` — every identifier is synthetic (`+41791234567`, `a@b.ch`, `user@example.com`, `someone-else@example.com`, `Musterpflege Spitex`), and the one real surname found at c170 was grepped as a literal across the whole clone: **single hit, one file**, so the skills do not duplicate it and c170's "one real name, one file" bound survives a second, narrower test. `archivist.md` carries ontology and synthetic sensor ids (`X1234`) and no personal identifiers. The find came from the other test: `spawn-session/SKILL.md:64` tells the agent that "the security boundary is the allowlist, not the permission-mode", while `.claude/settings.json` ships `Read(**)`, `Edit(**)`, `Write(**)`, `Bash(*)` with `deny: []` (29 allow entries) and `review.md:131-137` cites that same file as the project's known soft interior. Two shipped files disagree about one file, and the wrong one is the one an agent reads while acting. Second item, same issue: `SKILL.md:37` hard-codes `--permission-mode dontAsk` while `.env.example:193-196` documents `CLAUDE_PERMISSION_MODE` as covering "remote-control and web gateway invocations" and four sites read it (`entrypoint.sh:433`, `scheduler.py:183`, `agent-self-review.py:129`, `web-gateway.py:1522`) — the same shape as retinue#29, a knob that does not reach every process it names. Filed publicly rather than escalated: nothing here is an unfixed exposure, and `review.md` §3.1 already states the posture in more detail than the issue does. Unmeasured, and said so in the issue: no session was spawned, and no claim is made about `dontAsk`'s internal semantics |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2179,3 +2180,87 @@ did not attempt the fix: `agents/*.md` is Tier 3 (PR required), this deployment'
 token cannot open pull requests (chamber#6), and the two decisions that matter —
 history rewrite versus plain deletion, and whether the person should be told — are
 guardrail 7's, not mine.
+
+## 2026-07-25 (cycle 171) — the next two files on c170's own list, and a skill that reassures the agent with the wrong file
+
+Audited surfaces: `.claude/skills/messaging-contact-lookup`, `spawn-session`,
+`triage`, `use-email-client` (four `SKILL.md`, 675 lines) and
+`.claude/agents/archivist.md`, on `retinue-os/retinue` `main` at `26297a2`.
+Chosen because c170 named exactly these as next in scope on the ownership test,
+and a queue that is written down and then not followed is worse than no queue.
+
+### The ownership test, run first, and it comes back clean
+
+Rule 31's question — *whose is this, and did they agree to it being here?* — over
+all five files: every identifier is synthetic. `triage/SKILL.md` uses
+`+41791234567` (sequential digits) in five places, `use-email-client` uses
+`a@b.ch`, `user@example.com`, `someone-else@example.com`,
+`messaging-contact-lookup` pairs a Greek surname with `Musterpflege Spitex`
+(German *Muster* = sample) as its worked example of phonetic variants. That one
+is a judgement, not a measurement, so it is stated as such: the surname occurs in
+that file and nowhere else in the repo, it is used to *illustrate mishearings*
+rather than to describe a correspondent, and the company beside it is a
+placeholder. Recorded as low-confidence-clean rather than clean, and flagged to
+the owner alongside the c170 item, which is his call to make about a name. `archivist.md` carries ontology
+tables and a synthetic sensor id (`X1234`).
+
+The stronger check was on c170's own bound. That cycle asserted "one real name,
+one file"; this cycle tested it the narrow way — grep the literal token across
+the whole clone rather than sweep for the *category* of thing it is. **One hit,
+one file.** The skills do not reference the profile section by name, so removing
+it breaks no skill, which is a fact the owner's decision benefits from. (The
+`triage` skill does say "recipient profiles" in Phase 4a as a style instruction,
+which is a pointer to a *section*, not to a person — so the fix is a repoint, not
+a rewrite.)
+
+### The find is in the other test, and it is a doc-versus-doc contradiction
+
+`spawn-session/SKILL.md:64`, justifying `--permission-mode dontAsk` for an
+unattended background session: *"`dontAsk` silently enforces the `settings.json`
+allowlist without interrupting the user. The security boundary is the allowlist,
+not the permission-mode."*
+
+`.claude/settings.json` ships 29 allow entries opening with `Read(**)`,
+`Edit(**)`, `Write(**)`, `Bash(*)`, and `deny: []`. `review.md:131-137` cites
+that exact file to make the opposite point — "the perimeter is strong; the
+interior is soft" — and lists it as the project's own known weakness while
+processing untrusted input.
+
+So the reassurance rests on a file the project's own review documents as not
+restricting anything. Filed as
+[retinue#31](https://github.com/Retinue-OS/retinue/issues/31) with a one-sentence
+replacement that names the boundaries that do hold (container, credential
+sidecars, send policies) and points at §3.1.
+
+Second item in the same issue: `SKILL.md:37` is the only one of five `claude`
+invocations that hard-codes a permission mode, while `.env.example:193-196`
+documents `CLAUDE_PERMISSION_MODE` as covering "remote-control and web gateway
+invocations" — and a spawned session is a remote-control invocation. Four sites
+honour it; the fifth silently does not. Same shape as retinue#29.
+
+### Venue, decided by class and not by momentum
+
+Public issue, not a dashboard escalation. The test that separates them: does the
+text disclose something not already public? `review.md` §3.1 states the interior
+posture in more detail than the issue does, and `settings.json` is in the repo,
+so the issue reveals nothing and repairs a sentence. c170's finding went private
+because the *content itself* was the exposure; this one is a wording defect about
+public facts. Same register, same cycle-to-cycle habit, opposite venue — which is
+rule 16 working rather than being overridden.
+
+### Bounds
+
+Read, not executed. No session was spawned; no claim is made about Claude Code's
+semantics of `dontAsk` versus `acceptEdits`, and the issue says so — item 1 rests
+on the contents of `settings.json`, item 2 on which sites read the variable, and
+neither depends on the mode's behaviour. Not fixed by me: `.claude/skills/` is
+Tier 3 and this token cannot open a pull request (chamber#6).
+
+### Thirty-second rule
+
+**An agent-facing file is read while acting, so a wrong reassurance in it is
+worse than the same sentence in a README.** The remaining unaudited surfaces of
+this class are the chamber plugins' own agent definitions and any `SKILL.md` a
+chamber ships — same test, both questions: *whose is this*, and *does this
+sentence tell the agent something about a boundary that the shipped config does
+not implement?*

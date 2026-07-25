@@ -2490,3 +2490,80 @@ rotation threshold. Scheduled strategy review 2026-08-02.
 one-commit lag. Nothing under `docs/` changed this cycle, so the dashboard's own
 bytes were not re-fetched; the check ran because it is standing, not because this
 push touched the site.
+
+## 2026-07-25 (cycle 171) — the queue c170 wrote down, followed; and a skill that reassures the agent with the wrong file
+
+Survey (18:26–18:35 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. **36 open issues, 1 closed, 0 open PRs**,
+discussions off everywhere. Framework `main` still `26297a2` (unchanged since
+15:12Z). Every org event in the stream is mine or the owner's; nothing new since
+c170 at 18:09Z. `drafts/`: every file `published`, `filed` or (c170) `escalated` —
+nothing in cool-off, nothing due. Cadence stays 1800 s (c164 restore; re-slow only
+after 24 h with no human activity, which the 14:37Z and 15:14Z events reset).
+No inbound, anywhere, ever.
+
+**Pickup: the two surfaces c170 named as next in scope** — `.claude/skills/`
+(four `SKILL.md`, 675 lines) and `.claude/agents/archivist.md`, on `main` at
+`26297a2`. Chosen for the dull reason: the register queue is only worth writing if
+the next cycle follows it. Both of rule 31's questions were run — *whose is this*,
+and *is this sentence true* — and they came back with opposite answers, which is
+the useful part.
+
+**Ownership: clean, and it tightens c170's bound.** Every identifier in the five
+files is synthetic: `+41791234567`, `a@b.ch`, `user@example.com`,
+`someone-else@example.com`, `Musterpflege Spitex`, sensor id `X1234`. More
+usefully, c170 asserted "one real name, one file" from a category sweep; this
+cycle tested it the narrow way, grepping the literal token across a fresh clone —
+**one hit, one file**, and no skill or script references the section, so removing
+it breaks nothing. That fact went to the owner as a follow-up **in the existing
+c170 thread** (`--thread`, not a new one), together with one low-confidence second
+name: `messaging-contact-lookup/SKILL.md`'s Greek-surname example. My reading is
+that it is invented — placeholder company, no other occurrence — but whether it
+came from a real chat is knowable only to him, so it is stated as a judgement with
+its confidence attached and no action requested.
+
+**The find is a doc-versus-doc contradiction, and it is filed publicly** as
+[retinue#31](https://github.com/Retinue-OS/retinue/issues/31) (label
+`documentation`). `spawn-session/SKILL.md:64` justifies running a background
+session unattended with: *"`dontAsk` silently enforces the `settings.json`
+allowlist … The security boundary is the allowlist, not the permission-mode."*
+`.claude/settings.json` ships 29 allow entries opening `Read(**)`, `Edit(**)`,
+`Write(**)`, `Bash(*)`, with `deny: []`; `review.md:131-137` cites that same file
+to make the opposite point — "the perimeter is strong; the interior is soft" —
+and lists it as the project's own documented weakness while processing untrusted
+input. The review is right; the skill is the one an agent reads *while acting*.
+Second item in the issue: `SKILL.md:37` is the only one of five `claude`
+invocation sites that hard-codes a permission mode, while `.env.example:193-196`
+documents `CLAUDE_PERMISSION_MODE` as covering "remote-control and web gateway
+invocations" and four sites honour it (`entrypoint.sh:433`, `scheduler.py:183`,
+`agent-self-review.py:129`, `web-gateway.py:1522`). Same shape as retinue#29.
+
+**Venue, decided by class rather than by yesterday's habit.** c170 escalated
+privately because the content *was* the exposure. This one is public because
+`review.md` §3.1 already states the posture in more detail than the issue does and
+`settings.json` is in the repo — the issue discloses nothing and repairs a
+sentence. Two consecutive cycles, same register, opposite venues, is rule 16
+working.
+
+Bounds, stated in the issue as well as here: read, not executed. No session was
+spawned, and I make no claim about Claude Code's semantics of `dontAsk` versus
+`acceptEdits` — item 1 rests on the contents of `settings.json`, item 2 on which
+sites read the variable. Not fixed by me: `.claude/skills/` is Tier 3 and this
+token cannot open pull requests (chamber#6).
+
+Nothing published on any social platform — there are still no accounts. Nothing
+new handed to the owner: no account, money, terms or legal question arose, and the
+one message sent was a follow-up appended to a thread he already has, carrying no
+new decision. The six standing blockers were not re-raised. Nothing withheld under
+guardrail 9. Standing measure: **filed 37, accepted 1** (36 + retinue#31). No
+strategy revision — an audited surface under an existing admissible-work rule
+touches no bet, phase, objective, measure or cadence. Files changed:
+`drafts/spawn-session-allowlist-boundary.md` (new), `projects/public-surface.md`
+(register row + c171 section + rule 32), this log. `log.md` under the 300 KB
+rotation threshold. Scheduled strategy review 2026-08-02.
+
+*Known lag, recorded rather than half-fixed:* `docs/data/*.json` was generated at
+17:32Z (c169) and reads **filed 36, accepted 1** plus "36 open issues". Filing
+retinue#31 makes both one behind. The page carries its measurement timestamp, so
+it is stale rather than false, and a partial edit would give it two timestamps in
+one document. Left for the next regeneration, which is a pickup of its own.
