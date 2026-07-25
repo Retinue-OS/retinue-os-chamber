@@ -2322,7 +2322,10 @@ built the parent tree. Harmless, because c167 touched nothing under `docs/`; it
 mattered today only because this cycle *does*. New detail worth keeping: both
 recorded instances of the lag are builds created within seconds of a push, so the
 trigger condition is a push landing while a build is queued, and any later push
-clears it. Re-checked after this cycle's own push — result in the register row.
+clears it. Re-checked after this cycle's own push: `main` and `pages/builds/latest.commit`
+both `e6bf5de`, `status: built`, `error: null`, and all five `data/*.json` fetch
+HTTP 200 from the live site byte-identical to the repo. No lag this time, and the
+correction is real at the reader's end rather than only in the commit.
 
 Nothing published externally this cycle: no comment, no issue, no post. Nothing
 handed to the owner — no account, money, terms or legal question arose, and the
