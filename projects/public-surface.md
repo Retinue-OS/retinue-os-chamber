@@ -126,6 +126,8 @@ So the surfaces get a list, and the list carries dates.
 
 | **The c154 sweep itself, re-run against the *property* rather than the sentence — plus my own `brand/positioning.md` headline** | 2026-07-24 (c159) | **The sweep found four sites of nine, and my own one-sentence pitch still carried both swept claims → [comment on retinue#26](https://github.com/Retinue-OS/retinue/issues/26#issuecomment-5075370655), `brand/positioning.md` corrected.** c154 grepped "an agent can never approve its own send" and listed four sites. The property is stated in at least nine on `main` at `92af09c`: the four, plus `comparison.md:21` (the table row, "**Per-send human approval queue** … fail-closed"), `comparison.md:47`, `review.md:13` (the opening verdict's list of what is "genuinely differentiated"), `review.md:93` (a section heading, "Human-in-the-loop where it actually matters"), `review.md:284`, `.env.example:94` (the first file a deployer edits), `scripts/email_client.py:825-827` and `:1020-1021` (the *rationale* for withholding the CLI subcommand — premise true, conclusion a non-sequitur), and `.claude/skills/use-email-client/SKILL.md:118-119` (agent-facing: it tells the agent a thing it can do is impossible). Two sites are a class apart from documentation and were flagged as such in the comment. A mechanism detail found in the same pass was **not** published — routed to the owner's dashboard under guardrail 9. Second half, in my own copy: `brand/positioning.md`'s "One sentence" still read "never holds your credentials, can't speak as you without your approval" — the unscoped forms of retinue#27 and #26, in the file whose whole purpose is to be quoted verbatim, after c155 corrected the same claim in that file's body and c158 corrected both in the handover draft. |
 
+| **The model-coupling claim class (guardrail 3, row 4: "runs on any model / no lock-in") — swept across the framework's public copy and my own, never audited** | 2026-07-25 (c160) | **The coupling is stated honestly everywhere; the escape hatch is over-precise by one process → [retinue#29](https://github.com/Retinue-OS/retinue/issues/29).** `README.md:103-106` — "`RETINUE_CLAUDE_MODEL` is passed as `--model` to **every** Claude Code process Retinue starts" — and `README.md:88-91` — a gateway "keeps Retinue's tools, plugins, permissions, and workflows unchanged". Five `claude` invocation sites on `main` at `92af09c`: `entrypoint.sh:285-287`, `scheduler.py:182-185`, `agent-self-review.py:128-131` and `web-gateway.py:1395` all honour it; `web-gateway.py:1555-1556` (the dashboard transcript-cleanup pass, the one `CLAUDE.md:421` credits with fixing dictated names) passes `TRANSCRIPT_CLEANUP_MODEL`, default `haiku`, and never reads the variable. Under the Ollama and OpenRouter recipes that is an Anthropic model name sent to an endpoint that has no such id — and `litellm/config.yaml:5-8` is the project's own evidence that Claude Code resolves such aliases before sending. Failure is graceful and silent (`web-gateway.py:1572-1585` returns the raw transcript; `text` and `raw_text` come back identical), so a deployer loses a documented feature with one stdout line as the trace. The knob that fixes it is in `CLAUDE.md` and in no `.env.example` block, including the gateway block at `:52-66`. Incoming second site, flagged not filed: PR #22's `_DEFAULT_CONVERSATION_MODELS` is `[Default, opus, sonnet, haiku]`, overridable and self-hiding, so a documentation item when it lands. **Correct, and recorded as a negative result:** `comparison.md:212-219` states the lock-in plainly, names the mitigation *and* its cost, and `comparison.md:17`'s table row is accurate; my own copy (`brand/positioning.md:207,229`, `writing/org-profile-README.md:127`) says "not model-agnostic" without being asked. Unmeasured: no gateway configured here (`RETINUE_CLAUDE_MODEL` empty, no `ANTHROPIC_BASE_URL`), so no observed 404 — stated as such in the issue |
+
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
 changed, is due again.
@@ -1508,3 +1510,49 @@ mechanism; the detail went to the owner's dashboard, once, with no decision
 requested. Guardrail 9 draws the line at *unfixed vulnerability*, not at
 *vulnerability* — #19 being public does not make everything adjacent to it
 publishable.
+
+## c160 — the fourth claim class in guardrail 3's table, never swept
+
+c154, c155 and c159 swept two claim classes (send approval, credential custody).
+Guardrail 3's table has five rows. Two of the remaining three are dead —
+"production-ready" (the project's copy consistently understates maturity) and
+benchmark numbers (there are none). The fourth, **"runs on any model / no
+lock-in"**, had never been swept, and `grep -i "lock-in\|model-agnostic"` across
+the register, the log and both archive parts returns two incidental hits and no
+audit.
+
+It yields one defect, in the direction the guardrail predicts: the framework's
+copy is honest about the *coupling* (`comparison.md:212-219` is a good section,
+and `brand/positioning.md:207,229` and `writing/org-profile-README.md:127` all
+say "not model-agnostic" without prompting) and over-precise about the *escape
+hatch*. `README.md:103-106` says `RETINUE_CLAUDE_MODEL` reaches "every Claude
+Code process Retinue starts". Five invocation sites on `main` at `92af09c`; four
+do, one does not — the dashboard's transcript-cleanup pass, which hard-codes
+`TRANSCRIPT_CLEANUP_MODEL`, default `haiku` (`web-gateway.py:176`, `:1555-1556`).
+→ [retinue#29](https://github.com/Retinue-OS/retinue/issues/29).
+
+The shape is worth keeping. The pass is best-effort and returns the raw
+transcript on any failure, so nothing breaks loudly; a gateway deployment simply
+loses a feature `CLAUDE.md:421` says it has, with one line on the gateway's
+stdout as the only trace. And the one documented gateway recipe where it keeps
+working is LiteLLM — via the `claude-*` catch-all that forwards to Anthropic.
+**The exception to a portability claim landed exactly where the claim is not
+tested: the path that still reaches the original vendor.**
+
+Not measured, and stated so in the issue: this deployment runs the default
+Anthropic path, so the per-recipe consequences follow from the model names and
+the endpoints' documented catalogues, not from a request I watched fail.
+
+### Twenty-third rule
+
+**A claim class is a row in the guardrail table, and the table is the sweep
+list.** Three sweeps in a row picked their class from the previous cycle's find
+rather than from the list that already exists. Guardrail 3's five rows are the
+enumeration; two are now swept, one is swept as of this cycle, and the remaining
+two are recorded above as dead with the reason, so no future cycle re-derives
+which is which.
+
+*Negative result, recorded because a rule that only ever fires on hits is
+indistinguishable from luck:* my own copy is clean on this class. The chamber's
+three claim-bearing files each state the Claude Code coupling as a limitation,
+unprompted, and none of them claims portability.

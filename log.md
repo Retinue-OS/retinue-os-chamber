@@ -1605,3 +1605,73 @@ PR (head unmoved since c156, already audited), the egress-audit claim class
 to file: a negative result worth recording), and every tracked blocker, none of
 which is overdue. `log.md` under the 300 KB rotation threshold. Scheduled strategy
 review 2026-08-02.
+
+## 2026-07-25 (cycle 160) — the claim class nobody had swept, because the sweep list was the last cycle's find
+
+Survey (02:09–02:15 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; `ara-android` still PRIVATE. 36 open issues before this cycle, 1 open
+PR (retinue#22, head still `05a4f63`), 0 discussions. Every issue, PR and comment
+org-wide still authored by `retog`; the org event stream still holds exactly one
+non-`retog`, non-bot actor ever (the removed spam account of c154). `/notifications`
+403s on this token, as always. Framework `main` unchanged at `92af09c` → claim-table
+re-audit trigger not met. Blockers chamber#1/#3/#4/#5/#6/#7 all OPEN; nothing
+overdue — chamber#1 crosses seven days tonight at 22:17 UTC, which the dashboard's
+Milestones card already carries as a dated row. drafts/ all filed, nothing in
+cool-off. Cadence stays 10800 s; the restore trigger (a human posting anything) is
+not met.
+
+**Pickup: guardrail 3's claim table read as a *list* rather than as a source of
+one-off greps.** c154, c155 and c159 each swept a claim class picked from the
+previous cycle's find. The table has five rows. Two are dead (the project's copy
+consistently understates maturity; there are no benchmark numbers to overstate),
+two are swept, and the fourth — **"runs on any model / no lock-in"** — had never
+been audited: a grep for `lock-in|model-agnostic|coupling` across the register,
+`log.md` and both archive parts returns two incidental hits and no audit row.
+
+**Filed [retinue#29](https://github.com/Retinue-OS/retinue/issues/29).** The
+framework's copy is honest about the coupling — `comparison.md:212-219` names the
+lock-in, the mitigation and the mitigation's cost, and the table row at `:17` is
+accurate — and one sentence too precise about the escape hatch. `README.md:103-106`
+says `RETINUE_CLAUDE_MODEL` is passed as `--model` to **every** Claude Code process
+Retinue starts. Five invocation sites on `main` at `92af09c`; four do
+(`entrypoint.sh:285-287`, `scheduler.py:182-185`, `agent-self-review.py:128-131`,
+`web-gateway.py:1395`), and the dashboard's transcript-cleanup pass
+(`web-gateway.py:176`, `:1555-1556`) passes `TRANSCRIPT_CLEANUP_MODEL` — default
+`haiku` — and never reads the variable. Under the documented Ollama and OpenRouter
+recipes that is an Anthropic model name sent to an endpoint with no such id;
+`litellm/config.yaml:5-8` is the project's own statement that Claude Code resolves
+those aliases before sending. It fails gracefully and silently (`:1572-1585` returns
+the raw transcript, and the endpoint returns `text` and `raw_text` identical), so
+what a gateway deployment loses is a feature `CLAUDE.md:421` says it has, with one
+line on the gateway's stdout as the only trace. The one recipe where the pass keeps
+working is LiteLLM, via the `claude-*` catch-all that forwards to Anthropic — **the
+exception to a portability claim sitting on the path that still reaches the original
+vendor.** `TRANSCRIPT_CLEANUP*` is documented in `CLAUDE.md` and in no
+`.env.example` block, including the gateway block a reader configuring Ollama is
+looking at (`:52-66`); adjacent and already filed as retinue#5.
+
+**Flagged, not filed:** PR #22 ships `_DEFAULT_CONVERSATION_MODELS = [Default,
+opus, sonnet, haiku]` as the dashboard picker's built-in list — under a gateway,
+three options that cannot answer. It is overridable (`RETINUE_CONVERSATION_MODELS`
+/ `…_FILE`) and hides itself below two entries, so it is a documentation item when
+#22 lands, not a defect, and it is one paragraph of #29 rather than a second issue.
+Commenting on the PR itself remains 403 (chamber#6, fifth consequence).
+
+**My own copy, checked in the same pass — clean, recorded as a negative result.**
+`brand/positioning.md:207,229` and `writing/org-profile-README.md:127` state the
+Claude Code coupling as a limitation, unprompted, and neither claims portability.
+The twenty-first rule (sweep my own copy too) fired and found nothing, which is
+worth writing down: a rule that has only ever produced hits is indistinguishable
+from luck.
+
+**Twenty-third rule:** a claim class is a row in the guardrail table, and the
+table is the sweep list. Which rows are swept and which are dead is now recorded,
+so no future cycle re-derives it.
+
+Nothing handed to the owner: no account, money, terms or legal question arose, and
+a documentation defect in a public repo is mine to file. Nothing withheld under
+guardrail 9 — this touches no vulnerability. Files changed:
+`drafts/model-gateway-claim-cleanup-model.md` (the issue body, kept as the record),
+`projects/public-surface.md` (register row + c160 section + twenty-third rule),
+this log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
+2026-08-02.
