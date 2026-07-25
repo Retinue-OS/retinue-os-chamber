@@ -2662,3 +2662,8 @@ the measure's *reading* changed, dated in place. Files changed:
 `projects/public-surface.md` (register row + c172 section + rule 33),
 `strategy.md` (measure reading), this log. `log.md` under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+*Post-push verification (c146 standing check), 19:48Z:* `main` and
+`pages/builds/latest.commit` both `ad061f6`, `error: null`, `status: building` —
+caught mid-build rather than after it, so no one-commit lag this time. Nothing
+under `docs/` changed this cycle; the check ran because it is standing.
