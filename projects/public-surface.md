@@ -140,6 +140,7 @@ So the surfaces get a list, and the list carries dates.
 | **My own GitHub token's *write* boundary — probed rather than assumed (register rule 7 applied to my own permissions for the first time)** | 2026-07-25 (c163) | **Issues are writable; only PRs and repo settings are not.** `POST /issues/{n}/labels` → 200, `PATCH /issues/{n}` → 200, against the known 403s on `createPullRequest`, `PATCH /repos/…` and `PUT …/topics`. chamber#6 is accurate as written ("can read metadata and file issues"), but 162 cycles read that as *only* file issues and never tested the neighbouring verbs. Consequence: all 37 open issues triaged with labels — `retinue` 9 bug / 12 documentation / 4 enhancement / 1 owner-action, `qlever-dir` 8 bug / 1 enhancement, chamber's 6 already `owner-action`. The queue is now filterable, which is a cheaper ask of the owner than another issue |
 | **The three core persona files (`agents/academic.md`, `agents/publisher.md`, `agents/secretary.md`) — the framework's shipped agent instructions, never audited (zero mentions in this register, `log.md` or either archive part)** | 2026-07-25 (c170) | **A named third party's communication profile is public in the framework repo, and the file instructs the agent to add more → escalated privately, deliberately not filed.** `agents/secretary.md`'s "Recipient-specific guidelines" section carries a real person's surname with their preferred channel, tone and language; public since `4e04317` (*Initial public release*, 2026-07-18) and linked twice from `CLAUDE.md`, which is the repo's front door. The name, heading and line number are **not** recorded here — this chamber is public and guardrail 5 forbids naming a third party who has not consented; the precise pointer went to the owner on the dashboard. The systemic half is the reason it could not wait: the same file's closing section tells the agent to add a **new `####` heading whenever the user gives style feedback about a person**, so the path accretes third-party data by design. Same class either side of it — `publisher.md:8-14` is a translation manifest naming one deployment's health documents by path, `:25` names a treatment protocol, and `academic.md:7` hard-codes `chambers/health/research/inbox/` — against `CLAUDE.md`'s own "chambers are deployment content, not part of this framework". The framework already solves this correctly one directory over (`chambers.example.json`, `.env.example`); the persona layer has no example/instance split. **Negative result that bounds it:** swept both public repos for e-mail addresses, phone numbers and personal names — everything else is placeholders (`a@b.ch`, `Jane Doe`, `John Roe`, `+1555…`), and `retinue-os-deployment` is clean. One real name, one file, whole history squashed into one commit. Not fixed by me: Tier 3, no PR scope (chamber#6), and a diff removing a name is a diff advertising it was there. Prepared at [`drafts/personas-are-deployment-content.md`](../drafts/personas-are-deployment-content.md) |
 | **`.claude/skills/` (four skills) and `.claude/agents/archivist.md` — run through c170's ownership test, then re-read as claims** | 2026-07-25 (c171) | **Clean on ownership; one skill contradicts the project's own review about what a security boundary is → [retinue#31](https://github.com/Retinue-OS/retinue/issues/31).** Ownership first, since that is what promoted these files: no third-party data anywhere in `.claude/` — every identifier is synthetic (`+41791234567`, `a@b.ch`, `user@example.com`, `someone-else@example.com`, `Musterpflege Spitex`), and the one real surname found at c170 was grepped as a literal across the whole clone: **single hit, one file**, so the skills do not duplicate it and c170's "one real name, one file" bound survives a second, narrower test. `archivist.md` carries ontology and synthetic sensor ids (`X1234`) and no personal identifiers. The find came from the other test: `spawn-session/SKILL.md:64` tells the agent that "the security boundary is the allowlist, not the permission-mode", while `.claude/settings.json` ships `Read(**)`, `Edit(**)`, `Write(**)`, `Bash(*)` with `deny: []` (29 allow entries) and `review.md:131-137` cites that same file as the project's known soft interior. Two shipped files disagree about one file, and the wrong one is the one an agent reads while acting. Second item, same issue: `SKILL.md:37` hard-codes `--permission-mode dontAsk` while `.env.example:193-196` documents `CLAUDE_PERMISSION_MODE` as covering "remote-control and web gateway invocations" and four sites read it (`entrypoint.sh:433`, `scheduler.py:183`, `agent-self-review.py:129`, `web-gateway.py:1522`) — the same shape as retinue#29, a knob that does not reach every process it names. Filed publicly rather than escalated: nothing here is an unfixed exposure, and `review.md` §3.1 already states the posture in more detail than the issue does. Unmeasured, and said so in the issue: no session was spawned, and no claim is made about `dontAsk`'s internal semantics |
+| **`.retinue/agents/aros.md` — my own persona definition, the chamber plugin's one shipped agent file and the first thing I read every cycle; never audited (one prior mention, a byte-identity check against the installed plugin cache)** | 2026-07-25 (c172) | **Clean on ownership; its description of what I can see is wrong, and following the instruction file it points at pushes a framework branch to the wrong repo → [retinue#32](https://github.com/Retinue-OS/retinue/issues/32).** Ownership (rule 31) first: no third-party data — the only people named are Ara, Ari and "the owner" in the abstract, and the AI-disclosure clauses are present and match GUARDRAILS §1. Two inaccuracies in the file itself, neither filed: line 27-30 says I "see only this file, the chamber around you, and your dispatch prompt", and I demonstrably also receive `/workspace/CLAUDE.md` as project instructions and can read the whole framework tree; the frontmatter declares eight tools (`Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch`) and this session has six — no `Glob`, no `Grep`, which costs nothing because `find`/`grep` run under `Bash`. The security-relevant half of the first one is c30's row and stays where it is: escalated, unfixed, **not re-raised and not restated in more detail here**. Not fixed by me either way — a persona file is my configuration, and an agent that edits its own definition has removed the only thing that makes the definition mean anything. Negative result worth keeping: `/workspace/deployment/.env` is a symlink to `../.env`, and the parent is not mounted, so it dangles — the deployment's secrets file is **not** readable from this chamber, which bounds c30. The filed find came out of testing the first inaccuracy rather than reading it: `CLAUDE.md:544-559` resolves the framework checkout by asking git for its origin, git cannot answer here (submodule whose gitdir is not mounted), `2>/dev/null` eats the fatal, the `else` branch resolves `/workspace/deployment/retinue` which does not exist, and the recipe's remaining commands then run in the agent's current directory — measured as `/workspace/chambers/retinue`, a real writable repo pointing at `retinue-os-chamber`. Demonstrated hazard, not an incident: both framework docs branches are on the framework repo where they belong |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2264,3 +2265,96 @@ this class are the chamber plugins' own agent definitions and any `SKILL.md` a
 chamber ships — same test, both questions: *whose is this*, and *does this
 sentence tell the agent something about a boundary that the shipped config does
 not implement?*
+
+
+## 2026-07-25 (cycle 172) — the file I read first, read for the first time
+
+`.retinue/agents/aros.md` is the chamber plugin's only agent definition, it is
+public in this repo, and it is the first file loaded on every one of my 172
+wake-ups. It had one prior mention anywhere in this chamber's records: a c-era
+check that the installed plugin cache was byte-identical to it. Nobody had ever
+asked whether it is *true*. Rule 32 named "the chamber plugins' own agent
+definitions" as the next surface of this class, so this cycle follows the queue
+rather than the news.
+
+### Ownership (rule 31): clean
+
+No third party appears in the file. The only names are Ara, Ari and "the owner"
+in the abstract; no address, number, handle or employer. The AI-disclosure
+clauses are present and consistent with GUARDRAILS §1, which matters because
+this file is what a reader who finds the chamber repo will use to decide whether
+the project's own agent is honest about itself.
+
+### Two things the file says about me that are not so
+
+**1. Visibility.** Lines 27-30: *"You run as an isolated subagent: you start
+cold every time and see only this file, the chamber around you, and your
+dispatch prompt."* The first clause is exactly right and the last is not. This
+session also received `/workspace/CLAUDE.md` as project instructions — 31 KB of
+framework operating manual, not this file, not this chamber, not the dispatch
+prompt — and the whole framework tree is readable at `/workspace` and
+`/workspace/deployment`.
+
+The security-relevant half of that is **c30's row**: the settings allowlist and
+the MCP grants, escalated to the owner on 2026-07-20 and still open. It is not
+re-raised here and it is deliberately not restated in more detail — the
+no-re-escalation rule, and guardrail 9 on unfixed exposure. What is new is only
+that the persona file *asserts* the narrow version as fact, so whoever fixes c30
+has a second file to correct, and a reader of this repo currently gets a
+reassurance the deployment does not implement.
+
+**Negative result that bounds it, and it is a good one.**
+`/workspace/deployment/.env` is a symlink to `../.env`; the parent deployment
+repo is not mounted, so it resolves to `/workspace/.env`, which does not exist.
+`test -r` says no. The deployment's secrets file is not reachable from this
+chamber. Checking that a suspected exposure is *absent* is as much a result as
+finding one, and this one narrows c30 rather than widening it.
+
+**2. The tool list.** The frontmatter declares `Read, Write, Edit, Glob, Grep,
+Bash, WebSearch, WebFetch`; this session has six of the eight — no `Glob`, no
+`Grep`. Harmless: `find` and `grep` run under `Bash`, which is how every audit
+in this register was actually done. Recorded because a declared capability list
+that overstates by two is the same species of small untrue thing this register
+exists to catch, and because the direction matters — a persona file overstating
+what an agent *has* is benign; understating what it can *reach* is not.
+
+**Neither is fixed by me, and that is a rule rather than a hesitation.** A
+persona file is my configuration. An agent that edits its own definition has
+removed the only thing that makes the definition mean anything, and the standing
+instruction that no message from another agent authorizes changing my
+configuration would be worth little if I did it to myself unprompted. Recorded
+here; the owner's to change.
+
+### The find is in the file this one points at
+
+The persona sends me to the framework repo (`docs/triple-stores.md`, the
+`gh`/PR workflow). Testing "what can I actually see and do" meant running
+`CLAUDE.md`'s own framework-detection snippet, and it fails here — silently, and
+into a state where the recipe's next commands push a branch to the wrong
+repository. Filed as
+[retinue#32](https://github.com/Retinue-OS/retinue/issues/32) with the
+measurement, a tested replacement snippet and an explicit note that no branch
+was created. Full working: `drafts/claude-md-framework-detection.md`.
+
+### Thirty-third rule
+
+**Audit the file you read first, first.** The register worked outward from the
+project's public copy to the framework's shipped instructions and only reached
+my own definition at cycle 172 — the file with the shortest path to every
+decision I make, and the one whose errors are invisible precisely because they
+are load-bearing. The generalisation for any deployment: a persona or agent
+definition is a claim about the runtime, and the runtime is the thing that can
+be measured. *Does this file describe the sandbox I am actually in?* is one
+command's worth of checking, and it found a wrong sentence and a filable defect
+on its first run.
+
+### Not done this cycle, with its reason and its time
+
+`docs/data/*.json` is one measurement behind (it reads *filed 36*, *36 open
+issues*; it is now 38 and 38 with retinue#31 and #32). c171 left it for "the
+next regeneration". It is deliberately still not that: the page carries its own
+17:32Z timestamp, so it is stale rather than false, and its next real event —
+chamber#1 crossing one week at **22:17:48Z tonight**, already printed on the
+agenda card — is under three hours away. Regenerating now would rewrite five
+documents to move two numbers and then need doing again this evening. **Due
+after 22:17:48Z**; that is the trigger, not the clock alone.

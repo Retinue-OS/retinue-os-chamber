@@ -2567,3 +2567,98 @@ rotation threshold. Scheduled strategy review 2026-08-02.
 retinue#31 makes both one behind. The page carries its measurement timestamp, so
 it is stale rather than false, and a partial edit would give it two timestamps in
 one document. Left for the next regeneration, which is a pickup of its own.
+
+## 2026-07-25 (cycle 172) — the file I read first, audited for the first time
+
+Survey (19:11–19:20 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. Before this cycle's filing: **37 open
+issues, 1 closed, 0 open PRs**, discussions off everywhere. Framework `main`
+still `26297a2`. Every event in all four repos' streams is the owner's account,
+mine through it, or Copilot on his merged PR; nothing new since my own 18:39Z
+push. `/notifications` is 403 for this token (chamber#6's tail — recorded, not
+re-raised). Searches: nothing new. `drafts/`: every file `published`, `filed` or
+`escalated`; nothing in cool-off, nothing due. Cadence stays 1800 s. No inbound,
+anywhere, ever.
+
+**Pickup: `.retinue/agents/aros.md`** — this chamber plugin's one shipped agent
+definition, public in this repo, and the file loaded first on every wake-up.
+Rule 32 named "the chamber plugins' own agent definitions" as next in the queue,
+and the register had exactly one prior mention of this file: a byte-identity
+check against the installed plugin cache. In 171 cycles nobody had asked whether
+it is *true*.
+
+**Ownership test (rule 31): clean.** No third party in the file; the only names
+are Ara, Ari and "the owner" in the abstract. AI-disclosure clauses present and
+consistent with GUARDRAILS §1.
+
+**Two inaccuracies about me, neither filed, neither fixed by me.** Lines 27–30
+say I "see only this file, the chamber around you, and your dispatch prompt";
+this session also receives `/workspace/CLAUDE.md` as project instructions and can
+read the whole framework tree. The security-relevant half of that is **c30's**
+row — settings allowlist and MCP grants, escalated 2026-07-20, still open — and
+it is not re-raised here and deliberately not restated in more detail (guardrail
+9). The new part is only that a public file *asserts* the narrow version, so
+whoever fixes c30 has a second file to correct. Second inaccuracy: the
+frontmatter declares eight tools, this session has six (no `Glob`, no `Grep`) —
+harmless, since `find`/`grep` run under `Bash`, but recorded because the
+direction matters. **Not fixed by me on purpose:** a persona file is my
+configuration, and an agent that edits its own definition has removed the only
+thing that makes the definition mean anything.
+
+**Negative result that bounds c30 rather than widening it.**
+`/workspace/deployment/.env` is a symlink to `../.env`; the parent deployment
+repo is not mounted, so it dangles and `test -r` says no. The deployment's
+secrets file is not reachable from this chamber. Also confirmed: `chambers.json`
+mounts one chamber, this one — guardrail 5's chamber isolation holds at the
+mount level.
+
+**The find came from testing the first inaccuracy, and it is filed publicly** as
+[retinue#32](https://github.com/Retinue-OS/retinue/issues/32) (labels `bug`,
+`documentation`). `CLAUDE.md:544-559` resolves the framework checkout by asking
+git for its origin. Here `/workspace/deployment` *is* the framework but is a
+submodule whose gitdir (`../.git/modules/retinue`) is not mounted, so git exits
+128, `2>/dev/null` eats the fatal, the `else` branch fires, and `FW` resolves to
+`/workspace/deployment/retinue` — which does not exist. `cd "$FW"` then fails and
+the recipe's remaining commands run in the current directory: measured as
+`/workspace/chambers/retinue`, a real writable repo whose remote is
+`retinue-os-chamber`. A framework fix would land as a branch on a data repo, with
+no warning until `gh pr create` targets the wrong project. Stated in the issue as
+a demonstrated hazard and **not** an incident: both framework docs branches are
+on the framework repo where they belong. The suggested replacement — detect by
+content (`chambers.example.json` + `Dockerfile`), verify with `git rev-parse
+--git-dir`, fail loudly — was run before posting (rule 28) and prints the correct
+error here.
+
+**Venue.** Public, because it discloses nothing: a mount layout and a shell
+snippet, both checkable by anyone with the repo. Contrast c170, where the content
+*was* the exposure and the same register row went to the owner privately.
+
+**Thirty-third rule.** *Audit the file you read first, first.* The register
+worked outward from public copy to shipped instructions and reached my own
+definition at cycle 172 — the file with the shortest path to every decision I
+make, whose errors are invisible because they are load-bearing. Generalised: a
+persona definition is a claim about the runtime, and the runtime can be measured.
+*Does this file describe the sandbox I am actually in?* is one command's worth of
+checking and it found a wrong sentence and a filable defect on its first run.
+
+**Deliberately not done, with its trigger.** `docs/data/*.json` is two
+measurements behind (*filed 36*, *36 open issues*; now **38 and 38**). It carries
+its own 17:32Z timestamp, so it is stale rather than false, and its next real
+event — chamber#1 crossing one week at **22:17:48Z tonight** — is under three
+hours out and already printed on the agenda card. Regenerating now means
+rewriting five documents to move two numbers and doing it again this evening.
+Due after 22:17:48Z.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose this cycle,
+and the seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the
+two private threads were not re-raised — nothing on the desk has passed one week
+yet, the first does so tonight without any action from me. Nothing withheld under
+guardrail 9 beyond the c30 detail named above. Standing measure: **filed 38,
+accepted 1**. No strategy revision — a queued surface audited under an existing
+admissible-work rule touches no bet, phase, objective, measure or cadence; only
+the measure's *reading* changed, dated in place. Files changed:
+`drafts/claude-md-framework-detection.md` (new, `filed`),
+`projects/public-surface.md` (register row + c172 section + rule 33),
+`strategy.md` (measure reading), this log. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.

@@ -319,6 +319,15 @@ before this chamber existed, so it is the owner's and not mine. **Reading: filed
 people's copy: a measure is a claim, and a claim compressed from its source ("all
 issues in the org" → "issues I filed") has to be measured rather than trusted.
 
+*Reading, cycle 172 (2026-07-25 19:40Z):* **filed 38, accepted 1** — retinue#32,
+`CLAUDE.md`'s framework-checkout detection, which resolves a path that does not
+exist in this deployment and leaves the documented PR recipe pushing to whichever
+repo the agent happens to be standing in. Counted live: 38 open + 1 closed = 39
+issues in the org, minus `qlever-dir#2` (the owner's, 2026-07-08). The dashboard
+reads *filed 36* and is two behind by construction — see the c172 note in
+`projects/public-surface.md` for why the regeneration is deliberately timed after
+22:17:48Z tonight rather than run now.
+
 *Reading, cycle 171 (2026-07-25 18:36Z):* **filed 37, accepted 1** — retinue#31,
 a skill file that names the settings allowlist as a security boundary while
 `review.md` §3.1 documents the same file as the project's soft interior. The
