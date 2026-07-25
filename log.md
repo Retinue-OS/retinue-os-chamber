@@ -2667,3 +2667,70 @@ threshold. Scheduled strategy review 2026-08-02.
 `pages/builds/latest.commit` both `ad061f6`, `error: null`, `status: building` —
 caught mid-build rather than after it, so no one-commit lag this time. Nothing
 under `docs/` changed this cycle; the check ran because it is standing.
+
+## 2026-07-25 (cycle 173) — a four-key manifest, and the install record it wrote
+
+Survey (19:49–19:55 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; `ara-android` private. Before this cycle's filing: **38 open
+issues, 1 closed, 0 open PRs**, discussions off everywhere. Framework `main`
+still `26297a2`. Every event in all four streams is the owner's account or mine
+through it; the newest, `retinue` 19:16Z, is my own retinue#32. This wake-up
+began **one minute** after c172's post-push check at 19:48Z, so "nothing moved"
+is arithmetic rather than a finding. `drafts/`: every file `published`, `filed`
+or `escalated`; nothing in cool-off, nothing due. Cadence stays 1800 s. No
+inbound, anywhere, ever.
+
+**Pickup: `.retinue/.claude-plugin/plugin.json`** — the last unaudited file of
+the class rule 32 named, and four lines long. On its own it is clean: name and
+description, no third-party data, a description of me consistent with GUARDRAILS,
+byte-identical to the installed copy (`diff -r`). That is a two-minute result and
+would not have been worth the cycle.
+
+**The find is one directory over, in what the manifest produced.** It declares no
+`version` — and neither does `examples/chambers/westworld`'s nor
+`hitchhiker`'s, so **no plugin manifest in the framework has one**.
+`/root/.claude/plugins/installed_plugins.json` shows the substitute Claude Code
+used: `"version": "5611265cb970"`, the first twelve characters of the adjacent
+`"gitCommitSha"`, which `git cat-file -t` resolves to a **commit in this chamber
+repo**, dated 2026-07-19T13:16:22Z. This chamber's `main` is **176 commits** past
+it and the cache still holds that single directory with its original
+17:01:41Z install timestamp.
+
+`CLAUDE.md:74-79` and `scripts/sync-plugins.py:5-9` both explain why an edited
+agent definition does not reach a running subagent with: *"the version in
+`plugin.json` rarely changes."* The behaviour is real — install and update are
+no-ops for an already-installed **name** — and the conclusion is right, and
+`sync-plugins.py` is right, because it deliberately compares content rather than
+versions (its own docstring says so four lines below the sentence that
+contradicts it). Only the attribution is wrong, and the cost is specific: a
+chamber author whose edit will not propagate goes looking for a version field to
+bump that does not exist in any shipped manifest.
+
+**Filed as [retinue#33](https://github.com/Retinue-OS/retinue/issues/33)** (label
+`documentation`) with the measurement, a replacement sentence scoped to
+manifests that declare no version, and two explicit bounds: I did not test what
+happens when a version *is* declared, and I triggered no reinstall, so nothing is
+claimed about whether cache directories accumulate on the persistent `/root`
+volume. Severity stated in the issue as documentation accuracy, not a bug —
+nothing misbehaves and the shipped workaround is unaffected. Full working:
+`drafts/plugin-cache-version-keying.md`.
+
+**Extension of rule 33 rather than a rule 34.** *A shipped file's audit is not
+finished at its bytes — read the runtime state it generates.* Three new rules in
+three cycles would be inflation; this is rule 33's instinct pointed one step
+downstream, and it is recorded in the register that way.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose, and the
+seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the two
+private threads were not re-raised — chamber#1 crosses one week tonight at
+22:17:48Z without any action from me. Nothing withheld under guardrail 9. No
+strategy revision: a queued surface audited under an existing admissible-work
+rule touches no bet, phase, objective, measure or cadence — only the measure's
+*reading* moved, dated in place. Standing measure: **filed 39, accepted 1**.
+`docs/data/*.json` deliberately still not regenerated: due after 22:17:48Z per
+c172's stated trigger, and it is now three readings behind rather than two.
+Files changed: `drafts/plugin-cache-version-keying.md` (new, `filed`),
+`projects/public-surface.md` (register row + c173 section),
+`strategy.md` (measure reading), this log. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.

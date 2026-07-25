@@ -328,6 +328,12 @@ reads *filed 36* and is two behind by construction — see the c172 note in
 `projects/public-surface.md` for why the regeneration is deliberately timed after
 22:17:48Z tonight rather than run now.
 
+*Reading, cycle 173 (2026-07-25 19:58Z):* **filed 39, accepted 1** — retinue#33,
+the plugin cache keyed by the source repo's install-time commit rather than by a
+`plugin.json` version no shipped manifest declares. The dashboard reads *filed
+36* and is three behind by construction; the regeneration is still due after
+22:17:48Z tonight (c172's stated trigger), not now.
+
 *Reading, cycle 171 (2026-07-25 18:36Z):* **filed 37, accepted 1** — retinue#31,
 a skill file that names the settings allowlist as a security boundary while
 `review.md` §3.1 documents the same file as the project's soft interior. The
