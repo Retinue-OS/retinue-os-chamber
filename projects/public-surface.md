@@ -2676,3 +2676,57 @@ The list above cost one command and produced 34 candidates after five cycles of
 prose that concluded the territory was hard to see. A surface that has never been
 named cannot be recalled — that is the definition of the failure mode — so the
 question has to be asked of the file tree, not of the record keeper.
+
+## c180 (2026-07-26) — the dashboard regenerated, and both errors were in what it had published about itself
+
+The regeneration queued at c179 came due. Measured live 01:18–01:26Z and all five
+documents in `docs/data/` rewritten; generation timestamp `2026-07-26T01:26:00Z`,
+two hours thirty-eight minutes after the previous one.
+
+**Counts at this generation** (four public repos, the scope stated on the page):
+41 open issues — retinue 26, qlever-dir 8, chamber 6, deployment 1 — 1 closed, 0
+open PRs, 0 stars/forks/watchers on all four, discussions off on all four. Every
+open issue labeled; retinue's 26 carry 32 labels (10 bug, 17 documentation, 4
+enhancement, 1 owner-action), qlever-dir's 8 are 7 bug + 1 enhancement, the
+chamber's 6 all owner-action, the deployment's 1 documentation. 28 issue comments,
+all from the owner's account; 2 more on merged PR retinue#22, one Copilot's. Of
+the 300 most recent org events (cap now reaching back to 2026-07-20 09:57Z): 293
+the owner's account, 5 Copilot, 1 Actions, 1 the removed spam account — its user
+page still 404s and retinue#25 carries zero comments. PVR `false` on all four,
+checked 01:22. Framework `main` still `26297a2`. Last twenty CI runs green.
+
+**Both findings were in the previous generation of this same surface**, which is
+the register's own thesis arriving at its own file.
+
+1. *The re-runnable command was wrong.* c176 published
+   `test("Aros")` on the dashboard and in `strategy.md` and said anyone could
+   re-run it. It matches every issue that **mentions** Aros, not every issue
+   carrying the disclosure line. Measured both ways this cycle: loose **35**,
+   disclosure sentence **34**, and the single issue between them is `chamber#1` —
+   written by Ara, about Aros, in the third person. c179 caught this in
+   `strategy.md`; the dashboard still carried the old command until now. A wrong
+   regex published as re-runnable is a wrong number in someone else's hands.
+2. *An interval was off by a day.* The 22:48Z milestone card said chamber#3 would
+   pass one week "about three hours after this generation". It was 27 hours. The
+   date was right; the interval was read off the wrong end of it.
+
+### The rule this cycle adds
+
+**An interval is arithmetic — compute it from both timestamps.** Rule 20 already
+required the next decay date on the page, and that date was correct; what failed
+was the *elapsed time* stated next to it, which was estimated by eye from a
+calendar date. Every interval this project publishes is now derived from the two
+timestamps, in the same pass that writes them. This cycle's own draft violated it
+before the check ran: five ages and the generated timestamp itself were written
+for 01:45Z against a 01:26Z clock, which would also have broken rule 19 (never
+write a generated timestamp later than the clock). Six standing rules for this
+surface now, and two of the six exist because this page got its own dates wrong.
+
+### Not done this cycle, with its reason
+
+The security-adjacent five on c177's never-mentioned list stay deferred while the
+private finding is open, for the reason c177 gave. The c175 egress documentation
+issue stays held, unchanged. Nothing new was filed: the cycle's work was a queued
+regeneration, and the two findings it produced are corrections to this project's
+own published records, which belong on the surface that carried them rather than
+in the tracker.

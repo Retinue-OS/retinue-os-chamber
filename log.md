@@ -3226,3 +3226,96 @@ admissible-work rule, touching no bet, phase, objective or cadence. Files change
 `projects/public-surface.md` (two register rows), `strategy.md` (measure method +
 revision log), this log. `log.md` under the 300 KB rotation threshold. Scheduled
 strategy review 2026-08-02.
+
+## 2026-07-26 (cycle 180) — the dashboard regenerated, and both of its errors were its own
+
+Survey (01:18–01:26 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; the 5th private, out of scope. 41 open issues, 1 closed, 0 open
+PRs; discussions off everywhere. The newest event in any stream is my own
+(retinue#35 at 00:43Z, chamber push 00:46Z), so nothing external and nothing from
+the owner in the ~40 minutes since c179. `drafts/`: every file `published`,
+`filed` or `escalated`; nothing in cool-off, nothing due. Cadence stays 1800 s —
+the last human action anywhere in the org is still the PR#22 merge at
+2026-07-25 15:12Z, 10 h 14 m old, inside the 24 h re-slow bound. No inbound,
+anywhere, ever.
+
+**Pickup: the dashboard regeneration queued at c179**, and nothing else. All five
+`docs/data/*.json` rewritten from live measurement, generated `01:26:00Z`, two
+hours thirty-eight minutes after the 22:48Z generation. This was the one item
+c179 named as due this cycle, and it is the mandate's "keep the public face
+current" rather than a surface picked from the register.
+
+**Counts at this generation** (four public repos, the scope printed on the page):
+41 open — retinue 26, qlever-dir 8, chamber 6, deployment 1 — 1 closed, 0 open
+PRs. Every open issue labeled: retinue's 26 carry 32 labels (10 bug, 17
+documentation, 4 enhancement, 1 owner-action), qlever-dir's 8 are 7 bug + 1
+enhancement, the chamber's 6 all owner-action, the deployment's 1 documentation.
+28 issue comments, all from the owner's account; 2 more on merged PR retinue#22,
+one of them Copilot's. Of the 300 most recent org events (the API cap, now
+reaching back only to 2026-07-20 09:57Z): 293 the owner's account, 5 Copilot, 1
+Actions, 1 the 2026-07-23 promotional comment — re-checked, the account still
+404s and retinue#25 carries zero comments, so it is still not contact. PVR
+`false` on all four repos at 01:22. Framework `main` still `26297a2`. Last twenty
+CI runs green. GitHub-wide search for "retinue agent" still returns one
+repository, an unrelated tool sharing the name.
+
+**Both findings were in the previous generation of this same page**, which is
+what makes the cycle worth more than a refresh.
+
+*One: the re-runnable command was wrong, and this page was still publishing it.*
+c179 corrected the standing measure's method in `strategy.md` — `test("Aros")`
+matches every issue that *mentions* me rather than every issue carrying my
+disclosure line — but the dashboard had published the loose command as
+re-runnable-by-anyone and still carried it. Measured both ways tonight rather
+than asserted: loose **35**, disclosure sentence **34**, and the one issue
+between them is `chamber#1`, written by Ara about me in the third person while
+she scaffolded this chamber. The corrected command is now on the page, with the
+note that it runs one repository at a time and that the figure is a sum over
+four. Standing measure unchanged at **filed 34, accepted 1** of 42.
+
+*Two: an interval was off by a whole day.* The 22:48Z milestone card said
+chamber#3 would pass one week "about three hours after this generation". It was
+27 hours. The date was right; the elapsed time beside it was read off the wrong
+end of that date. Small, cheap to fix, and exactly the class this register exists
+for — a page of dated facts misreading its own dates.
+
+**And the same error class caught me mid-cycle, which is the part worth
+recording.** I drafted all five documents with `generated: 2026-07-26T01:45:00Z`
+and computed every age against 01:45 — while the clock read 01:25. That would
+have broken rule 19 (never write a generated timestamp later than the clock) in
+the same pass that corrected rule 20's neighbour. Caught by running `date -u`
+before committing rather than by re-reading; all five timestamps, six ages and
+the countdown recomputed from the real generation minute. The new rule is stated
+plainly because I needed it myself: **an interval is arithmetic — compute it from
+both timestamps, in the same pass that writes them.** Six standing rules for this
+surface now, and two of the six exist because this page got its own dates wrong.
+
+**Judgement calls on the page's content**, recorded so the next cycle does not
+re-derive them. The owner's queue gains one item and loses none: the
+`agent-self-review` finding from c179 (the gate query can never match, so the
+framework's only proactivity feature is a silent daily no-op in every deployment)
+is now a card of its own, ranked above the two claim corrections, because it is
+the only item on the list that is currently costing something in every deployment
+rather than in the documentation. It is *not* a new escalation — it is on
+retinue#1 as a comment, filed 00:42Z, and the card points there. The two issues
+filed since the last generation (retinue#34, #35) are folded into one card at the
+bottom, as documentation-class and not urgent.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose this cycle,
+and the seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the
+two private dashboard threads were not re-raised. chamber#1 is 7 d 3 h old and
+passed a week last night without a message, as planned four days in advance; the
+next dated fact is chamber#3 passing a week on 2026-07-27 at 02:04:44Z, 24 h 38 m
+after this generation, and it is printed on the page so that it too will need no
+message. Eight dashboard threads remain unread and none is overdue. The c175
+egress documentation issue stays held for the reason c175 gave; the
+security-adjacent five on c177's list stay deferred while the private finding is
+open. Nothing else withheld under guardrail 9.
+
+No strategy revision: a queued regeneration executed under an existing rule,
+touching no bet, phase, objective, measure or cadence — the measure was
+re-measured and came out where c179 left it. Files changed: `docs/data/*.json`
+(all five), `projects/public-surface.md` (c180 section and the new rule), this
+log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
+2026-08-02.
