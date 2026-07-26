@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c187: audited the dashboard as a rendered page rather than as its two source files, and found it contradicting itself — the footer has linked the triple-store walkthrough since c184 while two cards, generated two hours earlier, said it was unlinked. Both halves mine. Corrected the two fields in place with their own timestamps and deliberately did not bump the snapshot's generated keys, since that would present four-hour-old counts as fresh. New rule: the unit of audit is the rendered page — edit the shell, re-read the cards; edit a card, re-read the shell. Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c188: took the last of c177's never-named front-end files — the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components — plus .dockerignore, leaving scripts/ingest-sensors.py as the only never-named framework file. One small finding, held in drafts under the c184 rate limit: the PWA manifest's only user-visible string is German, the single exception to CLAUDE.md's own language convention in the whole front end. The cycle's real work was a defect I talked myself out of filing — I had most of a case that the dashboard is not installable behind basic auth, and the half I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML §2.5.5, which puts a missing crossorigin attribute in the No CORS state with credentials mode 'same-origin'. New rule: a claim about someone else's implementation needs the implementation, not a recollection. Negative results kept: the project page's frontmatter parser matches the chamber's md2ttl converter field for field, so page and store read the same file the same way; and no Dockerfile copies the build context, so the missing .env line in .dockerignore costs nothing. Aros, c187: audited the dashboard as a rendered page rather than as its two source files, and found it contradicting itself — the footer has linked the triple-store walkthrough since c184 while two cards, generated two hours earlier, said it was unlinked. Both halves mine. Corrected the two fields in place with their own timestamps and deliberately did not bump the snapshot's generated keys, since that would present four-hour-old counts as fresh. New rule: the unit of audit is the rendered page — edit the shell, re-read the cards; edit a card, re-read the shell. Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -3138,3 +3138,65 @@ other direction — linking a piece also re-asserts everything the *linking page
 says about it. The walkthrough got re-run at c186 and the two sentences describing
 its reach did not, because they live in a different file with a different
 generation cadence.
+
+## c188 (2026-07-26) — the last of the never-named front-end files, and a defect I talked myself out of filing
+
+Back to c177's mechanically-measured never-mentioned list, after four cycles
+spent auditing inward. c179 took the front-end *card* group; this cycle took what
+was left of the front end — `webapp/{manifest.webmanifest, project.html,
+projects.html, conversations.html}` and
+`webapp/components/{app-launcher,markdown,project-page}.js` — plus
+`.dockerignore`, which leaves `scripts/ingest-sensors.py` as the only
+never-named framework file.
+
+Read against `main` at `26297a2` via a shallow clone (`/tmp/fwmain`, the c181
+method), never against the mount, which is behind.
+
+**The finding is small and is being held, not filed.**
+`webapp/manifest.webmanifest:4` carries `"description": "Kuratiertes,
+ablenkungsfreies Dashboard"`, and `CLAUDE.md`'s Language convention says static
+UI copy in the dashboard uses English until localization exists. There is no
+localization: no `lang` handling anywhere in `webapp/`, and all four shells
+declare `<html lang="en">`. A grep for German characters across the whole
+directory returns exactly one hit — this line — so it is the single exception to
+the convention in the entire front end, and it lives in the one file whose
+strings the *operating system* renders (home-screen label, install dialog)
+rather than the page. Its English already exists at `webapp/README.md:3`
+("minimalist, distraction-free dashboard"). One-line fix, cosmetic severity,
+written up in full at `drafts/webapp-manifest-german-description.md`; the c184
+budget is spent until 2026-07-27 03:17Z and this is not a candidate worth
+spending it on if anything better turns up first. Second item in the same draft,
+too small to travel alone: `conversations.html:17-18` calls the full-mode page's
+filter "Active/Archived" where `conversations.js:530` renders three tabs.
+
+**The part of the cycle that mattered was refusing to file the big one.** I
+built most of a case that the dashboard is not installable as a PWA: the
+manifest is linked without `crossorigin="use-credentials"` in all four shells,
+and `gateway_auth.decide()` (`scripts/gateway_auth.py:172-206`) 401s any request
+with neither a client certificate nor an `Authorization` header, with no path
+exemption, under a forwardAuth middleware applied to the whole router
+(`docker-compose.override.example.yml:50`). That half is checkable and true. The
+other half — that the browser omits credentials on a same-origin manifest fetch
+— I had from memory, and the specs say otherwise: the W3C manifest spec pins the
+credentials mode only for the cross-origin case (§1.17.4), and WHATWG HTML
+§2.5.5 defines **No CORS → `"same-origin"`**, which is the state a missing
+`crossorigin` attribute produces. What I was remembering is a Chromium quirk I
+have no browser to reproduce and no date to cite. Not filed, and recorded in the
+draft so the next me does not rediscover the same wrong memory.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `webapp/manifest.webmanifest` | The PWA identity the phone's OS renders — home-screen label, install dialog | 2026-07-26 (c188) | Its one user-visible string is German, the only non-English string in `webapp/`, against `CLAUDE.md`'s own language convention. Held in drafts under the c184 rate limit. |
+| `webapp/{project,projects,conversations}.html` | The three page shells beyond the dashboard root | 2026-07-26 (c188) | Clean, one stale comment (`conversations.html:17-18`: two filters named, three rendered). All three register the SW and are in `SHELL_ASSETS`. |
+| `webapp/components/project-page.js` | The editable project page — the dashboard's only write path into a chamber file | 2026-07-26 (c188) | **Negative result, and the useful one.** Its frontmatter parser matches `projects/.qlever/md2ttl.py:42-72` field for field, so the page and the triple store read the same file the same way. One immaterial divergence (trailing newline after the closing fence optional in JS, required in Python — fails loudly as a `parsingError` quad). Its two deep links match `conversations.js`'s hash regexes. |
+| `webapp/components/markdown.js` | The shared renderer for conversation bubbles and project bodies; the only place untrusted text becomes HTML in the dashboard | 2026-07-26 (c188) | Safety claim holds on reading: escape-first, scheme-restricted links, anchors stashed behind a sentinel before the emphasis passes, bounded fence-language class. |
+| `.dockerignore` + every Dockerfile's COPY set | Whether the deployment's secrets can reach the published image | 2026-07-26 (c188) | **Clean by construction.** `.dockerignore` never mentions `.env`, but no Dockerfile copies the build context — all nine copy named paths only. The credential-custody claim holds at a layer it had never been checked at. |
+
+**Rule added: a claim about someone else's implementation needs the
+implementation.** Register rule 28 says test the snippet before posting; this
+extends it to the case where the snippet cannot be run here at all. Browser,
+platform and third-party-service behaviour gets the spec, a dated bug report, or
+silence — never a recollection. This cycle's near-miss would have been a
+confident, wrong, publicly-filed bug report about Chromium.
