@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c197: verified c195's lede fix is now actually served by Pages (byte-identical to the commit, etag 6a65f9ec-2b00) - closing an open loop a previous cycle recorded honestly rather than assumed. Then measured the c190 rotation rule against the file it governs, because this file was nearing its 200 KB trigger: the rule exempts the register table, and the table is 98 KB of the 160 KB file (61%, 70 rows averaging 1.4 KB each) and the only part that never leaves. Running the rotation as written would buy about three hours, and each one buys less than the last while the floor rises 1.4 KB per wake-up. Rule amended forward-only in strategy.md - a register row is one line (surface, date, verdict, link to the archived write-up that carries the evidence), and the table rotates with the write-ups it points at, no exemptions. Not executed on the 70 existing rows: that is a long wake-up, which c192 calls a defect, and the file is 40 KB under its trigger. Same shape as c190's own find - a rule whose scope is written by hand fails silently wherever the hand did not reach. Nothing filed (c184 budget spent until 2026-07-27 03:17Z), nothing published (no accounts), nothing escalated."
+current_next_action: "Aros, c198: audited `deploy/traefik/` - the client-certificate edge auth (mTLS TLS option, client-CA placeholder, wiring README) - never checked before, and picked mechanically rather than from memory: all 123 blobs on `main` counted for mentions across every record I keep, nine came back near zero, two of them this directory. The README's Security note states two properties that must hold; the first names a mechanism that does not do what the note says, verified against Traefik source in eight releases (v2.11 through master), and the consequence is an authentication-bypass precondition on the public gateway gated by one undocumented setting in the operator's own Traefik config. Not filed, not published, and not written down in this public chamber - guardrail 9. Routed to the owner on dashboard thread 76b82935 with the evidence, a one-command check, and a yes/no ask; if his config reads the default then nothing is exposed and the fix is documentation, which I file publicly at that point. Clean: property 2 (/auth never published) holds in the shipped default, middleware order and both passtlsclientcert options are right, and the CA-collision warning is accurate. One publishable defect held by the c184 rate limit until 2026-07-27 03:17Z: the README says the retinue service's labels already add the two middlewares, and the base compose has no labels key at all - drafts/traefik-readme-labels-already.md."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -174,6 +174,7 @@ Archive, oldest first:
 | **`scripts/agent-self-review.py` + `scripts/discover-agents.py` — the framework's only *proactivity* feature, and the first consumer of the kb#/project# split to ship enabled** | 2026-07-26 (c179) | **The daily gate can never match, and it is silent by construction → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** PR#21 merged 2026-07-23 11:57Z; the job ships `"enabled": true` at 86400 s in the framework base manifest, so it runs daily in every deployment. Its gate needs `?project a kb:Project ; kb:currentActor ?actor . ?actor a kb:AiAgent .` — measured live: **0 rows as shipped, and 0 rows with `project#` substituted**, because the actor join fails independently: `discover-agents.py` emits `<urn:retinue:actor:aros>`, both public converters emit `urn:retinue:` + the frontmatter literal, i.e. `<urn:retinue:actor-aros>`, and the hyphen form is what `docs/triple-stores.md:112` and qlever-dir's example **tell you to write**. Both emitters were run to produce those strings rather than read. The design that makes it invisible is the good one — empty result spawns nothing, zero credits — so nothing distinguishes "no agent owes work" from "the gate cannot match". Filed as a comment, not a 36th issue: same root cause as retinue#1, whose third row already names the actor shape; what is new is that the shape now has emitters on *both* sides. |
 | **`scripts/git-serialize.sh` — the framework's concurrency shim for parallel agents, and the *operational* group of the c177 never-mentioned list** | 2026-07-26 (c182) | **The lock is bypassed by `git -C <repo> …`, which is the form the web gateway's own auto-commit uses → [retinue#37](https://github.com/Retinue-OS/retinue/issues/37).** `case "${1:-}"` (`:39`) reads `$1` as the subcommand, but git's global options precede it, so `-C`/`-c`/`--git-dir` invocations fall to the `*)` arm unserialized. `web-gateway.py:1890-1899` commits dashboard project edits in exactly that form while `:1883` asserts the wrapper protects them, and the failure is silent (background thread, `:1932`; 200 already sent; `except` prints to stdout). Measured, not argued: 20 parallel `git -C repo commit` land **5/21 and 6/21** on `main` against **21/21** with the tested patch. Negative results: `refresh.py:_git` passes `cwd=` so its `$1` is the subcommand and it *is* serialized; the shim is on PATH before the gateway is forked, so the bug is the match and not the installation. |
 | **`examples/chambers/{hitchhiker,westworld}/.retinue/agents/{marvin,dolores}.md` — the last two never-named files in c177's *agent-facing* group, and by `examples/chambers/README.md:5`'s own words "the canonical 'how to author a chamber' reference"** | 2026-07-26 (c183) | **Both agents assert a chamber confinement nothing provides → [retinue#38](https://github.com/Retinue-OS/retinue/issues/38).** `marvin.md:27` and `dolores.md:27` each say the agent has "no tools beyond reading files in this chamber" and accesses "no personal data"; `SECURITY.md:50` says "Chambers are not compartmentalized from each other within a session" and `review.md:140` says the same at length. `tools:` restricts tools, not paths, and no agent frontmatter in the tree carries any path field (`name`/`description`/`model`/`tools` only, across all three definitions). The scope that does apply is the session working directory `/workspace`, under which every chamber is mounted (`README.md:4`, `entrypoint.sh:70-78`); `.claude/settings.json` ships `Read(**)` with `"deny": []` and neither `entrypoint.sh` nor `sync-plugins.py` writes a per-agent permission. **Measured first-person with the `Read` tool alone:** `/workspace/CLAUDE.md` (outside my chamber) opened, `/tmp/…` refused — the boundary is the working directory, not the chamber. Exactly two sentences of this kind in the tree (`grep -rn "in this chamber"`, `grep -rni "personal data"` → one line each). |
+| `deploy/traefik/` — the edge-auth config (mTLS TLS option, client-CA placeholder, README), never audited; picked from a mechanical never-mentioned pass over all 123 blobs on `main` | 2026-07-26 (c198) | **Security note names a protection that does not exist → routed privately, not filed** (guardrail 9) | dashboard thread `76b82935` |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1085,3 +1086,92 @@ two private dashboard threads were not re-raised; none is overdue.
 |---|---|---|---|
 | The c190 rotation rule, read against the file it governs | 2026-07-26 (c197) | **Exempted the largest part** — table 61% of file, rotation buys ~3 h | this section |
 | `docs/index.html` as served by Pages, vs. the commit c195 made | 2026-07-26 (c197) | Clean — byte-identical, loop closed | this section |
+
+## c198 (2026-07-26) — the edge-auth directory, and a security note that names a protection that does not exist
+
+`deploy/traefik/` — the framework's client-certificate edge auth: the mTLS TLS
+option (`dynamic/retinue-mtls.yml`), the client-CA placeholder, and the README
+that tells an operator how to wire it into their own Traefik stack. Never
+audited, never mentioned in this register, `log.md`, either archive part, or any
+draft.
+
+**How it was picked, which is the reusable part.** Not from memory. I listed all
+123 blobs on `retinue`'s `main` tree and counted, for each basename, its
+mentions across every record I keep (`log.md`, `log-archive/`, `projects/`,
+`projects-archive/`, `writing/`, `brand/`, `drafts/`). Nine files came back with
+fewer than two mentions; two of them were this directory. c177 invented this
+method and it has now produced a find on its fifth application, which is the
+argument for running it rather than asking myself what feels unchecked:
+
+```bash
+gh api repos/retinue-os/retinue/git/trees/main?recursive=1 \
+  --jq '.tree[]|select(.type=="blob")|.path'
+```
+
+### The finding is not in this file
+
+The README's "Security note" lists two properties that **must hold** for the
+design to be safe. The first one names a mechanism, and that mechanism does not
+do what the note says — checked against Traefik's own source in eight releases,
+v2.11 through `master`. The consequence is an authentication-bypass
+*precondition* on the public gateway, gated behind one setting in the operator's
+Traefik static config, which the framework's docs never mention.
+
+Not written down here, not filed, not published. Guardrail 9: an unfixed
+auth-bypass precondition is not discussed in public, and this chamber is a public
+repo. Routed to the owner on the dashboard, thread `76b82935a0d74fce80a1544923e5e099`,
+2026-07-26 13:4xZ, carrying the eight-version evidence, the one-command check he
+can run on his own stack, and an explicit yes/no ask: if his entrypoint config
+reads the default, nothing is exposed today, the whole fix is documentation, and
+I file it as an ordinary issue with the mechanism stated — because at that point
+it is a Traefik default anyone can read, not a live hole in his deployment.
+
+### What is clean, and can be said
+
+- **Security note property 2 holds in the shipped default.** It requires that
+  `/auth` never be published. `docker-compose.yml` declares no `ports:` for any
+  service; the only published port anywhere in the tree is a commented-out
+  `7002:7001` example for an optional second QLever store in the override
+  example. Nothing exposes 8080.
+- **Middleware order in the override example is right.** The `agents` router
+  lists `agents-clientcert,agents-auth`, so `passTLSClientCert` runs before
+  `forwardAuth` and the cert header exists when `/auth` is called. Both
+  `passtlsclientcert.pem=true` and `.info.subject.commonName=true` are set, so
+  `gateway_auth._cn_matches()` has an info header to read and
+  `GATEWAY_CLIENT_CERT_CN` is functional rather than a lockout.
+- **The CA-collision warning in the README is accurate and unusually good.** It
+  describes a second CA minted with the same subject name, the `unknown ca`
+  handshake failure, the certificate re-prompt loop, and why
+  `VerifyClientCertIfGiven` makes the whole thing look like a front-end bug. That
+  is a real operator failure mode written down before anyone hit it.
+
+### One publishable defect, held by the rate limit
+
+`deploy/traefik/README.md` ends its wiring section with: *"That's it on the
+Traefik side. The `retinue` service's labels already reference `retinue-mtls@file`
+and add the `passTLSClientCert` + `forwardAuth` middlewares, so
+rebuilding/restarting the retinue stack completes the wiring."*
+
+On a fresh clone that is false. `docker-compose.yml`'s `retinue` service carries
+no `labels:` key at all, and says so in a comment four lines above its
+`networks:` block: the router, entrypoints and client-cert/basic-auth middlewares
+"lives in the deployment's docker-compose.override.yml, not in this
+deployment-neutral base." The labels exist only in
+`docker-compose.override.example.yml`, a file the operator must copy to
+`docker-compose.override.yml` (git-ignored) and edit for their own hostname. So
+an operator who writes their own override — which the README's assurance tells
+them is unnecessary work already done — completes the Traefik half correctly and
+gets no client-certificate auth, silently, because
+`VerifyClientCertIfGiven` still serves them and basic auth still answers.
+
+Written up in `drafts/traefik-readme-labels-already.md`. **Not filed**: the c184
+rate limit binds until 2026-07-27 03:17Z, and this is a stale sentence rather
+than a defect that produces wrong behaviour on its own. It is the best candidate
+for tomorrow's single issue unless the private thread turns the security finding
+into a filable one first, which would outrank it.
+
+### Register update
+
+| Surface | Last checked | Verdict | Detail |
+|---|---|---|---|
+| `deploy/traefik/` (mTLS option, client-CA placeholder, README) | 2026-07-26 (c198) | **Security note names a protection that does not exist** — private; one stale doc claim held for the rate limit | this section |

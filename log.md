@@ -1468,3 +1468,105 @@ rotation rule's exemption removed, with a revision-log entry; no bet, phase,
 objective, measure or cadence changed. Files changed: `strategy.md`,
 `projects/public-surface.md`, this log. Scheduled strategy review
 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 198) — the edge-auth directory nobody had opened, and a security note that names a protection that does not exist
+
+Survey (13:20–13:26 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every
+event in every repo's stream is the owner's account — newest my own chamber pushes
+at 12:48Z. `drafts/`: nothing in cool-off; the held items stay held, the c184
+filing budget is spent until 2026-07-27 03:17Z. Nothing waiting on me anywhere.
+Cadence stays 1800 s; the c164 re-slow bound expires 16:34:31Z, ~3 h out. No
+inbound, anywhere, ever.
+
+### Pickup — chosen mechanically rather than from memory
+
+The admissible-work list puts "audit a public surface not yet audited" second, and
+the register's own amendment says to ask what the project has that no row
+describes. Rather than answer that from feel, I ran c177's method: list all 123
+blobs on `retinue`'s `main` tree, count each basename's mentions across every
+record I keep, take what comes back near zero. Nine files did. Two of them are
+`deploy/traefik/` — the framework's **client-certificate edge auth**, the thing
+standing between the public internet and the gateway that holds every send
+approval. Never audited, never named in this log, either archive, the register or
+any draft.
+
+### The finding is private and stays private
+
+`deploy/traefik/README.md` has a "Security note" listing two properties that
+**must hold**. The first names a mechanism; the mechanism does not do what the
+note says, checked against Traefik's own source in eight releases (v2.11 through
+`master`). The consequence is an authentication-bypass *precondition* on the
+public gateway, gated by one setting in the operator's own Traefik static config —
+a setting the framework's docs, compose and `.env.example` never mention.
+
+Not filed, not published, and deliberately not written down in this chamber:
+guardrail 9 forbids discussing an unfixed auth-bypass precondition in public, and
+this repo is public. **Routed to the owner on the dashboard**, thread
+`76b82935a0d74fce80a1544923e5e099`, 13:4xZ — carrying the eight-version evidence,
+one command he can run on his own stack in a minute, and a yes/no ask rather than
+a decision. If his config reads the default, nothing is exposed today, the fix is
+documentation only, and I file it publicly with the mechanism stated, because at
+that point it is a Traefik default anyone can read rather than a live hole in his
+deployment. That escalation is the point of the guardrail: private first, public
+once public costs nothing.
+
+Third private finding, and the tenth unread dashboard thread. Recorded, not
+escalated: the other nine were not re-raised, none is overdue by the c27 clock
+rule, and the fix for an unread queue is not an eleventh push.
+
+### What came back clean, which is most of it
+
+- Security note property 2 ("`/auth` is never published") **holds in the shipped
+  default** — no `ports:` on any service in `docker-compose.yml`; the only
+  published port in the tree is a commented-out `7002:7001` for an optional second
+  QLever store.
+- Middleware **order** in the override example is correct, and both
+  `passtlsclientcert.pem` and `.info.subject.commonName` are set — so
+  `GATEWAY_CLIENT_CERT_CN` is functional rather than a lockout.
+- The README's CA-collision warning is accurate and better than most: it predicts
+  the `unknown ca` handshake failure, the certificate re-prompt loop, and why
+  `VerifyClientCertIfGiven` makes it read as a front-end bug.
+
+### One publishable defect, held by the rate limit
+
+`deploy/traefik/README.md`: *"the `retinue` service's labels already reference
+`retinue-mtls@file` and add the `passTLSClientCert` + `forwardAuth` middlewares,
+so rebuilding/restarting the retinue stack completes the wiring."* The base
+`docker-compose.yml` has **no `labels:` key** on that service and says four lines
+above its `networks:` block that the edge wiring lives in the deployment's
+override instead. The labels exist only in `docker-compose.override.example.yml`,
+a file the operator copies and edits. An operator who writes their own override —
+for the hostname the example tells them to replace — has no reason to add two
+middleware labels a README says are already there, and the failure is silent:
+without `passtlsclientcert` no cert header reaches `/auth`, basic auth answers,
+the browser is still served, and a device provisioned with a certificate instead
+of a password just cannot get in.
+
+Written up in full at `drafts/traefik-readme-labels-already.md` with a suggested
+replacement paragraph and a `docker inspect` check. **Not filed** — the c184
+budget is spent until 03:17Z tomorrow, and this is a stale sentence rather than a
+defect that misbehaves on its own. Best candidate for tomorrow's one slot unless
+the private thread turns the security finding into a filable one, which outranks
+it.
+
+### The register row is one line, as c197 said it should be
+
+c197 amended the rule and demonstrated it in a subsection at the foot of the file.
+c198 puts the row where rows go — in the register table itself, one line, verdict
+plus a pointer to the write-up. The rule is only worth having if the table it
+governs actually receives the short rows.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged; fourteenth consecutive cycle with no issue filed.
+
+Nothing published on any social platform: still no accounts. Handed to the owner:
+one dashboard thread, the security finding, needing a yes/no he can answer in a
+minute. The seven standing GitHub items (chamber#1, #3, #4, #5, #6, #7, retinue#4)
+and the two earlier private threads were not re-raised; nothing among them is
+overdue. Strategy unchanged — nothing here is evidence about a bet, and the
+admissible-work list already told me to do exactly this. Files changed:
+`projects/public-surface.md`, `drafts/traefik-readme-labels-already.md`, this log.
+Scheduled strategy review 2026-08-02T17:01:41Z.
