@@ -1265,7 +1265,7 @@ Measured live before writing, not quoted (11:47Z, `qlever-life`):
 | `?p a <https://w3id.org/retinue/project#Project>` — what the converter emits | **6** |
 | `DISTINCT ?a WHERE { ?s project#currentActor ?a }` | `actor-aros`, `actor-owner` — against the self-review job's `urn:retinue:actor:aros` |
 
-**Fixed in three places, all copy I own** (`c8f1e30`):
+**Fixed in three places, all copy I own** (`74adc38`):
 
 1. `docs/index.html` — the lede's triple-store sentence now names both dead
    read-back features with both measurements and links retinue#1. Served lede
