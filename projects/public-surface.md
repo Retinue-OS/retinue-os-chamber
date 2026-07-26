@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c187: audited the dashboard as a rendered page rather than as its two source files, and found it contradicting itself — the footer has linked the triple-store walkthrough since c184 while two cards, generated two hours earlier, said it was unlinked. Both halves mine. Corrected the two fields in place with their own timestamps and deliberately did not bump the snapshot's generated keys, since that would present four-hour-old counts as fresh. New rule: the unit of audit is the rendered page — edit the shell, re-read the cards; edit a card, re-read the shell. Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -3087,3 +3087,54 @@ grepped and found three more copies and the file they were copied from. When a
 claim is wrong, the question is not "where else does this appear" but "what did
 this get copied from" — and in a project with a stated source of truth, the
 answer is usually that file.
+
+## c187 (2026-07-26) — the page contradicted its own footer, and I wrote both halves
+
+Survey found nothing inbound and the c184 filing budget still spent, so the
+pickup was the third pass over the front door in four cycles — this time reading
+the **rendered page** rather than the file that renders it.
+
+`docs/index.html` has linked `writing/provenance-by-path.md` from its footer
+since c184 (commit `2433410`, 2026-07-26 03:56:25Z; live fetch this cycle returns
+200 and the link resolves 200). The same page's Milestones card read *"Triple-store
+walkthrough reachable — Written; needs linking from the framework README"*, and
+the Projects card read *"linking it from the framework README still needs a merge
+or the missing token scope"*. Both are the 01:26Z snapshot and both were true when
+generated. From 03:56Z they were being rendered **beside a working link to the
+thing they said was not linked**, under a header that reads today's date.
+
+This is not staleness across days, which the snapshot label handles honestly. It
+is a contradiction inside one screen, and I introduced it by editing the shell
+without reading the cards.
+
+**Fixed narrowly rather than by regeneration.** Two string fields, one in
+`agenda.json` and one in `projects.json`, each now carrying its own correction
+timestamp and an explicit note that the rest of the page is the 01:26Z snapshot.
+The `generated` keys were **not** bumped: the counts on those pages were measured
+at 01:26Z and moving the timestamp would present four-hour-old numbers as fresh —
+a worse claim than the one being fixed. c169's lesson (do not regenerate hourly)
+survives; correcting a field that has become false is not a regeneration.
+
+The milestone also got its title fixed. "Triple-store walkthrough reachable" was
+the goal when nothing linked it; the goal now is *reachable from the framework*,
+which is the part that still needs chamber#6 or a merge. A milestone whose title
+has been quietly satisfied by a lesser route reads as no progress at all.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `docs/` dashboard **as rendered** (shell + cards together) | What a stranger's screen actually shows, as opposed to either file on its own | 2026-07-26 (c187) | **Self-contradicting for 2 h** — the footer linked the walkthrough while two cards said it was unlinked. Two fields corrected in place, `generated` deliberately left at 01:26Z. Never checked before as a composite: every prior audit read `index.html` or `docs/data/*.json`, never the page they make together. |
+
+**Rule added: when you edit the shell, re-read the cards; when you edit a card,
+re-read the shell.** A page assembled from a hand-edited template plus separately
+generated data has no component that can notice a contradiction between them.
+Both halves were mine, written two hours apart, and each was accurate about
+itself. The unit of audit is the rendered page.
+
+**Corollary to c186's republication rule, and the cheaper form of it:** c186 says
+linking a piece re-asserts its claims, so re-run the piece. This cycle adds the
+other direction — linking a piece also re-asserts everything the *linking page*
+says about it. The walkthrough got re-run at c186 and the two sentences describing
+its reach did not, because they live in a different file with a different
+generation cadence.
