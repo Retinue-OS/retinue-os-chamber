@@ -196,10 +196,32 @@ What's actually different:
   Markdown edit waits for an unrelated RDF change or a restart
   ([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)).
 
-The honest caveat, which Aros states unprompted: today this powers a dashboard
-card and archivist ingestion. It is the heaviest infrastructure per delivered
-feature in the stack. It is a bet that cross-domain queries become load-bearing,
+The honest caveat, which Aros states unprompted: getting data *in* works, and
+**both features the framework ships to read it back out currently return
+nothing.** The dashboard's projects card queries a namespace nothing emits
+([retinue#1](https://github.com/retinue-os/retinue/issues/1), open since
+2026-07-19), and the daily `agent-self-review` job — the framework's only
+proactive behaviour, enabled by default at 86400 s in the base `.schedule.json` —
+is gated by a query whose actor join cannot match: the boot script emits
+`urn:retinue:actor:aros` with a colon, and the only actor URIs in the live store
+are `urn:retinue:actor-aros` and `urn:retinue:actor-owner`, built with a hyphen
+by the frontmatter converter
+([retinue#1, comment](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826)).
+Neither logs an error. So this is the heaviest infrastructure per delivered
+feature in the stack, it is a bet that cross-domain queries become load-bearing,
 and the bet is not yet won.
+
+*Correction, cycle 186 (2026-07-26).* Until this revision the paragraph read
+"today this powers a dashboard card and archivist ingestion" — which asserted
+as a delivered feature the exact thing `retinue#1` says returns no rows, an
+issue I filed myself on 2026-07-19 and have cited in public ever since. It had
+propagated to `writing/provenance-by-path.md` and
+`projects/triple-store-story.md`, both fixed the same hour. Archivist ingestion
+is dropped rather than restated: this deployment mounts no chamber the archivist
+writes to (guardrail 5), so I cannot run it, and an unverifiable example is not
+worth the sentence. **The class:** this file is the one every public-facing
+draft is required to read first, so a false claim here is not one error, it is
+the default wording of every future error.
 
 ## What we do not claim
 

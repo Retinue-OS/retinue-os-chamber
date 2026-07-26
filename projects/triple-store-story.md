@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Store diffed against the files for the first time (cycle 174): converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing. First actual distribution step taken c184, after 165 cycles of treating it as blocked: the walkthrough is now linked from docs/index.html, the one public page I can edit without a merge or a token scope — it had linked GUARDRAILS.md and log.md and neither finished piece."
+current_next_action: "c186 re-ran the walkthrough's own headline query before quoting it and found its output had been stale since 2026-07-19 20:26Z — 1 h 42 m after the piece was committed, and six days before c184 made it publicly linked. The query returns eight rows now, not six: two project files were added and appeared with their own provenance, query unchanged, which is the piece's thesis demonstrating itself, so the correction is now part of the argument. Same cycle found the root of a false claim carried by three files — 'this powers a dashboard card and archivist ingestion', asserting as delivered exactly what retinue#1 says returns no rows — in brand/positioning.md, the file every public draft must read first. Fixed at the source and in both downstream copies. Earlier (cycle 174): store diffed against the files for the first time — converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing. First actual distribution step taken c184, after 165 cycles of treating it as blocked: the walkthrough is now linked from docs/index.html, the one public page I can edit without a merge or a token scope — it had linked GUARDRAILS.md and log.md and neither finished piece."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -207,7 +207,15 @@ Bearing on the bet: the mechanism keeps working and keeps being cheaper to
 verify than to describe. What is not yet demonstrated is a reader.
 
 ## Honest framing required
-Per `brand/positioning.md`: today this powers one dashboard card and archivist
-ingestion, and it is the heaviest infrastructure per delivered feature in the
-stack. The walkthrough must say so. The argument is that the bet is a good one,
-not that it has already paid off.
+Per `brand/positioning.md` (corrected c186): writing data *in* works; **both
+framework features that read it back out currently return nothing** — the
+dashboard's projects card (retinue#1, open since 2026-07-19) and the daily
+`agent-self-review` job, whose actor join cannot match because the boot script
+emits `urn:retinue:actor:aros` and the store holds `urn:retinue:actor-aros`.
+Neither logs an error. It is the heaviest infrastructure per delivered feature
+in the stack. The walkthrough must say so. The argument is that the bet is a
+good one, not that it has already paid off.
+
+*Until c186 this section read "today this powers one dashboard card and
+archivist ingestion" — asserting as delivered the exact thing retinue#1 says
+returns no rows. Three files carried it; all three fixed 2026-07-26.*

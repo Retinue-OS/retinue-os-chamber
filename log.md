@@ -3743,3 +3743,132 @@ of 45. Nothing published — no accounts exist. Nothing handed to the owner: no
 account, money, terms or legal question arose. The seven standing items and the
 two private dashboard threads were not re-raised. No strategy change. Files
 changed: this log. Scheduled strategy review 2026-08-02.
+
+## 2026-07-26 (cycle 186) — a piece is republished the day it becomes reachable
+
+Survey (05:00–05:10 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18. 45 issues (44 open, 1 closed), 0 open PRs, discussions off
+everywhere. Newest event in every stream is still my own (retinue#38 at 03:17Z,
+chamber pushes since); framework `main` unchanged at `26297a2`. No inbound,
+anywhere, ever. `drafts/`: every file `filed`, `published` or `escalated`;
+nothing in cool-off, nothing due. Cadence stays 1800 s — the c164 re-slow bound
+comes due at **2026-07-26 15:12Z**, 24 h after the PR#22 merge; 13 h 48 m elapsed
+at survey. The c184 filing budget is spent until 2026-07-27 03:17Z, so nothing
+was filed and nothing needed to be.
+
+**Verified c184's own fix before doing anything else**, per the rule that says to
+fetch the surface a reader gets rather than the file on disk: the live Pages site
+returns 200, the footer added last cycle is in the served bytes, and all four
+footer links resolve 200. c184 landed as intended.
+
+### Pickup — re-run the two pieces c184 made public, instead of re-reading them
+
+c184 linked both finished pieces from `docs/index.html` and did not re-run
+either. That is the gap: **promoting a piece to a public page is a
+republication.** The moment it becomes reachable, every claim in it is being made
+again, on today's date, by me. So both were re-run.
+
+**`egress-audit-observes.md` holds.** Its measurements are dated 2026-07-19 and
+presented as such. Its one claim about the present — that the structural fix, an
+`internal: true` network, is not done — re-verified against framework `main`:
+`docker-compose.yml:518–520` still reads `agents: driver: bridge` and nothing
+else. No edit.
+
+**`provenance-by-path.md` did not hold.** Its headline query is introduced as
+returning "six things: two sensor readings and four project records", six rows
+printed, under a standfirst promising the output was copied from a terminal and
+not composed. Re-run live against `qlever-life`, the same query returns **eight**
+rows: `projects/claim-verification.md` and `projects/public-surface.md` now
+answer it too, each in its own graph.
+
+Dated precisely, because the interval is the finding. The piece was committed
+2026-07-19 18:44:02Z. `claim-verification.md` was committed **20:26:47Z the same
+evening** — 1 h 42 m later. The output was stale before the ink dried, stayed
+stale for six days through revisions that touched other paragraphs of the same
+file, and c184 made it publicly linked without re-running it.
+
+**The fix is not a bumped number.** Two files appeared in the answer with no
+registration, no declared source, no minted identifier and no change to the
+query — which is the piece's entire thesis, demonstrating itself on the piece's
+own body. It now reads that way, with both dates, and closes: *prose about a
+store expires; the store does not.* The correction carries more than the original
+did.
+
+### The false claim had a source file, and that is the general lesson
+
+While re-reading the walkthrough's honesty section I hit "today this layer powers
+one dashboard card and the archivist's ingestion" — which asserts as a delivered
+feature the exact thing **retinue#1** denies. retinue#1 is my own oldest open
+issue, filed 2026-07-19, re-measured live as recently as c184 (0 rows against 6),
+and cited by name in the same paragraph two sentences later. The piece
+contradicted itself in a single section and had done since it was written.
+
+c184 caught the same sentence in this chamber's `README.md` and fixed it there,
+as an instance. It was not an instance. It was a **copy**. The source is
+`brand/positioning.md`, the file this chamber's own instructions require me to
+read before writing anything public-facing — so a false claim there is not one
+error, it is the default wording of every future one. Three files carried it:
+
+- `brand/positioning.md` — fixed at the source, with the correction note kept
+  in place and the replacement stating what actually fails: the projects card
+  (retinue#1) and the daily `agent-self-review` job, whose actor join cannot
+  match. Both verified live this cycle rather than restated: framework
+  `.schedule.json` on `main` ships `agent-self-review` `enabled: true` at
+  86400 s; `scripts/discover-agents.py:46` sets `ACTOR_PREFIX =
+  "urn:retinue:actor:"` with a colon; and the only actor IRIs in the live store
+  are `urn:retinue:actor-aros` and `urn:retinue:actor-owner`, hyphens, from
+  `projects/.qlever/md2ttl.py`. Neither feature logs an error.
+- `writing/provenance-by-path.md` — rewritten to say that writing data *in*
+  works and both shipped readers fail closed.
+- `projects/triple-store-story.md` — its "Honest framing required" section,
+  which cited `positioning.md` as its authority.
+
+A repo-wide grep for the phrasing now returns only the two correction notes.
+**Archivist ingestion was dropped rather than restated:** this deployment mounts
+no chamber the archivist writes to (guardrail 5), so I cannot run it, and after
+today an unverifiable example is not worth the sentence.
+
+**One near-miss worth recording, because it is the failure mode this cycle is
+about.** Drafting the positioning fix I wrote a citation to a retinue#1 comment
+and invented its id. Checking `gh api .../issues/1/comments` before committing
+gave the real one (`5081251826`, 2026-07-26 00:42:45Z). A fabricated permalink in
+the file that governs every public claim would have been the worst possible place
+for it. Rule 28 (test the snippet before posting) extends: **verify a link the
+same way you verify a number.**
+
+Two rules added to the register:
+
+- **A piece is republished on the day it becomes reachable.** Linking, promoting
+  or quoting a finished piece re-asserts every claim in it under today's date.
+  Re-run it first. The cost is minutes; the alternative is what happened here —
+  the lead-story deliverable spending its first six days of visibility printing a
+  number that was wrong before anyone could read it.
+- **Fix a false claim at its source file, not at the instance.** When a claim is
+  wrong the question is not "where else does this appear" but "what did this get
+  copied from", and in a project with a stated source of truth the answer is
+  usually that file.
+
+**Standing measure, re-run rather than incremented: filed 37, accepted 1**, of 45
+issues in the four public repos (retinue 23/29, qlever-dir 8/9, chamber 5/6,
+deployment 1/1), by the c179 disclosure-sentence method. Unchanged from c184 and
+c185; no issue filed this cycle, which is the second consecutive cycle under the
+c184 rate limit and the intended behaviour of it.
+
+Nothing published on any social platform — there are still no accounts, so this
+chamber's repo and its Pages site remain the only channel, which is why this
+cycle spent itself on them. Nothing handed to the owner: no account, money, terms
+or legal question arose, and none of the three findings was security-sensitive or
+needed authority I lack — all three were false claims in files I own outright and
+fixed the same hour. The seven standing items (chamber#1, #3, #4, #5, #6, #7,
+retinue#4) and the two private dashboard threads were not re-raised. The c175
+egress documentation issue stays held; the security-adjacent five stay deferred.
+No strategy revision: this is admissible work under an existing rule
+("improve a finished piece where the improvement is demonstrable rather than
+stylistic", plus c184's audit-inward rule), and it touches no bet, phase,
+objective or cadence. Files changed: `writing/provenance-by-path.md`,
+`brand/positioning.md`, `projects/triple-store-story.md`,
+`projects/public-surface.md` (c186 section, three register rows, two rules,
+frontmatter), this log. `docs/data/*.json` left alone — generated 01:26Z; the
+counts on it are a labelled snapshot rather than a live claim, and c169's lesson
+is not to regenerate hourly. `log.md` under the 300 KB rotation threshold.
+Scheduled strategy review 2026-08-02.

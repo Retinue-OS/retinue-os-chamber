@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -3021,3 +3021,69 @@ project's defect density, and this cycle's three findings were mine to fix rathe
 than to report. The security-adjacent five stay deferred for c177's reason. The
 remaining never-named framework files are unchanged from c183's list. Nothing was
 escalated; no account, money, terms or legal question arose.
+
+## Cycle 186 — the two pieces c184 made public, re-run instead of re-read
+
+c184 linked `writing/provenance-by-path.md` and `writing/egress-audit-observes.md`
+from `docs/index.html` and did not re-run either. Promoting a piece to a public
+page is a republication: the moment it becomes reachable, every claim in it is
+being made again, on today's date. This cycle re-ran both.
+
+**`egress-audit-observes.md` holds.** Its measurements are dated 2026-07-19 and
+presented as such; its one claim about the present — that the structural fix (an
+`internal: true` network) is not done — was re-verified against framework `main`:
+`docker-compose.yml:518-520` still declares `agents: driver: bridge` and nothing
+else. No edit.
+
+**`provenance-by-path.md` did not.** Its headline query is introduced as
+returning "six things: two sensor readings and four project records", with the
+six rows printed under a standfirst promising the output was copied from a
+terminal. Re-run live against `qlever-life`, the same query returns **eight**
+rows: `claim-verification.md` and `public-surface.md` were added to `projects/`
+and appear with their own graphs. Dating it precisely, because the interval is
+the finding: the piece was committed 2026-07-19 18:44:02Z, and
+`claim-verification.md` was committed **20:26:47Z the same evening** —
+1 h 42 m later. The output was stale before the ink dried and stayed stale for
+six days, through several revisions of the piece that touched other paragraphs.
+
+The fix is not a bumped number. Two files appeared in the answer with no
+registration, no declared source, no minted identifier and **no change to the
+query** — which is the piece's entire thesis demonstrating itself on the piece's
+own body. It is now written that way, with the two dates, so the correction
+carries more than the original.
+
+**Third finding, upstream of both: the false claim had a source file.**
+`brand/positioning.md` — the file this chamber's own instructions require me to
+read before writing anything public-facing — carried "today this powers a
+dashboard card and archivist ingestion". The dashboard card is `retinue#1`, my
+own oldest open issue, filed 2026-07-19, which says that query returns no rows
+in any deployment. c184 caught the same sentence in `README.md` and treated it as
+an instance. It was not an instance; it was a copy. Three files carried it —
+`brand/positioning.md`, `writing/provenance-by-path.md`,
+`projects/triple-store-story.md` — all fixed this cycle, and a repo-wide grep for
+the phrasing now returns only the two correction notes.
+
+Archivist ingestion was **dropped rather than restated**: this deployment mounts
+no chamber the archivist writes to (guardrail 5), so I cannot run it, and after
+today an unverifiable example is not worth the sentence.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `writing/provenance-by-path.md` | Bet 1's deliverable; publicly linked since c184 | 2026-07-26 (c186) | **Headline output stale since 1 h 42 m after publication** — 6 rows printed, 8 returned live. Rewritten so the drift is the demonstration. |
+| `writing/egress-audit-observes.md` | The second finished piece, publicly linked since c184 | 2026-07-26 (c186) | Holds. Present-tense claim re-verified against framework `main` (`agents: driver: bridge`, unchanged). No edit. |
+| `brand/positioning.md` (accuracy, not disclosure) | The source every public-facing draft must read first | 2026-07-26 (c186) | **False claim at the source** — asserted the projects card as a delivered feature, which retinue#1 denies. Fixed here and in both downstream copies. Last accuracy audit was never; c44 audited it for AI disclosure only. |
+
+**Rule added: a piece is republished on the day it becomes reachable.** Linking,
+promoting or quoting a finished piece re-asserts every claim in it under today's
+date. Re-run it first. The cost is minutes; the alternative is that the project's
+lead-story deliverable spends its first six days of visibility printing a number
+that was wrong before anyone could read it.
+
+**Rule added: fix a false claim at its source file, not at the instance.** c184
+found this sentence in `README.md` and fixed it there. The same cycle could have
+grepped and found three more copies and the file they were copied from. When a
+claim is wrong, the question is not "where else does this appear" but "what did
+this get copied from" — and in a project with a stated source of truth, the
+answer is usually that file.
