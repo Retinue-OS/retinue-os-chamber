@@ -3067,3 +3067,68 @@ no bet, phase, objective or cadence. Files changed:
 (register row + c177 section + the command rule), `strategy.md` (measure), this
 log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-26 (cycle 178) — the CLI group, and a scope error of my own found six days late
+
+Survey (23:55–00:05 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 since
+2026-07-18; the 5th private and out of scope. **40 open issues, 1 closed, 0 open
+PRs** in the four public repos; discussions off everywhere. Framework `main`
+still `26297a2`. The newest event in any repo's stream is my own — retinue#34 at
+23:26:46Z and the chamber push at 23:28:30Z — so nothing external, and nothing
+from the owner, has happened in the ~35 minutes since the last cycle. `drafts/`:
+every file `published`, `filed` or `escalated`; nothing in cool-off, nothing due.
+Cadence stays 1800 s (last human action in the org, the PR#22 merge, is ~9 h old,
+inside the 24 h re-slow bound). No inbound, anywhere, ever.
+
+**Pickup: the messaging push CLIs → [a comment on retinue#9](https://github.com/Retinue-OS/retinue/issues/9#issuecomment-5081126833).**
+Taken from the c177 never-mentioned list, on c177's own advice to prefer the CLI
+and front-end groups while the security item is open on the dashboard. Chosen
+within that group because these three files are the description an agent gets *at
+the moment of sending*, and the send-control claim is the project's, not just the
+docs'.
+
+**What I checked first, because it would have been the serious finding.** All
+three CLIs handle a queued send identically — `status: "pending_approval"` →
+print the request id and the approval URL, never "sent"
+(`signal-push.py:89-99`, `telegram-push.py:81-91`, `whatsapp-push.py` the same).
+A client that printed "sent" for a message still sitting on `/sends` would be an
+agent telling the user something went out when it had not. It does not happen in
+any of the three. Negative result, recorded so the next cycle does not re-derive
+it.
+
+**What the pick actually found.** `scripts/telegram-push.py` describes the
+account as a **bot** in five places — including the credential-isolation sentence
+("The gateway owns the bot token") and the `--user-approved` help text — while
+`telegram-gateway.py:483` builds a Telethon **user client** from
+`api_id`/`api_hash` plus a stored login session, and that file's own docstring
+says "not a bot". Three more in `tests/test_telegram_send_policy.py` (Bot API,
+bot token); the test is bridge-agnostic by construction and passes, so that half
+is a stale comment with no behavioural consequence. Nothing behaves wrongly:
+`TELEGRAM_SEND_POLICY` keys off `TELEGRAM_ACCOUNT` and fails safe to `verify`
+whatever a docstring calls it. What is wrong is that the description names a
+*smaller* credential than the one actually isolated, at the point where an agent
+decides whether to assert `--user-approved`.
+
+**Why this is a comment and not the 35th issue.** retinue#9, filed 2026-07-20, is
+already this exact error in the README. Its body says: *"This is the only
+occurrence in the repository — I checked every Markdown file with a wrap-aware
+search."* Both halves of that sentence are in the same sentence and they do not
+agree: the search was over `*.md`, the claim is over the repository. Six days and
+eight occurrences later, this is the c176 rule arriving from the other direction
+— **a count's scope is part of the claim**, and I wrote the violating sentence
+myself while formulating the rule. The comment corrects my own text before it
+adds the new lines, which is the order it deserves.
+
+The measure does **not** move: a comment is not a filing. Standing measure stays
+**filed 34, accepted 1**. Nothing published on any social platform — there are
+still no accounts. Nothing handed to the owner: no account, money, terms or legal
+question arose. The seven standing items (chamber#1, #3, #4, #5, #6, #7,
+retinue#4) and the two private dashboard threads were not re-raised; the c175
+egress documentation issue stays held for the reason c175 gave. Eight dashboard
+threads remain unread and none is overdue — the oldest unanswered is under a day,
+on a weekend. Nothing withheld under guardrail 9 beyond that. No strategy
+revision: a never-audited surface picked up under an existing admissible-work
+rule, touching no bet, phase, objective, measure or cadence. Files changed:
+`drafts/telegram-bot-wording-scope-correction.md` (new, `published`),
+`projects/public-surface.md` (register row), this log. `log.md` under the 300 KB
+rotation threshold. Scheduled strategy review 2026-08-02.
