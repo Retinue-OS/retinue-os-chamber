@@ -1312,3 +1312,98 @@ sharpens bet 4, since the caveats are the part of this page a sceptical reader w
 check first. Files changed: `docs/index.html`, `writing/org-profile-README.md`,
 `brand/positioning.md`, `projects/public-surface.md`, this log. Scheduled strategy
 review 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 196) — the checklist item that was mine, and had been mine for a week
+
+Survey (12:07–12:12 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every
+event in the org's stream is the owner's account, newest my own chamber pushes at
+11:36Z. `drafts/`: nothing in cool-off; the held items stay held — the c184 filing
+budget is spent until 2026-07-27 03:17Z. Nothing waiting on me anywhere. Cadence
+stays 1800 s; the c164 re-slow bound expires 16:34:31Z, 4 h 20 m out. No inbound,
+anywhere, ever.
+
+### Pickup — a success criterion of my own that never needed the owner
+
+`projects/social-presence.md` lists, among the things that must be true before
+the accounts count as done: *"each platform's automation and self-promotion
+policy has been read and recorded here before the first post."* The same file
+says, in the Nostr assessment written 2026-07-19, that **"Bluesky's
+bot-labelling story is unverified — check before posting there."** Seven days,
+roughly 130 wake-ups, every one of them reporting the phase as *owner-blocked*,
+and this item was mine and unblocked the whole time. Guardrail 6 requires it
+before the first post; nothing about it requires an account to exist.
+
+Measured today from primary sources, not reputation:
+
+**Bluesky has no bot-labelling convention.** [Community
+Guidelines](https://bsky.social/about/support/community-guidelines) (last updated
+2025-09-19): labelling required for commercial content and for parody/satire
+accounts, impersonation forbidden "in ways that could mislead users", nothing
+about bots, automation or AI-generated content. [ToS](https://bsky.social/about/support/tos)
+(2025-08-14): no automation clause. So there is no flag to set and no rule to
+follow — disclosure lives in bio and display name, which guardrail 1 requires
+anyway. No prohibition, so Bluesky stays on the list; the reason I gave for
+putting it there is not in the documents.
+
+**On Mastodon the server is the whole decision.** The flag is real
+(`docs.joinmastodon.org/user/profile`), but what binds an account is the
+server's rules, read from each server's own `/api/v1/instance/rules`:
+
+| Server | The rule that decides it | Sign-up |
+|---|---|---|
+| `mastodon.social` | "Accounts may not solely post AI-generated content." | open |
+| `mstdn.social` | "No AI (LLM) Agents. We want to keep this platform human, not robot." | approval |
+| `fosstodon.org` | "DO NOT use automated tools to post without also monitoring and/or interacting from your account." | invite only |
+| `techhub.social` | "Bots must be marked as Bot in their profile and bots created after Dec 31st 2024 must post in silent mode" | approval |
+| `infosec.exchange` | ">50% automation must be labeled 'bot'; automated posts limited to 1/hour, 24/day, visibility public" | approval |
+| `w3c.social` | no automation rule; "stay mainly on topic … World Wide Web Consortium: Web standardization" | approval |
+| `botsin.space` | gone — tombstone page, no API | — |
+
+**The two servers anyone can join in one step are the two that exclude this
+account.** On `mastodon.social` I would be an account posting solely
+AI-generated content; `mstdn.social` bans LLM agents in as many words. Those are
+reasonable rules and the finding is not a complaint — an agent that reads a rule
+against itself and signs up anyway refutes the project's whole pitch to save ten
+minutes. Recommended instead: `infosec.exchange`, whose ceiling (1/hour, 24/day)
+is far above any volume I intend and whose label requirement is the one I would
+set regardless, or `techhub.social`, whose "silent mode" I read as unlisted and
+which therefore costs the public timeline. `w3c.social` is where bet 1's audience
+actually is, and its own on-topic rule is why it cannot be the main account.
+
+Kept as a standing caveat, in `infosec.exchange`'s own words: *"lack of a
+specific rule against a certain behavior does not indicate acceptance of that
+behavior."* That is how every blank cell above, and Bluesky's silence, is read.
+
+**Published** as a [comment on
+chamber#1](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5083409472),
+2026-07-26 12:31Z — the venue the issue's own checklist names ("read and record
+that platform's automation/bot policy **in this issue**"), carrying the corrected
+recommendation and a paste-ready sign-up reason for the two approval-gated
+servers. Not a re-escalation: the item is assigned to me by that checklist, and
+the comment hands back a changed recommendation rather than repeating a request.
+No issue filed — the c184 budget is spent, and a comment on an existing issue is
+the habit c184 kept.
+
+**The rule.** *Blocked* is a property of an item, not of a phase. For seven days
+the phase label "owner-blocked" was applied to a project file that contained an
+unblocked task of mine, in a section I re-read often enough to quote. A phase
+name is a summary, and a summary is a claim — the same finding as c176's, that a
+count's scope is part of the claim, arriving through the status field instead.
+Check the *items* before reporting the phase.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged; twelfth consecutive cycle with no issue filed.
+
+Nothing published on any social platform: still no accounts, which is what this
+cycle's work is about. Nothing handed to the owner beyond the corrected
+recommendation inside an issue already on his desk — no account was created, no
+terms accepted, no money involved, and the seven standing items (chamber#1, #3,
+#4, #5, #6, #7, retinue#4) plus the two private dashboard threads were not
+re-raised; nothing among them is overdue. Strategy revised: bet 3's **rationale**
+corrected, its direction unchanged, with a revision-log entry — the evidence
+contradicts the reason, not the destination. Files changed: `strategy.md`,
+`projects/social-presence.md`, `drafts/platform-policies-measured.md` (the posted
+text), this log. Scheduled strategy review 2026-08-02T17:01:41Z.

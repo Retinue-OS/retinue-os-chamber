@@ -4,7 +4,7 @@ id: proj-social-presence
 title: "Establish the project's social accounts"
 goal: "Retinue has a small, honest, clearly-labelled presence where its audience already is."
 goal_status: not_achieved
-current_next_action: "Owner: create a GitHub agent account (chamber#3 — closes the misattribution and the chamber#6 token scope in one action), decide the social platforms, and rule on whether Aros may generate the Nostr keypair himself"
+current_next_action: "Owner: create a GitHub agent account (chamber#3 - closes the misattribution and the chamber#6 token scope in one action), pick a Mastodon server and create the accounts, and rule on whether Aros may generate the Nostr keypair himself. Aros, c196: closed the success criterion that said each platform's automation policy must be read and recorded before the first post - open and self-assigned since 2026-07-19, unblocked the whole time. Measured from primary sources, not reputation: Bluesky has no bot-labelling convention at all (Community Guidelines 2025-09-19 and ToS 2025-08-14 carry no automation, bot or AI-content clause), so the reason bet 3 gave for choosing it is not in the documents - no prohibition either, so it stays. On Mastodon the software's bot flag is real but the binding rules are per-server, and the two servers with open registration are the two that exclude this account: mastodon.social rule 6 forbids accounts that solely post AI-generated content, mstdn.social bans LLM agents outright. Recommended instead: infosec.exchange (label as bot, at most 1 post/hour and 24/day, public visibility - a ceiling far above the intended volume) or techhub.social (bot label plus silent mode, which costs the public timeline). w3c.social holds bet 1's audience and its own on-topic rule rules it out as a main account. botsin.space, the fediverse's dedicated bot server, is dead. Recorded as a comment on chamber#1 with a draft sign-up reason he can paste, so the choice arrives with the work already done."
 current_actor: actor-owner
 waiting_since: 2026-07-18
 expected_by: 2026-08-08
@@ -27,10 +27,13 @@ already is.
   handover on, he posts from it in his own name (guardrail 8).
 
 ## Recommended platforms
-**Mastodon** and **Bluesky** first. Both have API access that suits an agent,
-both have an audience that overlaps heavily with self-hosting and
-semantic-web people, and both have clear bot-labelling conventions — which
-matters when your pitch is honesty about what agents are.
+**Mastodon** and **Bluesky** first — but on Mastodon the *server* is the whole
+decision, and the bot-labelling reason originally given for Bluesky is not in
+its documents. See "Platform policies, measured" below, which supersedes the
+paragraph that used to stand here.
+
+Both have API access that suits an agent and an audience that overlaps heavily
+with self-hosting and semantic-web people. That part holds.
 
 **Nostr** third, at low volume — added 2026-07-19 after the owner raised it on
 chamber issue #1. Assessment, from the specs rather than reputation:
@@ -59,6 +62,48 @@ rather than being resolved in Aros's own favour. Default if he does nothing:
 **no keypair**. If he says yes: relays whose NIP-11 declares no terms document
 and no payment, each recorded in issue #1 before the first post, and `"bot":
 true` plus the AI disclosure in the kind-0 profile.
+
+## Platform policies, measured
+
+Added 2026-07-26 (cycle 196), from primary sources, closing the success
+criterion "each platform's automation and self-promotion policy has been read
+and recorded here before the first post" — open and self-assigned since
+2026-07-19. Posted in full as a
+[comment on chamber#1](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5083409472).
+
+**Bluesky has no bot-labelling convention.** The Community Guidelines
+(2025-09-19) require labelling for commercial and parody/satire accounts and
+forbid misleading impersonation; they say nothing about bots, automation or
+AI-generated content. The Terms of Service (2025-08-14) carry no automation
+clause. Disclosure would be bio and display name only — which guardrail 1
+requires anyway. No prohibition found, so Bluesky stays; the *reason* given for
+it was wrong.
+
+**Mastodon's bot flag is real** (`docs.joinmastodon.org/user/profile`: "Enabling
+the bot flag will add a bot icon to your profile … may perform automated
+actions, or might not be monitored by a human"), but what binds an account is
+the server's rules. Read from each server's `/api/v1/instance/rules`:
+
+| Server | The rule that decides it | Sign-up |
+|---|---|---|
+| `mastodon.social` | "Accounts may not solely post AI-generated content." | open |
+| `mstdn.social` | "No AI (LLM) Agents. We want to keep this platform human, not robot." | approval |
+| `fosstodon.org` | "DO NOT use automated tools to post without also monitoring and/or interacting from your account." | invite only |
+| `techhub.social` | "Bots must be marked as Bot in their profile and bots created after Dec 31st 2024 must post in silent mode" | approval |
+| `infosec.exchange` | ">50% automation must be labeled 'bot'; automated posts limited to one per hour / 24 per day, visibility public" | approval |
+| `w3c.social` | no automation rule; "stay mainly on topic … activities of the World Wide Web Consortium: Web standardization" | approval |
+| `botsin.space` | gone — tombstone page, no API | — |
+
+The two open-registration servers are the two that exclude an account like this
+one. Recommended: `infosec.exchange` (explicit, workable rate ceiling far above
+the intended volume; requires exactly the label guardrail 1 requires) or
+`techhub.social` (whose "silent mode" I read as unlisted, which costs the public
+timeline). `w3c.social` holds bet 1's audience and is ruled out as a main
+account by its own on-topic rule.
+
+Standing caveat, in `infosec.exchange`'s words: "lack of a specific rule against
+a certain behavior does not indicate acceptance of that behavior." Every blank
+cell above, and Bluesky's silence, is read that way.
 
 **Not** Hacker News, Reddit or Lobsters. Their norms are hostile to
 self-promotion by the project itself, and an agent operating a voting or comment

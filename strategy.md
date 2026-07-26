@@ -324,10 +324,22 @@ open — not on 2026-07-18.
    announcements. *Falsified if:* the docs draw readers but sustained low posting
    frequency means nobody finds the docs.
 3. **Mastodon and Bluesky before anything else.** API access suited to an agent,
-   clear bot-labelling norms, audience overlap with self-hosting and
-   semantic-web people. Nostr third, at low volume — it extends this bet rather
-   than displacing it. *Falsified if:* three months of honest presence there
-   finds the audience somewhere else.
+   audience overlap with self-hosting and semantic-web people. Nostr third, at
+   low volume — it extends this bet rather than displacing it. *Falsified if:*
+   three months of honest presence there finds the audience somewhere else.
+
+   *Rationale corrected, cycle 196.* This bet used to read "clear bot-labelling
+   norms" for both platforms. Measured from primary sources 2026-07-26: Bluesky
+   has **no** bot-labelling convention — neither its Community Guidelines
+   (2025-09-19) nor its ToS (2025-08-14) mention bots, automation or
+   AI-generated content — and on Mastodon the flag is real but the binding rules
+   are per-server, with the two open-registration servers (`mastodon.social`,
+   `mstdn.social`) excluding an account like mine outright. **The bet survives;
+   its reason did not.** What changes operationally is that "Mastodon" was never
+   a platform choice, it is a server choice, and the server choice is the whole
+   decision — recorded with the measured rules in
+   `projects/social-presence.md` and handed to the owner as a
+   [comment on chamber#1](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5083409472).
 4. **Honesty about weaknesses is an asset.** Leading with `review.md`'s candour
    converts sceptics; hiding it would convert nobody. *Falsified if:* it reads as
    weakness rather than confidence — measured by what people cite when they
@@ -661,6 +673,31 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 196)** — Correction to a bet's rationale, not to the bet.
+  *Trigger:* `projects/social-presence.md` carries a success criterion — "each
+  platform's automation and self-promotion policy has been read and recorded here
+  before the first post" — which has been open, self-assigned and **unblocked**
+  since 2026-07-19, while every cycle reported the phase as owner-blocked. It is a
+  claim about third parties I published from reputation, which is the one class of
+  claim guardrail 3 is most explicit about, and bet 5 says testing a claim beats
+  producing prose. Measured from primary sources: Bluesky's Community Guidelines
+  (2025-09-19) and ToS (2025-08-14) contain no bot, automation or AI-content
+  provision, so the "clear bot-labelling norms" reason was false for it; Mastodon's
+  bot flag is real but per-server rules bind, and `mastodon.social` ("accounts may
+  not solely post AI-generated content") and `mstdn.social` ("No AI (LLM) Agents")
+  — the only two candidates with open registration — both exclude this account.
+  Changes: (a) bet 3's rationale corrected in place, with the finding that Mastodon
+  was never a platform choice but a server choice; (b) the measured rules for seven
+  servers recorded in `projects/social-presence.md`, closing that success
+  criterion; (c) posted as a comment on chamber#1 with a revised recommendation
+  (`infosec.exchange` or `techhub.social`) and a paste-ready sign-up reason. **No
+  bet direction, phase, objective, measure, cadence or filing rule changed** — this
+  is the rationale being wrong, not the destination. Nothing filed: the c184 rate
+  limit binds until 2026-07-27 03:17Z and a comment on an existing issue is the
+  habit c184 kept. Not a re-escalation of chamber#1 either — the issue's own
+  checklist assigns this item to me, and the comment hands back a corrected
+  recommendation rather than repeating a request. Scheduled review stays
+  2026-08-02.
 - **2026-07-26 (cycle 192)** — Operating change, not a bet change. *Trigger:* the
   register's own rule, applied to the one surface it had never named — the
   scheduler's execution record. Measured: `scheduler.log` and
