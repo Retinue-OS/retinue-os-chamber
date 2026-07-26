@@ -79,6 +79,28 @@ main {
 .top .sub a { color: var(--accent); text-decoration: none; font-weight: 600; }
 .top .sub a:hover { text-decoration: underline; }
 
+/* Lede — what the project is, in static HTML. Styled between the header and the
+   cards: slightly larger than the footer disclaimer and in the body colour
+   rather than the muted one, because unlike the disclaimer it is content rather
+   than chrome. `.lede` is also used by the <noscript> block. */
+.lede {
+  flex: none;
+  margin: 0;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--fg2);
+  font-size: .85rem;
+  line-height: 1.55;
+}
+.lede strong { color: var(--fg); font-weight: 650; }
+.lede a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.lede a:hover { text-decoration: underline; }
+.lede code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: .95em;
+}
+
 /* Cards keep their natural height; the page scrolls. */
 retinue-briefing,
 retinue-projects,
@@ -119,6 +141,9 @@ retinue-todo { flex: none; }
     gap: 12px 18px;
   }
   .top { grid-column: 1 / -1; }
+  /* The <noscript> element itself is the grid item when scripting is off, so it
+     needs the span; the .lede inside it is not a grid child. */
+  .lede, noscript { grid-column: 1 / -1; }
   /* Each column packs its own cards, so an unequal column never opens a gap
      in the other one (which shared grid rows would). */
   .col { display: flex; flex-direction: column; gap: 12px; align-self: start; }

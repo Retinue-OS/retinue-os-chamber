@@ -5,8 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0d12">
-  <title>Retinue — project dashboard</title>
-  <meta name="description" content="A static, read-only mirror of the Retinue dashboard UI, showing the state of the Retinue open-source project.">
+  <title>Retinue — a self-hosted personal agent system</title>
+
+  <!-- The description, the card tags and the lede below all exist for one
+       reason, found by auditing this page as a crawler and a link-preview
+       fetcher receive it (cycle 194): everything substantive on it arrives by
+       JavaScript, so what a non-JS reader got was the page's own disclaimer and
+       no statement of what Retinue is. The description used to describe *the
+       page*; it now describes *the project*, because that is what a search
+       result and a shared link need to say. Claims here are the calibrated ones
+       from brand/positioning.md — no "secure", no "production-ready", nothing
+       about the egress audit enforcing anything. -->
+  <meta name="description" content="Retinue: a self-hosted personal agent system — capability without credential custody, sends keyed to the sending identity, memory as files in a git repo you own.">
+  <link rel="canonical" href="https://retinue-os.github.io/retinue-os-chamber/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Retinue">
+  <meta property="og:url" content="https://retinue-os.github.io/retinue-os-chamber/">
+  <meta property="og:title" content="Retinue — a self-hosted personal agent system">
+  <meta property="og:description" content="Credentials in sidecar gateways, not in the model's context. Send policy keyed to the sending identity. Memory as files in a git repo you own, queryable over one SPARQL endpoint.">
+  <meta property="og:image" content="https://retinue-os.github.io/retinue-os-chamber/icons/icon-512.png">
+  <meta property="og:image:alt" content="The Retinue project icon.">
+  <!-- `summary`, not `summary_large_image`: the only image this site has is a
+       512px square icon, and claiming a wide card would render a stretched one. -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Retinue — a self-hosted personal agent system">
+  <meta name="twitter:description" content="Credentials in sidecar gateways, not in the model's context. Send policy keyed to the sending identity. Memory as files in a git repo you own, queryable over one SPARQL endpoint.">
+  <meta name="twitter:image" content="https://retinue-os.github.io/retinue-os-chamber/icons/icon-512.png">
 
   <!-- Favicon only. This page is deliberately not a PWA: no web app manifest,
        no install prompt, no service worker. -->
@@ -31,8 +56,12 @@
       <!-- The baked text is the fallback and is what renders if the fetch
            fails; the script below replaces it with the date the card data was
            actually generated, so the header cannot drift away from the content
-           the way it did between 18 and 20 July 2026. -->
-      <span class="date" id="snapshot-date">Snapshot &middot; 20 July 2026</span>
+           the way it did between 18 and 20 July 2026.
+           The fallback carries no date (cycle 194). It used to read
+           "Snapshot · 20 July 2026", which is the one string a reader without
+           JavaScript — or a crawler — was served, and it was six days stale by
+           the time this was found. A missing date is honest; a wrong one is not. -->
+      <span class="date" id="snapshot-date">Snapshot</span>
       <script type="module">
         fetch('data/briefing.json')
           .then(r => r.ok ? r.json() : Promise.reject())
@@ -51,6 +80,46 @@
         <a href="https://github.com/retinue-os">github.com/retinue-os &rarr;</a>
       </span>
     </header>
+
+    <!-- The lede is static HTML on purpose: it is the only part of this page a
+         reader without JavaScript, a search engine, or a link-preview fetcher
+         actually receives. Every claim in it is the calibrated form from
+         brand/positioning.md, and the last sentence is the project's own
+         self-assessment rather than a caveat added for balance. -->
+    <p class="lede">
+      <strong>Retinue</strong> is a self-hosted personal agent system. The agent
+      gets real capability over messaging, files and data while the credentials
+      to your accounts stay out of the model's context: the Signal keys and the
+      WhatsApp and Telegram sessions live in sidecar containers the model reaches
+      only through thin HTTP APIs, so a prompt-injected agent cannot steal what
+      it never sees. That property belongs to the paths Retinue ships, in a
+      deployment where those gateways are the only route to those accounts — and
+      the environment scrub meant to enforce it currently reaches the main
+      session but not the ones the dashboard and scheduler spawn
+      (<a href="https://github.com/retinue-os/retinue/issues/15">retinue#15</a>).
+      Outbound sends are governed by a policy keyed to the
+      <em>sending identity</em>, not the recipient — a dedicated agent account
+      can send freely while your own stays locked. Everything the agent knows is
+      files in a git repo you own, and
+      <a href="https://github.com/retinue-os/retinue/blob/main/docs/triple-stores.md">every file's triples land in a named graph derived from its path</a>,
+      so one SPARQL endpoint answers across all of them and provenance comes for
+      free. It is an early single-maintainer project with a real onboarding cost,
+      and its egress audit observes outbound traffic rather than enforcing it —
+      both of which its own
+      <a href="https://github.com/retinue-os/retinue/blob/main/review.md">architecture review</a>
+      says in more detail than this page can.
+      <a href="https://github.com/retinue-os/retinue">Source &rarr;</a>
+    </p>
+
+    <noscript>
+      <p class="lede">
+        The five cards below are rendered by JavaScript from the JSON documents
+        in <code>data/</code>, so with scripting off this page shows only the
+        text above. The same content is committed as
+        <a href="https://github.com/retinue-os/retinue-os-chamber/tree/main/docs/data">plain JSON</a>
+        in this repository.
+      </p>
+    </noscript>
 
     <!-- The two column wrappers only shape the wide layout; on phones they
          dissolve (display: contents) and the cards stack in this order. -->
