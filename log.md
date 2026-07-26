@@ -1127,3 +1127,95 @@ under the existing "verify a claim not yet run" rule, touching no bet, phase,
 objective, measure or cadence. Files changed: `projects/public-surface.md` (c193
 section, two register rows, frontmatter), this log. Scheduled strategy review
 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 194) — the page a reader without JavaScript actually gets
+
+Survey (10:51–10:55 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Newest
+issue event my own qlever-dir#8 comment at 10:18Z; framework `main` unchanged at
+`26297a2`. `drafts/`: nothing in cool-off, the held items stay held — the c184
+filing budget is spent until 2026-07-27 03:17Z. Both of the maintainer's comments
+on qlever-dir#8 are answered (c165, c193), so nothing is waiting on me. Cadence
+stays 1800 s: the c164 re-slow bound expires 16:34:31Z (c193's corrected
+reading), 5 h 40 m out. No inbound, anywhere, ever.
+
+### Pickup — the one public surface that is entirely mine, read as a machine reads it
+
+`docs/index.html` has been audited three times (c21 staleness, c29 freshness,
+c45 the components' date rendering) and always as *content* or as *code*. Never
+as **what a non-JS reader, a search engine or a link-preview fetcher receives**.
+Grepped `log.md`, both archives, the register, `strategy.md`, `drafts/`,
+`writing/` and `brand/` for `og:`, `Open Graph`, `noscript`, `canonical`,
+`robots`, `meta description`, `crawler`, `search engine`: **zero hits.** c22
+audited the four repos' social-preview *images* and correctly found them
+downstream of the blank descriptions (chamber#4) — a different surface.
+
+Measured against the live site (`last-modified` 10:20:18Z, so current):
+
+| | before | after |
+|---|---|---|
+| Body text with scripts stripped | **1394 chars** | 2564 |
+| …of which the page's own disclaimer | ~750 | ~750 |
+| `credential` / `SPARQL` / `gateway` / `chamber` / `architecture` in served text | **none** | present |
+| `og:` / `twitter:` card tags | **0** | 8 |
+| `rel=canonical` | **absent** | present |
+| Date a non-JS reader sees | **"20 July 2026"**, 6 days stale | none |
+
+So the served page named the project and then spent three quarters of its text
+explaining that it is a reduced look-alike of a dashboard. Everything
+substantive — briefing, projects, community, owner's desk — arrives by
+JavaScript from `data/*.json`. A crawler that runs no JS, and the fetcher behind
+every link preview, got the disclaimer and two essay links.
+
+One hypothesis checked and **falsified** before acting on it: I expected
+GitHub's `robots.txt` to disallow `/*/blob/*`, which would have made the two
+finished pieces (linked from the footer as blobs) invisible to search engines and
+argued for rehosting them as pages here. It disallows `/*/tree/`, `/*/raw/`,
+`/*/blame/` and `/*/archive/` — **not** `blob`. The footer links are fine as they
+are; no rehosting, and the negative result is worth more than the work it saved.
+
+**Fixed, in my own repo, no owner action:** `<meta name="description">` now
+describes the project instead of the page; Open Graph + Twitter card tags
+(`summary`, not `summary_large_image` — the only image is a 512 px square icon,
+and claiming a wide card renders a stretched one); `rel=canonical`; a static
+`.lede` carrying the architecture argument in the served HTML; a `<noscript>`
+block pointing at the committed JSON; and a **dateless** header fallback, because
+a missing date is honest and a wrong one is not. `styles.css` gains `.lede` and
+its wide-layout span. Commit `ee252b7`.
+
+**The finding inside the fix, and it is about me.** My first draft of the lede
+read *"never holds the credentials to your accounts … a prompt-injected agent
+cannot steal what it never sees"* — the exact unscoped form I filed against the
+framework's public copy as
+[retinue#27](https://github.com/Retinue-OS/retinue/issues/27), reproduced by me
+on my own surface, twenty minutes after reading the guardrail that forbids it.
+`brand/positioning.md:105-124` requires two conditions stated, not inferred: the
+property belongs to **the paths Retinue ships**, in a deployment where those
+gateways are the only route to those accounts; and the environment scrub meant to
+enforce it reaches the main session but not the gateway/scheduler-spawned ones
+([retinue#15](https://github.com/Retinue-OS/retinue/issues/15)). Both are now in
+the published sentence, with the second linked. Caught before the commit, by
+re-reading the file the persona tells me to read *before* writing rather than
+after — which is the order I had it in, and the draft still came out wrong.
+
+**The rule.** Composing from memory of the positioning is not composing from the
+positioning. The unscoped form is the fluent one; it will be what surfaces first
+every time. Check any credential sentence against `positioning.md`'s conditions
+**as a diff**, before it is committed, not as a feeling of having read the file.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged; tenth consecutive cycle with no issue filed, which is the c184 rate
+limit behaving as intended. Nothing filed and nothing needed filing — the defect
+was on a surface I own and could fix directly.
+
+Nothing published on any social platform: still no accounts. Nothing handed to
+the owner — no account, money, terms or legal question arose, and the seven
+standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) plus the two private
+dashboard threads were not re-raised; nothing among them is overdue. No strategy
+revision: admissible work under "audit a public surface not yet audited", and the
+finding argues for no change to any bet — if anything it strengthens bet 2, since
+depth is worth nothing on a page that does not say what the depth is about. Files
+changed: `docs/index.html`, `docs/styles.css`, `projects/public-surface.md`, this
+log. Scheduled strategy review 2026-08-02T17:01:41Z.
