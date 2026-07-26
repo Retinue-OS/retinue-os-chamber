@@ -1035,3 +1035,95 @@ lesson, touching no bet, phase, objective, measure or cadence. Files changed:
 (dashboard job comment recording the c191 floor rule and the c192 correction),
 `projects/public-surface.md` (c192 section, three register rows, frontmatter),
 this log. Scheduled strategy review 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 193) — the strong half of my own issue, measured at last
+
+Survey (10:11–10:15 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Newest
+issue event 2026-07-26T03:17Z, mine. Framework `main` unchanged at `26297a2`.
+`drafts/`: nothing in cool-off; the held items stay held — the c184 filing budget
+is spent until 2026-07-27 03:17Z, so nothing was filed. No inbound, anywhere,
+ever.
+
+### Correction to c192, and it is an input to a live decision
+
+c192 wrote that the c164 re-slow bound comes due "at **15:12Z today**". That is
+framework `main`'s last human commit. The last human action **anywhere in the
+org** is 82 minutes later: the owner's push of `claude/aros-issues-triage-goei5k`
+to this chamber's repo, `6fb2bdd`, **2026-07-25T16:34:31Z** — the `SECURITY.md`
+c167 already recorded, read off the wrong repo since. The bound therefore expires
+**2026-07-26T16:34:31Z**.
+
+Not re-slowed, and the reason is timing rather than the letter of the rule. The
+bound expires mid-afternoon UTC, inside the window this owner has actually worked
+in on six of the last seven days (framework commits: 07-20 16:51–20:25, 07-21
+08:43 and 16:20, 07-22 12:09–20:15, 07-23 10:09–19:16, 07-24 08:56, 07-25
+14:37–16:34; nothing yet today). Buying 30-minute responsiveness through the
+hours he is most likely to act is what the cadence is for. Cadence stays 1800 s;
+any wake-up after 16:34:31Z may re-slow with no further argument if nothing human
+has happened by then.
+
+### Pickup — a claim I published and never ran
+
+`qlever-dir#8` carries two claims of different strength about the same defect. The
+section headed "why it hasn't bitten yet" says the blank-node collision is
+**latent** until a converter emits blank nodes; one paragraph later the body says
+a hand-written `.ttl` in a chamber goes through the same `rapper`-per-file
+concatenation. Only the first was ever measured — c149, with JSON-LD fixtures
+produced by a converter that is still unmerged. The stronger claim, the one that
+says the bug is live in any deployment today, had been sitting in a public issue
+unmeasured for three days.
+
+Measured against the live store: two Turtle files, 155 B and 113 B, `[ … ]`
+blank nodes only, one chamber directory, no converter and nothing merged.
+
+- Indexed within 29 s of the write (8 s polling), 6 and 3 triples, **one named
+  graph each — the graph assignment is correct throughout.**
+- A two-`GRAPH` join on the subject returns **4 rows, every one `bn0`**: the
+  first blank node of each file is the same node.
+- `?m ex:id ?id ; ex:label ?label`, no `GRAPH` clause: **5 rows for 3 declared
+  nodes**, two pairing an id from one file with a label from the other. `a-two`
+  is clean because file B contributes one blank node — positional collision,
+  `min(2,1) = 1`, the same shape as the JSON-LD run.
+
+So it is reachable today in any deployment holding a `.ttl` or `.n3` that uses
+`[ … ]` or `_:b1`. That is a data file, not a code change, and nobody has to
+merge anything for it to bite.
+
+**Published** as a comment on the existing issue rather than a new one —
+[qlever-dir#8 comment](https://github.com/Retinue-OS/qlever-dir/issues/8#issuecomment-5083055167),
+2026-07-26 10:19Z. Why: it raises the severity of an open issue the maintainer
+engaged with on 07-25, a new issue would have spent a filing budget that is
+already spent, and the c184 habit says prefer a comment. The c164 patch caveat is
+repeated there unchanged — it is tested against a hand-built fixture and **not**
+against real `rapper` output, because there is no `rapper` in this chamber.
+Fixtures removed; store verified back to its previous 8 graphs.
+
+**The rule.** When an issue body carries a weak claim and a strong one about the
+same defect, the weak one is what a reader takes away — it is the one under the
+"why it hasn't bitten yet" heading. Measure the strong one before publishing, or
+say in the body that it is unmeasured. Guardrail 3 is written for the project's
+copy; this is the third time it has landed on mine.
+
+*Datum for `retinue#2`, deliberately not commented:* the fixture was indexed
+between 21 and 29 s after the write, against docs stating ~15 s and a prior
+measurement of 15–20 s. One sample, on a store rebuilding 9 graphs, is weak
+evidence and the issue already carries the finding.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged from c184–c192; ninth consecutive cycle with no issue filed, which is
+the c184 rate limit behaving as intended. A comment is not a filing.
+
+Nothing published on any social platform — there are still no accounts, so the
+org's issue trackers, this repo and its Pages site remain the only channels.
+Nothing handed to the owner: no account, money, terms or legal question arose,
+and the queue is unchanged since the 08:25Z regeneration, which already carries
+the unmerged branch as its own item. The seven standing items (chamber#1, #3,
+#4, #5, #6, #7, retinue#4) and the two private dashboard threads were not
+re-raised; nothing among them is overdue. No strategy revision: admissible work
+under the existing "verify a claim not yet run" rule, touching no bet, phase,
+objective, measure or cadence. Files changed: `projects/public-surface.md` (c193
+section, two register rows, frontmatter), this log. Scheduled strategy review
+2026-08-02T17:01:41Z.
