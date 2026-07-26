@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c190: the c145 rotation rule names log.md and its general lesson names every file that only grows, and in nine cycles nobody ran it against a second one. Measured both as GitHub serves them: log.md 272 KB at 2.9 KB/h (44 h of margin), projects/public-surface.md 283 KB at 6.9 KB/h - about 17 h from the 400 KB rendering limit it crosses at HTTP 200 with no error. Both rotated verbatim, reconstruction-verified: log.md to 45.6 KB, this file to 127 KB, archives in log-archive/ and the new projects-archive/ (outside projects/, because md2ttl.py fails on a frontmatter-less .md and that is a parsingError quad per part - converter scope measured against the live store, not assumed). The c145 render indicator was also wrong: 'richText':null false-positives on a 48 KB file, so the check is now a heading count against the source. Aros, c189: took scripts/ingest-sensors.py, the last name on c177's never-mentioned list, and it was the one that mattered. Its default chamber root is the framework checkout, which has no observations/ directory, so both documented invocations (the docstring and archivist.md:182, neither of which mentions CHAMBER_DIR) glob four directories that do not exist, write nothing, print '0 observations' and exit 0 - the archivist then commits the moved CSVs alone and reports success. That is the third step of the pipeline docs/triple-stores.md uses to argue the lead story. Two smaller items travel with it: one of the twelve Garmin columns sync-garmin.py writes and archivist.md documents is missing from GARMIN_COLUMNS and silently dropped, and the Ultrahuman observation count is divided by ten where every emitter writes five per observation. Written up with a tested patch at drafts/ingest-sensors-unreachable-chamber-root.md and HELD - the c184 rate limit binds until 2026-07-27 03:17Z and the urgency exemption does not apply, since the CSVs survive in git and a re-run recovers everything. It ranks ahead of c188's cosmetic manifest string for that slot, which is the ranking the rate limit exists to force. Negative result kept: the five-triple SOSA shape at docs/triple-stores.md:177-183 matches all four extractors exactly, so the factual base under bet 1 holds. Aros, c188: audited the last of the never-named front-end files - the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components - plus .dockerignore. One cosmetic finding held; the cycle's real work was a defect I talked myself out of filing, since the half of the case I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML 2.5.5. New rule: a claim about someone else's implementation needs the implementation. Aros, c187: audited the dashboard as a rendered page rather than as its two source files and found it contradicting itself - the footer linked the walkthrough while two cards said it was unlinked. New rule: the unit of audit is the rendered page. Aros, c186: linking a piece republishes it, so re-ran both pieces c184 made public; the walkthrough's headline output had been stale six days, and the false claim behind it traced to brand/positioning.md, the file every public draft must read first. Aros, c184: the register turned inward and the front door was the worst surface in it"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c191: regenerated docs/data/*.json - the owner's queue had three issues on no card (retinue#36, #37, #38, filed 02:02-03:17Z) and five counts false by arithmetic (41 open vs 44, filed 34 vs 37, every age 7 h short). The daily refresh job is the wrong cadence for a queue: its freshness requirement is set by the filing rate, not by the schedule. New measurement on the page: a GitHub search for 'retinue' ranks the framework 13th, the deployment 27th, this chamber 38th, behind a Bannerlord mod and an unrelated Claude Code tool - so discoverability and chamber#4 are one item, measured rather than asserted for the first time. The cycle's own error, caught by running date -u before committing: the first draft of all five files carried a generated timestamp 20 minutes in the future, breaking rule 4 of the seven this page publishes, while regenerating the page that publishes it. Procedure added: compute the ages last, from the clock. Aros, c190: the c145 rotation rule names log.md and its general lesson names every file that only grows, and in nine cycles nobody ran it against a second one. Measured both as GitHub serves them: log.md 272 KB at 2.9 KB/h (44 h of margin), projects/public-surface.md 283 KB at 6.9 KB/h - about 17 h from the 400 KB rendering limit it crosses at HTTP 200 with no error. Both rotated verbatim, reconstruction-verified: log.md to 45.6 KB, this file to 127 KB, archives in log-archive/ and the new projects-archive/ (outside projects/, because md2ttl.py fails on a frontmatter-less .md and that is a parsingError quad per part - converter scope measured against the live store, not assumed). The c145 render indicator was also wrong: 'richText':null false-positives on a 48 KB file, so the check is now a heading count against the source. Aros, c189: took scripts/ingest-sensors.py, the last name on c177's never-mentioned list, and it was the one that mattered. Its default chamber root is the framework checkout, which has no observations/ directory, so both documented invocations (the docstring and archivist.md:182, neither of which mentions CHAMBER_DIR) glob four directories that do not exist, write nothing, print '0 observations' and exit 0 - the archivist then commits the moved CSVs alone and reports success. That is the third step of the pipeline docs/triple-stores.md uses to argue the lead story. Two smaller items travel with it: one of the twelve Garmin columns sync-garmin.py writes and archivist.md documents is missing from GARMIN_COLUMNS and silently dropped, and the Ultrahuman observation count is divided by ten where every emitter writes five per observation. Written up with a tested patch at drafts/ingest-sensors-unreachable-chamber-root.md and HELD - the c184 rate limit binds until 2026-07-27 03:17Z and the urgency exemption does not apply, since the CSVs survive in git and a re-run recovers everything. It ranks ahead of c188's cosmetic manifest string for that slot, which is the ranking the rate limit exists to force. Negative result kept: the five-triple SOSA shape at docs/triple-stores.md:177-183 matches all four extractors exactly, so the factual base under bet 1 holds. Aros, c188: audited the last of the never-named front-end files - the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components - plus .dockerignore. One cosmetic finding held; the cycle's real work was a defect I talked myself out of filing, since the half of the case I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML 2.5.5. New rule: a claim about someone else's implementation needs the implementation. Aros, c187: audited the dashboard as a rendered page rather than as its two source files and found it contradicting itself - the footer linked the walkthrough while two cards said it was unlinked. New rule: the unit of audit is the rendered page. Aros, c186: linking a piece republishes it, so re-ran both pieces c184 made public; the walkthrough's headline output had been stale six days, and the false claim behind it traced to brand/positioning.md, the file every public draft must read first. Aros, c184: the register turned inward and the front door was the worst surface in it"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -744,3 +744,56 @@ sibling directory is inert.
 | The c145 rotation rule's own scope | Whether "every surface whose size only goes up" was ever applied to more than one file | 2026-07-26 (c190) | It was not. Nine cycles between the general lesson being written and being run against a second file. |
 | Blob-page render indicator (`"richText":null`) | The measurement c145 relied on | 2026-07-26 (c190) | **False-positives on a 48 KB file.** Replaced with a heading count against the source, plus `POST /markdown/raw`. |
 | Converter scope for `.md` outside `projects/` | Whether a non-frontmatter `.md` anywhere in the chamber pollutes the life store | 2026-07-26 (c190) | Scoped to the `.qlever/` subtree — 6 graphs, all under `projects/`, 0 error quads. `writing/`, `drafts/`, root `.md` are inert. |
+
+## c191 (2026-07-26) — the owner's queue is a surface too, and it had three issues missing
+
+The register's habit is to ask whether a surface is *accurate*. This cycle asked
+the cheaper question about the one surface that decays without anybody touching
+it: **is the dashboard still true?** It was not, and it had stopped being true by
+arithmetic alone.
+
+Measured 08:15–08:25 UTC against `docs/data/*.json`, generated 01:26Z:
+
+| Card said | Live |
+|---|---|
+| 41 open issues (retinue 26) | **44 open** (retinue 29) |
+| 32 labels on retinue's issues | **35** |
+| Standing measure **filed 34** | **filed 37** |
+| Owner's queue: 15 items, newest `retinue#35` | `retinue#36`, `#37`, `#38` filed 02:02–03:17Z, **on no card** |
+| chamber#1 "7 days 3 hours" | 7 d 10 h, and every other age 7 h short |
+
+The missing three are the finding. `retinue#37` — the concurrency shim that does
+not match the form its principal caller uses — was filed at 02:39Z and would have
+sat off the owner's desk until the next scheduled regeneration at ~01:26 tomorrow,
+23 hours after filing. The daily refresh job is the right cadence for a page whose
+content is prose and the wrong one for a page whose content is a queue: **the
+queue's freshness requirement is set by the filing rate, not by the schedule.**
+
+All five files regenerated together, one timestamp, per the c187 rule that the
+unit of audit is the rendered page — a half-refreshed dashboard contradicted
+itself for two hours this morning and that was enough.
+
+**New on the page, and the only genuinely new fact this cycle:** a GitHub-wide
+repository search for `retinue` ranks the framework **13th**, the deployment 27th
+and this chamber 38th, behind a Bannerlord mod, a Chrome plugin, a Balatro mod and
+`Disaster-Terminator/Retinue` (3 stars, an unrelated Claude Code tool). Search has
+little to rank a starless repository on but its description, and three of the four
+have none. The discoverability complaint and chamber#4 are therefore one item, and
+this is the first *measurement* of a gap that had only ever been asserted.
+
+**The cycle's own error, caught before it shipped.** The first draft of all five
+files carried `"generated": "2026-07-26T08:45:00Z"` — twenty minutes in the future,
+because the ages were computed from an assumed finish time rather than from the
+clock. That is the fourth of this page's own seven standing rules ("never write a
+generated timestamp later than the clock"), broken while regenerating the page the
+rule is written on. Caught by running `date -u` before committing; every derived
+interval recomputed at 08:25Z. The rule survives and gains a procedure: **compute
+the ages last, from `date -u`, not from the time the writing is expected to end.**
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `docs/data/*.json` freshness against the live queue | The owner's desk, and the only page that decays with no one touching it | 2026-07-26 (c191) | **Three issues filed since the last generation appeared on no card**, and five counts had gone false by arithmetic. All five files regenerated on one timestamp |
+| Search-engine reach of the four public repos | What a stranger typing the project's name gets | 2026-07-26 (c191) | Framework at **rank 13**, deployment 27, chamber 38; `qlever-dir` absent (different name). First measurement; folds into chamber#4 rather than a new issue |
+| This page's own "never write a future timestamp" rule, applied to the cycle applying it | Rule 4 of seven on `proj-dashboard-truth` | 2026-07-26 (c191) | **Broken in draft, caught before commit.** Procedure added: compute ages last, from `date -u` |
