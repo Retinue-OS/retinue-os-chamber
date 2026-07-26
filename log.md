@@ -1268,8 +1268,11 @@ Measured live before writing, not quoted (11:47Z, `qlever-life`):
 **Fixed in three places, all copy I own** (`74adc38`):
 
 1. `docs/index.html` — the lede's triple-store sentence now names both dead
-   read-back features with both measurements and links retinue#1. Served lede
-   1 459 characters.
+   read-back features with both measurements and links retinue#1. The lede as it
+   will be served is 1 459 characters; checked at 12:05Z, Pages had not yet
+   rebuilt (`last-modified` still 10:58:33Z), so that is a property of the
+   committed file and not yet of the served one — c194's change took ~38 minutes
+   to appear.
 2. `writing/org-profile-README.md` — the caveat moved *above* the query it
    describes, so a reader meets it before the code block rather than never; plus a
    new paragraph on the two mechanism-level limits, [retinue#30](https://github.com/retinue-os/retinue/issues/30)
