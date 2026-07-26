@@ -150,6 +150,7 @@ So the surfaces get a list, and the list carries dates.
 | **The three messaging push CLIs (`scripts/{signal,telegram,whatsapp}-push.py`) — the CLI group of the c177 never-mentioned list, read as the description an agent gets *at the moment of sending*** | 2026-07-26 (c178) | **Signal and WhatsApp clean; `telegram-push.py` describes the wrong identity and the wrong credential → [comment on retinue#9](https://github.com/Retinue-OS/retinue/issues/9#issuecomment-5081126833), not a new issue.** All three handle `status: "pending_approval"` identically and print the approval URL instead of "sent", so the one behaviour that would have been a silent-wrong-behaviour defect is correct in all three (`signal-push.py:89-99`, `telegram-push.py:81-91`, `whatsapp-push.py`). The find is textual and confined to Telegram: the docstring says "The gateway owns the **bot token**" and the policy is "keyed by the gateway's own **bot** identity" (lines 6, 9, 10, 11) with `--help` repeating it at line 53 — while `telegram-gateway.py:483` constructs a Telethon **user client** from `api_id`/`api_hash` + session and its own docstring says "not a bot". Three more in `tests/test_telegram_send_policy.py` (4, 6, 95: "Telegram Bot API", "no bot token"); the test is bridge-agnostic and passes, so that half is a stale comment only. **The reason it is a comment and not an issue: retinue#9 is already this error in the README, and its body contains my claim "this is the only occurrence in the repository" — measured over `*.md`.** Same shape as c176: a count arithmetically fine over a population nobody checked was the one the sentence named. Negative results worth keeping: `.env.example:142-169`, `telegram-contacts.py:10` and `telegram-gateway/Dockerfile:3` all get the identity right, and a whole-tree scan finds no other occurrence anywhere. |
 | **The dashboard front-end (`webapp/{sw.js,index.html,components/*.js}`) — the front-end group of the c177 never-mentioned list, read as *what a user actually sees* rather than as code** | 2026-07-26 (c179) | **`sw.js` clean; the cards it caches are the wrong question, because four of them are switched off → [retinue#35](https://github.com/Retinue-OS/retinue/issues/35), and the one live data card cannot return a row → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** Negative result first: `SHELL_ASSETS` exactly matches the components `index.html` actually loads, and the `/conversations`, `/projects` and `/push/` pass-throughs are correct (`/conversations.html` and `/projects.html` do **not** match `startsWith('/conversations/')`, so the page shells stay cache-first as the comments claim). The find is that `index.html` (main, 21–27 and 48–54) comments out agenda/messages/todo/briefing — precisely the only four `RetinueCard` subclasses, i.e. the only components that fetch a JSON document (`base.js:52-58`) — so **nothing in the shipped shell requests `/data/*.json`**, the `retinue-data-v1` cache stays empty, and `CLAUDE.md:445,447-448` ("each fetch one JSON document … degrading to the last cached state offline"; "Refreshing these is Ara's job … a scheduler-driven curation job writes them") describes a flow with no producer and no consumer: the framework base `.schedule.json` declares only `agent-self-review`, and `webapp/README.md:151` lists the curation job under *Next steps*. `comparison.md:134-136` sells "data cards" as shipped in the one file that compares against two named projects. **Measured against `main`, not the mount** — the live checkout at `/workspace/deployment` is behind `main` (no `push.js`, `sw.js` v14 vs v15, no `agent-self-review`), which is retinue#32's territory and would have produced three wrong line numbers if trusted. |
 | **`scripts/agent-self-review.py` + `scripts/discover-agents.py` — the framework's only *proactivity* feature, and the first consumer of the kb#/project# split to ship enabled** | 2026-07-26 (c179) | **The daily gate can never match, and it is silent by construction → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** PR#21 merged 2026-07-23 11:57Z; the job ships `"enabled": true` at 86400 s in the framework base manifest, so it runs daily in every deployment. Its gate needs `?project a kb:Project ; kb:currentActor ?actor . ?actor a kb:AiAgent .` — measured live: **0 rows as shipped, and 0 rows with `project#` substituted**, because the actor join fails independently: `discover-agents.py` emits `<urn:retinue:actor:aros>`, both public converters emit `urn:retinue:` + the frontmatter literal, i.e. `<urn:retinue:actor-aros>`, and the hyphen form is what `docs/triple-stores.md:112` and qlever-dir's example **tell you to write**. Both emitters were run to produce those strings rather than read. The design that makes it invisible is the good one — empty result spawns nothing, zero credits — so nothing distinguishes "no agent owes work" from "the gate cannot match". Filed as a comment, not a 36th issue: same root cause as retinue#1, whose third row already names the actor shape; what is new is that the shape now has emitters on *both* sides. |
+| **`scripts/git-serialize.sh` — the framework's concurrency shim for parallel agents, and the *operational* group of the c177 never-mentioned list** | 2026-07-26 (c182) | **The lock is bypassed by `git -C <repo> …`, which is the form the web gateway's own auto-commit uses → [retinue#37](https://github.com/Retinue-OS/retinue/issues/37).** `case "${1:-}"` (`:39`) reads `$1` as the subcommand, but git's global options precede it, so `-C`/`-c`/`--git-dir` invocations fall to the `*)` arm unserialized. `web-gateway.py:1890-1899` commits dashboard project edits in exactly that form while `:1883` asserts the wrapper protects them, and the failure is silent (background thread, `:1932`; 200 already sent; `except` prints to stdout). Measured, not argued: 20 parallel `git -C repo commit` land **5/21 and 6/21** on `main` against **21/21** with the tested patch. Negative results: `refresh.py:_git` passes `cwd=` so its `$1` is the subcommand and it *is* serialized; the shim is on PATH before the gateway is forked, so the bug is the match and not the installation. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2797,3 +2798,62 @@ argparse strings and a docstring, so a grep aimed at `*.md` cannot see them, and
 a reader auditing "the docs" never opens them. Every surface this project asks an
 agent to *invoke* has a help text, and that help text is a public claim with the
 shortest possible distance to an action.
+
+
+## c182 (2026-07-26) — the concurrency shim, and the one caller it was written for
+
+Picked the **operational group** from c177's never-mentioned list, on the same
+argument c181 used for the CLI group: it is one of the two cheap groups while the
+security-adjacent five stay deferred. Read `main` by shallow clone at `26297a2`,
+not the mount (c179's lesson, c181's method).
+
+**Finding → [retinue#37](https://github.com/Retinue-OS/retinue/issues/37).**
+`scripts/git-serialize.sh` matches the subcommand as `$1`. Git's global options
+come first, so `git -C <repo> commit` never matches and never takes the lock.
+`scripts/web-gateway.py` commits dashboard project edits with `git -C` at four
+sites and states in the docstring above them that the wrapper makes those commits
+race-free. The wrapper's own header names the web gateway as the reason it
+exists. So the claim and the counter-example are eleven lines apart in one file,
+and the two files have been shipping together since the shim landed.
+
+**What made this filable rather than arguable: it is measurable in a shell.**
+Twenty parallel `git -C repo commit --allow-empty` land 5/21 and 6/21 on `main`
+(the rest die on `.git/index.lock`) and 21/21 with the patch, twice each. A
+lock-file probe over six invocation forms separates the three that bypass the
+lock from the three that correctly do not need it. Neither number required
+reading the wrapper — which is the point, since reading it is what every prior
+cycle would have done.
+
+**The trap in the obvious fix, recorded because a maintainer will reach for it
+first.** Adding `-C` to the subcommand list makes the match succeed and the lock
+*wrong*: `repo_root` comes from a `rev-parse --show-toplevel` that does not
+receive the caller's global options, so it answers for the wrapper's cwd. Two
+writers to one chamber would take two different locks. The patch splits the
+global options off and forwards them to both the `rev-parse` and the real
+invocation; `${GLOBALS[@]+"${GLOBALS[@]}"}` because the file runs under `set -u`.
+
+**Rule 28 (test the snippet before posting) run in full for the first time on a
+patch rather than a one-liner.** The patch was applied to a copy, syntax-checked,
+exercised over six invocation forms, and raced twice against the unpatched
+original before a word of the issue was written. Every number in the issue body
+came out of that run. The cost was about ten minutes; the alternative is c165's
+correction, which arrived one cycle after the snippet.
+
+### The rule this cycle adds
+
+**A guarantee that lives in a wrapper must be audited from its callers, not from
+its own source.** `git-serialize.sh` is correct about what it does — the header
+comment, the case list and the flock all describe each other accurately, which is
+why five prose sweeps over this repo never flagged it. It is only wrong relative
+to how it is called, and the caller is in a different file, in a different
+language, with a docstring asserting the guarantee holds. The audit unit is the
+pair, and the register should carry the pair.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `scripts/git-serialize.sh` | The concurrency guarantee every parallel agent commit rests on | 2026-07-26 (c182) | Bypassed by `git -C`; measured 5/21 vs 21/21. Filed retinue#37. |
+| `scripts/git-serialize.sh` ↔ `web-gateway.py:1878-1932` | The wrapper read from its only in-tree Python caller | 2026-07-26 (c182) | The docstring asserts a guarantee the call form does not get, and the failure path is silent. Same issue. |
+| `scripts/refresh.py:_git` | The other in-tree git caller | 2026-07-26 (c182) | Clean — `cwd=` form, correctly serialized. Negative result. |
+| `scripts/self-update.py`, `scripts/install-hooks.sh` | The remaining operational scripts read this cycle | 2026-07-26 (c182) | No finding. `self-update.py` matches `CLAUDE.md`'s description (pokes the sidecar, token-gated, never carries the recipe); `install-hooks.sh` degrades correctly on a non-git mount. |

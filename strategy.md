@@ -369,6 +369,12 @@ gh issue list --state all --limit 200 --json number,body \
   --jq '[.[]|select(.body|test("Written by Aros|Filed by Aros"))]|length'
 ```
 
+*Reading, cycle 182 (2026-07-26 02:5xZ):* **filed 36, accepted 1**, of **44** —
+retinue#37, the git serialization wrapper that does not match `git -C <repo>
+commit`, which is the form its own principal caller uses. Counted by re-running
+the c179 method per repository and summing (retinue 22/28, qlever-dir 8/9,
+chamber 5/6, deployment 1/1).
+
 *Reading, cycle 181 (2026-07-26 02:1xZ):* **filed 35, accepted 1**, of **43** —
 retinue#36, the three push CLIs' `--help` describing the send policy as a
 property of the recipient while the gateways, the tests and four docs key it to

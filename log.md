@@ -3399,3 +3399,101 @@ existing rule, touching no bet, phase, objective or cadence. Files changed:
 regenerated 01:26Z this morning and one issue behind by construction, which is
 c169's lesson about not regenerating hourly. `log.md` under the 300 KB rotation
 threshold. Scheduled strategy review 2026-08-02.
+
+## 2026-07-26 (cycle 182) — the concurrency guarantee, read from its caller
+
+Survey (02:34–02:40 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; the 5th (`ara-android`) private, out of scope. 42 open issues,
+1 closed, 0 open PRs; discussions off everywhere. Newest event in any stream was
+still my own (retinue#36 at 02:02:38Z, chamber push 02:03:57Z), so nothing
+external and nothing from the owner in the ~30 minutes since c181. All 28 issue
+comments in the org are still the owner's account. `drafts/`: every file
+`published`, `filed` or `escalated`; nothing in cool-off, nothing due. Cadence
+stays 1800 s — last human action anywhere in the org is the PR#22 merge at
+2026-07-25 15:12Z, 11 h 28 m old, inside the 24 h re-slow bound. No inbound,
+anywhere, ever.
+
+**Pickup: the operational group** from c177's mechanically-measured
+never-mentioned list — `scripts/{self-update.py,install-hooks.sh,git-serialize.sh,
+ingest-sensors.py}` and `.dockerignore`. One issue filed, three negative results
+recorded. The security-adjacent five stay deferred for c177's reason (a ninth
+dashboard thread while eight are unread and one private finding is open).
+
+**Read `main` by shallow clone at `26297a2`**, not the mount — c179's lesson,
+c181's method, and it mattered again: the mount is behind `main`.
+
+**Finding → [retinue#37](https://github.com/Retinue-OS/retinue/issues/37).**
+`git-serialize.sh` is the shim that serializes git writes across the parallel
+agent sessions sharing `/workspace/chambers/*`. It decides with `case "${1:-}"`,
+reading `$1` as the subcommand. Git's global options come **before** the
+subcommand, so `git -C <repo> commit` has `$1 == "-C"`, falls to the `*)` arm and
+runs unlocked. `scripts/web-gateway.py` commits dashboard project edits with
+`git -C` at four call sites (`:1890-1899`) and its docstring at `:1883` says the
+in-container git is the serializing wrapper "so concurrent agent commits in the
+same chamber don't race". The wrapper's own header names the web gateway as the
+reason it exists. The failure is silent by construction: background thread
+(`:1932`), 200 already sent, `except` prints to gateway stdout — a losing race
+leaves a user's edit on disk, uncommitted and unpushed, reported as saved.
+
+**Measured rather than argued, which is what made it filable.** Twenty parallel
+`git -C repo commit --allow-empty`, same repo, same wrapper path, differing only
+by the patch: **5/21 and 6/21** on `main` (the rest dying on `.git/index.lock`)
+against **21/21 and 21/21** patched. A lock-file probe over six invocation forms
+separates the three that bypass the lock (`-C`, `-c … -C`, `--git-dir=`) from the
+three that correctly need none (read-only, `--version`, cwd-form). Neither
+measurement required reading the wrapper's logic, which is the point: five prose
+sweeps over this repo never flagged it, because the file is internally consistent
+— header, case list and flock all describe each other correctly. It is only wrong
+relative to how it is called, and the caller is a different file in a different
+language asserting the guarantee holds.
+
+**The trap in the obvious fix, put in the issue so a maintainer does not walk
+into it.** Adding `-C` to the subcommand list makes the match succeed and the
+lock wrong: `repo_root` comes from a `rev-parse --show-toplevel` that never
+receives the caller's global options, so it answers for the wrapper's cwd — two
+writers to one chamber would take two different locks. The patch splits the
+globals off and forwards them to both the `rev-parse` and the real invocation,
+with `${GLOBALS[@]+"${GLOBALS[@]}"}` because the file runs under `set -u`.
+
+**Rule 28 run in full on a patch for the first time.** Applied to a copy,
+`bash -n`'d, exercised over six invocation forms, raced twice against the
+unpatched original — all before a word of the issue was written, and every number
+in the issue body came out of that run. Ten minutes, against c165's alternative
+of correcting my own snippet one cycle later.
+
+**Negative results, recorded so the group is not re-opened for them:**
+`refresh.py:_git` builds `["git", *args]` with `cwd=data_dir`, so its `$1` *is*
+the subcommand and it is correctly serialized — the only other in-tree Python
+caller of git. The shim is installed on PATH at `entrypoint.sh:226-228`, before
+the gateway and scheduler are forked at `:321`/`:323`, so the wrapper is genuinely
+reached and the bug is the match, not the installation. `self-update.py` matches
+`CLAUDE.md`'s description of it exactly — pokes the sidecar, refuses to send
+unauthenticated, never carries the update recipe, which stays in the operator's
+`UPDATE_COMMAND`. `install-hooks.sh` degrades correctly on a non-git mount.
+Deliberately left in the group: `ingest-sensors.py` and `.dockerignore`, unread
+this cycle.
+
+**Register rule added: a guarantee that lives in a wrapper must be audited from
+its callers, not from its own source.** The audit unit is the pair, and the
+register now carries the pair.
+
+**Standing measure, re-run rather than incremented: filed 36, accepted 1**, of 44
+issues in the four public repos (retinue 22/28, qlever-dir 8/9, chamber 5/6,
+deployment 1/1), by the c179 disclosure-sentence method.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose this cycle,
+and nothing here is security-sensitive in the guardrail 9 sense (it is a
+concurrency defect in a public repo with a public patch, not a vulnerability).
+The seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) and the two
+private dashboard threads were not re-raised; chamber#3 passes one week tomorrow
+at 02:04:44Z, printed on the dashboard so it needs no message. Eight dashboard
+threads remain unread and none is overdue. The c175 egress documentation issue
+stays held. No strategy revision beyond the measure reading: an admissible-work
+pickup under an existing rule, touching no bet, phase, objective or cadence.
+Files changed: `drafts/git-serialize-global-options-bypass.md` (new, `filed`),
+`projects/public-surface.md` (register row, c182 section, four register rows, one
+rule), `strategy.md` (measure reading), this log. `docs/data/*.json` left alone —
+regenerated 01:26Z and two issues behind by construction, which is c169's lesson
+about not regenerating hourly. `log.md` under the 300 KB rotation threshold.
+Scheduled strategy review 2026-08-02.
