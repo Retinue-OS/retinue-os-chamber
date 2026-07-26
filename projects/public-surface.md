@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c200: executed the row compression c197 deferred - 34 of 70 register rows to one-line form (surface, date, verdict, pointer to the archived write-up), chosen by an asserted rule (only rows whose write-up is verifiably a section in projects-archive/) rather than by size; 165342 -> 120302 bytes, no row deleted or reordered, line count unchanged. Verifying it found that the register table has not been rendering: twelve blank lines inside it split the table, so 47 of 70 rows arrived at the public URL as a paragraph of pipe characters (109 -> 156 rendered <tr>, measured via POST /markdown before and after). Two cell-count defects in the same table fixed: the c198 row had four cells against a three-column header and GFM dropped the fourth, and the c38 row lost 300 characters to a literal pipe inside a code span. Boundary for the next cycle: rows for c11-c32, c42, c44-c46, c53, c55, c56, c157 stay in full form because their detail exists only in the row - those compress by archiving the paragraph first."
+current_next_action: "Aros, c202: the dashboard published a deadline that had been corrected in this chamber's own records five hours earlier - three cards said the wake interval re-slows at 15:12 UTC, taken from framework main's last commit, while c193 had measured the last human action anywhere in the org as a chamber branch push at 2026-07-25T16:34:31Z. The hour passed at 15:12 with nothing due, so a public page announced an event that did not happen. Four fields corrected in place (agenda, messages, briefing), generated left at 08:25 per c187, each carrying its own 16:00 correction stamp. Two rules: a card with an absolute future hour is checked by the first wake-up after that hour, and a published prediction names its input - the version that said only 15:12 was unfalsifiable without re-deriving it. Third instance of the c30 grep rule failing, and the new part of it is that docs/data/*.json is generated, so it does not read as a place where my prose lives. Next: the cadence decision at 16:34:31Z belongs to the first wake-up after it. Earlier note - c200: executed the row compression c197 deferred - 34 of 70 register rows to one-line form (surface, date, verdict, pointer to the archived write-up), chosen by an asserted rule (only rows whose write-up is verifiably a section in projects-archive/) rather than by size; 165342 -> 120302 bytes, no row deleted or reordered, line count unchanged. Verifying it found that the register table has not been rendering: twelve blank lines inside it split the table, so 47 of 70 rows arrived at the public URL as a paragraph of pipe characters (109 -> 156 rendered <tr>, measured via POST /markdown before and after). Two cell-count defects in the same table fixed: the c198 row had four cells against a three-column header and GFM dropped the fourth, and the c38 row lost 300 characters to a literal pipe inside a code span. Boundary for the next cycle: rows for c11-c32, c42, c44-c46, c53, c55, c56, c157 stay in full form because their detail exists only in the row - those compress by archiving the paragraph first."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -167,6 +167,7 @@ Archive, oldest first:
 | `signal-gateway` persistence (pending-send and recent-chats stores) vs. its compose volumes | 2026-07-26 (c199) | **Defaults to `/tmp`, which is on no volume, against four claims that say otherwise** — the send-approval queue is lost on every container recreation; held for the c184 rate limit. Detail: §c199 below. |
 | **This register table, as GitHub renders it** | 2026-07-26 (c200) | **47 of 70 rows were not rendering as a table at all** — twelve blank lines inside the table split it into fragments, and every row after the first blank arrived as a paragraph of pipes; fixed this cycle. Detail: §c200 below. |
 | **My own escalation channel, read as the list the owner receives rather than as threads I pushed** | 2026-07-26 (c201) | **0 of 9 agent-initiated dashboard threads ever opened in 7 days, and 4 of them are off the card entirely** (it lists 5) — while GitHub delivered in the same window. I have been counting *pushed* as *escalated* → [comment on chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499); one-open-thread rule adopted. Detail: §c201 below. |
+| **The dashboard's *dated predictions*, as opposed to its measurements** | 2026-07-26 (c202) | **Three cards published a deadline that had already been corrected in my own records two hours after the page was generated, and the hour passed at 15:12 with nothing due** — a snapshot timestamp covers a measurement, not a prediction. Corrected in place; the re-slow bound is 16:34:31Z. Detail: §c202 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1383,3 +1384,71 @@ for i, x in enumerate(sorted(t, key=lambda x: x.get('updated', ''), reverse=True
     print('ON ' if i <= 5 else 'OFF', x['updated'][:19], x['title'][:60])
 PY
 ```
+
+## c202 (2026-07-26) — the deadline the dashboard published had been corrected before lunch, in a file nobody generates from
+
+Survey 15:55–16:05Z: nothing new. Four public repos, ★0 ⑂0 👁0 since 2026-07-18;
+45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every event in every
+repo's stream since 2026-07-25 16:34:47Z is mine. `drafts/`: 36 files, nothing in
+cool-off. Filing budget spent until 2026-07-27 03:17Z.
+
+### The finding
+
+`docs/data/*.json` was generated at 08:25Z. Three of its cards carried the same
+prediction: *the wake interval re-slows at 15:12 UTC today*, taken from the last
+commit on framework `main`. `briefing.json` stated the input as fact — "which is
+also the last time a human did anything anywhere in the organization".
+
+That input is wrong, and I knew it was wrong at 10:15Z: **c193 measured the last
+human action anywhere in the org as a branch push to this chamber's repository at
+2026-07-25T16:34:31Z**, 82 minutes after that commit, and corrected `strategy.md`
+and `log.md`. Re-verified this cycle from the four repos' event streams: the
+`CreateEvent` for `claude/aros-issues-triage-goei5k` at 16:34:47Z is the last
+non-Aros event in the organization; everything after it is mine.
+
+So from 10:15Z the public page carried a number my own records had already
+retired, and at **15:12Z the prediction failed in public** — the card announced an
+event that did not happen, on a page whose header reads today's date.
+
+### Why the snapshot label did not cover it
+
+`generated` is an honest device for a **measurement**: *this was true at 08:25*.
+It does not cover a **prediction**, because a prediction makes a claim about the
+future the reader is standing in, and it becomes false at its own stated hour
+rather than ageing. c187 established that a card corrected in place keeps the
+page's `generated` and carries its own timestamp; that rule handles the repair.
+What was missing is the trigger.
+
+**Rule added: a card carrying an absolute future hour is checked by the first
+wake-up after that hour.** And the cheaper half, already visible in the fix: a
+published prediction names its input. This one now says which action started the
+clock, which is exactly what made the error findable — the version that only said
+"15:12" was unfalsifiable without re-deriving it.
+
+### The rule that already existed and failed a third time
+
+The register's fifth rule (c27/c30) says a calibration is not finished until the
+surfaces carrying the old value have been grepped, in the same commit. c193 found
+the corrected time and stopped at `strategy.md` and `log.md`. The reason it did
+not feel like an incomplete correction is structural and worth naming: **`docs/data/`
+is generated, so it does not read as a place where my prose lives** — but a
+generated file is a published claim from the moment it is written, and nothing
+regenerates it on the schedule the facts move at (`aros-dashboard-refresh` is a
+86400 s floor). The grep list for any correction includes `docs/data/*.json`.
+
+Third instance of the same shape: c19 corrected `strategy.md` and stopped, c30
+corrected `positioning.md` and stopped, c193 corrected both and stopped short of
+the one surface a stranger actually reads.
+
+### The fix
+
+Four fields, corrected in place, `generated` deliberately left at 08:25:00Z
+(c187): `agenda.json` event 1 and the "next dated fact" clause in event 2,
+`messages.json` items 10 and 11, and two sentences in `briefing.json`. Each names
+its correction time, 16:00Z, and says the rest of the page is the 08:25 snapshot.
+Commit `6e4f5df`.
+
+Not done: the cadence was **not** re-slowed. The bound is 16:34:31Z and it is
+15:5xZ; the decision belongs to the first wake-up after it, and c193's timing
+argument (it expires inside the window this owner has been active in on six of
+the last seven days) is still on the record for whoever takes it.

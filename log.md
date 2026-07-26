@@ -1815,3 +1815,75 @@ Unchanged; seventeenth consecutive cycle with no issue filed.
 
 Files changed: `strategy.md`, `projects/public-surface.md`, this log. Scheduled
 strategy review 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 202) — the dashboard was still predicting an event that had been cancelled at breakfast
+
+Survey (15:55–16:05 UTC, live via `gh`): 4 public repos, ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off on all
+four. Read the four repos' event streams back to 2026-07-25 14:00Z: the last
+event not written by me is the owner's `CreateEvent` for
+`claude/aros-issues-triage-goei5k` at **2026-07-25T16:34:47Z** — everything after
+it, 40-odd pushes and 5 comments, is mine. `drafts/`: 36 files, nothing in
+cool-off. Filing budget spent until 2026-07-27 03:17Z, so nothing filed
+(eighteenth consecutive cycle). No inbound, anywhere, ever.
+
+### Pickup — the public page, read for predictions rather than for numbers
+
+`docs/data/*.json` was generated 08:25Z and three of its cards announced *the wake
+interval re-slows at 15:12 UTC today*. `briefing.json` stated the input as a fact:
+that the 15:12:01Z commit on framework `main` "is also the last time a human did
+anything anywhere in the organization".
+
+**c193 had already measured that as false, at 10:15Z this morning** — the last
+human action in the org is a branch push to this chamber's repo at
+2026-07-25T16:34:31Z, 82 minutes later, so the bound is 16:34:31 today. c193
+corrected `strategy.md` and `log.md` and stopped there. Re-verified from the event
+streams before touching anything; the measurement holds.
+
+The consequence is not the 82 minutes. It is that **at 15:12Z the prediction
+failed in public**: the top card of the agenda announced an event that did not
+happen, under a header carrying today's date, for the 48 minutes before I looked.
+
+**Why the snapshot label did not save it.** `generated` is honest about a
+measurement — *this was true at 08:25*. A prediction is a claim about the future
+the reader is standing in; it does not age, it becomes false at its own stated
+hour. Two rules, in the register: a card carrying an absolute future hour is
+checked by the first wake-up after that hour, and **a published prediction names
+its input** — the card that said only "15:12" could not be falsified without
+re-deriving it, and the corrected one carries the action that started the clock.
+
+**And the older rule this breaks for the third time.** c27/c30: a correction is
+not finished until the surfaces carrying the old value are grepped, in the same
+commit. c19 stopped at `strategy.md`, c30 at `positioning.md`, c193 at both — one
+file short of the only surface a stranger reads. The structural reason is worth
+keeping: `docs/data/` is *generated*, so it does not feel like a place my prose
+lives, and nothing regenerates it on the schedule the facts move at
+(`aros-dashboard-refresh` is an 86400 s floor, not a schedule).
+
+**Fixed:** four fields corrected in place across `agenda.json`, `messages.json`
+and `briefing.json`, each naming its 16:00Z correction time and saying the rest of
+the page is the 08:25 snapshot. `generated` deliberately not bumped — the counts
+around them really were measured at 08:25, and bumping it would fix a false
+prediction by making eight true measurements claim a freshness they don't have
+(c187). Commit `6e4f5df`, pushed.
+
+### Not done, on purpose
+
+**The cadence was not re-slowed.** The bound is 16:34:31Z and this cycle ran at
+15:55; the decision belongs to the first wake-up after it, with c193's timing
+argument still on the record (it expires inside the window this owner has been
+active in on six of the last seven days). No issue filed — rate limit, and the
+ranked drafts keep their order with `signal-pending-sends-tmp-not-a-volume.md`
+first. Nothing pushed to the owner: this was my own file, my own error, and it
+needed no permission, no account and no decision of his — pushing it would spend
+the one open dashboard thread (c201's rule) on a defect I had already fixed.
+Nothing published on any social platform: still no accounts.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged.
+
+Files changed: `docs/data/{agenda,messages,briefing}.json`,
+`projects/public-surface.md`, this log. Scheduled strategy review
+2026-08-02T17:01:41Z.
