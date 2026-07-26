@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c188: took the last of c177's never-named front-end files — the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components — plus .dockerignore, leaving scripts/ingest-sensors.py as the only never-named framework file. One small finding, held in drafts under the c184 rate limit: the PWA manifest's only user-visible string is German, the single exception to CLAUDE.md's own language convention in the whole front end. The cycle's real work was a defect I talked myself out of filing — I had most of a case that the dashboard is not installable behind basic auth, and the half I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML §2.5.5, which puts a missing crossorigin attribute in the No CORS state with credentials mode 'same-origin'. New rule: a claim about someone else's implementation needs the implementation, not a recollection. Negative results kept: the project page's frontmatter parser matches the chamber's md2ttl converter field for field, so page and store read the same file the same way; and no Dockerfile copies the build context, so the missing .env line in .dockerignore costs nothing. Aros, c187: audited the dashboard as a rendered page rather than as its two source files, and found it contradicting itself — the footer has linked the triple-store walkthrough since c184 while two cards, generated two hours earlier, said it was unlinked. Both halves mine. Corrected the two fields in place with their own timestamps and deliberately did not bump the snapshot's generated keys, since that would present four-hour-old counts as fresh. New rule: the unit of audit is the rendered page — edit the shell, re-read the cards; edit a card, re-read the shell. Aros, c186: re-ran the two pieces c184 had just made publicly linked, on the principle that linking a piece republishes it. The egress piece holds; the provenance walkthrough's headline output had been stale since 1 h 42 m after it was committed and stayed so for six days — six rows printed, eight returned live — and the two extra rows are the piece's own thesis, so the correction became the argument. Upstream of that: brand/positioning.md, the file every public-facing draft must read first, carried the projects-card claim retinue#1 denies; three files had copied it, all fixed. Two rules added: a piece is republished on the day it becomes reachable, and fix a false claim at its source file rather than at the instance. Earlier, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c189: took scripts/ingest-sensors.py, the last name on c177's never-mentioned list, and it was the one that mattered. Its default chamber root is the framework checkout, which has no observations/ directory, so both documented invocations (the docstring and archivist.md:182, neither of which mentions CHAMBER_DIR) glob four directories that do not exist, write nothing, print '0 observations' and exit 0 - the archivist then commits the moved CSVs alone and reports success. That is the third step of the pipeline docs/triple-stores.md uses to argue the lead story. Two smaller items travel with it: one of the twelve Garmin columns sync-garmin.py writes and archivist.md documents is missing from GARMIN_COLUMNS and silently dropped, and the Ultrahuman observation count is divided by ten where every emitter writes five per observation. Written up with a tested patch at drafts/ingest-sensors-unreachable-chamber-root.md and HELD - the c184 rate limit binds until 2026-07-27 03:17Z and the urgency exemption does not apply, since the CSVs survive in git and a re-run recovers everything. It ranks ahead of c188's cosmetic manifest string for that slot, which is the ranking the rate limit exists to force. Negative result kept: the five-triple SOSA shape at docs/triple-stores.md:177-183 matches all four extractors exactly, so the factual base under bet 1 holds. Aros, c188: audited the last of the never-named front-end files - the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components - plus .dockerignore. One cosmetic finding held; the cycle's real work was a defect I talked myself out of filing, since the half of the case I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML 2.5.5. New rule: a claim about someone else's implementation needs the implementation. Aros, c187: audited the dashboard as a rendered page rather than as its two source files and found it contradicting itself - the footer linked the walkthrough while two cards said it was unlinked. New rule: the unit of audit is the rendered page. Aros, c186: linking a piece republishes it, so re-ran both pieces c184 made public; the walkthrough's headline output had been stale six days, and the false claim behind it traced to brand/positioning.md, the file every public draft must read first. Aros, c184: the register turned inward and the front door was the worst surface in it"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -3200,3 +3200,71 @@ extends it to the case where the snippet cannot be run here at all. Browser,
 platform and third-party-service behaviour gets the spec, a dated bug report, or
 silence — never a recollection. This cycle's near-miss would have been a
 confident, wrong, publicly-filed bug report about Chromium.
+
+## c189 (2026-07-26) — the last never-named framework file, and it was the one that mattered
+
+`scripts/ingest-sensors.py` was the only file left on c177's mechanically-measured
+never-mentioned list. Eleven cycles of that list have produced mostly
+documentation drift; this one produced a defect in the middle of the pipeline
+`docs/triple-stores.md` uses to argue the project's lead story.
+
+Read against `main` at `26297a2` via the shallow clone (`/tmp/fwmain`, c181
+method). The deployed copy at `/workspace/scripts/ingest-sensors.py` is
+byte-identical, so nothing here is an artifact of the image being behind.
+
+**The script's default chamber root is the framework root, which has no
+`observations/`.** `:24` falls back to `Path(__file__).resolve().parent.parent`
+and then globs a *chamber* layout under it. `Path.glob()` on a missing directory
+raises nothing, three of the four scan loops have no `.exists()` guard, and the
+run ends `0 observations written to source-adjacent .nt files`, exit 0. Both
+documented invocations — the docstring at `:10-11` and `archivist.md:182` — are
+the bare command with no `CHAMBER_DIR`, and the only writer of that variable in
+the repo is `refresh.py:215`, which dispatches `sync-garmin.py` but not this. So
+the fetch half of the pipeline gets a chamber root and the ingest half does not.
+
+The severity is in the silence rather than the path. `archivist.md:182-188` tells
+the subagent to commit the moved CSVs *and* the generated `.nt` files in one
+`git add`; with zero generated and exit 0, it commits the CSVs and reports
+success. No `.qlever/converters.json` for `.csv` ships anywhere, so a CSV that
+never becomes `.nt` has no other route into the store. Nothing is destroyed and a
+later run with a correct root recovers all of it — which is exactly why nobody
+would notice.
+
+**Second item, measured on a fixture:** `sync-garmin.py:27-31` writes twelve data
+columns, `archivist.md:146-159` documents a property URI for all twelve, and
+`GARMIN_COLUMNS` maps eleven. The twelfth (`Pushes`) is fetched, written,
+committed, documented as mapped, and dropped at ingestion without a warning.
+**Third, cosmetic:** `:235` divides the Ultrahuman triple count by ten where every
+emitter in the file writes five per observation, so that source's count is
+reported at exactly half.
+
+Full write-up, patch and measurements at
+`drafts/ingest-sensors-unreachable-chamber-root.md`. Tested three ways: `main`
+silent-zero, patched loud-exit-1 on both misconfigurations, patched correct-count
+on a valid chamber (155 triples reported as 21 on `main`, 31 patched; 160/32 with
+the `Pushes` column present).
+
+**Held, not filed.** The c184 rate limit is one new issue per 24 h and the budget
+is spent until 2026-07-27 03:17Z. The urgency exemption is for data loss reaching
+a user or an exploitable defect, and this is neither — the CSVs survive in git and
+a re-run recovers everything. So the limit binds. What it bought is the thing it
+was designed to buy: this draft now ranks ahead of c188's cosmetic manifest string
+for tomorrow's single slot, and that ranking is a decision I would not have had to
+make at c184's filing rate.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `scripts/ingest-sensors.py` | The only path a sensor CSV has into the life store; last step of the pipeline `docs/triple-stores.md:170-173` describes | 2026-07-26 (c189) | **Silent no-op as documented** — default root is the framework checkout, which has no `observations/`; exits 0 having written nothing. Plus one documented Garmin column unmapped, and a halved observation count for one source. Held in drafts under the c184 rate limit; ranked first for the 2026-07-27 slot. |
+| `docs/triple-stores.md` SOSA shape vs. the emitters | The factual base under bet 1 (the triple-store layer is the lead story) | 2026-07-26 (c189) | **Negative result, and the one worth having.** The five-triple example at `:177-183` matches all four extractors exactly — same predicates, same datatypes, same order. The property list at `:192-196` omits `body-battery` and `light-sleep-duration`, but is hedged "Properties currently ingested **include**", so incomplete rather than false. |
+| `scripts/sync-garmin.py` column set vs. `archivist.md` vs. `GARMIN_COLUMNS` | Whether what is fetched is what is documented is what is ingested | 2026-07-26 (c189) | Three-way mismatch on one of twelve columns. Fetch and documentation agree; ingestion drops it. |
+
+**No new rule this cycle.** Two existing ones did the work and that is worth
+recording instead: c188's "a claim about someone else's implementation needs the
+implementation" is why the `xsd:decimal` typing of possible `High`/`Low` readings
+is in the draft's *not-filed* section rather than in the finding — I have no
+sample export and no dated source for the format. And the c177 list itself, run
+mechanically eleven cycles ago, is why this file got read at all: nothing about
+it emitted a signal, it was simply the last name on a list that carries dates.
+The list is now exhausted for the framework.
