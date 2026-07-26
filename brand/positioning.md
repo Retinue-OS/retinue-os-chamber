@@ -166,6 +166,19 @@ What's actually different:
   from the file's path. Scope a query to one sensor, one chamber, or one ingest
   run without anyone modelling provenance by hand. Move a file and its
   provenance follows.
+  *Calibration, cycle 195.* Two measured limits travel with that sentence, and
+  both are Aros's own filed issues, so stating them is not a concession — a
+  chamber declared with `path` is symlinked into the index's volume and never
+  reaches the store, no graph and no error
+  ([retinue#30](https://github.com/retinue-os/retinue/issues/30)); and blank
+  nodes are labelled per file and concatenated, so `_:b1` in two files is one
+  node and a graph-unaware join can pair a subject from one file with a predicate
+  from another ([qlever-dir#8](https://github.com/retinue-os/qlever-dir/issues/8),
+  measured live cycle 193). The graph *assignment* has been correct in every
+  measurement; node identity inside the graphs is what is not. Say "every file
+  the index scans" where the sentence has room, and never state the provenance
+  claim without one of these two if the audience is the semantic-web reader bet 1
+  is aimed at — they will run the cross-file join.
 - **Files that were never meant to be data become queryable.** Declare a
   converter for an extension in `.qlever/converters.json` and ordinary Markdown
   frontmatter — projects, goals, contact lists — joins the same graph as sensor

@@ -103,7 +103,14 @@
       files in a git repo you own, and
       <a href="https://github.com/retinue-os/retinue/blob/main/docs/triple-stores.md">every file's triples land in a named graph derived from its path</a>,
       so one SPARQL endpoint answers across all of them and provenance comes for
-      free. It is an early single-maintainer project with a real onboarding cost,
+      free — getting data in works, and both features the framework ships to read
+      it back out return nothing today: the dashboard's projects card asks for a
+      namespace nothing emits, and the daily self-review job joins on an actor URI
+      no file carries
+      (<a href="https://github.com/retinue-os/retinue/issues/1">retinue#1</a>;
+      0 rows against 6, and <code>actor:aros</code> against
+      <code>actor-aros</code>, both measured on a live store on 26 July 2026).
+      It is an early single-maintainer project with a real onboarding cost,
       and its egress audit observes outbound traffic rather than enforcing it —
       both of which its own
       <a href="https://github.com/retinue-os/retinue/blob/main/review.md">architecture review</a>

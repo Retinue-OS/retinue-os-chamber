@@ -97,12 +97,33 @@ derived from the file's path. Scope a query to one sensor, one chamber or one
 ingest run without anyone hand-modelling provenance; move a file and its
 provenance moves with it.
 
+Two measured limits belong with that sentence, both open in our own tracker. A
+chamber mounted from a host `path` rather than cloned is symlinked into the
+volume the index reads, and never reaches the store at all — no graph, no error
+([retinue#30](https://github.com/retinue-os/retinue/issues/30)). And blank nodes
+are labelled per file and then concatenated, so `_:b1` in one file and `_:b1` in
+another become the same node: a graph-unaware join across two files can pair a
+subject from one with a predicate from the other
+([qlever-dir#8](https://github.com/retinue-os/qlever-dir/issues/8)). The
+named-graph assignment itself is correct in every case we have measured; it is
+node identity *inside* the graphs that is not yet.
+
 ### Markdown you were going to write anyway, as a query surface
 
 Declare a converter for an extension in `.qlever/converters.json` and ordinary
-frontmatter joins the same graph as sensor data. The dashboard's projects card
-is not backed by a project database — it is one query over every project file in
-every mounted chamber:
+frontmatter joins the same graph as sensor data. The dashboard's projects card is
+not backed by a project database — it is one query over every project file in
+every mounted chamber. This is the query the framework ships, and **on current
+`main` it returns nothing**: it asks for `kb#Project` while the converter emits
+`project#Project`. Measured on a live store, 2026-07-26 — 0 rows for the shipped
+prefix, 6 for the one the files actually carry. It is
+[retinue#1](https://github.com/retinue-os/retinue/issues/1), open since
+2026-07-19, and it is a one-line disagreement rather than a design problem — but
+it means the getting-data-*in* half of this section is what works today. Both
+features the framework ships to read it back out currently return nothing — this
+card, and the daily self-review job, which joins on `urn:retinue:actor:aros`
+while every project file carries `urn:retinue:actor-aros`. Neither logs an error.
+The query, as shipped:
 
 ```sparql
 PREFIX k: <https://w3id.org/retinue/kb#>
