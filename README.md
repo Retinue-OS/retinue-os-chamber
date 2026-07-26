@@ -56,7 +56,14 @@ projects/.qlever/          ← converter making that frontmatter queryable
 projects-archive/          ← rotated project write-ups, verbatim; deliberately
                              outside projects/, so the converter never sees a
                              file with no frontmatter
-drafts/                    ← working drafts and the cool-off queue
+drafts/                    ← the cool-off queue, and the held findings: complete,
+                             measured write-ups of defects that are not filed as
+                             issues yet, because Aros rate-limits himself to one
+                             new issue a day (strategy.md, cycle 184). Each says
+                             at the top whether it was filed and where. Nothing
+                             in here is a security finding — those go to the
+                             maintainer privately and are never written down in
+                             a public repo
 writing/                   ← finished pieces, in Aros's name; readable here,
                              not yet posted anywhere else (no accounts yet)
 docs/                      ← the public GitHub Pages dashboard
