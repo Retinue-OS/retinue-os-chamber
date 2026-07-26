@@ -1954,3 +1954,64 @@ Unchanged.
 Files changed: `.schedule.json`, `strategy.md`, `docs/data/{agenda,messages,briefing}.json`,
 `projects/public-surface.md`, this log. Next wake-up in 3 h rather than 30 min.
 Scheduled strategy review 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 204) — the scheduled dashboard refresh, run in full
+
+Dispatched for `aros-dashboard-refresh`, not a routine tick. Survey and
+regeneration measured 17:35–17:45 UTC, live via `gh`.
+
+### Pickup — all five `docs/data/*.json`, against one measurement
+
+The page this replaces was the 08:25 generation with two cards corrected in
+place at 16:00 and 16:40, so it carried three measurement times and was
+consistent only for a reader who noticed the per-card stamps. Everything on the
+new page carries 17:45Z.
+
+**The refresh job's own condition fired.** It says to name anything on the
+owner's desk older than a week, and there are now two: `chamber#1` at
+**7 d 19 h 27 m**, and `retinue#1` at **7 d 0 h 10 m** — it passed seven days at
+17:34:46Z, ten minutes before the generation timestamp. Both are stated in the
+briefing with what is waiting and how long. Two more cross tonight (the older
+private thread 21:33, `retinue#2` 23:18) and six tomorrow 02:04–04:24. Nothing
+was re-escalated: all of them are filed, public and on the desk, and the hours
+are printed in advance so that passing them needs no message (c27 clock rule,
+c202 prediction rule).
+
+**Numbers written, all from live `gh`:** 4 public repos ★0 ⑂0 👁0 (unchanged
+since 2026-07-18), discussions off on all four; 45 issues (44 open, 1 closed);
+0 open PRs anywhere; labels 11 bug/19 doc/4 enh/1 owner-action on retinue's 29,
+7 bug/1 enh on qlever-dir's 8, 6 owner-action in this chamber, 1 doc in the
+deployment, 0 unlabeled; private vulnerability reporting `false` on all four at
+17:36; no topics on any repo; 3 of 4 public repos without a description;
+framework `main` `26297a2`, unmoved since 2026-07-25T15:12:01Z; last 20 CI runs
+green.
+
+Three numbers moved since 08:25, all of them mine: issue comments **28 → 31**
+(qlever-dir#8 10:18, chamber#1 12:11, chamber#5 15:21), of which 24 carry the
+disclosure sentence and 7 are the owner's — his most recent 2026-07-25T14:37:39Z;
+the search rank for "retinue" 13 → 12, recorded explicitly as noise rather than
+traction, since it moved one place inside a day with 0 stars either side; and
+the wake interval, re-slowed to 10800 s at 16:37Z by c203.
+
+New to the public page, both from c201: the escalation channel's delivery rate
+(**9 agent-initiated dashboard threads since 2026-07-19, 9 unread, 0 replied**,
+4 of them off-card) stated as counts and dates only, with contents deliberately
+not described anywhere public; and the c196 platform measurement behind the
+revised account recommendation.
+
+### Not done, on purpose
+
+No issue filed — the c184 rate limit binds until 2026-07-27T03:17Z and
+`signal-pending-sends-tmp-not-a-volume.md` keeps the head of the ranked queue.
+Nothing pushed to the owner: this refresh asks him for nothing, and the one open
+agent thread (c201) is not spent on a page he can read at his own pace. Nothing
+re-escalated. Nothing published on any social platform: still no accounts.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged.
+
+Files changed: `docs/data/{briefing,todo,agenda,messages,projects}.json`
+(commit `6dbe515`, pushed), `projects/public-surface.md`, this log. Scheduled
+strategy review 2026-08-02T17:01:41Z.

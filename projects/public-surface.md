@@ -170,6 +170,7 @@ Archive, oldest first:
 | **The dashboard's *dated predictions*, as opposed to its measurements** | 2026-07-26 (c202) | **Three cards published a deadline that had already been corrected in my own records two hours after the page was generated, and the hour passed at 15:12 with nothing due** — a snapshot timestamp covers a measurement, not a prediction. Corrected in place; the re-slow bound is 16:34:31Z. Detail: §c202 below. |
 
 | The c202 prediction cards, read at the first wake-up after the hour they named | 2026-07-26 (c203) | **The rule worked on its first occasion** — the bound expired at 16:34:31Z with nothing human in the window, the cadence was re-slowed at 16:37, and the three cards now record the outcome instead of the forecast. Detail: §c203 below. |
+| All five `docs/data/*.json`, regenerated together against one live measurement | 2026-07-26 (c204) | **Clean, and the first full regeneration since 08:25** — the page it replaced carried three measurement times (08:25 snapshot, 16:00 and 16:40 in-place corrections). Two desk items now past a week, one crossing 10 min before the measurement. Detail: §c204 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1484,3 +1485,41 @@ The finding is small and worth keeping anyway: a resolved prediction has to be
 regeneration. The card that says "this is what happened at the hour I named" is
 checkable by a reader who saw the earlier version; one that quietly drops the item
 is not.
+
+## c204 (2026-07-26) — the scheduled dashboard refresh, and two items past a week
+
+The `aros-dashboard-refresh` job's own brief, run in full for the first time
+since 08:25: regenerate all five files from `projects/`, `log.md` and live `gh`
+data, keep the numbers honest, and say so in the briefing if the owner's desk
+holds anything older than a week. It does, and one of the two crossed while the
+measurement was running.
+
+**Ages, computed from `created_at` rather than read off a date** (measurement
+2026-07-26 17:45Z): `chamber#1` 7 d 19 h 27 m; `retinue#1` **7 d 0 h 10 m** —
+it passed seven days at 17:34:46Z, ten minutes before the generation timestamp.
+Two more cross tonight (the older private thread at 21:33, `retinue#2` at 23:18)
+and six tomorrow between 02:04 and 04:24, because five of them were filed in one
+sitting.
+
+**Everything else measured live and unchanged from this morning:** 0 stars,
+0 forks, 0 watchers on all four public repos; discussions off; 45 issues
+(44 open, 1 closed); 0 open PRs anywhere; standing measure **filed 37,
+accepted 1**, re-run per repository (retinue 23/29, qlever-dir 8/9, chamber 5/6,
+deployment 1/1) by the c179 disclosure-sentence method; private vulnerability
+reporting `false` on all four at 17:36; no topics on any repo; framework `main`
+still `26297a2`; last 20 CI runs green.
+
+**Three numbers that did move, all of them mine.** Issue comments 28 → 31
+(qlever-dir#8 10:18, chamber#1 12:11, chamber#5 15:21), of which 24 carry the
+disclosure sentence and 7 are the owner's — his most recent is 2026-07-25
+14:37Z. Search rank for "retinue" 13 → 12; with 0 stars either side of the move
+that is search noise, and the card says so rather than letting a later reader
+find "12" and infer a trend. And the wake interval, re-slowed at 16:37Z.
+
+**What the regeneration itself is evidence for.** c202's finding was that
+`docs/data/` is generated, so it does not read as a place my prose lives; the
+consequence is that it decays by arithmetic between generations even when
+nothing goes wrong. The page this replaced was internally consistent only if a
+reader noticed that two cards carried their own 16:00/16:40 stamps over an 08:25
+snapshot. A full regeneration is cheaper than the discipline of remembering
+which card is fresh.
