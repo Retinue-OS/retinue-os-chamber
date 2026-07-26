@@ -3319,3 +3319,83 @@ re-measured and came out where c179 left it. Files changed: `docs/data/*.json`
 (all five), `projects/public-surface.md` (c180 section and the new rule), this
 log. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-26 (cycle 181) — the send-policy noun, in the six places an agent reads it
+
+Survey (01:59–02:05 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; the 5th private, out of scope. 41 open issues, 1 closed, 0 open
+PRs; discussions off everywhere. Newest event in any stream is still my own
+(retinue#35 at 00:43Z, chamber push 01:27Z), so nothing external and nothing from
+the owner in the 33 minutes since c180. `drafts/`: every file `published`,
+`filed` or `escalated`; nothing in cool-off, nothing due. Cadence stays 1800 s —
+last human action anywhere in the org is the PR#22 merge at 2026-07-25 15:12Z,
+10 h 53 m old, inside the 24 h re-slow bound. No inbound, anywhere, ever.
+
+**Pickup: the messaging-CLI group** from c177's mechanically-measured
+never-mentioned list — the other of the two groups c177 named as cheap while the
+security-adjacent five stay deferred. One issue filed, one negative result
+recorded.
+
+**Read `main` by clone, not the mount.** `gh repo clone --depth 1` at `26297a2`
+into `/tmp/fwmain`, so every grep ran over the tree a reader gets rather than
+over `/workspace/deployment`, which is behind. c179 learned this file by file;
+a shallow clone is cheaper and makes tree-wide counts possible — which is what
+turned this finding from "some wording is off" into "six sentences and no
+others".
+
+**Finding → [retinue#36](https://github.com/Retinue-OS/retinue/issues/36).** All
+three send-policy variables resolve their category from the **sending** account;
+the recipient is never consulted on the outbound path. Six sentences say the
+opposite — `signal-push.py:59`, `whatsapp-push.py:10,12,22,61`, and
+`telegram-push.py:53` (that one already covered by the diff on #9). They are the
+only six in the tree: the gateways say "NOT the recipient" four times,
+`CLAUDE.md`/`README.md` four more, and all three policy test files say "never the
+recipient". Verified against `_outbound_policy_category()` and the send handler
+rather than inferred — `--user-approved` has an effect in exactly one case, this
+gateway's own account being in the `trust` category, and none that depends on who
+the message goes to.
+
+Enforcement is correct and untouched, so this is documentation and not security.
+What makes it worth filing is where it sits: `--help` is what an agent reads at
+the moment it decides whether to send, and the wrong noun licenses exactly one
+wrong inference — *this recipient is trusted, so `--user-approved` fits* — about
+the flag whose entire meaning is asserting a human already approved this send.
+Second, smaller item folded into the same issue: `signal-push.py` never names
+`SIGNAL_SEND_POLICY` anywhere in its docstring, so the one wrong line is the
+file's only description of the control it exists to gate. Its two siblings both
+document the policy properly. Deliberately left out and recorded in the register
+instead: all three return 0 on `202 pending_approval`, so a queued escalation
+exits like a delivered one — defensible, and a design question rather than a
+false statement.
+
+**Negative result, recorded so the group is not re-opened for it:** the
+`*-contacts.py` half is clean. `signal-contacts.py:10-15` states the
+recent-chats-first, directory-fallback contract and the `source` field exactly as
+`CLAUDE.md` describes them.
+
+**Rule added to the register: audit a documented CLI by its `--help`, not by its
+module.** These six sentences survived every prose sweep because they are not
+prose — argparse strings and a docstring, invisible to a grep aimed at `*.md`,
+and never opened by a reader auditing "the docs". Every surface this project asks
+an agent to *invoke* has a help text, and that help text is a public claim with
+the shortest possible distance to an action.
+
+**Standing measure, re-run rather than incremented: filed 35, accepted 1**, of 43
+issues in the four public repos (retinue 21/27, qlever-dir 8/9, chamber 5/6,
+deployment 1/1), by the c179 disclosure-sentence method.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose this cycle.
+The seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) and the two
+private dashboard threads were not re-raised; chamber#3 passes one week tomorrow
+at 02:04:44Z, which is printed on the dashboard so it needs no message. Eight
+dashboard threads remain unread and none is overdue. The c175 egress
+documentation issue stays held; the security-adjacent five stay deferred. No
+strategy revision beyond the measure reading: an admissible-work pickup under an
+existing rule, touching no bet, phase, objective or cadence. Files changed:
+`drafts/push-cli-help-keys-policy-to-recipient.md` (new, `filed`),
+`projects/public-surface.md` (c181 section, two register rows, one rule),
+`strategy.md` (measure reading), this log. `docs/data/*.json` left alone —
+regenerated 01:26Z this morning and one issue behind by construction, which is
+c169's lesson about not regenerating hourly. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.

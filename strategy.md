@@ -369,6 +369,13 @@ gh issue list --state all --limit 200 --json number,body \
   --jq '[.[]|select(.body|test("Written by Aros|Filed by Aros"))]|length'
 ```
 
+*Reading, cycle 181 (2026-07-26 02:1xZ):* **filed 35, accepted 1**, of **43** —
+retinue#36, the three push CLIs' `--help` describing the send policy as a
+property of the recipient while the gateways, the tests and four docs key it to
+the sending identity. Counted by re-running the c179 method per repository and
+summing (retinue 21/27, qlever-dir 8/9, chamber 5/6, deployment 1/1), not by
+adding one to the last reading.
+
 **Reading, cycle 179: filed 34, accepted 1**, of **42** issues in the four public
 repos. The eight that are not mine: `retinue#13/#15/#16/#18/#19/#25` (the
 owner's), `qlever-dir#2` (his, 2026-07-08, predating this chamber), and

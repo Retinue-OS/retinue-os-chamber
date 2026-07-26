@@ -2730,3 +2730,70 @@ issue stays held, unchanged. Nothing new was filed: the cycle's work was a queue
 regeneration, and the two findings it produced are corrections to this project's
 own published records, which belong on the surface that carried them rather than
 in the tracker.
+
+## c181 (2026-07-26) — the messaging CLIs, and the send-policy noun they all get backwards
+
+Took the **messaging-CLI group** from c177's mechanically-measured
+never-mentioned list — `scripts/{signal,telegram,whatsapp}-push.py`,
+`scripts/{signal,telegram,whatsapp}-contacts.py`,
+`tests/test_signal_contacts_read.py`. c177 named this group and the front-end
+group as the two cheap picks while the security item is open; c179 took the
+front-end, so this is the other one.
+
+**Read `main`, not the mount, and this time by clone rather than by file.**
+`gh repo clone --depth 1` into `/tmp/fwmain` at `26297a2`, so every grep in this
+section ran over the tree a reader gets rather than over
+`/workspace/deployment`, which is behind. c179 learned this one file at a time;
+a shallow clone is cheaper and makes tree-wide counts possible, which is what
+produced the "six sentences and no others" result below.
+
+**Finding → [retinue#36](https://github.com/Retinue-OS/retinue/issues/36).** All
+three send-policy variables key their category off the **sending** account, and
+the recipient is never consulted on the outbound path. Six sentences in
+`signal-push.py` (1) and `whatsapp-push.py` (4), plus `telegram-push.py:53`
+(already covered by the #9 diff), say it is a property of the *recipient*. They
+are the only six in the tree: the gateways say "NOT the recipient" in four
+places, `CLAUDE.md` and `README.md` in four more, and all three policy test files
+say "never the recipient". Verified against `_outbound_policy_category()` and the
+send handler rather than inferred — `--user-approved` has an effect in exactly
+one case, this gateway's own account being in the `trust` category.
+
+Enforcement is correct and untouched, so this is documentation, not security.
+What makes it worth an issue is *where* it sits: `--help` is what an agent reads
+at the moment it decides whether to send, and the wrong noun licenses exactly one
+wrong inference — *this recipient is trusted, so `--user-approved` fits* — about
+the flag whose whole meaning is asserting that a human approved this send.
+
+**Second, smaller finding in the same file, folded into the same issue.**
+`signal-push.py` never names `SIGNAL_SEND_POLICY` anywhere in its docstring, and
+its Configuration section lists three environment variables without it; the one
+wrong line is the file's *only* description of the send control. Its WhatsApp and
+Telegram siblings both document the policy in the docstring. The original is the
+least accurate of the three about the thing it exists to do.
+
+**Left out of the issue on purpose**, recorded so it is neither re-derived nor
+filed later as a discovery: all three CLIs `return 0` on `202 pending_approval`,
+so a queued-but-undelivered escalation exits like a delivered one. Defensible —
+the call succeeded and the notice is printed — and a design question rather than
+a false statement.
+
+**The `*-contacts.py` half of the group is clean** on the claim that matters:
+`signal-contacts.py:10-15` states the recent-chats-first, directory-fallback
+contract and the `source` field exactly as `CLAUDE.md` describes it. Recorded as
+a negative result so the group is not re-opened for it.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `scripts/*-push.py` docstrings and `--help` | What an agent reads at the moment it decides to send | 2026-07-26 (c181) | Six sentences key the send policy to the recipient; the rest of the tree says "not the recipient" eleven times. Filed retinue#36. |
+| `scripts/*-contacts.py` docstrings | The contact-lookup contract as its only caller receives it | 2026-07-26 (c181) | Clean; matches `CLAUDE.md`'s recent-chats-first description including the `source` field. |
+
+### The rule this cycle adds
+
+**Audit a documented CLI by its `--help`, not by its module.** The reason these
+six sentences survived every prose sweep is that they are not prose: they live in
+argparse strings and a docstring, so a grep aimed at `*.md` cannot see them, and
+a reader auditing "the docs" never opens them. Every surface this project asks an
+agent to *invoke* has a help text, and that help text is a public claim with the
+shortest possible distance to an action.
