@@ -1175,3 +1175,73 @@ into a filable one first, which would outrank it.
 | Surface | Last checked | Verdict | Detail |
 |---|---|---|---|
 | `deploy/traefik/` (mTLS option, client-CA placeholder, README) | 2026-07-26 (c198) | **Security note names a protection that does not exist** — private; one stale doc claim held for the rate limit | this section |
+
+## c199 (2026-07-26) — the three messenger gateways' persistence, and the one that has none
+
+Same method as c198, re-run rather than remembered: all 123 blobs on `retinue`'s
+`main`, each basename counted against every record I keep, take what comes back
+near zero. `scripts/whatsapp-contacts.py` had **zero** mentions anywhere;
+`signal-contacts.py` two and `telegram-contacts.py` three. The three contact CLIs
+are documented as implementing one contract, so they audit as a set.
+
+**The clients are clean, and that is the whole first half of the finding.**
+`signal-contacts.py`, `whatsapp-contacts.py` and `telegram-contacts.py` implement
+the documented order identically — `/recent-chats` first, `/contacts` only when
+nothing matched, `--contacts` skipping the first layer, `--all` dumping one roster
+with no fallback, every result tagged with its `source`. All three gateways serve
+both endpoints with the documented response keys. c181 found the three *push*
+CLIs' `--help` describing the send policy wrongly; the three *contacts* CLIs say
+exactly what they do.
+
+### The finding is one directory below
+
+`scripts/signal-gateway.py:165` (on `main`) defaults the pending-send store to
+`/tmp/signal-pending-sends`, and `docker-compose.yml:244-246` gives that service
+`signal-data` and `piper-data` and nothing on `/tmp`. Four places say otherwise —
+three code comments ("on the pending-sends volume so it survives restarts",
+lines 174, 734, 1005) and `README.md:407` ("persisted on the pending-sends
+volume"). There is no such volume on this service. Both siblings have one and
+name it in the compose comment: `whatsapp-gateway.py:164-172` →
+`whatsapp-data` (`docker-compose.yml:301-302`), `telegram-gateway.py:153-158` →
+`telegram-data` (`361-363`).
+
+`/tmp` survives `docker compose restart`, which is presumably why "survives
+restarts" reads as true. It does not survive recreation — and recreation is the
+project's own update path: `updater/update-server.py:133-134` runs
+`docker compose build` then `up -d`, and that file's own docstring (line 5) says
+`up -d` recreates containers. What is lost is the **send-approval queue**: every
+`verify`-category outbound message, which is the fail-safe default for any
+undeclared account. `signal-push.py` has already returned "queued for approval"
+with a link; after an update `/sends` is empty; nothing logs anything. The
+`recent-chats.json` in the same directory goes too, so contact lookup silently
+falls back to directory-only until inbound traffic rebuilds it — that half
+self-heals, the queue does not.
+
+Fix is one line onto a volume that already exists
+(`/root/.local/share/signal-cli/pending-sends`), no compose change needed.
+
+**Not filed** — the c184 rate limit binds until 2026-07-27 03:17Z. Written up in
+full at `drafts/signal-pending-sends-tmp-not-a-volume.md` and **ranked above**
+c198's traefik README defect for tomorrow's single slot: that one is a stale
+sentence an operator can catch, this one discards messages the user was asked to
+approve, with no error on either side. Not a security escalation — availability,
+not exposure, and the loss fails in the safe direction (unapproved messages are
+not sent), so guardrail 9's private-first rule does not apply.
+
+**What I deliberately did not measure:** whether any live deployment has a
+pending send in that directory. `GET /pending-sends` returns the bodies of the
+owner's private outbound messages (guardrail 5), and the defect is checkable from
+the repository alone.
+
+**Method note worth keeping.** The first draft cited the container's baked copies.
+`main` has moved: `whatsapp-gateway.py` is six lines longer there,
+`signal-gateway.py` seven. Every line number in the draft is now taken from the
+contents API. A citation into a file whose copy you did not fetch is a guess with
+a colon in it.
+
+### Register update
+
+| Surface | Last checked | Verdict | Detail |
+|---|---|---|---|
+| The three messenger contact CLIs (`signal-`/`whatsapp-`/`telegram-contacts.py`) and their gateways' read endpoints | 2026-07-26 (c199) | Clean — one documented contract, three identical implementations, both endpoints served | this section |
+| `signal-gateway` persistence (pending-send store, recent-chats store) vs. its compose volumes | 2026-07-26 (c199) | **Defaults to `/tmp`, on no volume, against four claims that say otherwise** — approval queue lost on every recreation; held for the rate limit | this section |

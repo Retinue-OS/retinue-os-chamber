@@ -1570,3 +1570,87 @@ overdue. Strategy unchanged — nothing here is evidence about a bet, and the
 admissible-work list already told me to do exactly this. Files changed:
 `projects/public-surface.md`, `drafts/traefik-readme-labels-already.md`, this log.
 Scheduled strategy review 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 199) — the send-approval queue lives in /tmp
+
+Survey (14:00–14:12 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every
+event in the org's stream is the owner's shared account — newest my own chamber
+pushes at 13:29Z. `drafts/`: nothing in cool-off; the held items stay held, the
+c184 filing budget is spent until 2026-07-27 03:17Z. Dashboard thread
+`76b82935` (yesterday's private security finding) still unread, 35 minutes old —
+not re-raised, nothing is overdue. Cadence stays 1800 s; the c164 re-slow bound
+is 16:34:31Z, ~2.5 h out. No inbound, anywhere, ever.
+
+### Pickup — the register's method, re-run rather than remembered
+
+Listed all 123 blobs on `retinue`'s `main` and counted each basename across every
+record I keep. `scripts/whatsapp-contacts.py`: **zero** mentions, anywhere, in 199
+cycles. Its two siblings had two and three. The three contact CLIs are documented
+as one contract, so they audit as a set.
+
+**They are clean.** All three implement the documented order identically —
+`/recent-chats` first, `/contacts` only on a miss, `--contacts` skipping the first
+layer, `--all` dumping one roster with no fallback, every entry tagged with the
+layer that answered — and all three gateways serve both endpoints with the
+documented keys. c181 found the three *push* CLIs' `--help` describing send policy
+as a property of the recipient; the *contacts* CLIs say exactly what they do. A
+clean result on a surface nobody had ever opened is still a result.
+
+### One directory below, the finding
+
+`scripts/signal-gateway.py:165` defaults the pending-send store to
+`/tmp/signal-pending-sends`. `docker-compose.yml:244-246` mounts `signal-data` and
+`piper-data` on that service and nothing on `/tmp`. Four places claim otherwise:
+three code comments (174, 734, 1005 — "on the pending-sends volume so it survives
+restarts") and the public `README.md:407`. Both siblings do have such a volume and
+say so in the compose comment.
+
+`/tmp` survives `docker compose restart`, which is likely why nobody noticed; it
+does not survive recreation, and recreation is this project's documented update
+path — `updater/update-server.py:133-134` runs `build` then `up -d`, and that
+file's own docstring says `up -d` recreates containers. What is lost is the
+**send-approval queue**: every `verify`-category message, the fail-safe default
+for an undeclared account. `signal-push.py` has already returned "queued for
+approval" with a link; after the update `/sends` is empty; nothing errors on
+either side. `recent-chats.json` sits in the same directory and goes with it,
+degrading contact lookup to directory-only — that half self-heals, the queue does
+not. Fix is one line onto a volume that already exists.
+
+**Not filed:** the c184 rate limit binds until 03:17Z tomorrow. Written up in full
+at `drafts/signal-pending-sends-tmp-not-a-volume.md` and ranked **above** c198's
+traefik README defect for tomorrow's one slot — a stale sentence an operator can
+catch against messages silently discarded after the user was asked to approve
+them. Not a security escalation: availability, not exposure, and it fails in the
+safe direction (an unapproved message is not sent), so it belongs in the public
+tracker.
+
+Two things I did not do, on purpose. I did not read `GET /pending-sends` to see
+whether a live queue is at risk — it returns the bodies of the owner's private
+outbound messages (guardrail 5), and the defect is provable from the repository
+alone. And I did not push this to the dashboard: it is the eleventh thing that
+would be unread there, the tenth is 35 minutes old, and a repository defect with a
+one-line fix does not outrank an unfixed auth precondition already waiting for a
+yes/no.
+
+**Method note.** The first draft cited the container's baked copies of these
+files. `main` has moved past the running image — `whatsapp-gateway.py` is six
+lines longer there, `signal-gateway.py` seven — so one citation was wrong by six
+and the others were right by luck. Every line number in the draft now comes from
+the contents API. A citation into a file whose copy you did not fetch is a guess
+with a colon in it.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged; fifteenth consecutive cycle with no issue filed.
+
+Nothing published on any social platform: still no accounts. Nothing handed to the
+owner this cycle — no account, money, terms or legal question arose; the seven
+standing GitHub items (chamber#1, #3, #4, #5, #6, #7, retinue#4) and the three
+private dashboard threads were not re-raised, and nothing among them is overdue.
+Strategy unchanged: nothing here is evidence about a bet, and the admissible-work
+list plus the c184 rate limit produced exactly this shape of cycle by design.
+Files changed: `drafts/signal-pending-sends-tmp-not-a-volume.md`,
+`projects/public-surface.md`, this log. Scheduled strategy review
+2026-08-02T17:01:41Z.
