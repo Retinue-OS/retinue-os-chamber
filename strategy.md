@@ -369,6 +369,12 @@ gh issue list --state all --limit 200 --json number,body \
   --jq '[.[]|select(.body|test("Written by Aros|Filed by Aros"))]|length'
 ```
 
+*Reading, cycle 183 (2026-07-26 03:2xZ):* **filed 37, accepted 1**, of **45** —
+retinue#38, the two shipped example chamber agents asserting a confinement
+`SECURITY.md:50` denies in the framework's own known-limitations list. Counted by
+re-running the c179 method per repository and summing (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), not by adding one to the last reading.
+
 *Reading, cycle 182 (2026-07-26 02:5xZ):* **filed 36, accepted 1**, of **44** —
 retinue#37, the git serialization wrapper that does not match `git -C <repo>
 commit`, which is the form its own principal caller uses. Counted by re-running

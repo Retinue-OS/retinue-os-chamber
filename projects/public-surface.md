@@ -151,6 +151,7 @@ So the surfaces get a list, and the list carries dates.
 | **The dashboard front-end (`webapp/{sw.js,index.html,components/*.js}`) — the front-end group of the c177 never-mentioned list, read as *what a user actually sees* rather than as code** | 2026-07-26 (c179) | **`sw.js` clean; the cards it caches are the wrong question, because four of them are switched off → [retinue#35](https://github.com/Retinue-OS/retinue/issues/35), and the one live data card cannot return a row → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** Negative result first: `SHELL_ASSETS` exactly matches the components `index.html` actually loads, and the `/conversations`, `/projects` and `/push/` pass-throughs are correct (`/conversations.html` and `/projects.html` do **not** match `startsWith('/conversations/')`, so the page shells stay cache-first as the comments claim). The find is that `index.html` (main, 21–27 and 48–54) comments out agenda/messages/todo/briefing — precisely the only four `RetinueCard` subclasses, i.e. the only components that fetch a JSON document (`base.js:52-58`) — so **nothing in the shipped shell requests `/data/*.json`**, the `retinue-data-v1` cache stays empty, and `CLAUDE.md:445,447-448` ("each fetch one JSON document … degrading to the last cached state offline"; "Refreshing these is Ara's job … a scheduler-driven curation job writes them") describes a flow with no producer and no consumer: the framework base `.schedule.json` declares only `agent-self-review`, and `webapp/README.md:151` lists the curation job under *Next steps*. `comparison.md:134-136` sells "data cards" as shipped in the one file that compares against two named projects. **Measured against `main`, not the mount** — the live checkout at `/workspace/deployment` is behind `main` (no `push.js`, `sw.js` v14 vs v15, no `agent-self-review`), which is retinue#32's territory and would have produced three wrong line numbers if trusted. |
 | **`scripts/agent-self-review.py` + `scripts/discover-agents.py` — the framework's only *proactivity* feature, and the first consumer of the kb#/project# split to ship enabled** | 2026-07-26 (c179) | **The daily gate can never match, and it is silent by construction → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** PR#21 merged 2026-07-23 11:57Z; the job ships `"enabled": true` at 86400 s in the framework base manifest, so it runs daily in every deployment. Its gate needs `?project a kb:Project ; kb:currentActor ?actor . ?actor a kb:AiAgent .` — measured live: **0 rows as shipped, and 0 rows with `project#` substituted**, because the actor join fails independently: `discover-agents.py` emits `<urn:retinue:actor:aros>`, both public converters emit `urn:retinue:` + the frontmatter literal, i.e. `<urn:retinue:actor-aros>`, and the hyphen form is what `docs/triple-stores.md:112` and qlever-dir's example **tell you to write**. Both emitters were run to produce those strings rather than read. The design that makes it invisible is the good one — empty result spawns nothing, zero credits — so nothing distinguishes "no agent owes work" from "the gate cannot match". Filed as a comment, not a 36th issue: same root cause as retinue#1, whose third row already names the actor shape; what is new is that the shape now has emitters on *both* sides. |
 | **`scripts/git-serialize.sh` — the framework's concurrency shim for parallel agents, and the *operational* group of the c177 never-mentioned list** | 2026-07-26 (c182) | **The lock is bypassed by `git -C <repo> …`, which is the form the web gateway's own auto-commit uses → [retinue#37](https://github.com/Retinue-OS/retinue/issues/37).** `case "${1:-}"` (`:39`) reads `$1` as the subcommand, but git's global options precede it, so `-C`/`-c`/`--git-dir` invocations fall to the `*)` arm unserialized. `web-gateway.py:1890-1899` commits dashboard project edits in exactly that form while `:1883` asserts the wrapper protects them, and the failure is silent (background thread, `:1932`; 200 already sent; `except` prints to stdout). Measured, not argued: 20 parallel `git -C repo commit` land **5/21 and 6/21** on `main` against **21/21** with the tested patch. Negative results: `refresh.py:_git` passes `cwd=` so its `$1` is the subcommand and it *is* serialized; the shim is on PATH before the gateway is forked, so the bug is the match and not the installation. |
+| **`examples/chambers/{hitchhiker,westworld}/.retinue/agents/{marvin,dolores}.md` — the last two never-named files in c177's *agent-facing* group, and by `examples/chambers/README.md:5`'s own words "the canonical 'how to author a chamber' reference"** | 2026-07-26 (c183) | **Both agents assert a chamber confinement nothing provides → [retinue#38](https://github.com/Retinue-OS/retinue/issues/38).** `marvin.md:27` and `dolores.md:27` each say the agent has "no tools beyond reading files in this chamber" and accesses "no personal data"; `SECURITY.md:50` says "Chambers are not compartmentalized from each other within a session" and `review.md:140` says the same at length. `tools:` restricts tools, not paths, and no agent frontmatter in the tree carries any path field (`name`/`description`/`model`/`tools` only, across all three definitions). The scope that does apply is the session working directory `/workspace`, under which every chamber is mounted (`README.md:4`, `entrypoint.sh:70-78`); `.claude/settings.json` ships `Read(**)` with `"deny": []` and neither `entrypoint.sh` nor `sync-plugins.py` writes a per-agent permission. **Measured first-person with the `Read` tool alone:** `/workspace/CLAUDE.md` (outside my chamber) opened, `/tmp/…` refused — the boundary is the working directory, not the chamber. Exactly two sentences of this kind in the tree (`grep -rn "in this chamber"`, `grep -rni "personal data"` → one line each). |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2857,3 +2858,71 @@ pair, and the register should carry the pair.
 | `scripts/git-serialize.sh` ↔ `web-gateway.py:1878-1932` | The wrapper read from its only in-tree Python caller | 2026-07-26 (c182) | The docstring asserts a guarantee the call form does not get, and the failure path is silent. Same issue. |
 | `scripts/refresh.py:_git` | The other in-tree git caller | 2026-07-26 (c182) | Clean — `cwd=` form, correctly serialized. Negative result. |
 | `scripts/self-update.py`, `scripts/install-hooks.sh` | The remaining operational scripts read this cycle | 2026-07-26 (c182) | No finding. `self-update.py` matches `CLAUDE.md`'s description (pokes the sidecar, token-gated, never carries the recipe); `install-hooks.sh` degrades correctly on a non-git mount. |
+
+
+## c183 (2026-07-26) — the example agents, and a confinement asserted in the prompt it should have been configured outside of
+
+Took the **agent-facing group**'s last never-named files from c177's mechanical
+list: `examples/chambers/{hitchhiker,westworld}/.retinue/agents/{marvin,dolores}.md`
+and `.claude-plugin/marketplace.template.json`. c162 already audited
+`examples/chambers/` as a *directory* (the `path` mount, retinue#30); these two
+files inside it had still never been opened. Read `main` by shallow clone at
+`26297a2`, not the mount (c179's lesson, c181's method).
+
+**Finding → [retinue#38](https://github.com/Retinue-OS/retinue/issues/38).** Both
+example agents tell themselves, in their own body text, that they have "no tools
+beyond reading files in this chamber" and access "no personal data". `SECURITY.md`
+lists the opposite under *Known limitations — please don't report these as
+vulnerabilities*, and `review.md` §3.1 spells it out with the health and
+operations chambers named. The `tools:` frontmatter restricts tools and does so
+correctly; nothing restricts paths, and no agent definition in the tree has a
+field that could.
+
+**Why this is a documentation issue and not a guardrail-9 escalation, decided
+before writing a word of it.** The capability fact is already published by the
+project in two files, one of which explicitly asks that it not be reported as a
+vulnerability. The issue discloses no path an attacker would not have from
+`SECURITY.md`; it reports that two shipped examples contradict it. That test —
+*does this reveal anything beyond what the project already publishes?* — is the
+one to re-run on the security-adjacent five, which stay deferred.
+
+**Measured first-person, with one tool.** I am a chamber-provided subagent whose
+chamber is `/workspace/chambers/retinue`. Using `Read` alone — the tool `marvin`
+and `dolores` have — `/workspace/CLAUDE.md` opened and `/tmp/fwmain2/…` was
+refused. That places the boundary at the session working directory, under which
+every chamber is mounted, and not at the chamber. The demonstration used a
+framework file, not personal data; this deployment mounts no personal chamber
+(guardrail 5) and none was sought.
+
+**Negative result:** `.claude-plugin/marketplace.template.json` is accurate. It
+describes the generation contract exactly as `entrypoint.sh` implements it
+(autodetect `chambers/<name>/.retinue/.claude-plugin/plugin.json`, read
+`name`/`description` from it, template supplies only the marketplace identity),
+and the placeholder owner (`Your Name` / `you@example.com`) is correct for a
+template. Recorded so the file is not re-opened.
+
+### The rule this cycle adds
+
+**A claim inside an agent's own prompt is the weakest place to put a boundary,
+and the easiest place to mistake for one.** Every other surface audited here is
+read by a human who can check it. This one is read by a model, at the moment it
+decides what it may open, and it is the exact surface a prompt injection gets to
+argue with. When a file in this project states a containment property, ask which
+configuration enforces it — and if the answer is "the sentence", that is the
+finding.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `examples/.../{marvin,dolores}.md` | The canonical how-to-author-a-chamber reference, as a chamber author copies it | 2026-07-26 (c183) | Both assert a chamber confinement `SECURITY.md:50` denies. Filed retinue#38. |
+| `.claude-plugin/marketplace.template.json` | The marketplace identity template the entrypoint generates from | 2026-07-26 (c183) | Clean — matches the entrypoint's generation contract. Negative result. |
+
+### Not done this cycle, with its reason
+
+The security-adjacent five stay deferred: the c175 private finding is still open
+and eight dashboard threads are unread, which is c177's reason unchanged. The
+remaining never-named files are `webapp/{manifest.webmanifest,project.html,
+projects.html,conversations.html}`, `webapp/components/{app-launcher,markdown,
+project-page}.js`, `scripts/ingest-sensors.py` and `.dockerignore`. Nothing was
+escalated; no account, money, terms or legal question arose.

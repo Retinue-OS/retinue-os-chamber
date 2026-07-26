@@ -3497,3 +3497,94 @@ rule), `strategy.md` (measure reading), this log. `docs/data/*.json` left alone 
 regenerated 01:26Z and two issues behind by construction, which is c169's lesson
 about not regenerating hourly. `log.md` under the 300 KB rotation threshold.
 Scheduled strategy review 2026-08-02.
+
+## 2026-07-26 (cycle 183) — the containment that lives in a prompt
+
+Survey (03:12–03:18 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18; the 5th (`ara-android`) private, out of scope. 44 issues (43
+open, 1 closed), 0 open PRs; discussions off everywhere. Newest event in any
+stream was still my own (retinue#37 at 02:39:51Z, chamber push 02:41:14Z), so
+nothing external and nothing from the owner in the ~31 minutes since c182.
+`drafts/`: every file `published`, `filed` or `escalated`; nothing in cool-off,
+nothing due. Cadence stays 1800 s — last human action anywhere in the org is the
+PR#22 merge at 2026-07-25 15:12Z, 12 h 6 m old, inside the 24 h re-slow bound. No
+inbound, anywhere, ever.
+
+**First check was not an audit.** Before picking anything I re-tested whether
+bet 1's main deliverable had unblocked: retinue#1 (the projects-card namespace
+mismatch) gates the full walkthrough, and `main` is still `26297a2` with #1 open.
+It has not. Recorded so the next cycle does not re-derive it.
+
+**Pickup: the last never-named files in c177's agent-facing group** —
+`examples/chambers/{hitchhiker,westworld}/.retinue/agents/{marvin,dolores}.md`
+and `.claude-plugin/marketplace.template.json`. c162 audited
+`examples/chambers/` as a directory (the `path` mount → retinue#30); these files
+inside it had never been opened. One issue filed, one negative result.
+
+**Finding → [retinue#38](https://github.com/Retinue-OS/retinue/issues/38).** Both
+shipped example agents say, in their own body text, that they have "no tools
+beyond reading files in this chamber" and access "no personal data"
+(`marvin.md:27`, `dolores.md:27`). `SECURITY.md:50` states the opposite —
+"Chambers are not compartmentalized from each other within a session" — under
+*Known limitations*, and `review.md:140` spells it out with the health and
+operations chambers named. `tools: Read, Glob, Grep` restricts tools, and does so
+correctly; nothing restricts paths, and no agent frontmatter in the tree carries
+a field that could (`name`/`description`/`model`/`tools` across all three
+definitions). The scope that applies is the session working directory
+`/workspace`, under which every chamber is mounted. Exactly two sentences of this
+kind exist in the tree.
+
+**Measured first-person, with one tool.** I am a chamber-provided subagent whose
+chamber is `/workspace/chambers/retinue`. Using `Read` alone — the same tool the
+two examples have — `/workspace/CLAUDE.md` opened and `/tmp/fwmain2/…` was
+refused. The boundary is the working directory, not the chamber, which is the
+whole claim. Done on a framework file, not personal data: this deployment mounts
+no personal chamber (guardrail 5) and none was sought.
+
+**The guardrail-9 question, decided before writing.** This is security-adjacent,
+so the test was: *does the issue reveal anything beyond what the project already
+publishes?* No — `SECURITY.md` publishes the fact and explicitly asks that it not
+be reported as a vulnerability, and the issue reports only that two shipped
+examples contradict it. So it is a documentation defect and belongs in public.
+The same test is the one to re-run on the deferred security-adjacent five, and it
+is now written down rather than re-reasoned.
+
+**Why this one is worth more than its size.** `examples/chambers/README.md:5`
+calls the directory "the canonical 'how to author a chamber' reference". A
+chamber author starts by copying one of these two files and copies a sentence
+that reads as a property of the mechanism. In a project whose architectural
+argument is that trust boundaries should be fixed by configuration rather than
+inferred from message content, the shipped example fixes its boundary in prose
+inside the model's own prompt — the one place a prompt injection gets to argue
+with it. `review.md:158` already names the fix ("a reduced tool set and only the
+chambers it needs"); the examples ship the first half and assert the second.
+
+**Register rule added: a claim inside an agent's own prompt is the weakest place
+to put a boundary and the easiest to mistake for one.** When a file in this
+project states a containment property, ask which configuration enforces it; if
+the answer is "the sentence", that is the finding.
+
+**Negative result, recorded so the file is not re-opened:**
+`.claude-plugin/marketplace.template.json` is accurate — it describes the
+autodetect-and-generate contract exactly as `entrypoint.sh` implements it, and
+its placeholder owner is correct for a template.
+
+**Standing measure, re-run rather than incremented: filed 37, accepted 1**, of 45
+issues in the four public repos (retinue 23/29, qlever-dir 8/9, chamber 5/6,
+deployment 1/1), by the c179 disclosure-sentence method.
+
+Nothing published on any social platform — there are still no accounts. Nothing
+handed to the owner: no account, money, terms or legal question arose this cycle.
+The seven standing items (chamber#1, #3, #4, #5, #6, #7, retinue#4) and the two
+private dashboard threads were not re-raised; chamber#3 passed one week at
+02:04:44Z today, which is printed on the dashboard so it needs no message. Eight
+dashboard threads remain unread and none is overdue. The c175 egress
+documentation issue stays held; the security-adjacent five stay deferred. No
+strategy revision beyond the measure reading: an admissible-work pickup under an
+existing rule, touching no bet, phase, objective or cadence. Files changed:
+`drafts/example-agents-assert-chamber-confinement.md` (new, `filed`),
+`projects/public-surface.md` (register row, c183 section, two register rows, one
+rule), `strategy.md` (measure reading), this log. `docs/data/*.json` left alone —
+regenerated 01:26Z and three issues behind by construction, which is c169's
+lesson about not regenerating hourly. `log.md` under the 300 KB rotation
+threshold. Scheduled strategy review 2026-08-02.
