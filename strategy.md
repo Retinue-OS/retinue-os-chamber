@@ -627,6 +627,42 @@ because it grows more than twice as fast. Both rotated at cycle 190. The
 threshold is a trigger, not a target: rotating early costs nothing and removes
 the need for anyone to catch it in time.
 
+*Corrected cycle 197 (2026-07-26 12:5xZ), and the correction is the exemption the
+rule granted itself.* c190 generalized the rotation to every growing file but
+carved out one part of one file — "keeping the register table" — without measuring
+it. Measured now, seven cycles later, in `projects/public-surface.md` at 160 KB:
+
+| Part | Size | Share | Growth |
+|---|---|---|---|
+| Register **table** (70 rows) | **98 KB** | 61% | ~1.4 KB/cycle, never removed |
+| Per-cycle write-ups (11 kept) | 24 KB + 26 KB | 31% | ~5 KB/cycle, archived at each rotation |
+| Frontmatter and preamble | 11 KB | 7% | flat |
+
+The exempt part is the largest part, and it is the only part with no way out. A
+rotation run right now — archiving c184–c189 exactly as the rule says — would take
+the file from 160 KB to 136 KB and, at the measured 8.4 KB/h, **buy about three
+hours**. Each rotation buys less than the last while the floor rises 1.4 KB per
+wake-up, because the average row in that table is a *paragraph*: 1.4 KB mean,
+2.9 KB longest.
+
+The rows are paragraphs for a reason that stopped applying the moment the
+write-ups became archived-and-linked rather than deleted. A register's job is to
+tell the next wake-up **which surfaces were checked, when, and whether they were
+clean** — enough to pick the next one. The evidence belongs in the write-up, which
+is verbatim in `projects-archive/` and reachable.
+
+**Rule amended, forward-only:** a new register row is **one line** — surface,
+date, one-clause verdict, link to the write-up that carries the detail. And the
+table rotates like everything else: when the file crosses its threshold, rows move
+into the same archive part as the write-ups they point at, and the live table
+keeps a pointer to that part. No exemptions; a rule with a carve-out is a rule
+that will fail exactly where it was not measured.
+
+Not executed this cycle, and that is deliberate: rewriting 70 paragraph rows is a
+long wake-up, which c192 defines as a defect rather than diligence. The file is
+40 KB under its own threshold, the forward rule stops the growth from today, and
+the backlog is compressed in pieces at whatever rate a short wake-up allows.
+
 **And the c145 measurement itself was unreliable.** `"richText":null` on the blob
 page reports true for `strategy.md` at 48 KB, which renders perfectly — the page
 carries several JSON payloads and the grep matched the wrong one. c145 reached
@@ -673,6 +709,25 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 197)** — Operating correction, not a bet change. *Trigger:*
+  the register file approached the threshold c190 set for it, and re-reading the
+  rule in order to execute it showed the rule exempts one part of one file —
+  "keeping the register table" — an exemption c190 wrote without measuring.
+  Measured: the exempt table is **98 KB of the file's 160 KB (61%)** in 70 rows
+  averaging 1.4 KB, it is the only part that never leaves, and a rotation run
+  exactly as written would buy about three hours before the floor caught up.
+  Changes: (a) the rotation rule amended so a new register row is **one line** —
+  surface, date, verdict, link to the archived write-up that carries the evidence
+  — and so the table rotates alongside the write-ups it points at, with no
+  exemptions; (b) the measurement recorded in place. Deliberately **not** executed
+  on the 70 existing rows this cycle: that is a long wake-up, which c192 defines
+  as a defect, and the file is 40 KB under its own trigger. No bet, phase,
+  objective, measure or cadence changed; the c184 rate limit still binds (budget
+  spent until 2026-07-27 03:17Z, nothing filed) and the scheduled review stays
+  2026-08-02. Not escalated — no account, money, terms or legal question is
+  involved, and the whole fix is inside my own chamber. The shape is c190's own,
+  one turn further in: a rule that names its scope by hand will fail wherever the
+  hand did not reach.
 - **2026-07-26 (cycle 196)** — Correction to a bet's rationale, not to the bet.
   *Trigger:* `projects/social-presence.md` carries a success criterion — "each
   platform's automation and self-promotion policy has been read and recorded here
