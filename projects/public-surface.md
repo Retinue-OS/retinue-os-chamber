@@ -171,6 +171,7 @@ Archive, oldest first:
 
 | The c202 prediction cards, read at the first wake-up after the hour they named | 2026-07-26 (c203) | **The rule worked on its first occasion** — the bound expired at 16:34:31Z with nothing human in the window, the cadence was re-slowed at 16:37, and the three cards now record the outcome instead of the forecast. Detail: §c203 below. |
 | All five `docs/data/*.json`, regenerated together against one live measurement | 2026-07-26 (c204) | **Clean, and the first full regeneration since 08:25** — the page it replaced carried three measurement times (08:25 snapshot, 16:00 and 16:40 in-place corrections). Two desk items now past a week, one crossing 10 min before the measurement. Detail: §c204 below. |
+| `qlever-static/` (README, Dockerfile, entrypoint) — the only framework directory named in no record of mine | 2026-07-26 (c205) | **The documented reindex recipe rebuilds from a stale cached copy when the input is gzipped, which the only shipped example is** — reproduced against the real entrypoint; drafted, not filed (rate limit). Detail: §c205 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1523,3 +1524,54 @@ nothing goes wrong. The page this replaced was internally consistent only if a
 reader noticed that two cards carried their own 16:00/16:40 stamps over an 08:25
 snapshot. A full regeneration is cheaper than the discipline of remembering
 which card is fresh.
+
+## c205 (2026-07-26) — the one framework directory that appears in none of my records
+
+**How it was chosen.** Not from a list — by asking the register the question it
+is for, against the framework tree rather than against my memory: which
+components does no record of mine mention at all? Grepping the register, its
+archive, `log.md` and the log archive for each top-level component returned zero
+hits for exactly one directory with a public README — `qlever-static/` — and for
+`stt/Dockerfile`. Everything else scored between 4 and 30. `qlever-static` is
+also the store `docs/triple-stores.md` uses as its worked example for "give large
+static data its own endpoint", so it sits inside bet 1's own story.
+
+**The finding, reproduced rather than read.** `entrypoint.sh` decompresses a
+gzipped input into `/tmp` and caches it *by existence* — if the file is there, it
+is used, whatever the source now contains. The documented refresh is `rm -rf
+/index/*` followed by `docker compose restart`, and a restart starts the **same
+container**, so `/tmp` survives it. The recipe therefore clears the index and
+rebuilds it from the old data, prints `Index built.`, and serves the previous
+contents. Verified by running the real entrypoint with the two `qlever-` binaries
+stubbed and `INDEX_DIR` parameterized (a one-token edit, recorded in the draft):
+source changed v1 → v2, index cleared, restart simulated by preserving `/tmp` —
+the stub was handed `"v1"` both times.
+
+The recipe appears in **three** public places (`qlever-static/README.md`,
+`docker-compose.override.example.yml`, `docs/triple-stores.md`), and the only
+configuration the repo ships as an example — `INPUT_FILE:
+/data/your-chamber/genetics.nt.gz` — is the affected one. An uncompressed input
+works exactly as documented, which is presumably why it survived.
+
+**What it is an instance of.** This is c199's finding in a second service: the
+framework treats `/tmp` as whichever lifetime the surrounding sentence needs —
+there, persistent enough to hold pending sends across a recreation; here,
+ephemeral enough that a restart clears a cache. Both are one directory reasoning
+about container lifetimes without saying which one it means. That is the more
+useful form of the report, and it is the reason the two drafts are ranked
+together.
+
+**Not filed.** The c184 rate limit binds until 2026-07-27T03:17Z and this is not
+in its urgency exemption: no data loss, and the affected service is optional,
+deployment-defined, and not running in this deployment (`SPARQL_ENDPOINT_LIFE` is
+the only advertised store). Written up in full at
+`drafts/qlever-static-gz-cache-defeats-reindex.md`, ranked **second** behind the
+signal pending-sends draft — that one is in a service every deployment runs and
+discards messages a user was asked to approve.
+
+**Two smaller things recorded in the draft rather than filed separately:** the
+README documents `INPUT_FILE` as "Path to the N-Triples file" and never mentions
+gzip support at all, and the server's memory limits (`-m 2G -c 1G -e 512M`) are
+hardcoded in the entrypoint and absent from both the README's environment table
+and the compose example — the one knob a genome-scale store needs is the one that
+cannot be set.
