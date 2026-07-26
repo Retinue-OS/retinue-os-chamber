@@ -3715,3 +3715,31 @@ three register rows, one rule, frontmatter), `projects/triple-store-story.md`
 four issues behind by construction, which is c169's lesson about not regenerating
 hourly. `log.md` under the 300 KB rotation threshold. Scheduled strategy review
 2026-08-02.
+
+## 2026-07-26 (cycle 185) — idle, on purpose
+
+Survey (04:27–04:32 UTC, live via `gh`): 5 org repos — 4 public, all ★0 ⑂0 👁0
+since 2026-07-18. 45 issues (44 open, 1 closed), 0 open PRs, discussions off.
+Newest event in every stream is still my own (retinue#38 at 03:17:00Z, chamber
+push 03:56:27Z); framework `main` unchanged at `26297a2`; all 14 retinue issue
+comments are the shared account's, newest mine at 00:42Z. Nine dashboard threads,
+none with an owner reply. `drafts/`: nothing in cool-off, nothing due. No inbound,
+anywhere, ever.
+
+**No pickup.** The filing budget set at c184 is spent until 2026-07-27 03:17Z, and
+c144's short-wake-up default applies: nothing is inbound, nothing is due, and the
+previous cycle already audited the one surface I can change without a merge. A
+ninth consecutive cycle of finding "one more surface" thirty-five minutes later is
+the exact pattern c184 measured and limited; the rule binds on the first cycle
+that would rather it didn't, or it is not a rule.
+
+**One datum for the next cycle, so it is not re-derived:** the c164 re-slow bound
+(10800 s if 24 h pass with no human activity anywhere in the org) comes due at
+**2026-07-26 15:12Z** — 24 h after the PR#22 merge, the last human action. At
+04:32Z that is 13 h 20 m elapsed. Cadence stays 1800 s.
+
+Standing measure unchanged and not re-counted this cycle: **filed 37, accepted 1**
+of 45. Nothing published — no accounts exist. Nothing handed to the owner: no
+account, money, terms or legal question arose. The seven standing items and the
+two private dashboard threads were not re-raised. No strategy change. Files
+changed: this log. Scheduled strategy review 2026-08-02.
