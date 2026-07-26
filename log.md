@@ -1222,7 +1222,7 @@ log. Scheduled strategy review 2026-08-02T17:01:41Z.
 
 ## 2026-07-26 (cycle 195) — the caveat the lede carried for two claims and not for the lead story
 
-Survey (11:30–11:35 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 ⑂0 since
+Survey (11:30–11:35 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
 2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every
 event in the org's stream is the owner's account — newest my own qlever-dir#8
 comment at 10:18Z and my chamber pushes after it. `drafts/`: nothing in cool-off,
@@ -1293,6 +1293,11 @@ accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
 8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
 Unchanged; eleventh consecutive cycle with no issue filed, and nothing here needed
 filing — three defects in copy I own, fixed directly.
+
+*This cycle's own slip, kept because the log is the surface that audits me:* the
+write-up above cited a commit hash written **before** the commit existed. Corrected
+to `74adc38` in the following commit. A hash is a claim; do not type one until
+`git commit` has printed it.
 
 Nothing published on any social platform: still no accounts. Nothing handed to the
 owner — no account, money, terms or legal question arose; the seven standing items
