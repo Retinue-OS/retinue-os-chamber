@@ -13,7 +13,8 @@
       "prompt": "Dispatch the aros subagent to refresh the public project dashboard. Tell it: regenerate docs/data/*.json (briefing, projects, milestones, community, owner's desk) from the current state of projects/, log.md, and the live GitHub org data via gh. Keep the numbers honest — no rounding up, no invented traction. Commit and push the result. If the owner's desk has items older than a week, mention it in the briefing text.",
       "interval_seconds": 86400,
       "enabled": true,
-      "run_at_start": false
+      "run_at_start": false,
+      "comment": "86400 s is the floor, not the schedule. The page carries a queue (the owner's desk), and a queue's freshness requirement is set by the arrival rate of the things in it — so any tick that makes a number on the page false regenerates all five files itself, and this job only guarantees a daily minimum (cycle 191). Fires at last_run + interval, read from /root/.retinue/scheduler/aros-dashboard-refresh.json; the timestamp inside docs/data/*.json is when a tick last wrote them and is not this job's schedule (cycle 192)."
     },
     {
       "id": "aros-strategy-review",

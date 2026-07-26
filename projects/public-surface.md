@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c191: regenerated docs/data/*.json - the owner's queue had three issues on no card (retinue#36, #37, #38, filed 02:02-03:17Z) and five counts false by arithmetic (41 open vs 44, filed 34 vs 37, every age 7 h short). The daily refresh job is the wrong cadence for a queue: its freshness requirement is set by the filing rate, not by the schedule. New measurement on the page: a GitHub search for 'retinue' ranks the framework 13th, the deployment 27th, this chamber 38th, behind a Bannerlord mod and an unrelated Claude Code tool - so discoverability and chamber#4 are one item, measured rather than asserted for the first time. The cycle's own error, caught by running date -u before committing: the first draft of all five files carried a generated timestamp 20 minutes in the future, breaking rule 4 of the seven this page publishes, while regenerating the page that publishes it. Procedure added: compute the ages last, from the clock. Aros, c190: the c145 rotation rule names log.md and its general lesson names every file that only grows, and in nine cycles nobody ran it against a second one. Measured both as GitHub serves them: log.md 272 KB at 2.9 KB/h (44 h of margin), projects/public-surface.md 283 KB at 6.9 KB/h - about 17 h from the 400 KB rendering limit it crosses at HTTP 200 with no error. Both rotated verbatim, reconstruction-verified: log.md to 45.6 KB, this file to 127 KB, archives in log-archive/ and the new projects-archive/ (outside projects/, because md2ttl.py fails on a frontmatter-less .md and that is a parsingError quad per part - converter scope measured against the live store, not assumed). The c145 render indicator was also wrong: 'richText':null false-positives on a 48 KB file, so the check is now a heading count against the source. Aros, c189: took scripts/ingest-sensors.py, the last name on c177's never-mentioned list, and it was the one that mattered. Its default chamber root is the framework checkout, which has no observations/ directory, so both documented invocations (the docstring and archivist.md:182, neither of which mentions CHAMBER_DIR) glob four directories that do not exist, write nothing, print '0 observations' and exit 0 - the archivist then commits the moved CSVs alone and reports success. That is the third step of the pipeline docs/triple-stores.md uses to argue the lead story. Two smaller items travel with it: one of the twelve Garmin columns sync-garmin.py writes and archivist.md documents is missing from GARMIN_COLUMNS and silently dropped, and the Ultrahuman observation count is divided by ten where every emitter writes five per observation. Written up with a tested patch at drafts/ingest-sensors-unreachable-chamber-root.md and HELD - the c184 rate limit binds until 2026-07-27 03:17Z and the urgency exemption does not apply, since the CSVs survive in git and a re-run recovers everything. It ranks ahead of c188's cosmetic manifest string for that slot, which is the ranking the rate limit exists to force. Negative result kept: the five-triple SOSA shape at docs/triple-stores.md:177-183 matches all four extractors exactly, so the factual base under bet 1 holds. Aros, c188: audited the last of the never-named front-end files - the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components - plus .dockerignore. One cosmetic finding held; the cycle's real work was a defect I talked myself out of filing, since the half of the case I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML 2.5.5. New rule: a claim about someone else's implementation needs the implementation. Aros, c187: audited the dashboard as a rendered page rather than as its two source files and found it contradicting itself - the footer linked the walkthrough while two cards said it was unlinked. New rule: the unit of audit is the rendered page. Aros, c186: linking a piece republishes it, so re-ran both pieces c184 made public; the walkthrough's headline output had been stale six days, and the false claim behind it traced to brand/positioning.md, the file every public draft must read first. Aros, c184: the register turned inward and the front door was the worst surface in it"
+current_next_action: "Aros, c192: read scheduler.log and /root/.retinue/scheduler/ for the first time in 192 cycles - the one surface that reports whether I ran at all, as opposed to what I wrote. 192 tick dispatches: 185 completed, 4 killed at the 900 s timeout, 2 failed on a 429 monthly spend limit on 2026-07-20/21 that nothing in my records noticed and that resolved without me. Six wake-ups produced nothing and log.md shows no gap where they were; two of the four killed runs had committed and pushed with 17 s and 121 s of margin. Durations are now median ~500 s against the 900 s ceiling and the previous cycle took 761 s, so the lever is a shorter wake-up rather than a longer timeout - the same rule c144 wrote and c184 found had stopped being applied, arriving this time through the exhaust pipe. Not escalated: the spend limit is five days old and fixed, and re-raising it would be the nagging the clock rule forbids. Correction to c191: the dashboard job's next fire is 2026-07-26T17:34:55Z read off its state file, not 01:26Z inferred from the artifact's timestamp - third instance in fourteen cycles of measuring an instrument by its output. Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c191: regenerated docs/data/*.json - the owner's queue had three issues on no card (retinue#36, #37, #38, filed 02:02-03:17Z) and five counts false by arithmetic (41 open vs 44, filed 34 vs 37, every age 7 h short). The daily refresh job is the wrong cadence for a queue: its freshness requirement is set by the filing rate, not by the schedule. New measurement on the page: a GitHub search for 'retinue' ranks the framework 13th, the deployment 27th, this chamber 38th, behind a Bannerlord mod and an unrelated Claude Code tool - so discoverability and chamber#4 are one item, measured rather than asserted for the first time. The cycle's own error, caught by running date -u before committing: the first draft of all five files carried a generated timestamp 20 minutes in the future, breaking rule 4 of the seven this page publishes, while regenerating the page that publishes it. Procedure added: compute the ages last, from the clock. Aros, c190: the c145 rotation rule names log.md and its general lesson names every file that only grows, and in nine cycles nobody ran it against a second one. Measured both as GitHub serves them: log.md 272 KB at 2.9 KB/h (44 h of margin), projects/public-surface.md 283 KB at 6.9 KB/h - about 17 h from the 400 KB rendering limit it crosses at HTTP 200 with no error. Both rotated verbatim, reconstruction-verified: log.md to 45.6 KB, this file to 127 KB, archives in log-archive/ and the new projects-archive/ (outside projects/, because md2ttl.py fails on a frontmatter-less .md and that is a parsingError quad per part - converter scope measured against the live store, not assumed). The c145 render indicator was also wrong: 'richText':null false-positives on a 48 KB file, so the check is now a heading count against the source. Aros, c189: took scripts/ingest-sensors.py, the last name on c177's never-mentioned list, and it was the one that mattered. Its default chamber root is the framework checkout, which has no observations/ directory, so both documented invocations (the docstring and archivist.md:182, neither of which mentions CHAMBER_DIR) glob four directories that do not exist, write nothing, print '0 observations' and exit 0 - the archivist then commits the moved CSVs alone and reports success. That is the third step of the pipeline docs/triple-stores.md uses to argue the lead story. Two smaller items travel with it: one of the twelve Garmin columns sync-garmin.py writes and archivist.md documents is missing from GARMIN_COLUMNS and silently dropped, and the Ultrahuman observation count is divided by ten where every emitter writes five per observation. Written up with a tested patch at drafts/ingest-sensors-unreachable-chamber-root.md and HELD - the c184 rate limit binds until 2026-07-27 03:17Z and the urgency exemption does not apply, since the CSVs survive in git and a re-run recovers everything. It ranks ahead of c188's cosmetic manifest string for that slot, which is the ranking the rate limit exists to force. Negative result kept: the five-triple SOSA shape at docs/triple-stores.md:177-183 matches all four extractors exactly, so the factual base under bet 1 holds. Aros, c188: audited the last of the never-named front-end files - the three page shells beyond the root, the manifest, and the app-launcher/markdown/project-page components - plus .dockerignore. One cosmetic finding held; the cycle's real work was a defect I talked myself out of filing, since the half of the case I had from memory (browsers omit credentials on a same-origin manifest fetch) is contradicted by WHATWG HTML 2.5.5. New rule: a claim about someone else's implementation needs the implementation. Aros, c187: audited the dashboard as a rendered page rather than as its two source files and found it contradicting itself - the footer linked the walkthrough while two cards said it was unlinked. New rule: the unit of audit is the rendered page. Aros, c186: linking a piece republishes it, so re-ran both pieces c184 made public; the walkthrough's headline output had been stale six days, and the false claim behind it traced to brand/positioning.md, the file every public draft must read first."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -797,3 +797,87 @@ the ages last, from `date -u`, not from the time the writing is expected to end.
 | `docs/data/*.json` freshness against the live queue | The owner's desk, and the only page that decays with no one touching it | 2026-07-26 (c191) | **Three issues filed since the last generation appeared on no card**, and five counts had gone false by arithmetic. All five files regenerated on one timestamp |
 | Search-engine reach of the four public repos | What a stranger typing the project's name gets | 2026-07-26 (c191) | Framework at **rank 13**, deployment 27, chamber 38; `qlever-dir` absent (different name). First measurement; folds into chamber#4 rather than a new issue |
 | This page's own "never write a future timestamp" rule, applied to the cycle applying it | Rule 4 of seven on `proj-dashboard-truth` | 2026-07-26 (c191) | **Broken in draft, caught before commit.** Procedure added: compute ages last, from `date -u` |
+
+## c192 (2026-07-26) — the record of my own wake-ups, read for the first time in 192 of them
+
+The register's rule is that a surface nobody has a habit of checking emits no
+signal to prompt checking it. The strongest instance of that rule was the
+mechanism that starts every cycle: `scripts/scheduler.py`'s state directory and
+`scheduler.log`. Grepped across `log.md`, both log archives, this file, its
+archive, `strategy.md` and `drafts/`: **`scheduler.log` appears nowhere, and no
+mention of a failed or killed run exists anywhere in 192 cycles.** Every previous
+cycle read what I *wrote*; none read whether I *ran*.
+
+Measured 2026-07-26 08:58–09:20 UTC, from `/root/.retinue/scheduler/`:
+
+| `aros-tick` | count |
+|---|---|
+| runs dispatched | 192 |
+| completed | 185 |
+| failed (`rc=1`) | 2 |
+| **killed at the 900 s timeout** | **4** |
+| in flight (this one) | 1 |
+
+**Six wake-ups produced nothing, and `log.md` shows no gap where they were.**
+
+- Killed **2026-07-24 10:14:50→10:29:50** and **2026-07-25 21:53:36→22:08:37**.
+  Neither committed: the chamber's git log runs c154 (07-24 07:14) → c155 (13:37)
+  and c175 (07-25 21:22) → c176 (22:50) with nothing in between. Those two
+  wake-ups exist only in `scheduler.log`.
+- Killed **2026-07-24 16:37:36** and **2026-07-25 20:26:20** — but both had
+  already committed *and pushed* (`97d8151` at 16:52:19, **17 seconds** before
+  the kill; `fdafbf4` at 20:39:19, 121 s before). Both verified present on
+  `origin/main`. The work landed; only the closing report died.
+- Failed **2026-07-20 20:51** and **2026-07-21 17:03**, with
+  `api_error_status: 429`, *"You've hit your monthly spend limit"* — and
+  `aros-dashboard-refresh` with the same error at 17:06. The project's agent was
+  down on the owner's billing for about twenty hours and **nothing in my records
+  noticed**. It resolved without me; every run since 2026-07-21 17:06 has
+  dispatched. Recorded, deliberately **not escalated**: it is five days old, it
+  is fixed, and re-raising a resolved money question would be exactly the nagging
+  the clock rule (c27) forbids. If it recurs, that is a new fact and the
+  dashboard is the venue.
+
+**The margin is thin and shrinking.** Last 30 completed ticks: median ~500 s,
+max 787 s, and the immediately preceding cycle (c191) took **761 s — 85 % of the
+ceiling**. Both 07-25 timeouts came in a stretch whose neighbours ran 736 s and
+771 s. The failure is not random; the wake-ups got longer until two of them
+didn't fit.
+
+**The lever is mine, not the owner's.** `SCHEDULER_JOB_TIMEOUT` is deployment
+environment and raising it is his to do — but asking for it is the wrong request,
+because a 15-minute wake-up in a 30-minute cycle is the defect, not the limit.
+c144 already wrote the rule ("the default outcome of a blocked wake-up is a short
+one") and c184 already recorded that it had stopped being applied. This is the
+same finding arriving through the exhaust pipe: **the cost of a long wake-up is
+not only the maintainer's queue, it is a one-in-forty-eight chance that the
+wake-up is destroyed outright.**
+
+**Negative results, both worth having.** On timeout the scheduler writes
+`write_state(jid, "timeout")` (`scheduler.py:207-209`), so `last_run` advances and
+a killed job waits a full interval rather than retrying every tick — no retry
+storm, and the killed wake-up costs its interval as well as its work. And the
+chamber's working tree is clean, with every local commit on `origin`: no killed
+cycle has yet left a half-written state for the next one to inherit. That is luck
+with a 17-second margin, not design.
+
+**The c191 correction, and it is the third instance of one pattern.** c191 wrote
+that `retinue#37` "would have stayed off the owner's desk until the next scheduled
+regeneration around 01:26 tomorrow, roughly 23 hours after filing". 01:26Z is when
+a *tick* last wrote those files; it is not the job's schedule. The job's state
+file says `last_run: 2026-07-25T17:34:55Z`, and `is_due()` fires at
+`last_run + interval`, so the true next regeneration is **2026-07-26T17:34:55Z** —
+about 15 hours after that filing, not 23. c191's finding survives intact; its
+number was inferred from the artifact instead of read off the instrument. Same
+shape as c179's issue-counting regex and c190's `richText` indicator: **an
+instrument's behaviour is measured by reading the instrument, never by reading its
+output.** Third time in fourteen cycles, which makes it a habit rather than an
+accident.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `scheduler.log` + `/root/.retinue/scheduler/*.json` | The record of whether I ran at all — the one surface that reports on the mechanism rather than the output | 2026-07-26 (c192) | **Never read in 192 cycles.** 4 wake-ups killed at 900 s (2 left no trace at all), 2 lost to a 429 spend limit on 2026-07-20/21 that nothing in my records noticed. Durations now median ~500 s against a 900 s ceiling, previous cycle 761 s |
+| `chambers/retinue/.schedule.json` as a whole | The three jobs that dispatch me, read as one surface rather than for the tick value | 2026-07-26 (c192) | Jobs consistent with reality; `aros-strategy-review` next fires **2026-08-02T17:01:41Z**, which confirms the date this file asserts in ~30 places. `aros-dashboard-refresh` carried no comment recording c191's floor-not-schedule rule; added |
+| `scripts/scheduler.py` timeout path | What happens to a wake-up that is killed | 2026-07-26 (c192) | **Negative result.** State is written on timeout, so no retry storm; the killed job waits a full interval. Unmeasured and stated as such: `subprocess.run(timeout=)` kills the direct child only, so processes a dying wake-up spawned are not reaped — no instance observed, low severity, not filed |

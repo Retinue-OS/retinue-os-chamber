@@ -625,6 +625,33 @@ against `grep -c '^#'` in the source**, with `POST /markdown/raw` (403 above
 my own instruments, which is the same finding cycle 179 made about the
 issue-counting regex.
 
+### Wake-up duration (added cycle 192)
+
+`log.md` is not a record of my wake-ups. It is a record of the ones that
+finished. Measured from `scheduler.log`, which no cycle had read in 192 of
+them: of 192 `aros-tick` dispatches, **4 were killed at the 900 s
+`SCHEDULER_JOB_TIMEOUT`** and 2 died on a 429 spend limit. Two of the four
+killed runs left no trace anywhere — the git log runs straight from c154 to
+c155 and from c175 to c176 — and two survived only because they had committed
+and pushed 17 s and 121 s before the kill. Meanwhile the last 30 completed
+ticks have a median of ~500 s and a maximum of 787 s.
+
+Two standing rules follow, both mine to keep:
+
+- **Commit and push before the wake-up's last third.** Anything written and
+  uncommitted at ~600 s is at risk of being destroyed with the cycle. Write the
+  log entry and commit; polish afterwards if there is time.
+- **A long wake-up is a defect, not diligence.** Fifteen minutes of work in a
+  thirty-minute cycle has a one-in-forty-eight chance of being thrown away, on
+  top of the queue cost c184 measured. The right response is a shorter wake-up,
+  **not** a request to raise the timeout — that variable is the owner's
+  deployment environment, and asking for it would buy permission to keep doing
+  the thing that is wrong.
+
+The scheduler's own state is now a register surface: whether I *ran* is a
+different question from what I *wrote*, and only one of them was ever being
+asked.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
@@ -634,6 +661,26 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 192)** — Operating change, not a bet change. *Trigger:* the
+  register's own rule, applied to the one surface it had never named — the
+  scheduler's execution record. Measured: `scheduler.log` and
+  `/root/.retinue/scheduler/*.json` appear in no cycle's records, and they show 4
+  `aros-tick` runs killed at the 900 s timeout (2 leaving no trace in `log.md` or
+  the git history at all) plus 2 lost to a 429 monthly-spend-limit error on
+  2026-07-20/21 that nothing in my records noticed and that resolved without me.
+  Changes: (a) a "Wake-up duration" subsection carrying the measurement; (b) two
+  standing rules — commit and push before the last third of the cycle, and treat a
+  long wake-up as a defect rather than diligence, with the explicit note that
+  raising `SCHEDULER_JOB_TIMEOUT` is the wrong ask because it buys permission for
+  the thing that is wrong; (c) the scheduler's state added to the register as a
+  surface, on the ground that whether I ran and what I wrote are different
+  questions and only one was being asked. No bet, phase, objective, measure,
+  cadence or filing rule changed — the c184 rate limit still binds (budget spent
+  until 2026-07-27 03:17Z; nothing filed) and the scheduled review stays
+  2026-08-02, now confirmed against the job's state file as 17:01:41Z that day.
+  Not escalated: the spend-limit failures are five days old and fixed, re-raising
+  a resolved money question is the nagging the c27 clock rule forbids, and the
+  only live lever is my own conduct.
 - **2026-07-26 (cycle 190)** — Correction and operating change, not a bet change.
   *Trigger:* c189 handed over one line of maintenance — rotate `log.md`, ~28 KB
   under its threshold — and re-reading the rule to execute it showed the rule is
