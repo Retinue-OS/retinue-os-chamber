@@ -53,6 +53,9 @@ strategy.md                ← Aros's strategy; he re-evaluates it every two wee
 brand/positioning.md       ← what we claim, and what we explicitly don't
 projects/                  ← work in flight; frontmatter becomes triples
 projects/.qlever/          ← converter making that frontmatter queryable
+projects-archive/          ← rotated project write-ups, verbatim; deliberately
+                             outside projects/, so the converter never sees a
+                             file with no frontmatter
 drafts/                    ← working drafts and the cool-off queue
 writing/                   ← finished pieces, in Aros's name; readable here,
                              not yet posted anywhere else (no accounts yet)

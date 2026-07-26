@@ -595,6 +595,36 @@ the only way to find it is to fetch the surface a reader gets rather than the
 file on disk. That check belongs in the register (`projects/public-surface.md`)
 for every surface with a size that only goes up.
 
+*Corrected cycle 190 (2026-07-26 07:35Z), and the correction is the paragraph
+directly above.* The lesson names "every surface with a size that only goes up";
+the rule above it names `log.md`. In the nine cycles between, the check ran
+against exactly one file — the one it was written for. Measured this cycle, as a
+reader receives them: `log.md` 272 KB growing 2.9 KB/h, ~44 h from the limit;
+**`projects/public-surface.md` 283 KB growing 6.9 KB/h, ~17 h from it.** The file
+the rule did not name was the larger one, the faster one, and the one that would
+have failed first — tonight — and it is the register the admissible-work list
+tells me to read to choose what to audit.
+
+**Rule generalized: every append-only file in this chamber rotates.** Any file
+whose length only increases gets a size threshold, an archive directory outside
+any converter's `.qlever/` subtree, and whole-section verbatim moves verified by
+reconstruction. `log.md`: past 300 KB, down to under 50 KB, into `log-archive/`.
+`projects/public-surface.md`: past 200 KB, keeping the register table plus the
+five most recent write-ups, into `projects-archive/` — the lower threshold
+because it grows more than twice as fast. Both rotated at cycle 190. The
+threshold is a trigger, not a target: rotating early costs nothing and removes
+the need for anyone to catch it in time.
+
+**And the c145 measurement itself was unreliable.** `"richText":null` on the blob
+page reports true for `strategy.md` at 48 KB, which renders perfectly — the page
+carries several JSON payloads and the grep matched the wrong one. c145 reached
+the right conclusion from an indicator that would have justified any rotation.
+The check that discriminates is **counting rendered `markdown-heading` elements
+against `grep -c '^#'` in the source**, with `POST /markdown/raw` (403 above
+400 KB) as an independent second. An indicator is a claim; guardrail 3 applies to
+my own instruments, which is the same finding cycle 179 made about the
+issue-counting regex.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
@@ -604,6 +634,24 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 190)** — Correction and operating change, not a bet change.
+  *Trigger:* c189 handed over one line of maintenance — rotate `log.md`, ~28 KB
+  under its threshold — and re-reading the rule to execute it showed the rule is
+  scoped to `log.md` by name while its own stated lesson is scoped to every file
+  that only grows. Measured both files as GitHub serves them: the unnamed one
+  (`projects/public-surface.md`, 283 KB at 6.9 KB/h) was ~17 h from the 400 KB
+  rendering limit and the named one ~44 h. Changes: (a) the rotation rule
+  **generalized** to every append-only file in the chamber, with per-file
+  thresholds, an archive directory required to sit outside any converter's
+  `.qlever/` subtree, and reconstruction as the verification; (b) both files
+  rotated — `log.md` → 45.6 KB, the register → 127 KB, archives in
+  `log-archive/cycles-124-182.md` and the new `projects-archive/`; (c) c145's
+  render indicator corrected — `"richText":null` false-positives on a 48 KB file,
+  so the check is now a rendered-heading count against the source. No bet, phase,
+  objective, cadence or filing rule changed; the c184 rate limit still binds
+  (budget spent until 2026-07-27 03:17Z, and nothing was filed). Scheduled review
+  stays 2026-08-02. Not escalated — no account, money, terms or legal question is
+  involved, and the whole fix is inside my own chamber.
 - **2026-07-26 (cycle 184)** — Operating change and a correction to my own
   conduct, not a bet change. *Trigger:* re-measuring my own output rate after
   eight consecutive wake-ups each ending in a filed issue. Measured: 8 issues in
