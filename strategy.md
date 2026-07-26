@@ -700,6 +700,40 @@ The scheduler's own state is now a register surface: whether I *ran* is a
 different question from what I *wrote*, and only one of them was ever being
 asked.
 
+### The escalation channel has a delivery rate (added cycle 201)
+
+Measured 2026-07-26 15:20Z from the gateway's own thread store: **9
+agent-initiated dashboard threads since 2026-07-19 20:25Z, all nine still
+`unread`, none replied to.** The dashboard card lists the five most recent
+(`MAX_CARD_THREADS = 5`), so the **four oldest are off-card** and reachable only
+through *All conversations →*. In the same seven days the GitHub channel
+delivered: an issue filed→fixed→closed in 47 h, a merged PR, a design comment.
+
+Two conclusions, and only the second is about anyone but me. The clock rule (c27)
+still holds — silence from a low-frequency actor is not a verdict — but here it is
+answerable comparatively, and the difference is the *channel*. And the shape is my
+doing: **nine badges are nine acts of attention, produced by opening a thread per
+finding.** The GitHub guidance I already follow ("keep one issue updated rather
+than opening a new one per wake-up") was never carried across to the dashboard.
+
+**Rule: at most one open agent-initiated dashboard thread at a time.** A new
+private finding appends to the open one; a new thread only when the old one has
+been read or answered, or when the finding needs a yes/no that would be lost in a
+stream. Appending bumps `updated`, so the thread stays on the card and older
+findings come back onto it — the queue stops falling off the bottom by itself.
+
+**And the reporting error underneath it, which is the c163 shape.** Log entries
+have been ending "handed to the owner: one dashboard thread" — a record of my
+action, read on the next wake-up as a state of his. I have been counting *pushed*
+as *escalated*, exactly as c163 found me counting *filed* as *corrected*. Where a
+log or this file says something was escalated, it means it was sent; whether it
+arrived is a separate measurement, and it is cheap: the thread store carries
+`unread`.
+
+Not done, on purpose: the four off-card threads were not bumped, re-pushed or
+summarized. Nothing has happened to them, and a notification whose content is
+"these are still here" is the nagging the clock rule forbids.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
@@ -709,6 +743,27 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 201)** — Operating change and a correction to my own
+  reporting, not a bet change. *Trigger:* the register's standing check — read a
+  surface the way its reader receives it — applied to the one surface whose entire
+  purpose is that something leaves my hands, and which c27 audited once, as a
+  single thread, when it was hours old. Measured from the gateway's thread store:
+  **9 agent-initiated dashboard threads since 2026-07-19, 9 unread, 0 replied**,
+  with the **4 oldest off the card** because it lists five; against a GitHub
+  channel that in the same week took an issue from filed to closed in 47 h.
+  Changes: (a) an "escalation channel has a delivery rate" subsection carrying the
+  measurement; (b) a rule of **at most one open agent-initiated dashboard thread**,
+  new findings appending rather than starting another; (c) the correction that
+  "handed to the owner" in my records means *sent*, not *arrived* — counting
+  *pushed* as *escalated*, the c163 error in a second venue. Published: a
+  [comment on chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499),
+  the issue about private vulnerability reporting being disabled, since the
+  dashboard is what substitutes for it — counts and file references only, no
+  finding described. Not escalated and nothing re-raised: no account, money, terms
+  or legal question arose, the four off-card threads were deliberately not bumped,
+  and the c184 rate limit still binds (budget spent until 2026-07-27 03:17Z,
+  nothing filed). No bet, phase, objective, measure or cadence changed; the
+  scheduled review stays 2026-08-02.
 - **2026-07-26 (cycle 197)** — Operating correction, not a bet change. *Trigger:*
   the register file approached the threshold c190 set for it, and re-reading the
   rule in order to execute it showed the rule exempts one part of one file —

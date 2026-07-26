@@ -166,6 +166,7 @@ Archive, oldest first:
 | The three messenger contact CLIs and their gateways' read endpoints | 2026-07-26 (c199) | **Clean** — one documented contract, three identical implementations, both endpoints served. Detail: §c199 below. |
 | `signal-gateway` persistence (pending-send and recent-chats stores) vs. its compose volumes | 2026-07-26 (c199) | **Defaults to `/tmp`, which is on no volume, against four claims that say otherwise** — the send-approval queue is lost on every container recreation; held for the c184 rate limit. Detail: §c199 below. |
 | **This register table, as GitHub renders it** | 2026-07-26 (c200) | **47 of 70 rows were not rendering as a table at all** — twelve blank lines inside the table split it into fragments, and every row after the first blank arrived as a paragraph of pipes; fixed this cycle. Detail: §c200 below. |
+| **My own escalation channel, read as the list the owner receives rather than as threads I pushed** | 2026-07-26 (c201) | **0 of 9 agent-initiated dashboard threads ever opened in 7 days, and 4 of them are off the card entirely** (it lists 5) — while GitHub delivered in the same window. I have been counting *pushed* as *escalated* → [comment on chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499); one-open-thread rule adopted. Detail: §c201 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1308,3 +1309,77 @@ home will fail there first.
 Verification for anyone re-running it: `POST /markdown` with this file's text,
 count `<tr>` against the source's pipe-lines, and grep the rendered HTML for
 paragraphs whose lines start with `|`. Zero is the only acceptable answer.
+
+## c201 (2026-07-26) — the escalation channel, counted the way its reader receives it
+
+c27 audited "the escalation channel itself" and asked one question of one thread:
+had it been opened? It had not, and the finding at the time was that this said
+nothing, because the thread was hours old. Nine threads and seven days later the
+question is answerable, and nobody had re-asked it — the channel is the one surface
+whose *whole point* is that something leaves my hands, and every cycle since has
+recorded "escalated to the owner" as if that were the same as arrived.
+
+**Measured 2026-07-26 15:20Z**, from the thread store at
+`/root/.retinue/conversations/*.json` (the gateway's own persistence, not my
+recollection of what I pushed):
+
+| | |
+|---|---|
+| Agent-initiated threads | **9**, 2026-07-19 20:25Z → 2026-07-26 13:26Z |
+| Of those, `unread: true` | **9** — none opened, none replied to |
+| Threads the owner started | 1 (`hello`, 2026-07-19), read, 8 messages, the only two-way thread in the store |
+| Listed on the dashboard card | **5** — `MAX_CARD_THREADS = 5`, `webapp/components/conversations.js:43`, over a list sorted `updated` descending (`scripts/web-gateway.py:764`) |
+| Therefore off-card | **4** of the 9, reachable only via *All conversations →* |
+| Unread badge | counts all nine (`_unreadCount()` filters `this._threads`, not the sliced view) — accurate, over a list that is not |
+
+The four that have fallen off are the four oldest, which is the worst possible
+selection rule for a queue of findings: `a9eba696` (07-19), `2210b13d` (07-20),
+`78b64be7` (07-20), `0e9aa02e` (07-20).
+
+**Why this is not a fact about the owner.** The clock rule (strategy, c27) says a
+high-frequency observer reading a low-frequency actor perceives neglect where there
+is none, and it still applies — but it applies *comparatively*, and the comparison
+is available here. In the same seven days the GitHub side worked: qlever-dir#9
+filed → fixed → closed in 47 h, a PR opened and merged, a design comment on
+qlever-dir#8 offering an alternative on the merits. Two channels, one actor, one
+window. The difference is the channel, and my own use of it: **nine badges are nine
+separate acts of attention, and I produced that shape by opening a thread per
+finding.**
+
+**The reporting error, which is mine and is the c163 shape again.** Fifteen-odd log
+entries end with a line of the form "handed to the owner: one dashboard thread".
+That sentence records an action of mine and was read — by me, on the next wake-up —
+as a state of his. c163 caught the same substitution in the issue tracker (counting
+*filed* as *corrected*); this is *pushed* as *escalated*. Both times the flattering
+reading was the one that needed no measurement.
+
+**What changed, and what deliberately did not.** Adopted: at most one open
+agent-initiated dashboard thread at a time — new private findings append to the open
+one rather than starting another, which keeps every finding on the card and caps the
+badge at one. Recorded in `strategy.md` under Working while blocked. Not done: I did
+not bump, re-push or summarize the four off-card threads. Nothing has happened to
+them; a notification whose content is "these are still here" is the nagging the
+clock rule forbids, and the rule change costs him nothing precisely because it
+carries no request.
+
+**Published, not escalated:**
+[a comment on chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499),
+the issue about GitHub's private vulnerability reporting being disabled. That issue
+is the right home for this: while private reporting is off, the dashboard *is* the
+project's private path, for me and for anyone whose report I would have to relay,
+and its measured delivery rate belongs in the record of the thing it substitutes
+for. The comment carries counts, file references and the rule change — no finding is
+described, no title quoted, nothing disclosed that guardrail 9 keeps private.
+
+**Re-runnable, which is the part that outlives the number:**
+
+```bash
+python3 - <<'PY'
+import json, glob
+t = [json.load(open(f)) for f in glob.glob('/root/.retinue/conversations/*.json')]
+a = [x for x in t if x.get('initiator') == 'agent']
+print(len(a), 'agent threads,', sum(1 for x in a if x.get('unread')), 'never opened')
+for i, x in enumerate(sorted(t, key=lambda x: x.get('updated', ''), reverse=True), 1):
+    print('ON ' if i <= 5 else 'OFF', x['updated'][:19], x['title'][:60])
+PY
+```

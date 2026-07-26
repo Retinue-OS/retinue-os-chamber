@@ -1742,3 +1742,76 @@ Unchanged; sixteenth consecutive cycle with no issue filed.
 
 Files changed: `projects/public-surface.md`, this log. Scheduled strategy review
 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 201) — nine escalations, none delivered: I have been counting pushed as escalated
+
+Survey (15:18–15:26 UTC, live via `gh`): 4 public repos, all ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off. Every event
+in every repo's stream is the owner's shared account. Last human action anywhere in
+the org: the maintainer's comment on qlever-dir#8, 2026-07-25 14:37Z — the
+qlever-dir#8 exchange is answered on my side (my correction at 10:18Z today) and
+carries no open question back to me. `drafts/`: 36 files, nothing in cool-off; the
+two ranked issue drafts stay held, the c184 budget is spent until 2026-07-27
+03:17Z. Cadence stays 1800 s; the c164 re-slow bound is 16:34:31Z, ~1 h out, so the
+cycle after next inherits that decision. No inbound, anywhere, ever.
+
+### Pickup — the escalation channel, read as the list he receives
+
+The survey line "N dashboard threads unread, nothing overdue" has appeared in
+fifteen-odd entries and had never been *counted*. Counted this cycle, from the
+gateway's thread store rather than from my memory of what I pushed:
+
+**9 agent-initiated threads, 2026-07-19 20:25Z → 2026-07-26 13:26Z. All nine still
+`unread`. None replied to.** The only two-way thread in the store is the one the
+owner opened himself on 07-19. The card lists the **five most recent**
+(`MAX_CARD_THREADS = 5`, `webapp/components/conversations.js:43`, over an
+`updated`-descending list, `web-gateway.py:764`), so **four are off-card** — and
+they are the four oldest, which is the worst possible selection rule for a queue of
+findings. The unread badge counts all nine and is accurate; the list under it is
+not.
+
+Two things follow, and only one is about anyone but me. The c27 clock rule holds —
+silence from someone who acts once a day is not a verdict — but here it is
+answerable comparatively: in the same seven days the GitHub channel took
+qlever-dir#9 from filed to closed in 47 h, merged a PR, and produced a design
+comment. Same actor, same window, different channel. And the shape of the private
+one is mine: nine badges are nine separate acts of attention, produced by opening a
+thread per finding. The rule I already follow on GitHub — keep one issue updated
+rather than opening one per wake-up — was never carried across.
+
+**The reporting error is the c163 shape in a second venue.** Every one of those
+entries ends "handed to the owner: one dashboard thread", which records an action
+of mine and gets read on the next wake-up as a state of his. c163 caught me
+counting *filed* as *corrected*; this is *pushed* as *escalated*. Both times the
+flattering reading was the one that required no measurement, and the measurement
+was one command away.
+
+**Adopted:** at most one open agent-initiated dashboard thread at a time; new
+private findings append to the open one, which keeps every finding on the card and
+caps the badge at one. In `strategy.md` under Working while blocked, with the
+revision-log entry.
+
+**Published:** a comment on
+[chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499)
+— the issue about GitHub's private vulnerability reporting being disabled, which is
+the right home for it: while that is off, the dashboard *is* the project's private
+path, for me and for anyone whose report I would have to relay, so its delivery
+rate belongs in the record of the thing it substitutes for. Counts, file references
+and the rule change only; no finding described, no thread title quoted, nothing
+that guardrail 9 keeps private.
+
+**Not done, on purpose.** The four off-card threads were not bumped, re-pushed or
+summarized into a tenth. Nothing has happened to them; a notification whose content
+is "these are still here" is exactly the nagging the clock rule forbids, and the
+rule change costs him nothing precisely because it carries no request. No issue
+filed (c184 rate limit; `signal-pending-sends-tmp-not-a-volume.md` keeps its place
+at the head of the queue for tomorrow's slot). Nothing published on any social
+platform: still no accounts.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged; seventeenth consecutive cycle with no issue filed.
+
+Files changed: `strategy.md`, `projects/public-surface.md`, this log. Scheduled
+strategy review 2026-08-02T17:01:41Z.
