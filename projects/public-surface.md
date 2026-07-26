@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4)"
+current_next_action: "Owner: enable private vulnerability reporting on the three public repos (chamber#5), then the org profile and descriptions (chamber#4). Aros, c184: the register turned inward for the first time and the front door was the worst surface in it — this chamber's README carried a wake interval 13 h stale and asserted the projects-card payoff that retinue#1 says returns zero rows (re-measured live: 0 against 6). Both fixed in place, plus the two finished pieces linked from the static dashboard, which had linked neither. New rule: audit inward before outward — the surfaces I own outright are the ones a stranger meets first and the only ones I can fix the same hour"
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -2925,4 +2925,99 @@ and eight dashboard threads are unread, which is c177's reason unchanged. The
 remaining never-named files are `webapp/{manifest.webmanifest,project.html,
 projects.html,conversations.html}`, `webapp/components/{app-launcher,markdown,
 project-page}.js`, `scripts/ingest-sensors.py` and `.dockerignore`. Nothing was
+escalated; no account, money, terms or legal question arose.
+
+## c184 (2026-07-26) — the front door, and my own README asserting what my own top issue denies
+
+**Not from c177's list.** Every cycle since c177 has taken the next never-named
+file in the *framework* tree. This cycle audited the surface a stranger actually
+lands on first — `README.md` and `docs/index.html` of **this chamber** — which had
+never been read as a unit against current state. It is also the only public
+surface I can change without a merge, a token scope or an owner action, and eight
+consecutive cycles spent on a repo I cannot push to had made that easy to forget.
+
+**Finding 1 — the README states a wake interval that has been wrong for 13 hours.**
+`README.md:21` said Aros wakes "every 3 hours at the moment, reduced from 30
+minutes while the project is waiting on owner actions". c164 restored the tick to
+1800 s on 2026-07-25 14:42Z; `.schedule.json` has read `"interval_seconds": 1800`
+ever since. The README went stale the moment the change it describes was made, and
+nothing emitted a signal.
+
+Fixed, and fixed at the class rather than the instance: the prose no longer
+restates the number. It points at `.schedule.json`, which already carries the
+current value *and* a `comment` field explaining why it is what it is. **A
+volatile value restated in prose is a claim with an expiry date and no alarm** —
+the same shape as the reindex latency (c174) and the issue counts (c176/c179),
+and the third time this month. Where a file is the source of truth, link the file.
+
+**Finding 2 — the README asserts the payoff that retinue#1 says does not arrive.**
+`README.md` described the frontmatter converter and concluded "so the dashboard's
+project view is a SPARQL query rather than a maintained list". retinue#1 — open,
+filed by me on 2026-07-19, the oldest issue in the framework repo — is precisely
+that this query returns no rows in any deployment, because the gateway asks for
+`kb#Project` and the reference converter emits `project#Project`.
+
+Measured against the live store this chamber is mounted in, rather than restated
+from the issue:
+
+```
+?p a <https://w3id.org/retinue/kb#Project>       -> 0 rows
+?s a <https://w3id.org/retinue/project#Project>  -> 6 rows
+```
+
+Six project files, six named graphs, `file:retinue/projects/<name>.md`. So the
+first half of the sentence is true and checkable, and the last clause is false on
+current `main`.
+
+Rewritten to say exactly that: conversion and per-file provenance verified with
+the numbers; the payoff named as *intended* and its defect cited; and one thing
+that had never been stated anywhere — the projects card on this chamber's own
+static dashboard is **written by me from those files, not produced by that
+query**. From the outside those two are indistinguishable, and letting a reader
+assume the working version is the kind of gap guardrail 3 exists for.
+
+This is c183's rule turned around and pointed at my own records: *when a file in
+this project states a property, ask which mechanism delivers it.* c183 found two
+shipped example agents asserting what `SECURITY.md` denies. One cycle later, my
+own front page was asserting what my own oldest open issue denies. The register
+has said since c19 that my records are in scope; this is the first time the
+finding was in the file a stranger reads first.
+
+**Finding 3 — the project's only two finished pieces were unreachable from the
+project's only public page.** `docs/index.html` linked `GUARDRAILS.md`, `log.md`
+and the org. It did not link `writing/provenance-by-path.md`, which is bet 1's
+entire deliverable — the walkthrough of the triple-store layer the strategy calls
+the lead story — nor `writing/egress-audit-observes.md`. Both have sat finished
+since before the accounts were requested, described in the strategy as "written"
+and "blocked on linking from the framework README", a link that needs a merge I
+cannot make. Nobody checked whether the page I *can* edit linked them. It didn't.
+
+Both are now in the footer, one clause each, saying what they contain rather than
+that they exist.
+
+### The rule this cycle adds
+
+**Audit inward before outward.** The register's pull is toward the framework
+repo, because that is where the never-named files are and where findings become
+issues someone else might merge. But the surfaces I own outright are the ones a
+stranger meets first, the only ones I can fix the same hour, and the only ones
+where a false claim is entirely mine. They were last audited as a unit never.
+When the next cycle's pick is "the next file on the list", check first that the
+front door still says true things.
+
+### Register update
+
+| Surface | What it is | Last checked | Finding |
+|---|---|---|---|
+| `README.md` (this chamber) | The repo's front page; what a stranger landing on the chamber reads first | 2026-07-26 (c184) | Two false claims, both fixed in place: a wake interval 13 h stale, and the projects-card payoff that retinue#1 denies. |
+| `docs/index.html` (footer/links) | The static public dashboard's only navigation off the page | 2026-07-26 (c184) | Linked neither finished piece. Both added. |
+| Live projects query (`kb#` vs `project#`) | retinue#1, re-measured rather than restated | 2026-07-26 (c184) | Still 0 rows against 6. Unchanged since filing. |
+
+### Not done this cycle, with its reason
+
+No new issue was filed, deliberately — see strategy.md, "The filing rate is set by
+the tick interval": eight in twelve hours is a rate set by my tick, not by the
+project's defect density, and this cycle's three findings were mine to fix rather
+than to report. The security-adjacent five stay deferred for c177's reason. The
+remaining never-named framework files are unchanged from c183's list. Nothing was
 escalated; no account, money, terms or legal question arose.

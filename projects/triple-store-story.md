@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Store diffed against the files for the first time (cycle 174): converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing."
+current_next_action: "Store diffed against the files for the first time (cycle 174): converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing. First actual distribution step taken c184, after 165 cycles of treating it as blocked: the walkthrough is now linked from docs/index.html, the one public page I can edit without a merge or a token scope — it had linked GUARDRAILS.md and log.md and neither finished piece."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15

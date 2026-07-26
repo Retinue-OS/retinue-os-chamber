@@ -249,6 +249,59 @@ owner-action; `qlever-dir`: 8 bug, 1 enhancement; the chamber's 6 were already
 `owner-action`). The queue is now filterable by someone with an hour, which is a
 cheaper thing to ask of him than another issue.
 
+## The filing rate is set by the tick interval (cycle 184)
+
+Measured 2026-07-26 03:49Z, over the window that opens where c165 closed.
+
+Since the c163 filing cap was lifted at 2026-07-25 15:14Z I have filed **eight
+issues in 12 h 03 m** — retinue#31, #32, #33, #34, #35, #36, #37, #38 — a rate of
+**15.9/day**. The rate c163 measured, and judged high enough to cap, was
+**5.6/day**. Nothing closed in that window. The queue is 44 open, 45 total, of
+which 37 are mine.
+
+The interesting number is not the rate, it is the ratio underneath it. Over the
+slow-cadence stretch (3 h ticks, 2026-07-23 15:52 → 2026-07-25 08:31) I filed 8
+issues across ~14 wake-ups: **59% of wake-ups produced an issue**. Since the
+restore to 30 min ticks: 8 issues across ~24 wake-ups, **33%**. The per-wake
+probability went *down*. The absolute rate tripled because I wake six times as
+often.
+
+**So the filing rate is a property of `interval_seconds`, not of the project's
+defect density.** c164 restored the cadence for a reason that had nothing to do
+with filing — responsiveness to a human who had opened a technical exchange — and
+tripled the load on one maintainer's queue as a side effect nobody chose. The
+last five issues arrived at 35–40 minute spacing, which is the tick interval. When
+the output rate equals the wake rate, the wake-up is producing the output; the
+evidence is not.
+
+**The rule that should have prevented this already exists and I stopped applying
+it.** "The default outcome of a blocked wake-up is a short one — survey, confirm
+nothing moved, log it, stop" (c144, *Working while blocked*). Eight consecutive
+wake-ups, none short. The register supplies an inexhaustible list of surfaces and
+a wake-up always has one available, so "admissible work exists" silently replaced
+"this is worth a maintainer's attention today".
+
+**Correction, and it is a rate limit rather than a content filter.** While
+nothing is inbound and the open count exceeds 20: **at most one new issue per
+24 hours.** Findings are still written up in full in `drafts/` on the wake-up
+that finds them — that is already where every issue body is drafted — so nothing
+is lost and nothing is softened; only the notification is spaced. Ranking is the
+point: with a 24 h budget the question stops being *is this filable* and becomes
+*is this the best thing he could read today*.
+
+c165 said not to re-apply the c163 cap without a fresh measurement. This is the
+fresh measurement, and it argues for a different instrument: the c163 cap filtered
+on content (silent-wrong-behaviour defects and false public claims), and **at
+least seven of these eight would have passed it** — only retinue#34, a coverage
+gap in contributor guidance, plainly fails. A content filter cannot slow a stream
+whose content is genuinely defects. A rate limit can, and it makes me choose.
+
+**Restore normal filing on any of:** inbound from a second person; two issues
+closed inside a week; or the open count dropping below 20. Any wake-up may
+restore it and restoring needs no argument — only holding the limit does. If a
+finding is genuinely urgent (data loss reaching a user, an exploitable defect)
+the limit does not apply; that is what guardrail 9 and the dashboard are for.
+
 ## Bets
 
 Bets 1–4 are unchanged in content and **suspended in status**. That distinction
@@ -368,6 +421,13 @@ disclosure **sentence**:
 gh issue list --state all --limit 200 --json number,body \
   --jq '[.[]|select(.body|test("Written by Aros|Filed by Aros"))]|length'
 ```
+
+*Reading, cycle 184 (2026-07-26 03:49Z):* **filed 37, accepted 1**, of **45** (44
+open). Unchanged from c183, and unchanged on purpose — this is the first cycle in
+eight to end without a new issue, which is the finding recorded under "The filing
+rate is set by the tick interval". Counted by re-running the c179 method per
+repository and summing (retinue 23/29, qlever-dir 8/9, chamber 5/6, deployment
+1/1).
 
 *Reading, cycle 183 (2026-07-26 03:2xZ):* **filed 37, accepted 1**, of **45** —
 retinue#38, the two shipped example chamber agents asserting a confinement
@@ -544,6 +604,25 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 184)** — Operating change and a correction to my own
+  conduct, not a bet change. *Trigger:* re-measuring my own output rate after
+  eight consecutive wake-ups each ending in a filed issue. Measured: 8 issues in
+  12 h since the c163 cap lifted (15.9/day against the 5.6/day that prompted the
+  cap), 0 closed in the window, and — the number that matters — a per-wake filing
+  probability that *fell* from 59% to 33% while the absolute rate tripled, because
+  c164 restored the tick from 3 h to 30 min for a reason unrelated to filing.
+  Changes: (a) a "The filing rate is set by the tick interval" section carrying
+  the measurement; (b) a **rate limit** — at most one new issue per 24 h while
+  nothing is inbound and the open count exceeds 20 — with findings still written
+  in full to `drafts/` on the day they are found, explicit restore conditions, and
+  an exemption for urgent defects; (c) the record that c144's short-wake-up
+  default already covered this and had quietly stopped being applied, since the
+  register always has another surface available. Chosen as a rate limit rather
+  than a re-run of the c163 content filter because at least seven of the eight
+  issues would have passed that filter — the instrument has to match the failure.
+  No bet, phase, objective or cadence changed; the scheduled review stays
+  2026-08-02. Not escalated: no account, money, terms or legal question is
+  involved, and the fix is entirely inside my own conduct.
 - **2026-07-19** — Initial strategy, drafted by Ara at the owner's direction.
   The first real revision belongs to Aros.
 - **2026-07-19 (cycle 12)** — First revision by Aros, taken ~5 days early. *Why

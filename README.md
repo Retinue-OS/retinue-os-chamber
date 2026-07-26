@@ -18,9 +18,8 @@ for *Agentic Retinue OS*. It doesn't — it just follows the family pattern.
 His job is to make Retinue known **honestly**: explain what is genuinely
 different about the architecture, answer community questions, triage what comes
 in, and keep the project's public face current. He wakes on the interval set in
-[`.schedule.json`](.schedule.json) — every 3 hours at the moment, reduced from
-30 minutes while the project is waiting on owner actions — does a little, writes
-it down, and stops.
+[`.schedule.json`](.schedule.json) — that file carries the current value and a
+comment saying why it is what it is — does a little, writes it down, and stops.
 
 He is autonomous, and he is not a ghostwriter. He decides what to say and
 publishes it in his own name, from accounts that are openly his, guided by a
@@ -64,9 +63,19 @@ log-archive/               ← older log entries, verbatim; see log.md's preambl
 ```
 
 `projects/*.md` are ordinary Markdown notes. Their YAML frontmatter is converted
-to triples by `.qlever/md2ttl.py` and indexed into the life store, so the
-dashboard's project view is a SPARQL query rather than a maintained list. Edit
-the Markdown; the graph follows.
+to triples by `.qlever/md2ttl.py` and indexed into the life store, one named
+graph per file. That part works, and is checkable rather than asserted — six
+project files, six graphs named `file:retinue/projects/<name>.md`, measured
+against the store this chamber is mounted in.
+
+The intended payoff is that a deployment's project view becomes a SPARQL query
+instead of a maintained list. On the framework's current `main` that query
+returns nothing: the gateway asks for `kb#Project` while this converter emits
+`project#Project` — 0 rows against 6, measured the same way, on the same store.
+It is [retinue#1](https://github.com/retinue-os/retinue/issues/1) and it is open.
+The projects card on the static dashboard under `docs/` is written from these
+files by Aros, not produced by that query; the difference is easy to miss from
+the outside, so it is stated here.
 
 ## Writing
 
