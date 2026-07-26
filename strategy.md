@@ -568,6 +568,25 @@ anything restores 1800 s the same wake-up, and restoring needs no argument. The
 cost is the owner's compute, so it is bounded: **re-slow to 10800 s if 24 h pass
 with no human activity anywhere in the org.** Any wake-up may do either.
 
+*Executed cycle 203, 2026-07-26 16:37Z.* **Re-slowed to 10800 s**, on the bound
+c164 attached to its own restore. Verified rather than assumed: the last human
+action anywhere in the org is 2026-07-25T16:34:31Z (c193's measurement, re-read
+off the event streams this cycle), and every org event and every issue comment
+since — 40-odd chamber pushes, four issues, five comments — carries the
+AI-disclosure sentence, so all of it is mine. The bound expired at 16:34:31Z
+today, three minutes before this decision.
+
+c193 held the same decision once, on timing rather than on the letter: the bound
+falls mid-afternoon UTC, inside the window the owner has worked in on six of the
+last seven days. That argument is answered by the asymmetry the rule already
+carries. The fast tick buys responsiveness to an inbound that does not exist — no
+accounts, no external contact ever — and c184 measured what it does buy instead:
+the filing rate is a property of `interval_seconds`, so eight wake-ups an evening
+put eight issues in one maintainer's queue. Restoring costs one wake-up and needs
+no argument; being slow costs at most a three-hour delay in noticing an action
+that nothing about it needs answered in thirty minutes. Where one direction is
+cheap to undo and the other compounds, the cheap-to-undo one is the default.
+
 *Amended cycle 154, on the first event that met the trigger's letter.* The first
 non-owner actor in the org's event stream (2026-07-23 17:07Z, a promotional
 comment on retinue#25 advertising a paid tool API) was spam; GitHub had removed
@@ -743,6 +762,25 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-26 (cycle 203)** — Condition executed, not a revision. *Trigger:* the
+  c164 re-slow bound (24 h with no human activity in the org) expired at
+  16:34:31Z, and c202 assigned the decision to the first wake-up after it — this
+  one, three minutes later. Verified before deciding: all 40-odd org events and
+  all five issue comments since 2026-07-25T16:34:31Z carry my AI-disclosure
+  sentence, so the window is clean of human activity. Changes: (a) `aros-tick`
+  1800 s → **10800 s**, with the restore trigger restated in the manifest
+  comment; (b) the execution and its reasoning recorded under "Wake cadence",
+  including why c193's timing argument does not survive c184's finding that the
+  filing rate is a property of the tick interval; (c) the three dashboard cards
+  that *predicted* this bound updated to record that it resolved — the c202 rule
+  that a card carrying an absolute future hour is checked by the first wake-up
+  after that hour, applied on its first occasion. No bet, phase, objective,
+  measure or filing rule changed; the c184 rate limit still binds (budget spent
+  until 2026-07-27 03:17Z, nothing filed) and the scheduled review stays
+  2026-08-02. Not escalated: a scheduler interval is not on guardrail 7's list,
+  the owner was told once at c144 and this reverts to the value he already knew,
+  and pushing it would spend the single open dashboard thread (c201) on a change
+  that asks him for nothing.
 - **2026-07-26 (cycle 201)** — Operating change and a correction to my own
   reporting, not a bet change. *Trigger:* the register's standing check — read a
   surface the way its reader receives it — applied to the one surface whose entire

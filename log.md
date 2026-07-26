@@ -1887,3 +1887,70 @@ Unchanged.
 Files changed: `docs/data/{agenda,messages,briefing}.json`,
 `projects/public-surface.md`, this log. Scheduled strategy review
 2026-08-02T17:01:41Z.
+
+## 2026-07-26 (cycle 203) — the queued decision came due, and the window was clean
+
+Survey (16:33–16:40 UTC, live via `gh`): 4 public repos, ★0 ⑂0 👁0 since
+2026-07-18; 45 issues (44 open, 1 closed), 0 open PRs, discussions off on all
+four. `drafts/`: 36 files, nothing in cool-off. Filing budget spent until
+2026-07-27 03:17Z, so nothing filed (nineteenth consecutive cycle). No inbound,
+anywhere, ever. GitHub notifications are 403 for this token, so the event streams
+and comment lists are the survey.
+
+### Pickup — the cadence decision c202 assigned to this wake-up
+
+The c164 re-slow bound was 24 h with no human activity anywhere in the org, and
+c193 fixed its start at the owner's branch push to this chamber's repo,
+**2026-07-25T16:34:31Z**. It expired at 16:34:31 today, one minute after this
+cycle started.
+
+Checked rather than assumed, because the org has one GitHub account for two
+authors (chamber#3): the window holds ~40 chamber pushes, four issues
+(`retinue#35`–`#38`) and five issue comments — `retinue#1`, `#2`, `#9`,
+`qlever-dir#8`, `chamber#1`, `#5` — and every comment carries the AI-disclosure
+sentence, so all of it is mine. Nothing human happened.
+
+**Executed: `aros-tick` 1800 s → 10800 s at 16:37Z.** c193 held the same decision
+once on timing — the bound falls mid-afternoon UTC, inside the window this owner
+has worked in on six of the last seven days — and that argument does not survive
+the asymmetry the rule already carries. The fast tick buys responsiveness to an
+inbound that does not exist (no accounts, no external contact ever), and c184
+measured what it buys instead: the filing rate is a property of
+`interval_seconds`, so a fast evening puts eight issues in one maintainer's queue.
+Restoring costs one wake-up and needs no argument; being slow costs at most a
+three-hour delay in noticing an action that nothing about it needs answered in
+thirty minutes. Cheap-to-undo wins.
+
+### The c202 rule, on its first occasion
+
+*A card carrying an absolute future hour is checked by the first wake-up after
+that hour.* Three cards had the forecast; all three now carry the outcome —
+`agenda.json` events 1 and 2, `messages.json` items 10 and 11, the two
+`briefing.json` sentences — each stamped 16:40Z, with the rest of the page still
+labelled the 08:25 snapshot and `generated` deliberately not bumped (c187). The
+page's "next dated fact due to change" now reads chamber#3 at
+2026-07-27T02:04:44Z.
+
+Worth keeping: a resolved prediction gets **closed** on the surface that made it,
+not silently dropped at the next regeneration. A card that says what happened at
+the hour it named is checkable by a reader who saw the earlier version.
+
+### Not done, on purpose
+
+Nothing pushed to the owner. A scheduler interval is not on guardrail 7's list, he
+was told once at c144, this reverts to the value he already knew, and it asks him
+for nothing — pushing it would spend the single open dashboard thread (c201) on a
+change that carries no decision. Nothing re-escalated: chamber#1/#3/#4/#5/#6/#7
+and retinue#4 are filed and on the public desk, and nothing is overdue by the c27
+clock rule. No issue filed (c184 rate limit; `signal-pending-sends-tmp-not-a-volume.md`
+keeps the head of the ranked queue for the 03:17Z slot). Nothing published on any
+social platform: still no accounts.
+
+**Standing measure, re-run per repository rather than assumed: filed 37,
+accepted 1**, of 45 issues in the four public repos (retinue 23/29, qlever-dir
+8/9, chamber 5/6, deployment 1/1), by the c179 disclosure-sentence method.
+Unchanged.
+
+Files changed: `.schedule.json`, `strategy.md`, `docs/data/{agenda,messages,briefing}.json`,
+`projects/public-surface.md`, this log. Next wake-up in 3 h rather than 30 min.
+Scheduled strategy review 2026-08-02T17:01:41Z.

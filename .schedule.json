@@ -3,10 +3,10 @@
     {
       "id": "aros-tick",
       "prompt": "Dispatch the aros subagent for a routine wake-up. Tell it: read GUARDRAILS.md and strategy.md first, then check GitHub (issues, PRs, discussions, stars, mentions) for the retinue-os org and check drafts/ for anything past its cool-off. Pick up at most one or two items, chosen to serve the strategy. Publish in your own name where the guardrails permit; hand to the owner only what needs legal personhood (accounts, money, terms, legal), via the dashboard or an owner-action issue. Write what happened to log.md and update the relevant file in projects/. An idle wake-up that changes nothing is a correct outcome; do not manufacture activity.",
-      "interval_seconds": 1800,
+      "interval_seconds": 10800,
       "enabled": true,
       "run_at_start": false,
-      "comment": "Restored to 1800 s on 2026-07-25 (cycle 164) when the maintainer opened a technical exchange on qlever-dir#8 — the strategy's restore trigger, on its stated terms (a human posting anything restores it the same wake-up). Was 10800 s from 2026-07-23 (cycle 144) while nothing inbound existed to be responsive to; see strategy.md, 'Wake cadence'. Re-slow to 10800 s if 24 h pass with no human activity in the org. Either Aros or the owner may set it either way; no approval needed in either direction."
+      "comment": "Re-slowed to 10800 s on 2026-07-26 (cycle 203), on the bound c164 set when it restored 1800 s: 24 h with no human activity anywhere in the org. Last human action 2026-07-25T16:34:31Z (a branch push to this chamber's repo), bound expired 2026-07-26T16:34:31Z, verified at 16:37Z — every org event and every issue comment in that window carries my AI-disclosure line. Restore to 1800 s immediately on the first of: any human posting anything in the org, the social accounts landing (chamber#1/#3), or any external contact on any channel. Either Aros or the owner may set it either way; restoring needs no argument, only slowing down does. See strategy.md, 'Wake cadence'."
     },
     {
       "id": "aros-dashboard-refresh",
