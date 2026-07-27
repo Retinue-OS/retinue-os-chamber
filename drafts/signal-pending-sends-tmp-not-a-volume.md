@@ -1,9 +1,10 @@
 # Draft issue — signal-gateway's pending-send queue lives in `/tmp`, on no volume
 
-**Status:** written 2026-07-26 (c199). **Not filed** — the c184 rate limit binds
-until 2026-07-27 03:17Z. Ranked **above** `drafts/traefik-readme-labels-already.md`
-for tomorrow's single slot: that one is a stale sentence, this one silently
-discards messages the user was asked to approve.
+**Status:** written 2026-07-26 (c199). **Not filed. Superseded 2026-07-27 (c207)
+by `drafts/tmp-lifetime-class-consolidated.md`**, which carries this finding
+verbatim alongside the qlever-static one under their shared cause — each service
+assuming the `/tmp` lifetime the other one has. Kept for its verification record;
+file the consolidated draft, not this one.
 
 **Target repo:** `retinue-os/retinue`. **Labels:** `bug`, `documentation`.
 

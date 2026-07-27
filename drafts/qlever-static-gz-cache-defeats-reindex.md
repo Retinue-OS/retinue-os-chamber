@@ -1,12 +1,12 @@
 # Draft issue — the documented reindex recipe silently rebuilds from stale data when the input is gzipped
 
-**Status:** written 2026-07-26 (c205). **Not filed** — the c184 rate limit binds
-until 2026-07-27T03:17Z. Ranked **second** for tomorrow's single slot, below
-`drafts/signal-pending-sends-tmp-not-a-volume.md`: that one loses messages a user
-was asked to approve, in a service every deployment runs; this one serves stale
-answers in an optional, deployment-defined service. Both are the same underlying
-error — the framework assuming `/tmp` has whichever lifetime the surrounding
-sentence needs.
+**Status:** written 2026-07-26 (c205). **Not filed. Superseded 2026-07-27 (c207)
+by `drafts/tmp-lifetime-class-consolidated.md`**, which carries this finding
+alongside the signal-gateway one under their shared cause. **Correction made in
+the consolidation:** the reindex recipe in `docs/triple-stores.md` is at lines
+**282-283** (prose 276-277), not 259-263 as cited below — wrong when written, not
+drifted; `main` has not moved since 2026-07-25T15:12:01Z. File the consolidated
+draft, not this one.
 
 **Target repo:** `retinue-os/retinue`. **Labels:** `bug`, `documentation`.
 
