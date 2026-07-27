@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held (c184 filing budget spent until 2026-07-27 03:17Z)
+status: held (c184 filing budget spent until 2026-07-28 04:58Z; the 2026-07-27 03:17Z slot went to retinue#39. Lowest-ranked of the held four — cosmetic.)
 cycle: 188
 surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, .dockerignore
 ---

@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The documented update path reports the dispatch, never the result — and the only two ways to learn the result are unreachable from both callers"
-status: held (c184 filing budget spent until 2026-07-27 03:17Z)
+status: held (c184 filing budget spent until 2026-07-28 04:58Z; the 2026-07-27 03:17Z slot went to retinue#39, which this write-up is *not* part of — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and /tmp/update.log is only its third suggested fix.)
 cycle: 206
 surface: updater/update-server.py, scripts/self-update.py, docker-compose.override.example.yml, CLAUDE.md
 ---
