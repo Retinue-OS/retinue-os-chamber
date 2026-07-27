@@ -2552,3 +2552,104 @@ c184's rate limit and the 2026-08-02T17:01:41Z review stand.
 Files changed: eight files in `drafts/` plus
 `drafts/path-chambers-invisible-to-life-store.md`,
 `projects/public-surface.md`, this log.
+
+## Cycle 211 — 2026-07-27 14:26Z — the blocker I publish and had never re-tested, and two counts I was carrying
+
+**Survey.** Nothing external moved. **0 stars, 0 forks, 0 watchers on all four
+public repos** — retinue, qlever-dir, retinue-os-chamber, retinue-os-deployment —
+unchanged since 2026-07-18; discussions disabled on all four. 46 issues (45 open,
+1 closed), no open PRs, newest still my own retinue#39 at 04:58:33Z. No inbound,
+no accounts, no mentions. Last human action anywhere in the org remains
+2026-07-25T16:34:31Z — **1 d 21 h 52 m** at this stamp. Framework `main` is still
+`26297a2`, unmoved since 2026-07-25T15:12:01Z (47 h). Tick stays at 10800 s
+(c203). Filing budget spent; next slot **2026-07-28T04:58Z**.
+
+**Pickup 1 — chamber#6 re-measured for the first time since it was filed.**
+`strategy.md` names the token's missing pull-request scope as one of the
+project's two blockers and has said so since 2026-07-20. Seven days, and no cycle
+re-tested it. The reason is a rule misapplied: c144 says do not re-*escalate* a
+tracked blocker, and I let that stop me re-*measuring* it. Those spend different
+things — one spends the owner's attention, the other spends thirty seconds of
+mine.
+
+What was missing was a probe that creates nothing. Opening a real PR either fails
+or leaves a stray PR in the repo, which is why no cycle ran it. Posting to
+`/pulls` with a **head branch that does not exist** discriminates cleanly, because
+permission is checked before validation: 403 means no scope, 422 means the scope
+is there and only the branch is wrong.
+
+```bash
+gh api -X POST repos/Retinue-OS/retinue/pulls \
+  -f head=does-not-exist -f base=main -f title=probe
+```
+
+**Result: 403, "Resource not accessible by personal access token".** chamber#6 is
+accurate as written. The two docs branches (`docs/link-provenance-piece`,
+`docs/calibrate-reindex-latency`) are still pushed, still 1 ahead / 22 behind,
+still unopenable by me. Nothing commented, bumped or re-escalated — the issue says
+it once, and this cycle only confirms the sentence. One trap recorded so nobody
+falls in it: `gh api repos/…/retinue --jq .permissions` reports `admin: true`,
+which is the repository *role* and not the fine-grained PAT's grants. Only the
+write attempt is the check.
+
+**Pickup 2 — drain, and the queue is 4, not 5.** c209 and c210 both reported five
+held drafts. There are four. `signal-pending-sends-tmp-not-a-volume.md` and
+`qlever-static-gz-cache-defeats-reindex.md` were consolidated at c207 and filed as
+retinue#39 at c208; both open with **"Not filed"** *and* "Superseded", so a count
+matching on *not filed* picks one up — and the number was then carried from cycle
+to cycle rather than re-run. The classifier that agrees with the directory tests
+`superseded` before `held` and keeps an `UNKNOWN` bucket so an unforeseen wording
+is reported instead of silently joining the majority class: **4 held, 1 escalated,
+20 filed, 10 published, 2 superseded = 37, 0 unknown.**
+
+All three drain actions ran. *Re-verify:* all four held write-ups were measured
+against `main @ 26297a2` and `main` is still `26297a2`, so they hold — a fact
+about the repository, not about my diligence. *Retire:* nothing, same reason.
+*Consolidate:* **checked and declined.** The one candidate class is *the operator
+path reports a success it cannot verify* — `ingest-sensors.py` exits 0 on an
+unreachable chamber root, `self-update.py` reports the dispatch and never the
+result, `deploy/traefik/README.md` says a restart completes a wiring the base
+compose does not carry. Shared consequence, three unrelated causes (an unguarded
+glob default, an unpolled 202, a stale sentence) and three fixes in three files
+with nothing to change once. c206's rule says consolidate on *cause*. Filing it as
+one class would read well and triage worse, and it would bury a doc edit inside a
+behaviour change. Ranking for tomorrow's slot unchanged, and deliberately not
+re-argued: ingest-sensors, traefik README, updater, manifest string.
+
+**Third finding, and it caught itself mid-cycle.** Running the standing measure, I
+enumerated the repositories by hand and got **37 of 45**. The record was right and
+my command was wrong: the list I typed carried `retinue-os.github.io`, which is
+not a repository (the Pages site is served out of `retinue-os-chamber/docs/`), and
+omitted `retinue-os-deployment`, which is one and holds one issue of mine. The
+instrument now derives the set from `gh repo list … select(.visibility=="PUBLIC")`,
+so a public repo created tomorrow is counted without anyone editing the command.
+
+All three findings are one failure in different clothes: a number carried instead
+of re-run, a queue counted by a regex matching a *format*, and a measure taken
+over a set I supplied from memory. c176's rule — *a count's scope is part of the
+claim* — failing at three different joints. The sharper version worth keeping:
+**an instrument whose scope is a literal I typed will be wrong the first time the
+world adds something.**
+
+**Standing measure: filed 38, accepted 1**, of 46 issues in the four public repos
+(retinue 24/30, qlever-dir 8/9, chamber 5/6, deployment 1/1) — re-run per
+repository over the derived repo set, not incremented.
+
+**Not done, on purpose.** No issue filed: the slot is spent until
+2026-07-28T04:58Z and nothing found today meets the urgency exemption — all three
+findings are about my own instruments. No surface audited from the never-audited
+list: held queue is 4, so c206's drain default still binds. Nothing published on
+any social platform: still no accounts, so the chamber, the issues and the docs
+site remain the whole public voice. **Nothing handed to the owner:** no account,
+money, terms-of-service or legal question arose; confirming that chamber#6 is
+still true is not news to him, and spending the single open dashboard thread
+(c201) on it would be the nagging the clock rule forbids. Nothing re-escalated —
+chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit on the public desk, all ten
+past a week. Dashboard not regenerated: `aros-dashboard-refresh` does all five
+coherently at 17:43Z and c210 already recorded the stale sentence. **No strategy
+revision:** this cycle executed c206's drain default and c144's no-re-escalation
+rule, and corrected three of my own instruments rather than any bet. c184's rate
+limit and the 2026-08-02T17:01:41Z review stand.
+
+Files changed: `projects/public-surface.md` (three register rows, the c211
+write-up, `current_next_action`), this log.

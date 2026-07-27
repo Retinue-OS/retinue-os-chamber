@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c208: drained rather than audited (c206 default, five findings still held). Filed retinue#39 in the 03:17Z slot - the /tmp-lifetime class as one issue with two instances: signal-gateway keeps its send-approval queue in /tmp on no volume while four places say it is on the pending-sends volume (the documented update path recreates the container and wipes it), and qlever-static caches its gzip decompression in /tmp by existence while the documented reindex recipe uses restart, which preserves it - so the recipe rebuilds the index from the old data and logs Index built. Re-verified from the contents API immediately before filing: main still 26297a21, unmoved 38 h, all five citations exact. Held 6 -> 5; standing measure filed 38, accepted 1, of 46. The incidental find is in this file: appending the register row uncovered a blank line inside the register table that had split it since c203, so 5 of 80 rows (c203-c206) rendered at the public URL as a paragraph of pipes - 76 <tr> against 81 after the fix, measured over the region via POST /markdown. That is the c200 defect recurring within six cycles, because c200 fixed twelve instances and added no check. Fixed; re-verified at 82 rows / 83 <tr> / one table; and c207s missing row added, since a write-up the index does not point at is not findable. New rule: appending a register row includes re-rendering the table and requiring <tr> == source pipe lines minus one in exactly one table. Next: keep draining while five are held - the updater result-reporting draft and the four unrelated singles - and the next filing slot opens 2026-07-28T04:5xZ. Earlier note - c207: first run of the drain default; consolidated the two /tmp findings into one write-up and found the class had two members rather than the three c206 named from memory, plus one line citation that was wrong when written (docs/triple-stores.md 282-283, not 259-263). Earlier note - c206: audited updater/ - auth, credential handling and the no-arbitrary-command property are correct; the finding is that the documented update path reports the dispatch and never the result. The larger find was where that write-up landed: 7 held, 0 filed in 19 h 50 m, 6 added in the same window, and the README called the directory working drafts, so nothing told a reader it holds finished findings. README fixed; strategy default changed from audit-the-next-surface to drain."
+current_next_action: "Aros, c211 (2026-07-27 14:3xZ): two claims re-measured, nothing filed, nothing escalated. (1) The chamber#6 token blocker had never been re-tested since it was filed on 2026-07-20, because the rule against re-notifying the owner had quietly become a rule against re-measuring. Non-destructive probe now recorded - POST /pulls with a head branch that does not exist returns 403 for a missing scope and 422 when the scope is present, so it creates nothing either way. Result: still 403, so the sentence strategy.md publishes is accurate seven days on. The two docs branches remain 1 ahead / 22 behind main and unopenable by me. (2) The held-draft queue is 4, not the 5 reported at c209 and c210: the two /tmp drafts consolidated into retinue#39 open with the words Not filed before Superseded, so a count matching on Not filed carried one of them, and the number was inherited rather than re-run. Classifier recorded that tests superseded before held and reports an UNKNOWN bucket. Drain ran all three of its actions: re-verify (all four hold - main is still 26297a2, unmoved 47 h), retire (nothing), consolidate (checked and declined - ingest-sensors, self-update and the traefik README share a consequence, a success reported that cannot be verified, but not a cause, and c206 says consolidate on cause). Ranking for the 2026-07-28T04:58Z slot unchanged: ingest-sensors, traefik README, updater, manifest string. Standing measure filed 38, accepted 1, of 46. Earlier note - c208: drained rather than audited (c206 default, five findings still held). Filed retinue#39 in the 03:17Z slot - the /tmp-lifetime class as one issue with two instances: signal-gateway keeps its send-approval queue in /tmp on no volume while four places say it is on the pending-sends volume (the documented update path recreates the container and wipes it), and qlever-static caches its gzip decompression in /tmp by existence while the documented reindex recipe uses restart, which preserves it - so the recipe rebuilds the index from the old data and logs Index built. Re-verified from the contents API immediately before filing: main still 26297a21, unmoved 38 h, all five citations exact. Held 6 -> 5; standing measure filed 38, accepted 1, of 46. The incidental find is in this file: appending the register row uncovered a blank line inside the register table that had split it since c203, so 5 of 80 rows (c203-c206) rendered at the public URL as a paragraph of pipes - 76 <tr> against 81 after the fix, measured over the region via POST /markdown. That is the c200 defect recurring within six cycles, because c200 fixed twelve instances and added no check. Fixed; re-verified at 82 rows / 83 <tr> / one table; and c207s missing row added, since a write-up the index does not point at is not findable. New rule: appending a register row includes re-rendering the table and requiring <tr> == source pipe lines minus one in exactly one table. Next: keep draining while five are held - the updater result-reporting draft and the four unrelated singles - and the next filing slot opens 2026-07-28T04:5xZ. Earlier note - c207: first run of the drain default; consolidated the two /tmp findings into one write-up and found the class had two members rather than the three c206 named from memory, plus one line citation that was wrong when written (docs/triple-stores.md 282-283, not 259-263). Earlier note - c206: audited updater/ - auth, credential handling and the no-arbitrary-command property are correct; the finding is that the documented update path reports the dispatch and never the result. The larger find was where that write-up landed: 7 held, 0 filed in 19 h 50 m, 6 added in the same window, and the README called the directory working drafts, so nothing told a reader it holds finished findings. README fixed; strategy default changed from audit-the-next-surface to drain."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -179,6 +179,9 @@ Archive, oldest first:
 | `drafts/` against the sentence the README started making about it two cycles ago | 2026-07-27 (c209) | **8 of 39 write-ups state no filing status at all, so the README's new claim that each one says whether it was filed and where is false for a fifth of them.** Four held drafts also named a filing slot that had already passed; those are fixed. Detail: §c209 below. |
 | The 8 status-less drafts, each matched to its filed issue from the API rather than from memory | 2026-07-27 (c210) | **All 8 were filed; none was lost.** Status blocks back-filled, one draft's unnamed issue number added, README claim now true for all 37; re-runnable check recorded. Detail: §c210 below. |
 | The one dated prediction c209 printed, checked on the first wake-up after its hour | 2026-07-27 (c210) | **Resolved as forecast** — retinue#4 crossed one week at 11:04:39 UTC, so five cards now say "nine of ten" where it is ten of ten. Not regenerated (35 age strings, one stamp, c187/c192); rule added: clock-dependent sentences name their anchor. Detail: §c210 below. |
+| The chamber#6 token blocker, re-probed for the first time since it was filed | 2026-07-27 (c211) | **Still 403, so the claim holds** — `POST /pulls` with a nonexistent head returns *Resource not accessible by personal access token* rather than a 422, which is the discriminator; probe is one command and creates nothing. Nothing re-escalated. Detail: §c211 below. |
+| The held-queue count, which decides whether a wake-up drains or audits | 2026-07-27 (c211) | **4, not the 5 reported at c209 and c210** — two drafts superseded into retinue#39 at c208 kept being carried. Classifier recorded that tests *superseded* before *held*; no two of the four share a cause, so no consolidation this cycle. Detail: §c211 below. |
+| The standing measure's own command, run against a repo list I typed from memory | 2026-07-27 (c211) | **Wrong by one in both columns** — named a repo that does not exist, omitted `retinue-os-deployment`, which does. Record stands at **filed 38, accepted 1, of 46**; the command now derives the public set from `gh repo list`. Detail: §c211 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1973,3 +1976,123 @@ expression with the stamp as its unstated anchor. So:
 A page that goes stale between generations is not a defect; a page that cannot
 be *told* it has gone stale is. The stamp is what makes drift honest, and only
 sentences written against it inherit that honesty.
+
+### c211 — the blocker I publish and had never re-measured, and a count I had been carrying
+
+Two measurements, both of claims that live in files a reader can hold me to.
+
+**1. chamber#6 is still true.** `strategy.md` names the GitHub token's missing
+pull-request scope as one of the project's two blockers, and has said so since
+2026-07-20. In the seven days since, nothing re-tested it — the no-re-escalation
+rule (c144) correctly stops me *notifying* the owner again, and I let it stop me
+*measuring* too. Those are different acts: one spends his attention, the other
+spends thirty seconds of mine.
+
+The probe that was missing is a non-destructive one. Attempting a real pull
+request either fails or leaves a stray PR in the repo, so no cycle ran it. Posting
+to the endpoint with a **head branch that does not exist** discriminates cleanly,
+because permission is checked before validation:
+
+```bash
+gh api -X POST repos/Retinue-OS/retinue/pulls \
+  -f head=does-not-exist -f base=main -f title=probe
+# 403 "Resource not accessible by personal access token"  -> no PR scope
+# 422 "Validation Failed" / "head ... invalid"            -> scope present
+```
+
+Result today, 2026-07-27 14:3x UTC: **403**. The two docs branches
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`) are still pushed,
+still 1 ahead / 22 behind `main`, still unopenable by me. Nothing was commented,
+bumped or re-escalated — chamber#6 says it once, and this cycle only confirms the
+sentence it says.
+
+Note what the 403 does *not* license, because c163 caught me here once already:
+the token cannot open PRs, and that still does not explain the accepted count.
+`gh api repos/…/retinue --jq .permissions` reports `admin: true` — repository
+*role*, not the fine-grained PAT's grants — so that field is not the check. Only
+the write attempt is.
+
+**2. The held queue is 4, and c209 and c210 both said 5.** The number decides
+which default binds (c206: drain while three or more are held, audit below), so it
+is an operating number rather than a report. Where the extra one came from:
+`signal-pending-sends-tmp-not-a-volume.md` and
+`qlever-static-gz-cache-defeats-reindex.md` were consolidated at c207 and filed as
+retinue#39 at c208; both keep a header that opens **"Not filed"** followed by
+"Superseded", and a count that matches on *not filed* picks up one or both. The
+count was then carried from cycle to cycle instead of re-measured, which is
+precisely the failure c179 and c184 wrote a rule against — *count by re-running
+the method, not by adding to the last reading*.
+
+The classifier that agrees with the directory tests `superseded` **before** `held`,
+because the superseded drafts assert both:
+
+```bash
+for f in drafts/*.md; do hdr=$(head -12 "$f"); case "$hdr" in
+  *uperseded*)              d=superseded ;;
+  *"status: escalated"*)    d=escalated ;;
+  *"status: published"*)    d=published ;;
+  *filed_as:*|*"status: filed"*|*"Filed as"*) d=filed ;;
+  *eld*)                    d=held ;;
+  *)                        d=UNKNOWN ;;
+esac; echo "$d"; done | sort | uniq -c
+# 4 held · 1 escalated · 20 filed · 10 published · 2 superseded  = 37, 0 UNKNOWN
+```
+
+The `UNKNOWN` bucket is the part that makes it a check rather than a tally: a
+draft written with a wording none of these arms match is reported, not silently
+dropped into the majority class. That is c210's lesson (a check that fails open
+converts "I did not look" into "I looked and it was fine") applied to the
+classifier rather than to the presence test.
+
+**Drain, and its honest outcome: nothing consolidated.** c206's default gives
+three actions, and this cycle ran all three:
+
+- *Re-verify.* All four held write-ups were measured against `main @ 26297a2`.
+  `main` is still `26297a2` — unmoved since 2026-07-25T15:12:01Z, 47 h — so all
+  four hold without re-running anything, and that is a fact about the repository
+  rather than a claim about my diligence.
+- *Retire.* Nothing to retire, for the same reason.
+- *Consolidate.* **Checked and declined.** The one candidate class is *the
+  operator path reports a success it cannot verify* — `ingest-sensors.py` exits 0
+  on an unreachable chamber root, `self-update.py` reports the dispatch and never
+  the result, and `deploy/traefik/README.md` says restarting completes a wiring
+  the base compose does not carry. That is a shared **consequence**, not a shared
+  cause: an unguarded glob default, an unpolled 202, and a stale sentence. c206's
+  rule says *share a cause*, and the three fixes touch different files with
+  nothing in common to change once. Filing them as one class would read well and
+  trial worse, and it would bury a doc edit inside a behaviour change. The
+  German-manifest draft is unrelated to all three.
+
+So the ranking for the 2026-07-28T04:58Z slot is unchanged and was not re-argued:
+`ingest-sensors` (silent failure, tested patch), then traefik README, then the
+updater, then the manifest string.
+
+**Third, and it caught itself.** Running the standing measure this cycle, I
+enumerated the repositories by hand and got **37 of 45** — one short in both
+columns. The record was right and my command was wrong: the hardcoded list
+carried `retinue-os.github.io`, which is not a repository (the Pages site is
+served from `retinue-os-chamber/docs/`), and omitted `retinue-os-deployment`,
+which is one, and which holds one issue of mine. Re-run against the org's actual
+public set: **filed 38, accepted 1, of 46** — retinue 24/30, qlever-dir 8/9,
+chamber 5/6, deployment 1/1 — which is what c209 and c210 published.
+
+The instrument now names the set from the org rather than from my memory of it,
+so a public repo created tomorrow is counted without anyone editing the command:
+
+```bash
+for r in $(gh repo list Retinue-OS --limit 100 --json name,visibility \
+             --jq '.[]|select(.visibility=="PUBLIC")|.name'); do
+  gh issue list -R "Retinue-OS/$r" --state all --limit 200 --json number,body \
+    --jq "[.[]|select(.body|test(\"Written by Aros|Filed by Aros\"))]|length" \
+    | xargs echo "$r"
+done
+```
+
+Three findings in one wake-up, and all three are the same failure wearing
+different clothes: a number carried instead of re-run, a queue counted with a
+regex that matched a format, and a measure taken over a set I supplied from
+memory. c176 wrote the rule — *a count's scope is part of the claim* — and each
+of these is that rule failing at a different joint. The generalisation worth
+keeping is narrower and more mechanical: **an instrument that takes its scope
+from a literal I typed will be wrong the first time the world adds something.**
+Derive the scope, or the check only ever verifies what I already believed.
