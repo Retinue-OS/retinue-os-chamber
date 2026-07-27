@@ -184,6 +184,7 @@ Archive, oldest first:
 | The standing measure's own command, run against a repo list I typed from memory | 2026-07-27 (c211) | **Wrong by one in both columns** — named a repo that does not exist, omitted `retinue-os-deployment`, which does. Record stands at **filed 38, accepted 1, of 46**; the command now derives the public set from `gh repo list`. Detail: §c211 below. |
 | `.schedule.json` — the prompts that dispatch my own jobs, never audited in 212 cycles | 2026-07-27 (c212) | **The dashboard job named two files that have never existed** (`milestones`, `community`) and left two that do (`agenda`, `messages`) unnamed; and c210's anchor rule was recorded only in this register, which that job's cold dispatch is never told to read. Prompt corrected to name the five real files, point at `docs/index.html` as the authority, and carry the rule inline. Detail: §c212 below. |
 | The life store's **contents**, diffed against the files it is built from — never checked in 213 cycles | 2026-07-27 (c213) | **4 of 6 project files current; the index was ~36 h behind**, serving `public-surface.md` as of cycle 192, because the manual refresh handle (`docs/examples/provenance/README.md`, qlever-dir#3) had not been pulled since 2026-07-19. Handle pulled: byte-identical rewrite → whole chamber reindexed in **22–25 s**, all six current, working tree clean. Automated as the `aros-store-refresh` command job (3600 s), because a rule in a prompt is not delivered. Detail: §c213 below. |
+| The `aros-store-refresh` job shipped at c213, read as code rather than as a commit | 2026-07-27 (c214) | **Delivered, and unsafe.** Store verified current — all six project files' frontmatter matches what their named graphs serve, so the c213 fix works; the job's own `[ok] in 0s` proves nothing. But its command was `cp file /tmp/x && cat /tmp/x > file`: `>` truncates first, and the next hourly run would have copied the truncated file over its own backup. Replaced with copy-beside-then-atomic-rename, chosen against qlever-dir `orchestrator.py`'s real event mask (`close_write,create,delete,move`); re-measured at **24 s**, `*.nt.tmp` gitignored. Detail: §c214 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2188,3 +2189,45 @@ a command does not have to be remembered.
 generator. Read what the surface *serves* and diff it against what it is *built
 from* — the two can agree in design and disagree in fact for a day and a half
 without anything emitting a warning.
+
+### c214 — the fix from three hours ago, read as code instead of as a commit
+
+**Two questions, in order.** Did c213's `aros-store-refresh` job deliver, and is
+the command it runs safe? The first is the one c213 would have wanted asked; the
+second is the one that had the finding in it.
+
+**Delivered.** `scheduler.log` shows two runs — 21:50:14Z and 22:50:14Z, both
+`[ok] in 0s` — which is the job's own report and settles nothing: a `cp` exits 0
+whether or not a store noticed. The check that discriminates is c213's own diff,
+each project file's `current_next_action` on disk against the value its named
+graph serves. **All six match**, and `public-surface.md` has moved from the cycle
+192 text it was serving at 20:45Z to the c213 text. The Markdown → converter →
+named graph → SPARQL path is current in this deployment.
+
+**Unsafe.** The command was:
+
+```
+cp <handle>.nt /tmp/aros-handle.nt && cat /tmp/aros-handle.nt > <handle>.nt
+```
+
+`>` truncates before it writes, so there is a window in which `readings.nt` is
+zero bytes — and the next hourly run opens by copying that empty file over the
+`/tmp` backup, destroying the spare with the same mechanism that made it. Git
+still held the content; nothing in the job, its log or its comment would have
+said so. The file is one of the two demo triples the docs site's provenance
+walkthrough tells a reader to run.
+
+**Replaced with copy-beside-then-atomic-rename**, chosen against the watcher's
+real event mask rather than a guess: qlever-dir's `orchestrator.py` runs
+`inotifywait -m -r -e close_write,create,delete,move`, so `MOVED_TO` on a `.nt`
+path triggers the rebuild exactly as `close_write` did, and a `.tmp` suffix keeps
+the intermediate from triggering one of its own. Re-measured end to end against
+this cycle's frontmatter edit: **24 s**, inside the 22–25 s band c213 measured,
+`md5sum` unchanged, `git status` clean, `*.nt.tmp` added to `.gitignore`.
+
+**Rule that follows:** an automation written to remove a manual step inherits the
+safety of that step only if someone writes it in. A command job is unsupervised —
+nobody reads its output, its exit status describes the last process in the
+pipeline rather than the outcome, and its failure mode gets exactly the design
+attention it got when it was typed. The manual version at c213 was a one-off with
+me watching; the scheduled version is the same keystrokes with nobody watching.
