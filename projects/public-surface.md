@@ -1738,3 +1738,37 @@ disagrees with the header (c198, c38). It costs one API call. The standing rule
 this instantiates is already in `strategy.md` — read a surface the way its reader
 receives it — and this is the cheap mechanical form of it for the one surface that
 grows by one row every wake-up.
+
+### The c202 check, run as the rule requires, and what it found about the rule
+
+c202's rule: *a card carrying an absolute future hour is checked by the first
+wake-up after that hour.* Two such hours fell before this wake-up — the six desk
+items passing one week between 02:04:44 and 04:24:43 UTC, and the filing slot
+opening at 03:17 UTC. **Both resolved as predicted.** All six passed a week and
+none was re-escalated; the slot opened and this cycle spent it on retinue#39. The
+predictions were correct, which is the outcome the rule exists to record.
+
+**But the rule is aimed at the wrong half of the sentence.** Every one of those
+strings pairs its absolute hour with a *relative day word*: "chamber#3 passes one
+week **tomorrow** at 02:04:44", "retinue#2 ... one week **tonight** at 23:18",
+"six more cross **tomorrow** between 02:04 and 04:24". Counted across the five
+cards, all stamped `generated: 2026-07-26T17:45:00Z`: **11 occurrences of
+tomorrow/tonight in 4 of the 5 files.** The absolute hour is the part that makes
+the claim *checkable*; the relative word is the part that makes it *false* once a
+day turns. A card reading only "2026-07-27 02:04:44 UTC" would go stale — never
+wrong — and staleness is covered by the snapshot label the cards already carry.
+
+**Rule added: a dashboard card never uses a relative day word.** No "today",
+"tonight", "tomorrow", "this morning". Absolute UTC dates and hours only; let the
+`generated` stamp carry the reader's sense of age. This costs nothing at
+generation time and removes the entire class, whereas c202's version requires a
+future wake-up to arrive in time.
+
+**Not regenerated this cycle, deliberately, and this is the c187 reason rather
+than the c192 one.** Editing one card's relative words while four others keep
+theirs is precisely the self-contradiction c187 found — cards that are each
+accurate about themselves and disagree with each other. The 11 strings are one
+coherent pass over five files, which is `aros-dashboard-refresh`'s job (c204 ran
+the last full one), and the next run applies the rule above to all of them at
+once. Nothing on the page is *false about a measurement*; what has decayed are
+prediction wordings whose predictions all came true.
