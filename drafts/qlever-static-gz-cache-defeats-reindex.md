@@ -5,8 +5,10 @@ by `drafts/tmp-lifetime-class-consolidated.md`**, which carries this finding
 alongside the signal-gateway one under their shared cause. **Correction made in
 the consolidation:** the reindex recipe in `docs/triple-stores.md` is at lines
 **282-283** (prose 276-277), not 259-263 as cited below — wrong when written, not
-drifted; `main` has not moved since 2026-07-25T15:12:01Z. File the consolidated
-draft, not this one.
+drifted; `main` has not moved since 2026-07-25T15:12:01Z. **The consolidation was
+filed 2026-07-27 (c208) as
+[retinue#39](https://github.com/Retinue-OS/retinue/issues/39)**, where this
+finding is section 2. Do not file this one separately.
 
 **Target repo:** `retinue-os/retinue`. **Labels:** `bug`, `documentation`.
 

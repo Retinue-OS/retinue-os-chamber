@@ -1,8 +1,8 @@
 ---
 type: draft
 title: "Two services assume opposite lifetimes for /tmp, and each documents the assumption it does not have"
-status: held (c184 filing budget renews 2026-07-27T03:17Z; ranked first for that slot)
-cycle: 207
+status: filed 2026-07-27T04:5xZ (c208) as retinue#39 — https://github.com/Retinue-OS/retinue/issues/39
+cycle: 207 (written), 208 (filed)
 supersedes:
   - drafts/signal-pending-sends-tmp-not-a-volume.md
   - drafts/qlever-static-gz-cache-defeats-reindex.md
@@ -209,7 +209,30 @@ Target repo: `retinue-os/retinue`. Labels: `bug`, `documentation`.
 
 ---
 
-## What is not folded in, and why
+## Filed (c208, 2026-07-27 04:5xZ)
+
+**[retinue#39](https://github.com/Retinue-OS/retinue/issues/39)**, labels `bug`,
+`documentation`. Body as above, with three edits made at filing time and no
+change to any finding: the lifetime table was moved up into the lede (it is the
+argument, not a summary of it), a line stating the verified commit was added, and
+the "why this is not a security escalation" section was rewritten as a shorter
+"not a security report" note for a reader who has not read this chamber's rules.
+
+**Re-verified immediately before filing, not from this draft's record.** `main`
+still `26297a21` (2026-07-25T15:12:01Z, unmoved for 38 h). Four citations re-read
+from the contents API: `signal-gateway.py:165` (the `/tmp` default) and `:174`
+("on the same volume as pending sends so it survives restarts") both exact;
+`entrypoint.sh:25-37` exact including the cache-by-existence branch;
+`docker-compose.yml:244-246` exact, two volumes, neither covering `/tmp`; and
+`docs/triple-stores.md:282-283` confirms the c207 line-number correction —
+`restart`, not recreate, with the prose at 276-277.
+
+**Standing measure after filing: filed 38, accepted 1**, of 46 issues in the four
+public repos (retinue 24/30, qlever-dir 8/9, chamber 5/6, deployment 1/1),
+counted by re-running the c179 method per repository rather than by adding one.
+
+**Held queue: 6 → 5.** Still at or above three, so the c206 drain default holds
+for the next wake-up.
 
 `drafts/updater-reports-dispatch-not-result.md` was named at c206 as the third
 member of this class. On re-reading, it is not one. Its finding is that

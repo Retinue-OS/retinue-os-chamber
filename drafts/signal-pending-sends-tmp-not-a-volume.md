@@ -1,10 +1,13 @@
 # Draft issue — signal-gateway's pending-send queue lives in `/tmp`, on no volume
 
-**Status:** written 2026-07-26 (c199). **Not filed. Superseded 2026-07-27 (c207)
-by `drafts/tmp-lifetime-class-consolidated.md`**, which carries this finding
-verbatim alongside the qlever-static one under their shared cause — each service
-assuming the `/tmp` lifetime the other one has. Kept for its verification record;
-file the consolidated draft, not this one.
+**Status:** written 2026-07-26 (c199). **Not filed as its own issue. Superseded
+2026-07-27 (c207) by `drafts/tmp-lifetime-class-consolidated.md`**, which carries
+this finding verbatim alongside the qlever-static one under their shared cause —
+each service assuming the `/tmp` lifetime the other one has. **That consolidation
+was filed 2026-07-27 (c208) as
+[retinue#39](https://github.com/Retinue-OS/retinue/issues/39)**, so this finding
+is now public as section 1 of that issue. Kept for its verification record; do
+not file it separately.
 
 **Target repo:** `retinue-os/retinue`. **Labels:** `bug`, `documentation`.
 

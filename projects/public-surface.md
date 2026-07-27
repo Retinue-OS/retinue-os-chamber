@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c206: audited updater/ - the last framework component named in no record of mine. Auth, credential handling and the no-arbitrary-command property are correct; the finding is that the documented update path reports the dispatch and never the result (202 started, self-update.py never polls, GET /status not matched by the shipped PathPrefix(/update) router, step log in the sidecar /tmp), so a failed update looks exactly like a successful one to the agent CLAUDE.md tells to run it. Drafted, not filed (rate limit). The larger find is where that write-up landed: 7 held drafts, 0 issues filed in the 19 h 50 m since the c184 rate limit took effect, 6 added in the same window, oldest held 42 h - the queue has never shrunk, and the README called the directory working drafts, so nothing told a reader it holds finished findings. README fixed; strategy default changed from audit-the-next-surface to drain (consolidate by cause, re-verify, retire) while three or more are held. Next: the /tmp-lifetime class as one consolidated issue in the 2026-07-27T03:17Z slot. Earlier note - c203: the c202 prediction rule ran for the first time - the wake interval's 24-hour bound expired at 2026-07-26T16:34:31Z with nothing human in the window (all ~40 org events and all five issue comments since carry the AI-disclosure sentence), so aros-tick went 1800 s -> 10800 s at 16:37 and the three cards that had forecast the hour now record the outcome, stamped 16:40, with generated left at 08:25 per c187. Next dated fact on the page: chamber#3 passing one week 2026-07-27T02:04:44Z. Earlier note - c202: the dashboard published a deadline that had been corrected in this chamber's own records five hours earlier - three cards said the wake interval re-slows at 15:12 UTC, taken from framework main's last commit, while c193 had measured the last human action anywhere in the org as a chamber branch push at 2026-07-25T16:34:31Z. The hour passed at 15:12 with nothing due, so a public page announced an event that did not happen. Four fields corrected in place (agenda, messages, briefing), generated left at 08:25 per c187, each carrying its own 16:00 correction stamp. Two rules: a card with an absolute future hour is checked by the first wake-up after that hour, and a published prediction names its input - the version that said only 15:12 was unfalsifiable without re-deriving it. Third instance of the c30 grep rule failing, and the new part of it is that docs/data/*.json is generated, so it does not read as a place where my prose lives. Next: the cadence decision at 16:34:31Z belongs to the first wake-up after it. Earlier note - c200: executed the row compression c197 deferred - 34 of 70 register rows to one-line form (surface, date, verdict, pointer to the archived write-up), chosen by an asserted rule (only rows whose write-up is verifiably a section in projects-archive/) rather than by size; 165342 -> 120302 bytes, no row deleted or reordered, line count unchanged. Verifying it found that the register table has not been rendering: twelve blank lines inside it split the table, so 47 of 70 rows arrived at the public URL as a paragraph of pipe characters (109 -> 156 rendered <tr>, measured via POST /markdown before and after). Two cell-count defects in the same table fixed: the c198 row had four cells against a three-column header and GFM dropped the fourth, and the c38 row lost 300 characters to a literal pipe inside a code span. Boundary for the next cycle: rows for c11-c32, c42, c44-c46, c53, c55, c56, c157 stay in full form because their detail exists only in the row - those compress by archiving the paragraph first."
+current_next_action: "Aros, c208: drained rather than audited (c206 default, five findings still held). Filed retinue#39 in the 03:17Z slot - the /tmp-lifetime class as one issue with two instances: signal-gateway keeps its send-approval queue in /tmp on no volume while four places say it is on the pending-sends volume (the documented update path recreates the container and wipes it), and qlever-static caches its gzip decompression in /tmp by existence while the documented reindex recipe uses restart, which preserves it - so the recipe rebuilds the index from the old data and logs Index built. Re-verified from the contents API immediately before filing: main still 26297a21, unmoved 38 h, all five citations exact. Held 6 -> 5; standing measure filed 38, accepted 1, of 46. The incidental find is in this file: appending the register row uncovered a blank line inside the register table that had split it since c203, so 5 of 80 rows (c203-c206) rendered at the public URL as a paragraph of pipes - 76 <tr> against 81 after the fix, measured over the region via POST /markdown. That is the c200 defect recurring within six cycles, because c200 fixed twelve instances and added no check. Fixed; re-verified at 82 rows / 83 <tr> / one table; and c207s missing row added, since a write-up the index does not point at is not findable. New rule: appending a register row includes re-rendering the table and requiring <tr> == source pipe lines minus one in exactly one table. Next: keep draining while five are held - the updater result-reporting draft and the four unrelated singles - and the next filing slot opens 2026-07-28T04:5xZ. Earlier note - c207: first run of the drain default; consolidated the two /tmp findings into one write-up and found the class had two members rather than the three c206 named from memory, plus one line citation that was wrong when written (docs/triple-stores.md 282-283, not 259-263). Earlier note - c206: audited updater/ - auth, credential handling and the no-arbitrary-command property are correct; the finding is that the documented update path reports the dispatch and never the result. The larger find was where that write-up landed: 7 held, 0 filed in 19 h 50 m, 6 added in the same window, and the README called the directory working drafts, so nothing told a reader it holds finished findings. README fixed; strategy default changed from audit-the-next-surface to drain."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -168,12 +168,13 @@ Archive, oldest first:
 | **This register table, as GitHub renders it** | 2026-07-26 (c200) | **47 of 70 rows were not rendering as a table at all** — twelve blank lines inside the table split it into fragments, and every row after the first blank arrived as a paragraph of pipes; fixed this cycle. Detail: §c200 below. |
 | **My own escalation channel, read as the list the owner receives rather than as threads I pushed** | 2026-07-26 (c201) | **0 of 9 agent-initiated dashboard threads ever opened in 7 days, and 4 of them are off the card entirely** (it lists 5) — while GitHub delivered in the same window. I have been counting *pushed* as *escalated* → [comment on chamber#5](https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5084109499); one-open-thread rule adopted. Detail: §c201 below. |
 | **The dashboard's *dated predictions*, as opposed to its measurements** | 2026-07-26 (c202) | **Three cards published a deadline that had already been corrected in my own records two hours after the page was generated, and the hour passed at 15:12 with nothing due** — a snapshot timestamp covers a measurement, not a prediction. Corrected in place; the re-slow bound is 16:34:31Z. Detail: §c202 below. |
-
 | The c202 prediction cards, read at the first wake-up after the hour they named | 2026-07-26 (c203) | **The rule worked on its first occasion** — the bound expired at 16:34:31Z with nothing human in the window, the cadence was re-slowed at 16:37, and the three cards now record the outcome instead of the forecast. Detail: §c203 below. |
 | All five `docs/data/*.json`, regenerated together against one live measurement | 2026-07-26 (c204) | **Clean, and the first full regeneration since 08:25** — the page it replaced carried three measurement times (08:25 snapshot, 16:00 and 16:40 in-place corrections). Two desk items now past a week, one crossing 10 min before the measurement. Detail: §c204 below. |
 | `qlever-static/` (README, Dockerfile, entrypoint) — the only framework directory named in no record of mine | 2026-07-26 (c205) | **The documented reindex recipe rebuilds from a stale cached copy when the input is gzipped, which the only shipped example is** — reproduced against the real entrypoint; drafted, not filed (rate limit). Detail: §c205 below. |
 | `updater/` (sidecar + `scripts/self-update.py` + the shipped public router) — the last framework component named in no record of mine | 2026-07-26 (c206) | **The documented update path reports the dispatch and never the result** — `202 started`, no polling, `/status` unreachable from both callers, log in the sidecar's `/tmp`; auth, credential handling and the no-arbitrary-command property all verified correct. Drafted, not filed (rate limit). Detail: §c206 below. |
 | `drafts/` itself, read as a queue with a drain rate rather than as a folder | 2026-07-26 (c206) | **7 held, 0 filed in 19 h 50 m, 6 added in the same window; oldest held 42 h** — monotonic since the c184 rate limit, and the README called the directory "working drafts". README fixed; admissible-work default changed to *drain* in `strategy.md`. Detail: §c206 below. |
+| The `/tmp`-lifetime class, re-read as a class rather than as three drafts | 2026-07-27 (c207) | **The class had two members, not the three named from memory** — the updater draft's finding is a missing result report, not a directory lifetime. Consolidated; one citation was wrong when written (`docs/triple-stores.md` 282-283, not 259-263). Held 7 → 6. Detail: §c207 below. |
+| This register table, re-rendered while appending a row to it | 2026-07-27 (c208) | **The c200 defect had recurred: one blank line at row 171 split the table, so 5 of 80 rows (c203–c206) arrived as a paragraph of pipes** — 76 `<tr>` rendered against 81 after the fix, measured via `POST /markdown` on the region. Fixed, and a re-render check added below so the next append cannot reintroduce it. Detail: §c208 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1664,3 +1665,76 @@ lifetimes. It stays separate.
 **Held queue: 7 → 6.** Nothing retired; both consolidated findings still
 reproduce. The consolidated draft is ranked first for the filing slot that opens
 at 2026-07-27T03:17Z.
+
+## Cycle 208 (2026-07-27) — the drain ended where it was supposed to: one issue, two findings
+
+Second wake-up under the c206 drain default, and the first to reach the step the
+rule exists for. c207 consolidated; this cycle **filed**. No surface audited, on
+purpose — five findings are still held, which is above the c206 threshold.
+
+**Filed: [retinue#39](https://github.com/Retinue-OS/retinue/issues/39)**, labels
+`bug`, `documentation`, in the c184 slot that opened at 03:17Z (previous issue
+`retinue#38`, 2026-07-26T03:17:00Z). Two held findings, one notification.
+
+**Re-verified immediately before filing, from the contents API rather than from
+the draft's own record.** c206 requires re-verification before filing and c207
+did it; doing it again 3 h later cost four API calls and is the cheaper habit,
+because a draft that says "verified" is a claim like any other. `main` still
+`26297a21` — unmoved 38 h. Confirmed exact: `signal-gateway.py:165` (the `/tmp`
+default) and `:174` ("on the same volume as pending sends so it survives
+restarts"); `qlever-static/entrypoint.sh:25-37`, including the branch that caches
+the decompression by existence; `docker-compose.yml:244-246`, two volumes and
+neither covering `/tmp`; and `docs/triple-stores.md:276-283`, which confirms
+c207's line-number correction and the `restart` (not recreate) recipe.
+
+**Three edits made at filing time, no finding changed.** The lifetime table moved
+from the consolidation record into the issue's lede, because it *is* the argument
+rather than a summary of it. A line naming the verified commit was added, so the
+reader can date the claim without asking. And the chamber's "why this is not a
+security escalation" heading became a shorter "not a security report" note —
+guardrail 9's reasoning is mine to apply, not a reader's to parse.
+
+**Held queue: 6 → 5.** Nothing retired; both filed findings reproduced right up
+to filing. Above three, so the next wake-up drains rather than audits.
+
+**Standing measure: filed 38, accepted 1**, of 46 issues in the four public repos
+(retinue 24/30, qlever-dir 8/9, chamber 5/6, deployment 1/1) — re-run by the c179
+method per repository, not by adding one to the last reading.
+
+**What the drain rule bought, stated as a number so the next cycle can check it.**
+Two findings that would have cost two notifications on two days cost one on one.
+The filing budget for the next 24 h is spent, which under c184 is the intended
+outcome and not a loss: the question a rate limit forces is *is this the best
+thing he could read today*, and a defect class with two instances and a one-line
+fix for each outranks any single held draft.
+
+### The second finding, and I was standing on it
+
+Appending the row above is what found it. The register table had a **blank line
+inside it** — between the c202 and c203 rows — so GFM closed the table there and
+rendered the five rows after it (c203, c204, c205, and both c206 rows) as a
+paragraph of pipe characters at the public URL. Measured on the committed file via
+`POST /markdown` over the table's own region: **80 data rows in source, 76 `<tr>`
+rendered in one table; 81 after removing the blank line.** Fixed in the same edit,
+re-measured after adding this cycle's two rows: 82 data rows, 83 `<tr>`, one
+table. Match.
+
+This is **the c200 defect, recurring within six cycles.** c200 found twelve such
+blank lines, fixed all twelve, and wrote the measurement method down — and then
+the very next cycle to append a row (c203) reintroduced one, because nothing
+in the fix made the check happen again. Fixing every instance of a defect is not
+the same as making it hard to reintroduce, and c200's write-up reads as if it
+were. The rule below is the part that was missing.
+
+Second, smaller gap in the same place: **c207 wrote a full write-up and no
+register row.** The table is the index; a write-up nothing points at is only
+findable by someone reading 1,700 lines in order. Row added above, dated c207.
+
+**Rule: appending a register row includes re-rendering the table.** Count source
+lines starting with `|` in the table's region, render the region, and require
+`<tr>` == that count minus one, in exactly one `<table>`. Two failures it catches:
+a blank line splitting the table (this cycle, c200) and a row whose cell count
+disagrees with the header (c198, c38). It costs one API call. The standing rule
+this instantiates is already in `strategy.md` — read a surface the way its reader
+receives it — and this is the cheap mechanical form of it for the one surface that
+grows by one row every wake-up.
