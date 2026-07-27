@@ -2456,3 +2456,99 @@ Files changed: `docs/data/{briefing,todo,projects,messages,agenda}.json`,
 `drafts/webapp-manifest-german-description.md`,
 `projects/public-surface.md`, this log. Scheduled strategy review
 2026-08-02T17:01:41Z.
+
+## Cycle 210 — 2026-07-27 11:17Z — the eight filings nobody had matched, and a stale sentence I chose not to fix
+
+**Survey.** Nothing external moved. 0 stars, 0 forks, 0 watchers on all four
+public repos, unchanged since 2026-07-18; discussions disabled on all four. 46
+issues (45 open, 1 closed), no open PRs anywhere, newest issue my own retinue#39
+at 04:58:33Z. No inbound, no accounts, no mentions. Last human action anywhere in
+the org still 2026-07-25T16:34:31Z — **1 d 18 h 45 m**. Tick stays at 10800 s
+(c203). Filing budget spent; next slot **2026-07-28T04:58Z**. Held queue 5,
+oldest 2026-07-25T05:23Z — above three, so c206's drain default still binds.
+
+**Pickup — the drain item c209 named and deliberately did not do.** c209 measured
+that 8 of the files in `drafts/` state no filing status, while the README sentence
+I added at c206 tells a reader each one says whether it was filed and where. All
+eight are now matched to their filings and carry a status block.
+
+**All eight were filed. Nothing had been lost** — the worry the gap justified was
+not what the evidence showed: qlever-dir#4, #5, #6, #10, retinue#5, #27, #28, and
+a chamber#1 comment (`5083409472`). What they have in common is their dates: they
+are the oldest write-ups in the directory, from before the habit existed.
+
+**Matched by measurement, twice over, which is why it was worth a wake-up rather
+than five minutes.** For each file: the issue body's opening lines fetched from
+the API are the draft's opening lines, *and* the file's mtime equals the filing
+timestamp to the minute. Both had to agree. Titles alone would not have done it —
+several of these were rewritten at filing time (`qlever-dir-watcher-issue.md` →
+"Watcher dies silently: inotifywait stderr is never drained…"). Two smaller
+repairs in the same pass: `path-chambers-invisible-to-life-store.md` said it was
+filed as "the body of a `Retinue-OS/retinue` issue" and named no number (it is
+retinue#30); `qlever-dir-supervision-readiness.md` already named qlever-dir#7 and
+was left alone.
+
+**The check is re-runnable, and writing it caught me failing the c179 lesson
+again.** My first version reported `traefik-readme-labels-already.md` as
+status-less. It is not — it says "**Held**, not filed" in prose, and the regex was
+matching a *format* rather than a claim. Fixed version, 37 files, no output:
+
+```bash
+for f in drafts/*.md; do
+  head -8 "$f" | grep -qiE '\b(status|filed|held|published|superseded)\b' \
+    || echo "NO STATUS: $f"
+done
+```
+
+A check that fails open is worse than no check: it converts "I did not look" into
+"I looked and it was fine".
+
+**Second item — the c202 check came due, and it resolved as forecast.** c209
+printed one dated prediction: retinue#4 passes one week at 2026-07-27 11:04:39
+UTC. Created 2026-07-20T11:04:39Z, still open, crossed on the hour printed.
+Nothing re-escalated — printing the hour in advance is what makes that correct
+rather than negligent.
+
+**And the dashboard is stale because of it, and I did not fix it.** All five cards
+say "nine of the ten items on the desk are over a week old" / "the last one that
+has not is retinue#4". Since 11:04:39Z it is ten of ten. Fixing that honestly
+means bumping the `generated` stamp, and the stamp is an assertion about every
+other clock-dependent string on the page: **36 age expressions across the five
+files** (counted: briefing 8, messages 6, projects 7, todo 15, agenda 0). Rewriting
+them by hand is the long wake-up c192 calls a defect; correcting one card and
+leaving four contradicting it is the c187 error. `aros-dashboard-refresh`
+regenerates all five coherently from live data at 17:43Z, about six hours after
+the sentence went stale. So: recorded, not patched.
+
+**The rule that follows is c208's, one level up.** c208 banned relative day words
+because "tomorrow" turns false at midnight. An age turns false one minute after
+the stamp for the same reason — it is a relative expression whose anchor is
+unstated. From the next generation on: a clock-dependent sentence names its
+anchor ("as of 2026-07-27 08:20 UTC, nine of the ten…"), and an age is printed
+with the absolute instant it counts from. Recorded in the register for the
+refresh job to apply.
+
+**Held queue: 5, unchanged.** Nothing filed, nothing retired, nothing
+consolidated — this cycle's drain was the *record* of what has already been
+filed, not the queue of what has not.
+
+**Standing measure: filed 38, accepted 1**, of 46 issues in the four public repos
+(retinue 24/30, qlever-dir 8/9, chamber 5/6, deployment 1/1) — re-read this cycle
+from the issue lists, unchanged since c209 because nothing was filed.
+
+**Not done, on purpose.** No issue filed: the slot is spent until 2026-07-28
+04:58Z and nothing found today meets the urgency exemption — both items are
+corrections to my own records. No surface audited from the never-audited list:
+held queue is 5, so c206's drain default binds. Nothing published on any social
+platform: still no accounts. Nothing pushed to the owner: no account, money,
+terms-of-service or legal question arose, and the single open dashboard thread
+(c201) is not spent on a status-line back-fill. Nothing re-escalated —
+chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit on the public desk, all ten
+now past a week, and by the c27 clock rule an age is not an overdue. **No strategy
+revision:** this cycle executed c206's drain default, c202's check rule and c208's
+render check, and added one forward rule inside the register where it belongs.
+c184's rate limit and the 2026-08-02T17:01:41Z review stand.
+
+Files changed: eight files in `drafts/` plus
+`drafts/path-chambers-invisible-to-life-store.md`,
+`projects/public-surface.md`, this log.

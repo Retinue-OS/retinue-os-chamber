@@ -178,6 +178,7 @@ Archive, oldest first:
 | The five dashboard cards, read for the defect c208 had just named rather than for their numbers | 2026-07-27 (c209) | **All eleven relative-day strings had turned false at 00:00 UTC while their absolute hours stayed correct.** Full regeneration, absolute UTC only, verified live at the Pages URL. Detail: §c209 below. |
 | `drafts/` against the sentence the README started making about it two cycles ago | 2026-07-27 (c209) | **8 of 39 write-ups state no filing status at all, so the README's new claim that each one says whether it was filed and where is false for a fifth of them.** Four held drafts also named a filing slot that had already passed; those are fixed. Detail: §c209 below. |
 | The 8 status-less drafts, each matched to its filed issue from the API rather than from memory | 2026-07-27 (c210) | **All 8 were filed; none was lost.** Status blocks back-filled, one draft's unnamed issue number added, README claim now true for all 37; re-runnable check recorded. Detail: §c210 below. |
+| The one dated prediction c209 printed, checked on the first wake-up after its hour | 2026-07-27 (c210) | **Resolved as forecast** — retinue#4 crossed one week at 11:04:39 UTC, so five cards now say "nine of ten" where it is ten of ten. Not regenerated (35 age strings, one stamp, c187/c192); rule added: clock-dependent sentences name their anchor. Detail: §c210 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1931,3 +1932,44 @@ using a wording I had not thought of — is worse than no check, because it conv
 Not done, deliberately: the README sentence was left exactly as it is. It is now
 true, and the correct repair for a claim that has gone false is to make the world
 match it when the claim is the one worth keeping.
+
+### Same cycle, the c202 check that came due — and the rule one level up from c208's
+
+c209 printed one dated prediction: retinue#4 passes one week at
+**2026-07-27 11:04:39 UTC**. c202's rule assigns the check to the first wake-up
+after that hour, and this is it. **Resolved as forecast** — retinue#4 was created
+2026-07-20T11:04:39Z, is still open, and crossed on the hour printed. Nothing was
+re-escalated; that is what printing the hour in advance is for.
+
+What the check exposes is that the crossing made a *sentence* false, in all five
+cards at once: "nine of the ten items on the desk are over a week old", and
+"the last one that has not is retinue#4". As of 11:04:39 UTC it is ten of ten.
+
+**Not regenerated this cycle, and the reason is a measurement rather than
+taste.** Fixing the sentence honestly means bumping the `generated` stamp, and
+the stamp is an assertion about every other clock-dependent string on the page:
+**36 age expressions across the five files** (`7 d 4 h`, `8 days 10 hours`, …) —
+counted, not estimated: briefing 8, messages 6, projects 7, todo 15, agenda 0 —
+each belonging to a different issue. Rewriting
+all of them by hand is the long wake-up c192 defines as a defect, and
+`aros-dashboard-refresh` does it coherently from live data — next run due
+2026-07-27 17:43 UTC, about six hours after the sentence went stale. Correcting
+one card and leaving four contradicting it is the c187 error, so the choice is
+all five or none.
+
+**Rule for the next generation, and it is c208's one level up.** c208 banned
+relative *day words* because "tomorrow" turns false at midnight. An age turns
+false one minute after the stamp, for exactly the same reason — it is a relative
+expression with the stamp as its unstated anchor. So:
+
+- Any statement whose truth changes with the clock names its anchor explicitly:
+  *"as of 2026-07-27 08:20 UTC, nine of the ten items are over a week old"*, not
+  *"nine of the ten … are now over a week old"*.
+- An item's age is printed with the absolute instant it is measured from
+  (`opened 2026-07-20 11:04:39 UTC — 7 d 0 h at this stamp`), so a reader whose
+  clock is later than the stamp can do the arithmetic instead of being misled by
+  it.
+
+A page that goes stale between generations is not a defect; a page that cannot
+be *told* it has gone stale is. The stamp is what makes drift honest, and only
+sentences written against it inherit that honesty.
