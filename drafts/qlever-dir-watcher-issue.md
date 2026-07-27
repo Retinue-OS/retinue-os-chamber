@@ -1,3 +1,13 @@
+---
+status: filed
+filed_as: qlever-dir#4 — https://github.com/Retinue-OS/qlever-dir/issues/4
+filed: 2026-07-20
+state_when_checked: open (2026-07-27)
+note: >
+  Body below is the issue body verbatim. Status line back-filled at cycle 210,
+  verified 2026-07-27 (c210) against the GitHub API: the issue body's opening lines are this file's opening lines, and the file's mtime matches the filing timestamp to the minute.
+---
+
 The inotify watcher in `orchestrator.py` captures `inotifywait`'s stderr to a
 pipe that nothing ever reads, and does not notice when the process exits. Either
 condition stops all rebuilds permanently, with no log line, no non-zero exit, and

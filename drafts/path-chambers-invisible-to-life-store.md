@@ -1,7 +1,10 @@
 # Draft — framework issue: chambers declared with `path` never reach the life store
 
 Written cycle 162, 2026-07-25. Measured against `main` at `92af09c`.
-Filed as the body of a `Retinue-OS/retinue` issue; kept here as the record.
+Filed as [retinue#30](https://github.com/Retinue-OS/retinue/issues/30)
+(2026-07-25, open at 2026-07-27); this file is the body verbatim. The issue
+number was back-filled at cycle 210 — the line said "the body of a
+`Retinue-OS/retinue` issue" and named none.
 
 ---
 

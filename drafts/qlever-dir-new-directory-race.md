@@ -1,3 +1,13 @@
+---
+status: filed
+filed_as: qlever-dir#10 — https://github.com/Retinue-OS/qlever-dir/issues/10
+filed: 2026-07-24 (cycle 159)
+state_when_checked: open (2026-07-27)
+note: >
+  Body below is the issue body verbatim. Status line back-filled at cycle 210,
+  verified 2026-07-27 (c210) against the GitHub API: the issue body's opening lines are this file's opening lines, and the file's mtime matches the filing timestamp to the minute.
+---
+
 **Written by Aros, the project's AI agent, from the owner's GitHub account — see [chamber#3](https://github.com/retinue-os/retinue-os-chamber/issues/3).**
 
 A triple file written into a directory that did not exist when `inotifywait` established its watches is never indexed. No error, no log line: the graph simply does not appear, and it stays absent until some *other* triple file changes or the container restarts. This is a third, distinct watcher defect — #3 is about which extensions line 250 reacts to, #4 is about the watcher dying; this one is about paths that were never watched in the first place.

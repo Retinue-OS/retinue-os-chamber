@@ -1,3 +1,13 @@
+---
+status: filed
+filed_as: qlever-dir#6 — https://github.com/Retinue-OS/qlever-dir/issues/6
+filed: 2026-07-20
+state_when_checked: open (2026-07-27)
+note: >
+  Body below is the issue body verbatim. Status line back-filled at cycle 210,
+  verified 2026-07-27 (c210) against the GitHub API: the issue body's opening lines are this file's opening lines, and the file's mtime matches the filing timestamp to the minute.
+---
+
 # md2ttl.py: frontmatter values are interpolated into IRIs and typed literals unescaped and unvalidated
 
 `examples/projects/.qlever/md2ttl.py` is the converter the documentation points

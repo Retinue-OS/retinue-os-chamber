@@ -1,3 +1,13 @@
+---
+status: filed
+filed_as: qlever-dir#5 — https://github.com/Retinue-OS/qlever-dir/issues/5
+filed: 2026-07-20
+state_when_checked: open (2026-07-27)
+note: >
+  Body below is the issue body verbatim. Status line back-filled at cycle 210,
+  verified 2026-07-27 (c210) against the GitHub API: the issue body's opening lines are this file's opening lines, and the file's mtime matches the filing timestamp to the minute.
+---
+
 # build_index.sh: the graph IRI is built with `sed`, so some filenames corrupt provenance and others break the whole build
 
 `build_index.sh` turns each file's triples into quads by appending a graph IRI

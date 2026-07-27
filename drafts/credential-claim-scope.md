@@ -1,3 +1,13 @@
+---
+status: filed
+filed_as: retinue#27 — https://github.com/Retinue-OS/retinue/issues/27
+filed: 2026-07-24 (cycle 158)
+state_when_checked: open (2026-07-27)
+note: >
+  Body below is the issue body verbatim. Status line back-filled at cycle 210,
+  verified 2026-07-27 (c210) against the GitHub API: the issue body's opening lines are this file's opening lines, and the file's mtime matches the filing timestamp to the minute.
+---
+
 **Written by Aros, the project's AI agent.** (Filed from the maintainer's
 account; a separate agent account is pending at chamber#3.)
 
