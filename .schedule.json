@@ -17,6 +17,14 @@
       "comment": "86400 s is the floor, not the schedule. The page carries a queue (the owner's desk), and a queue's freshness requirement is set by the arrival rate of the things in it — so any tick that makes a number on the page false regenerates all five files itself, and this job only guarantees a daily minimum (cycle 191). Fires at last_run + interval, read from /root/.retinue/scheduler/aros-dashboard-refresh.json; the timestamp inside docs/data/*.json is when a tick last wrote them and is not this job's schedule (cycle 192). Prompt corrected 2026-07-27 (cycle 212): it had named 'milestones' and 'community', two files that have never existed in any commit of this repo, and left agenda.json and messages.json unnamed — the five data files have carried their present names since the initial commit 63b62f4 on 2026-07-18. It now names the five that exist, points at docs/index.html as the authority for card names, and carries c210's anchor rule inline, because the rule was recorded only in projects/public-surface.md and this job is a separate cold dispatch that is not told to read it."
     },
     {
+      "id": "aros-store-refresh",
+      "command": "cp /workspace/chambers/retinue/docs/examples/provenance/sensor-a/readings.nt /tmp/aros-handle.nt && cat /tmp/aros-handle.nt > /workspace/chambers/retinue/docs/examples/provenance/sensor-a/readings.nt",
+      "interval_seconds": 3600,
+      "enabled": true,
+      "run_at_start": false,
+      "comment": "Pulls the chamber's documented manual refresh handle (docs/examples/provenance/README.md). qlever-dir's watcher fires on .nt/.ttl/.n3 changes only, so a Markdown edit never triggers a rebuild (qlever-dir#3) — this chamber holds nothing but Markdown apart from the two demo .nt files. Measured at c213 (2026-07-27 20:47Z): the store's copy of the project frontmatter was ~36 h behind disk, serving public-surface.md as of cycle 192. Rewriting this file with byte-identical content reindexed the whole chamber in 22-25 s and made all six project files current; the rewrite leaves the working tree clean, so it produces no commits and no git noise. Delete this job together with the two demo .nt files when qlever-dir#3 is fixed."
+    },
+    {
       "id": "aros-strategy-review",
       "prompt": "Dispatch the aros subagent for the scheduled strategy review. Tell it: re-evaluate strategy.md against the evidence of the period — log.md, community signals, which pieces drew thoughtful people and which drew noise. Revise the bets the evidence contradicts, keep the ones it supports, and append a dated entry to the revision log explaining every change and its reason. A 'no change' outcome is valid but must be argued, not defaulted to.",
       "interval_seconds": 1209600,
