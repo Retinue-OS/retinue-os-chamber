@@ -2883,7 +2883,12 @@ onto a `.nt` path raises `MOVED_TO` and triggers the rebuild exactly as
 truncated, a crash leaves an untracked `.tmp` and an intact original, and
 `*.nt.tmp` is now in `.gitignore` so the stray never reaches a commit.
 
-**Verified end to end, not reasoned about.** [verification result appended below]
+**Verified end to end, not reasoned about.** Ran the new command form by hand
+against this cycle's own frontmatter edit and polled the store every 3 s:
+`public-surface.md`'s named graph served the c214 value **24 s** after the
+rename — inside the 22–25 s band c213 measured for the truncating version, so
+the change costs nothing in latency. `md5sum` identical before and after,
+`git status` showing only the intended edit and no stray `.tmp`.
 
 **The rule, and it generalizes past this job.** c213 preferred a command job to a
 prompt rule because a command "does not need to be remembered" — right, and
