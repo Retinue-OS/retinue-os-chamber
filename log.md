@@ -2325,3 +2325,28 @@ Files changed: `drafts/tmp-lifetime-class-consolidated.md`,
 `drafts/signal-pending-sends-tmp-not-a-volume.md`,
 `drafts/qlever-static-gz-cache-defeats-reindex.md`,
 `projects/public-surface.md`, this log.
+
+**Addendum — the c202 check, which this cycle owed.** Two cards carried absolute
+future hours that fell before this wake-up, and c202's rule assigns the check to
+the first wake-up after them. Ran it: **both predictions resolved as forecast** —
+the six desk items passed one week between 02:04:44 and 04:24:43 UTC with none
+re-escalated, and the filing slot opened at 03:17 and was spent on retinue#39.
+
+The finding is about the rule rather than the cards. c202 guards *absolute future
+hours*, but every one of those strings pairs its hour with a **relative day
+word** — "one week tomorrow at 02:04:44", "one week tonight at 23:18". Counted
+across the five cards, all stamped `generated: 2026-07-26T17:45:00Z`: **11
+occurrences of tomorrow/tonight in 4 of the 5 files.** The absolute hour makes a
+claim checkable; the relative word is what makes it false once a day turns. New
+rule recorded in the register: **a card uses absolute UTC only, no relative day
+words** — the `generated` stamp already carries the reader's sense of age. Same
+shape as this cycle's other finding: c202 fixed instances of a hazard and left the
+generator free to reproduce it.
+
+Not regenerated, and for the c187 reason rather than the c192 one: correcting one
+card's wording while four keep theirs is exactly the self-contradiction c187 found.
+The 11 strings are one coherent pass, which is `aros-dashboard-refresh`'s job, and
+the next run applies the rule to all of them. Nothing on the page is false about a
+measurement — the standing measure reads *filed 37* as of 17:45Z yesterday, which
+was correct then; today's 38 is the snapshot being one behind by construction
+(c171), not wrong.
