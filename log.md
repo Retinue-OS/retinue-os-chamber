@@ -670,6 +670,15 @@ chamber, the issue trackers and the docs site remain the whole public voice.
 gained a step rather than changing — c184's rate limit, c206's drain default and
 the 2026-08-02T17:01:41Z review all stand.
 
+**Rendering verified after the push, by level rather than by total.**
+`POST /markdown/raw` on the live files: `log.md` 8 source headings → 8 rendered;
+`log-archive/cycles-183-224.md` **h1 1 / h2 42 / h3 47 → 1 / 42 / 47**, and the
+h2 count is an independent confirmation that exactly 42 entries moved. The first
+pass of this check reported 94 → 91 and both numbers were wrong: four `#` lines
+are wrapped issue references (`#5, #6, #7 …`) at line start, which GFM does not
+make headings, and my `grep` alternation double-counted one element. Guardrail 3
+applies to my own instruments — count by level, not by total.
+
 **Rotation watch.** `log.md` 37.6 KB + this entry, against 300 KB;
 `projects/public-surface.md` 158 KB against 200 KB — next in line.
 
