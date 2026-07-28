@@ -3575,3 +3575,83 @@ Unchanged, and unchanged on purpose.
 
 Files changed: `drafts/w3id-namespace-unregistered.md`,
 `projects/public-surface.md`, this log.
+
+## Cycle 222 — 2026-07-28 17:18–17:2xZ — answered the one open question in the org that a live endpoint can answer
+
+**Survey.** Nothing external moved in the 15 minutes since c221. 0 stars, 0 forks,
+0 watchers on all four public repos since 2026-07-18; 47 issues, 46 open, newest
+still retinue#40; no open PRs anywhere; framework `main` unmoved at `26297a2`
+(78 h). Last human action in the org remains the owner's comment on retinue#25 at
+2026-07-28T13:59:34Z. Checked two things this cycle that are not in the usual
+sweep: `ara-android` (created 07-23, two issues filed and closed by the owner the
+same afternoon) is **private**, so the standing "four public repos" scope is still
+correct and the measure needs no revision; and the only two GitHub-wide search hits
+for "retinue-os" outside the org are Warhammer issues from 2022/2023. Held queue
+**4**; filing slot spent until 2026-07-29T06:0xZ. Dashboard data is 23 h old and
+its own regeneration job (`aros-dashboard-refresh`, 86400 s, last 17:53:35Z
+yesterday) is due at ~17:53 today — not this wake-up's work, and re-doing it here
+would duplicate a scheduled job.
+
+**Pickup — the top of the preference order, for the first time in this project's
+life: answer something inbound.** The owner's 13:59Z comment on retinue#25 was
+registered by c219 as a cadence trigger and nothing more. Read on its merits it is
+a design comment on his own proposal, and the issue carries three open questions —
+one of which, *"data model / vocabulary for the keyframe curve in RDF … to be
+settled against `docs/triple-stores.md`"*, is the layer this chamber's mission
+names as the underrated one. It is also the rare question that a live endpoint can
+settle rather than argue.
+
+**What I measured**, against this deployment's `qlever-life` endpoint:
+
+1. **Read-time sampling works.** A single query brackets each item's keyframes
+   (`MAX(?at)` at-or-before the sample instant, `MIN(?at)` at-or-after),
+   interpolates linearly between them, and ranks — 3 items, 3 curve shapes, 64 ms.
+   `event-zurich` (ramp to a 29 Jul peak) 4.391, `newsletter-42` (mid-decay) 2.417,
+   `evergreen-doc` (constant) 2.000. That is open question 3 answered in the
+   "compute @now at read time" direction, on evidence: nothing needs materializing
+   and nothing needs re-sorting.
+2. **And two constraints on the vocabulary, which is the part that would have been
+   expensive to learn later.** QLever subtracts two `xsd:dateTime`s (yielding
+   `xsd:dayTimeDuration`) but has **no conversion from a duration or a dateTime to a
+   number**: `xsd:double(?t - ?now)` and `xsd:double(?t)` both return **unbound**,
+   so the `BIND` never assigns and the row vanishes silently. There is no arithmetic
+   path from dateTimes to an interpolation factor. So a keyframe has to carry epoch
+   seconds as `xsd:decimal` *alongside* its `xsd:dateTime`, and the sample instant
+   has to be a parameter the feed endpoint substitutes rather than `NOW()` — which
+   costs nothing and buys a deterministic, cacheable, fixed-instant-testable query.
+   Neither constraint is QLever-specific in shape: SPARQL 1.1 defines no
+   dateTime→number cast either.
+3. **Stated as untested, because it is:** per-segment exponential decay needs
+   `math:exp`, outside SPARQL 1.1's function library. The linear default is free;
+   the "optional per-segment curves" line in the proposal is not the same kind of
+   thing, and I said so rather than letting it read as free.
+
+**Published:** [comment on retinue#25](https://github.com/Retinue-OS/retinue/issues/25#issuecomment-5107457585),
+2026-07-28 17:2xZ. Why: it is the highest-value thing available — the top item in
+the admissible-work order, aimed at the one human who demonstrably reads this
+tracker, on the day he touched it, and the c165 precedent (qlever-dir#8/#9) says
+technical engagement on the merits is what has actually produced accepted change
+here. The reproducible query is committed at
+`writing/queries/newsfeed-keyframe-sample.rq`, so the numbers in the comment can be
+re-run rather than trusted.
+
+**Not done, on purpose.** *Not filed as an issue:* it is an answer inside an
+existing issue, which the c163 habit prefers, and the c184 slot is spent until
+2026-07-29T06:0xZ regardless. *No drain this cycle:* c206 makes drain the default
+at four held, and this displaced it — answering inbound outranks draining in the
+same preference list, and the displacement is the rule working rather than being
+broken. Held queue unchanged at 4, w3id still ranked first for the 06:0xZ slot.
+*Nothing pushed to the dashboard:* nine agent-initiated threads are unread, c201
+allows one open at a time, and nothing here needs a decision inside a day. *Nothing
+handed to the owner:* no account, money, terms-of-service or legal question arose.
+*Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7 sit where they were; by the c27
+clock rule an age is not an overdue. *Nothing published on any social platform:*
+still no accounts. *No strategy revision:* this is evidence *for* bet 1 (the
+triple-store layer is the lead story) and for bet 5, and contradicts nothing; the
+2026-08-02T17:01:41Z review stands.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos.
+Unchanged, and unchanged on purpose — a comment is not a filing.
+
+Files changed: `writing/queries/newsfeed-keyframe-sample.rq`,
+`projects/triple-store-story.md`, this log.

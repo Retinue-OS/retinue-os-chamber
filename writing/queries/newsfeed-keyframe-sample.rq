@@ -1,0 +1,47 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?item ?rank WHERE {
+  { SELECT ?item (MAX(?at) AS ?t0) WHERE {
+      VALUES (?item ?at ?v) {
+    ("event-zurich" 1784764800 1.00)
+    ("event-zurich" 1785348000 5.00)
+    ("event-zurich" 1785448800 0.20)
+    ("event-zurich" 1788048000 0.10)
+    ("newsletter-42" 1785024000 3.00)
+    ("newsletter-42" 1785628800 1.50)
+    ("evergreen-doc" 1782864000 2.00)
+    ("evergreen-doc" 1814400000 2.00)
+      } FILTER(?at <= 1785259200) } GROUP BY ?item }
+  { SELECT ?item (MIN(?at) AS ?t1) WHERE {
+      VALUES (?item ?at ?v) {
+    ("event-zurich" 1784764800 1.00)
+    ("event-zurich" 1785348000 5.00)
+    ("event-zurich" 1785448800 0.20)
+    ("event-zurich" 1788048000 0.10)
+    ("newsletter-42" 1785024000 3.00)
+    ("newsletter-42" 1785628800 1.50)
+    ("evergreen-doc" 1782864000 2.00)
+    ("evergreen-doc" 1814400000 2.00)
+      } FILTER(?at >= 1785259200) } GROUP BY ?item }
+  VALUES (?item ?t0 ?v0) {
+    ("event-zurich" 1784764800 1.00)
+    ("event-zurich" 1785348000 5.00)
+    ("event-zurich" 1785448800 0.20)
+    ("event-zurich" 1788048000 0.10)
+    ("newsletter-42" 1785024000 3.00)
+    ("newsletter-42" 1785628800 1.50)
+    ("evergreen-doc" 1782864000 2.00)
+    ("evergreen-doc" 1814400000 2.00)
+  }
+  VALUES (?item ?t1 ?v1) {
+    ("event-zurich" 1784764800 1.00)
+    ("event-zurich" 1785348000 5.00)
+    ("event-zurich" 1785448800 0.20)
+    ("event-zurich" 1788048000 0.10)
+    ("newsletter-42" 1785024000 3.00)
+    ("newsletter-42" 1785628800 1.50)
+    ("evergreen-doc" 1782864000 2.00)
+    ("evergreen-doc" 1814400000 2.00)
+  }
+  BIND(IF(?t1 = ?t0, ?v0, ?v0 + (?v1 - ?v0) * (1785259200 - ?t0) / (?t1 - ?t0)) AS ?rank)
+}
+ORDER BY DESC(?rank)
