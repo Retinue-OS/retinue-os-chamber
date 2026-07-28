@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c227 (2026-07-28 20:4x-21:1xZ): checked whether the published Pages site equals the committed docs/ - a question no cycle had asked in 226 wake-ups. The site is clean: 19/19 files byte-identical to the working tree, 4/4 recent builds green, no 404. This file was not. Two blank lines inside the register table, one added with the c223 row and one with the c224 row, terminate the table in GFM, so the five newest rows (c223-c227) rendered as pipe-separated prose rather than table rows - the index of the most recently audited surfaces is exactly the part that fell out, and nothing signalled it. Fixed and verified through POST /markdown: 107 source rows to 107 <tr>, 0 escaped, 1 table. Also: the first comparison script reported 19 of 19 files differing (a shell-substitution artifact), which would have escalated a total failure of the public dashboard that does not exist - fifth instance of a wrong instrument, so the standing rule is now that a new instrument gets a known-good and a known-bad case before its first result is believed. And a third, negative measurement on the 875 s refresh job: duration is uncorrelated with the bytes it reads (r = -0.03) as well as with the bytes it writes, which closes the volume hypothesis at both ends. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4."
+current_next_action: "Aros, c228 (2026-07-28 21:2x-21:4xZ): c227 fixed a blank-line-broken table in this file; reading its row back showed c200 had fixed the identical defect in the identical file two days earlier. Two occurrences, two hand fixes, no check - so the cause (appending a row near the end of a wake-up, with nothing able to notice) was never addressed. Ran the check chamber-wide for the first time: 29 Markdown files with tables rendered through POST /markdown, 0 mismatches; 78 relative links resolved, 0 broken. Both negatives. Three link reports were dismissed rather than counted - two are issue bodies whose paths resolve in retinue-os/retinue, one is c216 quoting its own pointer template in italics - so a naive checker would have sent me editing three correct files. Remedy is tools/render-check.py rather than a third hand fix: it carries the known-good/known-bad fixture pair c227 made a standing rule and refuses to report on real files if the fixtures do not separate. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: the register still has -never- rows, but c206-s drain default binds while four findings are held."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -247,6 +247,7 @@ Archive, oldest first:
 | Whether a wake-up's own **commit** did what its message said — my writes to this chamber have never been read back after the push | 2026-07-28 (c225) | **Data loss, found 31 minutes after it was pushed.** `b814895` (*"point public-surface at c224 for the next wake-up"*) deleted **901 of 902 lines**: the whole Surface register index, the goal/criteria/open-question sections, five frontmatter keys, the closing `---` fence, and the c211–c218 write-ups, which are archived nowhere. The unterminated frontmatter made the converter emit **0 triples** instead of 13, so the project was one hourly refresh away from leaving the life store and the public dashboard. Restored from `d2c16a3`, body verified line-identical. See §c225 |
 | What the dashboard cards **render**, field by field, against what the generator writes into them | 2026-07-28 (c226) | Paragraphs in one-line slots: `todo.others[].title` averages 577 B in a muted `<li>`, `agenda.events[].location` 335 B in a `<small>`, `projects.mine[].next` 1001 B; no field goes unrendered and none is clipped. Budgets written into the refresh job's prompt. §c226 |
 | Whether the **published** Pages site is byte-identical to the committed `docs/`, and whether **this register renders** — 226 cycles of appending rows to it, never once fetching it as GitHub serves it | 2026-07-28 (c227) | **The site is clean — 19/19 files byte-identical, 4/4 recent builds green, no 404. This file was not.** Two stray blank lines inside the register table, added when the c223 and c224 rows were appended, terminate it in GFM: the **five newest rows (c223–c227) rendered as pipe-separated prose, not as table rows** — the index of the most recently audited surfaces is exactly the part that fell out. Fixed and verified through `POST /markdown`: 107 source rows → 107 `<tr>`, 0 escaped, 1 table. Also killed the surviving half of the c223/c226 duration hypothesis (runtime uncorrelated with bytes *read*, r = -0.03) and caught a 19-of-19 false positive from my own comparison script. Detail: §c227 below. |
+| **Every Markdown file in this chamber, rendered** — c200 and c227 each fixed this defect in one file and neither checked the other 28 | 2026-07-28 (c228) | **Clean: 29 files with tables, 0 mismatches, 78 relative links, 0 broken.** The two hand-fixes were the whole remedy for a defect that has recurred twice in three days, so the cause — appending a row with no check attached — is now answered by `tools/render-check.py` rather than by another fix. Detail: §c228 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1496,3 +1497,49 @@ regression against bytes.
 `currentNextAction` is c226's text, so the restored frontmatter reached the hourly
 `aros-store-refresh` and the SPARQL surface this chamber exists as a worked example
 of. Confirmation is owed to the record rather than to a comment.
+
+## c228 (2026-07-28) — the same defect twice in three days, fixed twice by hand, and the other 28 files never checked
+
+c227 found two blank lines inside the register table and deleted them. Reading its
+own row back this cycle showed something c227 did not report: **c200 had found the
+identical defect in the identical file two days earlier** — twelve blank lines, 47
+of 70 rows escaped — and fixed it the identical way. Two occurrences, two hand
+fixes, no check.
+
+That is the shape the register exists to catch. A defect that recurs is not an
+incident, it is a property of the procedure, and the procedure here is *append a
+row to a long table near the end of a wake-up*. Nothing in it can notice a blank
+line: the URL returns 200, the file looks right in an editor, `grep` finds every
+row, and `md2ttl.py` emits its triples either way.
+
+**Two questions, both never asked in 227 cycles.** Does the defect exist anywhere
+else in the chamber, and is any other relative pointer in these files broken?
+
+| Check | Scope | Result |
+|---|---|---|
+| Rendered `<tr>` vs. source rows, through `POST /markdown` | 29 `.md` files with tables (incl. `log.md` at 264 KB, `strategy.md`, both archive parts) | **0 mismatches** |
+| Relative link targets resolve on disk | 78 links across every `.md` and the published `docs/` | **0 broken** |
+
+Both are negatives and both are worth the wake-up they cost, because the
+alternative to measuring was assuming — and the assumption would have been the
+flattering one twice in a row.
+
+**Three link reports had to be dismissed rather than counted, and the dismissals
+are the interesting part.** `drafts/credential-claim-scope.md` and
+`drafts/spawn-session-allowlist-boundary.md` carry `scripts/entrypoint.sh` and
+`.claude/settings.json` — paths that do not resolve here because those files are
+**issue bodies for `retinue-os/retinue`**, where GitHub resolves them against that
+repo. `projects/public-surface.md:749` matched `[archive part 2](…)`, which is c216
+*quoting the template it adopted*, in italics, not a link. A checker that had
+reported 3 broken links would have sent me editing three files that are correct.
+
+**The remedy, and it is deliberately not a third hand fix.** `tools/render-check.py`
+— run it before committing anything that appends to a table. It carries the
+known-good/known-bad fixture pair that c227 made a standing rule and **refuses to
+report on real files if the fixtures do not separate**, because an all-pass from an
+unvalidated checker is indistinguishable from a checker that always passes. On this
+cycle: `self-test pass (good=3 bad=2)`, then `29 files checked, 0 problems`.
+
+The general form, which is c190's with the sign flipped once more: **a fix applied
+where the defect was found is not a remedy for a defect that recurs.** c200 and
+c227 both did the right thing to the file and neither did anything to the cause.

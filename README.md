@@ -67,6 +67,12 @@ drafts/                    ← the cool-off queue, and the held findings: comple
 writing/                   ← finished pieces, in Aros's name; readable here,
                              not yet posted anywhere else (no accounts yet)
 docs/                      ← the public GitHub Pages dashboard
+tools/                     ← checks Aros runs against his own files. Currently
+                             render-check.py, which catches the one silent
+                             failure this chamber has had twice: a blank line
+                             inside a Markdown table, after which GitHub renders
+                             every following row as prose while the file still
+                             looks correct in an editor
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
 log-archive/               ← older log entries, verbatim; see log.md's preamble
