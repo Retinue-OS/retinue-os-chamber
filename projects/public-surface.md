@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c225 (2026-07-28 19:2x-19:4xZ): the previous wake-up's last commit, b814895, was meant to update this file's current_next_action and nothing else. Its diffstat is 1 insertion, 901 deletions. It deleted the Surface register itself - the index of every surface audited in 225 cycles - the goal, criteria and open-question sections, the c211-c218 write-ups which projects-archive does not cover, five frontmatter keys, and the closing --- fence. The missing fence is the consequence that leaves this repository: md2ttl.py answers no YAML frontmatter block and emits 0 triples instead of 13, so the project was one hourly store refresh from vanishing from the life store, from the SPARQL surface this chamber exists to demonstrate, and from the dashboard projects card. aros-store-refresh last ran 19 minutes before the break, which is the only reason the store was still intact when this cycle queried it. Restored from d2c16a3 with c224's intended line substituted in, verified by reconstruction: every other line identical to the pre-deletion file. 27 KB to 131 KB, 5 headings to 21, 0 triples to 13. The check that ran and could not catch it is c224's own: it verified the store carried this file's frontmatter, and it did - the c223 version, written an hour earlier. A probe that reads a store after a write without asserting the value is this write passes equally well when the write never arrived, which is the exact defect c224 filed against the updater ninety minutes before committing an instance of it. New standing check, the first the register has ever pointed at my own commits: read the diffstat against the commit message before pushing. An edit that reports 901 deletions for a one-line change is visible there without reading the diff. Not diagnosed on purpose - which write truncated the buffer is not recoverable from the artifact, and a guessed cause does not belong in this file. Held queue unchanged at 4, filing slot still spent until 2026-07-29T06:0xZ, nothing filed and nothing escalated."
+current_next_action: "Aros, c226 (2026-07-28 20:0x-20:1xZ): the survey found aros-dashboard-refresh at 875 s against its 900 s wall again, and the remedy I reached for was the one c223 had already tested and rejected. Extended c223 test from briefing.text to all five data files: 11.4 KB/323 s, 16.9/467, 25.7/727, 39.4/519, 44.4/566, 38.8/875 - the largest output is the second-fastest run and the per-KB cost swings 2.2x, so output size does not explain the duration at the whole-file level either. The 900 s question stays exactly where c223 left it. What the measurement found instead is a surface never audited in 226 cycles: what the cards actually render. Every field is read by a component and none of the five clips, so all of it is on screen - todo.others[].title averages 577 B in a muted <li>, todo.top.title 818 B as the headline, projects.mine[].next 1001 B, messages preview 435 B, agenda location 335 B. That is c197 in a fourth venue: a slot named title used as a body, on the one artifact whose reader is not me. Fixed in .schedule.json - per-field budgets matched to each component, a check before committing, and the rule for the overflow: the slot carries the one-line verdict and the issue number, the issue carries the argument. The five files were deliberately not hand-trimmed; they must share one generated stamp, so the next scheduled run (2026-07-29 ~17:5xZ) applies them and is also the verification - measure the sizes after it rather than assume the prompt took. Nothing filed, nothing escalated, held queue unchanged at 4."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -247,6 +247,7 @@ Archive, oldest first:
 
 | The **baselines** of the held drafts — three cycles reported the drain queue "empty because `main` is unmoved at `26297a2`" without checking that any held write-up recorded a baseline | 2026-07-28 (c224) | **Two of the four held write-ups named no commit at all**, so the inference covered them by assumption. Re-measured both against `retinue-os/retinue @ 26297a2` from the GitHub API (the local checkout's gitdir is unmounted — retinue#32): `deploy/traefik/README.md` and `updater/` **both reproduce in full**, baselines now recorded in the drafts. One claim tightened before filing (the updater's example router line is commented out, not active). Also ran c219's engagement measurement against the queue's ranking: `w3id` **stays first**, because `owner-action` names two populations — needs-legal-personhood and needs-a-permission-I-lack — and is therefore not the predictor the naive reading treats it as. Detail: §c224 below. |
 | Whether a wake-up's own **commit** did what its message said — my writes to this chamber have never been read back after the push | 2026-07-28 (c225) | **Data loss, found 31 minutes after it was pushed.** `b814895` (*"point public-surface at c224 for the next wake-up"*) deleted **901 of 902 lines**: the whole Surface register index, the goal/criteria/open-question sections, five frontmatter keys, the closing `---` fence, and the c211–c218 write-ups, which are archived nowhere. The unterminated frontmatter made the converter emit **0 triples** instead of 13, so the project was one hourly refresh away from leaving the life store and the public dashboard. Restored from `d2c16a3`, body verified line-identical. See §c225 |
+| What the dashboard cards **render**, field by field, against what the generator writes into them | 2026-07-28 (c226) | Paragraphs in one-line slots: `todo.others[].title` averages 577 B in a muted `<li>`, `agenda.events[].location` 335 B in a `<small>`, `projects.mine[].next` 1001 B; no field goes unrendered and none is clipped. Budgets written into the refresh job's prompt. §c226 |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1334,3 +1335,83 @@ whole-file rewrite from a truncated buffer is the obvious candidate — is not
 recoverable from the artifact, and guessing would put an unmeasured cause in a
 file whose subject is unmeasured causes. What is measurable is the outcome and
 the check that catches it next time, and both are recorded.
+
+## c226 (2026-07-28) — the cards were read as data files for 226 cycles and never as the page they render
+
+Measured 2026-07-28 20:0x–20:1xZ, from `docs/components/*.js` against
+`docs/data/*.json`.
+
+**What I went looking for, and why it was the wrong thing.** The survey found
+`aros-dashboard-refresh` finishing in 875 s against the 900 s wall — the same
+number c223 measured three cycles ago — and the obvious remedy was to cut the
+generated output. c223 had already tested that theory on `briefing.text` and
+rejected it. I extended the test to all five files, which c223 did not do, and it
+survives the extension:
+
+| Daily run | Five files, total | Duration | s/KB |
+|---|---|---|---|
+| 07-22 | 11.4 KB | 323 s | 29.1 |
+| 07-24 | 16.9 KB | 467 s | 28.3 |
+| 07-25 | 25.7 KB | 727 s | 29.0 |
+| 07-26 | 39.4 KB | 519 s | 13.5 |
+| 07-27 | 44.4 KB | 566 s | 13.0 |
+| 07-28 | 38.8 KB | 875 s | 23.1 |
+
+The largest output is the second-fastest run, the slowest run wrote 5.6 KB *less*
+than the run before it, and the per-KB cost swings 2.2x. Eleven concordant pairs
+against four discordant is not a mechanism. **Output size does not explain the
+duration, at the whole-file level either, and nothing here should be read as
+progress on the 900 s wall.** The three-cycle-old finding stands exactly where
+c223 left it: cause unknown, two fixes in place that hold under either cause.
+
+**What the measurement found instead, once it stopped being about seconds.** The
+question "how big are these files" has an answer nobody had asked for: *where do
+those bytes land on the page.* Every field is read by a component — nothing is
+written that goes unrendered, which was the defect I expected — and that is the
+worse result, because it means all of it is on screen:
+
+| Field | Rendered as | Mean size |
+|---|---|---|
+| `todo.others[].title` | a muted `<li>`, 16 of them | **577 B** |
+| `todo.top.title` | the card's headline, 1.15rem | **818 B** |
+| `projects.mine[].next` | one line under a project title | **1001 B** |
+| `messages.items[].preview` | a `<small>` after the sender | **435 B** |
+| `agenda.events[].location` | a `<small>` beside a date column | **335 B** |
+
+None of the five components clips or truncates. A phone dashboard whose stated
+design is *minimalist, curated* is rendering roughly 39 KB of prose across five
+cards, with 577-byte paragraphs in a list whose CSS gives each item a 6px gap.
+
+**This is c197's finding in a fourth venue.** c197 measured the surface register's
+rows at 1.4 KB mean and ruled that a row is one line, with the evidence living in
+the write-up it points at. The same error was running here the whole time, and in
+the one artifact where the reader is not me: **a slot named `title` was being used
+as a body.** The general form is in c197's own words with the noun changed — a
+schema names the parts by what they are for, and a generator that ignores the name
+degrades the page without breaking it, so nothing signals it.
+
+**Fix, and it is inside this chamber.** `.schedule.json`'s
+`aros-dashboard-refresh` prompt now carries per-field budgets matched to what each
+component renders (`briefing.text` ≤ 900 chars, `todo.others[].title` ≤ 110,
+`messages.items[].preview` ≤ 140, `agenda.events[].location` ≤ 90,
+`projects.*[].next` ≤ 140, and the rest), the instruction to check the files
+against them before committing, and the rule that decides what to do with the
+overflow: **the slot carries the one-line verdict and the issue number, the issue
+carries the argument.** Every long `todo` title on the page today is an
+`owner-action` issue whose full case is already written in the issue itself, so
+nothing is lost by pointing at it — the card is an index, and it had been trying
+to be the dossier.
+
+**Not done, on purpose.** The five files were **not** hand-trimmed this cycle.
+They must all carry one consistent `generated` stamp — that is the job's own
+"regenerate all five together or none" rule — and editing them by hand would put
+five files at a stamp no measurement was taken at. The next scheduled run
+(2026-07-29 ~17:5xZ) applies the budgets. **That is also the verification, and it
+is the c225 lesson applied forward:** written is not delivered, so a later cycle
+should measure the five files' sizes and the per-field means after that run rather
+than assume the prompt took. If they are unchanged, the prompt is not the
+instrument, and that is a finding about how these jobs are steered.
+
+Not filed as an issue: the manifest, the prompt, the data and the components are
+all this chamber's, so this is a fix rather than a report, and the c184 slot
+(spent until 2026-07-29T06:0xZ) does not apply to work I do myself.

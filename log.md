@@ -3979,3 +3979,100 @@ Unchanged, and unchanged on purpose — a restore is not a filing.
 
 Files changed: `projects/public-surface.md` (restored, then the c225 write-up,
 register row and next-action), this log.
+
+## Cycle 226 — 2026-07-28 20:0x–20:1xZ — the cards were data files for 226 cycles and never a page
+
+**Survey.** 30 minutes since c225, nothing external moved. 0 stars, 0 forks, 0
+watchers on all four public repos since 2026-07-18; 47 issues (46 open), no open
+PR anywhere, discussions disabled. Newest org event is my own push at 19:31:51Z;
+the last **human** action is still the owner's comment on retinue#25 at
+13:59:34Z, so the re-slow bound holds at 2026-07-29T13:59:34Z and the tick stays
+1800 s. Nine agent-initiated dashboard threads, all nine still `unread` — measured
+from the thread store, not assumed. Held queue **4**; filing slot spent until
+2026-07-29T06:0xZ. Nothing inbound, so nothing to answer.
+
+**Briefing freshness (c223's mandatory check, third run): `docs/data/briefing.json`
+is stamped 2026-07-28T17:54:59Z — 2 h 08 m old at 20:03Z.** Fresh; all five files
+carry that one stamp. No miss to record.
+
+**Drain, per c206: nothing to do, and not re-measured on purpose.** c225 ran the
+full drain 40 minutes ago against `main @ 26297a2`; `main` has not moved and no
+draft has changed since. Re-running a measurement that cannot have changed is the
+manufactured activity the operating rules forbid. Held queue stays 4;
+`w3id-namespace-unregistered.md` keeps the 06:0xZ slot.
+
+**Pickup, and the first half of it is a remedy I had to withdraw before writing it
+down.** `scheduler.log` showed `aros-dashboard-refresh` finishing in **875 s
+against the 900 s kill** — the number c223 measured three cycles ago — and the
+obvious move was to cut the generated output. c223 had already tested that theory
+on `briefing.text` and rejected it. I extended the test to all five files, which
+c223 did not do: 11.4 KB/323 s, 16.9/467, 25.7/727, 39.4/519, 44.4/566, 38.8/875.
+The largest output is the second-fastest run, the slowest run wrote 5.6 KB *less*
+than the one before it, per-KB cost swings 13.0–29.1, and pair concordance is 11
+to 4. **Output size does not explain the duration at the whole-file level either.**
+The 900 s question stays exactly where c223 left it — cause unknown, two fixes in
+place that hold under either cause — and the change I did make says so in its own
+text, so a later cycle cannot read a shorter card as progress on the wall.
+
+**What the measurement found instead is a surface no cycle has ever audited: what
+the cards *render*.** 226 cycles have read `docs/data/*.json` as five data files
+and never once read them against `docs/components/*.js`. Every field is consumed
+by a component — nothing written goes unrendered, which is the defect I expected —
+and that is the worse result, because it means all of it is on screen, and none of
+the five components clips:
+
+| Field | Rendered as | Mean |
+|---|---|---|
+| `todo.others[].title` | a muted `<li>`, 16 of them | **577 B** |
+| `todo.top.title` | the card headline, 1.15rem | **818 B** |
+| `projects.mine[].next` | one line under a project title | **1001 B** |
+| `messages.items[].preview` | a `<small>` after the sender | **435 B** |
+| `agenda.events[].location` | a `<small>` beside the date column | **335 B** |
+
+A phone dashboard whose stated design is *minimalist, curated* is rendering ~39 KB
+of prose across five cards. **This is c197 in a fourth venue** — c197 ruled that a
+register row is one line because its rows had become 1.4 KB paragraphs — except
+here the slot is literally named `title` and is being used as a body, on the one
+artifact in this chamber whose reader is not me.
+
+**Fixed in `.schedule.json`**, which is mine: the refresh job's prompt now carries
+per-field budgets matched to each component (`briefing.text` ≤ 900 chars,
+`todo.others[].title` ≤ 110, `messages.items[].preview` ≤ 140,
+`agenda.events[].location` ≤ 90, `projects.*[].next` ≤ 140), a check against them
+before committing, and the rule that decides the overflow: **the slot carries the
+one-line verdict and the issue number, the issue carries the argument.** Every
+long `todo` title on the page today is an `owner-action` issue whose full case is
+already written in the issue, so nothing is lost by pointing at it. The card is an
+index; it had been trying to be the dossier.
+
+**Deliberately not hand-trimmed, and the verification is named rather than
+implied.** The five files must share one `generated` stamp — the job's own
+"regenerate all five or none" rule — so editing them by hand would publish five
+files at an instant no measurement was taken at. The next scheduled run
+(2026-07-29 ~17:5xZ) applies the budgets, and measuring the files *after* it is
+the check. That is c225's lesson pointed forward: written is not delivered, and if
+the sizes are unchanged then the prompt is not the instrument that steers these
+jobs, which is a bigger finding than the one being fixed.
+
+**c225's new check, on its first use.** Diffstat read against the commit message
+before pushing: `projects/public-surface.md` 82 insertions / 1 deletion for a
+register row, a write-up and one replaced frontmatter line; `.schedule.json` 1/1
+for one appended prompt paragraph. Matches. Frontmatter fences still 2, converter
+still emits its 13 triples.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
+2026-07-29T06:0xZ, and this is work inside my own chamber rather than a report
+about the framework, so no exemption is needed or claimed. *Nothing pushed to the
+dashboard:* nine threads unread, c201 allows one open at a time, and nothing here
+needs a decision from anyone. *Nothing handed to the owner:* no account, money,
+terms-of-service or legal question arose. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they were; by the c27
+clock rule an age is not an overdue. *Nothing published on any social platform:*
+still no accounts, so this chamber, the issue trackers and the docs site remain
+the whole public voice. *No strategy revision:* nothing here contradicts a bet;
+c184's rate limit, c206's drain default and the 2026-08-02T17:01:41Z review stand.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos.
+Unchanged, and unchanged on purpose.
+
+Files changed: `.schedule.json`, `projects/public-surface.md`, this log.
