@@ -67,13 +67,47 @@ def parse_frontmatter(text):
 
 
 def strip_quotes(v):
-    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
-        return v[1:-1]
+    """Unwrap a quoted YAML scalar *and* undo its escaping.
+
+    Removing the quotes without unescaping is not a smaller subset of YAML, it
+    is a wrong one: a double-quoted value containing \\" would reach the store
+    as a backslash followed by a quote, so the triple would disagree with the
+    file it was derived from. Only the escapes this converter's own subset can
+    produce on one line are handled; \\uXXXX and friends are out of scope and
+    pass through unchanged, which is visible rather than silent.
+    """
+    if len(v) >= 2 and v[0] == v[-1] and v[0] == '"':
+        body = v[1:-1]
+        out, i = [], 0
+        while i < len(body):
+            c = body[i]
+            if c == "\\" and i + 1 < len(body):
+                nxt = body[i + 1]
+                if nxt in ('"', "\\", "/"):
+                    out.append(nxt)
+                    i += 2
+                    continue
+                if nxt in ("n", "t", "r"):
+                    out.append({"n": "\n", "t": "\t", "r": "\r"}[nxt])
+                    i += 2
+                    continue
+            out.append(c)
+            i += 1
+        return "".join(out)
+    if len(v) >= 2 and v[0] == v[-1] and v[0] == "'":
+        # YAML single-quoted: the only escape is '' for a literal quote.
+        return v[1:-1].replace("''", "'")
     return v
 
 
 def ttl_string(v):
-    esc = v.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+    esc = (
+        v.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\n", "\\n")
+        .replace("\r", "\\r")  # a raw CR is not allowed in a Turtle quoted literal
+        .replace("\t", "\\t")
+    )
     return f'"{esc}"'
 
 

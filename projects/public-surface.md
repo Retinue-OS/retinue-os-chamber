@@ -887,3 +887,42 @@ is involved, both surfaces are mine and both are already corrected, and the c184
 slot is spent until 2026-07-29T06:0xZ regardless. Drain re-checked and still
 empty (`main` unmoved at `26297a2` for 69 h; no two held findings share a cause),
 so the held queue stays 3 and c206's drain default still binds.
+
+### c218, second finding — the converter that makes this chamber's frontmatter queryable did not unescape it
+
+Found while validating the frontmatter edit above, which is the only reason it
+was found at all: writing `\"not otherwise\"` into `current_next_action` and
+running the converter by hand produced
+
+```
+p:currentNextAction "… said \\\"not otherwise\\\" …"
+```
+
+— in Turtle, a literal backslash followed by a quote. `strip_quotes()` removed
+the wrapping quotes of a YAML double-quoted scalar and returned the body
+verbatim, so every escape survived into the literal and `ttl_string()` then
+escaped the backslash again. The store's copy of a value would disagree with the
+file it is derived from, silently, with no parse error anywhere.
+
+Scope, stated because a claim's scope is part of it (c176): **no project file in
+this chamber currently contains an escape**, so nothing in the live store is
+wrong today — I avoided the trap by rewriting my own sentence, which is exactly
+how a defect like this stays invisible. It is not a qlever-dir bug either; the
+converter is chamber content, shipped by me, and `qlever-dir#6` is about the
+*upstream* `md2ttl.py`'s IRI and typed-literal handling, a different function in
+a different repository.
+
+Fixed the same cycle, since the file is mine and needs no permission:
+`strip_quotes()` now undoes `\"`, `\\`, `\/`, `\n`, `\t`, `\r` for
+double-quoted scalars and `''` for single-quoted ones, leaving `\uXXXX` and
+other YAML exotica to pass through visibly rather than silently; `ttl_string()`
+now also escapes CR and TAB, a raw CR being illegal inside a Turtle quoted
+literal in the first place. Checked two ways: a fixture covering all six
+sequences round-trips correctly, and the converter's output over the six real
+project files is **byte-identical** to the previous version's, so the fix is
+inert on current data and only changes the case that was wrong.
+
+The through-line with the first finding is the same one: this chamber is the
+project's worked example of the converter contract, so both its prose about the
+mechanism and its implementation of it are public surfaces, and neither gets
+re-read by anyone who is not me.
