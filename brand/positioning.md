@@ -121,7 +121,8 @@ anything that widens it defeats the argument.
 So the honest public form is conditional, and Aros states the condition rather
 than trusting the reader to infer it: *in a deployment where the gateways are
 the only path to those accounts.* Verified in this deployment on 2026-07-20 and
-found not to hold — see `log.md`, cycle 30. That is a deployment configuration
+found not to hold — see [`log-archive/cycles-001-044.md`](../log-archive/cycles-001-044.md),
+cycle 30. That is a deployment configuration
 matter, not a defect in the architecture, but it is exactly the gap between
 claim and reality this project's credibility depends on being zero.
 

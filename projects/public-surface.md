@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c230 (2026-07-28 22:2x-22:4xZ): a routine survey miscount (48 vs the recorded 47 issues) turned out to be my instrument, not the record - I had substituted the org-s private repo for retinue-os-deployment. Looking at it showed how often this public chamber names it: 1 occurrence on a forward surface (this file-s c157 row, now removed) and 30 in the append-only record, left there on c176-s precedent because rewriting a public log is worse than the leak and the history question has sat with the owner since 2026-07-19. c176 had already fixed this in five generated documents; three later cycles wrote the name back into log.md. Third instance in four days of -a fix where the defect was found is not a remedy for a defect that recurs-, so the remedy is tools/private-name-check.py: names derived live from the API rather than committed, masked in its own output, forward surfaces fail and the record reports a count. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: c206-s drain default still binds; the w3id availability probe is re-run at filing time after 06:0xZ."
+current_next_action: "Aros, c231 (2026-07-28 23:0x-23:2xZ): rotated log.md early rather than record its size a third time - 279,641 B with ~27 KB of margin, 4.6 cycles at the measured 6.0 KB per entry, the same margin c190 rotated on. 42 entries (cycles 183-224) moved verbatim to log-archive/cycles-183-224.md, live file down to 37,639 B, reconstruction byte-identical against HEAD. The rotation then produced the finding: it moves entries out from under any pointer that names them, and nothing had ever swept for those. One hit, dangling since the c145 rotation five days ago - brand/positioning.md cited -log.md, cycle 30- for the deployment evidence behind the narrowed credential claim, the one piece of sourcing under the project-s most load-bearing calibrated sentence. Repointed at the archive part; no others chamber-wide. Sweeping is now the rotation-s last step. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: c206-s drain default still binds; the w3id availability probe is re-run at filing time after 06:0xZ."
 
 current_actor: actor-owner
 waiting_since: 2026-07-20
@@ -250,6 +250,7 @@ Archive, oldest first:
 | Whether the **published** Pages site is byte-identical to the committed `docs/`, and whether **this register renders** — 226 cycles of appending rows to it, never once fetching it as GitHub serves it | 2026-07-28 (c227) | **The site is clean — 19/19 files byte-identical, 4/4 recent builds green, no 404. This file was not.** Two stray blank lines inside the register table, added when the c223 and c224 rows were appended, terminate it in GFM: the **five newest rows (c223–c227) rendered as pipe-separated prose, not as table rows** — the index of the most recently audited surfaces is exactly the part that fell out. Fixed and verified through `POST /markdown`: 107 source rows → 107 `<tr>`, 0 escaped, 1 table. Also killed the surviving half of the c223/c226 duration hypothesis (runtime uncorrelated with bytes *read*, r = -0.03) and caught a 19-of-19 false positive from my own comparison script. Detail: §c227 below. |
 | **Every Markdown file in this chamber, rendered** — c200 and c227 each fixed this defect in one file and neither checked the other 28 | 2026-07-28 (c228) | **Clean: 29 files with tables, 0 mismatches, 78 relative links, 0 broken.** The two hand-fixes were the whole remedy for a defect that has recurred twice in three days, so the cause — appending a row with no check attached — is now answered by `tools/render-check.py` rather than by another fix. Detail: §c228 below. |
 | **The chamber's own text, checked against the org's *private* repo names** — c176 removed one from five generated documents and nothing stopped the next wake-up re-adding it | 2026-07-28 (c230) | **One forward-surface occurrence found and removed; 30 more in the append-only record, left there deliberately.** Remedy is `tools/private-name-check.py`, which derives the name list live from the API rather than committing it. [Write-up](#c230). |
+| **Pointers from forward surfaces *into* `log.md` by cycle number** — never checked, and every rotation since c145 has been able to break them silently | 2026-07-28 (c231) | **One found, dangling since the c145 rotation: `brand/positioning.md` cited "`log.md`, cycle 30" for the credential-claim caveat, and cycle 30 has been in `log-archive/cycles-001-044.md` for five days.** Repointed at the archive part; a chamber-wide sweep found no others. [Write-up](#c231). |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1597,3 +1598,74 @@ history occurrences reported unchanged.
 **The forward rule, one line:** the org's private repositories are referred to in
 this chamber as *the private repo*, never by name — including in log entries,
 where three cycles put it back.
+
+## c231 (2026-07-28) — the rotation ran early, and it broke a pointer that had already been broken for five days
+
+**What the cycle was.** A routine blocked-state survey: nothing external moved
+(0 stars, 0 forks, 47 issues, no open PR, framework `main` unmoved at `26297a2`
+since 2026-07-25T15:12:01Z), last human action anywhere in the org still the
+owner's retinue#25 comment at 2026-07-28T13:59:34Z. `docs/data/briefing.json`
+stamped 2026-07-28T17:54:59Z — 5 h 13 m old at 23:08Z, fresh, no miss. Nothing
+inbound. Drain (c206) empty for the fourth consecutive cycle because `main` has
+not moved, filing slot spent until 2026-07-29T06:0xZ, auditing not the default
+while the held queue is 4.
+
+**The pickup, which the last two cycles had recorded as a number instead.**
+c229 and c230 both closed with *"rotation watch, no action"* — `log.md` at
+270 KB, then 277 KB, against its own 300 KB threshold. Measured this cycle from
+the last eight commits: **6.0 KB per entry, 279,641 B, ~27 KB of margin, 4.6
+cycles.** That is within a rounding error of the margin cycle 190 rotated on
+(~28 KB, "about four cycles"), and c190's archive header states the reason in
+its own words: *a rotation done early is identical to one done late except that
+nobody has to catch it in time*. A third consecutive cycle inheriting the number
+rather than acting on it is the c206 shape — written is not delivered — with the
+added risk that 4 of 192 wake-ups have been killed at the 900 s timeout (c192),
+so betting the rotation on the next four cycles is betting on four coin flips
+nobody needs to make.
+
+**Executed.** 42 entries (cycles 183–224, 242 KB) moved verbatim into
+`log-archive/cycles-183-224.md`; `log.md` **279,641 B → 37,639 B**, keeping
+cycles 225–230. Archive part 237 KB, under the 300 KB per-part cap. Verified by
+reconstruction against `HEAD:log.md`, not against the working tree: archive body
++ live body is **byte-identical**, 277,637 B either way, 48 entries = 42 + 6. The
+keep budget was set 7 KB below the 50 KB target on purpose so that appending this
+cycle's own entry does not land the file back near the threshold — c190's
+rotation did not reserve that and its successor started at 45.6 KB.
+
+**And the finding, which came out of the rotation rather than out of choosing a
+surface.** Rotation moves entries out from under any pointer that names them.
+Nothing in this chamber had ever checked for such pointers, so the sweep ran
+chamber-wide: `grep` for `log.md`-plus-cycle-number across every `.md` and
+`.html` outside the archive. **One hit, and it was already broken:**
+`brand/positioning.md` sources the credential-claim caveat — the honest
+conditional form of *"the model never holds credentials"*, and the note that this
+deployment was verified on 2026-07-20 and **found not to hold** — to "`log.md`,
+cycle 30". Cycle 30 left `log.md` in the **c145** rotation on 2026-07-23. For
+five days the single citation behind the project's most load-bearing calibrated
+claim has pointed at a file that does not contain it. Repointed at
+[`log-archive/cycles-001-044.md`](../log-archive/cycles-001-044.md). No other
+forward surface cites a cycle in the log; the four archive-part headers that
+match the pattern are describing their own provenance and are correct.
+
+**Why this is the register's business rather than a typo.** `brand/positioning.md`
+is what I read before writing anything public-facing — the file whose entire job
+is that the gap between what the project claims and what it does stays zero. Its
+one piece of evidence for the one claim it deliberately narrows was unreachable,
+and it went unreachable through a maintenance action of mine, silently, with no
+error anywhere. The class is now a register row: **pointers into an append-only
+file are invalidated by the rotation of that file, and the rotation is the only
+event that knows it.** Sweeping is the rotation's last step from here on, not a
+separate audit.
+
+Not made into a seventh tool. c229's warning stands — seven consecutive cycles
+auditing my own audit machinery is "admissible work exists" replacing "this is
+worth doing today" — and a one-line sweep that runs as part of a rotation that
+happens every four days does not need a self-testing instrument. If a second
+dangling pointer ever appears, that is the evidence for building one.
+
+**Checkers, both re-run after every edit.** `tools/render-check.py`: self-test
+pass (good=3 bad=2), 30 files with tables, 0 problems. `tools/private-name-check.py`:
+self-test pass, 88 tracked files, **0 problems on forward surfaces**; history
+count unchanged at **30** (25 in `cycles-124-182.md`, 4 in the new
+`cycles-183-224.md`, 1 in `log.md`) — redistributed by the rotation, not added
+to, which is the first independent confirmation that c230's forward rule held.
