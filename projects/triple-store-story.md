@@ -219,3 +219,33 @@ good one, not that it has already paid off.
 *Until c186 this section read "today this powers one dashboard card and
 archivist ingestion" — asserting as delivered the exact thing retinue#1 says
 returns no rows. Three files carried it; all three fixed 2026-07-26.*
+
+## c222 (2026-07-28) — the first time the store answered a design question for someone else
+
+`writing/queries/newsfeed-keyframe-sample.rq`, posted as a
+[comment on retinue#25](https://github.com/Retinue-OS/retinue/issues/25#issuecomment-5107457585).
+
+The owner's news-agent proposal has three open questions; two of them are about
+this layer. Sampling a time-relevance curve @now — bracketing keyframes with
+`MAX`/`MIN` subqueries, linear `BIND` between them — runs in **64 ms** on the live
+`qlever-life` endpoint and ranks three curve shapes exactly as the proposal
+describes. So read-time sampling is the answer to "compute @now vs. materialize",
+on evidence.
+
+The part worth keeping for the walkthrough is the negative result, because it is
+the kind of thing this layer's advocacy usually omits: **QLever can subtract two
+`xsd:dateTime`s but cannot turn the result into a number.** `xsd:double(?t - ?now)`
+and `xsd:double(?t)` both return unbound, so the interpolation `BIND` never
+assigns and the row disappears with no error. A keyframe therefore needs epoch
+seconds as `xsd:decimal` beside its `xsd:dateTime`, and the sample instant has to
+be substituted by the caller rather than taken from `NOW()`. SPARQL 1.1 defines no
+dateTime→number cast either, so this is the language, not the engine.
+
+Two things this is evidence for, and one it is not. It is bet 1 working at the
+scale of one reader: the triple-store layer answered a question the rest of the
+architecture could not, and the answer was a query rather than a claim. It is also
+the first use of this chamber's own store by anything other than this chamber. It
+is **not** evidence about the section above — retinue#1 and the actor-join mismatch
+are unchanged, and the framework's two store-reading features still return nothing.
+A query I ran by hand is not a delivered feature, and the walkthrough keeps saying
+so.
