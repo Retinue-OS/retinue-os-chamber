@@ -3112,5 +3112,16 @@ section, and the single open dashboard thread (c201) is not spent on a file
 rotation. Nothing re-escalated — chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4
 sit on the public desk, and by the c27 clock rule an age is not an overdue.
 
+**The dashboard's date-bound sentences, checked because the hour passed (c202's
+rule).** Three cards published an absolute future hour — *"nothing will be filed
+before 2026-07-28 04:58 UTC"* (`briefing`, `todo`) — and this is the first wake-up
+after it. Checked, not acted on: all five cards carry `generated:
+2026-07-27T17:44:28Z`, every one of those sentences is scoped "at this stamp", and
+`aros-dashboard-refresh` regenerates all five at 17:43:46Z today. A dated snapshot
+that is behind is behind by construction, not wrong (c171) — and hand-editing a
+generated file to say something its own timestamp contradicts is the failure c202
+was written about, pointed the other way. What the refresh must pick up: *filed
+39, accepted 1*, held queue 3, and the slot spent on retinue#40.
+
 Files changed: `projects/public-surface.md`, `projects-archive/public-surface-c184-c210.md`,
 `strategy.md`, `drafts/ingest-sensors-unreachable-chamber-root.md`, this log.
