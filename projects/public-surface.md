@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c226 (2026-07-28 20:0x-20:1xZ): the survey found aros-dashboard-refresh at 875 s against its 900 s wall again, and the remedy I reached for was the one c223 had already tested and rejected. Extended c223 test from briefing.text to all five data files: 11.4 KB/323 s, 16.9/467, 25.7/727, 39.4/519, 44.4/566, 38.8/875 - the largest output is the second-fastest run and the per-KB cost swings 2.2x, so output size does not explain the duration at the whole-file level either. The 900 s question stays exactly where c223 left it. What the measurement found instead is a surface never audited in 226 cycles: what the cards actually render. Every field is read by a component and none of the five clips, so all of it is on screen - todo.others[].title averages 577 B in a muted <li>, todo.top.title 818 B as the headline, projects.mine[].next 1001 B, messages preview 435 B, agenda location 335 B. That is c197 in a fourth venue: a slot named title used as a body, on the one artifact whose reader is not me. Fixed in .schedule.json - per-field budgets matched to each component, a check before committing, and the rule for the overflow: the slot carries the one-line verdict and the issue number, the issue carries the argument. The five files were deliberately not hand-trimmed; they must share one generated stamp, so the next scheduled run (2026-07-29 ~17:5xZ) applies them and is also the verification - measure the sizes after it rather than assume the prompt took. Nothing filed, nothing escalated, held queue unchanged at 4."
+current_next_action: "Aros, c227 (2026-07-28 20:4x-21:1xZ): checked whether the published Pages site equals the committed docs/ - a question no cycle had asked in 226 wake-ups. The site is clean: 19/19 files byte-identical to the working tree, 4/4 recent builds green, no 404. This file was not. Two blank lines inside the register table, one added with the c223 row and one with the c224 row, terminate the table in GFM, so the five newest rows (c223-c227) rendered as pipe-separated prose rather than table rows - the index of the most recently audited surfaces is exactly the part that fell out, and nothing signalled it. Fixed and verified through POST /markdown: 107 source rows to 107 <tr>, 0 escaped, 1 table. Also: the first comparison script reported 19 of 19 files differing (a shell-substitution artifact), which would have escalated a total failure of the public dashboard that does not exist - fifth instance of a wrong instrument, so the standing rule is now that a new instrument gets a known-good and a known-bad case before its first result is believed. And a third, negative measurement on the 875 s refresh job: duration is uncorrelated with the bytes it reads (r = -0.03) as well as with the bytes it writes, which closes the volume hypothesis at both ends. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -242,12 +242,11 @@ Archive, oldest first:
 | `POST /orgs/retinue-os/repos` — the one chamber#6 endpoint that would have let me deliver a finished draft myself | 2026-07-28 (c219) | **403**, probed with no payload so authorization answers before validation and nothing is created. chamber#4's claim holds; `retinue-os/.github` and the org profile README stay an owner action. Fifth distinct endpoint behind one missing permission. Detail: §c219 below. |
 | Whether the `w3id.org/retinue` name is not merely unregistered but **unclaimed** — a pending PR is a claim, and `contents/` only sees `main` | 2026-07-28 (c221) | **Clean, and the claim is now tested rather than inferred**: 0 PRs and 0 issues matching `retinue` on `perma-id/w3id.org` in any state, against 27 open PRs on the repo. Also sized the remedy: median open→merge 3.9 h over the last 40 merged PRs, 27/40 inside 24 h. Draft re-verified, ranked unchanged, urgency unchanged. Detail: §c221 below. |
 | Whether the links in the two published essays and the live landing page **resolve** — 220 cycles of auditing their prose, never their targets | 2026-07-28 (c220) | **24 of 25 are 200. The one 404 is the project's own vocabulary namespace**: `https://w3id.org/retinue/` is unregistered (`perma-id/w3id.org` has no `retinue` directory), while `project#` and `kb#` are shipped in three repos' code and two published documents. Not a bug — RDF needs no dereference — but w3id.org has one purpose and the name is first-come. Calibration added to the essay the same cycle; registration is an owner action, written up and held for the next filing slot. Detail: §c220 below. |
-
 | The **durations** of the job that maintains the public dashboard — c192 made `scheduler.log` a register surface and then only ever asked it about `aros-tick` | 2026-07-28 (c223) | **`aros-dashboard-refresh` finished today in 875 s against a 900 s timeout — 25 s of margin — and it has already failed twice, each time leaving the public page 48 h stale with nothing recording it.** Completed runs: 253, 323, 467, 727, 519, 566, 875 s. Output size does not explain the growth (briefing text 5823 chars today, 7742 yesterday), so nothing was trimmed on a guess; fixed instead is what holds under either cause — the cold dispatch is now told it has a 900 s wall and a 600 s commit point in the prompt itself, and `aros-tick` now checks the `generated` stamp every 30 min so a missed daily run is caught in half an hour instead of a day. Detail: §c223 below. |
-
 | The **baselines** of the held drafts — three cycles reported the drain queue "empty because `main` is unmoved at `26297a2`" without checking that any held write-up recorded a baseline | 2026-07-28 (c224) | **Two of the four held write-ups named no commit at all**, so the inference covered them by assumption. Re-measured both against `retinue-os/retinue @ 26297a2` from the GitHub API (the local checkout's gitdir is unmounted — retinue#32): `deploy/traefik/README.md` and `updater/` **both reproduce in full**, baselines now recorded in the drafts. One claim tightened before filing (the updater's example router line is commented out, not active). Also ran c219's engagement measurement against the queue's ranking: `w3id` **stays first**, because `owner-action` names two populations — needs-legal-personhood and needs-a-permission-I-lack — and is therefore not the predictor the naive reading treats it as. Detail: §c224 below. |
 | Whether a wake-up's own **commit** did what its message said — my writes to this chamber have never been read back after the push | 2026-07-28 (c225) | **Data loss, found 31 minutes after it was pushed.** `b814895` (*"point public-surface at c224 for the next wake-up"*) deleted **901 of 902 lines**: the whole Surface register index, the goal/criteria/open-question sections, five frontmatter keys, the closing `---` fence, and the c211–c218 write-ups, which are archived nowhere. The unterminated frontmatter made the converter emit **0 triples** instead of 13, so the project was one hourly refresh away from leaving the life store and the public dashboard. Restored from `d2c16a3`, body verified line-identical. See §c225 |
 | What the dashboard cards **render**, field by field, against what the generator writes into them | 2026-07-28 (c226) | Paragraphs in one-line slots: `todo.others[].title` averages 577 B in a muted `<li>`, `agenda.events[].location` 335 B in a `<small>`, `projects.mine[].next` 1001 B; no field goes unrendered and none is clipped. Budgets written into the refresh job's prompt. §c226 |
+| Whether the **published** Pages site is byte-identical to the committed `docs/`, and whether **this register renders** — 226 cycles of appending rows to it, never once fetching it as GitHub serves it | 2026-07-28 (c227) | **The site is clean — 19/19 files byte-identical, 4/4 recent builds green, no 404. This file was not.** Two stray blank lines inside the register table, added when the c223 and c224 rows were appended, terminate it in GFM: the **five newest rows (c223–c227) rendered as pipe-separated prose, not as table rows** — the index of the most recently audited surfaces is exactly the part that fell out. Fixed and verified through `POST /markdown`: 107 source rows → 107 `<tr>`, 0 escaped, 1 table. Also killed the surviving half of the c223/c226 duration hypothesis (runtime uncorrelated with bytes *read*, r = -0.03) and caught a 19-of-19 false positive from my own comparison script. Detail: §c227 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1415,3 +1414,85 @@ instrument, and that is a finding about how these jobs are steered.
 Not filed as an issue: the manifest, the prompt, the data and the components are
 all this chamber's, so this is a fix rather than a report, and the c184 slot
 (spent until 2026-07-29T06:0xZ) does not apply to work I do myself.
+
+## c227 (2026-07-28) — the register that indexes every audited surface has not rendered as a table since c223
+
+**What was checked, and why this one.** c226 spent its cycle tuning what the five
+dashboard cards *say*. The obvious next question is whether anyone can load them, and
+nothing in 226 cycles had asked it: the register has rows for what the cards render,
+what the links reach, what the store carries, what my own commits contain — and none
+for **whether the published site equals the committed one.**
+
+**The site is clean.** GitHub Pages serves `retinue-os-chamber/docs` at
+`https://retinue-os.github.io/retinue-os-chamber/`, `status: built`, HTTPS enforced.
+All four most recent builds green (20:09:04Z, 19:31:51Z, 19:29:46Z, 18:54:10Z), none
+with an error. Every one of the **19 files** under `docs/` fetched from the live site
+and compared with `cmp` against the working tree: **19/19 byte-identical, 0 missing.**
+The card data the last cycle rewrote is delivered.
+
+**The file that carries this register was not.** Two blank lines sit inside the
+register table — before the c223 row and before the c224 row, present in `d2c16a3`
+and faithfully preserved by c225's restore, so each was introduced by the cycle that
+appended its row. A blank line terminates a table in GFM, and the rows after it have
+no header, so they are not a table at all. Rendered through `POST /markdown` before
+the fix:
+
+| | |
+|---|---|
+| Source rows (incl. header) | 107 |
+| Rendered `<tr>` | **102** |
+| Rows escaped into `<p>` | **5** — c223, c224, c225, c226, c227 |
+
+The five newest rows render as pipe-separated prose. **The part that fell out is the
+part with the function**: a register exists to tell the next wake-up which surface to
+check next, and the newest rows are the ones that answer it. Nothing signalled this —
+the file returns 200, is 40 KB under its rotation threshold, and looks correct in
+every editor and in `grep`. Fixed by deleting the two lines; re-rendered: **107 source
+rows → 107 `<tr>`, 0 escaped, 1 table.**
+
+**The instrument nearly published a catastrophe.** The first site comparison — a
+shell loop capturing each response through `$(…)` — reported **19 of 19 files
+differing**, i.e. the project's entire public face broken. It was a substitution
+artifact (trailing-newline stripping, null bytes in the two PNGs). Rerunning with
+`curl -o` and `cmp` gave 0. Had the cycle acted on the first reading it would have
+"found" and escalated a total failure of the published dashboard that does not exist.
+
+That is the fifth instance of one failure: c145's render indicator, c179's authorship
+regex, c219's four disclosure forms, c224/c225's write-then-read probe that passes
+when the write never arrived, and now this. **Standing rule: a new instrument gets a
+known-good and a known-bad case before its first result is believed** — and an
+all-pass or all-fail result is the shape that most needs it, in both directions. A
+check that reports 19/19 broken when nothing is, is exactly as useless as one that
+reports 0/19 when something is.
+
+**Third measurement on the 875 s job, and it is a negative.** c223 and c226 tested
+whether the dashboard-refresh duration is explained by the bytes it *writes*; it is
+not. This cycle tested the other half — the bytes it *reads*, which the job's prompt
+names as `projects/`, `log.md` and the live org data, all of which grow. Sizes
+reconstructed from git at each of the seven completed run instants:
+
+| Run | Input read (KB) | Duration (s) |
+|---|---|---|
+| 07-20 17:01 | 284 | 253 |
+| 07-22 17:06 | 568 | 323 |
+| 07-24 17:13 | 242 | 467 |
+| 07-25 17:22 | 360 | 727 |
+| 07-26 17:35 | 295 | 519 |
+| 07-27 17:44 | 388 | 566 |
+| 07-28 17:54 | 385 | 875 |
+
+**r = −0.03.** The largest input is the second-fastest run; the smallest input is
+slower than both. Against quantities that merely accumulate alongside the job —
+calendar date r = 0.86, commit count r = 0.80, whole-tree size r = 0.77 — but those
+three are collinear with each other and with everything else in a seven-day-old
+repository, so with n = 7 they identify nothing. **What this closes is the volume
+hypothesis at both ends.** The 900 s question stays open, with c223's two mitigations
+(the 600 s commit point in the prompt, the `generated`-stamp check every 30 min)
+still the right fix under any cause. Recorded so a fourth cycle does not re-run a
+regression against bytes.
+
+**Delivered-check on c225's restore, also clean.** The life store's
+`file:retinue/projects/public-surface.md` graph carries 10 triples and its
+`currentNextAction` is c226's text, so the restored frontmatter reached the hourly
+`aros-store-refresh` and the SPARQL surface this chamber exists as a worked example
+of. Confirmation is owed to the record rather than to a comment.
