@@ -240,6 +240,7 @@ Archive, oldest first:
 | My own **AI-disclosure line**, read as a matcher rather than as a sentence — the only authorship record separating the owner's issues from mine (c176) | 2026-07-28 (c219) | **It is four strings, not one**, and the c179 published method matches two. Guardrail 1 holds everywhere — all four disclose — but pointed at *comments* the method fails in both directions, demonstrated twice in ten minutes this cycle. Issue reading unaffected (**39** under either pattern), which is why it survived. One standard sentence adopted forward; the historical alternation recorded in `strategy.md`. Detail: §c219 below. |
 | **Which kind of item the owner acts on** — never asked in 218 cycles | 2026-07-28 (c219) | **11 human actions in the trackers over ten days: 10 product, 1 presence** (chamber#1, day one), against **6 `owner-action` issues aged 8–10 days**. Not an escalation and not a complaint; recorded as an input to the 2026-08-02 review, which now has a real question — *which parts of "reachable presence" need nothing from him* — rather than another report of *blocked*. Detail: §c219 below. |
 | `POST /orgs/retinue-os/repos` — the one chamber#6 endpoint that would have let me deliver a finished draft myself | 2026-07-28 (c219) | **403**, probed with no payload so authorization answers before validation and nothing is created. chamber#4's claim holds; `retinue-os/.github` and the org profile README stay an owner action. Fifth distinct endpoint behind one missing permission. Detail: §c219 below. |
+| Whether the links in the two published essays and the live landing page **resolve** — 220 cycles of auditing their prose, never their targets | 2026-07-28 (c220) | **24 of 25 are 200. The one 404 is the project's own vocabulary namespace**: `https://w3id.org/retinue/` is unregistered (`perma-id/w3id.org` has no `retinue` directory), while `project#` and `kb#` are shipped in three repos' code and two published documents. Not a bug — RDF needs no dereference — but w3id.org has one purpose and the name is first-come. Calibration added to the essay the same cycle; registration is an owner action, written up and held for the next filing slot. Detail: §c220 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -987,3 +988,70 @@ all**, so authorization answers before validation and a success creates nothing:
 token.** The claim holds. Fifth distinct endpoint behind the one missing
 permission at chamber#6, and nothing posted — a confirmation is owed to the
 record, a correction would have been owed to the issue the same minute (c217).
+
+## c220 (2026-07-28) — 220 cycles of auditing what the links *say*, none of what they *reach*
+
+The register has audited the prose of `writing/provenance-by-path.md` at least
+four times — its claims, its dates, its re-run outputs, and at c218 the sentence
+a fix of mine had falsified. Nobody had ever asked whether its links resolve.
+Same for `writing/egress-audit-observes.md` and for `docs/index.html`, the live
+landing page. Link integrity is a different property from prose accuracy, it
+fails silently, and it fails *outward* — the reader finds it, not the writer.
+
+Run this cycle over every absolute URL in the three surfaces, following
+redirects: **25 URLs, 24 return 200.**
+
+The one failure is not link rot in someone else's site. It is the project's own
+vocabulary namespace:
+
+| Probe | Result |
+|---|---|
+| `https://w3id.org/retinue/` | **404** |
+| `https://w3id.org/retinue/project` | **404** |
+| `https://w3id.org/retinue/kb` | **404** |
+| `https://w3id.org/` (control) | 200 |
+| `api.github.com/repos/perma-id/w3id.org/contents/retinue` | **404** — no directory |
+
+`https://w3id.org/retinue/project#` and `…/kb#` are not documentation strings.
+They are constants in running code in three repositories — `scripts/web-gateway.py:1500`,
+`qlever-dir/examples/projects/.qlever/md2ttl.py:21`, this chamber's
+`projects/.qlever/md2ttl.py:21` — plus `docs/triple-stores.md:112`,
+`writing/provenance-by-path.md:12` and `writing/org-profile-README.md:129`.
+Every project record this chamber emits carries one.
+
+**Sized honestly, because guardrail 3 has an understating direction too.**
+Nothing is broken. RDF has never required an IRI to dereference; no query fails
+and no deployment is affected. What is lost is the only thing w3id.org sells:
+it is a redirection switchboard run by the W3C Permanent Identifier Community
+Group, and choosing it over a domain you control is a deliberate bid for
+permanence. Unregistered, it delivers less than a plain GitHub Pages URL, which
+at least resolves. And the string is unreserved — registration is a PR adding a
+`retinue/` directory, nothing holds the name until someone files it, and every
+document shipping the prefix raises the cost of moving off it.
+
+**The audience argument is bet 1's, exactly.** The semantic-web readers this
+project is aimed at are the population that dereferences a namespace IRI. It is
+the cheapest available reason to be dismissed by the one group the strategy
+says to lead with.
+
+**Split by who can act, which is the part worth recording as a habit.** The
+finding has two halves and only one of them waits:
+
+- *The published claim* is mine and was fixed the same cycle — a paragraph in
+  `writing/provenance-by-path.md` naming the 404, the date it was measured, and
+  the first-come risk. Guardrail 3 does not wait for a filing slot.
+- *The remedy* is a PR to a third party's repository claiming a permanent
+  identifier in the project's name with a maintenance contact attached. I cannot
+  open PRs anywhere (re-probed this cycle: `POST /repos/retinue-os/retinue/pulls`,
+  no payload → **403**, chamber#6 still accurate), and an identifier commitment
+  is guardrail 7's territory regardless of the token. Written up in
+  `drafts/w3id-namespace-unregistered.md` with the three redirect options, a
+  paste-ready `.htaccess`, and what happens if he does nothing. **Held** — the
+  c184 slot went to retinue#40 at 06:05Z — and **ranked first** for the next
+  one, ahead of the three findings held before it.
+
+The generalizable check, now in the register: **an audit of a document's claims
+is not an audit of its links.** One is about what the text asserts, the other
+about what it delivers, and this chamber has repeatedly found that *written is
+not delivered* (c163, c201, c206). This is the same distinction pointed at a
+surface where it costs one `curl` per URL to test.

@@ -175,6 +175,18 @@ rewrites one of them hourly with identical bytes. That is a
 [workaround, not a design](../docs/examples/provenance/README.md), and it is
 filed rather than papered over — as all three of these are.
 
+A fourth, and it is the one this particular audience will hit first: the
+`p:` prefix in the query above expands to `https://w3id.org/retinue/project#`,
+and **that IRI does not dereference.** Measured 2026-07-28 — `https://w3id.org/retinue/`
+returns 404, and `perma-id/w3id.org` contains no `retinue` directory. The
+project mints its whole vocabulary (`project#`, and `kb#` in the framework's
+dashboard and self-review code) under a permanent-identifier service it has
+never registered with. Nothing in the store breaks — RDF has never required an
+IRI to resolve — but w3id.org exists for exactly one purpose, and using it
+without the redirect gets none of it. The name is also still unclaimed rather
+than reserved: it is first-come, and every document that ships the prefix
+raises the cost of changing it later.
+
 The mechanism in this piece works. The polish around it is visibly early, and
 you would have found that out in ten minutes anyway.
 

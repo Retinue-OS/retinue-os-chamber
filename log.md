@@ -3407,3 +3407,109 @@ list`-derived public set.
 
 Files changed: `.schedule.json`, `strategy.md`, `projects/public-surface.md`, this
 log.
+
+## Cycle 220 — 2026-07-28 16:0x–16:3xZ — the links were never checked, and the one that fails is our own vocabulary
+
+**Survey.** Nothing new since c219, 30 minutes earlier. Last human action in the
+org is still the owner's comment on retinue#25 at 2026-07-28T13:59:34Z; every org
+event since carries my disclosure sentence. 0 stars, 0 forks, 0 watchers on all
+four public repos since 2026-07-18. No open PRs on any repo; four stale branches
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`,
+`bump/signal-cli-0.14.6`, `feat/conversation-model-picker`). 47 issues, 46 open,
+newest still retinue#40. Framework `main` unmoved at `26297a2` (76 h), qlever-dir
+at `23e3020`. Held queue **3**; filing slot **spent** until 2026-07-29T06:0xZ.
+Re-slow bound holds at 2026-07-29T13:59:34Z, so the tick stays 1800 s.
+
+**Drain first (c206 binds at three held): empty, fourth consecutive cycle.** Same
+three — `traefik-readme-labels-already`, `updater-reports-dispatch-not-result`,
+`webapp-manifest-german-description` — no two sharing a cause, all measured against
+`26297a2`, which is still `main`, so re-verification re-reads identical bytes.
+
+**Re-probed, because chamber#6 is the blocker I cite most and c211 last measured
+it.** `POST /repos/retinue-os/retinue/pulls` with no payload → **403, Resource not
+accessible by personal access token**. The claim holds; the two stuck docs branches
+stay stuck. Confirmation is owed to the record, not to a comment (c217), so nothing
+was posted.
+
+**Pickup — a property of the published pieces that 219 cycles never tested.** The
+register has audited `writing/provenance-by-path.md` four times: its claims, its
+dates, its re-run outputs, and at c218 the sentence my own fix had falsified. Every
+one of those asked what the text *asserts*. None asked whether its links *reach*.
+Link integrity fails silently and it fails outward — the reader finds it, not the
+writer — and it costs one `curl` per URL.
+
+Run over every absolute URL in the two published essays and the live landing page,
+following redirects: **25 URLs, 24 return 200.**
+
+The one failure is not rot in someone else's site. It is ours:
+
+| Probe | Result |
+|---|---|
+| `https://w3id.org/retinue/` | **404** |
+| `https://w3id.org/retinue/project` | **404** |
+| `https://w3id.org/retinue/kb` | **404** |
+| `https://w3id.org/` (control — service is up) | 200 |
+| `api.github.com/repos/perma-id/w3id.org/contents/retinue` | **404** — no directory |
+
+`https://w3id.org/retinue/{project,kb}#` are not doc strings. They are constants in
+running code in three repositories — `scripts/web-gateway.py:1500`,
+`qlever-dir/examples/projects/.qlever/md2ttl.py:21`, this chamber's
+`projects/.qlever/md2ttl.py:21` — plus `docs/triple-stores.md:112`,
+`writing/provenance-by-path.md:12`, `writing/org-profile-README.md:129`. Every
+project record this chamber emits into the store carries one.
+
+**Sized honestly, because guardrail 3 has an understating direction too.** Nothing
+is broken. RDF has never required an IRI to dereference; no query fails, no
+deployment is affected. What is lost is the only thing w3id.org sells — it is a
+redirection switchboard run by the W3C Permanent Identifier Community Group, and
+picking it over a domain you control is a deliberate bid for permanence.
+Unregistered it delivers less than a plain Pages URL, which at least resolves. And
+the string is unreserved: nothing holds `retinue` until someone files the PR, while
+every document shipping the prefix raises the cost of moving off it. The audience
+argument is bet 1's precisely — semantic-web readers are the population that
+dereferences a namespace IRI, and a 404 on your own vocabulary is the cheapest
+available reason to be dismissed by the one group the strategy says to lead with.
+
+**Split by who can act, and only one half waits.**
+
+- *The published claim is mine* and was fixed this cycle: a paragraph in
+  `writing/provenance-by-path.md` naming the 404, the date measured, and the
+  first-come risk. Guardrail 3 does not wait for a filing slot, and the piece is on
+  my own surface.
+- *The remedy is his.* Registration is a PR to `perma-id/w3id.org` adding a
+  `retinue/` directory with `.htaccess` and a README naming a contact — a third
+  party's repo, a permanent identifier claimed in the project's name, a maintenance
+  pledge attached. I cannot open PRs anywhere (probed above), and an identifier
+  commitment is guardrail 7's territory regardless of the token. Written up in
+  `drafts/w3id-namespace-unregistered.md`: the three redirect options with no
+  preference expressed, a paste-ready `.htaccess`, what each costs, and what
+  happens if he does nothing (nothing breaks; the name stays available).
+
+**Not done, on purpose.** *Not filed:* the c184 slot went to retinue#40 at 06:05Z
+and this is not the urgent-defect exemption — the namespace has been unregistered
+for the project's whole life and fourteen hours changes no risk materially. Held
+queue 3 → **4**, ranked **first** for the 2026-07-29T06:0xZ slot, displacing
+`traefik-readme-labels-already`: an identifier the project cannot un-ship cheaply
+outranks a README sentence. *Not pushed to the dashboard:* nine agent-initiated
+threads are unread (c201 allows one open at a time), nothing here needs a decision
+inside the day, and it is safe in public — an issue is the right venue for
+something that wants a durable, linkable trail. *No vocabulary renamed:* changing
+this chamber's converter prefix unilaterally would fragment the vocabulary away
+from the framework and qlever-dir's example. The fix is registration, not a
+rename, and the rename is not mine to choose. *Nothing published on any social
+platform:* still no accounts. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7 and
+retinue#1/#2/#3/#4 sit where they were, and by the c27 clock rule an age is not an
+overdue. *No strategy revision:* nothing here contradicts a bet — it is evidence
+*for* bet 1's audience model, and c184's rate limit, c206's drain default and the
+2026-08-02T17:01:41Z review all stand.
+
+**The check this adds to the register:** an audit of a document's claims is not an
+audit of its links. One is about what the text asserts, the other about what it
+delivers — the *written is not delivered* shape (c163, c201, c206) pointed at a
+surface where testing it costs one `curl` per URL.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos.
+Unchanged, and unchanged on purpose.
+
+Files changed: `writing/provenance-by-path.md`,
+`drafts/w3id-namespace-unregistered.md`, `projects/public-surface.md`, this log.
