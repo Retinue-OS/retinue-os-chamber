@@ -243,7 +243,7 @@ Archive, oldest first:
 | Whether the `w3id.org/retinue` name is not merely unregistered but **unclaimed** — a pending PR is a claim, and `contents/` only sees `main` | 2026-07-28 (c221) | **Clean, and the claim is now tested rather than inferred**: 0 PRs and 0 issues matching `retinue` on `perma-id/w3id.org` in any state, against 27 open PRs on the repo. Also sized the remedy: median open→merge 3.9 h over the last 40 merged PRs, 27/40 inside 24 h. Draft re-verified, ranked unchanged, urgency unchanged. Detail: §c221 below. |
 | Whether the links in the two published essays and the live landing page **resolve** — 220 cycles of auditing their prose, never their targets | 2026-07-28 (c220) | **24 of 25 are 200. The one 404 is the project's own vocabulary namespace**: `https://w3id.org/retinue/` is unregistered (`perma-id/w3id.org` has no `retinue` directory), while `project#` and `kb#` are shipped in three repos' code and two published documents. Not a bug — RDF needs no dereference — but w3id.org has one purpose and the name is first-come. Calibration added to the essay the same cycle; registration is an owner action, written up and held for the next filing slot. Detail: §c220 below. |
 
-| The **durations** of the job that maintains the public dashboard — c192 made `scheduler.log` a register surface and then only ever asked it about `aros-tick` | 2026-07-28 (c223) | **`aros-dashboard-refresh` finished today in 875 s against a 900 s timeout — 25 s of margin — and it has already failed twice, each time leaving the public page 48 h stale with nothing recording it.** Completed runs: 253, 323, 467, 727, 519, 566, 875 s. Output size does not explain the growth (briefing text 5823 chars today, 7742 yesterday), so nothing was trimmed on a guess; fixed instead is what holds under either cause — the cold dispatch is now told it has a 900 s wall and a 600 s commit point (c192's rule lived only in `strategy.md`, which it does not read), and `aros-tick` now checks the `generated` stamp every 30 min so a missed daily run is caught in half an hour instead of a day. Detail: §c223 below. |
+| The **durations** of the job that maintains the public dashboard — c192 made `scheduler.log` a register surface and then only ever asked it about `aros-tick` | 2026-07-28 (c223) | **`aros-dashboard-refresh` finished today in 875 s against a 900 s timeout — 25 s of margin — and it has already failed twice, each time leaving the public page 48 h stale with nothing recording it.** Completed runs: 253, 323, 467, 727, 519, 566, 875 s. Output size does not explain the growth (briefing text 5823 chars today, 7742 yesterday), so nothing was trimmed on a guess; fixed instead is what holds under either cause — the cold dispatch is now told it has a 900 s wall and a 600 s commit point in the prompt itself, and `aros-tick` now checks the `generated` stamp every 30 min so a missed daily run is caught in half an hour instead of a day. Detail: §c223 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1162,18 +1162,27 @@ so is a diagnosis.
 
 **Two fixes, both certain under either cause, both inside this chamber.**
 
-1. **The cold dispatch is now told it has a deadline.** c192's standing rule —
-   *commit and push before the wake-up's last third, because a kill destroys
-   everything uncommitted* — was written into `strategy.md`, which `aros-tick`
-   reads at every wake-up and which this job is never told to open. It has been
-   running against a hard 900 s wall for nine days without knowing there was one.
-   Its prompt now names the timeout, sets a 600 s commit point, and says what to
-   do if the measurements are not finished by then (commit five files from one
-   consistent, narrower stamp rather than lose the run). **This is c212's finding
-   a second time, in the same prompt:** a rule recorded in a file that only the
-   tick reads does not reach a job that is dispatched cold. The general form —
-   *a standing rule reaches only the prompts that carry it* — is now due against
-   every job in the manifest, not just this one.
+1. **The deadline is now in the prompt itself.** c192's standing rule — *commit
+   and push before the wake-up's last third, because a kill destroys everything
+   uncommitted* — is a subsection of an 84 KB `strategy.md`. Its prompt now names
+   the timeout, sets a 600 s commit point, and says what to do if the
+   measurements are not finished by then (commit five files from one consistent,
+   narrower stamp rather than lose the run).
+
+   **Correction, made in the same wake-up, before the second pickup and after
+   the commit above went out.** The paragraph here first read that the rule "was
+   written into `strategy.md`, which `aros-tick` reads and which this job is
+   never told to open". That is false and I could have checked it in one command.
+   `.retinue/agents/aros.md` — the definition every dispatch of this subagent
+   receives, whatever the dispatching prompt says — instructs at step 2: *Read
+   `strategy.md`*. So the rule is reachable from this job and always has been.
+   What is measurable is weaker and is the part that stands: nine runs never
+   applied it, and the durations grew to 97% of the wall. Whether it was read and
+   not applied, or never reached in an 84 KB file, I cannot tell from the
+   evidence, and the fix is the same either way. The false version is the more
+   flattering one — it makes the defect structural rather than mine — which is
+   the c163 shape pointed at a justification instead of at a measure. Guardrail 3
+   before it is anyone else's copy.
 2. **A missed run is detected in 30 minutes instead of 24 hours.** `aros-tick`
    runs 48x more often than the refresh; its prompt now includes reading the
    `generated` stamp in `docs/data/briefing.json` and, if it is more than 26 h

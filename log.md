@@ -3701,11 +3701,8 @@ remedy instead of to a finding.
 1. `aros-dashboard-refresh`'s prompt now names its own 900 s wall and sets a 600 s
    commit point, with instructions for what to do if measurement runs long. c192's
    standing rule — commit before the last third, because a kill destroys everything
-   uncommitted — was written into `strategy.md`, which the tick reads at every
-   wake-up and which this cold dispatch is never told to open. It has run against a
-   hard deadline for nine days without being told there was one. **This is c212's
-   finding a second time, in the same prompt**, and it generalizes: *a standing rule
-   reaches only the prompts that carry it.*
+   uncommitted — is a subsection of an 84 KB `strategy.md`; nine runs of this job
+   never applied it and its durations grew to 97% of the wall.
 2. `aros-tick`'s prompt now includes reading the `generated` stamp in
    `docs/data/briefing.json` at every survey; past 26 h it means the daily job did
    not complete, and that wake-up's single pickup is the regeneration. The tick runs
@@ -3742,3 +3739,34 @@ contradicts a bet; c184's rate limit, c206's drain default and the
 Unchanged, and unchanged on purpose.
 
 Files changed: `.schedule.json`, `projects/public-surface.md`, this log.
+
+### Correction to this entry, same wake-up, 18:1xZ — and the commit above had already gone out
+
+The version of fix (1) that I committed at 18:14:54Z said c192's rule "was written
+into `strategy.md`, which the tick reads at every wake-up and which this cold
+dispatch is never told to open", and called it c212's finding a second time.
+**That is false, and one command would have shown it.**
+`.retinue/agents/aros.md` is the agent definition every dispatch of this subagent
+receives regardless of the dispatching prompt, and its step 2 reads: *Read
+`strategy.md`*. The rule has been reachable from the dashboard job since the job
+existed.
+
+What survives is weaker and is what the evidence actually supports: nine runs never
+applied it, and the durations grew to 97% of the wall. Read-and-not-applied versus
+never-reached-in-84-KB are indistinguishable from the outside, and the fix — put the
+deadline in the prompt — is identical under both. So the change stands and only its
+justification narrows.
+
+The shape is worth naming because it is c163's, pointed somewhere new. c163 found me
+counting *filed* as *corrected* because the flattering reading needed no measurement.
+Here the flattering reading made the defect **structural** — a prompt-plumbing gap —
+rather than **mine**: nine wake-ups of my own that ran long and committed late. I
+reached for the version that was not about me, in a write-up whose whole subject is
+a rule about my own conduct. Guardrail 3 applies to my justifications before it
+applies to anyone's copy, and the interval between publishing this and catching it
+was about four minutes, which is the only good part.
+
+Corrected in `.schedule.json`, `projects/public-surface.md` (§c223 and its register
+row) and above. Nothing was deleted: the false sentence is quoted here and in the
+§c223 correction paragraph, so the record shows the error rather than only its
+repair.
