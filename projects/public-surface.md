@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c215 (2026-07-28 03:0xZ): checked this file's heading structure against the unit its own rotation rule moves, because it is 192 KB against a 200 KB threshold and about three wake-ups out. Found four write-ups - c211, c212, c213, c214 - appended as ### under ## Cycle 210, by pattern-matching the last heading in the file rather than the last cycle in it. Nothing rendered wrong, so nothing signalled it; the consequence is latent until a rotation, which splits on ^## and would have carried those four into the archive silently while their register rows kept saying 'Detail: below'. Promoted to ##, and the invariant is now stated beside the rotation rule - one ## per cycle write-up, ### only for a subsection of the same cycle - with a one-line comm check for register rows pointing at a cycle with no write-up. Check runs clean. Also recorded: my first measurement this cycle was wrong. Testing the rows for c197's required link with a grep for Markdown hyperlinks returned 0 of 24, which reads as seventeen cycles of ignoring my own rule; the rows in fact carry section references, and 23 of 24 have one. Same class as c179 and c145 - an indicator is a claim. The rows' real gap is duller: median 370 characters against a one-clause rule. Not rewritten this cycle; c197 says that backlog moves in pieces. Nothing filed (slot spent until 2026-07-28T04:58Z), nothing escalated, held queue still 4. New rule: a rule that names a unit has to say what the unit is, or the next writer infers it from the neighbouring line. Earlier note - Aros, c213 (2026-07-27 20:4xZ): diffed what the life store serves against what the project files say - the one question 213 cycles of triple-store checks had never asked. 4 of 6 project files were current; the index was about 36 hours behind, serving public-surface.md as of cycle 192, because the manual refresh handle documented in docs/examples/provenance/README.md (qlever-dir#3: the watcher ignores Markdown) had not been pulled since 2026-07-19. That made the lead piece's closing line - prose about a store expires, the store does not - true of the design and false of this deployment. Handle pulled: a byte-identical rewrite reindexed the whole chamber in 22 to 25 seconds, all six files current, working tree clean. Automated as the aros-store-refresh command job at 3600 s, chosen over a rule in a prompt because this chamber has found four times that written is not delivered. Nothing filed (slot spent until 2026-07-28T04:58Z, and the defect is in my own chamber), nothing escalated, held queue still 4. New rule: an audit of a generated surface is not finished at the generator - read what the surface serves and diff it against what it is built from. Earlier note - Aros, c212 (2026-07-27 17:4xZ): audited .schedule.json - the file that dispatches every job in this chamber, including my own wake-ups - for the first time in 212 cycles. Two findings, both in the aros-dashboard-refresh prompt, both fixed in place five minutes before that job ran. (1) It told a cold agent to regenerate milestones and community, two files that exist in no commit of this repo, and left agenda.json and messages.json unnamed; all five data files have carried their present names since the initial commit 63b62f4 on 2026-07-18, verified with git log --diff-filter=A and a --all name search. It has never bitten only because a cold Aros lists the directory and ignores the list - a latent trap, not a live defect. The prompt now names the five that exist and points at docs/index.html as the authority rather than any list of mine. (2) The rule c210 added - any sentence whose truth changes with the clock names its anchor - was recorded in this register for the refresh job to apply, and that job is a separate cold dispatch that is never told to read this file. It is now inline in the prompt, with c187's all-five-or-none rule. That is written-is-not-delivered for the fourth time: c163 filed is not corrected, c201 pushed is not escalated, c206 drafted is not readable, c212 recorded is not reachable. Rule: a rule addressed to a job that is not this one belongs in that job's prompt. Nothing filed (slot spent until 2026-07-28T04:58Z), nothing escalated, held queue still 4."
+current_next_action: "Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish. chamber#5 says every write to repo settings is refused and backs it with one endpoint; probed two more with the value already in place, so a success could not have changed anything - PUT /topics and PATCH /repos (description) on retinue, both 403. With c211's POST /pulls that is three distinct settings endpoints, so the sentence is measured rather than generalized. It holds, which is the bad outcome here: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Not commented on the issue - the claim survived, so a comment would only say I checked my own homework, and the ask is unchanged; had it been falsified the comment would have been mandatory. Recorded alongside it: the same token can push branches to retinue but cannot open a pull request, so the constraint is not write access, it is review access - and pushing framework docs straight to main to route around that is refused, because CLAUDE.md Tier 3 puts them behind a PR. Drain checked and empty: no two of the three held findings share a cause, nothing retires (all measured against 26297a2, still main after 66 h), filing slot spent until 2026-07-29T06:0xZ with traefik-readme ranked first for it. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; reconstruction byte-identical both ways and c215's dangling-pointer check empty, but seventeen register rows still read 'below' for cycles that had moved, which comm cannot detect - rewritten to name the archive part. Half of c197's rule withdrawn: a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does. Earlier note - Aros, c215 (2026-07-28 03:0xZ): four write-ups were nested as ### under an older cycle's ##, latent until a rotation that splits on ^## would have carried them off silently; promoted, and the invariant plus a comm check now sit beside the rotation rule."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -235,6 +235,7 @@ Archive, oldest first:
 | The `aros-store-refresh` job shipped at c213, read as code rather than as a commit | 2026-07-27 (c214) | **Delivered, and unsafe.** Store verified current — all six project files' frontmatter matches what their named graphs serve, so the c213 fix works; the job's own `[ok] in 0s` proves nothing. But its command was `cp file /tmp/x && cat /tmp/x > file`: `>` truncates first, and the next hourly run would have copied the truncated file over its own backup. Replaced with copy-beside-then-atomic-rename, chosen against qlever-dir `orchestrator.py`'s real event mask (`close_write,create,delete,move`); re-measured at **24 s**, `*.nt.tmp` gitignored. Detail: §c214 below. |
 | This file's own heading structure, checked against the unit its rotation rule moves | 2026-07-28 (c215) | **Four write-ups were `###` under an older cycle's `##`** — latent until a rotation, which would have archived c211–c214 silently. Promoted; invariant and a dangling-pointer check now stated beside the rule. Detail: §c215 below. |
 | This file's rotation, executed | 2026-07-28 (c216) | **Ran on the 200 KB trigger: c184–c210 archived, 191 KB → 88 KB; reconstruction and the c215 pointer check both clean.** Half of the c197 rule withdrawn — the table is an index, not evidence, and does not rotate. Detail: §c216 below. |
+| The **second** clause of the blocker I publish — "every write to repo settings is refused" — never measured on any endpoint but one | 2026-07-28 (c217) | **Holds: 403 on all three now, not generalized from one.** `PUT /topics` and `PATCH /repos/…` (description) join chamber#5's original `PUT /private-vulnerability-reporting`; both probed with the value already in place, so neither could change anything. Negative result — no writable settings surface exists for me, and the flagship repo's empty description stays an owner action. Detail: §c217 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -769,3 +770,62 @@ that backlog moves in pieces at whatever rate a short wake-up allows, and this o
 spent its budget on the rotation and an issue. No surface was audited from the
 never-audited list — the held queue is 3 after this cycle's filing, so c206's
 drain default still binds.
+
+## c217 (2026-07-28) — the other half of the blocker, probed the way c211 probed the first half
+
+c211 re-measured chamber#6's pull-request clause with a probe that creates
+nothing, and recorded the right lesson: *the no-re-escalation rule stops me
+notifying the owner again, not measuring again.* It then stopped at the clause it
+came for. The blocker I publish has two clauses, and chamber#5 states the second
+one in its widest form:
+
+> the deployment's token can read repo metadata and file issues, but **every write
+> to repo settings is refused**
+
+The evidence under that sentence is a single probe, `PUT
+/repos/…/private-vulnerability-reporting` → 403. One endpoint, generalized to
+"every write to repo settings" — which is the c176 error exactly (*a count's, or a
+claim's, scope is part of the claim*), sitting in an issue on the owner's desk
+where a reader can check it.
+
+**Probed, both with the value already in place, so a success would have changed
+nothing:**
+
+```bash
+gh api -X PUT   repos/retinue-os/retinue/topics -f 'names[]'    # topics are []
+gh api -X PATCH repos/retinue-os/retinue -f description=""      # description is ""
+```
+
+Both **403 `Resource not accessible by personal access token`**, 2026-07-28
+09:1xZ. With c211's `POST /pulls` 403 and chamber#5's own PVR 403, the sentence is
+now measured on three distinct settings endpoints instead of inferred from one. It
+holds. Recorded rather than commented on the issue: the claim survived, so a
+comment would say only that I checked my own homework, and it would spend a
+notification on an issue whose ask is unchanged. Had it been falsified, the
+comment would have been mandatory the same minute.
+
+**Why this surface was worth the two minutes.** It is the one place where being
+wrong would have been *good* news: the flagship repo `retinue` still shows an
+empty description and no topics to every visitor — the single line GitHub renders
+under the repo name, and the only way `qlever-dir` gets found by someone browsing
+`topics/sparql`, which is the audience bet 1 names. If the token could write
+either, that is bet 1's reach defect fixed by me, today, without asking anyone. It
+cannot.
+
+**The asymmetry worth writing down, because it is a temptation and not just a
+fact.** The same token *can* push branches to `retinue` — two are sitting there
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`). So the
+constraint is not "cannot write to the repo", it is "cannot request review". The
+available workaround — push the doc change straight to `main` — is refused, and
+the refusal is not close: `CLAUDE.md`'s Tier 3 policy puts framework docs behind a
+PR, and routing around a review gate because the review gate is inconvenient is
+the failure mode this project's whole pitch is against. Issues carrying patches
+stay the channel until chamber#6 moves.
+
+**Drain, checked and empty this cycle.** c206's default binds at three held. No
+two of the three share a cause (a stale deployment README; an update path that
+reports dispatch not result; a German string in the PWA manifest), so no
+consolidation. Nothing retires: all three were measured against `26297a2`, which
+is still `main` — unmoved for 66 h — so re-verification is the same commit and
+would be theatre. The filing slot is spent until 2026-07-29T06:0xZ, and
+`traefik-readme-labels-already.md` is ranked first for it.
