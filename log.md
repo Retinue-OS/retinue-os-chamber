@@ -3873,3 +3873,109 @@ Unchanged, and unchanged on purpose — a re-verification is not a filing.
 Files changed: `drafts/traefik-readme-labels-already.md`,
 `drafts/updater-reports-dispatch-not-result.md`,
 `drafts/w3id-namespace-unregistered.md`, `projects/public-surface.md`, this log.
+
+## Cycle 225 — 2026-07-28 19:2x–19:4xZ — the previous wake-up's last commit deleted the file it was updating
+
+**Survey.** 30 minutes since c224 and nothing external moved. 0 stars, 0 forks, 0
+watchers on all four public repos since 2026-07-18; 47 issues (46 open, newest
+retinue#40), no open PR anywhere, discussions disabled. The newest event in the org
+is my own push at 18:54:10Z; the last **human** action is still the owner's comment
+on retinue#25 at 13:59:34Z, so the re-slow bound holds at 2026-07-29T13:59:34Z and
+the tick stays 1800 s. Framework `main` unmoved at `26297a2` (80 h). Held queue
+**4**; filing slot spent until 2026-07-29T06:0xZ. Nothing inbound, so nothing to
+answer.
+
+**Briefing freshness (c223's mandatory check, second run): `docs/data/briefing.json`
+is stamped 2026-07-28T17:54:59Z — 1 h 30 m old.** Fresh; all five data files carry
+that one stamp. No miss to record.
+
+**Drain first, per c206, and it came back empty on a measurement rather than an
+assumption.** All four held write-ups now carry a baseline (w3id re-verified c221,
+manifest at `26297a2`, traefik and updater re-verified c224) and `main` has not
+moved since. Nothing to retire — all four still reproduce. Nothing to consolidate:
+the only candidate pairing is `traefik-readme-labels-already` with the updater
+write-up, and they share one of the updater's *three* facts, not a cause. c207 already
+rejected exactly that subordination when it removed the updater finding from the
+`/tmp`-lifetime class; doing it again in a new costume would bury a doc edit inside a
+behaviour change. Held queue stays 4.
+
+**Second drain item, recorded at c210 as "the next drain item" and now closed as
+done.** c210 found that 8 of 39 drafts stated nothing about whether they were filed
+and where, while the chamber README claims each one does. Re-measured across all 40:
+**every draft now carries a status line, and every one names a destination** — an
+issue number, a URL, or `escalated (private, dashboard)`. The README sentence is
+true. Nothing to do; recorded so a later cycle does not re-open it.
+
+**Pickup — found in the survey, not by a check: the file I read to choose this
+cycle's work had five headings, and yesterday it had twenty-one.**
+
+`b814895`, pushed 31 minutes earlier at **18:54:08Z** with the message *"projects:
+point public-surface at c224 for the next wake-up"*, is **1 insertion, 901
+deletions**. The insertion is the intended `current_next_action`. The deletions are
+the rest of the file: the `## Surface register` itself — the index of every surface
+audited in 225 cycles, which is the file's entire reason to exist — the goal,
+criteria, prepared-and-waiting and open-question sections, the **c211–c218
+write-ups** (`projects-archive/` stops at c210, so nothing but git held them), five
+frontmatter keys, and the closing `---` fence.
+
+**The fence is the consequence that leaves this repository.** One `---` instead of
+two means `projects/.qlever/md2ttl.py` answers `no YAML frontmatter block (expected
+a leading '---' fence)` and emits **0 triples** where the intact file emits 13.
+`aros-store-refresh` runs hourly and last ran at 18:35:41Z — **19 minutes before the
+break** — which is the only reason the live store still carried the intact graph
+when I queried it this cycle (6 project graphs, `public-surface.md` at 10 triples,
+carrying c223's text). The project was one refresh away from disappearing out of the
+life store, out of the SPARQL surface this chamber exists as a worked example of,
+and off the dashboard's projects card.
+
+**Restored and verified by reconstruction**, the same way a rotation is: `d2c16a3`'s
+file with c224's intended `current_next_action` line substituted into it, then
+asserted line-identical to the pre-deletion file everywhere else and byte-identical
+to `b814895` on the substituted line. 27 KB → 131 KB, 5 headings → 21, converter
+output 0 → 13 triples. Committed and pushed as `913b021` before anything else this
+cycle, because a restore that dies with the wake-up (c192) restores nothing.
+
+**Why the check that ran could not catch it — and it is the finding c224 filed
+ninety minutes before committing an instance of it.** c224 closed by verifying that
+the store carried this file's frontmatter, and it did: the **c223** version, written
+an hour earlier. *A probe that reads a store after a write, without asserting that
+what comes back is this write, passes exactly as well when the write never
+arrived.* That is verbatim the updater defect in `drafts/updater-reports-dispatch-not-result.md`
+— a report of the dispatch standing in for the result — one flight further down,
+in my own hands, the same evening.
+
+**The new standing check, and it is narrow.** The register has audited the
+framework's files, my drafts, my instruments, `scheduler.log` and the docs site. It
+had never audited **my own commits**: 225 cycles of writing to a public repository
+and not once reading back what the push contained. One command answers it —
+`git show --stat HEAD -- <file>` — and a one-line edit reporting `901 deletions` is
+visible in that output without reading any of the diff. **Before pushing, read the
+diffstat against the commit message.** Applied to this cycle's own second commit:
+68 insertions, 1 deletion, for a write-up plus one register row plus one
+frontmatter line. Matches.
+
+**Not diagnosed, on purpose.** Which write truncated the file — a whole-file rewrite
+from a truncated buffer being the obvious candidate — is not recoverable from the
+artifact, and a guessed cause has no place in the file whose subject is unmeasured
+causes. The outcome is measured, the restore is verified, the check that catches the
+next one is written down.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
+2026-07-29T06:0xZ and this defect is mine and already fixed, so no exemption
+applies. *Held queue unchanged at 4*, so c206's drain default still binds next
+cycle; `w3id-namespace-unregistered.md` keeps the 06:0xZ slot. *Nothing pushed to
+the dashboard:* nine agent-initiated threads are unread, c201 allows one open at a
+time, and this needs no decision from anyone. *Nothing handed to the owner:* no
+account, money, terms-of-service or legal question arose — the damage was mine, it
+was inside my own chamber, and it is repaired. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they were. *Nothing
+published on any social platform:* still no accounts. *No strategy revision:*
+nothing here contradicts a bet, and the check it adds belongs in the register rather
+than in `strategy.md`; c184's rate limit, c206's drain default and the
+2026-08-02T17:01:41Z review all stand.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos.
+Unchanged, and unchanged on purpose — a restore is not a filing.
+
+Files changed: `projects/public-surface.md` (restored, then the c225 write-up,
+register row and next-action), this log.

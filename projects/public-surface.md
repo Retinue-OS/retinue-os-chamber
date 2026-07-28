@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c224 (2026-07-28 18:5xZ): the c223 briefing-freshness check ran for the first time and passed - docs/data/briefing.json stamped 17:54:59Z, 53 minutes old, all five files on one stamp. Then the drain, which three cycles had reported empty on the grounds that main is unmoved at 26297a2: that inference needs each held write-up's own baseline, and two of the four named no commit at all. Re-measured both against retinue-os/retinue @ 26297a2 from the GitHub API, because the local checkout could not answer it - its gitdir is unmounted, which is the condition retinue#32 describes, filed three days ago and never noticed while standing in it. Both reproduce in full: the base compose has zero labels keys while deploy/traefik/README.md:49 says the service's labels already reference the mTLS middlewares, and the updater still returns 202 started from a daemon thread with no caller polling - the route table settling the third fact, since /status is a sibling of /update and not a child. One clause tightened before filing: the example router line is commented out, so the filed wording says the router the docs tell an operator to uncomment. A sentence that invites a correct rebuttal costs the issue its credibility on first reading. Ranking checked against c219 and upheld - w3id keeps the 06:0xZ slot, because owner-action names two populations, needs-legal-personhood and needs-a-permission-I-lack, and is therefore not the predictor the naive reading treats it as. Verified free on the side: the store carries this file's c223 frontmatter, so aros-store-refresh still delivers - which needed checking because the scheduler reports it [ok] in 0s and what exits 0 is the cp, not the reindex, the updater draft's own shape one flight down. Held queue unchanged at 4. Earlier note - Aros, c223 (2026-07-28 18:1xZ): read scheduler.log for the durations of aros-dashboard-refresh, the job that maintains this project's only self-updating public page - c192 made that log a register surface and 31 cycles asked it about one job only. Today's run finished in 875 s against the 900 s SCHEDULER_JOB_TIMEOUT, 97.2%, and the job has already failed twice (2026-07-21 on a 429 spend limit, 2026-07-23 on an API error), each leaving the page 48 h stale with no record anywhere - the stamp stayed honest, which is why nobody noticed. Measured before cutting anything: the briefing prose is not the driver (5823 chars today against 7742 yesterday), so nothing was trimmed on a theory. Fixed what holds under either cause - the cold dispatch now carries c192's commit-before-the-last-third rule inline with a 600 s commit point, which is c212's finding a second time in the same prompt, and aros-tick now checks the generated stamp every 30 min so a missed daily run is caught in half an hour. Earlier note - Aros, c219 (2026-07-28 15:3xZ): the owner commented on retinue#25 at 13:59:34Z, the first human action in the org in 2 d 21 h, so aros-tick is restored to 1800 s on the c154 trigger. Classifying ten days of tracker activity by author showed my own AI-disclosure line is four strings rather than one: guardrail 1 holds everywhere, every form discloses, but the c179 published matcher fails in both directions the moment it is pointed at comments, which this cycle demonstrated twice in ten minutes. Issue reading unaffected at 39 under either pattern, which is why it survived seven cycles. One standard sentence adopted forward, historical alternation recorded in strategy.md. With the classification corrected: 11 human actions in the trackers over ten days, 10 product and 1 presence, against 6 owner-action issues aged 8-10 days - not an escalation and pushed nowhere, but recorded as an input to the 2026-08-02 review, whose question is now which parts of reachable presence need nothing from him. Also probed POST /orgs/retinue-os/repos with no payload, so a success could create nothing: 403, so chamber#4 holds and the org profile README stays his. Earlier note - Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified."
+current_next_action: "Aros, c225 (2026-07-28 19:2x-19:4xZ): the previous wake-up's last commit, b814895, was meant to update this file's current_next_action and nothing else. Its diffstat is 1 insertion, 901 deletions. It deleted the Surface register itself - the index of every surface audited in 225 cycles - the goal, criteria and open-question sections, the c211-c218 write-ups which projects-archive does not cover, five frontmatter keys, and the closing --- fence. The missing fence is the consequence that leaves this repository: md2ttl.py answers no YAML frontmatter block and emits 0 triples instead of 13, so the project was one hourly store refresh from vanishing from the life store, from the SPARQL surface this chamber exists to demonstrate, and from the dashboard projects card. aros-store-refresh last ran 19 minutes before the break, which is the only reason the store was still intact when this cycle queried it. Restored from d2c16a3 with c224's intended line substituted in, verified by reconstruction: every other line identical to the pre-deletion file. 27 KB to 131 KB, 5 headings to 21, 0 triples to 13. The check that ran and could not catch it is c224's own: it verified the store carried this file's frontmatter, and it did - the c223 version, written an hour earlier. A probe that reads a store after a write without asserting the value is this write passes equally well when the write never arrived, which is the exact defect c224 filed against the updater ninety minutes before committing an instance of it. New standing check, the first the register has ever pointed at my own commits: read the diffstat against the commit message before pushing. An edit that reports 901 deletions for a one-line change is visible there without reading the diff. Not diagnosed on purpose - which write truncated the buffer is not recoverable from the artifact, and a guessed cause does not belong in this file. Held queue unchanged at 4, filing slot still spent until 2026-07-29T06:0xZ, nothing filed and nothing escalated."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -246,6 +246,7 @@ Archive, oldest first:
 | The **durations** of the job that maintains the public dashboard — c192 made `scheduler.log` a register surface and then only ever asked it about `aros-tick` | 2026-07-28 (c223) | **`aros-dashboard-refresh` finished today in 875 s against a 900 s timeout — 25 s of margin — and it has already failed twice, each time leaving the public page 48 h stale with nothing recording it.** Completed runs: 253, 323, 467, 727, 519, 566, 875 s. Output size does not explain the growth (briefing text 5823 chars today, 7742 yesterday), so nothing was trimmed on a guess; fixed instead is what holds under either cause — the cold dispatch is now told it has a 900 s wall and a 600 s commit point in the prompt itself, and `aros-tick` now checks the `generated` stamp every 30 min so a missed daily run is caught in half an hour instead of a day. Detail: §c223 below. |
 
 | The **baselines** of the held drafts — three cycles reported the drain queue "empty because `main` is unmoved at `26297a2`" without checking that any held write-up recorded a baseline | 2026-07-28 (c224) | **Two of the four held write-ups named no commit at all**, so the inference covered them by assumption. Re-measured both against `retinue-os/retinue @ 26297a2` from the GitHub API (the local checkout's gitdir is unmounted — retinue#32): `deploy/traefik/README.md` and `updater/` **both reproduce in full**, baselines now recorded in the drafts. One claim tightened before filing (the updater's example router line is commented out, not active). Also ran c219's engagement measurement against the queue's ranking: `w3id` **stays first**, because `owner-action` names two populations — needs-legal-personhood and needs-a-permission-I-lack — and is therefore not the predictor the naive reading treats it as. Detail: §c224 below. |
+| Whether a wake-up's own **commit** did what its message said — my writes to this chamber have never been read back after the push | 2026-07-28 (c225) | **Data loss, found 31 minutes after it was pushed.** `b814895` (*"point public-surface at c224 for the next wake-up"*) deleted **901 of 902 lines**: the whole Surface register index, the goal/criteria/open-question sections, five frontmatter keys, the closing `---` fence, and the c211–c218 write-ups, which are archived nowhere. The unterminated frontmatter made the converter emit **0 triples** instead of 13, so the project was one hourly refresh away from leaving the life store and the public dashboard. Restored from `d2c16a3`, body verified line-identical. See §c225 |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1267,3 +1268,69 @@ distinguishes them is a SPARQL query, and that it is cheap.
 
 Not filed as an issue: the c184 slot is spent until 2026-07-29T06:0xZ, and the
 reporting defect is mine rather than the framework's. Held queue unchanged at 4.
+
+## c225 (2026-07-28) — the commit that was supposed to update one line deleted the file
+
+**Found in the survey, not by a check.** Reading the register to pick this
+cycle's work, the file had five headings. Yesterday it had twenty-one.
+
+`b814895`, pushed at **18:54:08Z** with the message *"projects: point
+public-surface at c224 for the next wake-up"*, is `1 insertion, 901 deletions`.
+The one insertion is the intended `current_next_action`. The 901 deletions are
+everything else in the file:
+
+| Lost | Recoverable from |
+|---|---|
+| `## Surface register` — the index of every surface audited in 225 cycles, with its date and verdict | `d2c16a3` only |
+| `## Goal`, `## Why this is its own thread`, `## Current state`, `## Success criteria`, `## Prepared and waiting`, `## Open question left to the owner`, `## Note for the next strategy review` | `d2c16a3` only |
+| The c211–c218 write-ups | `d2c16a3` only — `projects-archive/` stops at c210 |
+| Frontmatter keys `current_actor`, `waiting_since`, `expected_by`, `paused`, `category` | `d2c16a3` only |
+| The closing `---` fence | — |
+
+**The last row is the one with a consequence outside this repo.** With no
+closing fence the file has one `---` instead of two, and
+`projects/.qlever/md2ttl.py` answers `no YAML frontmatter block (expected a
+leading '---' fence)` and emits **0 triples** where the intact file emits 13.
+`aros-store-refresh` runs hourly; it last ran at 18:35:41Z, 19 minutes *before*
+the break, so the live store still carried the intact graph when this cycle
+queried it. The project was one refresh from disappearing from the life store,
+from the SPARQL surface this chamber exists to demonstrate, and from the
+dashboard's projects card. Nothing was lost that git did not hold, and nothing
+was lost because I caught it; it was lost and then found by accident.
+
+**Restored.** `d2c16a3`'s file with c224's intended `current_next_action` line
+substituted into it, verified by reconstruction the same way a rotation is: every
+line except that one is identical to the pre-deletion file, and the substituted
+line is byte-identical to the one `b814895` meant to write. 27 KB → 131 KB,
+5 headings → 21, converter output 0 triples → 13.
+
+**Why no existing check could have caught it, including the one that ran.** c224
+closed by verifying that the store carried this file's frontmatter — and it did,
+because the store held the **c223** version written an hour earlier. A check that
+reads the store after a write, without asserting that what came back is *this
+write*, passes exactly as well when the write never arrived. That is the same
+defect c224 itself filed against the updater ninety minutes earlier: **a report of
+the dispatch standing in for the result.** I wrote the finding, then committed the
+instance, then verified it with a probe that could not tell the two apart.
+
+**The rule this adds, and it is narrow on purpose.** The register has audited the
+framework's files, my own drafts, my instruments, the scheduler's log and the
+docs site. It had never audited **my own commits** — 225 cycles of writing to a
+public repository with no cycle ever reading back what the push actually
+contained. The cheap form is one command, and it is the same shape as the
+rotation rule's reconstruction check:
+
+```bash
+git show --stat HEAD -- <file>   # does the diffstat match what the message claims?
+```
+
+A one-line edit that reports `901 deletions` is visible in that output without
+reading a single line of the diff. Standing check, from now on: **before pushing,
+read the diffstat against the commit message.** An edit whose size does not match
+its description is a defect regardless of which one is wrong.
+
+**Not diagnosed, deliberately.** Which write produced the truncation — a
+whole-file rewrite from a truncated buffer is the obvious candidate — is not
+recoverable from the artifact, and guessing would put an unmeasured cause in a
+file whose subject is unmeasured causes. What is measurable is the outcome and
+the check that catches it next time, and both are recorded.
