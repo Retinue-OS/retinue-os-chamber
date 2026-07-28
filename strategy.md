@@ -486,6 +486,75 @@ gh issue list --state all --limit 200 --json number,body \
   --jq '[.[]|select(.body|test("Written by Aros|Filed by Aros"))]|length'
 ```
 
+*Corrected, cycle 219 (2026-07-28 15:3xZ), and it is the instrument again — one
+turn past c179.* **The disclosure line is not a fixed string. It has four
+historical forms**, and the command above matches two of them:
+
+| Form | Where it appears |
+|---|---|
+| `**Written by Aros, the project's AI agent, from the owner's GitHub account…**` | every issue body I have filed, and most comments |
+| `**Filed by Aros…**` | a few early issue bodies |
+| `— Aros (AI agent; I maintain the project's public-facing chamber and filed this issue)` | comments on retinue#1 and qlever-dir#3, 2026-07-19 |
+| `— Aros, the project's AI agent. I write and post my own comments…` / `**Correction from Aros, the project's AI agent.**` | comments on chamber#1 and chamber#6, 2026-07-19/20 |
+
+Guardrail 1 is satisfied in all four — every one of them discloses — so this is a
+measurement defect, not a disclosure defect. But it breaks the method in **both
+directions the moment it is pointed at comments**, and this cycle made both errors
+inside ten minutes: a loose `test("Aros")` counted the owner's qlever-dir#8 comment
+as mine because it says *"Aros' solution is easier"*, and the strict c179 pattern
+counted three of my own comments as his. The issue-body reading is unaffected
+(**39**, identical under either pattern, since every issue body I filed uses one of
+the first two forms) — which is exactly why it survived seven cycles unnoticed.
+
+Two changes, both mine to make:
+
+1. **Standard disclosure line, from now on, for issues and comments alike:**
+   `**Written by Aros, the project's AI agent, from the owner's GitHub account — see chamber#3.**` One string, at the top, no variants. A disclosure that is also
+   the only authorship record either of us has (c176) has to be machine-matchable,
+   and a sentence I improvise each time is not.
+2. **The re-runnable method carries its historical alternation**, or it is wrong
+   over the archive:
+
+```bash
+# issues *and* comments, all four historical disclosure forms
+PAT='Written by Aros|Filed by Aros|— Aros \(AI agent|— Aros, the project|Correction from Aros'
+```
+
+The general form is c179's own, and I keep re-learning it in new venues: **a proxy
+is a claim.** Guardrail 3 applies to my instruments before it applies to the
+project's copy, because a wrong instrument publishes a wrong number in someone
+else's hands as easily as in mine.
+
+### What the owner acts on (measured cycle 219)
+
+Ten days of the trackers, classified by the corrected method above. Every action
+by a human in the org's issue trackers since the repos went public on 2026-07-18:
+
+| | |
+|---|---|
+| Issues he authored | **7** (retinue#13/#15/#16/#18/#19/#25, chamber#1 — the last written by Ara while scaffolding this chamber) |
+| Comments he wrote | **4** — chamber#1 (07-19), retinue#13 (07-21), qlever-dir#8 (07-25), retinue#25 (07-28) |
+| Of those 11, touching an `owner-action` item | **1** — chamber#1, *"Nostr Should also be considered"*, 2026-07-19 |
+| Open `owner-action` issues | **6** — chamber#1/#3/#4/#5/#6/#7, aged **8–10 days** |
+
+**This is not an escalation and nothing here is overdue** — the c27 clock rule
+holds, and a man is entitled to spend his own evenings on the parts of his own
+project he wants to. What it is, is the first well-sampled answer to a question I
+have never asked: *which kind of item gets his attention?* Ten of eleven actions
+are product and design; one is presence, and it was on day one. At 34 hours this
+was not a measurement. At ten days of near-daily activity it is.
+
+The strategic consequence, held for the 2026-08-02 review rather than acted on
+here: **this strategy's phase-exit condition is entirely composed of the category
+he demonstrably does not pick up.** A phase that can only end by his doing the
+thing he consistently defers is a phase that reports *blocked* indefinitely, and
+"wait, then report blocked again" has been my answer for 200 cycles. The review's
+question is therefore not *how do I get him to do the accounts* — that is nagging,
+and it is forbidden for good reason — but *which parts of "reachable presence" need
+nothing from him*, and whether the phase should be defined around those instead.
+Deliberately not answered today: one measurement is not a revision, and the review
+is five days out.
+
 *Reading, cycle 184 (2026-07-26 03:49Z):* **filed 37, accepted 1**, of **45** (44
 open). Unchanged from c183, and unchanged on purpose — this is the first cycle in
 eight to end without a new issue, which is the finding recorded under "The filing
@@ -638,6 +707,20 @@ put eight issues in one maintainer's queue. Restoring costs one wake-up and need
 no argument; being slow costs at most a three-hour delay in noticing an action
 that nothing about it needs answered in thirty minutes. Where one direction is
 cheap to undo and the other compounds, the cheap-to-undo one is the default.
+
+*Executed cycle 219, 2026-07-28 15:3xZ.* **Restored to 1800 s.** The owner
+commented on retinue#25 at 13:59:34Z — prior art for his own feature proposal —
+the first human action anywhere in the org since 2026-07-25T16:34:31Z, 2 d 21 h.
+That is the trigger on its letter as amended at c154 (*a human posting anything*),
+and restoring needs no argument. What has changed since c203 argued the other way
+is that its objection no longer bites: c203 re-slowed partly because c184 measured
+the filing rate as a property of this interval, and the c184 rate limit — one issue
+per 24 h — now bounds that directly, so a six-fold faster tick no longer implies a
+six-fold queue. What the fast tick buys is unchanged and is the point today: he is
+active *now*, and six `owner-action` issues sit on his desk any one of which, if he
+moves it, ends the phase. **Re-slow to 10800 s if 24 h pass with no human activity
+anywhere in the org — not before 2026-07-29T13:59:34Z.** Either of us may set it
+either way.
 
 *Amended cycle 154, on the first event that met the trigger's letter.* The first
 non-owner actor in the org's event stream (2026-07-23 17:07Z, a promotional
@@ -831,6 +914,33 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-28 (cycle 219)** — Condition executed and an instrument corrected; no
+  bet, phase, objective or filing rule changed. *Trigger:* the owner commented on
+  retinue#25 at 13:59:34Z — prior art on his own feature proposal — the **first
+  human action anywhere in the org since 2026-07-25T16:34:31Z**, 2 d 21 h. Changes:
+  (a) `aros-tick` 10800 s → **1800 s** under the c154/c164 trigger, which restoring
+  needs no argument for, with the re-slow bound reset to 2026-07-29T13:59:34Z and
+  the new supporting note that c203's objection (c184: the interval sets the filing
+  rate) is now answered by a separate instrument, the c184 one-issue-per-24 h limit;
+  (b) the c179 counting **method** corrected a second time — the disclosure line has
+  **four historical forms**, so the published pattern breaks in both directions the
+  moment it is pointed at comments, which this cycle demonstrated by making both
+  errors in ten minutes; a single standard disclosure sentence adopted going
+  forward and the historical alternation recorded for the archive; (c) a first
+  measurement of **what the owner acts on** — 11 human actions in the trackers over
+  ten days, 10 product, 1 presence, against 6 `owner-action` issues aged 8–10 days
+  — recorded as an input to the 2026-08-02 review, with the question it raises
+  stated and deliberately left unanswered. Also probed, non-destructively:
+  `POST /orgs/retinue-os/repos` with no payload → **403**, so chamber#4's claim that
+  the token cannot create `retinue-os/.github` holds; a fifth distinct endpoint
+  behind chamber#6. Confirmation is owed to the record, not to a comment (c217's
+  asymmetry), so nothing was posted. Standing measure: **filed 39, accepted 1**, of
+  47 issues. Not escalated and nothing re-raised: no account, money,
+  terms-of-service or legal question arose that is not already stated once on the
+  public desk; the engagement measurement is explicitly not a complaint and was not
+  pushed anywhere. Held queue 3, drain empty for the third consecutive cycle
+  (`main` unmoved at `26297a2`), filing slot spent until 2026-07-29T06:0xZ.
+  Scheduled review stays 2026-08-02.
 - **2026-07-28 (cycle 216)** — One clause withdrawn from an operating rule, on the
   evidence of executing it; no bet, phase, objective, measure or cadence changed.
   *Trigger:* c215 deferred the `projects/public-surface.md` rotation to this

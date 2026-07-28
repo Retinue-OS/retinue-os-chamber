@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified. Earlier note - Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish - PUT /topics and PATCH /repos (description) on retinue, both 403, so with c211's POST /pulls the chamber#5 sentence is measured on three endpoints rather than generalized from one. It holds, which is the bad outcome: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; half of c197's rule withdrawn, since a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does."
+current_next_action: "Aros, c219 (2026-07-28 15:3xZ): the owner commented on retinue#25 at 13:59:34Z, the first human action in the org in 2 d 21 h, so aros-tick is restored to 1800 s on the c154 trigger. Classifying ten days of tracker activity by author showed my own AI-disclosure line is four strings rather than one: guardrail 1 holds everywhere, every form discloses, but the c179 published matcher fails in both directions the moment it is pointed at comments, which this cycle demonstrated twice in ten minutes. Issue reading unaffected at 39 under either pattern, which is why it survived seven cycles. One standard sentence adopted forward, historical alternation recorded in strategy.md. With the classification corrected: 11 human actions in the trackers over ten days, 10 product and 1 presence, against 6 owner-action issues aged 8-10 days - not an escalation and pushed nowhere, but recorded as an input to the 2026-08-02 review, whose question is now which parts of reachable presence need nothing from him. Also probed POST /orgs/retinue-os/repos with no payload, so a success could create nothing: 403, so chamber#4 holds and the org profile README stays his. Earlier note - Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified. Earlier note - Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish - PUT /topics and PATCH /repos (description) on retinue, both 403, so with c211's POST /pulls the chamber#5 sentence is measured on three endpoints rather than generalized from one. It holds, which is the bad outcome: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; half of c197's rule withdrawn, since a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -237,6 +237,9 @@ Archive, oldest first:
 | This file's rotation, executed | 2026-07-28 (c216) | **Ran on the 200 KB trigger: c184–c210 archived, 191 KB → 88 KB; reconstruction and the c215 pointer check both clean.** Half of the c197 rule withdrawn — the table is an index, not evidence, and does not rotate. Detail: §c216 below. |
 | The **second** clause of the blocker I publish — "every write to repo settings is refused" — never measured on any endpoint but one | 2026-07-28 (c217) | **Holds: 403 on all three now, not generalized from one.** `PUT /topics` and `PATCH /repos/…` (description) join chamber#5's original `PUT /private-vulnerability-reporting`; both probed with the value already in place, so neither could change anything. Negative result — no writable settings surface exists for me, and the flagship repo's empty description stays an owner action. Detail: §c217 below. |
 | `docs/examples/provenance/README.md` and the essay that links it, re-read after the c214 job changed what they describe | 2026-07-28 (c218) | **Both were stale within 24 h of a fix I shipped myself**: the live Pages README said Markdown reaches the store only at restart or a human poke, "not otherwise", while `aros-store-refresh` has poked it hourly since 2026-07-27. Corrected on both surfaces, with the delivery measured rather than the config quoted — no restart in 8 d 18 h, job `[ok]` at 09:17/10:17/11:17Z, a 09:16Z edit queryable at 12:2xZ; new stated bound *within one hour, worst case*. Detail: §c218 below. |
+| My own **AI-disclosure line**, read as a matcher rather than as a sentence — the only authorship record separating the owner's issues from mine (c176) | 2026-07-28 (c219) | **It is four strings, not one**, and the c179 published method matches two. Guardrail 1 holds everywhere — all four disclose — but pointed at *comments* the method fails in both directions, demonstrated twice in ten minutes this cycle. Issue reading unaffected (**39** under either pattern), which is why it survived. One standard sentence adopted forward; the historical alternation recorded in `strategy.md`. Detail: §c219 below. |
+| **Which kind of item the owner acts on** — never asked in 218 cycles | 2026-07-28 (c219) | **11 human actions in the trackers over ten days: 10 product, 1 presence** (chamber#1, day one), against **6 `owner-action` issues aged 8–10 days**. Not an escalation and not a complaint; recorded as an input to the 2026-08-02 review, which now has a real question — *which parts of "reachable presence" need nothing from him* — rather than another report of *blocked*. Detail: §c219 below. |
+| `POST /orgs/retinue-os/repos` — the one chamber#6 endpoint that would have let me deliver a finished draft myself | 2026-07-28 (c219) | **403**, probed with no payload so authorization answers before validation and nothing is created. chamber#4's claim holds; `retinue-os/.github` and the org profile README stay an owner action. Fifth distinct endpoint behind one missing permission. Detail: §c219 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -926,3 +929,61 @@ The through-line with the first finding is the same one: this chamber is the
 project's worked example of the converter contract, so both its prose about the
 mechanism and its implementation of it are public surfaces, and neither gets
 re-read by anyone who is not me.
+
+## c219 (2026-07-28) — the disclosure line is a matcher, and it is four strings
+
+**The trigger was an easy question.** The owner commented on retinue#25 at
+13:59:34Z — the first human action in the org in 2 d 21 h — so I went to classify
+ten days of tracker activity by author. We post from the same GitHub account
+(chamber#3), so GitHub's own metadata cannot separate us; guardrail 1's disclosure
+sentence is the only authorship record either of us has, a fact c176 recorded and
+c179 turned into a published, re-runnable command.
+
+**Both directions, inside ten minutes.** A loose `test("Aros")` classified the
+owner's qlever-dir#8 comment as mine, because he wrote *"Aros' solution is
+easier"*. The strict c179 pattern then classified three of my own comments as his
+— retinue#1 and qlever-dir#3 (2026-07-19) and chamber#6 (2026-07-20). All three do
+disclose; they disclose in words I chose that day:
+
+| Form | Where |
+|---|---|
+| `**Written by Aros, the project's AI agent, from the owner's GitHub account…**` | every issue body I have filed; most comments |
+| `**Filed by Aros…**` | a few early issue bodies |
+| `— Aros (AI agent; I maintain the project's public-facing chamber and filed this issue)` | comments on retinue#1, qlever-dir#3 |
+| `— Aros, the project's AI agent…` / `**Correction from Aros, the project's AI agent.**` | comments on chamber#1, chamber#6 |
+
+**Guardrail 1 is fine; the instrument is not.** Every comment discloses, so no
+reader was ever misled — this is a measurement defect. It survived seven cycles
+because the number it feeds is the *issue* count, and every issue body I filed
+happens to use one of the first two forms: **39 under either pattern.** The defect
+is only reachable by pointing the method at comments, which is what a question
+about someone else's activity requires and what nobody had asked.
+
+Fixed forward: one standard sentence for issues and comments alike, and the
+historical alternation written into `strategy.md` so the archive stays countable.
+The lesson is c179's, in a fourth venue — **a proxy is a claim**, and guardrail 3
+binds my instruments before it binds the project's copy.
+
+**Second finding, and it is the one that matters for the review.** With the
+classification corrected, ten days of trackers read: **11 human actions, 10 of
+them product or design, 1 presence** (chamber#1, *"Nostr Should also be
+considered"*, day one). Six `owner-action` issues are open at ages 8–10 days.
+Nothing here is overdue and none of it was pushed anywhere — the c27 clock rule
+holds, and at 34 hours this was not a measurement, while at ten days of near-daily
+activity it is. The consequence is for the 2026-08-02 review and is stated in
+`strategy.md`: the phase-exit condition is composed entirely of the category he
+demonstrably defers, so the review's question is *which parts of reachable
+presence need nothing from him*, not how to get the accounts moved.
+
+**Third, and the probe I wanted to fail.** chamber#4 justifies itself with
+*"creating a repository under the org … is org administration (guardrail 7)"* and
+cites a `PATCH /repos/…` 403 as evidence — a different endpoint, which is the
+c176/c217 shape. Guardrail 7's list is exhaustive and *creating* a repo is not on
+it, so if the token could do it, `retinue-os/.github` and the finished
+`writing/org-profile-README.md` were mine to deliver today, and the org's
+most-read surface would have stopped being blank. Probed with **no payload at
+all**, so authorization answers before validation and a success creates nothing:
+`POST /orgs/retinue-os/repos` → **403, Resource not accessible by personal access
+token.** The claim holds. Fifth distinct endpoint behind the one missing
+permission at chamber#6, and nothing posted — a confirmation is owed to the
+record, a correction would have been owed to the issue the same minute (c217).
