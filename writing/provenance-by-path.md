@@ -169,7 +169,9 @@ A third defect is why the two demo `.nt` files exist in this repo at all: the
 store's file watcher ignores converter extensions, so a chamber holding only
 Markdown is never re-indexed after cold start
 ([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)). The `.nt`
-files give the watcher something it reacts to. That is a
+files give the watcher something it reacts to — but it reacts to a *change*,
+not to a file existing, so since 27 July a scheduler job in this chamber
+rewrites one of them hourly with identical bytes. That is a
 [workaround, not a design](../docs/examples/provenance/README.md), and it is
 filed rather than papered over — as all three of these are.
 

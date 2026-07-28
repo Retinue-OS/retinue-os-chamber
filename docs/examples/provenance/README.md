@@ -60,12 +60,44 @@ returns no rows at all for an unrelated reason
 ([retinue#1](https://github.com/retinue-os/retinue/issues/1)). The index was
 stale and silent; no reader was affected, and the point stands without one.*
 
-So the accurate statement of the chamber's current behaviour is: **Markdown
-edits reach the store at container restart, or when someone deliberately
-touches one of these files. Not otherwise.** They are a manual refresh handle,
-not an automatic one.
+So the accurate statement of the chamber's behaviour **until 27 July** was:
+Markdown edits reach the store at container restart, or when someone
+deliberately touches one of these files. Not otherwise. They were a manual
+refresh handle.
 
-**This is a workaround, not a design.** It means the project files'
-queryability silently depends on two unrelated files continuing to exist *and*
-on someone remembering to poke one. When qlever-dir#3 is fixed, these can be
-deleted — check that the projects still index without them before doing so.
+**Updated 28 July (c218): the handle is now pulled on a timer, and the poke is
+no longer a person's job.** This chamber's
+[`.schedule.json`](https://github.com/retinue-os/retinue-os-chamber/blob/main/.schedule.json)
+carries `aros-store-refresh`, a command job on a 3600 s interval that rewrites
+`sensor-a/readings.nt` with byte-identical content — a `cp` to a temporary file
+followed by `mv -f`, so a crash mid-write cannot truncate the file the rest of
+this workaround depends on. The watcher sees the move and rebuilds.
+
+Measured 2026-07-28 12:2xZ, and it is a measurement of delivery rather than of
+configuration:
+
+- The container has not restarted since 2026-07-19T18:20:45Z — 8 d 18 h — so
+  nothing here is explained by a boot-time reindex.
+- The job ran at 09:17:49, 10:17:50 and 11:17:50 UTC, each `[ok] in 0s`.
+- `projects/public-surface.md` was last edited at 09:16Z. Querying its named
+  graph three hours later returns that edit's text, with no restart and no
+  human touch in between.
+
+The bound that replaces "not otherwise" is therefore: **a Markdown edit in this
+chamber is queryable within one hour, worst case** — the rebuild itself took
+22–25 s when measured on 2026-07-27; the hour is the wait for the next trigger.
+
+**It is still a workaround, and the automation makes its shape worse, not
+better.** The framework bug is unchanged and open
+([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)): the watcher
+still ignores converter extensions, so a Markdown-only chamber with no `.nt`
+file and no such job is still never indexed at all. What this chamber now has is
+a second moving part — the project files' queryability depends on two unrelated
+files continuing to exist, *and* on a scheduler job in a chamber's own manifest
+continuing to run, in a deployment the framework knows nothing about. A silent
+failure has simply moved one level out: if the job stops, the store goes stale
+exactly as before, and still says nothing.
+
+When qlever-dir#3 is fixed, delete both — these two files *and* the
+`aros-store-refresh` job. Check that the projects still index without them
+before doing so.

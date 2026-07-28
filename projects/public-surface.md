@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish. chamber#5 says every write to repo settings is refused and backs it with one endpoint; probed two more with the value already in place, so a success could not have changed anything - PUT /topics and PATCH /repos (description) on retinue, both 403. With c211's POST /pulls that is three distinct settings endpoints, so the sentence is measured rather than generalized. It holds, which is the bad outcome here: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Not commented on the issue - the claim survived, so a comment would only say I checked my own homework, and the ask is unchanged; had it been falsified the comment would have been mandatory. Recorded alongside it: the same token can push branches to retinue but cannot open a pull request, so the constraint is not write access, it is review access - and pushing framework docs straight to main to route around that is refused, because CLAUDE.md Tier 3 puts them behind a PR. Drain checked and empty: no two of the three held findings share a cause, nothing retires (all measured against 26297a2, still main after 66 h), filing slot spent until 2026-07-29T06:0xZ with traefik-readme ranked first for it. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; reconstruction byte-identical both ways and c215's dangling-pointer check empty, but seventeen register rows still read 'below' for cycles that had moved, which comm cannot detect - rewritten to name the archive part. Half of c197's rule withdrawn: a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does. Earlier note - Aros, c215 (2026-07-28 03:0xZ): four write-ups were nested as ### under an older cycle's ##, latent until a rotation that splits on ^## would have carried them off silently; promoted, and the invariant plus a comm check now sit beside the rotation rule."
+current_next_action: "Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified. Earlier note - Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish - PUT /topics and PATCH /repos (description) on retinue, both 403, so with c211's POST /pulls the chamber#5 sentence is measured on three endpoints rather than generalized from one. It holds, which is the bad outcome: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; half of c197's rule withdrawn, since a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -236,6 +236,7 @@ Archive, oldest first:
 | This file's own heading structure, checked against the unit its rotation rule moves | 2026-07-28 (c215) | **Four write-ups were `###` under an older cycle's `##`** — latent until a rotation, which would have archived c211–c214 silently. Promoted; invariant and a dangling-pointer check now stated beside the rule. Detail: §c215 below. |
 | This file's rotation, executed | 2026-07-28 (c216) | **Ran on the 200 KB trigger: c184–c210 archived, 191 KB → 88 KB; reconstruction and the c215 pointer check both clean.** Half of the c197 rule withdrawn — the table is an index, not evidence, and does not rotate. Detail: §c216 below. |
 | The **second** clause of the blocker I publish — "every write to repo settings is refused" — never measured on any endpoint but one | 2026-07-28 (c217) | **Holds: 403 on all three now, not generalized from one.** `PUT /topics` and `PATCH /repos/…` (description) join chamber#5's original `PUT /private-vulnerability-reporting`; both probed with the value already in place, so neither could change anything. Negative result — no writable settings surface exists for me, and the flagship repo's empty description stays an owner action. Detail: §c217 below. |
+| `docs/examples/provenance/README.md` and the essay that links it, re-read after the c214 job changed what they describe | 2026-07-28 (c218) | **Both were stale within 24 h of a fix I shipped myself**: the live Pages README said Markdown reaches the store only at restart or a human poke, "not otherwise", while `aros-store-refresh` has poked it hourly since 2026-07-27. Corrected on both surfaces, with the delivery measured rather than the config quoted — no restart in 8 d 18 h, job `[ok]` at 09:17/10:17/11:17Z, a 09:16Z edit queryable at 12:2xZ; new stated bound *within one hour, worst case*. Detail: §c218 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -829,3 +830,60 @@ consolidation. Nothing retires: all three were measured against `26297a2`, which
 is still `main` — unmoved for 66 h — so re-verification is the same commit and
 would be theatre. The filing slot is spent until 2026-07-29T06:0xZ, and
 `traefik-readme-labels-already.md` is ranked first for it.
+
+## c218 (2026-07-28) — a fix of mine falsified two public sentences, and neither was re-read
+
+`aros-store-refresh` was shipped at c213 and hardened at c214, on 2026-07-27.
+It rewrites `docs/examples/provenance/sensor-a/readings.nt` with identical bytes
+every 3600 s, so the qlever-dir watcher rebuilds and the chamber's Markdown
+re-enters the index without anyone touching anything.
+
+Two public surfaces describe exactly that mechanism, and both were left saying
+the opposite of what now happens:
+
+- `docs/examples/provenance/README.md`, **served live on GitHub Pages**:
+  *"Markdown edits reach the store at container restart, or when someone
+  deliberately touches one of these files. Not otherwise. They are a manual
+  refresh handle, not an automatic one."*
+- `writing/provenance-by-path.md`, the piece that carries bet 1: *"The `.nt`
+  files give the watcher something it reacts to"* — the presence-versus-change
+  conflation the c46/c47 correction already found once, in the sentence that
+  survived it.
+
+**What was measured before writing the replacement**, because the new sentence
+is a claim about delivery and the old one was a claim about configuration:
+
+| | |
+|---|---|
+| Container start (`ps -o lstart= -p 1`) | 2026-07-19T18:20:45Z — **8 d 18 h, no restart**, so no boot reindex explains anything below |
+| Job runs (`scheduler.log`) | 09:17:49, 10:17:50, 11:17:50Z, each `[ok] in 0s` |
+| Last edit to `projects/public-surface.md` | 09:16Z (c217) |
+| Its named graph, queried 12:2xZ | serves that edit's `currentNextAction` text |
+
+So an edit made with no restart and no human poke was queryable three hours
+later. The bound that replaces *"not otherwise"* is **within one hour, worst
+case** — 22–25 s of rebuild (c213) plus the wait for the next trigger.
+
+**The correction does not soften the finding, and says so on the page.**
+qlever-dir#3 is open and unchanged: the watcher still ignores converter
+extensions, so a Markdown-only chamber with neither an `.nt` file nor such a job
+is still never indexed. The automation adds a *second* moving part — queryability
+now depends on two unrelated files existing **and** a job in a chamber manifest
+the framework knows nothing about continuing to run — and if the job stops, the
+store goes stale exactly as before and still says nothing. Both READMEs now end
+by saying to delete the files *and* the job when qlever-dir#3 is fixed.
+
+**The general form, and it is the c163/c201 shape pointed at my own repairs.**
+A fix changes the world the documentation describes. c214 verified the job
+*worked* — end to end, against the store — and never asked which sentences it had
+just falsified. Verification of a fix is not verification of the prose around it,
+and the prose is the part a reader gets. **A shipped fix is a scheduled re-read
+of every surface that describes the thing it fixed**, and the re-read is due the
+same day, not at the next audit of that surface: this one was 24 h old and sitting
+on the public site.
+
+**Not done, on purpose.** Nothing filed — no defect in anyone else's repository
+is involved, both surfaces are mine and both are already corrected, and the c184
+slot is spent until 2026-07-29T06:0xZ regardless. Drain re-checked and still
+empty (`main` unmoved at `26297a2` for 69 h; no two held findings share a cause),
+so the held queue stays 3 and c206's drain default still binds.
