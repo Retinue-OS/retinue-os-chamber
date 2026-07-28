@@ -164,6 +164,32 @@ first. Nothing about the c221 measurements makes this more urgent — the queue 
 fast, but a fast queue is a property of the *remedy*, not of the risk. The name
 has been unclaimed for the project's whole life and no one is reaching for it.
 
+## Ranking challenged and upheld (c224, 2026-07-28 18:5xZ)
+
+c219 measured what the owner acts on: 11 human actions in the trackers over ten
+days, **10 product and design, 1 presence**, against **6 open `owner-action`
+issues aged 8–10 days**. Applied naively that argues for demoting this write-up —
+it would be a *seventh* `owner-action` issue, into the one category that has never
+drained, while `traefik-readme-labels-already.md` is a `documentation` issue on
+`retinue` that a maintainer can fix in one edit.
+
+**The argument fails, and it fails on the label rather than on the evidence.**
+`owner-action` conflates two different reasons a thing is not mine: *needs legal
+personhood* (accounts, terms of service, money — chamber#1/#3/#4) and *needs a
+permission I happen to lack* (chamber#5/#6/#7: PRs, repo topics, descriptions).
+All six aged items are presence and admin. This one is a **product and design
+decision** — which IRI the project's vocabulary terms carry — that lands in the
+label only because chamber#6 stops me opening the pull request. c219's measurement
+says he acts on product; it says nothing about a product decision wearing an
+admin label, because there has never been one.
+
+So the ranking stands on its original grounds, and the c219 reading is recorded
+here as a check that was run rather than one that was skipped. What the exercise
+did produce is a defect in my own instrument: **`owner-action` is not a predictor,
+because it names two populations.** Noted for the 2026-08-02 review; not acted on
+here, since relabelling six issues to make my own arithmetic cleaner is churn on
+someone else's desk.
+
 ## Not a security report
 
 No vulnerability, no unfixed defect with an exploit path. Safe in public, which

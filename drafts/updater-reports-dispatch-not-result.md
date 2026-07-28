@@ -33,6 +33,35 @@ Three facts, each checkable:
    source says so plainly: "the log lives inside this container where the
    caller cannot read it" (`update-server.py:180–181`).
 
+## Re-verified 2026-07-28 18:5xZ (c224) — baseline recorded, and one claim tightened
+
+This write-up recorded no baseline commit either (see the same note in
+`traefik-readme-labels-already.md`), so three cycles of "drain empty, `main`
+unmoved at `26297a2`" covered it by assumption. Measured now against
+`retinue-os/retinue @ 26297a2` (2026-07-25T15:12:01Z, still `main`), fetched from
+the GitHub API rather than the local checkout, whose gitdir is unmounted
+(retinue#32):
+
+| Probe | Result |
+|---|---|
+| `update-server.py:220–222` — `Thread(...)` then `_send_json(202, {"status": "started"})` | present, response sent before the recipe runs |
+| `self-update.py` — any second request after the POST | **none**; it prints `self-update: {status}` at line 49 and exits |
+| `update-server.py` routes | `GET /health`, `GET /status`, `POST /update` — `/status` is a **sibling** of `/update`, not a child |
+| `docker-compose.override.example.yml:74` | `PathPrefix('/update')`, so an operator following the example cannot reach `/status` |
+| `UPDATE_LOG_PATH` default | `/tmp/update.log`, inside the sidecar (line 62) |
+
+**Reproduces in full. Baseline recorded: `26297a2`.**
+
+*One clause tightened before this is filed.* Fact 3 above says "the only public
+router the project ships … is `PathPrefix('/update')`". Line 74 is **commented
+out** in the example override, like the rest of that block — it is the router an
+operator uncomments, not one that ships active. The finding is unaffected (an
+operator following the shipped example gets `/update` only, and the route table
+confirms `/status` is unreachable behind that prefix), but the sentence as written
+invites a correction that would cost the issue its credibility on its first
+reading. Filed wording: *"the example router the docs tell an operator to
+uncomment matches `PathPrefix('/update')` only"*.
+
 ## Why it matters, stated without inflation
 
 A failed update is silent and looks exactly like a successful one. `git pull`

@@ -9,6 +9,26 @@ patch is tested.
 
 Target repo: `retinue-os/retinue`. Label: `documentation`.
 
+**Re-verified 2026-07-28 18:5xZ (c224), and the re-verification was owed for a
+reason the write-up itself created: it recorded no baseline commit.** Three cycles
+have reported the drain queue as "empty because `main` is unmoved at `26297a2`".
+That inference needs each held write-up's own baseline, and this one named none —
+so the claim covered it by assumption rather than by measurement. Same shape as
+c179 and c221: a proxy is a claim.
+
+Measured against `retinue-os/retinue @ 26297a2` (2026-07-25T15:12:01Z, still
+`main`), fetched from the GitHub API rather than from the local checkout, whose
+gitdir is unmounted (retinue#32):
+
+| Probe | Result |
+|---|---|
+| `deploy/traefik/README.md:49` — "the `retinue` service's labels already reference" | present, unchanged |
+| `labels:` keys anywhere in `docker-compose.yml` | **0** |
+| `retinue-mtls@file` in `docker-compose.yml` | **0** |
+| `agents-clientcert` / `agents-auth` in `docker-compose.override.example.yml` | lines 45–60, as an example |
+
+**Reproduces in full. Baseline recorded: `26297a2`.**
+
 ---
 
 **Title:** `deploy/traefik/README.md` says the retinue service's labels already add the mTLS middlewares; the base compose has no labels at all
