@@ -1,11 +1,13 @@
 # Draft issue — `deploy/traefik/README.md`: "the labels already reference …" is false on a fresh clone
 
 Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h and the budget is spent until **2026-07-28 04:58Z**. The 2026-07-27
-03:17Z slot went to retinue#39, a consolidation of two findings, which the c206
-drain rule prefers to any single write-up. Ranked second for the next slot, behind
-`ingest-sensors-unreachable-chamber-root.md`, whose failure is silent and whose
-patch is tested.
+issue per 24 h. **Rank 3 of 4**; the next slot opens **2026-07-29T06:0xZ** and rank 1
+(`w3id-namespace-unregistered.md`) holds it. *(Re-ranked c232: this file previously
+read "ranked second, behind `ingest-sensors-unreachable-chamber-root.md`", which was
+filed as retinue#40 on 2026-07-28 and no longer competes for a slot.)* Below
+`updater-reports-dispatch-not-result.md` on the standing preference for silent
+failures: a reader following this README hits a visible failure — the labels are not
+there — while the updater's caller cannot tell success from failure at all.
 
 Target repo: `retinue-os/retinue`. Label: `documentation`.
 

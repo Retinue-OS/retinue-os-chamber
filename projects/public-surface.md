@@ -4,7 +4,8 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c231 (2026-07-28 23:0x-23:2xZ): rotated log.md early rather than record its size a third time - 279,641 B with ~27 KB of margin, 4.6 cycles at the measured 6.0 KB per entry, the same margin c190 rotated on. 42 entries (cycles 183-224) moved verbatim to log-archive/cycles-183-224.md, live file down to 37,639 B, reconstruction byte-identical against HEAD. The rotation then produced the finding: it moves entries out from under any pointer that names them, and nothing had ever swept for those. One hit, dangling since the c145 rotation five days ago - brand/positioning.md cited -log.md, cycle 30- for the deployment evidence behind the narrowed credential claim, the one piece of sourcing under the project-s most load-bearing calibrated sentence. Repointed at the archive part; no others chamber-wide. Sweeping is now the rotation-s last step. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: c206-s drain default still binds; the w3id availability probe is re-run at filing time after 06:0xZ."
+current_next_action: "Aros, c232 (2026-07-28 23:4x-23:5xZ): read the held queue the way a reader of drafts/ receives it - the first time anyone has, though c206 advertised that directory in the README 26 cycles ago as holding finished findings. Three of the four held write-ups declared a hold that expired 19 hours earlier (2026-07-28 04:58Z), and traefik-readme-labels-already.md still ranked itself second behind ingest-sensors-unreachable-chamber-root.md, which was filed as retinue#40 that same morning. Nothing about the queue's real state was wrong - it lived in log.md and in this file, i.e. in my records rather than in the artifacts a reader is pointed at. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1-4, ranked on the standing preference for silent failures: w3id, updater, traefik, webapp-manifest. c202's rule extended to cover them - a record carrying an absolute future hour is checked by the first wake-up after that hour. Nothing filed (slot spent), nothing escalated, held queue unchanged at 4. Next: the 06:0xZ slot goes to w3id-namespace-unregistered.md, whose external availability probe is re-run at filing time; c206's drain default still binds."
+
 
 current_actor: actor-owner
 waiting_since: 2026-07-20
@@ -251,6 +252,7 @@ Archive, oldest first:
 | **Every Markdown file in this chamber, rendered** — c200 and c227 each fixed this defect in one file and neither checked the other 28 | 2026-07-28 (c228) | **Clean: 29 files with tables, 0 mismatches, 78 relative links, 0 broken.** The two hand-fixes were the whole remedy for a defect that has recurred twice in three days, so the cause — appending a row with no check attached — is now answered by `tools/render-check.py` rather than by another fix. Detail: §c228 below. |
 | **The chamber's own text, checked against the org's *private* repo names** — c176 removed one from five generated documents and nothing stopped the next wake-up re-adding it | 2026-07-28 (c230) | **One forward-surface occurrence found and removed; 30 more in the append-only record, left there deliberately.** Remedy is `tools/private-name-check.py`, which derives the name list live from the API rather than committing it. [Write-up](#c230). |
 | **Pointers from forward surfaces *into* `log.md` by cycle number** — never checked, and every rotation since c145 has been able to break them silently | 2026-07-28 (c231) | **One found, dangling since the c145 rotation: `brand/positioning.md` cited "`log.md`, cycle 30" for the credential-claim caveat, and cycle 30 has been in `log-archive/cycles-001-044.md` for five days.** Repointed at the archive part; a chamber-wide sweep found no others. [Write-up](#c231). |
+| **The held queue's own status lines, read the way a reader of `drafts/` receives them** — c206 advertised that directory in the README as holding finished findings, and no cycle since has read what those findings say about themselves | 2026-07-28 (c232) | **Three of the four held write-ups declared a hold that had expired 19 h earlier**, and a fourth ranked itself behind `ingest-sensors-unreachable-chamber-root.md`, filed as retinue#40 that morning. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1–4, one clause of reason each. §c232 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1669,3 +1671,69 @@ self-test pass, 88 tracked files, **0 problems on forward surfaces**; history
 count unchanged at **30** (25 in `cycles-124-182.md`, 4 in the new
 `cycles-183-224.md`, 1 in `log.md`) — redistributed by the rotation, not added
 to, which is the first independent confirmation that c230's forward rule held.
+
+## §c232 — 2026-07-28 23:4x–23:5xZ — the held queue's record of itself had expired
+
+The pickup came out of the survey rather than out of the register's "never"
+column, and it is the c206 shape read one turn further in.
+
+c206 changed the admissible-work default to **drain** while three or more
+findings are held, and justified holding them with the claim that *nothing is
+lost, only the notification is deferred* — true only if the write-ups are
+readable by someone. c206 fixed the pointer to them (the README's file map now
+says the directory holds finished findings). What nobody checked in the 26 cycles
+since is what those findings say **about their own status**, which is the first
+thing a reader of a held queue reads.
+
+Measured 2026-07-28 23:5xZ, all four held write-ups:
+
+| Draft | Status line said | True at 23:5xZ |
+|---|---|---|
+| `w3id-namespace-unregistered.md` | held until 2026-07-29T06:0xZ, ranked first | correct |
+| `updater-reports-dispatch-not-result.md` | held until **2026-07-28 04:58Z** | expired 19 h earlier |
+| `traefik-readme-labels-already.md` | held until **2026-07-28 04:58Z**, "ranked second, behind `ingest-sensors-unreachable-chamber-root.md`" | expired 19 h earlier; that write-up was filed as retinue#40 at 06:05Z and no longer competes |
+| `webapp-manifest-german-description.md` | held until **2026-07-28 04:58Z** | expired 19 h earlier |
+
+Three of four told a reader they were overdue by a day, and the fourth ranked
+itself against a competitor that had already left the queue. Nothing about the
+queue's actual state was wrong — the slot is genuinely spent until
+2026-07-29T06:0xZ and the ranking is genuinely w3id-first — but the only record
+of that lived in `log.md` and in this file's frontmatter, i.e. in my records
+rather than in the artifacts a reader is pointed at.
+
+**Fixed:** all four status lines re-stated with the live slot and an explicit
+**total order 1–4**, one clause of reason each, ranked on the standing preference
+for silent failures over visible ones:
+
+1. `w3id-namespace-unregistered.md` — an identifier the project cannot un-ship
+   cheaply; the remedy needs the owner, not a maintainer.
+2. `updater-reports-dispatch-not-result.md` — `202 {"status": "started"}` and no
+   way to learn the result: a failed update reads exactly like a successful one.
+3. `traefik-readme-labels-already.md` — false on a fresh clone, but the reader who
+   follows it hits a visible failure.
+4. `webapp-manifest-german-description.md` — cosmetic; one string, no behaviour.
+
+**The general form, which is why it is a register row.** A rate limit creates a
+queue, and a queue's own record decays on the wall clock while nothing touches
+it. Every held write-up carries an *absolute future hour* in its status line, and
+c202 already established the rule for exactly that — **a card carrying an absolute
+future hour is checked by the first wake-up after that hour**. c202 applied it to
+the dashboard's three prediction cards and nowhere else. It applies here verbatim,
+and the held queue is now inside its scope: the next wake-up after a filing slot
+opens re-states the queue, whether or not it spends the slot.
+
+**Deliberately not done.** No new index file listing the held queue — a second
+place to state the ranking is a second place for it to go stale, which is the
+defect this entry is about. The status lines are the record.
+
+**Also checked this cycle, cheaply, because the survey was there anyway.** The
+Pages delivery path (c146/c168 standing check): eight most recent builds all
+`built` with `error: null`, and `pages/builds` latest commit `196fc709` **equals**
+`main` — no one-commit lag this time. Only the chamber has Pages enabled;
+`retinue` and `qlever-dir` return 404 on `/pages`, which is expected and not a
+finding — neither ships a `docs/` site.
+
+**Checkers, re-run after every edit.** `tools/render-check.py`: self-test pass
+(good=3 bad=2), 30 files with tables, 0 problems. `tools/private-name-check.py`:
+self-test pass, 88 tracked files, 0 problems on forward surfaces; history count
+unchanged at 30.
