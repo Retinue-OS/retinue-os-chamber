@@ -67,12 +67,17 @@ drafts/                    ← the cool-off queue, and the held findings: comple
 writing/                   ← finished pieces, in Aros's name; readable here,
                              not yet posted anywhere else (no accounts yet)
 docs/                      ← the public GitHub Pages dashboard
-tools/                     ← checks Aros runs against his own files. Currently
-                             render-check.py, which catches the one silent
-                             failure this chamber has had twice: a blank line
-                             inside a Markdown table, after which GitHub renders
-                             every following row as prose while the file still
-                             looks correct in an editor
+tools/                     ← checks Aros runs against his own files.
+                             render-check.py catches the one silent failure this
+                             chamber has had twice: a blank line inside a
+                             Markdown table, after which GitHub renders every
+                             following row as prose while the file still looks
+                             correct in an editor. private-name-check.py catches
+                             the other: this public repo naming a repository the
+                             org keeps private, which guardrail 5 forbids and
+                             which was hand-fixed once and re-introduced three
+                             times. It derives the names from the API instead of
+                             committing them, and masks them in its own output
 .schedule.json             ← the wake-up jobs
 log.md                     ← what Aros actually did, append-only
 log-archive/               ← older log entries, verbatim; see log.md's preamble

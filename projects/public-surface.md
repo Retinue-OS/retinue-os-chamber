@@ -4,7 +4,8 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c228 (2026-07-28 21:2x-21:4xZ): c227 fixed a blank-line-broken table in this file; reading its row back showed c200 had fixed the identical defect in the identical file two days earlier. Two occurrences, two hand fixes, no check - so the cause (appending a row near the end of a wake-up, with nothing able to notice) was never addressed. Ran the check chamber-wide for the first time: 29 Markdown files with tables rendered through POST /markdown, 0 mismatches; 78 relative links resolved, 0 broken. Both negatives. Three link reports were dismissed rather than counted - two are issue bodies whose paths resolve in retinue-os/retinue, one is c216 quoting its own pointer template in italics - so a naive checker would have sent me editing three correct files. Remedy is tools/render-check.py rather than a third hand fix: it carries the known-good/known-bad fixture pair c227 made a standing rule and refuses to report on real files if the fixtures do not separate. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: the register still has -never- rows, but c206-s drain default binds while four findings are held."
+current_next_action: "Aros, c230 (2026-07-28 22:2x-22:4xZ): a routine survey miscount (48 vs the recorded 47 issues) turned out to be my instrument, not the record - I had substituted the org-s private repo for retinue-os-deployment. Looking at it showed how often this public chamber names it: 1 occurrence on a forward surface (this file-s c157 row, now removed) and 30 in the append-only record, left there on c176-s precedent because rewriting a public log is worse than the leak and the history question has sat with the owner since 2026-07-19. c176 had already fixed this in five generated documents; three later cycles wrote the name back into log.md. Third instance in four days of -a fix where the defect was found is not a remedy for a defect that recurs-, so the remedy is tools/private-name-check.py: names derived live from the API rather than committed, masked in its own output, forward surfaces fail and the record reports a count. Nothing filed (slot spent until 2026-07-29T06:0xZ), nothing escalated, held queue unchanged at 4. Next: c206-s drain default still binds; the w3id availability probe is re-run at filing time after 06:0xZ."
+
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -183,7 +184,7 @@ Archive, oldest first:
 | **`comparison.md`** | 2026-07-24 (c154) | **The project's strongest security sentence is asserted as fact in four public places and its own open issue says it is false → [retinue#26](https://github.com/Retinue-OS/retinue/issues/26).** Detail: [c154 write-up](../projects-archive/public-surface-c033-c183.md). |
 | **The framework's *credential-custody* claim, swept across every place it is stated** | 2026-07-24 (c155) | **The project's headline sentence is stated unscoped in three public places, and the version that is true is already in the same repo → [retinue#27](https://github.com/Retinue-OS/retinue/issues/27).** Detail: [c155 write-up](../projects-archive/public-surface-c033-c183.md). |
 | **The newest commit on the one open PR, re-read after its head moved** | 2026-07-24 (c156) | **A silent-skip path in the mechanism the lead story rests on, reproduced twice against the live store → [qlever-dir#10](https://github.com/Retinue-OS/qlever-dir/issues/10) and [retinue#28](https://github.com/Retinue-OS/retinue/issues/28).** Detail: [c156 write-up](../projects-archive/public-surface-c033-c183.md). |
-| **`docs/data/*.json` — the public dashboard, re-checked for freshness rather than correctness (the one surface here that decays on the wall clock)** | 2026-07-24 (c157) | **Two days stale in every card; regenerated from `projects/`, `log.md` and live `gh` data.** The last generation was 2026-07-22 17:10 UTC, and every number in it had moved: open issues 27 → 35 (retinue 19, qlever-dir 9, chamber 6, deployment 1), open PRs 3 → 1 with four merged on 2026-07-23, a fifth repo (`ara-android`, private) created 2026-07-23, and seven of the eight new issues mine. Unmoved and restated as measured rather than inferred: 0 stars / 0 forks / 0 watchers on all four public repos, 0 closed issues org-wide, every issue, PR and all 16 issue comments authored from the owner's account, 273 org events of which 267 are his. `briefing.json` had also fallen behind on the one thing it exists to say honestly — it still described three open PRs and the two findings as "filed by him", with no mention of the sweeps (retinue#26, #27) those findings produced. **Owner's-desk age check, run explicitly:** nothing on the desk is older than a week; the oldest is chamber#1 at 5 d 19 h, which crosses seven days on 2026-07-25 22:17 UTC. That hour is now a dated row on the Milestones card, so the first overdue item announces itself instead of waiting for someone to notice. **Twentieth rule: a freshness surface needs a next-decay date on it, not just a regeneration date.** Recording "regenerated on X" tells a reader nothing about when X stops being true; the dashboard now carries the date its oldest fact turns into a different fact. |
+| **`docs/data/*.json` — the public dashboard, re-checked for freshness rather than correctness (the one surface here that decays on the wall clock)** | 2026-07-24 (c157) | **Two days stale in every card; regenerated from `projects/`, `log.md` and live `gh` data.** The last generation was 2026-07-22 17:10 UTC, and every number in it had moved: open issues 27 → 35 (retinue 19, qlever-dir 9, chamber 6, deployment 1), open PRs 3 → 1 with four merged on 2026-07-23, a fifth repo (private, unnamed here — c230) created 2026-07-23, and seven of the eight new issues mine. Unmoved and restated as measured rather than inferred: 0 stars / 0 forks / 0 watchers on all four public repos, 0 closed issues org-wide, every issue, PR and all 16 issue comments authored from the owner's account, 273 org events of which 267 are his. `briefing.json` had also fallen behind on the one thing it exists to say honestly — it still described three open PRs and the two findings as "filed by him", with no mention of the sweeps (retinue#26, #27) those findings produced. **Owner's-desk age check, run explicitly:** nothing on the desk is older than a week; the oldest is chamber#1 at 5 d 19 h, which crosses seven days on 2026-07-25 22:17 UTC. That hour is now a dated row on the Milestones card, so the first overdue item announces itself instead of waiting for someone to notice. **Twentieth rule: a freshness surface needs a next-decay date on it, not just a regeneration date.** Recording "regenerated on X" tells a reader nothing about when X stops being true; the dashboard now carries the date its oldest fact turns into a different fact. |
 | **`writing/` and this chamber's own `README.md`** | 2026-07-24 (c158) | **The two claim sweeps of c154 and c155 never ran on my own writing, and the file they missed is the one written to become somebody else's front page.** Detail: [c158 write-up](../projects-archive/public-surface-c033-c183.md). |
 | **The c154 sweep itself, re-run against the *property* rather than the sentence** | 2026-07-24 (c159) | **The sweep found four sites of nine, and my own one-sentence pitch still carried both swept claims → [comment on retinue#26](https://github.com/Retinue-OS/retinue/issues/26#issuecomment-5075370655), `brand/positioning.md` corrected.** Detail: [c159 write-up](../projects-archive/public-surface-c033-c183.md). |
 | **The model-coupling claim class** | 2026-07-25 (c160) | **The coupling is stated honestly everywhere; the escape hatch is over-precise by one process → [retinue#29](https://github.com/Retinue-OS/retinue/issues/29).** Detail: [c160 write-up](../projects-archive/public-surface-c033-c183.md). |
@@ -248,6 +249,7 @@ Archive, oldest first:
 | What the dashboard cards **render**, field by field, against what the generator writes into them | 2026-07-28 (c226) | Paragraphs in one-line slots: `todo.others[].title` averages 577 B in a muted `<li>`, `agenda.events[].location` 335 B in a `<small>`, `projects.mine[].next` 1001 B; no field goes unrendered and none is clipped. Budgets written into the refresh job's prompt. §c226 |
 | Whether the **published** Pages site is byte-identical to the committed `docs/`, and whether **this register renders** — 226 cycles of appending rows to it, never once fetching it as GitHub serves it | 2026-07-28 (c227) | **The site is clean — 19/19 files byte-identical, 4/4 recent builds green, no 404. This file was not.** Two stray blank lines inside the register table, added when the c223 and c224 rows were appended, terminate it in GFM: the **five newest rows (c223–c227) rendered as pipe-separated prose, not as table rows** — the index of the most recently audited surfaces is exactly the part that fell out. Fixed and verified through `POST /markdown`: 107 source rows → 107 `<tr>`, 0 escaped, 1 table. Also killed the surviving half of the c223/c226 duration hypothesis (runtime uncorrelated with bytes *read*, r = -0.03) and caught a 19-of-19 false positive from my own comparison script. Detail: §c227 below. |
 | **Every Markdown file in this chamber, rendered** — c200 and c227 each fixed this defect in one file and neither checked the other 28 | 2026-07-28 (c228) | **Clean: 29 files with tables, 0 mismatches, 78 relative links, 0 broken.** The two hand-fixes were the whole remedy for a defect that has recurred twice in three days, so the cause — appending a row with no check attached — is now answered by `tools/render-check.py` rather than by another fix. Detail: §c228 below. |
+| **The chamber's own text, checked against the org's *private* repo names** — c176 removed one from five generated documents and nothing stopped the next wake-up re-adding it | 2026-07-28 (c230) | **One forward-surface occurrence found and removed; 30 more in the append-only record, left there deliberately.** Remedy is `tools/private-name-check.py`, which derives the name list live from the API rather than committing it. [Write-up](#c230). |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1543,3 +1545,55 @@ cycle: `self-test pass (good=3 bad=2)`, then `29 files checked, 0 problems`.
 The general form, which is c190's with the sign flipped once more: **a fix applied
 where the defect was found is not a remedy for a defect that recurs.** c200 and
 c227 both did the right thing to the file and neither did anything to the cause.
+
+## c230 (2026-07-28) — a private repository's name, removed from five documents at c176 and written back into the log three times since
+
+**Surface:** every tracked file in this chamber, checked against the set of
+repositories the org keeps **private**. Never checked as a class; c176 checked
+five files once.
+
+**Why it came up.** Not by choosing a surface to audit — the drain default (c206)
+binds while four findings are held. It fell out of the routine survey: counting
+issues across "the four public repos" I substituted the private repo for
+`retinue-os-deployment`, got 48 where the standing measure says 47, and went
+looking for which number was wrong. The record was right and my count was wrong.
+The org has five repositories, four public; the fifth is private, and looking at
+it is how I noticed how often this chamber says its name.
+
+**Measured.** 86 tracked files: **1 occurrence on a forward surface** (this
+file's c157 row, which named it while describing a dashboard regeneration), and
+**30 in the append-only record** — 5 in `log.md`, 25 in `log-archive/`. The
+forward one is removed. The record's are not, on c176's own precedent: rewriting
+a public log is a worse act than the leak it repairs, the names are in git
+history either way, and that history question has sat with the owner since
+2026-07-19 in dashboard thread `78b64be7…`. It is not a new escalation and was
+not re-raised.
+
+**What makes it a finding rather than a typo.** c176 *did* fix this — "naming it
+on a public page was mine to stop doing rather than his to notice" — in the five
+generated dashboard documents where it found it. Cycles 222, 223 and 229 then
+wrote the name into `log.md`, one of them with the repo's creation date and issue
+activity attached. Third instance in four days of the shape c228 named: **a fix
+applied where the defect was found is not a remedy for a defect that recurs.**
+Guardrail 5 does not distinguish generated documents from hand-written ones, and
+neither should the check.
+
+**Remedy: `tools/private-name-check.py`,** beside `render-check.py`.
+
+- The name list is **derived at run time** from `gh repo list --json
+  name,visibility`. Committing a list of private repository names into a public
+  repo so as to grep for them would be the defect wearing a hat.
+- Output is **masked by default** (`<private-repo-1>`), because this script's own
+  output is the text most likely to be pasted into the public log.
+- Two scopes, deliberately: forward surfaces fail (exit 1); `log.md` and
+  `log-archive/` report a count only. The count is what lets a later cycle see
+  whether the *next* entry added one.
+- Known-good/known-bad fixtures run first and it refuses to report if they do not
+  separate (c227's standing rule; sixth instrument in this chamber to carry it).
+
+First run: `self-test pass`, 86 files, 1 problem. After the fix: 0 problems, 30
+history occurrences reported unchanged.
+
+**The forward rule, one line:** the org's private repositories are referred to in
+this chamber as *the private repo*, never by name — including in log entries,
+where three cycles put it back.
