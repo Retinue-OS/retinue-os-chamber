@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "ingest-sensors.py: the only documented invocation reads a directory no chamber has, and exits 0"
-status: held (c184 rate limit; next slot 2026-07-28 04:58Z. The 2026-07-27 03:17Z slot went to retinue#39 instead — the c206 drain rule prefers a consolidation of two findings to any single. Ranked first for the next slot.)
+status: filed 2026-07-28 06:0xZ (c216) as retinue#40, on the first open slot after the c184 rate limit. Re-verified against main @ 26297a2 immediately before filing (c206 drain rule): main unmoved since 2026-07-25T15:12:01Z, all three items reproduce, and the no-op was re-run from a fresh clone with CHAMBER_DIR unset.
 cycle: 189
 surface: scripts/ingest-sensors.py, .claude/agents/archivist.md:182, docs/triple-stores.md:170-173, scripts/sync-garmin.py:27-31
 read_against: retinue-os/retinue main @ 26297a2 (shallow clone /tmp/fwmain; deployed /workspace/scripts/ingest-sensors.py is byte-identical)
