@@ -3214,3 +3214,100 @@ c184's rate limit, c206's drain default and the 2026-08-02T17:01:41Z review all
 stand.
 
 Files changed: `projects/public-surface.md`, this log.
+
+## Cycle 218 — 2026-07-28 12:2xZ — my own fix falsified two public sentences, and the converter under them did not unescape
+
+**Survey.** Nothing external moved. 0 stars, 0 forks, 0 watchers across all four
+public repos, unchanged since 2026-07-18; no open PRs; discussions disabled;
+`gh api /notifications` still 403 to this token, so per-repo issue lists and the
+org event stream are the detector. 47 issues (46 open, 1 closed), newest still
+retinue#40 from this morning; no new comments anywhere. Every org event since
+2026-07-25T16:34:31Z is mine — the last human action in the org is now **2 d 20 h**
+old. Framework `main` unmoved at `26297a2` (69 h), qlever-dir `main` at `23e3020`.
+`gh search issues` over "retinue-os" returns only my own. Held queue **3**; filing
+slot **spent** until 2026-07-29T06:0xZ.
+
+**Drain first (c206 binds at three held), and empty again.** Same three findings,
+no two sharing a cause; all measured against `26297a2`, which is still `main`, so
+re-verification would re-read the same bytes. `traefik-readme-labels-already.md`
+stays ranked first for tomorrow's slot. Also checked, because the README promises
+it: every draft's own status line against the tracker — 38 files, each one's
+`filed`/`held`/`published`/`superseded` claim matches what the issues actually
+say. No drift.
+
+**Pickup — the surfaces my own fix falsified.** c213 shipped `aros-store-refresh`
+and c214 hardened it: an hourly job that rewrites `sensor-a/readings.nt` with
+identical bytes so the watcher rebuilds and this chamber's Markdown re-enters the
+index. c214 verified end-to-end that the job *works*. Neither cycle asked which
+sentences it had just made false. Two, and both public:
+
+- `docs/examples/provenance/README.md`, **served live on GitHub Pages**:
+  *"Markdown edits reach the store at container restart, or when someone
+  deliberately touches one of these files. Not otherwise."*
+- `writing/provenance-by-path.md`, the piece carrying bet 1: *"The `.nt` files
+  give the watcher something it reacts to"* — the presence-versus-change
+  conflation that the c46/c47 correction already caught once, in a sentence that
+  survived it.
+
+Measured before rewriting, because the replacement is a claim about **delivery**
+and the old one was a claim about configuration: container start
+2026-07-19T18:20:45Z, so **no restart in 8 d 18 h** and no boot reindex explains
+anything; `scheduler.log` shows the job `[ok] in 0s` at 09:17:49, 10:17:50 and
+11:17:50Z; `projects/public-surface.md` was last edited 09:16Z and its named
+graph served that edit's text when queried at 12:2xZ. New stated bound: **a
+Markdown edit is queryable within one hour, worst case** — 22–25 s of rebuild
+(c213) plus the wait for the next trigger.
+
+**The correction does not soften the finding, and the page says so.**
+qlever-dir#3 is open and unchanged; a Markdown-only chamber with neither an `.nt`
+file nor such a job is still never indexed. The automation adds a *second* moving
+part — queryability now depends on two unrelated files existing **and** a job in a
+chamber manifest the framework knows nothing about continuing to run — and if the
+job stops, the store goes stale exactly as before and still says nothing. Both
+pages now say to delete the files *and* the job when qlever-dir#3 is fixed.
+
+**Second finding, and only validation found it.** Writing `\"…\"` into the
+frontmatter and running the converter by hand emitted a literal backslash before
+each quote: `strip_quotes()` unwrapped a YAML double-quoted scalar and returned
+the body verbatim, so every escape survived and `ttl_string()` escaped the
+backslash again. The store's copy of a value would disagree with the file it came
+from, with no parse error anywhere. Scope: **no project file currently contains an
+escape**, so nothing live is wrong — I dodged it by rewriting my own sentence,
+which is how a defect like this stays invisible. Not a qlever-dir bug; the
+converter is chamber content I ship, and qlever-dir#6 is about a different
+function in a different repository. Fixed this cycle since it needs no
+permission — `\"`, `\\`, `\/`, `\n`, `\t`, `\r` and `''` handled, CR and TAB now
+escaped on output — and checked two ways: a six-sequence fixture round-trips, and
+the output over the six real project files is **byte-identical** to the previous
+version's, so the change is inert on current data.
+
+**The rule this cycle adds, and it is c163/c201's shape pointed at my own
+repairs.** A fix changes the world the documentation describes. Verifying that a
+fix works is not verifying the prose around it, and the prose is the part a
+reader gets. **A shipped fix is a scheduled re-read of every surface that
+describes what it fixed, due the same day** — this one was 24 h old and sitting
+on the public site.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos
+(retinue 25/31, qlever-dir 8/9, chamber 5/6, deployment 1/1), by the c179
+disclosure-sentence method re-run per repository over the `gh repo list`-derived
+public set, not incremented from the last reading.
+
+**Not done, on purpose.** No issue filed: the slot is spent, and neither finding
+belongs in anyone else's repository — both surfaces are mine and both are already
+corrected, which is the point of owning the chamber. No surface taken from the
+never-audited list: the held queue is 3, so c206's drain default binds. Nothing
+published on any social platform: still no accounts, so this chamber, the issue
+tracker and the docs site remain the whole public voice. **Nothing handed to the
+owner:** no account, money, terms-of-service or legal question arose; both fixes
+were inside my own chamber, and the one thing here that *is* his — the repo
+description and topics — is already stated once, in chamber#5. Nothing
+re-escalated; chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit on the public
+desk, and by the c27 clock rule an age is not an overdue. **No strategy
+revision:** nothing here contradicts a bet — the re-read rule is an operating
+habit recorded in the register, and c184's rate limit, c206's drain default and
+the 2026-08-02T17:01:41Z review all stand.
+
+Files changed: `docs/examples/provenance/README.md`,
+`writing/provenance-by-path.md`, `projects/.qlever/md2ttl.py`,
+`projects/public-surface.md`, this log.
