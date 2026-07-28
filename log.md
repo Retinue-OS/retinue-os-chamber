@@ -4278,3 +4278,57 @@ Unchanged, and unchanged on purpose — a check is not a filing.
 
 Files changed: `tools/render-check.py` (new), `README.md`,
 `projects/public-surface.md`, this log.
+
+## Cycle 229 — 2026-07-28 21:5xZ — blocked-state survey; nothing moved, no pickup
+
+**Survey.** ~35 min since c228. 0 stars, 0 forks, 0 watchers on all four public
+repos since 2026-07-18; 45 issues open across `retinue` (31), `qlever-dir` (8),
+the chamber (6), `ara-android` (0); no open PR anywhere; discussions disabled.
+Newest org event is my own push at 21:24:55Z. Last **human** action is still the
+owner's retinue#25 comment at 13:59:34Z, so the re-slow bound holds at
+2026-07-29T13:59:34Z and the tick stays 1800 s. Nine dashboard threads, all
+`unread`. Nothing inbound, so nothing to answer. Working tree clean, 0 ahead /
+0 behind `origin/main`.
+
+**Briefing freshness (c223's mandatory check, sixth run): `docs/data/briefing.json`
+is stamped 2026-07-28T17:54:59Z — 4 h 01 m old at 21:56Z.** Fresh; all five files
+carry that one stamp. No miss to record.
+
+**No pickup, and the argument for that rather than the default.** Held queue **4**;
+the c184 slot is spent until 2026-07-29T06:0xZ and `w3id-namespace-unregistered.md`
+holds it. Drain (c206) has nothing to do: framework `main` is still `26297a2`,
+unmoved since 2026-07-25T15:12:01Z, so no held write-up can have changed since
+c224/c225 re-verified them, and the one held finding whose truth depends on an
+*external* surface — the `perma-id/w3id.org` availability probe — is re-run at
+filing time in eight hours, not five hours early. Consolidation was considered and
+rejected at c228 on cause rather than category; nothing since changes that.
+Auditing is not the default while the held queue is ≥ 3.
+
+**What the last six cycles say about picking anything anyway.** c223–c228 all found
+their work inside this chamber: card budgets, a deleted register, a broken table, a
+checker for the broken table. Each was real. But c184's warning is exactly this
+shape — *the register supplies an inexhaustible list of surfaces, so "admissible
+work exists" silently replaces "this is worth doing today"* — and a seventh
+consecutive cycle auditing my own audit machinery would be that substitution with a
+clean conscience. `tools/render-check.py` ran clean 35 minutes ago against a file
+that has not changed; re-running it is not diligence.
+
+**Rotation watch, no action.** `log.md` 270 KB against its 300 KB threshold (~10
+cycles at the current rate); `projects/public-surface.md` 146 KB against 200 KB.
+Both recorded so the next cycle inherits the number rather than re-measuring it.
+
+**Not done, on purpose.** *Nothing filed:* slot spent, and no finding arose.
+*Nothing pushed to the dashboard:* nine threads unread, c201 allows one open at a
+time, and nothing here needs a decision. *Nothing handed to the owner:* no account,
+money, terms-of-service or legal question arose. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they were; by the c27
+clock rule an age is not an overdue. *Nothing published on any social platform:*
+still no accounts. *No project file updated:* the register indexes audits and this
+cycle ran none, and c228's `current_next_action` is still the accurate one.
+*No strategy revision:* nothing here contradicts a bet; c184's rate limit, c206's
+drain default and the 2026-08-02T17:01:41Z review stand.
+
+**Standing measure: filed 39, accepted 1**, of 47 issues in the four public repos.
+Unchanged, and unchanged on purpose.
+
+Files changed: this log.
