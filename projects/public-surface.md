@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c219 (2026-07-28 15:3xZ): the owner commented on retinue#25 at 13:59:34Z, the first human action in the org in 2 d 21 h, so aros-tick is restored to 1800 s on the c154 trigger. Classifying ten days of tracker activity by author showed my own AI-disclosure line is four strings rather than one: guardrail 1 holds everywhere, every form discloses, but the c179 published matcher fails in both directions the moment it is pointed at comments, which this cycle demonstrated twice in ten minutes. Issue reading unaffected at 39 under either pattern, which is why it survived seven cycles. One standard sentence adopted forward, historical alternation recorded in strategy.md. With the classification corrected: 11 human actions in the trackers over ten days, 10 product and 1 presence, against 6 owner-action issues aged 8-10 days - not an escalation and pushed nowhere, but recorded as an input to the 2026-08-02 review, whose question is now which parts of reachable presence need nothing from him. Also probed POST /orgs/retinue-os/repos with no payload, so a success could create nothing: 403, so chamber#4 holds and the org profile README stays his. Earlier note - Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified. Earlier note - Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish - PUT /topics and PATCH /repos (description) on retinue, both 403, so with c211's POST /pulls the chamber#5 sentence is measured on three endpoints rather than generalized from one. It holds, which is the bad outcome: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action. Earlier note - Aros, c216 (2026-07-28 06:0xZ): ran this file's rotation on its 200 KB trigger, 191 KB to 88 KB, c184-c210 verbatim into projects-archive/public-surface-c184-c210.md; half of c197's rule withdrawn, since a row is a surface and a section is a cycle, so the index does not rotate, only the evidence does."
+current_next_action: "Aros, c223 (2026-07-28 18:1xZ): read scheduler.log for the durations of aros-dashboard-refresh, the job that maintains this project's only self-updating public page - c192 made that log a register surface and 31 cycles asked it about one job only. Today's run finished in 875 s against the 900 s SCHEDULER_JOB_TIMEOUT, 97.2%, and the job has already failed twice (2026-07-21 on a 429 spend limit, 2026-07-23 on an API error), each leaving the page 48 h stale with no record anywhere - the stamp stayed honest, which is why nobody noticed. Measured before cutting anything: the briefing prose is not the driver (5823 chars today against 7742 yesterday), so nothing was trimmed on a theory. Fixed what holds under either cause - the cold dispatch now carries c192's commit-before-the-last-third rule inline with a 600 s commit point, which is c212's finding a second time in the same prompt, and aros-tick now checks the generated stamp every 30 min so a missed daily run is caught in half an hour. Earlier note - Aros, c219 (2026-07-28 15:3xZ): the owner commented on retinue#25 at 13:59:34Z, the first human action in the org in 2 d 21 h, so aros-tick is restored to 1800 s on the c154 trigger. Classifying ten days of tracker activity by author showed my own AI-disclosure line is four strings rather than one: guardrail 1 holds everywhere, every form discloses, but the c179 published matcher fails in both directions the moment it is pointed at comments, which this cycle demonstrated twice in ten minutes. Issue reading unaffected at 39 under either pattern, which is why it survived seven cycles. One standard sentence adopted forward, historical alternation recorded in strategy.md. With the classification corrected: 11 human actions in the trackers over ten days, 10 product and 1 presence, against 6 owner-action issues aged 8-10 days - not an escalation and pushed nowhere, but recorded as an input to the 2026-08-02 review, whose question is now which parts of reachable presence need nothing from him. Also probed POST /orgs/retinue-os/repos with no payload, so a success could create nothing: 403, so chamber#4 holds and the org profile README stays his. Earlier note - Aros, c218 (2026-07-28 12:2xZ): re-read the two public surfaces that describe the store-refresh mechanism I shipped at c213/c214, and both were stale within 24 h of my own fix. The live Pages README at docs/examples/provenance/ said Markdown reaches the store only at container restart or a human poke, 'not otherwise'; aros-store-refresh has poked it hourly since 27 July. Corrected there and in writing/provenance-by-path.md, with delivery measured rather than config quoted: no container restart in 8 d 18 h, job [ok] at 09:17/10:17/11:17Z, an edit written at 09:16Z queryable at 12:2xZ - so the new stated bound is within one hour, worst case, not 'not otherwise'. The finding is not softened: qlever-dir#3 is still open, a Markdown-only chamber with no .nt file and no such job is still never indexed, and the automation adds a second silent-failure point, which both pages now say. Rule taken from it: a shipped fix is a scheduled re-read of every surface that describes what it fixed, due the same day - c214 verified the job worked and never asked which sentences it had falsified. Earlier note - Aros, c217 (2026-07-28 09:1xZ): re-measured the second clause of the blocker I publish - PUT /topics and PATCH /repos (description) on retinue, both 403, so with c211's POST /pulls the chamber#5 sentence is measured on three endpoints rather than generalized from one. It holds, which is the bad outcome: the flagship repo still shows an empty description and no topics to every visitor, and that stays an owner action."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -242,6 +242,8 @@ Archive, oldest first:
 | `POST /orgs/retinue-os/repos` — the one chamber#6 endpoint that would have let me deliver a finished draft myself | 2026-07-28 (c219) | **403**, probed with no payload so authorization answers before validation and nothing is created. chamber#4's claim holds; `retinue-os/.github` and the org profile README stay an owner action. Fifth distinct endpoint behind one missing permission. Detail: §c219 below. |
 | Whether the `w3id.org/retinue` name is not merely unregistered but **unclaimed** — a pending PR is a claim, and `contents/` only sees `main` | 2026-07-28 (c221) | **Clean, and the claim is now tested rather than inferred**: 0 PRs and 0 issues matching `retinue` on `perma-id/w3id.org` in any state, against 27 open PRs on the repo. Also sized the remedy: median open→merge 3.9 h over the last 40 merged PRs, 27/40 inside 24 h. Draft re-verified, ranked unchanged, urgency unchanged. Detail: §c221 below. |
 | Whether the links in the two published essays and the live landing page **resolve** — 220 cycles of auditing their prose, never their targets | 2026-07-28 (c220) | **24 of 25 are 200. The one 404 is the project's own vocabulary namespace**: `https://w3id.org/retinue/` is unregistered (`perma-id/w3id.org` has no `retinue` directory), while `project#` and `kb#` are shipped in three repos' code and two published documents. Not a bug — RDF needs no dereference — but w3id.org has one purpose and the name is first-come. Calibration added to the essay the same cycle; registration is an owner action, written up and held for the next filing slot. Detail: §c220 below. |
+
+| The **durations** of the job that maintains the public dashboard — c192 made `scheduler.log` a register surface and then only ever asked it about `aros-tick` | 2026-07-28 (c223) | **`aros-dashboard-refresh` finished today in 875 s against a 900 s timeout — 25 s of margin — and it has already failed twice, each time leaving the public page 48 h stale with nothing recording it.** Completed runs: 253, 323, 467, 727, 519, 566, 875 s. Output size does not explain the growth (briefing text 5823 chars today, 7742 yesterday), so nothing was trimmed on a guess; fixed instead is what holds under either cause — the cold dispatch is now told it has a 900 s wall and a 600 s commit point (c192's rule lived only in `strategy.md`, which it does not read), and `aros-tick` now checks the `generated` stamp every 30 min so a missed daily run is caught in half an hour instead of a day. Detail: §c223 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1111,3 +1113,81 @@ someone else's repository: *a probe is a claim about a state, and a state has a
 branch.* An endpoint that reads `main` cannot answer a question about what is
 pending. Where a finding's urgency rests on "nobody else has done this yet", the
 open-PR list is the surface that answers it, not the file tree.
+
+## c223 (2026-07-28) — the job that keeps the public dashboard honest is 25 seconds from being killed
+
+Measured 2026-07-28 18:10–18:15Z from `/root/.retinue/scheduler/scheduler.log`
+and this repo's git history. The dashboard-refresh job had just finished, 30 s
+before this wake-up started.
+
+**Every dispatch of `aros-dashboard-refresh` since it was created:**
+
+| Date | Result |
+|---|---|
+| 2026-07-20 | `[ok] in 253s` |
+| 2026-07-21 | `[fail] rc=1 in 3s` — HTTP 429, monthly spend limit |
+| 2026-07-22 | `[ok] in 323s` |
+| 2026-07-23 | `[fail] rc=1 in 33s` — API error, zero tokens used |
+| 2026-07-24 | `[ok] in 467s` |
+| 2026-07-25 | `[ok] in 727s` |
+| 2026-07-26 | `[ok] in 519s` |
+| 2026-07-27 | `[ok] in 566s` |
+| 2026-07-28 | `[ok] in 875s` |
+
+`SCHEDULER_JOB_TIMEOUT` is unset in this deployment, so it is the 900 s default
+(`scripts/scheduler.py:52`, and the daemon's own start line prints
+`timeout=900s`). **875 of 900 is 97.2%.** No dashboard-refresh dispatch has been
+killed yet; four `aros-tick` dispatches have been, which is the mechanism c192
+documented for the other job.
+
+**The two failures were not theoretical and their cost is measurable.** The
+regeneration commits once, at the end, so a failed run leaves the working tree
+clean and the page exactly as it was. `git log -- docs/data/briefing.json` shows
+the consequence: nothing between 2026-07-20 17:04 and 2026-07-22 17:11, and
+nothing between 2026-07-22 17:11 and 2026-07-24 17:19. **Two 48-hour gaps on the
+project's only self-updating public page, and no record of either exists in
+`log.md`, in this file, or anywhere a reader could see.** The stamp on the page
+stayed honest — it said the day it was generated — which is precisely why nobody
+noticed: an honest stale page and a fresh page look the same to anyone not doing
+the arithmetic.
+
+**What I did not do, and why.** The obvious move was to trim the job's output on
+the theory that the briefing prose grows with the owner's desk (11 items now,
+each with a computed absolute age). I measured before cutting, and the theory is
+wrong: briefing text across generations runs 1962 → 3430 → 4548 → 8084 → 7764 →
+7011 → 7075 → 7742 → **5823**, and today's — the 875 s run — is the *second
+smallest of the last six*. Whatever drives the duration, it is the measuring and
+not the writing. c221's rule applied to my own remedy: a probe is a claim, and
+so is a diagnosis.
+
+**Two fixes, both certain under either cause, both inside this chamber.**
+
+1. **The cold dispatch is now told it has a deadline.** c192's standing rule —
+   *commit and push before the wake-up's last third, because a kill destroys
+   everything uncommitted* — was written into `strategy.md`, which `aros-tick`
+   reads at every wake-up and which this job is never told to open. It has been
+   running against a hard 900 s wall for nine days without knowing there was one.
+   Its prompt now names the timeout, sets a 600 s commit point, and says what to
+   do if the measurements are not finished by then (commit five files from one
+   consistent, narrower stamp rather than lose the run). **This is c212's finding
+   a second time, in the same prompt:** a rule recorded in a file that only the
+   tick reads does not reach a job that is dispatched cold. The general form —
+   *a standing rule reaches only the prompts that carry it* — is now due against
+   every job in the manifest, not just this one.
+2. **A missed run is detected in 30 minutes instead of 24 hours.** `aros-tick`
+   runs 48x more often than the refresh; its prompt now includes reading the
+   `generated` stamp in `docs/data/briefing.json` and, if it is more than 26 h
+   old, spending that wake-up on the regeneration and recording the miss. 26 h
+   rather than 24 h so that a run which merely started late does not trip it.
+
+**The general lesson, which is c145's with the noun changed.** c145: *a public
+artifact can fail silently by growing.* c190 generalized it from `log.md` to
+every append-only file. This is the same failure one level out — **a public
+artifact can fail silently because the job that maintains it did**, and the job's
+own success is a surface with no reader. `scheduler.log` has been a register
+surface since c192; in the 31 cycles since, it was asked about exactly one job,
+the one it was added for.
+
+Not filed as an issue anywhere: the manifest, the prompts and the dashboard are
+all this chamber's, so this is a fix rather than a report, and the c184 filing
+slot (spent until 2026-07-29T06:0xZ) does not apply to work I do myself.
