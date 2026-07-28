@@ -1,8 +1,8 @@
 ---
 type: draft
 title: "The project's whole vocabulary is minted under w3id.org/retinue, which is not registered: every term IRI 404s and the name is still first-come"
-status: held (c184 filing budget spent until 2026-07-29T06:0xZ — retinue#40 took today's slot at 06:05Z. **Ranked first** for that slot, displacing `traefik-readme-labels-already.md`: this one is an identifier the project cannot un-ship cheaply, and its remedy needs the owner rather than a maintainer.)
-cycle: 220
+status: held (c184 filing budget spent until 2026-07-29T06:0xZ — retinue#40 took today's slot at 06:05Z. **Ranked first** for that slot, displacing `traefik-readme-labels-already.md`: this one is an identifier the project cannot un-ship cheaply, and its remedy needs the owner rather than a maintainer.) **Re-verified c221 (2026-07-28 16:5xZ)** under the c206 drain rule: the availability claim now has the probe that tests it (0 pull requests, 0 issues matching `retinue` on `perma-id/w3id.org`, any state), and the registration ask is sized from data (median merge 3.9 h over the last 40 merged PRs). No change to urgency or ranking.
+cycle: 220 (re-verified c221)
 surface: scripts/web-gateway.py, docs/triple-stores.md, qlever-dir/examples/projects/.qlever/md2ttl.py, this chamber's projects/.qlever/md2ttl.py, writing/provenance-by-path.md, writing/org-profile-README.md
 target: retinue-os/retinue-os-chamber
 label: owner-action
@@ -23,6 +23,23 @@ Measured 2026-07-28 16:2xZ:
 
 The namespace is not registered. It is not squatted by anyone else either; it
 simply does not exist at the service.
+
+**Re-verified 2026-07-28 16:5xZ (cycle 221), because the sentence above was
+weaker than it read.** A missing directory on `main` says the name is not
+*registered*; it does not say the name is not *claimed*. A registration in
+flight is an open pull request, and c220 never looked at the pull requests.
+Checked now:
+
+| Probe | Result |
+|---|---|
+| PRs on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Issues on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Open PRs on the repo, total | 27 (newest 6451, 2026-07-28T15:53Z) |
+
+So the name is free in the stronger sense too: nothing merged holds it and
+nothing pending claims it, as of the timestamp above. That is the claim this
+issue actually rests on, and it now has the probe that tests it rather than a
+probe that only correlates with it.
 
 ## Where it is shipped
 
@@ -75,6 +92,23 @@ first thing that group checks and the cheapest possible reason to be dismissed.
    - `README.md` with identifier info and a **contact**.
 3. Open a pull request. The maintainers merge it.
 
+**How long that actually takes, measured 2026-07-28 16:5xZ (cycle 221)** over
+the 40 most recently merged PRs on `perma-id/w3id.org`:
+
+| | |
+|---|---|
+| Median time from open to merge | **3.9 hours** |
+| Merged inside 24 h | 27 / 40 |
+| Merged inside 72 h | 34 / 40 |
+| Slowest of the 40 | 101 h |
+| Most recent merge | 2026-07-27 |
+
+The registry is actively maintained and fast; this is a same-day PR, not a
+standards process. Two of the 27 currently-open PRs have been open since early
+June, so the tail is real, but the median case is one afternoon. Stated because
+"open a PR against a W3C community group repo" reads as heavier than the
+evidence says it is, and the size of the ask is part of the ask.
+
 ## Why this is the owner's and not mine
 
 Three reasons, and the first alone is decisive:
@@ -125,8 +159,10 @@ fighting caches, which suits registering now and deciding (b) later. The
 the first two rules and keep the catch-all.
 
 **If nothing is done:** nothing breaks. The IRIs keep 404ing, the essay carries
-the calibration added this cycle, and the name stays available to whoever files
-first.
+the calibration added at c220, and the name stays available to whoever files
+first. Nothing about the c221 measurements makes this more urgent — the queue is
+fast, but a fast queue is a property of the *remedy*, not of the risk. The name
+has been unclaimed for the project's whole life and no one is reaching for it.
 
 ## Not a security report
 

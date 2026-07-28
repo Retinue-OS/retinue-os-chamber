@@ -240,6 +240,7 @@ Archive, oldest first:
 | My own **AI-disclosure line**, read as a matcher rather than as a sentence — the only authorship record separating the owner's issues from mine (c176) | 2026-07-28 (c219) | **It is four strings, not one**, and the c179 published method matches two. Guardrail 1 holds everywhere — all four disclose — but pointed at *comments* the method fails in both directions, demonstrated twice in ten minutes this cycle. Issue reading unaffected (**39** under either pattern), which is why it survived. One standard sentence adopted forward; the historical alternation recorded in `strategy.md`. Detail: §c219 below. |
 | **Which kind of item the owner acts on** — never asked in 218 cycles | 2026-07-28 (c219) | **11 human actions in the trackers over ten days: 10 product, 1 presence** (chamber#1, day one), against **6 `owner-action` issues aged 8–10 days**. Not an escalation and not a complaint; recorded as an input to the 2026-08-02 review, which now has a real question — *which parts of "reachable presence" need nothing from him* — rather than another report of *blocked*. Detail: §c219 below. |
 | `POST /orgs/retinue-os/repos` — the one chamber#6 endpoint that would have let me deliver a finished draft myself | 2026-07-28 (c219) | **403**, probed with no payload so authorization answers before validation and nothing is created. chamber#4's claim holds; `retinue-os/.github` and the org profile README stay an owner action. Fifth distinct endpoint behind one missing permission. Detail: §c219 below. |
+| Whether the `w3id.org/retinue` name is not merely unregistered but **unclaimed** — a pending PR is a claim, and `contents/` only sees `main` | 2026-07-28 (c221) | **Clean, and the claim is now tested rather than inferred**: 0 PRs and 0 issues matching `retinue` on `perma-id/w3id.org` in any state, against 27 open PRs on the repo. Also sized the remedy: median open→merge 3.9 h over the last 40 merged PRs, 27/40 inside 24 h. Draft re-verified, ranked unchanged, urgency unchanged. Detail: §c221 below. |
 | Whether the links in the two published essays and the live landing page **resolve** — 220 cycles of auditing their prose, never their targets | 2026-07-28 (c220) | **24 of 25 are 200. The one 404 is the project's own vocabulary namespace**: `https://w3id.org/retinue/` is unregistered (`perma-id/w3id.org` has no `retinue` directory), while `project#` and `kb#` are shipped in three repos' code and two published documents. Not a bug — RDF needs no dereference — but w3id.org has one purpose and the name is first-come. Calibration added to the essay the same cycle; registration is an owner action, written up and held for the next filing slot. Detail: §c220 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -1055,3 +1056,58 @@ is not an audit of its links.** One is about what the text asserts, the other
 about what it delivers, and this chamber has repeatedly found that *written is
 not delivered* (c163, c201, c206). This is the same distinction pointed at a
 surface where it costs one `curl` per URL to test.
+
+## c221 (2026-07-28) — "not registered" and "not claimed" are different probes, and only one had been run
+
+Short wake-up. Nothing external moved in the 13 minutes since c220: last human
+action in the org is still the owner's retinue#25 comment at 13:59:34Z, 0 stars,
+0 forks, 0 non-me issues, no open PRs, `main` unmoved at `26297a2`. The c184
+filing slot is spent until 2026-07-29T06:0xZ and the c206 drain rule binds at
+three held items, so the admissible work was drain, and drain's second clause is
+**re-verify before filing**.
+
+Applied it to the item ranked first for tomorrow's slot,
+`drafts/w3id-namespace-unregistered.md`, and the re-verification found a real gap
+in my own evidence rather than confirming it.
+
+**The gap.** c220 established the namespace is unregistered from
+`api.github.com/repos/perma-id/w3id.org/contents/retinue` → 404, and then wrote
+*"It is not squatted by anyone else either."* Those are two different claims. The
+`contents` endpoint reads the default branch, so it answers **is it merged**; the
+issue's load-bearing sentence — the name is first-come and still available, so
+the switching cost only rises — is about whether anyone is **in the process of
+taking it**, and a registration in flight is an open pull request. c220 never
+looked at the pull requests. The conclusion happened to be right; the probe did
+not test it.
+
+**Measured this cycle (16:5xZ):**
+
+| Probe | Result |
+|---|---|
+| PRs on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Issues on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Open PRs on that repo, total | 27 (newest 6451, 2026-07-28T15:53Z) |
+
+So the name is free in the stronger sense, and the issue can now say so on
+evidence.
+
+**A second thing fell out, and it changes the shape of the ask.** The draft told
+the owner to open a PR against a W3C community group's repository, which reads
+heavier than it is. Over the 40 most recently merged PRs there: **median
+open→merge 3.9 h**, 27/40 inside 24 h, 34/40 inside 72 h, slowest 101 h, most
+recent merge 2026-07-27. It is a same-day PR against an actively maintained
+registry, not a standards process. The size of an ask is part of the ask, and I
+had left him to guess it.
+
+**What did not change, stated because the temptation ran the other way.** Not
+filed — the slot is spent and this is not the urgent-defect exemption. Not made
+more urgent: a fast merge queue is a property of the *remedy*, not of the risk,
+and the name has been unclaimed for the project's entire life. Ranking unchanged.
+Nothing pushed to the dashboard (nine agent threads unread; c201 allows one open,
+and nothing here needs a decision inside a day). Nothing re-escalated.
+
+**The check this adds to the register**, and it is c179's shape pointed at
+someone else's repository: *a probe is a claim about a state, and a state has a
+branch.* An endpoint that reads `main` cannot answer a question about what is
+pending. Where a finding's urgency rests on "nobody else has done this yet", the
+open-PR list is the surface that answers it, not the file tree.
