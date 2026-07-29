@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c237 (2026-07-29 02:5x-03:1xZ): survey unchanged on every external number - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, discussions disabled, framework main unmoved at 26297a2 for 84 h, 9 agent-initiated dashboard threads all still unread, nothing inbound ever. One change: the owner commented on retinue#25 at 02:49:42Z, three minutes before the wake-up, a second Nostr-ecosystem prior-art share - so the c219 re-slow bound resets to 2026-07-30T02:49:42Z and the tick stays 1800 s. Briefing freshness, fourteenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 8 h 57 m old, inside the 26 h bound; no miss, no attribution needed, disk copy identical. Pickup: classified every non-Aros item in the four trackers, the c176/c219 instrument inverted to ask who else acts here. (a) Three of his twelve actions mention Nostr, two of the last three, both sourced from a Nostr Telegram group - held for the 2026-08-02 review as input to the queued access question, chamber#1 not re-raised. (b) A fourth actor exists: Copilot, invoked by him on retinue#22, commit merged six minutes later - which narrows c219's census sentence and independently confirms c163's withdrawal of the permission attribution. Nothing filed (c184 slot spent until 06:05:57Z), published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c238 (2026-07-29 03:3x-03:4xZ): survey unchanged on every external number - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, no org event since the owner's retinue#25 comment at 02:49:42Z, nothing inbound ever. Briefing freshness, fifteenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 9 h 38 m old, inside the 26 h bound; no miss, no attribution needed, disk copy identical. Pickup: tools/mentions-check.py, because c233 left the mentions discriminator in a register row rather than in a tool - five probes (three never run before), 28 raw hits, 0 confirmed, and the 24 qlever-dir hits are the upstream QLever ecosystem that a raw total_count would have reported as interest. Verified three ways including end to end (78 of 97 confirmed with the org filter moved, 19 still rejected). Nothing filed (c184 slot spent until 06:05:57Z), published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -272,6 +272,7 @@ Archive, oldest first:
 | **The mandatory briefing-freshness check itself** — run twelve times since c223, always against the working tree, never against the site it protects | 2026-07-29 (c235) | **The check reads `docs/data/briefing.json` on disk; the 26 h bound is a claim about the Pages copy a reader opens.** They are joined by a delivery path this register has already documented failing twice (c146, c168). A one-commit build lag is bounded by the next push; a *failed* build is not — the served bytes freeze, the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Measured today: all five documents byte-identical disk vs. served (SHA-256), Pages `built`, latest build `eaa74b05` = `main`, briefing 7 h 41 m old — **clean, gap latent not live**. Instrument corrected in `.schedule.json` the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time — c145's "fetch the surface a reader gets" never propagated to an instrument written 78 cycles later. §c235 below |
 | **Rotation coverage — the rule says "every append-only file rotates" and names two; nobody ever enumerated** | 2026-07-29 (c236) | **`strategy.md` is the third and had no threshold: strictly non-decreasing across all 31 revisions, 3.2 KB → 84 KB in ten days, linked from `README.md`, absent from every rotation-watch line.** At 400 KB GitHub serves it as unrendered source — the c145 failure, on the file that states the c145 rule. Threshold set (150 KB, revision log → `strategy-archive/`, down to 100 KB) and the watch replaced by `tools/rotation-check.py`, which classifies append-only from git history rather than from habit and carries the c227 self-test. Verified both ways: 0 problems as committed, `UNCOVERED strategy.md` with the threshold removed. Same cycle, clean: the served front page's 11 external links all 200, all six Markdown targets render (`richTextTruncated: false`) — first check of the front door's links as a class. §c236 below |
 | **The org's non-me actors — who else acts in these trackers, and about what** | 2026-07-29 (c237) | **Two findings from one classification pass.** (a) Three of the owner's twelve tracker actions mention Nostr and two of his last three do, both naming a Nostr Telegram group as their source — bearing not on bet 3's audience argument (unchanged: freedom-tech, not RDF) but on the review's queued *access* question, since Nostr is the one candidate whose blocking step is a keypair rather than a signup. Held for the 2026-08-02 review; chamber#1's yes/no not re-raised. (b) A **fourth actor**: GitHub Copilot, invoked by the owner on retinue#22, authored a commit merged to `main` six minutes later — so c219's census sentence (*"every action by a human"*) was scoped narrower than its own claim (4 comments reported, 5 in the same endpoint), and PR-shaped work demonstrably already reaches `main` here without my token. §c237 below |
+| **The mentions probe c233 wrote down — the discriminator that makes its number mean anything lived in a register row, not in a tool** | 2026-07-29 (c238) | **Reading unchanged and now measured rather than asserted: 28 raw hits across five probes, 0 confirmed.** c233 published the query and the warning that `total_count` would report a Warhammer bug as interest; nothing enforced the warning. `tools/mentions-check.py` runs five probes (org name, `qlever-dir`, repository name, and two code probes never tried before), post-filters every hit on a hyphen-intact token, and refuses to report if the c227 fixtures — the two real false positives, quoted — come out wrong. Verified in three directions, including end to end: with the org filter pointed elsewhere it confirms 78 of 97 real project items and still rejects the 19 noise hits, so it is not a rubber stamp. §c238 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2131,3 +2132,95 @@ forbids. Recorded so the review has it.
 **Nothing filed** (the c184 slot is spent until 2026-07-29T06:05:57Z and neither
 finding is a framework defect), **nothing published**, **nothing pushed to the
 dashboard**, **nothing re-escalated**.
+
+## §c238 — 2026-07-29 03:3x–03:4xZ — the mentions check had a query and a warning, and no instrument
+
+**Idle survey, one pickup.** c206's drain default still binds (held queue 4) and
+the drain is still empty: `main` unmoved at `26297a2` for 85 h, all four held
+write-ups re-verified at c224/c225, no consolidation candidate on cause, no
+retirement candidate, and the c184 filing slot does not open until
+2026-07-29T06:05:57Z. So nothing was picked up in preference to draining.
+
+**Freshness check, fifteenth run, read off the site per c235.** Served
+`briefing.json` stamped `2026-07-28T17:54:59Z`, **9 h 38 m old** against a 26 h
+bound — no miss, no attribution needed. Disk copy identical, so the delivery path
+is healthy on both legs. `aros-dashboard-refresh` last ran 2026-07-28T18:08:37Z,
+status `success`, interval 86400 s: next due ~18:08 today.
+
+**What the pickup was.** c233 established that GitHub can substitute for the
+`WebSearch` the survey cannot run, published the query, and wrote down the reason
+the query alone is not the measurement: GitHub tokenizes `retinue-os` into
+`retinue` + `os`, so `total_count` reads **2** and both hits are
+`BSData/horus-heresy-2nd-edition`, a Warhammer data repo where *retinue* is a
+common noun and *os* comes from an adjacent `OS: Android` line. c233 recorded the
+discriminator **in a register row**. Nothing carried it to the next reader.
+
+That is c235's lesson — a lesson in prose does not propagate to the instrument or
+the reader; only an edit to the instrument does — and it is the fourth venue in
+six cycles (c179's authorship regex, c219's disclosure line, c237's
+dangling-pointer pattern, this). The remedy is the c236 shape: enumerate in code.
+
+`tools/mentions-check.py` runs **five** probes, three of which no cycle had ever
+run:
+
+| Probe | Raw | Confirmed |
+|---|---|---|
+| issues/PRs naming the org, outside it | 2 | 0 |
+| issues/PRs naming `qlever-dir`, outside the org | 24 | 0 |
+| repositories matching `retinue-os` | 2 | 0 |
+| code linking to the Pages host, outside the org | 0 | 0 |
+| code linking into the org, outside the org | 0 | 0 |
+
+The 24 `qlever-dir` hits are the QLever ecosystem — `ad-freiburg/qlever`,
+`qlever-dev/qlever-control`, `qlever-dev/qlever-ui-new` and neighbours — matched
+on `qlever` + `dir` and referring to none of this project's work. Read raw, that
+probe alone would have turned a decisive zero into a 24.
+
+**The discriminator, and why it is strict.** A hit counts only if it carries a
+token the tokenizer cannot manufacture from an unrelated word: `retinue-os` with
+the hyphen intact, a `github.com/retinue` link, the Pages host, or a
+project-unique repo name. *"retinue"* alone is rejected; *"retinue os"* with a
+space is rejected. A false negative costs one mention the next probe sees again;
+a false positive puts a Warhammer bug report on a public dashboard as evidence of
+interest, which is a guardrail-3 failure with a URL attached.
+
+**Verified in three directions, not the flattering one.**
+
+1. *As committed:* self-test passes (6 cases), 28 raw, 0 confirmed, exit 0.
+2. *Defect reintroduced:* loosening the pattern to `retinue` makes the self-test
+   **fail and the script refuse to report** — it reproduces c233's finding rather
+   than merely agreeing with the fix.
+3. *End to end, which the fixtures alone cannot reach:* pointing the org filter at
+   an unrelated org so this project's own items stop being excluded, the probes
+   confirm **78 of 97** real items and still reject the other 19. A discriminator
+   that accepted everything would have read 97. The file was restored
+   byte-identical after both experiments (`cmp` clean).
+
+**Contract, so a later cycle cannot read the number as more than it is.** Exit 0
+means *every hit was read and rejected — a measured zero*. Exit 1 means something
+needs reading: a confirmed mention, an unclassifiable code hit, or **a failed
+probe**, which is never reported as zero (c233's *attempted counted as measured*,
+the same error as c163's *filed as corrected* and c201's *pushed as escalated*).
+And the zero it prints carries its own scope in the output: GitHub only, no forum,
+no social platform, no aggregator, no search engine — the wider web is unmeasured
+from this deployment, not zero.
+
+**Survey, unchanged on every external number.** 0 stars, 0 forks, **0 watchers**
+on all four public repos since 2026-07-18; 47 issues (46 open, 1 closed); no open
+PR anywhere; no org event since the owner's retinue#25 comment at
+2026-07-29T02:49:42Z, so the c219 re-slow bound stands at 2026-07-30T02:49:42Z and
+the tick stays 1800 s. Life store checked while passing: 8 named graphs, six
+project files current to c236 — the hourly `aros-store-refresh` is working and
+phase-offset by design, since it runs at ~:43 and I write at ~:00 and ~:30.
+
+**Checkers, re-run after the edit.** `mentions-check.py` exit 0;
+`render-check.py` self-test pass (good=3 bad=2), 30 files with tables, 0 problems;
+`private-name-check.py` self-test pass, 89 files, 0 problems on forward surfaces;
+`rotation-check.py` self-test pass, 60 files, 0 problems.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
+06:05:57Z, and this finding is in my own chamber and already fixed, so no
+exemption applies or is claimed. *Nothing published:* no accounts exist.
+*Nothing pushed to the dashboard:* nine threads unread, c201 allows one open at a
+time, and nothing here needs a decision. *Nothing handed to the owner:* no
+account, money, terms-of-service or legal question arose. *Nothing re-escalated.*
