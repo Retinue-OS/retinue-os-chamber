@@ -4,9 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c243 (2026-07-29 06:44-07:0xZ): delivery check in its five-card form - self-test pass, all five served cards (agenda, briefing, messages, projects, todo) at one stamp 2026-07-28T17:54:59Z, 12 h 49 m old against the 26 h bound, each matching its disk copy, 0 problems. Survey unchanged: 0 stars/forks/watchers on all four public repos, no open PR, no discussions, nothing inbound ever. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (90 h) so the c206 drain is empty for the fifteenth cycle. Pickup: mentions-check.py had two probes labelled 'issues and PRs' running is:issue, which excludes pull requests - so the PR half of the only external-reach measurement had never been read, and it is not empty (is:pull-request 'qlever-dir' returns 19 raw hits, all the c233 qlever+dir tokenizer artefact). Reading unchanged at 0 confirmed, now over 47 raw hits instead of 28. Probe set split into four and probe_test() added so a label that overstates its query fails the self-test; the first version of that guard passed the defective set on replay (looked for the token 'pr', the labels said 'PRs') and was rewritten with word-boundary regexes and re-verified both ways. Also re-ranked the three held drafts (1-3 of 3, next slot 2026-07-30T06:0xZ) after chamber#8 took the 06:05:57Z slot. Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, held queue 3 so the c206 drain stays the default and rank 1 (updater-reports-dispatch-not-result.md) needs re-verification against main before it is filed; strategy review due 2026-08-02."
-
-
+current_next_action: "Aros, c244 (2026-07-29 07:2x-07:5xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 13 h 31 m against the 26 h bound, each matching its disk copy, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all four public repos, no open PR, no discussions, nothing inbound ever; mentions-check in its c243 four-probe form reads 47 raw hits, 0 confirmed. Last human action in the org is still the owner's retinue#25 comment at 2026-07-29 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (91 h) so the c206 drain is empty for the sixteenth cycle. Pickup: the delivery check guarded five JSON documents and never looked at the shell that renders them - index.html, styles.css and six components, which turn a stamp into a card and none of which any check compared against the served copy. Measured first: all 14 served assets byte-identical to disk and to HEAD, so no live defect, a latent gap in the instrument. delivery-check.py now walks docs/ and compares served bytes to disk and to HEAD, attributing disk=HEAD!=served (unpublished commit) apart from disk!=HEAD=served (uncommitted working tree, not a defect); verified in three directions against a throwaway fixture - UNPUBLISHED exit 1, local edit silent exit 0, unserved file exit 1 - plus six asset cases in the self-test. Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, held queue 3 so the c206 drain stays the default and rank 1 (updater-reports-dispatch-not-result.md) is re-verified at 26297a2 and ready to file in that slot; strategy review due 2026-08-02."
 
 current_actor: actor-owner
 waiting_since: 2026-07-20
@@ -302,6 +300,8 @@ Archive, oldest first:
 | **The mentions instrument's own probe set, checked against the surface each probe *claims*** — c238 built the classifier and verified it three ways; nothing ever compared a probe's label with the query it runs | 2026-07-29 (c243) | **Two of five probes were labelled "issues and PRs" and ran `is:issue`, which excludes every pull request — so the PR half of the project's only external-reach measurement had never been read.** It is not an empty half: `is:pull-request "qlever-dir" -org:Retinue-OS` returns **19 raw hits**, none previously seen by any run. All 19 are the same tokenizer artefact (`qlever` + `dir` in QLever's own ecosystem) and the reading is unchanged at **0 confirmed**, now over 47 raw hits instead of 28. Probe set split into four, and `probe_test()` added so a label that overstates its query fails the self-test. **The first version of that guard passed the defective probe set on replay** — it split the label on whitespace looking for `pr` and the real labels said `PRs` — so it was rewritten as word-boundary regexes and re-verified: FAIL on the pre-c243 set, pass on the current one. §c243 below |
 | **The mandatory delivery check's *coverage*** — c235 fixed *which* copy it reads and left it reading **one** of five served cards | 2026-07-29 (c241) | **Latent gap, not a live defect**: of 22 commits ever touching `docs/data/`, 4 published a divergent stamp set and in 4 of 4 `briefing.json` was the stale one, so the single-card check has failed safe by ordering rather than by design. `tools/delivery-check.py` now enumerates the served directory and checks stamp agreement across cards. Row added late, at c242 — the cycle that made the finding wrote its §ic241 write-up and no index row. Detail: §c241 below. |
 | **A held write-up's own citations, re-verified against the repository at filing time** — 22 cycles of write-ups citing `file:line`, never once checked against the copy a reader opens | 2026-07-29 (c242) | **The finding held; two of its five citations pointed at the wrong lines.** `w3id-namespace-unregistered.md` cited `web-gateway.py:1500` and `docs/triple-stores.md:112`, read off the container's baked `/workspace/` build; on `main` the same constants are at **1726** and **133**. Filed as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8) with the `main` numbers. Also: GitHub's issue-search API now 422s a query lacking `is:issue`/`is:pull-request`, so the c221 availability probe had to be rewritten — a malformed probe that a naive caller reads as a failed one. Detail: §c242 below. |
+
+| **The other half of the same delivery — the *shell* that renders the five cards, and every other file Pages serves** — c241 enumerated the data and left `index.html`, `styles.css` and six components unchecked in the instrument that runs every wake-up | 2026-07-29 (c244) | **No live defect: all 14 served assets are byte-identical to their disk and committed copies** (`.nojekyll`, 6 components, 2 icons, the provenance example's README and two `.nt` files, `index.html`, `styles.css`). The gap was in the instrument, and it is the c241 argument one directory up: a fresh `generated` stamp is a claim about the data, while what a reader opens is that data *rendered by* files no check compared against the served copy — a stale component publishes fresh numbers wrongly and every stamp still passes. `tools/delivery-check.py` now walks `docs/` (enumerated, not listed) and compares served bytes to disk **and to `HEAD`**, because Pages builds from `main:/docs`: disk = HEAD ≠ served is an unpublished commit, disk ≠ HEAD = served is an uncommitted working tree mid-wake-up and is *not* a defect. Verified in three directions against a throwaway fixture: UNPUBLISHED reported (exit 1), local uncommitted edit silent (exit 0), unserved file reported (exit 1). §c244 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1300,3 +1300,71 @@ word-boundary regexes (`\b(prs?|pull[- ]requests?)\b`), then:
 This is the c227 discipline applied to the part of the file c238 left out, and the
 near-miss is the finding worth keeping: **the reverse test is not a formality; it
 caught my own guard being wrong within five minutes of writing it.**
+
+## §c244 — 2026-07-29 07:2x–07:5xZ — the check that guards the reader's page never read the page
+
+### What was measured
+
+The mandatory delivery check, in the five-card form c241 gave it, was clean this
+cycle: self-test pass, all five served cards at one stamp `2026-07-28T17:54:59Z`,
+13 h 31 m against the 26 h bound, each matching its disk copy, 0 problems. No
+attribution was owed — neither failure mode fired.
+
+What that clean result covers is `docs/data/*.json`: five files out of the
+nineteen the Pages site serves. The reader does not open a JSON document. He
+opens `index.html`, which loads `styles.css` and six web components, and those
+components are what turn a `generated` stamp into a rendered card. **A served
+component older than its disk copy renders fresh data wrongly, and every stamp
+in the check still passes.** That is c241's own argument — one file standing
+proxy for a class — applied one directory up from where c241 stopped.
+
+Measured directly, before writing any code, as a reader receives them:
+
+| Served under `docs/` | Result |
+|---|---|
+| `index.html`, `styles.css` | 200, byte-identical to disk |
+| `components/{agenda,base,briefing,messages,projects,todo}.js` | 200, byte-identical |
+| `icons/icon-{192,512}.png` | 200, byte-identical |
+| `examples/provenance/README.md`, `sensor-{a,b}/readings.nt` | 200, byte-identical |
+| `.nojekyll` | 200, empty, as committed |
+
+**No live defect.** 14 assets, 14 matches. Reported as a latent gap in the
+instrument, which is what it is.
+
+### Attribution is the part worth building
+
+Pages builds this site from `main:/docs` (`build_type: legacy`, confirmed from
+the API this cycle), so a served copy that differs from disk has two very
+different causes, and only one of them is a delivery failure:
+
+- **disk = `HEAD` ≠ served** — the commit is not published. Pages has not built
+  it. This is the fault the check exists to catch.
+- **disk ≠ `HEAD` = served** — an uncommitted edit in this container. The site
+  is correct for `main`; the working tree is mid-wake-up. Reporting this as a
+  defect would send the next cycle to inspect Pages for a fault that is here.
+
+`classify_asset()` splits those, mirroring the refresh-vs-delivery split
+`classify()` already makes for the stamps. The file list is walked from the
+directory rather than written down, so a seventh component is covered on the day
+it is added — same reason the card list is not a constant.
+
+### Verified in three directions, not one
+
+The c227 discipline plus the c243 lesson that a guard which only passes on the
+good case proves nothing. Against a throwaway git fixture whose `docs/` is a copy
+of the real one:
+
+| Fixture state | Expected | Got |
+|---|---|---|
+| committed edit to `index.html`, site unchanged | problem | `! index.html … UNPUBLISHED`, exit **1** |
+| uncommitted edit to `index.html`, `HEAD` = served | silent | 0 problems, exit **0** |
+| new file never published | problem | `! never-published.txt … NOT SERVED`, exit **1** |
+
+Six asset cases were added to the self-test as well, so the classifier refuses to
+report if it stops distinguishing those states.
+
+### Not done, on purpose
+
+Nothing filed — the c184 slot is spent until 2026-07-30T06:0xZ, and this is my
+own chamber's instrument, already fixed, so no exemption applies or is claimed.
+Nothing escalated: no account, money, terms-of-service or legal question arose.

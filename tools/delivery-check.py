@@ -36,13 +36,32 @@ The remedy is enumeration, not a longer rule. The file list comes from the
 served directory's local mirror rather than a constant here, so a sixth card
 added later is covered on the day it is added.
 
+The shell is the other half of the same delivery
+---------------------------------------------------
+A fresh `generated` stamp is a claim about the *data*. What the reader opens is
+the data **rendered by** `index.html`, `styles.css` and six web components —
+eight files the card check never looked at, plus the icons and the provenance
+example the front page links to. A served component older than its disk copy
+renders a fresh card wrongly, and every stamp in this check still passes. So
+the same enumeration argument applies one directory up: every file under
+`docs/` that Pages serves is compared byte-for-byte against its disk copy, and
+a mismatch is attributed rather than merely reported.
+
+Attribution matters here for the same reason it does for the stamps. Pages
+builds from `main:/docs`, so a served copy that differs from disk means either
+*the commit has not been published* (disk equals `HEAD`) or *the edit has not
+been committed* (disk differs from `HEAD`, and `HEAD` is what is served). Only
+the first is a delivery failure; the second is a working tree mid-wake-up, and
+calling it a defect would send the next cycle to inspect Pages for nothing.
+
 Usage
 -----
     python3 tools/delivery-check.py [chamber-root]
     python3 tools/delivery-check.py --offline      # skip the network, disk only
 
 Exit status is 1 if any card is past the bound, disagrees with its disk copy,
-or disagrees with its siblings; 0 otherwise; 2 if the self-test fails.
+or disagrees with its siblings, or if any served asset differs from the
+committed copy behind it; 0 otherwise; 2 if the self-test fails.
 
 Instrument discipline
 ---------------------
@@ -53,13 +72,17 @@ failure this instrument was written for — one fresh card beside four stale one
 — so it reproduces the defect rather than merely agreeing with the fix.
 """
 
+import hashlib
 import json
 import os
+import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timedelta, timezone
 
-BASE = "https://retinue-os.github.io/retinue-os-chamber/data"
+SITE = "https://retinue-os.github.io/retinue-os-chamber"
+BASE = f"{SITE}/data"
+DOCS_DIR = "docs"
 DATA_DIR = "docs/data"
 BOUND = timedelta(hours=26)
 TIMEOUT = 30
@@ -116,6 +139,41 @@ def classify(now, served, disk):
     return problems
 
 
+def classify_asset(served, disk, head):
+    """Verdicts for one served asset. Arguments are content digests or None.
+
+    `served` is what the reader gets, `disk` the working tree, `head` the
+    committed copy Pages builds from. Distinguishing the last two is the whole
+    point: an uncommitted local edit is a wake-up in progress, not a broken
+    delivery, and reporting it as one would send the next cycle to inspect
+    Pages for a fault that is in this container.
+    """
+    problems = []
+    if disk is None:
+        problems.append("NOT ON DISK")
+    if served is None:
+        problems.append("NOT SERVED (fetch failed or 404)")
+    if served is None or disk is None:
+        return problems
+
+    if served == disk:
+        return problems
+    if head is None:
+        problems.append("UNTRACKED and differs from the served copy")
+    elif disk == head:
+        problems.append(
+            "UNPUBLISHED — the committed copy is not what the site serves. "
+            "Pages has not built it; check /pages and /pages/builds."
+        )
+    elif served == head:
+        pass  # local edit, not yet committed. The site is correct for `main`.
+    else:
+        problems.append(
+            "DIVERGED — served, disk and HEAD are three different files."
+        )
+    return problems
+
+
 def self_test():
     now = datetime(2026, 7, 29, 12, 0, 0, tzinfo=timezone.utc)
     fresh, stale = "2026-07-29T06:00:00Z", "2026-07-27T06:00:00Z"
@@ -140,6 +198,20 @@ def self_test():
         return "the four stale siblings were not detected"
     if len(set(cards.values())) < 2:
         return "divergence fixture is not divergent"
+
+    # The asset half, both directions. `a`/`b`/`c` stand for three digests.
+    a, b, c = "aaa", "bbb", "ccc"
+    asset_cases = [
+        (classify_asset(a, a, a), False, "served matches disk and HEAD"),
+        (classify_asset(b, a, a), True, "committed copy unpublished"),
+        (classify_asset(a, b, a), False, "uncommitted local edit"),
+        (classify_asset(a, b, c), True, "served, disk and HEAD all differ"),
+        (classify_asset(None, a, a), True, "asset not served"),
+        (classify_asset(a, b, None), True, "untracked and divergent"),
+    ]
+    for got, expect_problem, why in asset_cases:
+        if bool(got) != expect_problem:
+            return f"asset classifier failed the {why!r} case"
     return None
 
 
@@ -149,6 +221,47 @@ def fetch(name):
             return json.loads(r.read()).get("generated")
     except Exception:
         return None
+
+
+def digest(data):
+    return None if data is None else hashlib.sha256(data).hexdigest()[:12]
+
+
+def fetch_bytes(path):
+    try:
+        with urllib.request.urlopen(f"{SITE}/{path}", timeout=TIMEOUT) as r:
+            return r.read()
+    except Exception:
+        return None
+
+
+def head_bytes(root, path):
+    """The committed copy Pages builds from, or None when untracked."""
+    try:
+        out = subprocess.run(
+            ["git", "-C", root, "show", f"HEAD:{DOCS_DIR}/{path}"],
+            capture_output=True, timeout=TIMEOUT,
+        )
+        return out.stdout if out.returncode == 0 else None
+    except Exception:
+        return None
+
+
+def walk_assets(docs_dir):
+    """Every file Pages serves under `docs/`, except the data cards.
+
+    Enumerated from the directory rather than listed here, so a component or
+    an example added later is covered on the day it is added — the same reason
+    the card list is not a constant.
+    """
+    for dirpath, dirnames, filenames in os.walk(docs_dir):
+        dirnames[:] = sorted(d for d in dirnames if not d.startswith("."))
+        rel_dir = os.path.relpath(dirpath, docs_dir)
+        parts = [] if rel_dir == "." else rel_dir.split(os.sep)
+        if parts and parts[0] == "data":
+            continue
+        for fn in sorted(filenames):
+            yield "/".join(parts + [fn])
 
 
 def main():
@@ -161,7 +274,8 @@ def main():
         print(f"SELF-TEST FAILED: {failure}")
         print("Refusing to report on real files.")
         return 2
-    print("self-test: pass (6 cases + the divergence fixture)")
+    print("self-test: pass (6 stamp cases + the divergence fixture, "
+          "6 asset cases)")
 
     data_dir = os.path.join(root, DATA_DIR)
     names = sorted(f for f in os.listdir(data_dir) if f.endswith(".json"))
@@ -202,14 +316,36 @@ def main():
             + ", ".join(f"{n}={s}" for n, s in sorted(disk_stamps.items()))
         )
 
+    # The shell: the files that render those cards, plus everything else the
+    # site serves. A stale component publishes a fresh stamp wrongly, and the
+    # loop above cannot see it.
+    assets = sorted(walk_assets(os.path.join(root, DOCS_DIR)))
+    if not offline:
+        print()
+        for path in assets:
+            try:
+                with open(os.path.join(root, DOCS_DIR, path), "rb") as fh:
+                    disk = digest(fh.read())
+            except Exception:
+                disk = None
+            served = digest(fetch_bytes(path))
+            head = digest(head_bytes(root, path))
+            found = classify_asset(served, disk, head)
+            mark = "  " if not found else "! "
+            print(f"{mark}{path:42} disk {disk}  served {served}")
+            for p in found:
+                problems.append(f"{path}: {p}")
+
     print()
+    counts = f"{len(names)} cards" + (
+        "" if offline else f" + {len(assets)} assets")
     if not problems:
-        print(f"{len(names)} cards, one stamp, 0 problems"
+        print(f"{counts}, one stamp, 0 problems"
               + (" (offline: disk only)" if offline else ""))
         return 0
     for p in problems:
         print(p)
-    print(f"\n{len(names)} cards, {len(problems)} problem(s).")
+    print(f"\n{counts}, {len(problems)} problem(s).")
     return 1
 
 
