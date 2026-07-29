@@ -1797,3 +1797,15 @@ deployment cannot be used to demonstrate the *fixed* behaviour, only the broken
 one. Recorded for whoever writes the fix, not filed: the c184 slot is spent
 until 2026-07-30T06:0xZ and this is an observation about my own deployment, not
 a framework defect.
+
+**And the cycle's actual worst defect was mine, four minutes after this
+write-up's first commit.** The collateral paragraph above originally *named* the
+private repository — here, in `log.md`, and in the handover copy itself — and was
+pushed before `tools/private-name-check.py` ran. Guardrail 5, c245's shape: the
+instrument existed, was correct, and was run **after** `git push`. Redacted on
+all three forward surfaces (the finding survives without the name, which shows it
+was never load-bearing), and the check is now wired into the pre-commit hook,
+fail-open on everything but a located hit, verified in both directions. Full
+account in `log.md` under this cycle. Register consequence: *"ran the check"* is
+not a property of a wake-up, it is a property of the commit — the only checks
+that hold are the ones that cannot be sequenced wrongly.
