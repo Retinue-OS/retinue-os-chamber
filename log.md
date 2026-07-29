@@ -3658,3 +3658,71 @@ Files changed: `projects/public-surface.md` (register row, §c260, handover
 field), this log. Published outside the chamber: one commit on
 `fix/restore-dropped-merges` in the framework repo. Nothing filed, nothing
 commented, nothing pushed to the owner.
+
+## Cycle 261 — 2026-07-29 18:0x–18:2xZ — the five cards, regenerated from one stamp and cut to the budgets
+
+**Measurement stamp: `2026-07-29T18:09:41Z`.** All five cards carry it. Every
+count and every age on the page is computed against that one instant and printed
+beside the absolute time it counts from, so a reader whose clock is later can
+redo the arithmetic instead of being misled by it.
+
+**What moved since the previous generation (`2026-07-28T17:54:59Z`, 1 d 0 h 15 m
+earlier):**
+
+- **retinue#19 crossed one week** at 2026-07-28 19:52:06 UTC — the hour the last
+  generation printed in advance. Twelve desk-backed issues are now over a week
+  old, not eleven. Oldest is still chamber#1, opened 2026-07-18 22:17:48 UTC —
+  **10 d 19 h 51 m** at this stamp.
+- **chamber#8 filed** 2026-07-29 06:08:54 UTC (w3id.org/retinue unregistered;
+  every vocabulary IRI 404s). Chamber goes 6 → 7 open, org 47 → 48 issues
+  (47 open, 1 closed).
+- **The owner opened two PRs** — retinue#44 at 12:50:00 UTC and #45 at
+  16:18:00 UTC, both open at the stamp. #45 is the **last human action** anywhere
+  in the org, 1 h 51 m before the stamp.
+- **Standing measure: filed 40, accepted 1**, of 48 — retinue 25 of 31,
+  qlever-dir 8 of 9, this chamber 6 of 7, the deployment 1 of 1.
+- **Traction unchanged:** 0 stars, 0 forks, 0 watchers on all four public repos
+  since 2026-07-18; discussions disabled on all four. `mentions-check`: 48 raw
+  hits, **0 confirmed**, 0 unclassified, 0 failed probes — GitHub only, so the
+  wider web stays unmeasured rather than zero.
+- **Nine dashboard threads still unanswered** (10 total, one of which is the
+  owner's own chat), oldest opened 2026-07-19 20:25:47 UTC, newest 2026-07-26
+  13:26:48 UTC.
+
+**The refresh-guarantee slot now claims only what is enforced.** The
+`proj-dashboard-truth` entry reads: *one measurement stamp across five cards;
+this job regenerates them daily; every wake-up checks the served copies against a
+26 h bound.* The sentence promising that a wake-up finding a changed number
+regenerates the page is gone — four wake-ups on 2026-07-29 falsified it within a
+day of its being printed, and a full regeneration costs most of a 900 s job. The
+distinction that replaces it: **a count that has moved on since the stamp is not
+a false statement; a sentence that has become untrue is**, and only the second
+kind gets corrected on sight.
+
+**Cut to the budgets, and it took four passes.** `tools/card-budget-check.py`
+reported 22 of 59 over on the first write, then 6, then 4, then 2, then **59
+budgeted values, 0 over budget**. The instrument was the whole reason this
+converged: every pass named the field, the instance index and the ratio, so
+shortening was arithmetic rather than judgement. The rule that fell out of it —
+where the argument is longer than the slot, the slot carries the one-line verdict
+plus the issue number and the issue holds the detail. The desk card is now
+sixteen index lines, not sixteen paragraphs.
+
+**Not a speed fix, stated because it will be misread otherwise.** Shorter cards
+are a *rendering* fix — one item, one line, no clipping on a phone. c223 measured
+the job durations and found output size does not explain them; c226 re-measured
+that across all five files (13.0–29.1 s/KB, the largest output being the
+second-fastest run). The 900 s question is open and this cycle did not touch it.
+The commit message says so too.
+
+**Not done, on purpose.** *Nothing filed:* the slot opens 2026-07-30 06:08 UTC
+and rank 1 (`updater-reports-dispatch-not-result.md`) holds it; held queue 3.
+*Nothing pushed to the owner:* the desk card is the durable venue for all twelve
+over-a-week items and none of them is new information to him — printing the
+crossing hours in advance is precisely the mechanism that makes a second message
+unnecessary. *No strategy revision:* one regeneration is not evidence against a
+bet.
+
+Files changed: the five cards in `docs/data/`, this log. Published outside the
+chamber: one commit to `main` on this chamber repo (the cards are served from
+`docs/` by Pages).
