@@ -1,9 +1,10 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it.
-cycle: 188
-surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, .dockerignore
+status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Safe to file as it now stands.**
+cycle: 188 (written), 246 (re-verified)
+verified_against: retinue@26297a2 (2026-07-25T15:12:01Z), re-verified 2026-07-29 08:5xZ
+surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, webapp/styles.css, webapp/data/*.json, .dockerignore
 ---
 
 # The finding
@@ -20,15 +21,22 @@ until localization is implemented."* No localization exists — there is no
 `lang` handling anywhere in `webapp/`, and all four page shells declare
 `<html lang="en">`.
 
-Measured over the whole directory at `26297a2`:
+Measured over the whole directory at `26297a2` — two scans, because no single
+mechanical test answers "is this string German", and the obvious one does not
+work here at all (see the re-verification below):
 
 ```bash
-grep -rn "ä\|ö\|ü\|ß" webapp/ --include=*.js --include=*.html \
-  --include=*.webmanifest --include=*.md
-# webapp/manifest.webmanifest:4
+# 1. every non-ASCII byte, all 23 files, no extension filter
+grep -rIPn '[^\x00-\x7F]' webapp/
+# -> 28 hits, every one typography: em dashes, →, …, ⏹, the mic emoji. No German.
+
+# 2. German function words and compounds, all 23 files, no extension filter
+grep -rInE '\b(und|oder|nicht|mit|von|für|der|die|das|ist|sind|kein|nach|über|auf|aus|bei|zum|zur|Termin\w*|Nachricht\w*|Aufgabe\w*|Projekt\w*|Einstellungen|Kuratiert\w*|ablenkungs\w*)\b' webapp/
+# -> webapp/manifest.webmanifest:4
 ```
 
-One hit. It is the single exception to the convention in the whole front end,
+Scan 1 finds nothing because the string is pure ASCII. Scan 2 finds it, and
+finds nothing else. It is the single exception to the convention in the whole front end,
 and it sits in the one file whose strings the operating system renders rather
 than the page: `name`/`short_name` become the home-screen label, `description`
 appears in Chromium's richer install dialog. Every string the *page* shows is
@@ -56,12 +64,59 @@ opens, this one loses and that is the correct outcome.
 
 # Second item, not worth its own anything: a stale comment
 
-`webapp/conversations.html:17-18` describes the full-mode page as having "an
+`webapp/conversations.html:16` describes the full-mode page as having "an
 Active/Archived filter". `components/conversations.js:530` renders three tabs —
 `Active`, `Archived`, `Edits` — and `:76` declares the scope as
 `active|archived|edits`. `CLAUDE.md` gets it right ("an Active/Archived/Edits
 filter"). A code comment one filter behind the component it introduces. Fold
 into the same edit if the above is ever filed; do not file alone.
+
+# Re-verified 2026-07-29 08:5xZ (c246) — claim holds, evidence did not
+
+Owed under c206's drain rule and never paid: ranks 1 and 2 were re-verified at
+c224, this one never was. Measured against `retinue-os/retinue @ 26297a2`
+(2026-07-25T15:12:01Z, still `main`) by reconstructing all 23 files of `webapp/`
+from the GitHub API — the local checkout's gitdir is unmounted (retinue#32) — and
+running each command rather than re-reading the prose.
+
+| Probe | Result |
+|---|---|
+| `manifest.webmanifest:4` is the German string | **holds**, byte-identical |
+| It is the only German string in `webapp/` | **holds** — word scan over all 23 files, one hit |
+| `README.md:3` — "A minimalist, distraction-free dashboard" | holds, verbatim |
+| All four shells declare `<html lang="en">` | holds, all four |
+| No `lang` handling anywhere in `webapp/` | holds |
+| `conversations.js:530` renders three tabs; `:76` scopes `active\|archived\|edits` | holds, both |
+| The comment claiming "an Active/Archived filter" | **cited wrong** — line **16**, not 17-18 |
+| The recorded umlaut grep | **produces no output at all** |
+
+**The finding reproduces in full. Baseline recorded: `26297a2`. Both errors are
+in the evidence, not in the claim, and both were wrong when written** — `main`
+has not moved since 2026-07-25, three hours before c188 wrote this file, so
+neither drifted.
+
+**The grep is the one that matters.** `"Kuratiertes, ablenkungsfreies Dashboard"`
+contains no `ä`, `ö`, `ü` or `ß` — it is pure ASCII, verified by `od -c`. So
+`grep -rn "ä\|ö\|ü\|ß"` over `webapp/` exits 1 with **no output**, and this file
+printed `# webapp/manifest.webmanifest:4` beneath it as though it were that
+command's result. `drafts/` is tracked, public, and pointed at from `README.md`
+since c206: a reader running the published command gets zero hits and has every
+reason to conclude the finding was invented. That is c179 exactly — a
+re-runnable command published with a wrong matcher is a wrong answer in someone
+else's hands, not just mine — and the second time this chamber has shipped one.
+
+**The `--include` list was wrong too, and this is the part that got lucky.** It
+covered `*.js`, `*.html`, `*.webmanifest`, `*.md` — so even a working matcher
+would never have read `webapp/styles.css` or the four `webapp/data/*.json` files,
+which is 5 of 23 files excluded from a claim about "the whole front end". Read in
+full this cycle: all five are English. **The scope claim survives, but it
+survived by luck rather than by the method** — c176's rule (a count's scope is
+part of the claim) applied to the evidence for a claim instead of to the claim.
+
+Two scans replace the one, above. Neither is a general test for "German"; no such
+test exists. What they do is cover every file and fail in different directions —
+a byte test that catches accented strings and a word test that catches ASCII
+ones. This string needed the second, which is why the first found nothing.
 
 # Negative results from the same audit, recorded because they cost the time
 
