@@ -67,6 +67,20 @@ What it checks
    rows on purpose: prose legitimately *discusses* the convention
    (`Detail: §cNNN below`, with letters where the digits go), and a checker that
    flags a sentence about itself teaches people to ignore it.
+5. **Pointers that omit the `Detail:` label** (added c265). c263 keyed both the
+   grammar and its own coverage check on that label, so a row writing the same
+   claim without it was invisible to *both* — the c263 defect one level up,
+   found the same way, by grepping the corpus instead of trusting the checker's
+   *0 problems*. Measured at c265: **12 live register rows** ended in a bare
+   `§cNNN below` whose write-up had rotated into an archive part three
+   rotations earlier, and every rotation since c239 had repointed only the
+   labelled rows because only those were ever reported. A and B are now parsed
+   with or without the label — the location word (`below`, `in [link]`) is the
+   claim, the label is decoration — and C/D/E, which have no such
+   self-discriminator, are *reported* prefixless rather than guessed at.
+
+   The general form, and it is c235's again: **an instrument's grammar is a
+   claim about its corpus**, and the corpus is written by hand.
 
 The first two failures are silent to a reader: a "below" pointer into a rotated
 section renders as ordinary prose and sends someone scrolling to the end of a
@@ -119,18 +133,38 @@ import sys
 #   C  Detail: [§c256 below](#c256--…).
 #   D  Detail: [c39 write-up](../path/to.md).
 #   E  Detail: [drafts/x.md](../drafts/x.md) §c257.
+#
+# The `Detail: ` prefix is **optional on A and B** (c265). It is a label, not the
+# claim: what makes a cell a pointer is the location word — `below`, or `in
+# [link]` — and eleven register rows write the same claim without the label.
+# A and B carry that discriminator inside themselves, so dropping the prefix
+# requirement cannot widen them onto prose. C/D/E have no such discriminator
+# (a bare `[c39 write-up](x.md)` is indistinguishable from an ordinary link),
+# so for those the prefix stays mandatory and `check_coverage` reports a
+# prefixless one instead of guessing.
 POINTER = re.compile(
-    r"Detail: (?:"
-    r"§c(?P<a_cycle>\d+) (?P<a_below>below)"
-    r"|§c(?P<b_cycle>\d+) in \[[^\]]*\]\((?P<b_link>[^)]+)\)"
-    r"|\[§?c(?P<c_cycle>\d+)[^\]]*\]\((?P<c_anchor>#[^)]+)\)"
+    r"(?:Detail: )(?:"
+    r"\[§?c(?P<c_cycle>\d+)[^\]]*\]\((?P<c_anchor>#[^)]+)\)"
     r"|\[§?c(?P<d_cycle>\d+)[^\]]*\]\((?P<d_link>[^)#]+)(?:#[^)]*)?\)"
     r"|\[[^\]]*\]\((?P<e_link>[^)#]+)(?:#[^)]*)?\)\s*§c(?P<e_cycle>\d+)"
+    r")"
+    r"|(?:Detail: )?(?:"
+    r"§c(?P<a_cycle>\d+) (?P<a_below>below)"
+    r"|§c(?P<b_cycle>\d+) in \[[^\]]*\]\((?P<b_link>[^)]+)\)"
     r")"
 )
 # Any `Detail:` at all, for the coverage check. If POINTER does not match at the
 # same offset, the form is new and unchecked — which is the thing to report.
 ANY_DETAIL = re.compile(r"Detail:")
+# The C/D/E shapes as they look **without** the `Detail: ` label. These are
+# location claims the grammar deliberately refuses to parse prefixless, so the
+# coverage check reports them rather than skipping them (c265). `write-up` and
+# the `§`/anchor forms are required so an ordinary link in a cell is not a hit.
+UNLABELLED_CDE = re.compile(
+    r"\[§c\d+[^\]]*\]\(#[^)]+\)"
+    r"|\[§?c\d+[^\]]*write-up[^\]]*\]\([^)]+\)"
+    r"|\[[^\]]*\]\([^)]+\)\s*§c\d+"
+)
 # c215's invariant with c237's §-tolerant form: "## c211", "## §c224", "## Cycle 210",
 # plus (c263) the date-first form "## 2026-07-25 (cycle 166) — …".
 HEADING = re.compile(r"(?m)^## §?(?:Cycle )?c?(\d+)\b")
@@ -269,18 +303,34 @@ def mask_code_spans(line):
 
 
 def check_coverage(path, text):
-    """Yield a problem for any table-row `Detail:` no pointer form parses."""
+    """Yield a problem for any table-row pointer no pointer form parses.
+
+    Two ways a row can make a location claim the resolver never sees: a
+    `Detail:` in a form the grammar does not know (c263), and a C/D/E-shaped
+    claim written without the `Detail:` label, which the grammar refuses to
+    parse because prefixless those shapes are indistinguishable from an
+    ordinary link (c265). Both are reported; neither is guessed at.
+    """
     for lineno, raw in enumerate(text.split("\n"), 1):
         if not raw.lstrip().startswith("|"):
             continue
         line = mask_code_spans(raw)
-        parsed = {m.start() for m in POINTER.finditer(line)}
+        spans = [(m.start(), m.end()) for m in POINTER.finditer(line)]
+        parsed = {s for s, _ in spans}
         for m in ANY_DETAIL.finditer(line):
             if m.start() not in parsed:
                 yield (
                     f"UNPARSED   {path}:{lineno}: a register row's pointer matches "
                     f"no known form — {line[m.start():m.start() + 60].strip()!r}"
                 )
+        for m in UNLABELLED_CDE.finditer(line):
+            if any(s <= m.start() < e for s, e in spans):
+                continue
+            yield (
+                f"UNLABELLED {path}:{lineno}: a register row points at a write-up "
+                f"without the `Detail:` label, so it is not resolved — "
+                f"{m.group(0)[:60]!r}"
+            )
 
 
 GOOD = "Detail: §c7 below.\n\n## c7 — a write-up\n"
@@ -305,6 +355,18 @@ PROSE_DETAIL = "The convention is `Detail: §cNNN below`, a section reference.\n
 HEADER_CELL = "| Surface | Detail |\n"
 # A row *describing* a form, in backticks — documentation, not a pointer.
 CODE_SPAN_ROW = "| `Detail: §cN below.` | 14 | yes |\n"
+# c265: the same A/B claims with the `Detail:` label dropped. Resolved, not
+# skipped — and still wrong when they are wrong.
+BARE_A_GOOD = "| x | a verdict. §c7 below |\n\n## c7 — a write-up\n"
+BARE_A_BAD = "| x | a verdict. §c7 below |\n\n## c8 — a different write-up\n"
+BARE_B_BAD = "| x | a verdict. §c7 in [part 1](../a/gone.md) |\n"
+# A cycle named in a cell without a location word is prose, not a pointer.
+BARE_MENTION = "| x | the field named c186 with §c222 appended — 36 cycles. |\n"
+# C/D/E without the label: reported by coverage, never guessed at.
+UNLABELLED_C = "| x | see [§c7 below](#c7--a-write-up). |\n\n## c7 — a write-up\n"
+UNLABELLED_D = "| x | see the [c7 write-up](../a/p.md). |\n"
+# …while an ordinary link in a cell is not a pointer and must stay silent.
+PLAIN_LINK_ROW = "| x | see [the README](../README.md) for context. |\n"
 
 # Frontmatter fixtures for check 3.
 NA_FRESH = '---\ncurrent_next_action: "Aros, c251: did a thing."\n---\n\n## §c251 — x\n'
@@ -341,11 +403,24 @@ def self_test():
     cov_header = not list(check_coverage("f.md", HEADER_CELL))
     cov_ok = not list(check_coverage("f.md", C_GOOD + D_GOOD + E_GOOD))
     cov_code = not list(check_coverage("f.md", CODE_SPAN_ROW))
+    # c265: prefixless A/B are resolved like their labelled twins …
+    bare_ok = not list(check_text("f.md", BARE_A_GOOD, lambda p: None))
+    bare_bad = len(list(check_text("f.md", BARE_A_BAD, lambda p: None))) == 1
+    bare_b = len(list(check_text("x/f.md", BARE_B_BAD, lambda p: None))) == 1
+    # … a cycle mentioned without a location word is not a pointer at all …
+    bare_prose = not list(check_text("f.md", BARE_MENTION, lambda p: None)) and not list(
+        check_coverage("f.md", BARE_MENTION)
+    )
+    # … and prefixless C/D are reported rather than resolved or skipped.
+    unl_c = len(list(check_coverage("f.md", UNLABELLED_C))) == 1
+    unl_d = len(list(check_coverage("f.md", UNLABELLED_D))) == 1
+    unl_plain = not list(check_coverage("f.md", PLAIN_LINK_ROW))
     return all(
         [
             ok, ok2, bad1, bad2, fresh, stale, unnamed, prose,
             c_ok, c_bad, d_ok, d_bad, e_ok, e_bad, date_ok, date_bad,
             cov_bad, cov_prose, cov_header, cov_ok, cov_code,
+            bare_ok, bare_bad, bare_b, bare_prose, unl_c, unl_d, unl_plain,
         ]
     )
 
@@ -365,7 +440,7 @@ def main():
         return 2
     print(
         "self-test: pass (4 pointer cases + 8 form/heading cases "
-        "+ 5 coverage cases + 4 handover-field cases)"
+        "+ 5 coverage cases + 7 label cases + 4 handover-field cases)"
     )
 
     cache = {}
