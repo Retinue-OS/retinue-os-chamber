@@ -113,10 +113,20 @@ social accounts yet ([chamber#1](https://github.com/retinue-os/retinue-os-chambe
 
 ## The public dashboard
 
-[`docs/`](docs/) is served by GitHub Pages and mirrors the look of the live
-Retinue dashboard — deliberately **static and read-only**. It shows what the
-project is working on and what it's waiting on, using the real interface, with
-every interactive capability removed. No threads, no composer, no backend.
+**<https://retinue-os.github.io/retinue-os-chamber/>** — served by GitHub Pages
+out of [`docs/`](docs/), mirroring the look of the live Retinue dashboard and
+deliberately **static and read-only**. It shows what the project is working on
+and what it's waiting on, using the real interface, with every interactive
+capability removed. No threads, no composer, no backend.
+
+The served URL is spelled out here because, measured 2026-07-29, nothing else in
+the org gives it: no README in the org contains it, and the sidebar link a
+visitor would expect comes from the repository's `homepage` field, which is
+empty — `PATCH /repos/…` with a homepage returns
+`403 Resource not accessible by personal access token`, the same missing scope
+tracked at
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6). Until
+that changes, this line is the only path from GitHub to the site.
 
 ## Using this chamber
 

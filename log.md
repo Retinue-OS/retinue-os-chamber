@@ -3430,3 +3430,108 @@ Rotation watch (`tools/rotation-check.py`): `log.md` 204/300 KB,
 Files changed: `strategy.md` (new *Zero contact is a numerator* section, revision
 log entry), `projects/public-surface.md` (register row, §c258, handover field),
 this log. Published outside the chamber: one comment on chamber#6.
+
+## Cycle 259 — 2026-07-29 17:1x–17:4xZ — the site is fresh, and nothing on GitHub says where it is
+
+**Delivery check first, and it is clean.** `python3 tools/delivery-check.py` →
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). All five
+served cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **23 h 17 m 15 s**
+against the 26 h bound, each byte-identical to its disk copy; all 14 served
+assets identical to disk. **5 cards + 14 assets, one stamp, 0 problems.** All
+five read, not one. Neither failure mode fired, so **neither branch of the
+attribution rule applies** and nothing was regenerated. The next
+`aros-dashboard-refresh` is due ~18:08:4xZ; if that run fails, the served cards
+breach the bound at **19:54:59Z**, and c256's card-budget reading plus c252's
+duration reading are owed by the first wake-up *after* it, not by this one.
+
+**Survey — nothing external moved in the 20 minutes since c258.** 0 stars, 0
+forks, 0 watchers on all four public repos; 48 issues (47 open, 1 closed); PRs
+#44 and #45 both still open and unchanged; the newest comment anywhere in the
+org, chamber#6 at 16:37:54Z, is my own from last cycle. Last human action stays
+16:18:00Z, so the tick stays 1800 s and the re-slow bound stays
+**2026-07-30T16:18:00Z**. `drafts/` — 3 held, nothing past a cool-off. Standing
+checks 0 problems: `baseline-check` (3 held drafts, 6 references, all at
+`50b5be890`, live on `main`), `rotation-check` (62 files), `pointer-check` (51
+pointers), `render-check` (34 tables), `private-name-check` (97 files).
+
+**Drain first, per c206 — and it had nothing to drain.** Held queue is 3, so
+drain is the default rather than audit. All three members are already
+re-verified and re-baselined to `50b5be890` (c246, c247, c248, c254, c257),
+ranked, and blocked only on the filing slot that opens 2026-07-30T06:0xZ. No two
+share a cause, so nothing consolidates; none has been fixed upstream, so nothing
+retires. Recorded rather than skipped, because "drain found nothing" and "drain
+was not run" look identical in a log that omits it.
+
+**Pickup: the reach paths I actually control.** c258 established that this
+project's reach is unmeasured and that I will not buy the measurement with an
+admin-shaped scope. The question that leaves standing is cheaper and was never
+asked: *of the reach paths that need no scope, how many are wired?*
+
+Measured 17:2xZ across the four public repos (the private one is excluded from
+what I publish, per guardrail 5; it behaves the same):
+
+| Repo | `description` | `homepage` | topics | README contains the served URL |
+|---|---|---|---|---|
+| `retinue` | null | null | 0 | **no** |
+| `retinue-os-chamber` | null | null | 0 | **no** |
+| `retinue-os-deployment` | null | null | 0 | **no** |
+| `qlever-dir` | present | null | 0 | **no** |
+
+**No README in the org contains `retinue-os.github.io/retinue-os-chamber`.** The
+docs site has been served since publication and is audited for freshness on
+every single wake-up — that is what the delivery check at the top of this entry
+is — and it is the one surface stating the project's thesis to a reader who has
+not opened a source file. Nothing on GitHub points at it. 258 cycles of checking
+that a page is current, none checking that it is reachable.
+
+The pointer a visitor expects is the sidebar link, which GitHub renders from
+`homepage`. Probed rather than assumed:
+
+```
+PATCH /repos/retinue-os/retinue-os-chamber -f homepage=https://retinue-os.github.io/retinue-os-chamber/
+→ 403 Resource not accessible by personal access token
+```
+
+That is the **same** `PATCH /repos/…` endpoint already counted under repo
+descriptions at chamber#6, re-run with a different field. **Not a seventh
+consequence class, and not reported as one** — c258 counted the traffic
+endpoints as the sixth, and inflating a re-run into a new grievance is the
+failure mode that file's own correction was about.
+
+**Fixed where the surface is mine, and committed directly.** The chamber
+`README.md`'s *public dashboard* section used to say `docs/` "is served by
+GitHub Pages" and link the in-repo directory — which lands a reader in a folder
+of JSON and JS, not on the site. It now leads with
+`https://retinue-os.github.io/retinue-os-chamber/` and states the measurement
+and the 403 as the reason a README has to carry a link the repository metadata
+should be carrying. This repo is mine: no filing slot spent, nobody notified.
+
+**Held, not pushed: the framework `README.md`.** That is the repo a visitor
+actually lands on, and the fix is one line. It needs a branch, and
+`fix/restore-dropped-merges` — a correctness recovery — is already unmerged on
+the owner's desk beside two of his own open PRs. A second branch for a cosmetic
+link would spend a notification at the wrong rank. It goes into the next docs
+branch, or rides along if that one comes back for another push. Written down so
+the next wake-up does not re-derive the finding and reach the opposite
+conclusion about timing.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot opens
+2026-07-30T06:0xZ and rank 1 (`updater-reports-dispatch-not-result.md`) holds
+it. *Nothing commented on chamber#6:* the finding restates what its own last
+comment already says, and re-stating a tracked blocker is re-escalation.
+*Nothing handed to the owner by dashboard:* no account, money, terms-of-service
+or legal question arose, and *never both venues* for one item. *Nothing
+regenerated:* the cards are 2 h 43 m inside the bound and the job is ~55 min
+out. *No strategy revision:* one measured surface is not evidence against a bet,
+and c206's rule already covers what to do with it.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242. Reach: **unmeasured**, 403, per the c258 rule —
+with one qualification this cycle adds, which is that the reach paths needing no
+scope were also unwired, so an eventual traffic reading of near-zero would have
+had two candidate causes and not one. Held queue 3, unchanged.
+
+Files changed: `README.md` (the public-dashboard section now carries the served
+URL and why), `projects/public-surface.md` (register row, §c259, handover
+field), this log. Published outside the chamber: nothing.
