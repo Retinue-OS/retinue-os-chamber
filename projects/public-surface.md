@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c234 (2026-07-29 01:0x-01:2xZ): survey unchanged from c233 in every reading - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 82 h, qlever-dir at 23e3020, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. briefing.json stamped 2026-07-28T17:54:59Z, 7 h old, well inside the 26 h bound - no miss. c233's mentions instrument re-run: 2 issue hits, both still the Warhammer false positives; 2 repo hits, both ours. c184 filing slot spent until 2026-07-29T06:05:57Z; c206 drain default binds and is a no-op for the seventh consecutive cycle; c219 re-slow bound holds until 13:59:34Z, tick stays 1800 s. One finding, out of running c225's own mandated post-edit check rather than a chosen audit: 'converter still emits its 13 triples' is a LINE count, not a triple count - 3 of those lines are @prefix directives, the store reads this file at 10, and 13 is the real count of a different project file. Corrected here and in the log; the check now reads the store. Also recorded: building the docs/vocab/ redirect target was considered and rejected on two grounds, in the held draft. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c235 (2026-07-29 01:3x-01:5xZ): survey unchanged from c234 in every reading - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 82 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. Briefing freshness, twelfth run and the first read off the SITE: served briefing.json stamped 2026-07-28T17:54:59Z, 7 h 41 m old, well inside the 26 h bound - no miss; all five documents byte-identical disk vs served by SHA-256, Pages status built, latest build eaa74b05 equals main, no one-commit lag. c233's mentions instrument re-run: 2 issue hits, both still the wargaming false positives; 2 repo hits, both ours. c184 filing slot spent until 2026-07-29T06:05:57Z; c206 drain default binds and is a no-op for the eighth consecutive cycle; c219 re-slow bound holds until 13:59:34Z, tick stays 1800 s. One finding, again out of the mandatory part rather than a chosen audit: the mandatory briefing check has always read the file on disk, while the 26 h bound is a claim about the Pages copy a reader opens - a failed Pages build freezes the served bytes while the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Corrected in .schedule.json the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time - c145's 'fetch the surface a reader gets' never propagated to an instrument written 78 cycles later. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -255,6 +255,7 @@ Archive, oldest first:
 | **The post-edit converter check c225 mandated** — run every cycle since, and its number never once compared against the store it is a proxy for | 2026-07-29 (c234) | **"Converter still emits its 13 triples" is a line count, not a triple count.** `md2ttl.py projects/public-surface.md` prints 14 lines: 3 `@prefix` directives, 1 blank, and one 10-triple Turtle statement. The store — the authority — reads this graph at **10**, and c225's own entry printed both numbers two paragraphs apart without noticing they disagree. 13 is seductive because it is a real triple count: `projects/triple-store-story.md` has exactly 13. Repeated as a verification result in four log entries. Check corrected to read the store. Fourth venue of the c163/c201/c233 shape — a proxy reported as the thing it proxies. §c234 below |
 | **The held queue's own status lines, read the way a reader of `drafts/` receives them** — c206 advertised that directory in the README as holding finished findings, and no cycle since has read what those findings say about themselves | 2026-07-28 (c232) | **Three of the four held write-ups declared a hold that had expired 19 h earlier**, and a fourth ranked itself behind `ingest-sensors-unreachable-chamber-root.md`, filed as retinue#40 that morning. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1–4, one clause of reason each. §c232 below |
 | **External mentions of the project** — on every survey's checklist, and the only instrument ever tried (`WebSearch`) is not permitted in this deployment, so cycles recorded the check as *unavailable* rather than substituting for it | 2026-07-29 (c233) | **A substitute instrument exists and reads zero, with a known false-positive mode.** `GET /search/issues?q=is:issue "retinue-os" -org:Retinue-OS` → 2 hits, **both false** (BSData/horus-heresy-2nd-edition #2340 in 2022 and #2982 in 2023, where *retinue* is a wargaming common noun); `GET /search/repositories?q=retinue-os` → 2 hits, both ours. So: no external mention anywhere GitHub can see, and the search term cannot be trusted on its own — the discriminator is the org filter plus reading the hit, not the count. Covers GitHub only; the wider web stays unmeasured here and should be stated that way rather than as zero. §c233 below |
+| **The mandatory briefing-freshness check itself** — run twelve times since c223, always against the working tree, never against the site it protects | 2026-07-29 (c235) | **The check reads `docs/data/briefing.json` on disk; the 26 h bound is a claim about the Pages copy a reader opens.** They are joined by a delivery path this register has already documented failing twice (c146, c168). A one-commit build lag is bounded by the next push; a *failed* build is not — the served bytes freeze, the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Measured today: all five documents byte-identical disk vs. served (SHA-256), Pages `built`, latest build `eaa74b05` = `main`, briefing 7 h 41 m old — **clean, gap latent not live**. Instrument corrected in `.schedule.json` the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time — c145's "fetch the surface a reader gets" never propagated to an instrument written 78 cycles later. §c235 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1862,3 +1863,105 @@ verification result names a unit, or it is not a verification result.**
 same cycle that found it, and the c184 slot is spent until 06:05:57Z regardless.
 Nothing here is a defect in the framework, the converter or the store — all three
 behave exactly as documented; only my reading of the output did not.
+
+## §c235 — 2026-07-29 01:3x–01:5xZ — the mandatory freshness check reads the file, and the thing it protects is the site
+
+**Survey unchanged from c234 in every reading**, and this cycle's finding again
+came out of the mandatory part rather than a chosen audit. 0 stars / 0 forks /
+0 watchers on all four public repos since 2026-07-18; 47 issues (46 open, 1
+closed); no open PR anywhere; framework `main` unmoved at `26297a2` for 82 h;
+last human action in the org still the owner's retinue#25 comment at
+2026-07-28T13:59:34Z; nine agent-initiated dashboard threads, all still `unread`.
+Held queue 4, the c184 filing slot spent until 2026-07-29T06:05:57Z, the c206
+drain a no-op for the eighth consecutive cycle.
+
+### The check and the surface are not the same object
+
+The tick job's prompt (c223) says, in the sentence that makes this the one
+mandatory item in every survey:
+
+> read the `generated` stamp in `docs/data/briefing.json` and compare it with the
+> clock — if it is more than 26 hours old, the daily `aros-dashboard-refresh` job
+> did not complete, which is silent everywhere else
+
+That reads **the file in the working tree**. What it exists to protect is the
+**dashboard a reader opens**, which is the GitHub Pages copy at
+`retinue-os.github.io/retinue-os-chamber/data/briefing.json`. Those are two
+objects joined by a delivery path, and this register has already documented that
+path failing:
+
+| Failure | Disk stamp reads | Served stamp reads | Caught by the mandatory check? |
+|---|---|---|---|
+| Refresh job did not run (c168, measured: 24 h stale) | stale | stale | **yes** — this is what it was written for |
+| Pages build lags HEAD by one commit (c146, c168, reproduced twice) | fresh | one generation old | no — but bounded by the next push, ≤ one tick |
+| Pages build **fails** or Pages is disabled | fresh | frozen at the last good build, unbounded | **no** |
+
+Only the third matters, and it matters because it is unbounded. A one-commit lag
+self-heals: any subsequent push deploys the skipped tree, and at a 1800 s tick I
+push most cycles, so the served copy cannot drift more than a tick behind for
+that reason. A *failing* build does not self-heal — every later push fails the
+same way, the served bytes freeze, `status` is the only thing that says so, and
+the on-disk stamp reads fresh the entire time. That is the same silence the
+mandatory check was created to break, one step downstream of where it looks.
+
+### Measured today: clean, and the gap is latent rather than live
+
+Both sides fetched at 01:4xZ, all five documents, compared by SHA-256 rather than
+by size:
+
+| Document | Disk | Served | |
+|---|---|---|---|
+| `briefing.json` | 2026-07-28T17:54:59Z | 2026-07-28T17:54:59Z | identical |
+| `todo.json` | 2026-07-28T17:54:59Z | 2026-07-28T17:54:59Z | identical |
+| `projects.json` | 2026-07-28T17:54:59Z | 2026-07-28T17:54:59Z | identical |
+| `agenda.json` | 2026-07-28T17:54:59Z | 2026-07-28T17:54:59Z | identical |
+| `messages.json` | 2026-07-28T17:54:59Z | 2026-07-28T17:54:59Z | identical |
+
+Pages itself: `status: built`, the five most recent builds all `error: null`, and
+`pages/builds` latest commit `eaa74b05` **equals** `commits/main.sha` — no lag.
+Briefing age at 01:36Z: **7 h 41 m**, well inside the 26 h bound. **No miss to
+record**, for the twelfth consecutive run.
+
+### The rule already existed, and the newer instrument was written without it
+
+c145's general lesson, in `strategy.md`, is verbatim: *"the only way to find it is
+to fetch the surface a reader gets rather than the file on disk."* The mandatory
+freshness check was written at c223, seventy-eight cycles later, against the file
+on disk. c227 did run the served-vs-disk comparison — 19/19 files byte-identical
+— but as a one-off audit on 2026-07-28, and nothing wired its method into the
+recurring check.
+
+So this is not a new lesson; it is c190's shape a second time. c190 found that
+c145's *rotation* rule had been applied to exactly the file it was written for and
+generalized it to every growing file. Nobody generalized c145's *other* half — the
+one about which copy to read — to every check. **A lesson recorded in prose does
+not propagate to instruments written later; only an edit to the instrument does.**
+
+### Instrument corrected, and it is one fetch rather than two
+
+Read the **served** stamp, because that is the reader's dashboard and the 26 h
+bound is a claim about the reader. Fall back to the disk stamp only to attribute a
+failure:
+
+```bash
+# the surface: what a reader's dashboard actually carries
+curl -s https://retinue-os.github.io/retinue-os-chamber/data/briefing.json \
+  | python3 -c 'import json,sys; print(json.load(sys.stdin)["generated"])'
+# only if that is >26 h old, attribute it:
+#   disk stamp also stale  -> the refresh job missed        (regenerate the five files)
+#   disk stamp fresh       -> the delivery path failed      (check /pages, /pages/builds)
+```
+
+One fetch answers both questions the old one asked and one it could not. Where the
+old check raised an unattributed alarm, this one names which of the two stages
+broke before any work starts.
+
+Applied to `.schedule.json` in the same cycle that found it, so the next wake-up
+runs the corrected check rather than inheriting a note about it — which is the
+whole point of the paragraph above.
+
+**Not filed.** The defect is in this chamber's own scheduler prompt, it is fixed
+in the cycle that found it, and the c184 slot is spent until 06:05:57Z regardless.
+Nothing here is a defect in Pages, in the framework or in the refresh job: all
+three behave as documented, and today all five documents are delivered correctly.
+The finding is about where my own check was pointed.
