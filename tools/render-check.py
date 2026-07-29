@@ -24,9 +24,31 @@ committing anything that appends to a table.
 Usage
 -----
     python3 tools/render-check.py [path]      # default: the chamber root
+    python3 tools/render-check.py --offline [path]   # no network, no `gh`
 
 Exit status is 1 if any file's rendered row count differs from its source row
 count, 0 otherwise.
+
+Two detectors, not one
+---------------------
+The row-count comparison above needs the live renderer and answers *whether* a
+file is broken. It does not answer *where*: at c245 it reported `expected 196,
+rendered 195` on a 145 KB register and locating the blank line took a hand-written
+scan. So there is a second, purely local detector — `orphan_runs()` — which finds
+the signature directly: a contiguous run of pipe-lines carrying no `|---|`
+delimiter is a table fragment that lost its header, which is what a blank line
+inside a table produces. It reports `file:line`, needs no network, and measured
+**zero** false positives across all 61 tracked Markdown files of this chamber at
+c245.
+
+That second detector is why `--offline` exists, and `--offline` is why the
+pre-commit hook exists (`tools/install-hook.sh`). c245 was the third occurrence
+of this defect in this file (c200, c227, c244) and the first *after* this script
+was written to catch it: the instrument was never wrong, it was never run on the
+wake-up that appended the row. A check that depends on remembering to run it has
+the reliability of the memory, not of the check — so the local half runs from a
+hook, where forgetting is not an available failure. The network half stays in the
+survey, where an outage can only delay a report instead of blocking a commit.
 
 Instrument discipline
 ---------------------
@@ -76,6 +98,43 @@ def source_rows(text):
     return pipe, delim
 
 
+def orphan_runs(text):
+    """Locate table fragments with no header, without asking the renderer.
+
+    Returns a list of (start_line, end_line, delimiter_count) for every
+    contiguous run of pipe-lines that does not carry exactly one `|---|`
+    delimiter row. A well-formed GFM table is exactly one such run with exactly
+    one delimiter; a blank line inside one splits it into a good run and an
+    orphan, and the orphan is what GitHub renders as a paragraph of pipes.
+    """
+    lines = text.split('\n')
+    in_fence = False
+    runs = []
+    cur = None
+    for number, line in enumerate(lines, 1):
+        stripped = line.strip()
+        if stripped.startswith('```') or stripped.startswith('~~~'):
+            in_fence = not in_fence
+            continue
+        if in_fence:
+            continue
+        if stripped.startswith('|'):
+            cur = [number, number] if cur is None else [cur[0], number]
+        elif cur is not None:
+            runs.append(cur)
+            cur = None
+    if cur is not None:
+        runs.append(cur)
+
+    orphans = []
+    for start, end in runs:
+        delims = sum(1 for line in lines[start - 1:end]
+                     if DELIM.match(line.strip()) and '-' in line)
+        if delims != 1:
+            orphans.append((start, end, delims))
+    return orphans
+
+
 def render(text):
     """Return the rendered HTML, or None plus an error string."""
     proc = subprocess.run(
@@ -92,6 +151,25 @@ def rendered_rows(text):
     if html is None:
         return None, err
     return html.count('<tr>'), None
+
+
+def local_self_test():
+    """Confirm the local detector separates a good table from a broken one.
+
+    Same c227 discipline as the network half: an all-clear from an unvalidated
+    checker is indistinguishable from a checker that always passes, and this one
+    is the half that gates commits.
+    """
+    if orphan_runs(GOOD):
+        return False, 'known-good fixture reported an orphan run'
+    bad = orphan_runs(BAD)
+    if len(bad) != 1 or bad[0][0] != 7:
+        return False, 'known-bad fixture: expected one orphan at line 7, got %r' % (bad,)
+    # A table inside a fenced code block is documentation, not markup.
+    fenced = '```\n| A | B |\n\n| 1 | 2 |\n```\n'
+    if orphan_runs(fenced):
+        return False, 'fenced example reported as an orphan run'
+    return True, '3 cases'
 
 
 def self_test():
@@ -111,17 +189,27 @@ def self_test():
 
 
 def main():
-    root = os.path.abspath(sys.argv[1] if len(sys.argv) > 1 else
+    argv = [a for a in sys.argv[1:] if a != '--offline']
+    offline = '--offline' in sys.argv[1:]
+    root = os.path.abspath(argv[0] if argv else
                            os.path.join(os.path.dirname(__file__), '..'))
 
-    ok, detail = self_test()
-    print('instrument self-test: %s (%s)' % ('pass' if ok else 'FAIL', detail))
+    ok, detail = local_self_test()
+    print('local self-test: %s (%s)' % ('pass' if ok else 'FAIL', detail))
     if not ok:
         print('refusing to report on real files with an unvalidated instrument')
         return 2
 
+    if not offline:
+        ok, detail = self_test()
+        print('renderer self-test: %s (%s)' % ('pass' if ok else 'FAIL', detail))
+        if not ok:
+            print('refusing to report on real files with an unvalidated instrument')
+            return 2
+
     failures = 0
     checked = 0
+    scanned = 0
     for path in sorted(glob.glob(root + '/**/*.md', recursive=True)):
         if '/.git/' in path:
             continue
@@ -130,20 +218,35 @@ def main():
         pipe, delim = source_rows(text)
         if pipe == 0:
             continue
+        rel = os.path.relpath(path, root)
+        scanned += 1
+
+        for start, end, delims in orphan_runs(text):
+            print('%s:%d-%d ORPHAN TABLE ROWS (%d delimiter rows in the run; a '
+                  'blank line above line %d ends the table, so these render as '
+                  'a paragraph of pipes)' % (rel, start, end, delims, start))
+            failures += 1
+
+        if offline:
+            continue
+
         expected = pipe - delim
         got, err = rendered_rows(text)
-        rel = os.path.relpath(path, root)
         if got is None:
             print('%-55s render failed: %s' % (rel, err))
             failures += 1
             continue
         checked += 1
         if got != expected:
-            print('%-55s MISMATCH expected %d rows, rendered %d '
-                  '(likely a blank line inside a table)' % (rel, expected, got))
+            print('%-55s MISMATCH expected %d rows, rendered %d'
+                  % (rel, expected, got))
             failures += 1
 
-    print('%d files with tables checked, %d problem(s)' % (checked, failures))
+    if offline:
+        print('%d files with tables scanned locally, %d problem(s)'
+              % (scanned, failures))
+    else:
+        print('%d files with tables checked, %d problem(s)' % (checked, failures))
     return 1 if failures else 0
 
 
