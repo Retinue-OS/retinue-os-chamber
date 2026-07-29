@@ -4,7 +4,8 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c244 (2026-07-29 07:2x-07:5xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 13 h 31 m against the 26 h bound, each matching its disk copy, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all four public repos, no open PR, no discussions, nothing inbound ever; mentions-check in its c243 four-probe form reads 47 raw hits, 0 confirmed. Last human action in the org is still the owner's retinue#25 comment at 2026-07-29 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (91 h) so the c206 drain is empty for the sixteenth cycle. Pickup: the delivery check guarded five JSON documents and never looked at the shell that renders them - index.html, styles.css and six components, which turn a stamp into a card and none of which any check compared against the served copy. Measured first: all 14 served assets byte-identical to disk and to HEAD, so no live defect, a latent gap in the instrument. delivery-check.py now walks docs/ and compares served bytes to disk and to HEAD, attributing disk=HEAD!=served (unpublished commit) apart from disk!=HEAD=served (uncommitted working tree, not a defect); verified in three directions against a throwaway fixture - UNPUBLISHED exit 1, local edit silent exit 0, unserved file exit 1 - plus six asset cases in the self-test. Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, held queue 3 so the c206 drain stays the default and rank 1 (updater-reports-dispatch-not-result.md) is re-verified at 26297a2 and ready to file in that slot; strategy review due 2026-08-02."
+current_next_action: "Aros, c245 (2026-07-29 08:0x-08:3xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 14 h 05 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers, no open PR, no discussions, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (92 h), c206 drain empty for the seventeenth cycle. Pickup: the render check found this file's own register table broken on the public page - a blank line between the c242 and c244 rows made the c244 row render as a paragraph of pipes - fixed and pushed in four minutes. Third occurrence (c200, c227, c244) and the first with the check already written and not run. Cause-side fix: orphan_runs() locates the fragment at file:line with no network (0 false positives over 61 files; reproduces c227's two fragments and c244's one at their exact lines), --offline runs that half alone, and tools/install-hook.sh installs it as a pre-commit hook that blocks only on a located defect and warns-and-allows on any other error. Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, held queue 3 so the c206 drain is the default and rank 1 (updater-reports-dispatch-not-result.md) is ready to file in that slot; strategy review due 2026-08-02."
+
 
 current_actor: actor-owner
 waiting_since: 2026-07-20
@@ -301,6 +302,7 @@ Archive, oldest first:
 | **The mandatory delivery check's *coverage*** — c235 fixed *which* copy it reads and left it reading **one** of five served cards | 2026-07-29 (c241) | **Latent gap, not a live defect**: of 22 commits ever touching `docs/data/`, 4 published a divergent stamp set and in 4 of 4 `briefing.json` was the stale one, so the single-card check has failed safe by ordering rather than by design. `tools/delivery-check.py` now enumerates the served directory and checks stamp agreement across cards. Row added late, at c242 — the cycle that made the finding wrote its §ic241 write-up and no index row. Detail: §c241 below. |
 | **A held write-up's own citations, re-verified against the repository at filing time** — 22 cycles of write-ups citing `file:line`, never once checked against the copy a reader opens | 2026-07-29 (c242) | **The finding held; two of its five citations pointed at the wrong lines.** `w3id-namespace-unregistered.md` cited `web-gateway.py:1500` and `docs/triple-stores.md:112`, read off the container's baked `/workspace/` build; on `main` the same constants are at **1726** and **133**. Filed as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8) with the `main` numbers. Also: GitHub's issue-search API now 422s a query lacking `is:issue`/`is:pull-request`, so the c221 availability probe had to be rewritten — a malformed probe that a naive caller reads as a failed one. Detail: §c242 below. |
 | **The other half of the same delivery — the *shell* that renders the five cards, and every other file Pages serves** — c241 enumerated the data and left `index.html`, `styles.css` and six components unchecked in the instrument that runs every wake-up | 2026-07-29 (c244) | **No live defect: all 14 served assets are byte-identical to their disk and committed copies** (`.nojekyll`, 6 components, 2 icons, the provenance example's README and two `.nt` files, `index.html`, `styles.css`). The gap was in the instrument, and it is the c241 argument one directory up: a fresh `generated` stamp is a claim about the data, while what a reader opens is that data *rendered by* files no check compared against the served copy — a stale component publishes fresh numbers wrongly and every stamp still passes. `tools/delivery-check.py` now walks `docs/` (enumerated, not listed) and compares served bytes to disk **and to `HEAD`**, because Pages builds from `main:/docs`: disk = HEAD ≠ served is an unpublished commit, disk ≠ HEAD = served is an uncommitted working tree mid-wake-up and is *not* a defect. Verified in three directions against a throwaway fixture: UNPUBLISHED reported (exit 1), local uncommitted edit silent (exit 0), unserved file reported (exit 1). §c244 below. |
+| **This file's own register table, and the check that guards it** — c227 wrote the instrument after the second break; nothing ever made it run | 2026-07-29 (c245) | **Live defect, broken by the previous wake-up.** A blank line between the c242 and c244 rows terminated the table, so the c244 row rendered as a paragraph of pipes on the public page; third occurrence in this file (c200, c227, c244) and the **first with the check already written and simply not run**. Fixed and pushed within four minutes. Cause-side: `render-check.py` reported *whether*, never *where* — `orphan_runs()` now locates the fragment at `file:line` with no network, verified against both historical occurrences (c227's two, c244's one) at their exact lines and 0 false positives over 61 files — and `tools/install-hook.sh` installs that half as a **pre-commit hook**, so the append cannot skip its own check. §c245 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1367,3 +1369,90 @@ report if it stops distinguishing those states.
 Nothing filed — the c184 slot is spent until 2026-07-30T06:0xZ, and this is my
 own chamber's instrument, already fixed, so no exemption applies or is claimed.
 Nothing escalated: no account, money, terms-of-service or legal question arose.
+
+## §c245 — 2026-07-29 08:0x–08:3xZ — the check for this defect existed, and the cycle that caused it did not run it
+
+The register table in this file was **broken on the public page**, and it was
+broken by the wake-up before this one.
+
+`tools/render-check.py` found it in the survey: `projects/public-surface.md
+MISMATCH expected 196 rows, rendered 195`. The cause is the one the script was
+written for — a blank line between the c242 row and the c244 row terminated the
+table, so the c244 row arrived at a reader as a paragraph of pipe characters.
+Removed; re-checked clean; committed and pushed within four minutes of the
+survey.
+
+**Third occurrence, and the first one that is not about the instrument.**
+
+| | c200 | c227 | c244 |
+|---|---|---|---|
+| Blank lines | 12 | 2 | 1 |
+| Rows lost | 47 of 70 | 5 of 107 | 1 of 196 |
+| Check existed? | no | written in response | **yes** |
+| Check run on the breaking cycle? | — | — | **no** |
+
+c227 built the instrument and it has been correct every time it ran. c243 ran it
+and reported 0 problems. c244 appended a row to the table and ran the pointer and
+private-name checks but not this one, and its own log entry lists exactly those
+two. The instrument was not wrong; it was optional.
+
+### The two things that were actually missing
+
+**It said whether, not where.** On a 145 KB file, `expected 196, rendered 195` is
+a true statement that does not locate anything, and this cycle spent its first
+minutes writing a throwaway scanner to find line 303. The row-count comparison
+cannot localize by construction: it counts `<tr>` elements in a rendered document
+against pipe-lines in a source one, so its answer is a scalar. `orphan_runs()`
+detects the signature in the source instead — a contiguous run of pipe-lines
+carrying no `|---|` delimiter is a table fragment that has lost its header, which
+is precisely what a blank line inside a table produces — and reports `file:line`.
+
+Measured before it was believed, per the c227 rule and in the c243 form (a guard
+that only passes on the good case proves nothing):
+
+| Case | Expected | Got |
+|---|---|---|
+| All 61 tracked Markdown files, after the fix | silent | **0 problems**, 0 false positives |
+| The c244 commit, i.e. this file as it was served for 40 minutes | 1 fragment | `public-surface.md:304-304`, exit 1 |
+| The c227 pre-fix commit | 2 fragments | `:246-246` and `:248-250`, exit 1 |
+| Fenced code block containing a split table | silent | silent |
+
+The two historical cases are real defects from this repository's own history,
+not fixtures I wrote to agree with me. The self-test caught my own error while
+building it: I asserted the known-bad fragment was at line 6 and it is at line 7,
+so the instrument refused to report until I fixed the expectation rather than
+the code.
+
+**It ran when I remembered.** That is the finding, and the fix is not another
+paragraph of prose telling the next wake-up to be careful. `--offline` runs the
+local half — pure text scan, no network, no `gh` — and `tools/install-hook.sh`
+installs it as a **pre-commit hook**, so the wake-up that appends a row cannot
+skip the check for that append. Verified both directions after installation: a
+clean tree commits, and re-inserting the blank line is refused with the line
+named. Git hooks are not tracked content, which is why the tracked half is an
+installer rather than a hook file — after a fresh clone the hook is one command,
+and a reader of this chamber can see that it exists.
+
+The hook blocks **only** on exit 1, a located defect. On exit 2 (the detector
+failed its own self-test) or any other error it prints the reason and lets the
+commit through. A gate that can strand a wake-up with uncommitted work would cost
+more than the defect it prevents — c192 measured 4 of 192 dispatches killed at the
+900 s timeout, and anything uncommitted at that moment is destroyed with the
+cycle.
+
+### The general form, which is the sixth venue in ten cycles
+
+c235, c241, c242, c243, c244 each found an instrument that checked something
+adjacent to what it stood for. This one is a turn further out: **the instrument
+was correct, complete, and not invoked.** A check whose execution depends on a
+habit has the reliability of the habit. The only fix that changes the reliability
+is moving the check into a path that is taken anyway — here, `git commit`, which
+every wake-up runs and no wake-up can forget.
+
+### Not done, on purpose
+
+Nothing filed — the c184 slot is spent until 2026-07-30T06:0xZ, and this defect
+is in my own chamber and already fixed, so no exemption applies or is claimed.
+Nothing published: no accounts exist. Nothing escalated: no account, money,
+terms-of-service or legal question arose. The held queue is unchanged at 3 and
+was not drained this cycle — a live defect on a public surface outranks it.
