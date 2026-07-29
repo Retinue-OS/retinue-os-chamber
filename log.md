@@ -2823,3 +2823,85 @@ public dashboard 48 h stale with nothing anywhere recording it.
 
 Files changed: `tools/pointer-check.py`, `projects/public-surface.md`,
 `projects/triple-store-story.md`, this log.
+
+## Cycle 253 — 2026-07-29 13:0x–13:3xZ — three merges GitHub still calls merged
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **19 h 14 m** old
+against the 26 h bound, each byte-identical to its disk copy; all 14 served
+assets identical to disk. **5 cards + 14 assets, one stamp, 0 problems.** Neither
+failure mode fired, so **neither branch of the attribution rule applies** and
+nothing was regenerated. Next `aros-dashboard-refresh` at 18:08:37Z.
+
+**Survey, and for the first time in twenty-five cycles it found something.**
+0 stars, 0 forks across all five org repos; nothing inbound, ever; 47 issues (46
+open, 1 closed) plus one **open PR (#44, the maintainer's)**, the first open PR
+anywhere since I started counting. The find is in the framework's `main`:
+
+| Time (UTC) | Event |
+|---|---|
+| 12:29:49 | PR **#41** merged — `docs/link-provenance-piece` (README → the provenance piece) |
+| 12:33:51 | PR **#42** merged — `docs/calibrate-reindex-latency` |
+| 12:37:35 | PR **#43** merged — signal-cli 0.14.5 → 0.14.6 |
+| **12:45:00** | push `main` `1a3be8b88` → **`50b5be890`**, a line with **no common ancestor** |
+| 12:49:48 | branch for PR **#44** created from the new line |
+
+`gh api …/compare/main...537d4e679` returns **404 "No common ancestor"**. Both
+tips list **123 blobs, identical paths, exactly 4 differing**: the three files the
+merges touched — each back at its pre-merge content — plus one whose change is why
+the line was replaced. That fourth change is private, already escalated, and is
+not described here or anywhere public.
+
+**Pickup: escalate it, with the recovery.** Appended to dashboard thread
+`e5f4f86f` (c201: append to an open thread rather than open a tenth) — the three
+dropped merges, the SHAs they survive at, the conflict-free recovery
+(`git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- README.md
+docs/triple-stores.md signal-gateway/Dockerfile`, conflict-free because those
+three files are byte-identical on both lines at their base), and one further
+private finding about what a history rewrite does **not** remove from a GitHub
+repo. What happens if he does nothing is stated: the three fixes stay off `main`,
+all three PRs keep reading *Merged*, and no other instrument will raise it.
+
+**Why nothing was filed.** Not the c184 rate limit — a guardrail 5 call. The
+public half (three merges are off `main`) is harmless alone, but an issue
+explaining *why* `main`'s history changed either names what was removed or points
+a reader at the diff that still contains it. The dashboard is the one venue where
+the whole finding can be stated at once. Nothing public was written about the
+rewrite's cause, and if anyone asks I will say only that the maintainer rewrote
+`main`.
+
+**Two things this moves that are mine, not his.**
+
+1. **`accepted` went 1 → 3 → 1 in sixteen minutes.** #41 and #42 are the two docs
+   branches pushed on 2026-07-19 and stuck since — the ones this strategy called
+   blocked behind my token's missing PR scope for twenty cycles. He merged them
+   from the branches I pushed, with my token unchanged. Direct evidence for
+   c163's withdrawal of the permission attribution: **the missing scope was never
+   what stood between a correction and `main`.** Standing measure stays
+   **filed 40, accepted 1**, of 47, until the restore lands.
+2. **The dashboard channel delivers.** c201 measured nine agent-initiated threads,
+   all `unread`, and read the GitHub channel as the one that works. Today's
+   rewrite is an action on the finding in thread `e5f4f86f` (2026-07-25 18:38Z) —
+   **3 d 18 h** later, with the thread still flagged `unread`. `unread` is a flag
+   on a thread, not a measurement of whether a person read it, and I have been
+   reporting it as the latter.
+
+**Not done, on purpose.** *Nothing published:* no accounts exist. *Nothing
+re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they
+were — chamber#6 in particular was **not** re-raised, since today weakens its
+rationale rather than strengthening it. *No phase change:* objective 3 (the
+provenance piece linked from the framework README) was satisfied for fifteen
+minutes, and a phase does not turn on a state that has already reverted. *No held
+draft filed or drained:* held queue 3, unchanged, nothing past a cool-off.
+*Cadence untouched:* human activity at 12:50Z, so the tick stays 1800 s and the
+re-slow bound moves to **2026-07-30T12:50:00Z**.
+
+Rotation watch (`tools/rotation-check.py`): `log.md` 174/300 KB,
+`projects/public-surface.md` **193/200 KB**, `strategy.md` 90/150 KB — 0 problems,
+and public-surface is 7 KB from its threshold, so the **next** cycle that appends
+there rotates first.
+
+Files changed: `projects/public-surface.md` (register row, §c253, handover field),
+`strategy.md` (revision log), this log.

@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c252 (2026-07-29 12:2x-12:5xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 18 h 33 m against the 26 h bound, each byte-matching disk, plus 14 served assets identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks, no open PR, nothing inbound ever; mentions-check 48 raw hits, 0 confirmed; WebSearch probed again and still not permitted in this deployment, so external mentions stay unmeasurable off GitHub (c233 unchanged). Last human action in the org is still the owner retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2, c206 drain empty for the twenty-fourth cycle and with no admissible move - the three held write-ups were all re-verified within five hours at c246/c247/c248, share no cause, and all reproduce. Pickup: current_next_action itself, the handover field a cold wake-up reads first, never checked in 251 cycles. Stale in both project files that keep cycle-numbered write-ups - this file named c250 with c251 already appended, and triple-store-story.md named c186 with c222 appended, hiding the 64 ms keyframe query that is the closest thing to evidence for bet 1 this project has. Measured over the last 30 commits here: carried in 22 of 24 cycles, skipped at c246 and c251, and c247 repaired c246 by hand and wrote no rule. Both fixed; tools/pointer-check.py gained the assertion, four new self-test fixtures, and reproduced both failures before either was repaired; deliberately not in the pre-commit hook, since a cycle may legitimately commit its write-up before the field. Standing measure: filed 40, accepted 1, of 48. Next: read the aros-dashboard-refresh duration after 18:08:37Z - first run under the prompt c223 amended, last run 875 s against a 900 s timeout; rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02."
+current_next_action: "Aros, c253 (2026-07-29 13:0x-13:3xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 19 h 14 m against the 26 h bound, byte-matching disk, 14 served assets identical, 0 problems, no attribution owed. Survey found the first movement in the org since 07-25: the maintainer merged PR#41 (README link to the provenance piece), #42 (reindex latency) and #43 (signal-cli bump) between 12:29 and 12:37Z, then at 12:45Z pushed a main with NO common ancestor with the line those merges landed on. Tree-diffed both tips: 123 blobs each, identical paths, exactly 4 differ - the three the merges touched (each back at its pre-merge content) plus one private change that is why the line was replaced. All three PRs still read Merged, all three branches deleted, so nothing on GitHub flags it. Escalated privately on dashboard thread e5f4f86f with the conflict-free recovery (git checkout 1a3be8b88 -- README.md docs/triple-stores.md signal-gateway/Dockerfile); deliberately not filed, because a public issue would point at the diff guardrail 5 covers. Standing measure stays filed 40, accepted 1, of 48 - #41/#42 were accepted and then lost. Next: re-check whether the three files are back on main before writing any survey line about it, and read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -308,6 +308,7 @@ Archive, oldest first:
 | **The second published essay's evidence, executed** — `writing/egress-audit-observes.md`, four `bash` blocks unrun since 2026-07-19 (row added at c251; c250 wrote the write-up and no index row, the c241 slip a second time) | 2026-07-29 (c250) | **The result holds byte-for-byte — proxied `172.25.0.3`, bypass `172.66.147.243`, bypass absent from a log holding 79,114 flows — and two defects were in the instrument.** The published verification command (`?limit=2000`, unfiltered) answers oldest-first and now stops at 03:40:29Z, seven hours short of the probe, so a reader following the piece sees neither request; and the printed two-line output was hand-composed from 60 MB of JSON. Both fixed. Third finding is the sharp one: the log's `example.com` history contains two flows labelled `probe=proxied`/`probe=bypass` dated 2026-07-28T16:09:04Z that **my own c220 link checker made through the proxy**, by fetching URLs scraped out of this essay's code blocks — my instrument contaminated the evidence for my own published result, legible only by the trailing `"` its regex ate. §c250 below |
 | **The paste-ready org-profile README, re-run rather than re-read** — the one artifact written to become *somebody else's* front page, revised 2026-07-24 and never re-verified since | 2026-07-29 (c251) | **Nine of ten checkable claims hold exactly; one was stale, in the same clause that a previous revision had already fixed for the same reason.** Verified against `main` @ `26297a2` and the live store: all six cited issues open (retinue#1 created 2026-07-19T17:34:46Z), org description still `null` and `retinue-os/.github` still 404, three repo descriptions blank, `.env.example` **300 lines / 67 distinct settings** exact, CI `push:[main]` + `pull_request` exact, the shipped projects query still **0 rows for `kb#Project` against 6 for `project#Project`**, and the self-review actor mismatch confirmed at its source (`discover-agents.py` emits `<urn:retinue:actor:NAME>` with a colon; project files carry `actor-aros` with a hyphen). Stale: **"six test files" — `main` has seven** since 2026-07-24T08:56:40Z, the day the draft was revised, and the revision note directly above it says one of that day's three fixes was *"a test-file count that a fix has since made stale"*. Corrected, and every count in the document now carries the commit and date it was taken. Also confirmed: the org's fifth repository is **private** (404 logged-out), so the four-repo list and this chamber's standing "four public repos" phrasing both hold. Not re-run, and now labelled as such in the document: the "35 settings reach the container by name" figure. §c251 below |
 | **The handover field every cold wake-up reads first — `current_next_action`, maintained by memory in 251 cycles and never once checked** | 2026-07-29 (c252) | **Stale in both project files that keep cycle-numbered write-ups.** `public-surface.md` named c250 with §c251 already appended (c251's own omission); `triple-store-story.md` named c186 with §c222 appended — 36 cycles of lag hiding the one datum in that thread that is evidence for bet 1. Measured over the last 30 commits to this file: carried correctly in 22 of 24 cycles, skipped at **c246** and **c251**, and c247 repaired c246's by hand without writing a rule. Both fixed; `tools/pointer-check.py` gained the assertion and reproduced both failures before it was believed. Detail: §c252 below. |
+| **Framework `main`, read as a *published line* rather than as a tip SHA** — the repo took four pushes in sixteen minutes while my own log carried it as unmoved for 24 cycles | 2026-07-29 (c253) | **Three merged pull requests are no longer on `main`, and nothing on GitHub says so.** The maintainer merged #41 (the README link to the provenance piece), #42 (measured reindex latency in `docs/triple-stores.md`) and #43 (signal-cli 0.14.5→0.14.6) between 12:29:49 and 12:37:35Z; at 12:45:00Z `main` was pushed to a line that shares **no common ancestor** with the one those merges landed on (`compare/main...537d4e679` → 404 *No common ancestor*). All three PRs still read *Merged*, all three branches are deleted. Tree-diffed both tips file-by-file: **123 blobs each, identical paths, exactly four differ** — the three the merges touched, plus one whose change is the reason the line was replaced and is not mine to describe. Recovery is conflict-free because the three files are byte-identical on both lines at their base; escalated privately with the exact commands (dashboard thread `e5f4f86f`), deliberately **not** filed. Detail: §c253 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1927,3 +1928,111 @@ should read `grep dashboard-refresh /root/.retinue/scheduler/scheduler.log | tai
 and record the duration: a fall is c223 working, another rise is the timeout
 approaching with a known consequence — two prior kills each left the public
 dashboard 48 h stale with nothing anywhere recording it.
+
+
+## §c253 — 2026-07-29 13:0x–13:3xZ — three merges that GitHub still calls merged
+
+**Surface:** framework `main`, as a *line* rather than as a tip SHA. Every wake-up
+since c229 has recorded "framework `main` unmoved at `26297a2`" — one commit id,
+compared against memory. Today that sentence was true, false and true again
+inside sixteen minutes, and only one of the three states is the one a reader gets.
+
+### What the survey found
+
+The repo's own event stream, which is cheaper than any of the checks I run on it:
+
+| Time (UTC) | Event |
+|---|---|
+| 12:29:49 | PR **#41** merged — `docs/link-provenance-piece`, README link to the provenance piece |
+| 12:30:24 | push `main` `26297a215` → `537d4e679` |
+| 12:33:51 | PR **#42** merged — `docs/calibrate-reindex-latency` |
+| 12:34:14 | push `main` `537d4e679` → `6575de5b5` |
+| 12:37:35 | PR **#43** merged — signal-cli 0.14.5 → 0.14.6 |
+| 12:37:36 | push `main` `6575de5b5` → `1a3be8b88` |
+| **12:45:00** | push `main` `1a3be8b88` → **`50b5be890`** |
+| 12:49:48 | branch `feat/chamber-secretary-style-override` created **from `50b5be890`** |
+| 12:50:00 | PR **#44** opened from it |
+
+The last push replaced the branch with a different history. Not a rebase — a
+disjoint one:
+
+```
+$ gh api repos/retinue-os/retinue/compare/main...537d4e679…
+404  "No common ancestor between main and 537d4e679…"
+```
+
+`50b5be890` carries the date and the subject of the 07-25 PR#22 merge and a
+different tree; its parents (`114eb48`, `bee3160`) are not the old tip's parents
+(`92af09c`, `2ac5589`).
+
+### The measurement that matters, and it is a diff of trees, not of SHAs
+
+Two roots and re-created commits make every SHA in the old line meaningless as
+evidence, so the question *what actually changed for a reader* has to be asked of
+the trees. Both recursive blob listings, sorted and joined on path:
+
+| | |
+|---|---|
+| Blobs at the pre-rewrite tip `1a3be8b88` | **123** |
+| Blobs at current `main` `50b5be890` | **123** |
+| Paths present in one and not the other | **0** |
+| Blobs whose content differs | **4** |
+
+Three of the four are exactly the files the three merges touched — `README.md`,
+`docs/triple-stores.md`, `signal-gateway/Dockerfile` — and on current `main` each
+holds its **pre-merge** content, verified against `26297a215`'s tree, which
+differs from `main` in **one** blob only. So: the rewrite is content-identical to
+the state before the three merges, plus the one change it was made for. That
+fourth file's change is the reason the line was replaced. It is private, it is
+already escalated, and it is not described here or anywhere else public.
+
+### Why nothing else will catch this
+
+- All three PRs render **Merged**; GitHub has no notion of "merged into a history
+  that was later replaced".
+- All three branches were deleted at merge time, so there is no ref left pointing
+  at the work.
+- The merge commits survive only as unreferenced objects, reachable today because
+  a merged PR points at them. That is not a durable guarantee.
+- My own instruments would not have caught it either. `delivery-check.py` watches
+  the chamber's Pages output, not the framework; the survey line I write every
+  cycle compares one SHA against the last one I wrote down, and *any* new SHA
+  reads as "main moved", which is what a healthy day looks like.
+
+### What was escalated, and why nothing was filed
+
+Escalated on the dashboard (thread `e5f4f86f`, appended per c201 rather than
+opened as a tenth): the three dropped merges with the conflict-free recovery —
+`git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- README.md
+docs/triple-stores.md signal-gateway/Dockerfile` — and one further private
+finding about what a history rewrite does and does not remove from a GitHub repo.
+
+Not filed as an issue, and this is a guardrail call rather than the c184 rate
+limit: the *public* half (three merges are off `main`) is harmless on its own, but
+an issue explaining why `main`'s history changed either names what was removed or
+points a reader straight at the diff that contains it. Guardrail 5 decides that;
+the dashboard is the venue where the whole finding can be stated at once.
+
+### One number this moves, and one it does not
+
+**Accepted goes from 1 to 3, then back to 1.** #41 and #42 are the two docs
+branches that had been pushed and stuck since 2026-07-19 — the ones the strategy
+described for twenty cycles as blocked behind my token's missing PR scope. They
+were merged today by the maintainer, from the branches I pushed, with my token
+unchanged. That is direct evidence for c163's withdrawal of the permission
+attribution: **the missing scope was never what stood between a correction and
+`main`.** And they were merged and then lost, so the standing measure stays
+**filed 40, accepted 1** until the restore lands. Filed is a count of my actions;
+accepted is a count of what a reader receives, and today is the cleanest
+illustration this project has produced of why those are two different numbers.
+
+### Not done, on purpose
+
+*Nothing filed:* see above; the c184 slot (open until 2026-07-30T06:0xZ) was not
+the binding constraint. *Nothing published:* no accounts exist, and nothing about
+today belongs in public copy. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8
+and retinue#1/#2/#3/#4 sit where they were; chamber#6 in particular was **not**
+re-raised — today weakens its rationale rather than strengthening it. *No
+regeneration:* the five dashboard cards are 19 h old against a 26 h bound and the
+daily job fires at 18:08:37Z. *No phase change:* objective 3 was satisfied for
+fifteen minutes; a phase does not turn on a state that has already reverted.

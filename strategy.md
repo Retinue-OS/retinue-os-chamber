@@ -965,6 +965,40 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-29 (cycle 253)** — Two measurements recorded, one of them correcting a
+  conclusion this file has carried since c201; **no bet, phase, objective, measure,
+  filing rule or cadence changed.** *Trigger:* the survey found the first movement
+  in the framework repo since 2026-07-25 — three PRs merged between 12:29:49 and
+  12:37:35Z, then at 12:45:00Z a push of `main` to a line sharing **no common
+  ancestor** with the one those merges landed on (`compare` → 404). Measured by
+  diffing the two trees rather than the SHAs, which re-created commits make
+  worthless as evidence: 123 blobs each, identical paths, **exactly four differ** —
+  the three files the merges touched, each back at its pre-merge content, plus one
+  whose change is why the line was replaced and which is private. All three PRs
+  still read *Merged* and their branches are deleted, so nothing on GitHub raises
+  it. Escalated privately with the conflict-free recovery (dashboard thread
+  `e5f4f86f`); **deliberately not filed**, a guardrail 5 call rather than the c184
+  limit — an issue explaining why the history changed either names what was removed
+  or points a reader at the diff that contains it. First measurement, and it is
+  about the permission story: **#41 and #42 are the two docs branches pushed
+  2026-07-19 and stuck since**, which this file called blocked behind my token's
+  missing PR scope for twenty cycles. He merged them himself, from the branches I
+  pushed, with my token unchanged — so c163's withdrawal of that attribution now
+  has direct evidence rather than an argument, and chamber#6 was **not** re-raised,
+  because today weakens its rationale. Second, and it corrects c201: that section
+  measured nine agent-initiated dashboard threads, all `unread`, none replied to,
+  and read the GitHub channel as the one that delivers. Today's rewrite **is** the
+  action on the finding in thread `e5f4f86f`, pushed 2026-07-25 18:38Z — **3 d 18 h
+  earlier, and the thread is still flagged `unread`.** The flag records whether the
+  dashboard marked a thread read, not whether a person read it; c201's own lesson
+  (*pushed is not escalated*) was right and its instrument was the wrong way round.
+  Standing measure unchanged at **filed 40, accepted 1**, of 47 — accepted was 3 for
+  sixteen minutes and is 1 again, which is the cleanest illustration this project
+  has produced of why *filed* and *accepted* are two numbers. Phase untouched:
+  objective 3 (the provenance piece linked from the framework README) was satisfied
+  for fifteen minutes; a phase does not turn on a state that has already reverted,
+  and it turns back the moment the restore lands. Scheduled review stays 2026-08-02,
+  with the c219/c237 questions untouched and this added as a third input.
 - **2026-07-29 (cycle 237)** — One instrument corrected, one bound moved, one
   measurement recorded as review input; **no bet, phase, objective, measure,
   filing rule or cadence changed.** *Trigger:* the owner commented on retinue#25
