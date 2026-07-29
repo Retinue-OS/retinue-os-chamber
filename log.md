@@ -3535,3 +3535,126 @@ had two candidate causes and not one. Held queue 3, unchanged.
 Files changed: `README.md` (the public-dashboard section now carries the served
 URL and why), `projects/public-surface.md` (register row, §c259, handover
 field), this log. Published outside the chamber: nothing.
+
+## Cycle 260 — 2026-07-29 17:5xZ — the recovery branch restored a number I had already retracted
+
+**Delivery check first, and it is clean.** `python3 tools/delivery-check.py` →
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). All five
+served cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **23 h 55 m 13 s**
+against the 26 h bound, each byte-identical to its disk copy; all 14 served
+assets identical to disk. **5 cards + 14 assets, one stamp, 0 problems.** All
+five read, not one. Neither failure mode fired, so **neither branch of the
+attribution rule applies** and nothing was regenerated. The next
+`aros-dashboard-refresh` is due ~18:08:4xZ, eleven minutes after this reading;
+if it fails, the served cards breach the bound at **19:54:59Z** and the first
+wake-up after that owes the attribution. c256's card-budget reading and c252's
+duration reading are owed by the first wake-up *after* 18:08:4xZ, which is not
+this one.
+
+*Coverage of the check itself, verified rather than assumed:* `find docs -type f`
+returns exactly **19 files = 5 cards + 14 assets**, and `delivery-check.py`
+derives both lists by walking the directory (`walk_assets`, `os.listdir` on
+`docs/data`) rather than from constants — so a component or example added later
+is covered on the day it is added. The one asymmetry is inherent and worth
+naming: it enumerates from **disk**, so a file served but absent from disk is
+invisible, and Pages exposes no directory listing to close that. Recorded as a
+bound of the instrument, not a defect.
+
+**Survey — nothing external moved.** 0 stars, 0 forks, 0 watchers on all four
+public repos; 48 issues (47 open, 1 closed); PRs #44 and #45 both still open and
+unchanged; `main` still `50b5be890`. Latest org event is my own c259 chamber
+push (17:19:00Z); last human action stays **16:18:00Z**, so the tick stays
+1800 s and the re-slow bound stays **2026-07-30T16:18:00Z**. `drafts/` — 3 held,
+nothing past a cool-off. Standing checks 0 problems: `baseline-check` (3 held
+drafts, 6 references, all at `50b5be890`, live on `main`), `rotation-check`
+(62 files), `pointer-check` (51 pointers), `render-check` (34 tables),
+`private-name-check` (97 files). `mentions-check`: **48 raw hits, 0 confirmed,
+0 unclassified, 0 failed probes** — no external mention anywhere GitHub can see,
+and the wider web stays unmeasured rather than zero.
+
+**Drain first, per c206 — and it had nothing to drain**, twenty minutes after
+c259 reached the same result. All three held drafts are re-verified, re-baselined
+to `50b5be890` and ranked; no two share a cause; none has been fixed upstream.
+The filing slot opens 2026-07-30T06:0xZ and rank 1 holds it.
+
+**Pickup: the content of my own recovery branch, which nobody had checked.**
+c255 built [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges)
+through the Git Data API and verified it thoroughly — 123 blobs both sides, 3
+differ, `agents/secretary.md` untouched, nothing referencing the replaced
+history, `ahead 1 behind 0`. Every one of those checks is about **fidelity**:
+does the branch carry what the three merges carried. Not one of them asks
+whether what the merges carried is still **true**.
+
+It is not. Read off the branch this cycle:
+
+| Surface on the branch | Restored text |
+|---|---|
+| `README.md` step 4 | *"rebuilds blue-green in 15–20 s for a small file"* |
+| `docs/triple-stores.md:160` | *"not within the usual 15–20 s"* |
+
+That number was retracted **four days before** PR#42 was merged, by me, in
+public. `brand/positioning.md` (c174, measured 2026-07-25) records three rebuilds
+at (20, 25] s, (20.1, 22.1] s and (20.1, 22.1] s in the same deployment on the
+same host with the same two-line trigger file — **every one above the old upper
+bound** — and the comment I posted on
+[retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)
+says it in as many words: *"Merged today, that swaps one number the docs can't
+support for another one they can't support — the exact defect this issue was
+opened about. My wording, my mistake."* That comment even names the branch it was
+about, and then c255 rebuilt the uncorrected blobs onto a new one without
+re-reading either file.
+
+**Fixed on the branch, as a second commit.**
+[`2d99186`](https://github.com/Retinue-OS/retinue/commit/2d991868d4d49fd956e487f5b32e4e238e21201e):
+README step 4 now reads *"rebuilds blue-green; new data is queryable in tens of
+seconds (measured 15–25 s across six rebuilds of a small chamber, 2026-07-19 and
+2026-07-25 — it grows with the chamber, so measure your own if it matters)"*, and
+`docs/triple-stores.md` reads *"not within the usual tens of seconds"* — the exact
+wording published on retinue#2, so the docs and the public correction agree
+rather than merely not contradicting. Verified after the push: `ahead 2, behind
+0`; three files touched (`README.md` +13/−3, `docs/triple-stores.md` +1/−1,
+`signal-gateway/Dockerfile` +1/−1); the restore commit `9b4d0db` intact beneath
+it, so it stays blob-verifiable against #41/#42/#43 and the correction can be
+dropped without touching it.
+
+Kept separate for that reason, and it is the general point: a recovery is two
+questions, and the second one has no natural prompt. **Fidelity is checkable by
+machine and correctness is not**, so a restore verified only by diff will happily
+re-ship anything that was wrong when it was written. The register gains it as a
+standing check — *before restoring content, re-read it against what has been
+published since*.
+
+**Also checked, and clean.** The history replacement could have left an issue
+closed against a change no longer on `main`. Measured: none of #41, #42, #43 or
+#22 carries a closing keyword, and **retinue#2 is open** — which is correct, since
+`main` today genuinely says `usual ~15 s` again. The tracker and the code agree
+about a live defect. Recorded because a clean result on a check nobody has run
+belongs in the record too.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot opens 2026-07-30T06:0xZ
+and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *No comment on
+retinue#2:* the natural one links the correction commit, whose message names the
+2026-07-29 history replacement, and c253 made a guardrail 5 call against putting
+a pointer to that in the framework's own tracker. Guardrail 9 says an ambiguous
+guardrail is not a thing to guess at, and silence costs nothing here — the branch
+is already on his desk. *Nothing pushed to the dashboard:* thread `e5f4f86f`
+already asks him to merge or delete this branch, and that ask is unchanged; a
+notification whose content is "the artifact I gave you is now more correct" is
+the kind c144 and c201 say not to spend. *Nothing re-escalated:* chamber#1/#3/#4/
+#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No strategy revision:*
+this is a defect in my own work product, and the operating rules that catch it
+already exist — it needed applying, not rewriting. *The framework README's
+docs-site link stays held*, per c259, on unchanged reasoning: it is cosmetic,
+this branch is a correctness recovery, and twenty minutes is not new evidence.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242. Reach: **unmeasured**, 403, per the c258 rule. Held
+queue 3, unchanged. Rotation watch (`tools/rotation-check.py`): `log.md`
+217/300 KB, `projects/public-surface.md` 168/200 KB, `strategy.md` 98/150 KB —
+0 problems.
+
+Files changed: `projects/public-surface.md` (register row, §c260, handover
+field), this log. Published outside the chamber: one commit on
+`fix/restore-dropped-merges` in the framework repo. Nothing filed, nothing
+commented, nothing pushed to the owner.
