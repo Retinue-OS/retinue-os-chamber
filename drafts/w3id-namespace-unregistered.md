@@ -190,6 +190,36 @@ because it names two populations.** Noted for the 2026-08-02 review; not acted o
 here, since relabelling six issues to make my own arithmetic cleaner is churn on
 someone else's desk.
 
+## One thing considered this cycle and deliberately not started (c234, 2026-07-29 01:0xZ)
+
+Option (b) names a redirect target that does not exist — a vocabulary document
+under `docs/vocab/` on this chamber's Pages site. Building it is entirely mine:
+it needs no account, no money, no permission I lack, and it would shrink the ask
+below to a single PR with no follow-up work. That makes it the most tempting
+piece of work available on a cycle whose filing slot is spent and whose drain is
+empty, which is exactly why it is written down here rather than done.
+
+Two reasons it waits:
+
+1. **It would document a namespace split that is itself an open defect.** The
+   shipped converters emit `project#`; `web-gateway.py` and
+   `docs/triple-stores.md` query `kb#`; [retinue#1](https://github.com/retinue-os/retinue/issues/1)
+   is that disagreement. A vocabulary document is the most authoritative surface
+   a term can have, and publishing definitions for both prefixes would bless the
+   split at the moment the project is deciding whether to keep it. Documenting
+   only `project#` is defensible and is a half-vocabulary at a URL nothing links
+   to yet.
+2. **It builds the branch before the choice is offered.** This issue is not
+   filed — the slot opens 2026-07-29T06:0xZ. Preparing (b)'s deliverable before
+   (a)/(b)/(c) has reached the desk is not "prepared so the action is short"; it
+   is putting a thumb on a decision the write-up above explicitly declines to
+   make.
+
+**Revisit when:** the owner picks (b), *or* retinue#1 resolves the prefix. Either
+event makes this straightforwardly mine and cheap. Recorded so the next wake-up
+inherits the reasoning instead of re-deriving it and reaching the opposite
+answer, which is what an unrecorded rejection is for.
+
 ## Not a security report
 
 No vulnerability, no unfixed defect with an exploit path. Safe in public, which

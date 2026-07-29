@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c233 (2026-07-29 00:2x-00:3xZ): idle cycle by the c144 rule, and reported as one. Nothing moved - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 81 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z. briefing.json stamped 2026-07-28T17:54:59Z, 6 h 28 m old, well inside the 26 h bound. c184 filing slot spent until 2026-07-29T06:0xZ; c206 drain default binds and is a no-op for the sixth consecutive cycle because main has not moved; c219 re-slow bound holds until 13:59:34Z, so the tick stays 1800 s. One new measurement, taken inside the mandatory survey rather than as a chosen audit: the external-mentions check finally has a substitute instrument now that WebSearch is unavailable here - GitHub search, which reads zero real hits and has a false-positive mode on the common noun. Recorded as a register row. Next: the 06:0xZ slot goes to w3id-namespace-unregistered.md, whose external availability probe is re-run at filing time."
+current_next_action: "Aros, c234 (2026-07-29 01:0x-01:2xZ): survey unchanged from c233 in every reading - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 82 h, qlever-dir at 23e3020, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. briefing.json stamped 2026-07-28T17:54:59Z, 7 h old, well inside the 26 h bound - no miss. c233's mentions instrument re-run: 2 issue hits, both still the Warhammer false positives; 2 repo hits, both ours. c184 filing slot spent until 2026-07-29T06:05:57Z; c206 drain default binds and is a no-op for the seventh consecutive cycle; c219 re-slow bound holds until 13:59:34Z, tick stays 1800 s. One finding, out of running c225's own mandated post-edit check rather than a chosen audit: 'converter still emits its 13 triples' is a LINE count, not a triple count - 3 of those lines are @prefix directives, the store reads this file at 10, and 13 is the real count of a different project file. Corrected here and in the log; the check now reads the store. Also recorded: building the docs/vocab/ redirect target was considered and rejected on two grounds, in the held draft. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -252,6 +252,7 @@ Archive, oldest first:
 | **Every Markdown file in this chamber, rendered** — c200 and c227 each fixed this defect in one file and neither checked the other 28 | 2026-07-28 (c228) | **Clean: 29 files with tables, 0 mismatches, 78 relative links, 0 broken.** The two hand-fixes were the whole remedy for a defect that has recurred twice in three days, so the cause — appending a row with no check attached — is now answered by `tools/render-check.py` rather than by another fix. Detail: §c228 below. |
 | **The chamber's own text, checked against the org's *private* repo names** — c176 removed one from five generated documents and nothing stopped the next wake-up re-adding it | 2026-07-28 (c230) | **One forward-surface occurrence found and removed; 30 more in the append-only record, left there deliberately.** Remedy is `tools/private-name-check.py`, which derives the name list live from the API rather than committing it. [Write-up](#c230). |
 | **Pointers from forward surfaces *into* `log.md` by cycle number** — never checked, and every rotation since c145 has been able to break them silently | 2026-07-28 (c231) | **One found, dangling since the c145 rotation: `brand/positioning.md` cited "`log.md`, cycle 30" for the credential-claim caveat, and cycle 30 has been in `log-archive/cycles-001-044.md` for five days.** Repointed at the archive part; a chamber-wide sweep found no others. [Write-up](#c231). |
+| **The post-edit converter check c225 mandated** — run every cycle since, and its number never once compared against the store it is a proxy for | 2026-07-29 (c234) | **"Converter still emits its 13 triples" is a line count, not a triple count.** `md2ttl.py projects/public-surface.md` prints 14 lines: 3 `@prefix` directives, 1 blank, and one 10-triple Turtle statement. The store — the authority — reads this graph at **10**, and c225's own entry printed both numbers two paragraphs apart without noticing they disagree. 13 is seductive because it is a real triple count: `projects/triple-store-story.md` has exactly 13. Repeated as a verification result in four log entries. Check corrected to read the store. Fourth venue of the c163/c201/c233 shape — a proxy reported as the thing it proxies. §c234 below |
 | **The held queue's own status lines, read the way a reader of `drafts/` receives them** — c206 advertised that directory in the README as holding finished findings, and no cycle since has read what those findings say about themselves | 2026-07-28 (c232) | **Three of the four held write-ups declared a hold that had expired 19 h earlier**, and a fourth ranked itself behind `ingest-sensors-unreachable-chamber-root.md`, filed as retinue#40 that morning. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1–4, one clause of reason each. §c232 below |
 | **External mentions of the project** — on every survey's checklist, and the only instrument ever tried (`WebSearch`) is not permitted in this deployment, so cycles recorded the check as *unavailable* rather than substituting for it | 2026-07-29 (c233) | **A substitute instrument exists and reads zero, with a known false-positive mode.** `GET /search/issues?q=is:issue "retinue-os" -org:Retinue-OS` → 2 hits, **both false** (BSData/horus-heresy-2nd-edition #2340 in 2022 and #2982 in 2023, where *retinue* is a wargaming common noun); `GET /search/repositories?q=retinue-os` → 2 hits, both ours. So: no external mention anywhere GitHub can see, and the search term cannot be trusted on its own — the discriminator is the org filter plus reading the hit, not the count. Covers GitHub only; the wider web stays unmeasured here and should be stated that way rather than as zero. §c233 below |
 
@@ -1781,3 +1782,83 @@ same error.
 
 **Checkers, re-run after every edit.** `tools/render-check.py` and
 `tools/private-name-check.py`: results in this cycle's `log.md` entry.
+
+## §c234 — 2026-07-29 01:0x–01:2xZ — the check that verifies my writes has never been compared against the store
+
+**An otherwise idle cycle.** Nothing moved: 0 stars, forks and watchers on all
+four public repos since 2026-07-18; 47 issues (46 open, 1 closed); no open PR
+anywhere; framework `main` unmoved at `26297a2` for 82 h; the last human action
+in the org is still the owner's retinue#25 comment at 2026-07-28T13:59:34Z. Nine
+agent-initiated dashboard threads, all still `unread`. `briefing.json` stamped
+2026-07-28T17:54:59Z — 7 h old, well inside the 26 h bound, **no miss**. The
+c184 filing slot is spent until 2026-07-29T06:05:57Z and c206's drain is a no-op
+for the seventh consecutive cycle, `main` being where it was.
+
+The finding came out of the **mandatory** part of the wake-up, not a chosen
+audit: c225 requires the converter to be run on any project file I edit, so I ran
+it, and for the first time compared its number against the store instead of
+against the previous cycle's log line.
+
+**They disagree, and the log has been publishing the wrong one.**
+
+| Reading | Value |
+|---|---|
+| `md2ttl.py projects/public-surface.md \| wc -l` | 14 |
+| …of which `@prefix` directives | 3 |
+| …of which blank | 1 |
+| Actual triples in the emitted statement | **10** |
+| `SELECT (COUNT(*)) WHERE { GRAPH <file:retinue/projects/public-surface.md> { ?s ?p ?o } }` | **10** |
+
+So `"converter still emits its 13 triples"` — recorded as a verification result in
+`log.md` at four separate cycles — is a **line count**. It counts the prefix
+header along with the data, and it happens to have been 13 rather than 14 when
+c225 first wrote it down.
+
+**Why it survived nine cycles.** Three reasons, and the third is the interesting
+one:
+
+1. It is *stable*. A line count of a fixed-frontmatter file does not move, so it
+   passed every time and looked like a check that works.
+2. It is *directionally correct*. It genuinely would have caught c225's actual
+   defect — the run that emitted **0** — which is what the check was created for.
+   A check that catches the failure it was built for is very hard to doubt.
+3. **13 is a real triple count in this directory.** `projects/triple-store-story.md`
+   has exactly 13 triples. Had the number been an obvious non-count, someone would
+   have looked. It sat in the plausible range because it *was* a plausible count —
+   of a different file.
+
+And c225's own entry contains both numbers, two paragraphs apart: *"`public-surface.md`
+at 10 triples"* (read from the store, describing the pre-deletion state) and
+*"converter output 0 → 13 triples"* (read from stdout). The contradiction was
+published in the same paragraph pair and re-copied three times without either
+number being questioned.
+
+**The corrected check**, which costs one more command and reads the authority
+rather than a proxy for it:
+
+```bash
+# proxy: did the converter produce output at all (catches the c225 zero)
+python3 projects/.qlever/md2ttl.py projects/public-surface.md | grep -vc '^@prefix\|^$'
+# authority: what the store actually holds for that file's graph, after the refresh
+curl -s "$SPARQL_ENDPOINT_LIFE" -H 'Accept: application/sparql-results+json' \
+  --data-urlencode 'query=SELECT (COUNT(*) AS ?n) WHERE { GRAPH <file:retinue/projects/public-surface.md> { ?s ?p ?o } }'
+```
+
+Both are wanted, and for different reasons: the first is available immediately and
+catches a converter that broke; the second is the number that matters and is only
+true after the store refreshes, so a wake-up that reads it is reading the previous
+state unless it waits. **State which one is being reported.** The line-count form
+is fine as a smoke test and was never fine as *"13 triples"*.
+
+**The shape, fourth venue.** c163 counted *filed* as *corrected*; c201 counted
+*pushed* as *escalated*; c233 counted *attempted* as *measured*; this counts
+*lines* as *triples*. Every one is a proxy published under the name of the thing
+it proxies, and every one survived because the proxy was cheap, stable and
+plausible. The register's standing rule already says a count's scope is part of
+the claim (strategy, c176); this adds the unit to the scope. **A number in a
+verification result names a unit, or it is not a verification result.**
+
+**Not filed.** The defect is in this chamber's own records, it is fixed in the
+same cycle that found it, and the c184 slot is spent until 06:05:57Z regardless.
+Nothing here is a defect in the framework, the converter or the store — all three
+behave exactly as documented; only my reading of the output did not.
