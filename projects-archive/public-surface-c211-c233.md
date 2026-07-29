@@ -1,0 +1,1388 @@
+# Surface register — archive part 3: cycles 211–233 (2026-07-27 to 2026-07-29)
+
+Rotated out of [`../projects/public-surface.md`](../projects/public-surface.md)
+on 2026-07-29 (cycle 239), on the threshold the file sets for itself: 189 KB
+against its own 200 KB trigger, growing ~6 KB per wake-up — about two wake-ups of
+headroom. Moving these twenty-one write-ups takes the live file to ~109 KB and
+keeps the five most recent (c234–c238) where the rule says they belong. The
+threshold is a trigger, not a target: rotating with headroom left costs nothing,
+and it removes the need for anyone to catch the crossing in time.
+
+These are the per-wake-up audit write-ups. The **register table itself did not
+move**, per the clause c216 withdrew from c197's rule on its first execution: a
+row is a surface and a section is a cycle, so archiving rows by their current
+pointer would scatter one surface's history across parts and empty the live index
+of exactly the surfaces that have been audited. Only evidence rotates; an index
+does not.
+
+Nothing here has been edited, reordered or removed. Sections are verbatim and in
+the order they were written, one `##` per cycle write-up (the c215 invariant, with
+the `## §cNNN` variant the c237 matcher fix accounts for); the file's git history
+still contains them at their original path.
+
+Register rows pointing into this range read *"Detail: §cNNN in archive part 3"*
+in the live file; before this rotation they read *"below"*.
+
+Twenty-one write-ups, cycles 211–233 (c222 and c229 produced no write-up).
+
+---
+
+## c211 (2026-07-27) — the blocker I publish and had never re-measured, and a count I had been carrying
+
+Two measurements, both of claims that live in files a reader can hold me to.
+
+**1. chamber#6 is still true.** `strategy.md` names the GitHub token's missing
+pull-request scope as one of the project's two blockers, and has said so since
+2026-07-20. In the seven days since, nothing re-tested it — the no-re-escalation
+rule (c144) correctly stops me *notifying* the owner again, and I let it stop me
+*measuring* too. Those are different acts: one spends his attention, the other
+spends thirty seconds of mine.
+
+The probe that was missing is a non-destructive one. Attempting a real pull
+request either fails or leaves a stray PR in the repo, so no cycle ran it. Posting
+to the endpoint with a **head branch that does not exist** discriminates cleanly,
+because permission is checked before validation:
+
+```bash
+gh api -X POST repos/Retinue-OS/retinue/pulls \
+  -f head=does-not-exist -f base=main -f title=probe
+# 403 "Resource not accessible by personal access token"  -> no PR scope
+# 422 "Validation Failed" / "head ... invalid"            -> scope present
+```
+
+Result today, 2026-07-27 14:3x UTC: **403**. The two docs branches
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`) are still pushed,
+still 1 ahead / 22 behind `main`, still unopenable by me. Nothing was commented,
+bumped or re-escalated — chamber#6 says it once, and this cycle only confirms the
+sentence it says.
+
+Note what the 403 does *not* license, because c163 caught me here once already:
+the token cannot open PRs, and that still does not explain the accepted count.
+`gh api repos/…/retinue --jq .permissions` reports `admin: true` — repository
+*role*, not the fine-grained PAT's grants — so that field is not the check. Only
+the write attempt is.
+
+**2. The held queue is 4, and c209 and c210 both said 5.** The number decides
+which default binds (c206: drain while three or more are held, audit below), so it
+is an operating number rather than a report. Where the extra one came from:
+`signal-pending-sends-tmp-not-a-volume.md` and
+`qlever-static-gz-cache-defeats-reindex.md` were consolidated at c207 and filed as
+retinue#39 at c208; both keep a header that opens **"Not filed"** followed by
+"Superseded", and a count that matches on *not filed* picks up one or both. The
+count was then carried from cycle to cycle instead of re-measured, which is
+precisely the failure c179 and c184 wrote a rule against — *count by re-running
+the method, not by adding to the last reading*.
+
+The classifier that agrees with the directory tests `superseded` **before** `held`,
+because the superseded drafts assert both:
+
+```bash
+for f in drafts/*.md; do hdr=$(head -12 "$f"); case "$hdr" in
+  *uperseded*)              d=superseded ;;
+  *"status: escalated"*)    d=escalated ;;
+  *"status: published"*)    d=published ;;
+  *filed_as:*|*"status: filed"*|*"Filed as"*) d=filed ;;
+  *eld*)                    d=held ;;
+  *)                        d=UNKNOWN ;;
+esac; echo "$d"; done | sort | uniq -c
+# 4 held · 1 escalated · 20 filed · 10 published · 2 superseded  = 37, 0 UNKNOWN
+```
+
+The `UNKNOWN` bucket is the part that makes it a check rather than a tally: a
+draft written with a wording none of these arms match is reported, not silently
+dropped into the majority class. That is c210's lesson (a check that fails open
+converts "I did not look" into "I looked and it was fine") applied to the
+classifier rather than to the presence test.
+
+**Drain, and its honest outcome: nothing consolidated.** c206's default gives
+three actions, and this cycle ran all three:
+
+- *Re-verify.* All four held write-ups were measured against `main @ 26297a2`.
+  `main` is still `26297a2` — unmoved since 2026-07-25T15:12:01Z, 47 h — so all
+  four hold without re-running anything, and that is a fact about the repository
+  rather than a claim about my diligence.
+- *Retire.* Nothing to retire, for the same reason.
+- *Consolidate.* **Checked and declined.** The one candidate class is *the
+  operator path reports a success it cannot verify* — `ingest-sensors.py` exits 0
+  on an unreachable chamber root, `self-update.py` reports the dispatch and never
+  the result, and `deploy/traefik/README.md` says restarting completes a wiring
+  the base compose does not carry. That is a shared **consequence**, not a shared
+  cause: an unguarded glob default, an unpolled 202, and a stale sentence. c206's
+  rule says *share a cause*, and the three fixes touch different files with
+  nothing in common to change once. Filing them as one class would read well and
+  trial worse, and it would bury a doc edit inside a behaviour change. The
+  German-manifest draft is unrelated to all three.
+
+So the ranking for the 2026-07-28T04:58Z slot is unchanged and was not re-argued:
+`ingest-sensors` (silent failure, tested patch), then traefik README, then the
+updater, then the manifest string.
+
+**Third, and it caught itself.** Running the standing measure this cycle, I
+enumerated the repositories by hand and got **37 of 45** — one short in both
+columns. The record was right and my command was wrong: the hardcoded list
+carried `retinue-os.github.io`, which is not a repository (the Pages site is
+served from `retinue-os-chamber/docs/`), and omitted `retinue-os-deployment`,
+which is one, and which holds one issue of mine. Re-run against the org's actual
+public set: **filed 38, accepted 1, of 46** — retinue 24/30, qlever-dir 8/9,
+chamber 5/6, deployment 1/1 — which is what c209 and c210 published.
+
+The instrument now names the set from the org rather than from my memory of it,
+so a public repo created tomorrow is counted without anyone editing the command:
+
+```bash
+for r in $(gh repo list Retinue-OS --limit 100 --json name,visibility \
+             --jq '.[]|select(.visibility=="PUBLIC")|.name'); do
+  gh issue list -R "Retinue-OS/$r" --state all --limit 200 --json number,body \
+    --jq "[.[]|select(.body|test(\"Written by Aros|Filed by Aros\"))]|length" \
+    | xargs echo "$r"
+done
+```
+
+Three findings in one wake-up, and all three are the same failure wearing
+different clothes: a number carried instead of re-run, a queue counted with a
+regex that matched a format, and a measure taken over a set I supplied from
+memory. c176 wrote the rule — *a count's scope is part of the claim* — and each
+of these is that rule failing at a different joint. The generalisation worth
+keeping is narrower and more mechanical: **an instrument that takes its scope
+from a literal I typed will be wrong the first time the world adds something.**
+Derive the scope, or the check only ever verifies what I already believed.
+
+## c212 (2026-07-27) — the prompts that wake me, read for the first time in 212 cycles
+
+`.schedule.json` is the file that dispatches every job in this chamber, including
+this one. No cycle had ever audited it. Read this cycle against the directory it
+describes:
+
+| The prompt says regenerate | Exists? |
+|---|---|
+| `briefing` | yes — `docs/data/briefing.json` |
+| `projects` | yes |
+| `milestones` | **no file, no component, no commit — ever** |
+| `community` | **no file, no component, no commit — ever** |
+| `owner's desk` | yes, if the reader guesses `todo.json` |
+| — | `agenda.json` and `messages.json`, unnamed |
+
+Measured rather than assumed: `git log --diff-filter=A` shows all five data files
+added in the initial commit `63b62f4`, 2026-07-18, under their present names, and
+`git log --all --name-only` matches no path containing *milestones* or
+*community* in any commit. The prompt was written from what I intended the cards
+to be, never from what the directory holds — c211's finding one file over
+(*an instrument whose scope is a literal I typed*), this time in the instruction
+rather than in the query.
+
+**Why it has not bitten, and why that is not a defence.** Every run of
+`aros-dashboard-refresh` succeeded, because a cold Aros lists the directory and
+regenerates the files that are in it. The prompt has been carried by the agent's
+willingness to ignore it. That is a latent trap rather than a live defect, and it
+is the kind that fires on the day someone is in a hurry.
+
+**The second half is the one that matters, and it is c206's shape again.** c210
+ended by adding a rule — *any sentence whose truth changes with the clock names
+its anchor* — and recorded it "in the register for the refresh job to apply". The
+refresh job is a **separate cold dispatch**. Its prompt does not point at this
+file, nothing in the persona requires reading a 180 KB register before
+regenerating five JSON documents, and the rule was therefore written where its
+only executor would not look. *Written is not delivered*, for the fourth time:
+c163 (filed ≠ corrected), c201 (pushed ≠ escalated), c206 (drafted ≠ readable),
+and now recorded ≠ reachable.
+
+Fixed in place, 5 minutes before the job's 17:43:46Z run: the prompt now names
+the five files that exist, names `docs/index.html` and `docs/components/` as the
+authority for card names rather than any list of mine, restates c187's
+all-five-or-none rule, and carries c210's anchor rule inline with both examples.
+The `comment` field records what was wrong and when.
+
+**Rule that follows:** a rule addressed to a job that is not this one belongs in
+that job's prompt. The register records that it was made; the prompt is what
+delivers it.
+
+## c213 (2026-07-27) — the store that demonstrates the lead story, 36 hours behind its own files
+
+Every earlier check of the triple-store surface asked whether the *query* was
+right, whether the *piece* was accurate, or whether the *example prose* held.
+None asked the one question a reader's experience actually turns on: **does the
+store serve what the files say?** Measured 2026-07-27 20:45Z by diffing
+`pr:currentNextAction` per named graph against each project file's frontmatter —
+4 of 6 current, `public-surface.md` serving the **cycle 192** value and
+`social-presence.md` a 214-character value against 1522 on disk. Effective index
+as-of ~2026-07-26 08:00Z: **~36 hours behind.**
+
+The mechanism was already documented — qlever-dir's watcher fires on
+`.nt`/`.ttl`/`.n3` only, so Markdown edits never trigger a rebuild
+([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)), and
+`docs/examples/provenance/README.md` calls the two demo `.nt` files "a manual
+refresh handle, not an automatic one". The unmeasured part was that the handle
+**had not been pulled since 2026-07-19**, its file's last commit; every rebuild
+since was a container restart.
+
+Consequence, and it is the one that matters: `writing/provenance-by-path.md` —
+the piece the docs site leads with — closes on *"Prose about a store expires. The
+store does not."* True of the design, false of this deployment. A reader running
+the piece's own query against this chamber got a project note twenty cycles old.
+
+**Handle pulled and measured.** Byte-identical rewrite of
+`sensor-a/readings.nt` (`md5` unchanged, `git status` clean), polled every 3 s:
+the c212 value appeared **between 22 s and 25 s**, and all six project files then
+matched disk. The whole path — frontmatter → converter → named graph → SPARQL —
+works end to end; only the trigger is broken.
+
+**Automated as `aros-store-refresh`** in `.schedule.json` (one shell command,
+3600 s, no commit produced, deletable with the demo files when qlever-dir#3 is
+fixed). Chosen as a *command job* rather than a rule in a prompt on c212's own
+finding: this chamber has now found **written is not delivered** four times, and
+a command does not have to be remembered.
+
+**Rule that follows:** an audit of a generated surface is not finished at the
+generator. Read what the surface *serves* and diff it against what it is *built
+from* — the two can agree in design and disagree in fact for a day and a half
+without anything emitting a warning.
+
+## c214 (2026-07-27) — the fix from three hours ago, read as code instead of as a commit
+
+**Two questions, in order.** Did c213's `aros-store-refresh` job deliver, and is
+the command it runs safe? The first is the one c213 would have wanted asked; the
+second is the one that had the finding in it.
+
+**Delivered.** `scheduler.log` shows two runs — 21:50:14Z and 22:50:14Z, both
+`[ok] in 0s` — which is the job's own report and settles nothing: a `cp` exits 0
+whether or not a store noticed. The check that discriminates is c213's own diff,
+each project file's `current_next_action` on disk against the value its named
+graph serves. **All six match**, and `public-surface.md` has moved from the cycle
+192 text it was serving at 20:45Z to the c213 text. The Markdown → converter →
+named graph → SPARQL path is current in this deployment.
+
+**Unsafe.** The command was:
+
+```
+cp <handle>.nt /tmp/aros-handle.nt && cat /tmp/aros-handle.nt > <handle>.nt
+```
+
+`>` truncates before it writes, so there is a window in which `readings.nt` is
+zero bytes — and the next hourly run opens by copying that empty file over the
+`/tmp` backup, destroying the spare with the same mechanism that made it. Git
+still held the content; nothing in the job, its log or its comment would have
+said so. The file is one of the two demo triples the docs site's provenance
+walkthrough tells a reader to run.
+
+**Replaced with copy-beside-then-atomic-rename**, chosen against the watcher's
+real event mask rather than a guess: qlever-dir's `orchestrator.py` runs
+`inotifywait -m -r -e close_write,create,delete,move`, so `MOVED_TO` on a `.nt`
+path triggers the rebuild exactly as `close_write` did, and a `.tmp` suffix keeps
+the intermediate from triggering one of its own. Re-measured end to end against
+this cycle's frontmatter edit: **24 s**, inside the 22–25 s band c213 measured,
+`md5sum` unchanged, `git status` clean, `*.nt.tmp` added to `.gitignore`.
+
+**Rule that follows:** an automation written to remove a manual step inherits the
+safety of that step only if someone writes it in. A command job is unsupervised —
+nobody reads its output, its exit status describes the last process in the
+pipeline rather than the outcome, and its failure mode gets exactly the design
+attention it got when it was typed. The manual version at c213 was a one-off with
+me watching; the scheduled version is the same keystrokes with nobody watching.
+
+## c215 (2026-07-28) — the register pointed at four write-ups that a rotation would have taken away
+
+**What was checked, and why this one.** Nothing external moved, the filing slot
+was still two hours out, and c206's drain default binds at a held queue of four
+with all three of its actions no-ops for the same repository fact c211 recorded:
+`main` is unmoved at `26297a2`. That leaves the next item in the admissible-work
+order — a defect in the project's own public surface — and the surface with a
+deadline on it is this file: **186 KB against its own 200 KB rotation threshold,
+growing ~5 KB per wake-up**, so about three cycles out.
+
+**The first measurement was wrong, and it is worth recording as the method
+rather than as the finding.** I began by testing whether the rows added since
+c197 carry the link that rule requires, with `grep -c "](#\|](\.\./"`, and got
+**0 of 24**. Read at face value that is seventeen cycles of ignoring a rule I
+wrote. Read against the file, it is my own instrument failing: the rows carry
+`Detail: §cNNN below`, a section reference rather than a Markdown hyperlink, and
+23 of 24 have it. Same error as c179's `test("Aros")` and c145's
+`"richText":null` — **an indicator is a claim, and guardrail 3 applies to my own
+instruments first.** The rows' real non-compliance is narrower and duller: median
+370 characters against a rule that says one clause, because each still carries
+the evidence the pointer was meant to make unnecessary.
+
+**The actual finding, which the wrong measurement walked into.** Checking that
+those pointers resolve: the file has `Detail: §c211`…`§c214` rows, and **no `##`
+section for c211, c212, c213 or c214.** All four write-ups are present but were
+appended as `###` under `## Cycle 210` — written by pattern-matching the last
+heading in the file instead of the last cycle in it. Nothing rendered wrong, so
+nothing signalled it.
+
+**Why that is a defect and not a formatting preference.** The rotation rule this
+file publishes moves *whole sections* into `projects-archive/`, keeping the head
+plus the five most recent. A rotation splits on `^## `. With four cycles nested
+inside c210's section, the next rotation — due in about three wake-ups — moves
+c210 and takes **c211–c214 with it**, four write-ups newer than the five it is
+supposed to keep, out of the file and into an archive part, while their register
+rows stay behind saying *"below."* The failure would have been silent, verifiable
+only by someone who noticed the archive part was four sections longer than the
+range in its own filename.
+
+**Fixed, and the fix is the invariant rather than the four headings.** The
+headings are promoted to `##`. Beside the rotation rule there is now a statement
+of what a section *is* — one `##` per cycle write-up, `###` only for a subsection
+of the same cycle — and a one-line `comm` check that reports any register row
+pointing at a cycle with no `##` write-up in this file or the archive. Run after
+the promotion: empty.
+
+**Rule.** *A rule that names a unit has to say what the unit is, or the next
+writer infers it from the neighbouring line.* c197 made exactly this repair one
+level down, to the rows; this makes it to the sections the rows point at. Both
+were written by me, seventeen cycles apart, and neither noticed the other.
+
+**Not done, on purpose.** The 24 over-long rows were not rewritten: c197 says the
+backlog is compressed in pieces at whatever rate a short wake-up allows, and this
+wake-up spent its budget on the defect with the deadline. No rotation was run —
+the file is under its threshold, and rotating on the same cycle that repaired the
+structure the rotation depends on would test both at once.
+
+## c216 (2026-07-28) — the rotation ran, and half the rule it was executing turned out to be wrong
+
+**Executed, on the deadline c215 set.** `projects/public-surface.md` stood at
+191 KB against the 200 KB trigger it sets for itself, growing ~5 KB per wake-up.
+Twenty-four write-ups (c184–c210, 106 KB) moved verbatim into
+[`projects-archive/public-surface-c184-c210.md`](../projects-archive/public-surface-c184-c210.md);
+the five most recent (c211–c215) stayed, as the rule says. Live file: 191 KB →
+88 KB.
+
+Verified three ways rather than eyeballed:
+
+- **Reconstruction.** `head + moved + tail` compared byte-for-byte against the
+  pre-rotation file: identical. The archive part's body compared against the
+  moved range: identical.
+- **The c215 dangling-pointer check**, run after the move: empty output — every
+  register row pointing at a cycle resolves to an `##` write-up in this file or
+  in an archive part. This is the check's first real exercise; it was written one
+  cycle ago against the failure it was designed to catch, and it passed on a
+  rotation that actually moved sections.
+- **The pointers themselves.** 17 rows read *"Detail: §cNNN below"* for a cycle
+  that is no longer below. Rewritten to
+  *"Detail: §cNNN in [archive part 2](…)"*; the five rows pointing at c211–c215
+  still say "below" and still should. A pointer that is *checkably* resolvable is
+  not the same as one that is *true*: `comm` accepts the archive, so it would
+  have stayed empty while seventeen rows lied about a direction.
+
+**And the finding, which is in the rule and not in the file.** c197 amended the
+rotation so that "the table rotates like everything else: rows move into the same
+archive part as the write-ups they point at". Executing it showed that half is
+wrong, for a reason c197 never measured: **a row is a surface, a section is a
+cycle, and they do not partition the same way.** A row's "last audited" date moves
+forward every time its surface is re-checked, so archiving rows by whichever cycle
+they currently point at would scatter one surface's history across parts *and*
+remove from the live table precisely the surfaces that have been audited — leaving
+an index of nothing, in the file whose whole job is telling the next wake-up what
+to look at next. Only the evidence rotates; the index stays.
+
+The growth argument underneath c197 survives intact and is answered by its own
+other half: the one-line row rule, in force since c197, is why this table is 62 KB
+today rather than the 98 KB it was then. Measured at this rotation — table 62 KB,
+write-ups 106 KB — the write-ups were 63% of the file and all of the growth worth
+moving.
+
+**Rule.** *A rule written for a file's growth has to name the file's parts by what
+they are for, not by how they were produced.* c197 generalized "everything
+rotates" from the write-ups to the table because both are text that accumulates.
+They are not the same kind of thing: one is evidence, the other is an index over
+it, and an index that rotates stops being an index. This is c190's shape once more
+— a rule that names its scope by hand fails wherever the hand did not reach — with
+the direction reversed: c190 under-reached, c197 over-reached.
+
+**Not done, on purpose.** The 24 over-long rows are still over-long; c197 says
+that backlog moves in pieces at whatever rate a short wake-up allows, and this one
+spent its budget on the rotation and an issue. No surface was audited from the
+never-audited list — the held queue is 3 after this cycle's filing, so c206's
+drain default still binds.
+
+## c217 (2026-07-28) — the other half of the blocker, probed the way c211 probed the first half
+
+c211 re-measured chamber#6's pull-request clause with a probe that creates
+nothing, and recorded the right lesson: *the no-re-escalation rule stops me
+notifying the owner again, not measuring again.* It then stopped at the clause it
+came for. The blocker I publish has two clauses, and chamber#5 states the second
+one in its widest form:
+
+> the deployment's token can read repo metadata and file issues, but **every write
+> to repo settings is refused**
+
+The evidence under that sentence is a single probe, `PUT
+/repos/…/private-vulnerability-reporting` → 403. One endpoint, generalized to
+"every write to repo settings" — which is the c176 error exactly (*a count's, or a
+claim's, scope is part of the claim*), sitting in an issue on the owner's desk
+where a reader can check it.
+
+**Probed, both with the value already in place, so a success would have changed
+nothing:**
+
+```bash
+gh api -X PUT   repos/retinue-os/retinue/topics -f 'names[]'    # topics are []
+gh api -X PATCH repos/retinue-os/retinue -f description=""      # description is ""
+```
+
+Both **403 `Resource not accessible by personal access token`**, 2026-07-28
+09:1xZ. With c211's `POST /pulls` 403 and chamber#5's own PVR 403, the sentence is
+now measured on three distinct settings endpoints instead of inferred from one. It
+holds. Recorded rather than commented on the issue: the claim survived, so a
+comment would say only that I checked my own homework, and it would spend a
+notification on an issue whose ask is unchanged. Had it been falsified, the
+comment would have been mandatory the same minute.
+
+**Why this surface was worth the two minutes.** It is the one place where being
+wrong would have been *good* news: the flagship repo `retinue` still shows an
+empty description and no topics to every visitor — the single line GitHub renders
+under the repo name, and the only way `qlever-dir` gets found by someone browsing
+`topics/sparql`, which is the audience bet 1 names. If the token could write
+either, that is bet 1's reach defect fixed by me, today, without asking anyone. It
+cannot.
+
+**The asymmetry worth writing down, because it is a temptation and not just a
+fact.** The same token *can* push branches to `retinue` — two are sitting there
+(`docs/link-provenance-piece`, `docs/calibrate-reindex-latency`). So the
+constraint is not "cannot write to the repo", it is "cannot request review". The
+available workaround — push the doc change straight to `main` — is refused, and
+the refusal is not close: `CLAUDE.md`'s Tier 3 policy puts framework docs behind a
+PR, and routing around a review gate because the review gate is inconvenient is
+the failure mode this project's whole pitch is against. Issues carrying patches
+stay the channel until chamber#6 moves.
+
+**Drain, checked and empty this cycle.** c206's default binds at three held. No
+two of the three share a cause (a stale deployment README; an update path that
+reports dispatch not result; a German string in the PWA manifest), so no
+consolidation. Nothing retires: all three were measured against `26297a2`, which
+is still `main` — unmoved for 66 h — so re-verification is the same commit and
+would be theatre. The filing slot is spent until 2026-07-29T06:0xZ, and
+`traefik-readme-labels-already.md` is ranked first for it.
+
+## c218 (2026-07-28) — a fix of mine falsified two public sentences, and neither was re-read
+
+`aros-store-refresh` was shipped at c213 and hardened at c214, on 2026-07-27.
+It rewrites `docs/examples/provenance/sensor-a/readings.nt` with identical bytes
+every 3600 s, so the qlever-dir watcher rebuilds and the chamber's Markdown
+re-enters the index without anyone touching anything.
+
+Two public surfaces describe exactly that mechanism, and both were left saying
+the opposite of what now happens:
+
+- `docs/examples/provenance/README.md`, **served live on GitHub Pages**:
+  *"Markdown edits reach the store at container restart, or when someone
+  deliberately touches one of these files. Not otherwise. They are a manual
+  refresh handle, not an automatic one."*
+- `writing/provenance-by-path.md`, the piece that carries bet 1: *"The `.nt`
+  files give the watcher something it reacts to"* — the presence-versus-change
+  conflation the c46/c47 correction already found once, in the sentence that
+  survived it.
+
+**What was measured before writing the replacement**, because the new sentence
+is a claim about delivery and the old one was a claim about configuration:
+
+| | |
+|---|---|
+| Container start (`ps -o lstart= -p 1`) | 2026-07-19T18:20:45Z — **8 d 18 h, no restart**, so no boot reindex explains anything below |
+| Job runs (`scheduler.log`) | 09:17:49, 10:17:50, 11:17:50Z, each `[ok] in 0s` |
+| Last edit to `projects/public-surface.md` | 09:16Z (c217) |
+| Its named graph, queried 12:2xZ | serves that edit's `currentNextAction` text |
+
+So an edit made with no restart and no human poke was queryable three hours
+later. The bound that replaces *"not otherwise"* is **within one hour, worst
+case** — 22–25 s of rebuild (c213) plus the wait for the next trigger.
+
+**The correction does not soften the finding, and says so on the page.**
+qlever-dir#3 is open and unchanged: the watcher still ignores converter
+extensions, so a Markdown-only chamber with neither an `.nt` file nor such a job
+is still never indexed. The automation adds a *second* moving part — queryability
+now depends on two unrelated files existing **and** a job in a chamber manifest
+the framework knows nothing about continuing to run — and if the job stops, the
+store goes stale exactly as before and still says nothing. Both READMEs now end
+by saying to delete the files *and* the job when qlever-dir#3 is fixed.
+
+**The general form, and it is the c163/c201 shape pointed at my own repairs.**
+A fix changes the world the documentation describes. c214 verified the job
+*worked* — end to end, against the store — and never asked which sentences it had
+just falsified. Verification of a fix is not verification of the prose around it,
+and the prose is the part a reader gets. **A shipped fix is a scheduled re-read
+of every surface that describes the thing it fixed**, and the re-read is due the
+same day, not at the next audit of that surface: this one was 24 h old and sitting
+on the public site.
+
+**Not done, on purpose.** Nothing filed — no defect in anyone else's repository
+is involved, both surfaces are mine and both are already corrected, and the c184
+slot is spent until 2026-07-29T06:0xZ regardless. Drain re-checked and still
+empty (`main` unmoved at `26297a2` for 69 h; no two held findings share a cause),
+so the held queue stays 3 and c206's drain default still binds.
+
+### c218, second finding — the converter that makes this chamber's frontmatter queryable did not unescape it
+
+Found while validating the frontmatter edit above, which is the only reason it
+was found at all: writing `\"not otherwise\"` into `current_next_action` and
+running the converter by hand produced
+
+```
+p:currentNextAction "… said \\\"not otherwise\\\" …"
+```
+
+— in Turtle, a literal backslash followed by a quote. `strip_quotes()` removed
+the wrapping quotes of a YAML double-quoted scalar and returned the body
+verbatim, so every escape survived into the literal and `ttl_string()` then
+escaped the backslash again. The store's copy of a value would disagree with the
+file it is derived from, silently, with no parse error anywhere.
+
+Scope, stated because a claim's scope is part of it (c176): **no project file in
+this chamber currently contains an escape**, so nothing in the live store is
+wrong today — I avoided the trap by rewriting my own sentence, which is exactly
+how a defect like this stays invisible. It is not a qlever-dir bug either; the
+converter is chamber content, shipped by me, and `qlever-dir#6` is about the
+*upstream* `md2ttl.py`'s IRI and typed-literal handling, a different function in
+a different repository.
+
+Fixed the same cycle, since the file is mine and needs no permission:
+`strip_quotes()` now undoes `\"`, `\\`, `\/`, `\n`, `\t`, `\r` for
+double-quoted scalars and `''` for single-quoted ones, leaving `\uXXXX` and
+other YAML exotica to pass through visibly rather than silently; `ttl_string()`
+now also escapes CR and TAB, a raw CR being illegal inside a Turtle quoted
+literal in the first place. Checked two ways: a fixture covering all six
+sequences round-trips correctly, and the converter's output over the six real
+project files is **byte-identical** to the previous version's, so the fix is
+inert on current data and only changes the case that was wrong.
+
+The through-line with the first finding is the same one: this chamber is the
+project's worked example of the converter contract, so both its prose about the
+mechanism and its implementation of it are public surfaces, and neither gets
+re-read by anyone who is not me.
+
+## c219 (2026-07-28) — the disclosure line is a matcher, and it is four strings
+
+**The trigger was an easy question.** The owner commented on retinue#25 at
+13:59:34Z — the first human action in the org in 2 d 21 h — so I went to classify
+ten days of tracker activity by author. We post from the same GitHub account
+(chamber#3), so GitHub's own metadata cannot separate us; guardrail 1's disclosure
+sentence is the only authorship record either of us has, a fact c176 recorded and
+c179 turned into a published, re-runnable command.
+
+**Both directions, inside ten minutes.** A loose `test("Aros")` classified the
+owner's qlever-dir#8 comment as mine, because he wrote *"Aros' solution is
+easier"*. The strict c179 pattern then classified three of my own comments as his
+— retinue#1 and qlever-dir#3 (2026-07-19) and chamber#6 (2026-07-20). All three do
+disclose; they disclose in words I chose that day:
+
+| Form | Where |
+|---|---|
+| `**Written by Aros, the project's AI agent, from the owner's GitHub account…**` | every issue body I have filed; most comments |
+| `**Filed by Aros…**` | a few early issue bodies |
+| `— Aros (AI agent; I maintain the project's public-facing chamber and filed this issue)` | comments on retinue#1, qlever-dir#3 |
+| `— Aros, the project's AI agent…` / `**Correction from Aros, the project's AI agent.**` | comments on chamber#1, chamber#6 |
+
+**Guardrail 1 is fine; the instrument is not.** Every comment discloses, so no
+reader was ever misled — this is a measurement defect. It survived seven cycles
+because the number it feeds is the *issue* count, and every issue body I filed
+happens to use one of the first two forms: **39 under either pattern.** The defect
+is only reachable by pointing the method at comments, which is what a question
+about someone else's activity requires and what nobody had asked.
+
+Fixed forward: one standard sentence for issues and comments alike, and the
+historical alternation written into `strategy.md` so the archive stays countable.
+The lesson is c179's, in a fourth venue — **a proxy is a claim**, and guardrail 3
+binds my instruments before it binds the project's copy.
+
+**Second finding, and it is the one that matters for the review.** With the
+classification corrected, ten days of trackers read: **11 human actions, 10 of
+them product or design, 1 presence** (chamber#1, *"Nostr Should also be
+considered"*, day one). Six `owner-action` issues are open at ages 8–10 days.
+Nothing here is overdue and none of it was pushed anywhere — the c27 clock rule
+holds, and at 34 hours this was not a measurement, while at ten days of near-daily
+activity it is. The consequence is for the 2026-08-02 review and is stated in
+`strategy.md`: the phase-exit condition is composed entirely of the category he
+demonstrably defers, so the review's question is *which parts of reachable
+presence need nothing from him*, not how to get the accounts moved.
+
+**Third, and the probe I wanted to fail.** chamber#4 justifies itself with
+*"creating a repository under the org … is org administration (guardrail 7)"* and
+cites a `PATCH /repos/…` 403 as evidence — a different endpoint, which is the
+c176/c217 shape. Guardrail 7's list is exhaustive and *creating* a repo is not on
+it, so if the token could do it, `retinue-os/.github` and the finished
+`writing/org-profile-README.md` were mine to deliver today, and the org's
+most-read surface would have stopped being blank. Probed with **no payload at
+all**, so authorization answers before validation and a success creates nothing:
+`POST /orgs/retinue-os/repos` → **403, Resource not accessible by personal access
+token.** The claim holds. Fifth distinct endpoint behind the one missing
+permission at chamber#6, and nothing posted — a confirmation is owed to the
+record, a correction would have been owed to the issue the same minute (c217).
+
+## c220 (2026-07-28) — 220 cycles of auditing what the links *say*, none of what they *reach*
+
+The register has audited the prose of `writing/provenance-by-path.md` at least
+four times — its claims, its dates, its re-run outputs, and at c218 the sentence
+a fix of mine had falsified. Nobody had ever asked whether its links resolve.
+Same for `writing/egress-audit-observes.md` and for `docs/index.html`, the live
+landing page. Link integrity is a different property from prose accuracy, it
+fails silently, and it fails *outward* — the reader finds it, not the writer.
+
+Run this cycle over every absolute URL in the three surfaces, following
+redirects: **25 URLs, 24 return 200.**
+
+The one failure is not link rot in someone else's site. It is the project's own
+vocabulary namespace:
+
+| Probe | Result |
+|---|---|
+| `https://w3id.org/retinue/` | **404** |
+| `https://w3id.org/retinue/project` | **404** |
+| `https://w3id.org/retinue/kb` | **404** |
+| `https://w3id.org/` (control) | 200 |
+| `api.github.com/repos/perma-id/w3id.org/contents/retinue` | **404** — no directory |
+
+`https://w3id.org/retinue/project#` and `…/kb#` are not documentation strings.
+They are constants in running code in three repositories — `scripts/web-gateway.py:1500`,
+`qlever-dir/examples/projects/.qlever/md2ttl.py:21`, this chamber's
+`projects/.qlever/md2ttl.py:21` — plus `docs/triple-stores.md:112`,
+`writing/provenance-by-path.md:12` and `writing/org-profile-README.md:129`.
+Every project record this chamber emits carries one.
+
+**Sized honestly, because guardrail 3 has an understating direction too.**
+Nothing is broken. RDF has never required an IRI to dereference; no query fails
+and no deployment is affected. What is lost is the only thing w3id.org sells:
+it is a redirection switchboard run by the W3C Permanent Identifier Community
+Group, and choosing it over a domain you control is a deliberate bid for
+permanence. Unregistered, it delivers less than a plain GitHub Pages URL, which
+at least resolves. And the string is unreserved — registration is a PR adding a
+`retinue/` directory, nothing holds the name until someone files it, and every
+document shipping the prefix raises the cost of moving off it.
+
+**The audience argument is bet 1's, exactly.** The semantic-web readers this
+project is aimed at are the population that dereferences a namespace IRI. It is
+the cheapest available reason to be dismissed by the one group the strategy
+says to lead with.
+
+**Split by who can act, which is the part worth recording as a habit.** The
+finding has two halves and only one of them waits:
+
+- *The published claim* is mine and was fixed the same cycle — a paragraph in
+  `writing/provenance-by-path.md` naming the 404, the date it was measured, and
+  the first-come risk. Guardrail 3 does not wait for a filing slot.
+- *The remedy* is a PR to a third party's repository claiming a permanent
+  identifier in the project's name with a maintenance contact attached. I cannot
+  open PRs anywhere (re-probed this cycle: `POST /repos/retinue-os/retinue/pulls`,
+  no payload → **403**, chamber#6 still accurate), and an identifier commitment
+  is guardrail 7's territory regardless of the token. Written up in
+  `drafts/w3id-namespace-unregistered.md` with the three redirect options, a
+  paste-ready `.htaccess`, and what happens if he does nothing. **Held** — the
+  c184 slot went to retinue#40 at 06:05Z — and **ranked first** for the next
+  one, ahead of the three findings held before it.
+
+The generalizable check, now in the register: **an audit of a document's claims
+is not an audit of its links.** One is about what the text asserts, the other
+about what it delivers, and this chamber has repeatedly found that *written is
+not delivered* (c163, c201, c206). This is the same distinction pointed at a
+surface where it costs one `curl` per URL to test.
+
+## c221 (2026-07-28) — "not registered" and "not claimed" are different probes, and only one had been run
+
+Short wake-up. Nothing external moved in the 13 minutes since c220: last human
+action in the org is still the owner's retinue#25 comment at 13:59:34Z, 0 stars,
+0 forks, 0 non-me issues, no open PRs, `main` unmoved at `26297a2`. The c184
+filing slot is spent until 2026-07-29T06:0xZ and the c206 drain rule binds at
+three held items, so the admissible work was drain, and drain's second clause is
+**re-verify before filing**.
+
+Applied it to the item ranked first for tomorrow's slot,
+`drafts/w3id-namespace-unregistered.md`, and the re-verification found a real gap
+in my own evidence rather than confirming it.
+
+**The gap.** c220 established the namespace is unregistered from
+`api.github.com/repos/perma-id/w3id.org/contents/retinue` → 404, and then wrote
+*"It is not squatted by anyone else either."* Those are two different claims. The
+`contents` endpoint reads the default branch, so it answers **is it merged**; the
+issue's load-bearing sentence — the name is first-come and still available, so
+the switching cost only rises — is about whether anyone is **in the process of
+taking it**, and a registration in flight is an open pull request. c220 never
+looked at the pull requests. The conclusion happened to be right; the probe did
+not test it.
+
+**Measured this cycle (16:5xZ):**
+
+| Probe | Result |
+|---|---|
+| PRs on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Issues on `perma-id/w3id.org` matching `retinue`, any state | **0** |
+| Open PRs on that repo, total | 27 (newest 6451, 2026-07-28T15:53Z) |
+
+So the name is free in the stronger sense, and the issue can now say so on
+evidence.
+
+**A second thing fell out, and it changes the shape of the ask.** The draft told
+the owner to open a PR against a W3C community group's repository, which reads
+heavier than it is. Over the 40 most recently merged PRs there: **median
+open→merge 3.9 h**, 27/40 inside 24 h, 34/40 inside 72 h, slowest 101 h, most
+recent merge 2026-07-27. It is a same-day PR against an actively maintained
+registry, not a standards process. The size of an ask is part of the ask, and I
+had left him to guess it.
+
+**What did not change, stated because the temptation ran the other way.** Not
+filed — the slot is spent and this is not the urgent-defect exemption. Not made
+more urgent: a fast merge queue is a property of the *remedy*, not of the risk,
+and the name has been unclaimed for the project's entire life. Ranking unchanged.
+Nothing pushed to the dashboard (nine agent threads unread; c201 allows one open,
+and nothing here needs a decision inside a day). Nothing re-escalated.
+
+**The check this adds to the register**, and it is c179's shape pointed at
+someone else's repository: *a probe is a claim about a state, and a state has a
+branch.* An endpoint that reads `main` cannot answer a question about what is
+pending. Where a finding's urgency rests on "nobody else has done this yet", the
+open-PR list is the surface that answers it, not the file tree.
+
+## c223 (2026-07-28) — the job that keeps the public dashboard honest is 25 seconds from being killed
+
+Measured 2026-07-28 18:10–18:15Z from `/root/.retinue/scheduler/scheduler.log`
+and this repo's git history. The dashboard-refresh job had just finished, 30 s
+before this wake-up started.
+
+**Every dispatch of `aros-dashboard-refresh` since it was created:**
+
+| Date | Result |
+|---|---|
+| 2026-07-20 | `[ok] in 253s` |
+| 2026-07-21 | `[fail] rc=1 in 3s` — HTTP 429, monthly spend limit |
+| 2026-07-22 | `[ok] in 323s` |
+| 2026-07-23 | `[fail] rc=1 in 33s` — API error, zero tokens used |
+| 2026-07-24 | `[ok] in 467s` |
+| 2026-07-25 | `[ok] in 727s` |
+| 2026-07-26 | `[ok] in 519s` |
+| 2026-07-27 | `[ok] in 566s` |
+| 2026-07-28 | `[ok] in 875s` |
+
+`SCHEDULER_JOB_TIMEOUT` is unset in this deployment, so it is the 900 s default
+(`scripts/scheduler.py:52`, and the daemon's own start line prints
+`timeout=900s`). **875 of 900 is 97.2%.** No dashboard-refresh dispatch has been
+killed yet; four `aros-tick` dispatches have been, which is the mechanism c192
+documented for the other job.
+
+**The two failures were not theoretical and their cost is measurable.** The
+regeneration commits once, at the end, so a failed run leaves the working tree
+clean and the page exactly as it was. `git log -- docs/data/briefing.json` shows
+the consequence: nothing between 2026-07-20 17:04 and 2026-07-22 17:11, and
+nothing between 2026-07-22 17:11 and 2026-07-24 17:19. **Two 48-hour gaps on the
+project's only self-updating public page, and no record of either exists in
+`log.md`, in this file, or anywhere a reader could see.** The stamp on the page
+stayed honest — it said the day it was generated — which is precisely why nobody
+noticed: an honest stale page and a fresh page look the same to anyone not doing
+the arithmetic.
+
+**What I did not do, and why.** The obvious move was to trim the job's output on
+the theory that the briefing prose grows with the owner's desk (11 items now,
+each with a computed absolute age). I measured before cutting, and the theory is
+wrong: briefing text across generations runs 1962 → 3430 → 4548 → 8084 → 7764 →
+7011 → 7075 → 7742 → **5823**, and today's — the 875 s run — is the *second
+smallest of the last six*. Whatever drives the duration, it is the measuring and
+not the writing. c221's rule applied to my own remedy: a probe is a claim, and
+so is a diagnosis.
+
+**Two fixes, both certain under either cause, both inside this chamber.**
+
+1. **The deadline is now in the prompt itself.** c192's standing rule — *commit
+   and push before the wake-up's last third, because a kill destroys everything
+   uncommitted* — is a subsection of an 84 KB `strategy.md`. Its prompt now names
+   the timeout, sets a 600 s commit point, and says what to do if the
+   measurements are not finished by then (commit five files from one consistent,
+   narrower stamp rather than lose the run).
+
+   **Correction, made in the same wake-up, before the second pickup and after
+   the commit above went out.** The paragraph here first read that the rule "was
+   written into `strategy.md`, which `aros-tick` reads and which this job is
+   never told to open". That is false and I could have checked it in one command.
+   `.retinue/agents/aros.md` — the definition every dispatch of this subagent
+   receives, whatever the dispatching prompt says — instructs at step 2: *Read
+   `strategy.md`*. So the rule is reachable from this job and always has been.
+   What is measurable is weaker and is the part that stands: nine runs never
+   applied it, and the durations grew to 97% of the wall. Whether it was read and
+   not applied, or never reached in an 84 KB file, I cannot tell from the
+   evidence, and the fix is the same either way. The false version is the more
+   flattering one — it makes the defect structural rather than mine — which is
+   the c163 shape pointed at a justification instead of at a measure. Guardrail 3
+   before it is anyone else's copy.
+2. **A missed run is detected in 30 minutes instead of 24 hours.** `aros-tick`
+   runs 48x more often than the refresh; its prompt now includes reading the
+   `generated` stamp in `docs/data/briefing.json` and, if it is more than 26 h
+   old, spending that wake-up on the regeneration and recording the miss. 26 h
+   rather than 24 h so that a run which merely started late does not trip it.
+
+**The general lesson, which is c145's with the noun changed.** c145: *a public
+artifact can fail silently by growing.* c190 generalized it from `log.md` to
+every append-only file. This is the same failure one level out — **a public
+artifact can fail silently because the job that maintains it did**, and the job's
+own success is a surface with no reader. `scheduler.log` has been a register
+surface since c192; in the 31 cycles since, it was asked about exactly one job,
+the one it was added for.
+
+Not filed as an issue anywhere: the manifest, the prompts and the dashboard are
+all this chamber's, so this is a fix rather than a report, and the c184 filing
+slot (spent until 2026-07-29T06:0xZ) does not apply to work I do myself.
+
+## §c224 — the drain was reported empty from a commit hash that two of the four held write-ups never named
+
+2026-07-28 18:4x–19:0xZ. Survey clean: 0 stars, 0 forks, 0 watchers on all four
+public repos since 2026-07-18; 47 issues, no PRs, no discussions; the last human
+action anywhere in the org is still the owner's comment on retinue#25 at
+13:59:34Z, so the re-slow bound holds at 2026-07-29T13:59:34Z. `briefing.json`
+stamped 2026-07-28T17:54:59Z, **53 minutes old** — the c223 freshness check ran
+for the first time and passed, which is the first evidence that yesterday's fix
+works from the consumer side.
+
+**The finding is in my own reporting, not in the framework.** c219, c222 and c223
+each closed with "drain empty this cycle, `main` unmoved at `26297a2`". That
+inference is only sound if every held write-up was measured *at or after*
+`26297a2`. Checked this cycle for the first time:
+
+| Held write-up | Baseline recorded before today |
+|---|---|
+| `w3id-namespace-unregistered.md` | live probes, re-verified c221 |
+| `webapp-manifest-german-description.md` | `26297a2`, stated |
+| `traefik-readme-labels-already.md` | **none** |
+| `updater-reports-dispatch-not-result.md` | **none** |
+
+Half the queue was being carried by a hash it never cited. The dates happen to
+acquit both — c198 and c206 are after 2026-07-25T15:12:01Z — but that is luck
+reconstructed afterwards, not a measurement, and it is c179's lesson in a fourth
+venue: **a proxy is a claim.**
+
+**Re-measured both, from the GitHub API rather than the local checkout** (whose
+gitdir is unmounted, the condition retinue#32 describes — so the local tree could
+not have answered this question at all, and no cycle had noticed that either).
+Both reproduce in full at `26297a2`: the base compose has **zero** `labels:` keys
+and zero mentions of `retinue-mtls@file` while `deploy/traefik/README.md:49` says
+the service's labels already reference them; and the updater still returns
+`202 {"status": "started"}` from a daemon thread, `self-update.py` still issues no
+second request, and the route table confirms `/status` is a **sibling** of
+`/update` rather than a child, so `PathPrefix('/update')` cannot reach it.
+
+One clause tightened before either is filed: the updater draft called
+`docker-compose.override.example.yml:74` "the only public router the project
+ships". It is commented out — the router an operator uncomments. The finding is
+untouched, but the sentence as written invites a correction that would cost the
+issue its credibility on first reading, and the filed wording now says *"the
+example router the docs tell an operator to uncomment"*.
+
+**Ranking checked against c219 and upheld.** c219's measurement (10 of 11 human
+tracker actions are product/design; 1 is presence; 6 `owner-action` issues aged
+8–10 days) reads at first as an argument to demote `w3id` — a seventh item into
+the category that has never drained. It fails on the label: `owner-action`
+conflates *needs legal personhood* (chamber#1/#3/#4) with *needs a permission I
+lack* (chamber#5/#6/#7), and `w3id` is a product decision wearing the second.
+Recorded as an instrument defect for the 2026-08-02 review — the label is not a
+predictor, because it names two populations — and not acted on, since relabelling
+six issues to tidy my own arithmetic is churn on someone else's desk.
+
+Also verified, at no cost, because it is the other half of c218's rule: the life
+store's copy of this file's frontmatter carries c223's `currentNextAction`,
+written ~30 minutes earlier, so `aros-store-refresh` is still delivering. The
+scheduler reports that job `[ok] in 0s` on every run, which reports the `cp && mv`
+exiting 0 and not the reindex happening — the same *dispatch-not-result* shape as
+the updater draft, one flight down. Worth knowing that the only check that
+distinguishes them is a SPARQL query, and that it is cheap.
+
+Not filed as an issue: the c184 slot is spent until 2026-07-29T06:0xZ, and the
+reporting defect is mine rather than the framework's. Held queue unchanged at 4.
+
+## c225 (2026-07-28) — the commit that was supposed to update one line deleted the file
+
+**Found in the survey, not by a check.** Reading the register to pick this
+cycle's work, the file had five headings. Yesterday it had twenty-one.
+
+`b814895`, pushed at **18:54:08Z** with the message *"projects: point
+public-surface at c224 for the next wake-up"*, is `1 insertion, 901 deletions`.
+The one insertion is the intended `current_next_action`. The 901 deletions are
+everything else in the file:
+
+| Lost | Recoverable from |
+|---|---|
+| `## Surface register` — the index of every surface audited in 225 cycles, with its date and verdict | `d2c16a3` only |
+| `## Goal`, `## Why this is its own thread`, `## Current state`, `## Success criteria`, `## Prepared and waiting`, `## Open question left to the owner`, `## Note for the next strategy review` | `d2c16a3` only |
+| The c211–c218 write-ups | `d2c16a3` only — `projects-archive/` stops at c210 |
+| Frontmatter keys `current_actor`, `waiting_since`, `expected_by`, `paused`, `category` | `d2c16a3` only |
+| The closing `---` fence | — |
+
+**The last row is the one with a consequence outside this repo.** With no
+closing fence the file has one `---` instead of two, and
+`projects/.qlever/md2ttl.py` answers `no YAML frontmatter block (expected a
+leading '---' fence)` and emits **0 triples** where the intact file emits 13.
+`aros-store-refresh` runs hourly; it last ran at 18:35:41Z, 19 minutes *before*
+the break, so the live store still carried the intact graph when this cycle
+queried it. The project was one refresh from disappearing from the life store,
+from the SPARQL surface this chamber exists to demonstrate, and from the
+dashboard's projects card. Nothing was lost that git did not hold, and nothing
+was lost because I caught it; it was lost and then found by accident.
+
+**Restored.** `d2c16a3`'s file with c224's intended `current_next_action` line
+substituted into it, verified by reconstruction the same way a rotation is: every
+line except that one is identical to the pre-deletion file, and the substituted
+line is byte-identical to the one `b814895` meant to write. 27 KB → 131 KB,
+5 headings → 21, converter output 0 triples → 13.
+
+**Why no existing check could have caught it, including the one that ran.** c224
+closed by verifying that the store carried this file's frontmatter — and it did,
+because the store held the **c223** version written an hour earlier. A check that
+reads the store after a write, without asserting that what came back is *this
+write*, passes exactly as well when the write never arrived. That is the same
+defect c224 itself filed against the updater ninety minutes earlier: **a report of
+the dispatch standing in for the result.** I wrote the finding, then committed the
+instance, then verified it with a probe that could not tell the two apart.
+
+**The rule this adds, and it is narrow on purpose.** The register has audited the
+framework's files, my own drafts, my instruments, the scheduler's log and the
+docs site. It had never audited **my own commits** — 225 cycles of writing to a
+public repository with no cycle ever reading back what the push actually
+contained. The cheap form is one command, and it is the same shape as the
+rotation rule's reconstruction check:
+
+```bash
+git show --stat HEAD -- <file>   # does the diffstat match what the message claims?
+```
+
+A one-line edit that reports `901 deletions` is visible in that output without
+reading a single line of the diff. Standing check, from now on: **before pushing,
+read the diffstat against the commit message.** An edit whose size does not match
+its description is a defect regardless of which one is wrong.
+
+**Not diagnosed, deliberately.** Which write produced the truncation — a
+whole-file rewrite from a truncated buffer is the obvious candidate — is not
+recoverable from the artifact, and guessing would put an unmeasured cause in a
+file whose subject is unmeasured causes. What is measurable is the outcome and
+the check that catches it next time, and both are recorded.
+
+## c226 (2026-07-28) — the cards were read as data files for 226 cycles and never as the page they render
+
+Measured 2026-07-28 20:0x–20:1xZ, from `docs/components/*.js` against
+`docs/data/*.json`.
+
+**What I went looking for, and why it was the wrong thing.** The survey found
+`aros-dashboard-refresh` finishing in 875 s against the 900 s wall — the same
+number c223 measured three cycles ago — and the obvious remedy was to cut the
+generated output. c223 had already tested that theory on `briefing.text` and
+rejected it. I extended the test to all five files, which c223 did not do, and it
+survives the extension:
+
+| Daily run | Five files, total | Duration | s/KB |
+|---|---|---|---|
+| 07-22 | 11.4 KB | 323 s | 29.1 |
+| 07-24 | 16.9 KB | 467 s | 28.3 |
+| 07-25 | 25.7 KB | 727 s | 29.0 |
+| 07-26 | 39.4 KB | 519 s | 13.5 |
+| 07-27 | 44.4 KB | 566 s | 13.0 |
+| 07-28 | 38.8 KB | 875 s | 23.1 |
+
+The largest output is the second-fastest run, the slowest run wrote 5.6 KB *less*
+than the run before it, and the per-KB cost swings 2.2x. Eleven concordant pairs
+against four discordant is not a mechanism. **Output size does not explain the
+duration, at the whole-file level either, and nothing here should be read as
+progress on the 900 s wall.** The three-cycle-old finding stands exactly where
+c223 left it: cause unknown, two fixes in place that hold under either cause.
+
+**What the measurement found instead, once it stopped being about seconds.** The
+question "how big are these files" has an answer nobody had asked for: *where do
+those bytes land on the page.* Every field is read by a component — nothing is
+written that goes unrendered, which was the defect I expected — and that is the
+worse result, because it means all of it is on screen:
+
+| Field | Rendered as | Mean size |
+|---|---|---|
+| `todo.others[].title` | a muted `<li>`, 16 of them | **577 B** |
+| `todo.top.title` | the card's headline, 1.15rem | **818 B** |
+| `projects.mine[].next` | one line under a project title | **1001 B** |
+| `messages.items[].preview` | a `<small>` after the sender | **435 B** |
+| `agenda.events[].location` | a `<small>` beside a date column | **335 B** |
+
+None of the five components clips or truncates. A phone dashboard whose stated
+design is *minimalist, curated* is rendering roughly 39 KB of prose across five
+cards, with 577-byte paragraphs in a list whose CSS gives each item a 6px gap.
+
+**This is c197's finding in a fourth venue.** c197 measured the surface register's
+rows at 1.4 KB mean and ruled that a row is one line, with the evidence living in
+the write-up it points at. The same error was running here the whole time, and in
+the one artifact where the reader is not me: **a slot named `title` was being used
+as a body.** The general form is in c197's own words with the noun changed — a
+schema names the parts by what they are for, and a generator that ignores the name
+degrades the page without breaking it, so nothing signals it.
+
+**Fix, and it is inside this chamber.** `.schedule.json`'s
+`aros-dashboard-refresh` prompt now carries per-field budgets matched to what each
+component renders (`briefing.text` ≤ 900 chars, `todo.others[].title` ≤ 110,
+`messages.items[].preview` ≤ 140, `agenda.events[].location` ≤ 90,
+`projects.*[].next` ≤ 140, and the rest), the instruction to check the files
+against them before committing, and the rule that decides what to do with the
+overflow: **the slot carries the one-line verdict and the issue number, the issue
+carries the argument.** Every long `todo` title on the page today is an
+`owner-action` issue whose full case is already written in the issue itself, so
+nothing is lost by pointing at it — the card is an index, and it had been trying
+to be the dossier.
+
+**Not done, on purpose.** The five files were **not** hand-trimmed this cycle.
+They must all carry one consistent `generated` stamp — that is the job's own
+"regenerate all five together or none" rule — and editing them by hand would put
+five files at a stamp no measurement was taken at. The next scheduled run
+(2026-07-29 ~17:5xZ) applies the budgets. **That is also the verification, and it
+is the c225 lesson applied forward:** written is not delivered, so a later cycle
+should measure the five files' sizes and the per-field means after that run rather
+than assume the prompt took. If they are unchanged, the prompt is not the
+instrument, and that is a finding about how these jobs are steered.
+
+Not filed as an issue: the manifest, the prompt, the data and the components are
+all this chamber's, so this is a fix rather than a report, and the c184 slot
+(spent until 2026-07-29T06:0xZ) does not apply to work I do myself.
+
+## c227 (2026-07-28) — the register that indexes every audited surface has not rendered as a table since c223
+
+**What was checked, and why this one.** c226 spent its cycle tuning what the five
+dashboard cards *say*. The obvious next question is whether anyone can load them, and
+nothing in 226 cycles had asked it: the register has rows for what the cards render,
+what the links reach, what the store carries, what my own commits contain — and none
+for **whether the published site equals the committed one.**
+
+**The site is clean.** GitHub Pages serves `retinue-os-chamber/docs` at
+`https://retinue-os.github.io/retinue-os-chamber/`, `status: built`, HTTPS enforced.
+All four most recent builds green (20:09:04Z, 19:31:51Z, 19:29:46Z, 18:54:10Z), none
+with an error. Every one of the **19 files** under `docs/` fetched from the live site
+and compared with `cmp` against the working tree: **19/19 byte-identical, 0 missing.**
+The card data the last cycle rewrote is delivered.
+
+**The file that carries this register was not.** Two blank lines sit inside the
+register table — before the c223 row and before the c224 row, present in `d2c16a3`
+and faithfully preserved by c225's restore, so each was introduced by the cycle that
+appended its row. A blank line terminates a table in GFM, and the rows after it have
+no header, so they are not a table at all. Rendered through `POST /markdown` before
+the fix:
+
+| | |
+|---|---|
+| Source rows (incl. header) | 107 |
+| Rendered `<tr>` | **102** |
+| Rows escaped into `<p>` | **5** — c223, c224, c225, c226, c227 |
+
+The five newest rows render as pipe-separated prose. **The part that fell out is the
+part with the function**: a register exists to tell the next wake-up which surface to
+check next, and the newest rows are the ones that answer it. Nothing signalled this —
+the file returns 200, is 40 KB under its rotation threshold, and looks correct in
+every editor and in `grep`. Fixed by deleting the two lines; re-rendered: **107 source
+rows → 107 `<tr>`, 0 escaped, 1 table.**
+
+**The instrument nearly published a catastrophe.** The first site comparison — a
+shell loop capturing each response through `$(…)` — reported **19 of 19 files
+differing**, i.e. the project's entire public face broken. It was a substitution
+artifact (trailing-newline stripping, null bytes in the two PNGs). Rerunning with
+`curl -o` and `cmp` gave 0. Had the cycle acted on the first reading it would have
+"found" and escalated a total failure of the published dashboard that does not exist.
+
+That is the fifth instance of one failure: c145's render indicator, c179's authorship
+regex, c219's four disclosure forms, c224/c225's write-then-read probe that passes
+when the write never arrived, and now this. **Standing rule: a new instrument gets a
+known-good and a known-bad case before its first result is believed** — and an
+all-pass or all-fail result is the shape that most needs it, in both directions. A
+check that reports 19/19 broken when nothing is, is exactly as useless as one that
+reports 0/19 when something is.
+
+**Third measurement on the 875 s job, and it is a negative.** c223 and c226 tested
+whether the dashboard-refresh duration is explained by the bytes it *writes*; it is
+not. This cycle tested the other half — the bytes it *reads*, which the job's prompt
+names as `projects/`, `log.md` and the live org data, all of which grow. Sizes
+reconstructed from git at each of the seven completed run instants:
+
+| Run | Input read (KB) | Duration (s) |
+|---|---|---|
+| 07-20 17:01 | 284 | 253 |
+| 07-22 17:06 | 568 | 323 |
+| 07-24 17:13 | 242 | 467 |
+| 07-25 17:22 | 360 | 727 |
+| 07-26 17:35 | 295 | 519 |
+| 07-27 17:44 | 388 | 566 |
+| 07-28 17:54 | 385 | 875 |
+
+**r = −0.03.** The largest input is the second-fastest run; the smallest input is
+slower than both. Against quantities that merely accumulate alongside the job —
+calendar date r = 0.86, commit count r = 0.80, whole-tree size r = 0.77 — but those
+three are collinear with each other and with everything else in a seven-day-old
+repository, so with n = 7 they identify nothing. **What this closes is the volume
+hypothesis at both ends.** The 900 s question stays open, with c223's two mitigations
+(the 600 s commit point in the prompt, the `generated`-stamp check every 30 min)
+still the right fix under any cause. Recorded so a fourth cycle does not re-run a
+regression against bytes.
+
+**Delivered-check on c225's restore, also clean.** The life store's
+`file:retinue/projects/public-surface.md` graph carries 10 triples and its
+`currentNextAction` is c226's text, so the restored frontmatter reached the hourly
+`aros-store-refresh` and the SPARQL surface this chamber exists as a worked example
+of. Confirmation is owed to the record rather than to a comment.
+
+## c228 (2026-07-28) — the same defect twice in three days, fixed twice by hand, and the other 28 files never checked
+
+c227 found two blank lines inside the register table and deleted them. Reading its
+own row back this cycle showed something c227 did not report: **c200 had found the
+identical defect in the identical file two days earlier** — twelve blank lines, 47
+of 70 rows escaped — and fixed it the identical way. Two occurrences, two hand
+fixes, no check.
+
+That is the shape the register exists to catch. A defect that recurs is not an
+incident, it is a property of the procedure, and the procedure here is *append a
+row to a long table near the end of a wake-up*. Nothing in it can notice a blank
+line: the URL returns 200, the file looks right in an editor, `grep` finds every
+row, and `md2ttl.py` emits its triples either way.
+
+**Two questions, both never asked in 227 cycles.** Does the defect exist anywhere
+else in the chamber, and is any other relative pointer in these files broken?
+
+| Check | Scope | Result |
+|---|---|---|
+| Rendered `<tr>` vs. source rows, through `POST /markdown` | 29 `.md` files with tables (incl. `log.md` at 264 KB, `strategy.md`, both archive parts) | **0 mismatches** |
+| Relative link targets resolve on disk | 78 links across every `.md` and the published `docs/` | **0 broken** |
+
+Both are negatives and both are worth the wake-up they cost, because the
+alternative to measuring was assuming — and the assumption would have been the
+flattering one twice in a row.
+
+**Three link reports had to be dismissed rather than counted, and the dismissals
+are the interesting part.** `drafts/credential-claim-scope.md` and
+`drafts/spawn-session-allowlist-boundary.md` carry `scripts/entrypoint.sh` and
+`.claude/settings.json` — paths that do not resolve here because those files are
+**issue bodies for `retinue-os/retinue`**, where GitHub resolves them against that
+repo. `projects/public-surface.md:749` matched `[archive part 2](…)`, which is c216
+*quoting the template it adopted*, in italics, not a link. A checker that had
+reported 3 broken links would have sent me editing three files that are correct.
+
+**The remedy, and it is deliberately not a third hand fix.** `tools/render-check.py`
+— run it before committing anything that appends to a table. It carries the
+known-good/known-bad fixture pair that c227 made a standing rule and **refuses to
+report on real files if the fixtures do not separate**, because an all-pass from an
+unvalidated checker is indistinguishable from a checker that always passes. On this
+cycle: `self-test pass (good=3 bad=2)`, then `29 files checked, 0 problems`.
+
+The general form, which is c190's with the sign flipped once more: **a fix applied
+where the defect was found is not a remedy for a defect that recurs.** c200 and
+c227 both did the right thing to the file and neither did anything to the cause.
+
+## c230 (2026-07-28) — a private repository's name, removed from five documents at c176 and written back into the log three times since
+
+**Surface:** every tracked file in this chamber, checked against the set of
+repositories the org keeps **private**. Never checked as a class; c176 checked
+five files once.
+
+**Why it came up.** Not by choosing a surface to audit — the drain default (c206)
+binds while four findings are held. It fell out of the routine survey: counting
+issues across "the four public repos" I substituted the private repo for
+`retinue-os-deployment`, got 48 where the standing measure says 47, and went
+looking for which number was wrong. The record was right and my count was wrong.
+The org has five repositories, four public; the fifth is private, and looking at
+it is how I noticed how often this chamber says its name.
+
+**Measured.** 86 tracked files: **1 occurrence on a forward surface** (this
+file's c157 row, which named it while describing a dashboard regeneration), and
+**30 in the append-only record** — 5 in `log.md`, 25 in `log-archive/`. The
+forward one is removed. The record's are not, on c176's own precedent: rewriting
+a public log is a worse act than the leak it repairs, the names are in git
+history either way, and that history question has sat with the owner since
+2026-07-19 in dashboard thread `78b64be7…`. It is not a new escalation and was
+not re-raised.
+
+**What makes it a finding rather than a typo.** c176 *did* fix this — "naming it
+on a public page was mine to stop doing rather than his to notice" — in the five
+generated dashboard documents where it found it. Cycles 222, 223 and 229 then
+wrote the name into `log.md`, one of them with the repo's creation date and issue
+activity attached. Third instance in four days of the shape c228 named: **a fix
+applied where the defect was found is not a remedy for a defect that recurs.**
+Guardrail 5 does not distinguish generated documents from hand-written ones, and
+neither should the check.
+
+**Remedy: `tools/private-name-check.py`,** beside `render-check.py`.
+
+- The name list is **derived at run time** from `gh repo list --json
+  name,visibility`. Committing a list of private repository names into a public
+  repo so as to grep for them would be the defect wearing a hat.
+- Output is **masked by default** (`<private-repo-1>`), because this script's own
+  output is the text most likely to be pasted into the public log.
+- Two scopes, deliberately: forward surfaces fail (exit 1); `log.md` and
+  `log-archive/` report a count only. The count is what lets a later cycle see
+  whether the *next* entry added one.
+- Known-good/known-bad fixtures run first and it refuses to report if they do not
+  separate (c227's standing rule; sixth instrument in this chamber to carry it).
+
+First run: `self-test pass`, 86 files, 1 problem. After the fix: 0 problems, 30
+history occurrences reported unchanged.
+
+**The forward rule, one line:** the org's private repositories are referred to in
+this chamber as *the private repo*, never by name — including in log entries,
+where three cycles put it back.
+
+## c231 (2026-07-28) — the rotation ran early, and it broke a pointer that had already been broken for five days
+
+**What the cycle was.** A routine blocked-state survey: nothing external moved
+(0 stars, 0 forks, 47 issues, no open PR, framework `main` unmoved at `26297a2`
+since 2026-07-25T15:12:01Z), last human action anywhere in the org still the
+owner's retinue#25 comment at 2026-07-28T13:59:34Z. `docs/data/briefing.json`
+stamped 2026-07-28T17:54:59Z — 5 h 13 m old at 23:08Z, fresh, no miss. Nothing
+inbound. Drain (c206) empty for the fourth consecutive cycle because `main` has
+not moved, filing slot spent until 2026-07-29T06:0xZ, auditing not the default
+while the held queue is 4.
+
+**The pickup, which the last two cycles had recorded as a number instead.**
+c229 and c230 both closed with *"rotation watch, no action"* — `log.md` at
+270 KB, then 277 KB, against its own 300 KB threshold. Measured this cycle from
+the last eight commits: **6.0 KB per entry, 279,641 B, ~27 KB of margin, 4.6
+cycles.** That is within a rounding error of the margin cycle 190 rotated on
+(~28 KB, "about four cycles"), and c190's archive header states the reason in
+its own words: *a rotation done early is identical to one done late except that
+nobody has to catch it in time*. A third consecutive cycle inheriting the number
+rather than acting on it is the c206 shape — written is not delivered — with the
+added risk that 4 of 192 wake-ups have been killed at the 900 s timeout (c192),
+so betting the rotation on the next four cycles is betting on four coin flips
+nobody needs to make.
+
+**Executed.** 42 entries (cycles 183–224, 242 KB) moved verbatim into
+`log-archive/cycles-183-224.md`; `log.md` **279,641 B → 37,639 B**, keeping
+cycles 225–230. Archive part 237 KB, under the 300 KB per-part cap. Verified by
+reconstruction against `HEAD:log.md`, not against the working tree: archive body
++ live body is **byte-identical**, 277,637 B either way, 48 entries = 42 + 6. The
+keep budget was set 7 KB below the 50 KB target on purpose so that appending this
+cycle's own entry does not land the file back near the threshold — c190's
+rotation did not reserve that and its successor started at 45.6 KB.
+
+**And the finding, which came out of the rotation rather than out of choosing a
+surface.** Rotation moves entries out from under any pointer that names them.
+Nothing in this chamber had ever checked for such pointers, so the sweep ran
+chamber-wide: `grep` for `log.md`-plus-cycle-number across every `.md` and
+`.html` outside the archive. **One hit, and it was already broken:**
+`brand/positioning.md` sources the credential-claim caveat — the honest
+conditional form of *"the model never holds credentials"*, and the note that this
+deployment was verified on 2026-07-20 and **found not to hold** — to "`log.md`,
+cycle 30". Cycle 30 left `log.md` in the **c145** rotation on 2026-07-23. For
+five days the single citation behind the project's most load-bearing calibrated
+claim has pointed at a file that does not contain it. Repointed at
+[`log-archive/cycles-001-044.md`](../log-archive/cycles-001-044.md). No other
+forward surface cites a cycle in the log; the four archive-part headers that
+match the pattern are describing their own provenance and are correct.
+
+**Why this is the register's business rather than a typo.** `brand/positioning.md`
+is what I read before writing anything public-facing — the file whose entire job
+is that the gap between what the project claims and what it does stays zero. Its
+one piece of evidence for the one claim it deliberately narrows was unreachable,
+and it went unreachable through a maintenance action of mine, silently, with no
+error anywhere. The class is now a register row: **pointers into an append-only
+file are invalidated by the rotation of that file, and the rotation is the only
+event that knows it.** Sweeping is the rotation's last step from here on, not a
+separate audit.
+
+Not made into a seventh tool. c229's warning stands — seven consecutive cycles
+auditing my own audit machinery is "admissible work exists" replacing "this is
+worth doing today" — and a one-line sweep that runs as part of a rotation that
+happens every four days does not need a self-testing instrument. If a second
+dangling pointer ever appears, that is the evidence for building one.
+
+**Checkers, both re-run after every edit.** `tools/render-check.py`: self-test
+pass (good=3 bad=2), 30 files with tables, 0 problems. `tools/private-name-check.py`:
+self-test pass, 88 tracked files, **0 problems on forward surfaces**; history
+count unchanged at **30** (25 in `cycles-124-182.md`, 4 in the new
+`cycles-183-224.md`, 1 in `log.md`) — redistributed by the rotation, not added
+to, which is the first independent confirmation that c230's forward rule held.
+
+## §c232 — 2026-07-28 23:4x–23:5xZ — the held queue's record of itself had expired
+
+The pickup came out of the survey rather than out of the register's "never"
+column, and it is the c206 shape read one turn further in.
+
+c206 changed the admissible-work default to **drain** while three or more
+findings are held, and justified holding them with the claim that *nothing is
+lost, only the notification is deferred* — true only if the write-ups are
+readable by someone. c206 fixed the pointer to them (the README's file map now
+says the directory holds finished findings). What nobody checked in the 26 cycles
+since is what those findings say **about their own status**, which is the first
+thing a reader of a held queue reads.
+
+Measured 2026-07-28 23:5xZ, all four held write-ups:
+
+| Draft | Status line said | True at 23:5xZ |
+|---|---|---|
+| `w3id-namespace-unregistered.md` | held until 2026-07-29T06:0xZ, ranked first | correct |
+| `updater-reports-dispatch-not-result.md` | held until **2026-07-28 04:58Z** | expired 19 h earlier |
+| `traefik-readme-labels-already.md` | held until **2026-07-28 04:58Z**, "ranked second, behind `ingest-sensors-unreachable-chamber-root.md`" | expired 19 h earlier; that write-up was filed as retinue#40 at 06:05Z and no longer competes |
+| `webapp-manifest-german-description.md` | held until **2026-07-28 04:58Z** | expired 19 h earlier |
+
+Three of four told a reader they were overdue by a day, and the fourth ranked
+itself against a competitor that had already left the queue. Nothing about the
+queue's actual state was wrong — the slot is genuinely spent until
+2026-07-29T06:0xZ and the ranking is genuinely w3id-first — but the only record
+of that lived in `log.md` and in this file's frontmatter, i.e. in my records
+rather than in the artifacts a reader is pointed at.
+
+**Fixed:** all four status lines re-stated with the live slot and an explicit
+**total order 1–4**, one clause of reason each, ranked on the standing preference
+for silent failures over visible ones:
+
+1. `w3id-namespace-unregistered.md` — an identifier the project cannot un-ship
+   cheaply; the remedy needs the owner, not a maintainer.
+2. `updater-reports-dispatch-not-result.md` — `202 {"status": "started"}` and no
+   way to learn the result: a failed update reads exactly like a successful one.
+3. `traefik-readme-labels-already.md` — false on a fresh clone, but the reader who
+   follows it hits a visible failure.
+4. `webapp-manifest-german-description.md` — cosmetic; one string, no behaviour.
+
+**The general form, which is why it is a register row.** A rate limit creates a
+queue, and a queue's own record decays on the wall clock while nothing touches
+it. Every held write-up carries an *absolute future hour* in its status line, and
+c202 already established the rule for exactly that — **a card carrying an absolute
+future hour is checked by the first wake-up after that hour**. c202 applied it to
+the dashboard's three prediction cards and nowhere else. It applies here verbatim,
+and the held queue is now inside its scope: the next wake-up after a filing slot
+opens re-states the queue, whether or not it spends the slot.
+
+**Deliberately not done.** No new index file listing the held queue — a second
+place to state the ranking is a second place for it to go stale, which is the
+defect this entry is about. The status lines are the record.
+
+**Also checked this cycle, cheaply, because the survey was there anyway.** The
+Pages delivery path (c146/c168 standing check): eight most recent builds all
+`built` with `error: null`, and `pages/builds` latest commit `196fc709` **equals**
+`main` — no one-commit lag this time. Only the chamber has Pages enabled;
+`retinue` and `qlever-dir` return 404 on `/pages`, which is expected and not a
+finding — neither ships a `docs/` site.
+
+**Checkers, re-run after every edit.** `tools/render-check.py`: self-test pass
+(good=3 bad=2), 30 files with tables, 0 problems. `tools/private-name-check.py`:
+self-test pass, 88 tracked files, 0 problems on forward surfaces; history count
+unchanged at 30.
+
+## §c233 — 2026-07-29 00:2x–00:3xZ — the mentions check had no instrument, only a note saying it had none
+
+**Idle cycle. This is the only thing in it, and it came out of the mandatory
+survey rather than out of a chosen audit** — c206's drain default still binds and
+the drain is still empty, so nothing here was picked up in preference to draining.
+
+"Stars and mentions" has been on the survey checklist since this chamber existed.
+Stars have an instrument (`GET /repos/...`, read at every cycle, 0 since
+2026-07-18). Mentions did not. The only one ever tried is `WebSearch`, which is
+not permitted in this deployment; c183 handled that correctly by recording the
+check as *unavailable rather than silently skipped*, and every cycle since has
+inherited that state without asking whether a substitute exists.
+
+One does, for the part of the world GitHub can see:
+
+```bash
+gh api "/search/issues?q=is%3Aissue+%22retinue-os%22+-org%3ARetinue-OS" --jq '.total_count'
+gh api "/search/repositories?q=retinue-os" --jq '.items[].full_name'
+```
+
+**Reading, 2026-07-29 00:2xZ: 2 issue hits, both false; 2 repository hits, both
+ours.** The false pair are `BSData/horus-heresy-2nd-edition` #2340 (2022-09-09)
+and #2982 (2023-11-06), where *retinue* is a wargaming common noun and *os*
+comes from adjacent tokens. So the count alone is not the measurement — the
+discriminator is the org filter plus actually reading the hit, and a future cycle
+that reports "2 mentions" off `total_count` would be reporting a Warhammer bug
+report as interest in this project.
+
+**What this does not measure, stated so it is not read as zero.** GitHub only. No
+forum, no social platform, no blog, no aggregator. The honest form is *no external
+mention anywhere GitHub can see*, and the wider web remains unmeasured from here —
+which is a property of this deployment's tools, not evidence about the world.
+
+**Why it is worth a row at all.** The register's own rule is that an unchecked
+surface emits no signal to prompt checking it. A checklist item whose recorded
+state is *"instrument unavailable"* is worse than an unchecked one: it looks
+checked. This is the same shape as c163 (*filed* counted as *corrected*) and c201
+(*pushed* counted as *escalated*) — **attempted counted as measured.** Third venue,
+same error.
+
+**Checkers, re-run after every edit.** `tools/render-check.py` and
+`tools/private-name-check.py`: results in this cycle's `log.md` entry.
+
