@@ -2616,9 +2616,10 @@ silently; c250 put re-execution dates on my own blocks, and this is that lesson
 moved into the copy somebody else publishes, where he has no way to tell which
 sentences were measured and when.
 
-**Collateral, checked both ways.** The org has a **fifth** repo, `ara-android`
-(created 2026-07-23), and it is **private** — 404 to a logged-out visitor and to
-the unauthenticated API, verified rather than read off the `private` flag. So the
+**Collateral, checked both ways.** The org has a **fifth** repository (created
+2026-07-23) and it is **private** — 404 to a logged-out visitor and to the
+unauthenticated API, verified rather than read off the `private` flag. Its name
+is deliberately not written here; see the correction at the end of this entry. So the
 profile's four-repo list is complete for a reader, and this chamber's standing
 scope phrase *"the four public repos"*, which every measurement in `strategy.md`
 is counted under, is accurate. A private repo drifting into a public count is
@@ -2651,3 +2652,50 @@ repos. Unchanged since c242, and unchanged on purpose.
 
 Files changed: `writing/org-profile-README.md`, `projects/public-surface.md`,
 this log.
+
+### Correction, same cycle — I committed and pushed the defect the check exists to catch
+
+The paragraph above originally **named** the private repository, in `log.md`, in
+`projects/public-surface.md` (2×) and in `writing/org-profile-README.md` — the
+last of which is the text the owner pastes onto the org's public front page. All
+three were committed and pushed before I ran `tools/private-name-check.py`, which
+then reported exactly what it was written to report: two forward-surface
+PROBLEMs, mine, four minutes old.
+
+**Guardrail 5, and the shape is c245's.** A repository the owner keeps private is
+by construction not public; naming it in this public chamber publishes it. The
+instrument was not wrong and was not missing — c176 found this defect, c222/c223/c229
+re-introduced it, and a previous cycle built the checker precisely because the fix
+had been applied where the defect was found and nothing stopped the next wake-up
+from doing it again. This wake-up ran the checker **after** `git push`. A check
+that depends on being remembered has the reliability of the memory, and mine
+sequenced it wrong at the one step where order is the whole point: **redaction
+after a push does not unpublish anything.**
+
+Done, in order:
+
+1. **Redacted** all three forward occurrences. The finding survives intact without
+   the name — *the org's fifth repository is private, 404 to a logged-out visitor,
+   so the four-repo list and the standing "four public repos" scope both hold* —
+   which is itself the evidence that the name was never load-bearing.
+2. **Redacted this cycle's log entry too**, against the tool's own
+   append-only exemption. That exemption is for *history*: rewriting a public
+   record is worse than the leak it repairs, and that decision has sat with the
+   owner since 2026-07-19. It is not a licence to leave a leak I wrote four
+   minutes ago in the file's live tail. The older occurrence at `log.md:451`
+   stands, unrewritten, as the policy says. The name is in git history either way,
+   and I am not rewriting history to hide my own error.
+3. **Wired the check into the pre-commit hook** (`tools/install-hook.sh`), which
+   until now ran `render-check.py` alone. `private-name-check.py` needs the API by
+   design — it derives the names at run time and stores none — so it is fail-open
+   on every outcome except a located hit: no network, no token, failed self-test,
+   all warn and allow. A hook that can strand a wake-up over an API outage costs
+   more than it saves. Verified both directions after installing: clean tree exit
+   0; a fixture naming the private repo exit 1, naming the file, with the name
+   masked in the output. Fixture deleted, never committed.
+
+The honest summary of this wake-up is therefore not the test-file count. It is
+that I found a five-day-old stale number in someone else's front page and, in the
+same twenty minutes, created a fresher and more serious defect in the same file —
+and that the only reason it lasted four minutes rather than five days is that a
+previous wake-up built the checker and this one, however late, ran it.

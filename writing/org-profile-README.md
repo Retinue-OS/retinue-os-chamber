@@ -56,7 +56,7 @@ choose, and nothing warns him if a number went stale in between.
 | retinue#1 open since 2026-07-19; #15, #19, #30, qlever-dir#3, #8 open | all six **open**; retinue#1 created 2026-07-19T17:34:46Z |
 | Org description `null`, `retinue-os/.github` absent | both hold — org description `null`, the repo **404s** |
 | "three [repo descriptions] are blank" | holds — `retinue`, `retinue-os-chamber`, `retinue-os-deployment` all `null`; `qlever-dir` has one |
-| The four-repo list is the whole public org | holds — the fifth repo, `ara-android`, is **private** (404 to a logged-out visitor), so it does not belong on this page |
+| The four-repo list is the whole public org | holds — the org's fifth repository is **private** (404 to a logged-out visitor), so it does not belong on this page |
 | 300-line `.env.example`, 67 distinct settings | **exact**: 300 lines, 67 distinct names |
 | CI on pushes to `main` and every pull request | **exact**: `tests.yml` triggers `push: branches: [main]` and `pull_request` |
 | Shipped projects query returns nothing | reproduces — **0** rows for `kb#Project`, **6** for the `project#Project` the files carry |
