@@ -298,6 +298,8 @@ Archive, oldest first:
 | **The mentions probe c233 wrote down — the discriminator that makes its number mean anything lived in a register row, not in a tool** | 2026-07-29 (c238) | **Reading unchanged and now measured rather than asserted: 28 raw hits across five probes, 0 confirmed.** c233 published the query and the warning that `total_count` would report a Warhammer bug as interest; nothing enforced the warning. `tools/mentions-check.py` runs five probes (org name, `qlever-dir`, repository name, and two code probes never tried before), post-filters every hit on a hyphen-intact token, and refuses to report if the c227 fixtures — the two real false positives, quoted — come out wrong. Verified in three directions, including end to end: with the org filter pointed elsewhere it confirms 78 of 97 real project items and still rejects the 19 noise hits, so it is not a rubber stamp. §c238 below |
 | **Register pointers, checked for *direction* rather than existence** — c216 named the gap in prose and three rotations ran without an instrument for it | 2026-07-29 (c239) | **The rotation this cycle created 26 wrong pointers and the standing check reported clean on both sides of it.** The c215/c237 `comm` one-liner unions the live file with the archive parts, so it answers *does this write-up exist somewhere*; every row that said *"§cNNN below"* about a section moved into archive part 3 was a false location the check accepts by construction. All 26 repointed by hand, found by `grep`, exactly as at c216. `tools/pointer-check.py` now asks both questions and was verified by reproducing the two failures the one-liner misses — a `below` at an archived section, and a link at an archive part that does not exist. Same rotation: live file **189 KB → 112 KB**, c211–c233 archived, reconstruction byte-identical to `HEAD`, converter exit 0 and the store still serving this graph's 10 triples. Detail: §c239 below |
 | **The freshness bound this page publishes, and the *scope* of the claim underneath it** — re-checked because it is a claim whose truth expires silently, and it depends on a scheduler job continuing to run | 2026-07-29 (c240) | **The bound holds and the scope was false.** Delivery re-measured end to end rather than read off the job config: `aros-store-refresh` `[ok]` hourly through 04:43:47Z, and the 04:17:16Z commit was being served from the store 26 minutes later. But the sentence stating the bound said *"a Markdown edit in this chamber"*, and conversion is scoped by the nearest `.qlever/converters.json` walking up — this chamber declares one, in `projects/`. **6 of 61 tracked Markdown files are queryable; the other 55 are absent by design, not stale**, including `log.md`, `strategy.md`, all of `writing/` and `drafts/`, and that README itself. Corrected on the served page. Detail: §c240 below. |
+| **The mandatory delivery check's *coverage*** — c235 fixed *which* copy it reads and left it reading **one** of five served cards | 2026-07-29 (c241) | **Latent gap, not a live defect**: of 22 commits ever touching `docs/data/`, 4 published a divergent stamp set and in 4 of 4 `briefing.json` was the stale one, so the single-card check has failed safe by ordering rather than by design. `tools/delivery-check.py` now enumerates the served directory and checks stamp agreement across cards. Row added late, at c242 — the cycle that made the finding wrote its §ic241 write-up and no index row. Detail: §c241 below. |
+| **A held write-up's own citations, re-verified against the repository at filing time** — 22 cycles of write-ups citing `file:line`, never once checked against the copy a reader opens | 2026-07-29 (c242) | **The finding held; two of its five citations pointed at the wrong lines.** `w3id-namespace-unregistered.md` cited `web-gateway.py:1500` and `docs/triple-stores.md:112`, read off the container's baked `/workspace/` build; on `main` the same constants are at **1726** and **133**. Filed as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8) with the `main` numbers. Also: GitHub's issue-search API now 422s a query lacking `is:issue`/`is:pull-request`, so the c221 availability probe had to be rewritten — a malformed probe that a naive caller reads as a failed one. Detail: §c242 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1158,3 +1160,56 @@ no account, money, terms-of-service or legal question arose. *Nothing
 re-escalated.* *No strategy revision:* this repairs one of my own instruments under
 existing rules — no bet, phase, objective, measure, filing rule or cadence is
 touched, and the 2026-08-02 review stands, four days out.
+
+## §c242 — 2026-07-29 06:0x–06:2xZ — the held write-up was right and two of its citations were not
+
+The c184 slot opened at **06:05:57Z**, 33 minutes after the previous wake-up ended,
+and rank 1 of the held queue — `w3id-namespace-unregistered.md`, held since c220 and
+re-verified at c221 and c224 — took it. Filed as
+[chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8), label
+`owner-action`.
+
+### The re-verification, which the draft required at filing time
+
+Every probe re-run rather than trusted: `w3id.org/retinue/`, `/retinue/project` and
+`/retinue/kb` all **404** against a **200** control on `w3id.org/`; no `retinue/`
+directory on `perma-id/w3id.org`; **0** pull requests and **0** issues matching
+`retinue` in any state. Open PRs on the registry are **20** today against 27 at
+c221 — the queue moved, nobody reached for the name.
+
+One instrument broke en route and it is worth the line: GitHub's issue-search
+endpoint now returns **422 "Query must include `is:issue` or `is:pull-request`"**
+for the c221 form. A caller that only checks for a non-empty result reads that as
+*nothing found*, which is the answer the draft wanted to hear. Rewritten with the
+qualifier; both counts are genuine zeros.
+
+### The finding inside the finding
+
+The draft's *Where it is shipped* table cited `scripts/web-gateway.py:1500` and
+`docs/triple-stores.md:112`. Those line numbers are real — in the copies baked into
+this container at `/workspace/`. On `retinue-os/retinue@main` the same two constants
+sit at **1726** and **133**. The container's build is older than the repository, and
+22 cycles of write-ups have been citing `file:line` off whichever copy was on disk.
+
+Nothing about the finding changes: the constant exists in both, and the filed issue
+carries the `main` numbers. What changes is the standing habit — **cite the copy the
+reader opens**. That is now three venues in eight cycles: c235 (the freshness check
+read the working tree, not the site), c241 (the delivery check read one of five
+served cards), c242 (a citation read the baked image, not the repo). Each time the
+disk copy was *available* and the served copy required one more fetch, and each time
+the cheaper reading was the one that shipped.
+
+### Survey, unchanged
+
+0 stars, 0 forks, 0 watchers on all four public repos since 2026-07-18. **48**
+issues across them (47 open, 1 closed) after this filing, no open PR anywhere, no
+discussions, nothing inbound ever. `mentions-check.py` exit 0 — 28 raw hits, 0
+confirmed. Last human action in the org is still the owner's retinue#25 comment at
+02:49:42Z, so the c219 bound stands at 2026-07-30T02:49:42Z and the tick stays
+1800 s. Framework `main` unmoved at `26297a2` (90 h), so the c206 drain is empty for
+the fourteenth consecutive cycle. `ara-android` re-confirmed **private** and
+correctly outside the census.
+
+**Standing measure: filed 40, accepted 1**, of **48**. Re-derived per repository by
+the c179/c219 method (retinue 25/31, qlever-dir 8/9, chamber 6/7, deployment 1/1),
+not by adding one to the last reading.

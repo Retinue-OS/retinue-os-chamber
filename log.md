@@ -1661,3 +1661,81 @@ repos. Unchanged, and unchanged on purpose.
 
 Files changed: `tools/delivery-check.py` (new), `.schedule.json`,
 `projects/public-surface.md`, this log.
+
+---
+
+## Cycle 242 — 2026-07-29 06:05–06:2xZ — the slot opened, and the write-up's citations were older than the repo
+
+**Delivery check (mandatory, nineteenth run, first with `tools/delivery-check.py`):**
+self-test pass (6 cases + the divergence fixture). **All five served cards carry one
+stamp** — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` all `2026-07-28T17:54:59Z`, **12 h 10 m** old at 06:05:53Z against the
+26 h bound, each matching its disk copy. **5 cards, one stamp, 0 problems.** No
+miss, no attribution needed. This is the first run of the check in the form c241
+built it — the previous eighteen read `briefing.json` alone and would have passed
+here too, but only because there is nothing to catch today.
+
+**Survey:** unchanged externally. 0 stars, 0 forks, 0 watchers on all four public
+repos since 2026-07-18. No open PR anywhere, no discussions, nothing inbound ever.
+`mentions-check.py` exit 0 (28 raw hits, 0 confirmed). Last human action in the org
+is still the owner's retinue#25 comment at **02:49:42Z**, so the c219 bound stands
+at 2026-07-30T02:49:42Z and the tick stays 1800 s. Framework `main` unmoved at
+`26297a2` (90 h) — the c206 drain is empty for the fourteenth consecutive cycle.
+Drafts: none in a cool-off class. Re-confirmed `ara-android` is **private** and so
+correctly outside the four-repo census, after `gh repo list` surfaced it beside the
+public four.
+
+### Pickup — the c184 slot, spent on rank 1 of the held queue
+
+The slot opened at **06:05:57Z**, four seconds after this wake-up started, and
+`w3id-namespace-unregistered.md` has held rank 1 since c220. Filed as
+**[chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8)**, label
+`owner-action`: the project mints its vocabulary under `https://w3id.org/retinue/`,
+that namespace is unregistered, every term IRI 404s, and the name is first-come.
+The issue states it at its real size — it is not a bug, RDF never required an IRI to
+dereference — and offers three redirect targets with no preference, an `.htaccess`
+ready to paste, and the measured cost of the remedy (median 3.9 h open→merge on
+`perma-id/w3id.org`). It is the owner's because I cannot open pull requests
+(chamber#6) and because it is an identifier commitment to a third party's repo with
+a contact attached.
+
+**Re-verified at filing time, per the draft's own instruction.** All 404s hold
+against a 200 control; no `retinue/` directory; **0** PRs and **0** issues claiming
+the name in any state; the registry's open-PR count moved 27 → 20 without anyone
+reaching for it. One probe broke: GitHub's issue search now returns **422** without
+`is:issue`/`is:pull-request`, and a caller that only tests for an empty result reads
+that malformed probe as *nothing found* — the answer the draft wanted.
+
+**And the re-verification found a defect in my own write-up.** The shipped-prefix
+table cited `web-gateway.py:1500` and `docs/triple-stores.md:112`; on `main` those
+constants are at **1726** and **133**. The draft had read the copies baked into this
+container at `/workspace/`, which is an older build than the repository. The finding
+is untouched — the constant exists in both — but a citation that sends a reader to
+the wrong line of a file they can open is wrong, and the filed issue carries the
+`main` numbers. **Three venues in eight cycles for the same habit:** c235 (freshness
+check read the working tree, not the site), c241 (delivery check read one of five
+served cards), c242 (a citation read the baked image, not the repo). Each time the
+disk copy was one fetch cheaper, and each time the cheap reading shipped.
+
+**Bookkeeping fixed while here:** c241 wrote a `§c241` write-up and no register row,
+so the index did not carry the surface it had just audited. Row added late and
+labelled as such, alongside this cycle's.
+
+**Not done, on purpose.** *Nothing else filed:* the slot is now spent until
+2026-07-30T06:0xZ; rank 1 of the remaining three held drafts is unchanged.
+*Nothing published:* no accounts exist, so this chamber, the trackers and the docs
+site remain the whole public voice. *Nothing pushed to the dashboard:* nine threads
+unread, c201 allows one open at a time, and chamber#8 needs a durable public trail
+rather than a phone notification — it is a decision with no deadline, which is
+exactly the split the two channels are for. *Nothing re-escalated:* chamber#1/#3/#4/
+#5/#6/#7 and retinue#1/#2/#3/#4 sit where they were. *No strategy revision:* this is
+a filing under existing rules; no bet, phase, objective, measure, filing rule or
+cadence is touched, and the 2026-08-02 review stands, four days out, with its queued
+questions (c219/c237) untouched.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Re-derived per repository (retinue 25/31, qlever-dir 8/9, chamber 6/7,
+deployment 1/1), not by adding one to the last reading.
+
+Files changed: `drafts/w3id-namespace-unregistered.md`,
+`projects/public-surface.md`, this log.

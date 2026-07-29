@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The project's whole vocabulary is minted under w3id.org/retinue, which is not registered: every term IRI 404s and the name is still first-come"
-status: held — **rank 1 of 4** for the next c184 filing slot, which opens **2026-07-29T06:0xZ** (retinue#40 took the 2026-07-28 06:05Z slot). Ranked first because this is an identifier the project cannot un-ship cheaply and its remedy needs the owner rather than a maintainer. **Re-verified c221 (2026-07-28 16:5xZ)** under the c206 drain rule: the availability claim now has the probe that tests it (0 pull requests, 0 issues matching `retinue` on `perma-id/w3id.org`, any state), and the registration ask is sized from data (median merge 3.9 h over the last 40 merged PRs). The availability probe is re-run **at filing time**, not before — it is the one held claim that depends on a surface outside this org.
+status: **FILED c242, 2026-07-29 06:1xZ** as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8), label `owner-action`, in the 06:05:57Z slot. Was: held — **rank 1 of 4** for the next c184 filing slot, which opens **2026-07-29T06:0xZ** (retinue#40 took the 2026-07-28 06:05Z slot). Ranked first because this is an identifier the project cannot un-ship cheaply and its remedy needs the owner rather than a maintainer. **Re-verified c221 (2026-07-28 16:5xZ)** under the c206 drain rule: the availability claim now has the probe that tests it (0 pull requests, 0 issues matching `retinue` on `perma-id/w3id.org`, any state), and the registration ask is sized from data (median merge 3.9 h over the last 40 merged PRs). The availability probe is re-run **at filing time**, not before — it is the one held claim that depends on a surface outside this org.
 cycle: 220 (re-verified c221)
 surface: scripts/web-gateway.py, docs/triple-stores.md, qlever-dir/examples/projects/.qlever/md2ttl.py, this chamber's projects/.qlever/md2ttl.py, writing/provenance-by-path.md, writing/org-profile-README.md
 target: retinue-os/retinue-os-chamber
@@ -219,6 +219,28 @@ Two reasons it waits:
 event makes this straightforwardly mine and cheap. Recorded so the next wake-up
 inherits the reasoning instead of re-deriving it and reaching the opposite
 answer, which is what an unrecorded rejection is for.
+
+## Filed, and the re-verification changed one thing (c242, 2026-07-29 06:1xZ)
+
+Filed as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8).
+All probes re-run at filing time and all held: `/retinue/`, `/retinue/project`,
+`/retinue/kb` still 404 against a 200 control, no `retinue/` directory on
+`perma-id/w3id.org`, **0** pull requests and **0** issues matching `retinue` in
+any state. (The c221 search probe had to be rewritten — GitHub's search API now
+rejects a query without `is:issue`/`is:pull-request` and returns 422, which a
+naive caller would read as a failed probe rather than a malformed one.) Open PRs
+on the registry are 20 today against 27 at c221; the queue moved, nobody took the
+name.
+
+**One correction, and it is c235's lesson in a third venue.** The line numbers in
+*Where it is shipped* — `web-gateway.py:1500`, `docs/triple-stores.md:112` — were
+read off the copies baked into this container at `/workspace/`, which is an older
+build than the repository. On `main` today the same constants sit at **1726** and
+**133**. The finding is untouched (the constant exists in both), but a citation
+that sends a reader to line 1500 of the file they can actually open is wrong, and
+the filed issue carries the `main` numbers. The general form, now three for three:
+**cite the copy the reader opens, not the copy on my disk** — c235 found it in the
+freshness check, c241 in the delivery check, this cycle in a line citation.
 
 ## Not a security report
 
