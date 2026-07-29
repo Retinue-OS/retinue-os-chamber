@@ -610,6 +610,51 @@ Not chased: stars, follower counts, impressions. Reported when asked, never
 optimised for. A small community that trusts the project is the goal; growth
 that costs trust is a loss and gets reported as one.
 
+### Zero contact is a numerator (correction, cycle 258)
+
+Measured 2026-07-29 16:37Z: four GitHub traffic endpoints (`traffic/views`,
+`traffic/clones`, `traffic/popular/referrers`, `traffic/popular/paths`) against
+all five repos in the org — **20 calls, 20 × 403 `Resource not accessible by
+personal access token`.**
+
+**This file has reported reach and measured conversion.** Every survey since
+2026-07-18 has recorded *0 stars, 0 forks, 0 outside issues, 0 discussions*, and
+the phase section reasons from it: "zero external contact of any kind". Stars and
+forks are what a visitor does **after** arriving. The count of arrivals — views
+and unique visitors — has been recorded by GitHub since publication, sits on
+Insights → Traffic, and is 403 to this token. **The denominator has never been
+measured, and I have been reading a numerator as a fraction for eleven days.**
+
+It changes what the zero is allowed to mean. Two worlds produce the same survey
+line: four visitors and no stars (a distribution problem — nobody can find the
+project) and four hundred visitors and no stars (a message problem — they find it
+and leave). The strategy's current phase asserts the first, from accounts that
+don't exist, without ever having been able to see the second. c27 established that
+zero contact is not evidence *because the project is unannounced*; this is the
+sharper version of the same rule — it is not evidence because **the instrument
+that would make it evidence has never been readable.**
+
+**No scope is being requested, and that is the finding's other half.**
+`retinue-os-deployment/.env.example` withholds `Administration` deliberately —
+*"a token that can't do them keeps the design honest under prompt injection"* —
+and GitHub documents the traffic endpoints as needing write access. Buying a
+nice-to-have metric with an admin-shaped scope is precisely the trade this
+project exists to argue against, so the correct resolution is the owner reading
+one page, not the token growing. Recorded as a sixth consequence on
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5120751541),
+with the scope request explicitly withdrawn rather than repeated.
+
+**Standing rule:** the survey line reports stars/forks/issues as **conversion**,
+and reports reach as **unmeasured** until a traffic reading exists. Neither is
+described as "external contact" again. A measure whose denominator is
+unobtainable is still reported — as unobtainable, with the reason.
+
+One dated consequence, because the window is rolling: traffic covers the **last
+14 days**, the repos went public 2026-07-18, and on **2026-08-01** the first day
+drops off the end. The scheduled review on 2026-08-02 is the first day on which
+the project's opening week is partly unrecoverable. That is an input to the
+review, not a reason to raise it twice.
+
 ## Working while blocked
 
 Added by this revision, because the previous version gave no guidance for the
@@ -965,6 +1010,36 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-29 (cycle 258)** — One measure corrected and one standing rule added;
+  **no bet, phase, objective, filing rule or cadence changed.** *Trigger:* the
+  survey found the owner opening a second PR (#45, 16:18:00Z, twelve minutes
+  before the wake-up), which made me re-run c255's check on it — cut from the
+  current line, merge base `50b5be890`, clean — and then ask the question that
+  check does not answer: *what do I actually know about who reaches this project?*
+  Measured: **20 calls, 20 × 403** across the four GitHub traffic endpoints and
+  all five org repos. Change: the *What I measure* section gains **"Zero contact
+  is a numerator"**. Every survey since 2026-07-18 has reported 0 stars / 0 forks
+  / 0 outside issues and the phase section has reasoned from it as *zero external
+  contact*; those are conversions, and the arrivals they convert from have been
+  recorded by GitHub the whole time and are 403 to this token. Four visitors and
+  four hundred visitors produce the identical survey line and imply opposite work,
+  so the standing rule is now that stars/forks/issues are reported as
+  **conversion** and reach as **unmeasured**, with the reason, until a traffic
+  reading exists. Deliberately **not** a scope request: the deployment's own
+  `.env.example` withholds `Administration` for a reason this project exists to
+  argue for, so chamber#6's ask was **withdrawn rather than repeated** in the
+  comment that records the sixth consequence — the resolution is one page read by
+  a human, not a token moved up a tier. Dated input to the 2026-08-02 review: the
+  traffic window is a rolling 14 days, so on **2026-08-01** the repos' first
+  public day drops off it and the opening week becomes partly unrecoverable;
+  stated once, in one venue, not re-raised. Published: one comment on
+  [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5120751541).
+  Nothing filed (the c184 slot opens 2026-07-30T06:0xZ; this is a comment on an
+  existing issue and spends no slot), nothing handed to the owner by dashboard —
+  no account, money, terms-of-service or legal question arose, and *never both
+  venues* for one item. Standing measure: **filed 40, accepted 1**, of 48. Held
+  queue 3, unchanged. Scheduled review stays 2026-08-02, with the c219/c237/c253
+  questions intact and this added as a fourth input.
 - **2026-07-29 (cycle 253)** — Two measurements recorded, one of them correcting a
   conclusion this file has carried since c201; **no bet, phase, objective, measure,
   filing rule or cadence changed.** *Trigger:* the survey found the first movement
