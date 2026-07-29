@@ -3005,3 +3005,98 @@ Files changed: `tools/baseline-check.py` (new), `drafts/updater-reports-dispatch
 `drafts/traefik-readme-labels-already.md`, `drafts/webapp-manifest-german-description.md`,
 `projects/public-surface.md` (register row, §c254, handover field, rotation),
 `projects-archive/public-surface-c234-c249.md` (new), this log.
+
+## Cycle 255 — 2026-07-29 14:3x–15:0xZ — the recovery, pushed as a branch instead of typed as commands
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **20 h 37 m 44 s**
+against the 26 h bound, each byte-identical to its disk copy; all 14 served
+assets identical to disk. **5 cards + 14 assets, one stamp, 0 problems.**
+Neither failure mode fired, so **neither branch of the attribution rule applies**
+and nothing was regenerated. Next `aros-dashboard-refresh` at 18:08:37Z; c252's
+duration prediction is owed by the first wake-up after it.
+
+**Survey: nothing moved in the twenty minutes since c254.** Repo set derived
+from `gh repo list retinue-os --json isPrivate` rather than typed from memory
+(the c211/c253 rule): 0 stars and 0 forks on all four public repos; 48 issues
+(47 open, 1 closed); PR#44 the only open PR; latest human action still the
+07-29 02:49:42Z comment on retinue#25. `main` still `50b5be890`, so the three
+merges c253 found off the line are still off it. No inbound, ever.
+
+**Pickup: my own escalation, re-read.** c253 measured the three dropped merges
+and appended the recovery to dashboard thread `e5f4f86f` as three shell
+commands. Two things wrong with it, both visible only on re-reading the message
+rather than the finding:
+
+1. It begins `git fetch origin 1a3be8b88` — which pulls the *replaced* line back
+   into the maintainer's clone. The replacement exists to take one file's content
+   out of the published history. A recovery whose first step restores a local ref
+   to that history works against its own purpose.
+2. It is instructions, and they depend on objects nothing references. c253 wrote
+   the sentence *"the merge commits survive only as unreferenced objects"* and
+   then handed over a recovery that depends on exactly that reachability.
+
+**So it was pushed as an object.**
+[`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges),
+commit `9b4d0db`, built through the Git Data API: the three blobs read at
+`?ref=1a3be8b88`, a fresh tree on `main`'s tree, one parent — current `main`.
+**Nothing pushed references any commit of the replaced history.** It carries the
+content of the three merges, not their lineage.
+
+Verified before the ref was created, not after:
+
+| Check | Result |
+|---|---|
+| Current `main` vs `26297a215`, the three files | blob-identical — `main` holds the pre-merge content |
+| Restored blobs vs `1a3be8b88` | identical by construction |
+| New tree vs `main`'s tree, recursive | **123 blobs both sides, 0 paths added or removed, exactly 3 blobs differ** |
+| `agents/secretary.md` — the file the replacement was made for | **untouched** |
+| GitHub's own view after the push | `ahead 1, behind 0`, +12/−5 |
+
+Restored: `README.md` (#41's provenance-piece link, #42's converter note and the
+15–20 s calibration), `docs/triple-stores.md` (#42), `signal-gateway/Dockerfile`
+(#43, signal-cli 0.14.5 → 0.14.6).
+
+**The check that came out clean, and was worth running.** PR#44 was opened at
+12:50:00Z, five minutes after the replacement. An open PR cut from the *old*
+line would, if merged, silently re-introduce what the replacement removed — and
+GitHub shows nothing unusual either way. Measured: `compare/main...cfb11fee1` →
+**ahead 1, behind 0, merge base `50b5be890`**, single commit dated 12:49:46Z. It
+was cut from the new line. Nothing to raise, nothing raised; recorded because a
+clean result on a check nobody has run belongs in the register too.
+
+**Probe re-run, because a permission claim is a claim.**
+`POST /repos/Retinue-OS/retinue/pulls` → **403 `Resource not accessible by
+personal access token`**. chamber#6's factual statement holds. Its old
+*attribution* does not, and today is the second direct piece of evidence: he
+merged #41 and #42 from branches I pushed with this same token. chamber#6 was
+**not** re-raised.
+
+**Handed to the owner: one append**, to the thread that already holds this
+finding (c201: one open agent thread, append rather than open a tenth) — branch
+URL, compare link, why it beats the commands in my previous message, the
+verification in one line, and that merging or deleting it is his. It is not a
+re-raise: it *withdraws* the ask the previous message made.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot opens 2026-07-30T06:0xZ
+and this is not a framework defect report. *Nothing published elsewhere:* no
+accounts exist. *No phase change:* objective 3 turns when the branch is merged,
+not when it is pushed — the last time it was satisfied it lasted fifteen minutes,
+and this time it is not satisfied at all yet. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No
+strategy revision:* no bet, phase, objective, measure, filing rule or cadence is
+touched; the 2026-08-02 review stands with the c219/c237/c253 questions intact.
+*Cadence untouched:* human activity at 12:50Z, so the tick stays 1800 s and the
+re-slow bound stays **2026-07-30T12:50:00Z**.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242. Held queue 3, all three re-baselined at c254 and
+`tools/baseline-check.py` reports 0 problems over 6 baseline references.
+Rotation watch (`tools/rotation-check.py`): `log.md` 186/300 KB,
+`projects/public-surface.md` 142/200 KB, `strategy.md` 93/150 KB — 0 problems.
+
+Files changed: `projects/public-surface.md` (register row, §c255, handover
+field), this log. Pushed outside the chamber: one branch on
+`Retinue-OS/retinue`, no PR (403), nothing merged.

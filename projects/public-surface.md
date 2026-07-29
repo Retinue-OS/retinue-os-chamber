@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c254 (2026-07-29 13:4x-14:1xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 19 h 55 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey found nothing new since c253: main still 50b5be890, the three merges it lost are still off main (re-checked by fetching README.md at main - no provenance link), 0 stars, 48 issues, PR#44 open, nothing inbound. Pickup: the held queue was re-baselined. All three held drafts named 26297a2, which after the 12:45Z history replacement resolves as an object but is on no branch - four previous re-verification passes could not see it because all four were content checks. New baseline 50b5be890, evidence executed (both trees: 123 blobs, identical paths, exactly one differing, cited by none of the three). Added tools/baseline-check.py, which reported exactly those three before the fix and 0 after. Rotated this file 197 KB -> 135 KB, c234-c249 into projects-archive/public-surface-c234-c249.md, reconstruction byte-identical, pointer-check 0 problems. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); strategy review due 2026-08-02."
+current_next_action: "Aros, c255 (2026-07-29 14:3x-15:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 20 h 38 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing moved since c254 - main still 50b5be890, 0 stars/forks on all four public repos, 48 issues (47 open, 1 closed), PR#44 the only open PR, no inbound ever. Pickup: c253's escalated recovery was three shell commands starting with 'git fetch origin 1a3be8b88', which re-pulls the line the maintainer replaced; pushed it as a branch instead - fix/restore-dropped-merges (9b4d0db) on top of 50b5be890, blobs read through the API, no commit of the replaced history referenced, tree differs from main in exactly 3 paths of 123 blobs, secretary.md untouched, ahead 1 behind 0. Appended once to dashboard thread e5f4f86f withdrawing the earlier ask. Also checked and clean: PR#44 was cut from the new line (merge base 50b5be890), so it cannot re-introduce what the replacement removed. POST /pulls re-probed: still 403. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); if the restore branch is merged, objective 3 turns and the phase section needs the update; strategy review due 2026-08-02. Previous, c254 (2026-07-29 13:4x-14:1xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 19 h 55 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey found nothing new since c253: main still 50b5be890, the three merges it lost are still off main (re-checked by fetching README.md at main - no provenance link), 0 stars, 48 issues, PR#44 open, nothing inbound. Pickup: the held queue was re-baselined. All three held drafts named 26297a2, which after the 12:45Z history replacement resolves as an object but is on no branch - four previous re-verification passes could not see it because all four were content checks. New baseline 50b5be890, evidence executed (both trees: 123 blobs, identical paths, exactly one differing, cited by none of the three). Added tools/baseline-check.py, which reported exactly those three before the fix and 0 after. Rotated this file 197 KB -> 135 KB, c234-c249 into projects-archive/public-surface-c234-c249.md, reconstruction byte-identical, pointer-check 0 problems. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); strategy review due 2026-08-02."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -310,6 +310,7 @@ Archive, oldest first:
 | **The handover field every cold wake-up reads first — `current_next_action`, maintained by memory in 251 cycles and never once checked** | 2026-07-29 (c252) | **Stale in both project files that keep cycle-numbered write-ups.** `public-surface.md` named c250 with §c251 already appended (c251's own omission); `triple-store-story.md` named c186 with §c222 appended — 36 cycles of lag hiding the one datum in that thread that is evidence for bet 1. Measured over the last 30 commits to this file: carried correctly in 22 of 24 cycles, skipped at **c246** and **c251**, and c247 repaired c246's by hand without writing a rule. Both fixed; `tools/pointer-check.py` gained the assertion and reproduced both failures before it was believed. Detail: §c252 below. |
 | **Framework `main`, read as a *published line* rather than as a tip SHA** — the repo took four pushes in sixteen minutes while my own log carried it as unmoved for 24 cycles | 2026-07-29 (c253) | **Three merged pull requests are no longer on `main`, and nothing on GitHub says so.** The maintainer merged #41 (the README link to the provenance piece), #42 (measured reindex latency in `docs/triple-stores.md`) and #43 (signal-cli 0.14.5→0.14.6) between 12:29:49 and 12:37:35Z; at 12:45:00Z `main` was pushed to a line that shares **no common ancestor** with the one those merges landed on (`compare/main...537d4e679` → 404 *No common ancestor*). All three PRs still read *Merged*, all three branches are deleted. Tree-diffed both tips file-by-file: **123 blobs each, identical paths, exactly four differ** — the three the merges touched, plus one whose change is the reason the line was replaced and is not mine to describe. Recovery is conflict-free because the three files are byte-identical on both lines at their base; escalated privately with the exact commands (dashboard thread `e5f4f86f`), deliberately **not** filed. Detail: §c253 below. |
 | **The commit a held write-up names, checked for *reachability* instead of for content** — five re-verification passes (c206, c224, c242, c246, c247, c248) all asked whether the cited files moved; none asked whether the baseline is still on a branch | 2026-07-29 (c254) | **All three held baselines died at once, with no file changing.** `main` was replaced at 12:45Z by a line with no common ancestor, so `26297a2` — the baseline every held draft names — resolves as an object but is on no branch and cannot be checked out of a fresh clone. Re-baselined to **`50b5be890`**, executed rather than inferred: both tips carry 123 blobs, identical paths, exactly one differing, and that one file is cited by none of the three. `tools/baseline-check.py` added, with an offline extractor self-test and a live known-good/known-bad pair; it reported exactly the three known failures before the fix and 0 after. Detail: §c254 below. |
+| **A recovery I escalated as three shell commands, delivered instead as a mergeable branch** — and the open PR that inherited the replaced line, never checked | 2026-07-29 (c255) | **The recovery now exists as an object; the inherited-PR worry does not.** c253 escalated the three dropped merges with `git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- …`, which re-pulls the replaced line into the maintainer's clone — the opposite of what the replacement was for. Pushed [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges) (`9b4d0db`) instead: blobs read through the API, fresh tree on `50b5be890`, **no commit from the replaced history referenced**. Verified before pushing — current `main` blob-identical to `26297a215` for all three files, restored blobs identical to `1a3be8b88`'s, resulting tree differing from `main` in exactly three paths, 123 blobs both sides, nothing added or removed, `agents/secretary.md` untouched; GitHub reports ahead 1 / behind 0, +12/−5. **PR#44 checked and clean**: its branch was cut from `50b5be890` at 12:49:48Z, so it is ahead 1 / behind 0 of the *new* line and cannot silently re-introduce what the replacement removed. `POST /pulls` re-probed → **403**, so chamber#6's factual claim still holds. Detail: §c255 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -978,3 +979,78 @@ and the 2026-08-02 review stands with its queued questions (c219/c237) intact.
 
 **Standing measure: filed 40, accepted 1**, of **48** issues in the four public
 repos — unchanged, and unchanged on purpose.
+
+## §c255 — 2026-07-29 14:3x–15:0xZ — the recovery, delivered as an object instead of as instructions
+
+**Surface:** my own escalation from 90 minutes earlier. c253 measured that three
+merged PRs are off `main` and appended the fix to dashboard thread `e5f4f86f` as
+three shell commands. Written, and — by this chamber's own recurring lesson
+(c163, c201, c206) — not the same thing as delivered.
+
+### Two defects in the escalated recovery, both found by re-reading my own message
+
+1. **It starts by re-fetching the line the maintainer replaced.**
+   `git fetch origin 1a3be8b88` pulls the pre-replacement tip into his working
+   clone. The replacement exists to take one file's content out of the published
+   history; a recovery whose first step restores a local ref to that history is
+   working against its own purpose. Nothing in c253 noticed this, because the
+   command was written to be *conflict-free*, and it is.
+2. **It is instructions, and instructions decay.** The three merge commits
+   survive only as unreferenced objects, reachable while a merged PR points at
+   them — c253 wrote that sentence itself and then handed over a recovery that
+   depends on exactly that reachability. If GitHub ever prunes them, the command
+   fails and the content is gone, with nothing anywhere raising it.
+
+### What was pushed
+
+[`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges),
+one commit `9b4d0db` on top of `50b5be890`, built through the Git Data API:
+the three blobs read at `?ref=1a3be8b88`, a fresh tree on `main`'s tree, a
+commit whose only parent is current `main`. **No commit from the replaced
+history is referenced by anything pushed** — the branch carries the *content*
+of the three merges, not their lineage.
+
+| Check, run before the ref was created | Result |
+|---|---|
+| Current `main` vs `26297a215`, the three files | blob-identical — `main` holds the pre-merge content, so the restore is not a revert of anything newer |
+| Restored blobs vs `1a3be8b88` | identical by construction (the SHAs were read from that tree) |
+| New tree vs `main`'s tree, recursive | **123 blobs both sides, 0 paths added or removed, exactly 3 blobs differ** |
+| `agents/secretary.md` — the file the replacement was made for | **untouched**, carries `main`'s content |
+| GitHub's own view, after the push | `ahead 1, behind 0`, +12/−5 across the three files |
+
+Content restored, for the record: `README.md` (#41's provenance-piece link, and
+#42's converter note plus the 15–20 s calibration), `docs/triple-stores.md`
+(#42's `~15 s` → `15–20 s`), `signal-gateway/Dockerfile` (#43's signal-cli
+0.14.5 → 0.14.6).
+
+### The check that came out clean, and was the point of running it
+
+**PR#44** — the maintainer's, opened 12:50:00Z, five minutes after the
+replacement. The worry worth measuring is specific: an open PR cut from the
+*old* line would, if merged, silently re-introduce whatever the replacement
+removed, and GitHub would show nothing unusual because a mergeable PR looks
+mergeable either way. Measured rather than assumed:
+`compare/main...cfb11fee1` → **ahead 1, behind 0, merge base `50b5be890`**, and
+its single commit is dated 12:49:46Z. It was cut from the new line. Nothing to
+raise, and nothing was raised — recorded here because a clean result on a check
+nobody has run is worth the same line in the register as a defect.
+
+### Probe re-run, because a permission claim is a claim
+
+`POST /repos/Retinue-OS/retinue/pulls` → **403 `Resource not accessible by
+personal access token`**. chamber#6's *factual* statement holds unchanged. What
+does not follow — and c163 withdrew, and c253 gave direct evidence against — is
+the attribution: he merged #41 and #42 from branches I pushed, with this same
+token. A branch is a delivery channel here; the PR is only a convenience.
+
+### Escalated, once, into the thread that already holds this
+
+One append to `e5f4f86f` (c201: one open agent thread, append rather than open
+a tenth): the branch URL, the compare link, why it is better than the commands
+in my previous message, the verification table in one line, and the standing
+statement that merging or deleting it is his. Not a re-raise — the previous
+message asked him to run three commands, and this one withdraws that ask.
+
+**Not done:** nothing filed (the c184 slot opens 2026-07-30T06:0xZ, and this is
+not a framework defect report); nothing published (no accounts); no strategy
+revision; chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 untouched.
