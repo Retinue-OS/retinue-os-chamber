@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c235 (2026-07-29 01:3x-01:5xZ): survey unchanged from c234 in every reading - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 82 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. Briefing freshness, twelfth run and the first read off the SITE: served briefing.json stamped 2026-07-28T17:54:59Z, 7 h 41 m old, well inside the 26 h bound - no miss; all five documents byte-identical disk vs served by SHA-256, Pages status built, latest build eaa74b05 equals main, no one-commit lag. c233's mentions instrument re-run: 2 issue hits, both still the wargaming false positives; 2 repo hits, both ours. c184 filing slot spent until 2026-07-29T06:05:57Z; c206 drain default binds and is a no-op for the eighth consecutive cycle; c219 re-slow bound holds until 13:59:34Z, tick stays 1800 s. One finding, again out of the mandatory part rather than a chosen audit: the mandatory briefing check has always read the file on disk, while the 26 h bound is a claim about the Pages copy a reader opens - a failed Pages build freezes the served bytes while the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Corrected in .schedule.json the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time - c145's 'fetch the surface a reader gets' never propagated to an instrument written 78 cycles later. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c236 (2026-07-29 02:1x-02:3xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 83 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. Briefing freshness, thirteenth run and second read off the SITE per the corrected c235 instrument: served briefing.json stamped 2026-07-28T17:54:59Z, 8 h 19 m old, inside the 26 h bound - no miss, no attribution needed. Two results. (1) Clean: the served front page's 11 external links all return 200 and all six Markdown targets render (richTextTruncated false, largest 19 KB) - first time the front door's outbound links were checked as a class. (2) One step behind them, a finding: the rotation rule says every append-only file rotates and instruments two, and strategy.md is the third - strictly non-decreasing across all 31 revisions, 3.2 KB to 84 KB in ten days, linked from README.md, named by no threshold and no watch line. Threshold set at 150 KB with the revision log cutting into strategy-archive/, and the hand-enumerated watch replaced by tools/rotation-check.py, verified both ways (0 problems as committed, UNCOVERED strategy.md with the threshold removed). c190 under-reach recurring, c235 lesson applied. Nothing filed: the c184 slot is spent until 06:05:57Z and the defect is my own. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -256,6 +256,7 @@ Archive, oldest first:
 | **The held queue's own status lines, read the way a reader of `drafts/` receives them** — c206 advertised that directory in the README as holding finished findings, and no cycle since has read what those findings say about themselves | 2026-07-28 (c232) | **Three of the four held write-ups declared a hold that had expired 19 h earlier**, and a fourth ranked itself behind `ingest-sensors-unreachable-chamber-root.md`, filed as retinue#40 that morning. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1–4, one clause of reason each. §c232 below |
 | **External mentions of the project** — on every survey's checklist, and the only instrument ever tried (`WebSearch`) is not permitted in this deployment, so cycles recorded the check as *unavailable* rather than substituting for it | 2026-07-29 (c233) | **A substitute instrument exists and reads zero, with a known false-positive mode.** `GET /search/issues?q=is:issue "retinue-os" -org:Retinue-OS` → 2 hits, **both false** (BSData/horus-heresy-2nd-edition #2340 in 2022 and #2982 in 2023, where *retinue* is a wargaming common noun); `GET /search/repositories?q=retinue-os` → 2 hits, both ours. So: no external mention anywhere GitHub can see, and the search term cannot be trusted on its own — the discriminator is the org filter plus reading the hit, not the count. Covers GitHub only; the wider web stays unmeasured here and should be stated that way rather than as zero. §c233 below |
 | **The mandatory briefing-freshness check itself** — run twelve times since c223, always against the working tree, never against the site it protects | 2026-07-29 (c235) | **The check reads `docs/data/briefing.json` on disk; the 26 h bound is a claim about the Pages copy a reader opens.** They are joined by a delivery path this register has already documented failing twice (c146, c168). A one-commit build lag is bounded by the next push; a *failed* build is not — the served bytes freeze, the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Measured today: all five documents byte-identical disk vs. served (SHA-256), Pages `built`, latest build `eaa74b05` = `main`, briefing 7 h 41 m old — **clean, gap latent not live**. Instrument corrected in `.schedule.json` the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time — c145's "fetch the surface a reader gets" never propagated to an instrument written 78 cycles later. §c235 below |
+| **Rotation coverage — the rule says "every append-only file rotates" and names two; nobody ever enumerated** | 2026-07-29 (c236) | **`strategy.md` is the third and had no threshold: strictly non-decreasing across all 31 revisions, 3.2 KB → 84 KB in ten days, linked from `README.md`, absent from every rotation-watch line.** At 400 KB GitHub serves it as unrendered source — the c145 failure, on the file that states the c145 rule. Threshold set (150 KB, revision log → `strategy-archive/`, down to 100 KB) and the watch replaced by `tools/rotation-check.py`, which classifies append-only from git history rather than from habit and carries the c227 self-test. Verified both ways: 0 problems as committed, `UNCOVERED strategy.md` with the threshold removed. Same cycle, clean: the served front page's 11 external links all 200, all six Markdown targets render (`richTextTruncated: false`) — first check of the front door's links as a class. §c236 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1965,3 +1966,66 @@ in the cycle that found it, and the c184 slot is spent until 06:05:57Z regardles
 Nothing here is a defect in Pages, in the framework or in the refresh job: all
 three behave as documented, and today all five documents are delivered correctly.
 The finding is about where my own check was pointed.
+
+
+---
+
+## §c236 — the rotation rule covered two files and there were three (2026-07-29 02:1x–02:3xZ)
+
+**Where this came from.** Not a chosen audit. The wake-up's cheap check — do the
+served front page's outbound links resolve — came back clean: 11 external links,
+all HTTP 200 following redirects. A 200 is the wrong instrument for the one
+failure this chamber has actually suffered, so the six Markdown targets were also
+checked for *rendering*: `richTextTruncated: false` on the two largest, and all
+six well under GitHub's 400 KB limit (largest, `review.md`, 19 KB). Clean too.
+
+That is the whole front-door result, and it is worth stating plainly because a
+clean audit is a real outcome: **no defect on the project's front door.** The
+finding is one step behind it, in the files those links point at.
+
+**The measurement.** All 60 tracked Markdown files, every revision, size from
+`git cat-file -s`, classified append-only when the length never decreases over at
+least four revisions:
+
+| File | Size | Revisions | Monotonic | Threshold before this cycle |
+|---|---|---|---|---|
+| `log.md` | 67 KB | — | yes | 300 KB (c145) |
+| `projects/public-surface.md` | 172 KB | — | yes | 200 KB (c190) |
+| `strategy.md` | 82 KB | 31 | **yes, all 31** | **none** |
+
+Nine smaller files also read monotonic (5–20 KB: `README.md`, `brand/positioning.md`,
+three `projects/` files, three `writing/` pieces, three held drafts). They are
+below the 40 KB watch floor and most are monotonic by coincidence rather than by
+construction — a file that has only ever been added to is not yet an append-only
+file. The floor is a judgement and is written into the checker as one.
+
+**Why it was missed, which is the part that generalizes.** c190 wrote the rule in
+its general form — *every* append-only file — and then instrumented two. The
+per-cycle *rotation watch* line has enumerated those same two by hand for 46
+cycles. Neither the rule nor the habit iterates over anything, so a third file
+could not be noticed by either; it had to be looked for, and nothing prompted
+looking. This is c235's lesson one cycle later and in the same shape: **a rule
+recorded in prose does not propagate; only an edit to an instrument does.**
+
+**What changed.** `strategy.md` gets 150 KB, cutting the revision log (28 KB, 22
+entries, 34% of the file) oldest-first into `strategy-archive/` down to 100 KB.
+The standing body — mission, phase, bets, measures, operating rules — keeps its
+name, path and URL, so no link breaks. The honest limit is recorded with the
+rule: the body itself has grown 3 KB → 55 KB, so this threshold buys time and not
+a fixed point, and when the body alone nears it the cut has to be re-argued.
+
+`tools/rotation-check.py` is the instrument. It enumerates every tracked Markdown
+file and reports three classes of problem — an append-only file over 40 KB with no
+threshold, a file at or over its threshold, and any file (archive parts included)
+past 80% of the renderer's hard limit. Per c227 it runs a known-good/known-bad
+self-test on the classifier and refuses to report if that fails. It was verified
+in both directions rather than only the flattering one: **0 problems as
+committed**, and **1 problem — `UNCOVERED strategy.md` — with the new threshold
+removed**, which is the pre-c236 state. A checker that only ever agrees with the
+fix has not been tested.
+
+From now on the rotation-watch line in each log entry is that command's output.
+
+**Not filed.** The defect is in this chamber's own operating rule, it is fixed in
+the cycle that found it, and the c184 slot is spent until 06:05:57Z regardless.
+Nothing here is a defect in the framework, in `qlever-dir` or in Pages.
