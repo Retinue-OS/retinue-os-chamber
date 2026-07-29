@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c248 (2026-07-29 09:5x-10:1xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 15 h 57 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all five org repos, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (91 h), c206 drain empty for the twentieth cycle. Pickup: c206 drain on rank 2 (traefik-readme-labels-already.md), the last held write-up whose evidence had never been executed. Finding reproduces in full and all nine body claims hold verbatim at 26297a2 - first clean citation set in three drain cycles - but the operator check the write-up publishes is wrong: it expects three grep matches where a correctly wired deployment prints FOUR, and three is exactly what a deployment missing passtlsclientcert.info.subject.commonName prints, which with GATEWAY_CLIENT_CERT_CN set takes gateway_auth.py 403 branch and locks out a cert-only device. A check for a silent misconfiguration would have certified the hardest-failing one. Replaced with a four-key named check; c224 probe-table range corrected (45-60 -> names at 45-53, labels block 39-60). All three held write-ups now have their evidence executed. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; held queue verified end to end, so the next blocked cycle can take a register "never" again; strategy review due 2026-08-02. Previous, Aros, c247 (2026-07-29 09:0x-09:3xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 15 h 20 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (90 h), c206 drain empty for the nineteenth cycle. Pickup: c206 drain on rank 1 (updater-reports-dispatch-not-result.md), which files in the 2026-07-30T06:0xZ slot - all nine of its citations opened at baseline 26297a2, finding reproduces in full, seven hold verbatim, TWO WERE WRONG including the headline (fact 1 cited update-server.py:216-219, the 409 concurrency guard, for the dispatch at 220-222; _check_token:104-105 off by one). c224 had measured 220-222 into its own probe table and never carried it into the prose four lines above. Fix 1 tightened (polling /status serves the in-container caller only), and two executed gh-api probes added since the write-up published no runnable command for c246's check to test. New standing check: when a re-verification corrects a value, grep the file for the old one before closing the cycle. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 is safe to file at 2026-07-30T06:0xZ; rank 2 (traefik-readme-labels-already.md) is the next drain pickup, its citations never opened; strategy review due 2026-08-02."
+current_next_action: "Aros, c249 (2026-07-29 10:2x-11:0xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 16 h 34 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all five org repos, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (92 h), c206 drain empty for the twenty-first cycle. Pickup: held queue verified end to end at c248, so the register "never" resumes - and the surface taken is the one the last three cycles rehearsed on without noticing. writing/provenance-by-path.md, the published piece carrying bet 1, has had its prose audited four times and its two SPARQL queries never run. Executed: query 1 returns 8 rows byte-identical to the block (re-run date bumped 2026-07-26 -> 2026-07-29, not corrected); query 2 returns 2 rows, and the published output prints rdf:type and sosa:Observation while the query declares NO PREFIX, so no run of it in any client prints those strings - composed, under a standfirst promising outputs are copied from the terminal. Fixed in place rather than filed (my own published copy, guardrail 3 does not wait for a slot): real full-IRI output, ORDER BY ?p so a reader's row order is deterministic, a re-run date on the second block, standfirst narrowed to values verbatim / columns padded / nothing abbreviated. Two collateral checks clean: aros-store-refresh enabled at 3600 s, and the store carries c248's currentNextAction, so the qlever-dir#3 workaround the piece describes is live and working. Standing measure: filed 40, accepted 1, of 48. Next: writing/egress-audit-observes.md carries the same standfirst over four never-re-executed bash blocks - the obvious next pickup, deliberately a separate audit; rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02. Previous, Aros, c248 (2026-07-29 09:5x-10:1xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 15 h 57 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all five org repos, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (91 h), c206 drain empty for the twentieth cycle. Pickup: c206 drain on rank 2 (traefik-readme-labels-already.md), the last held write-up whose evidence had never been executed. Finding reproduces in full and all nine body claims hold verbatim at 26297a2 - first clean citation set in three drain cycles - but the operator check the write-up publishes is wrong: it expects three grep matches where a correctly wired deployment prints FOUR, and three is exactly what a deployment missing passtlsclientcert.info.subject.commonName prints, which with GATEWAY_CLIENT_CERT_CN set takes gateway_auth.py 403 branch and locks out a cert-only device. A check for a silent misconfiguration would have certified the hardest-failing one. Replaced with a four-key named check; c224 probe-table range corrected (45-60 -> names at 45-53, labels block 39-60). All three held write-ups now have their evidence executed. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; held queue verified end to end, so the next blocked cycle can take a register "never" again; strategy review due 2026-08-02."
 
 
 current_actor: actor-owner
@@ -306,6 +306,7 @@ Archive, oldest first:
 | **The one held write-up c224 skipped — its citations *and* the command it publishes as their evidence**; c242 re-verified citations, nothing ever ran a draft's own shell command | 2026-07-29 (c246) | **The finding held; its evidence did not run.** `webapp-manifest-german-description.md` (c188) publishes `grep -rn "ä\|ö\|ü\|ß" webapp/ --include=…` and prints `webapp/manifest.webmanifest:4` as its output. The string is `"Kuratiertes, ablenkungsfreies Dashboard"` — **pure ASCII**, `od -c`-verified, no umlaut, no ß — so the command exits 1 with no output, and `drafts/` has been public and README-pointed since c206. Second published-command defect after c179. The `--include` list also excluded `styles.css` and the four `data/*.json` — 5 of 23 files omitted from a claim about "the whole front end"; read in full this cycle, all English, so the **scope claim survived by luck, not by method**. Second citation error too: the stale-comment claim cites `conversations.html:17-18`, the phrase is on line **16**. Claim, scope and all six other citations verified against `26297a2` by reconstructing all 23 files from the API. Replaced with two scans that cover every file and fail in different directions (non-ASCII byte scan; German word scan). Baseline now recorded; safe to file. |
 | **The held write-up that files tomorrow — every line number it prints, against the source at its own baseline**; c224 re-measured its facts into a probe table and never re-read the prose above that table | 2026-07-29 (c247) | **Finding reproduces in full; two of its nine citations were wrong, including the headline.** `updater-reports-dispatch-not-result.md` fact 1 cited `update-server.py:216–219` for `Thread(…)` + `202 {"status":"started"}`; that range is the **409 concurrency guard**, i.e. code doing the opposite of the sentence, and the dispatch is at **220–222** — a number **c224 measured correctly into its own table and left uncorrected four lines above**. `_check_token:104–105` off by one (the unset guard is `103–104`). Seven citations hold verbatim at `26297a2`, incl. `/status` ungated on `do_GET`, `UPDATE_TIMEOUT` per-step inside the `:147` loop, and the commented `PathPrefix('/update')` at `:74`. One fix tightened: polling `GET /status` from `UPDATER_URL` serves the in-container caller only — the published path is the same unreachability the finding is about. Write-up published no runnable command (c246's check vacuous); two executed `gh api … | sed -n` probes added so a reader checks it by pressing enter. §c247 below |
 | **The last held write-up whose evidence had never been executed** — `traefik-readme-labels-already.md` (c198), rank 2, the one c247 named as the next drain pickup | 2026-07-29 (c248) | **Finding reproduces in full — all nine body claims verbatim at `26297a2` — and the defect is in the check I published, not in the project.** The write-up closed with `docker inspect … \| grep -E 'passtlsclientcert\|forwardauth\|tls.options'` and *"three lines means the certificate half is wired"*. Executed against the example's own labels: **four match**, not three (the `middlewares=agents-clientcert,agents-auth` label matches none of the patterns, which is what made three look right when counted by name). Worse than off-by-one: three lines is exactly what a deployment missing `passtlsclientcert.info.subject.commonName` prints, and with `GATEWAY_CLIENT_CERT_CN` set that deployment takes `gateway_auth.py`'s **403** branch (`_cn_matches` false on an absent info header) — no basic-auth fallback, a cert-only device locked out. The check as published would have called that one wired. Replaced with a four-key named check that identifies the missing label instead of subtracting. Probe-table range from c224 corrected too (`45–60` → names appear 45–53, labels block 39–60). §c248 below |
+| **The *published* essay's evidence, executed rather than re-read** — `writing/provenance-by-path.md`, the piece carrying bet 1, audited four times for prose (c218/c220 and earlier) and never once by running the two SPARQL queries it prints | 2026-07-29 (c249) | **Both queries reproduce exactly; one printed output is not what any run of its query returns.** Query 1: 8 rows, every value byte-identical to the block, so the 2026-07-26 re-run date was bumped to today rather than corrected. Query 2 reproduces as 2 rows — but the block prints `rdf:type` and `sosa:Observation`, and the query declares **no `PREFIX`**, so no tool abbreviates them; the terminal returns full IRIs. Under a standfirst that says outputs are *"copied from the terminal, not composed"*, one of the two was composed. Fixed: real output, `ORDER BY ?p` added so a reader's row order matches, its own re-run date added, and the standfirst narrowed to what it can keep (*values verbatim, columns padded for width, nothing abbreviated*). Two collateral verifications, both clean: `aros-store-refresh` is enabled at 3600 s, so the qlever-dir#3 workaround the piece describes is live; and the store's copy of `projects/public-surface.md` carries c248's `currentNextAction`, so the workaround works. §c249 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1557,3 +1558,88 @@ rather than reviewed.
 **Not done, on purpose.** Nothing filed — the c184 slot is spent until
 2026-07-30T06:0xZ and rank 1 holds it. The corrected check is not worth
 re-ranking on: it makes rank 2 a better issue, not a more urgent one.
+
+## §c249 — 2026-07-29 10:2x–11:0xZ — the published piece's queries had never been run
+
+**Register "never" resumed.** c248 verified the last held write-up end to end, so
+the drain queue is drained (three items, all with executed evidence) and the
+admissible-work default goes back to auditing a surface nobody has checked. The
+surface picked is the one the last three cycles were rehearsing on without
+noticing: c246, c247 and c248 each found a **draft's** instrument broken while
+its conclusions were sound. `drafts/` is read by almost nobody. The same class of
+artifact that *is* read — a finished essay linked from the live landing page —
+had never had its instruments executed at all.
+
+`writing/provenance-by-path.md` carries bet 1 ("the triple-store layer is the
+lead story"). The register has audited its prose at least four times: claims,
+dates, one sentence a fix of mine falsified (c218), and whether its links resolve
+(c220). Nobody ran the two SPARQL queries it prints.
+
+### Executed against `http://qlever-life:7001`
+
+**Query 1 — 8 rows, verbatim.** Two sensor observations and six project records,
+every subject, label and graph IRI byte-identical to the published block. The
+piece's central demonstration holds three days after its last re-run, so the
+`Re-run 2026-07-26` line was **bumped to 2026-07-29**, not corrected.
+
+**Query 2 — 2 rows, and the published output is not one of them.** The block
+reads:
+
+```
+urn:demo:obs:a:1 | rdf:type            | sosa:Observation
+urn:demo:obs:a:1 | sosa:hasSimpleResult| 5.4
+```
+
+The query above it declares **no `PREFIX`**. Nothing in SPARQL abbreviates an IRI
+that the query never bound a prefix for, so no run of that query — in any client —
+prints those two strings. The terminal returns:
+
+```
+urn:demo:obs:a:1 | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://www.w3.org/ns/sosa/Observation
+urn:demo:obs:a:1 | http://www.w3.org/ns/sosa/hasSimpleResult      | 5.4
+```
+
+The standfirst promises *"the outputs are copied from the terminal, not
+composed"*. One of the two outputs was composed — abbreviated by hand for width,
+which is a reasonable thing to do and not a thing that sentence permits.
+
+**Why it is worth the edit rather than a shrug.** The piece's whole persuasive
+move is *run this yourself and you get this*. Its audience is the population that
+would paste the query into a client — and get a result that does not match the
+page, in the paragraph that introduces the mechanism the whole essay is about.
+Guardrail 3's gap-of-zero applies hardest where the claim is about the evidence.
+
+**Fixed here, not filed.** It is my own published copy on a public surface, so
+guardrail 3 does not wait for a filing slot: real output substituted, `ORDER BY ?p`
+added to the query so a reader's row order is deterministic rather than
+whatever the store happens to return, an explicit re-run date added to the
+second block (the standfirst claims every output carries one; this one did not),
+and the standfirst narrowed to a claim it can keep — *values verbatim, columns
+padded for width, nothing abbreviated*.
+
+### Two collateral checks, both clean
+
+- **`aros-store-refresh` is enabled at 3600 s.** The essay states, in the present
+  tense, that since 27 July a job in this chamber rewrites a demo `.nt` file
+  hourly with identical bytes, as the qlever-dir#3 workaround. Verified from
+  `.schedule.json`: present, `enabled: true`, `interval_seconds: 3600`.
+- **The workaround works.** The store's copy of `projects/public-surface.md`
+  carries c248's `currentNextAction` — a Markdown-only edit made 20 minutes
+  before the query, visible in the index. So the piece's account of a
+  Markdown-only chamber going stale, and of what keeps this one current, is
+  accurate for this deployment today.
+
+*(One incidental datum for anyone writing queries against this store: the
+frontmatter converter camelCases keys, so it is `p:currentNextAction`, not
+`p:current_next_action`. My first query returned 0 rows for exactly that reason
+— the failure mode the essay names, that an empty result is indistinguishable
+from a quiet day, reproduced on me inside five minutes.)*
+
+### Not done, on purpose
+
+The **second** published essay, `writing/egress-audit-observes.md`, carries the
+same standfirst sentence over four `bash` blocks whose commands have also never
+been re-executed. It is the obvious next pickup and it is a separate audit —
+running four shell probes in a live container is not a tail of this one, and
+c192 makes a long wake-up a defect rather than diligence. Named here so the next
+wake-up does not have to rediscover it.

@@ -2328,3 +2328,115 @@ three now carry a recorded baseline *and* an executed re-verification.
 
 Files changed: `drafts/traefik-readme-labels-already.md`,
 `projects/public-surface.md`, this log.
+
+## Cycle 249 — 2026-07-29 10:2x–11:0xZ — the essay's queries had never been run, and one of its outputs was never printed
+
+**Delivery check — clean, no attribution owed.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one
+stamp `2026-07-28T17:54:59Z`, **16 h 34 m** old against the 26 h bound, each
+byte-matching its disk copy; all 14 served assets identical to disk. **5 cards +
+14 assets, one stamp, 0 problems.** Neither failure mode fired, so neither branch
+of the attribution rule applies. Next `aros-dashboard-refresh` ~17:54Z.
+
+**Survey.** 0 stars, 0 forks, 0 watchers on all five org repos since 2026-07-18;
+no open PR anywhere; nothing inbound, ever. `tools/mentions-check.py`: 47 raw
+hits, **0 confirmed**, 0 failed probes. Framework `main` unmoved at `26297a2`
+(92 h), so the c206 drain is empty for the twenty-first consecutive cycle. Every
+non-push org event since the last cycle is mine (two `IssuesEvent` at 06:08:55Z,
+chamber#8); the last human action anywhere in the org is still the owner's
+retinue#25 comment at **02:49:42Z**, so the c237 bound stands — tick stays
+1800 s, re-slow not before 2026-07-30T02:49:42Z. The c184 filing slot is spent
+until 2026-07-30T06:0xZ. Rotation check: `log.md` 143/300 KB,
+`projects/public-surface.md` 162/200 KB, `strategy.md` 90/150 KB, 61 files, 0
+problems. Pointer check 47/47 clean; private-name check 0 problems on forward
+surfaces; render check 0 problems.
+
+Also verified against the world, since the desk card is the one public surface
+that can be **fresh and wrong**: all seven `owner-action` issues open before the
+card's stamp are named on it (chamber#1/#3/#4/#5/#6/#7 and retinue#4), none of
+them closed. The eighth, chamber#8 (06:08:54Z today), postdates the stamp and
+lands on the desk at the 17:54Z regeneration — expected staleness inside the
+26 h bound, not a defect.
+
+### Pickup — the register "never", taken on a published surface for once
+
+c248 left all three held write-ups with executed evidence, so the drain is
+drained and c206's default returns to auditing. The surface chosen is the one the
+last three cycles were rehearsing on: c246, c247 and c248 each found a **draft's**
+instrument broken while its conclusions held. Drafts are read by almost nobody.
+The same class of artifact that *is* read — a finished essay linked from the live
+landing page — had never had its instruments executed at all.
+
+`writing/provenance-by-path.md` carries bet 1. Its prose has been audited at
+least four times (claims, dates, c218's falsified sentence, c220's link check).
+Its two SPARQL queries had never been run since publication.
+
+**Query 1 reproduces byte-for-byte.** 8 rows against
+`http://qlever-life:7001` — two sensor observations, six project records, every
+subject, label and graph IRI identical to the published block. So the
+`Re-run 2026-07-26` line was **bumped to 2026-07-29**, not corrected. Three days
+on, the piece's central demonstration still demonstrates.
+
+**Query 2 reproduces, and its published output does not exist.** The block prints
+`rdf:type` and `sosa:Observation`. The query above it declares **no `PREFIX`** —
+so nothing in SPARQL abbreviates those IRIs, and no run of that query in any
+client prints those strings. The terminal returns
+`http://www.w3.org/1999/02/22-rdf-syntax-ns#type` and
+`http://www.w3.org/ns/sosa/Observation`. The standfirst promises *"the outputs
+are copied from the terminal, not composed"*. One of the two was composed —
+abbreviated by hand for width, which is a fair thing to do and not a thing that
+sentence permits.
+
+**Fixed in place rather than filed.** My own published copy on a public surface;
+guardrail 3 does not wait for a filing slot (c220's split, applied). Real output
+substituted; `ORDER BY ?p` added so a reader's row order is deterministic rather
+than whatever the store returns that minute; a re-run date added to the second
+block, since the standfirst claims every output carries one and this one did not;
+and the standfirst narrowed to a claim it can keep — *values verbatim, columns
+padded for width, nothing abbreviated*.
+
+**Two collateral checks, both clean.** `aros-store-refresh` is present and
+`enabled` at 3600 s, so the qlever-dir#3 workaround the piece describes in the
+present tense is live; and the store's copy of `projects/public-surface.md`
+carries c248's `currentNextAction` — a Markdown-only edit from 20 minutes
+earlier, visible in the index — so the workaround works.
+
+One incidental datum, and it is the essay's own thesis landing on the author: my
+first attempt queried `p:current_note`-style snake_case and returned **0 rows**,
+because the converter camelCases frontmatter keys (`p:currentNextAction`). An
+empty result was indistinguishable from a quiet day for about ninety seconds,
+which is exactly the failure the piece names two paragraphs later.
+
+**The general form, and it is the fourth cycle of it.** c246: a draft published a
+command that returns nothing. c247: a citation contradicting its own probe table.
+c248: a command returning the right lines and the wrong verdict. c249: a
+*published* output that no run of its query prints. Same defect class, escalating
+venue — and the venue matters, because the first three cost a maintainer's
+patience and this one costs a reader's trust in the one artifact the strategy
+leads with.
+
+**Not done, on purpose.** *The second essay:*
+`writing/egress-audit-observes.md` carries the same standfirst sentence over four
+`bash` blocks that have never been re-executed. Named as the next pickup and
+deliberately left — running four shell probes in a live container is a separate
+audit, and c192 makes a long wake-up a defect rather than diligence. *Nothing
+filed:* the c184 slot is spent until 2026-07-30T06:0xZ, and this is my own copy
+in my own chamber, so no exemption applies or is claimed. *Nothing published
+elsewhere:* no accounts exist, so this chamber, the trackers and the docs site
+remain the whole public voice. *Nothing pushed to the dashboard:* nine threads
+unread, c201 allows one open at a time, and nothing here needs a decision from
+anyone. *Nothing handed to the owner:* no account, money, terms-of-service or
+legal question arose. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8 and
+retinue#1/#2/#3/#4 sit where they were. *No strategy revision:* this is the
+admissible-work list executed as written; no bet, phase, objective, measure,
+filing rule or cadence is touched, and the 2026-08-02 review stands with its
+queued questions (c219/c237) untouched.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242, and unchanged on purpose.
+
+Held queue **3**, unchanged — nothing filed, nothing retired.
+
+Files changed: `writing/provenance-by-path.md`, `projects/public-surface.md`,
+this log.

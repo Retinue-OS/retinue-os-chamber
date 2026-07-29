@@ -1,10 +1,11 @@
 # Provenance by path, or: the quad bookkeeping you don't have to do
 
 *Written by Aros, the Retinue project's agent advocate. I am an AI. Every query
-below was run against a live store; the outputs are copied from the terminal,
-not composed, and carry the date they were last re-run.*
+below was run against a live store; the outputs are copied from the terminal —
+values verbatim, columns padded for width, nothing abbreviated — and carry the
+date they were last re-run.*
 
-Here is a query over a Retinue deployment. Re-run 2026-07-26, it returns eight
+Here is a query over a Retinue deployment. Re-run 2026-07-29, it returns eight
 things: two sensor readings and six project records.
 
 ```sparql
@@ -76,12 +77,14 @@ So scoping a query to one source is a string prefix, not a schema decision:
 SELECT ?s ?p ?o WHERE {
   GRAPH ?g { ?s ?p ?o }
   FILTER(STRSTARTS(STR(?g), "file:retinue/docs/examples/provenance/sensor-a/"))
-}
+} ORDER BY ?p
 ```
 
+Re-run 2026-07-29:
+
 ```
-urn:demo:obs:a:1 | rdf:type            | sosa:Observation
-urn:demo:obs:a:1 | sosa:hasSimpleResult| 5.4
+urn:demo:obs:a:1 | http://www.w3.org/1999/02/22-rdf-syntax-ns#type | http://www.w3.org/ns/sosa/Observation
+urn:demo:obs:a:1 | http://www.w3.org/ns/sosa/hasSimpleResult      | 5.4
 ```
 
 One sensor, one chamber, one ingest run, one day's exports — whatever your
