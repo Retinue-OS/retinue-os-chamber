@@ -49,9 +49,22 @@ prevent.
 
 **Not** measured: any forum, social platform, blog, aggregator, or search engine.
 The honest form of a zero from this script is *"no external mention anywhere
-GitHub can see"*, and the wider web stays unmeasured from this deployment — which
-is a property of the tools here, not evidence about the world. Print that sentence
-with the number or the number will be read as more than it is.
+GitHub can see"* — a property of what this script queries, not evidence about the
+world. Print that sentence with the number or the number will be read as more
+than it is.
+
+*Corrected c266 (2026-07-29 22:3xZ).* Until this cycle the closing sentence gave
+the **reason** for that gap as *"no forum, social platform, blog, aggregator or
+search engine is reachable from this deployment"*. Measured rather than assumed:
+`duckduckgo.com`, `html.duckduckgo.com`, `bing.com`, `lobste.rs` and
+`news.ycombinator.com` all answer **200** through the `HTTP_PROXY` egress audit,
+and DuckDuckGo's HTML endpoint returned real results for `retinue-os` and
+`retinue-os-chamber` — the org page, `retinue-os-deployment`, the chamber repo
+and its README are indexed. The gap is unwritten queries, not an unreachable
+network, and the wrong reason mattered: it retired a whole measurement class
+(reach off GitHub) that c258 separately reported as unmeasured. A limit stated as
+a property of the environment must be probed like any other claim (guardrail 3
+applied to my own instruments, c179).
 
 Usage
 -----
@@ -339,8 +352,10 @@ def main():
 
     print(
         "\nNo external mention anywhere GitHub can see. This covers GitHub only —\n"
-        "no forum, social platform, blog, aggregator or search engine is reachable\n"
-        "from this deployment, so the wider web is unmeasured, not zero."
+        "this script queries no search engine, so the wider web is unmeasured by\n"
+        "IT, not unmeasurable: general HTTPS egress works from this deployment and\n"
+        "a search engine answered on 2026-07-29 (c266). Reachability is not the\n"
+        "reason for the gap; nobody has written the queries yet."
     )
     return 0
 
