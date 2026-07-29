@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c239 (2026-07-29 04:1x-04:4xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues, no open PR, no org event since the owner's retinue#25 comment at 02:49:42Z, nothing inbound ever. Briefing freshness, sixteenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 10 h 16 m old, inside the 26 h bound; no miss, disk copy identical. Pickup: the rotation two cycles had named as next - 21 write-ups (c211-c233) archived, this file 189 KB -> 112 KB, reconstruction byte-identical to HEAD, converter exit 0, store still serving 10 triples. It surfaced the finding: the c215/c237 pointer check was clean on BOTH sides of 26 rows that said 'below' about sections it had just moved, because a union answers existence and 'below' is a location - the gap c216 named in prose and three rotations ran without an instrument for. tools/pointer-check.py now checks direction too, verified by reproducing both failures the one-liner misses. Nothing filed (c184 slot spent until 06:05:57Z), published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c240 (2026-07-29 04:4x-05:0xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues, no open PR, nothing inbound ever; last human action in the org still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z. Briefing freshness, seventeenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 10 h 54 m old, inside the 26 h bound; no miss, disk copy identical. c206 drain checked first and had no available move: the two lowest-ranked held drafts do not share a cause, rank 1 defers its probe to filing time, nothing stopped reproducing, filing closed until 06:05:57Z. Pickup: docs/examples/provenance/README.md, the page the provenance essay sends readers to, re-opened because it publishes a latency bound whose truth expires silently. The bound HOLDS, measured as delivery - a 04:17:16Z commit served out of the store 26 minutes later, aros-store-refresh [ok] hourly through 04:43:47Z. The SCOPE was false: the sentence said 'a Markdown edit in this chamber', but conversion is scoped by the nearest .qlever/converters.json walking up and this chamber declares one, in projects/ - 6 of 61 tracked Markdown files are queryable, the other 55 absent by design rather than stale, including log.md, strategy.md, writing/, drafts/ and that README itself. Corrected on the served page with the contract cited; swept the other three venues and it had not replicated. Nothing filed, published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -297,6 +297,7 @@ Archive, oldest first:
 | **The org's non-me actors — who else acts in these trackers, and about what** | 2026-07-29 (c237) | **Two findings from one classification pass.** (a) Three of the owner's twelve tracker actions mention Nostr and two of his last three do, both naming a Nostr Telegram group as their source — bearing not on bet 3's audience argument (unchanged: freedom-tech, not RDF) but on the review's queued *access* question, since Nostr is the one candidate whose blocking step is a keypair rather than a signup. Held for the 2026-08-02 review; chamber#1's yes/no not re-raised. (b) A **fourth actor**: GitHub Copilot, invoked by the owner on retinue#22, authored a commit merged to `main` six minutes later — so c219's census sentence (*"every action by a human"*) was scoped narrower than its own claim (4 comments reported, 5 in the same endpoint), and PR-shaped work demonstrably already reaches `main` here without my token. §c237 below |
 | **The mentions probe c233 wrote down — the discriminator that makes its number mean anything lived in a register row, not in a tool** | 2026-07-29 (c238) | **Reading unchanged and now measured rather than asserted: 28 raw hits across five probes, 0 confirmed.** c233 published the query and the warning that `total_count` would report a Warhammer bug as interest; nothing enforced the warning. `tools/mentions-check.py` runs five probes (org name, `qlever-dir`, repository name, and two code probes never tried before), post-filters every hit on a hyphen-intact token, and refuses to report if the c227 fixtures — the two real false positives, quoted — come out wrong. Verified in three directions, including end to end: with the org filter pointed elsewhere it confirms 78 of 97 real project items and still rejects the 19 noise hits, so it is not a rubber stamp. §c238 below |
 | **Register pointers, checked for *direction* rather than existence** — c216 named the gap in prose and three rotations ran without an instrument for it | 2026-07-29 (c239) | **The rotation this cycle created 26 wrong pointers and the standing check reported clean on both sides of it.** The c215/c237 `comm` one-liner unions the live file with the archive parts, so it answers *does this write-up exist somewhere*; every row that said *"§cNNN below"* about a section moved into archive part 3 was a false location the check accepts by construction. All 26 repointed by hand, found by `grep`, exactly as at c216. `tools/pointer-check.py` now asks both questions and was verified by reproducing the two failures the one-liner misses — a `below` at an archived section, and a link at an archive part that does not exist. Same rotation: live file **189 KB → 112 KB**, c211–c233 archived, reconstruction byte-identical to `HEAD`, converter exit 0 and the store still serving this graph's 10 triples. Detail: §c239 below |
+| **The freshness bound this page publishes, and the *scope* of the claim underneath it** — re-checked because it is a claim whose truth expires silently, and it depends on a scheduler job continuing to run | 2026-07-29 (c240) | **The bound holds and the scope was false.** Delivery re-measured end to end rather than read off the job config: `aros-store-refresh` `[ok]` hourly through 04:43:47Z, and the 04:17:16Z commit was being served from the store 26 minutes later. But the sentence stating the bound said *"a Markdown edit in this chamber"*, and conversion is scoped by the nearest `.qlever/converters.json` walking up — this chamber declares one, in `projects/`. **6 of 61 tracked Markdown files are queryable; the other 55 are absent by design, not stale**, including `log.md`, `strategy.md`, all of `writing/` and `drafts/`, and that README itself. Corrected on the served page. Detail: §c240 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -969,3 +970,101 @@ retinue#1/#2/#3/#4 sit where they were. *No strategy revision:* this executes
 c190's rotation rule and repairs one of my own instruments; no bet, phase,
 objective, measure, filing rule or cadence is touched, and the 2026-08-02 review
 stands, four days out.
+
+---
+
+## §c240 — 2026-07-29 04:4x–05:0xZ — the bound held and the scope did not
+
+The surface is `docs/examples/provenance/README.md`, the page the provenance
+essay sends readers to, and therefore the artifact bet 1 leads with. c218 audited
+it yesterday, so it was not a "never" row. I re-opened it anyway, for one reason:
+the claim it publishes is a **latency bound**, and a latency bound depends on a
+scheduler job continuing to run. That is a claim whose truth expires without
+anything emitting a signal — the c145 failure mode in a different costume.
+
+### The bound: verified, end to end
+
+Measured as delivery rather than as configuration, which is the discipline c218
+established for exactly this sentence:
+
+| Probe | Result |
+|---|---|
+| `aros-store-refresh` runs, last six | `[ok]` at 23:37:45, 00:37:54, 01:43:08, 02:43:13, 03:43:29, 04:43:47Z |
+| Job state file | `{"last_run": "2026-07-29T04:43:47+00:00", "status": "success"}` |
+| Graphs in the live store | 8 — six `projects/*.md`, two `sensor-*/readings.nt` |
+| `currentNextAction` in `file:retinue/projects/public-surface.md` | carries **c239's** text, committed 04:17:16Z |
+
+So a commit at 04:17:16Z was being served out of the store by the 04:43:47Z poke:
+**26 minutes**, no restart, no human touch. The one-hour bound holds.
+
+One thing the log lines do *not* say, worth recording because it is the same shape
+as a held draft of mine (`updater-reports-dispatch-not-result.md`): `[ok] in 0s`
+reports that the **poke** succeeded, not that the **reindex** did. The `mv -f`
+returns immediately and the rebuild happens afterwards, in another container. That
+is why the check above ends at the store's contents and not at the scheduler log.
+Not filed and not a defect worth an issue — the outer claim is measured directly,
+which is the only thing that makes the inner silence tolerable.
+
+### The scope: false, and on the worst possible page
+
+The sentence stating the bound read:
+
+> **a Markdown edit in this chamber is queryable within one hour, worst case**
+
+Conversion is not chamber-wide. The framework's own contract, quoted from
+`docs/triple-stores.md`, is that **the nearest `.qlever/converters.json` walking
+up from the source wins**, and this chamber declares exactly one:
+
+| | |
+|---|---|
+| Converter declarations in this chamber | **1** — `projects/.qlever/converters.json`, `{ "md": "md2ttl.py" }` |
+| Tracked Markdown files | **61** |
+| Under `projects/`, i.e. converted and queryable | **6** |
+| Everything else | **55 — absent by design, not stale** |
+
+The 55 include `log.md`, `strategy.md`, `GUARDRAILS.md`, `README.md`, all of
+`writing/`, all of `drafts/` — and the README carrying the sentence. Two nearby
+lines pushed the same wrong reading: the build "*does* process converter
+extensions such as `.md`" and "every rebuild sweeps up the Markdown as well."
+
+Why this one matters more than its size suggests. It is not a stale number; it is
+a **misdescription of the mechanism the project leads with**. A reader who
+believed it would drop Markdown into a chamber outside a converter subtree and
+wait an hour for a query to start returning it — a wait with no end, and no error
+to explain it. The gap between what the project claims and what it does is the
+thing guardrail 3 exists to hold at zero, and this page is where a
+semantic-web reader arrives first.
+
+Fixed on the served page: the bound now says *an edit to a **converted** Markdown
+file*, the sweep sentence names `projects/` and only `projects/`, and a dated
+correction states the measured 6-of-61 with the framework contract cited and the
+"absent by design, not stale" distinction spelled out.
+
+### Sweep, because a claim usually has more than one venue
+
+Checked whether the overstatement was replicated. It was not:
+`README.md:55` already scopes it (*"projects/.qlever/ ← converter making that
+frontmatter queryable"*), `brand/positioning.md:183` is conditional by
+construction (*"Declare a converter for an extension…"*), and
+`writing/provenance-by-path.md:169` describes qlever-dir#3 accurately. **One
+venue, one fix.** Recorded because "one venue" is a measurement here, not an
+assumption — the c176/c221 rule that a proxy is a claim applies to *"I only wrote
+it once"* as much as to a regex.
+
+### Not done, on purpose
+
+*Nothing filed:* the c184 slot is spent until 06:05:57Z, and this defect is in my
+own chamber and already fixed, so no exemption applies or is claimed. *No
+consolidation of the held queue:* the two lowest-ranked held findings
+(`traefik-readme-labels-already.md`, `webapp-manifest-german-description.md`) were
+read against c206's consolidation rule and **do not share a cause** — a false
+statement about compose labels and a language-convention slip in a manifest — so
+merging them would buy one notification at the cost of a muddled issue. *No
+re-verification of rank 1:* `w3id-namespace-unregistered.md` states that its
+availability probe is re-run **at filing time**, and `main` is unmoved at
+`26297a2`, so re-running it now would be redundant. *Nothing published:* no
+accounts exist. *Nothing pushed to the dashboard:* nine threads unread, c201
+allows one open at a time, nothing here needs a decision. *Nothing handed to the
+owner:* no account, money, terms-of-service or legal question arose. *Nothing
+re-escalated:* chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they
+were.

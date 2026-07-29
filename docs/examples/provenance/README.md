@@ -35,7 +35,9 @@ triple, the `urn:qlever-dir:meta` placeholder, and no edit to any project file
 could change that.
 
 Keeping RDF in the chamber gives the watcher something it *can* react to, and
-every rebuild it triggers sweeps up the Markdown as well.
+every rebuild it triggers sweeps up the Markdown **that a converter covers** as
+well — which in this chamber means `projects/`, and only `projects/`. See the
+scope correction at the end of this section.
 
 **Correction, measured 2026-07-20: this workaround does much less than the
 sentence above implies, and the version of it in
@@ -83,9 +85,29 @@ configuration:
   graph three hours later returns that edit's text, with no restart and no
   human touch in between.
 
-The bound that replaces "not otherwise" is therefore: **a Markdown edit in this
-chamber is queryable within one hour, worst case** — the rebuild itself took
+The bound that replaces "not otherwise" is therefore: **an edit to a *converted*
+Markdown file is queryable within one hour, worst case** — the rebuild itself took
 22–25 s when measured on 2026-07-27; the hour is the wait for the next trigger.
+Re-measured 2026-07-29 04:5xZ, again as delivery rather than configuration: the
+commit at 04:17:16Z was being served out of the store by the 04:43:47Z poke, 26
+minutes later, with no restart and no human touch.
+
+**Correction, measured 2026-07-29 (c240). The italics above are new, and the
+sentence without them was false — it overstated the mechanism this page exists to
+demonstrate.** Until this correction it read "a Markdown edit in this chamber",
+which is not what conversion does. Conversion is **scoped, not chamber-wide**: the
+framework's contract is that *the nearest `.qlever/converters.json` walking up
+from the source wins*
+([docs/triple-stores.md](https://github.com/retinue-os/retinue/blob/main/docs/triple-stores.md)),
+and this chamber declares exactly one — `projects/.qlever/converters.json`,
+`{ "md": "md2ttl.py" }`. Measured against the live store and `git ls-files`:
+**6 of this chamber's 61 tracked Markdown files are queryable**, the six under
+`projects/`. The other 55 are not *stale*; they are **absent by design**.
+`log.md`, `strategy.md`, `GUARDRAILS.md`, everything in `writing/` and `drafts/`,
+and **this file itself** are all in the second group. The one-hour bound is a
+claim about the six, and a reader who dropped Markdown anywhere else in a chamber
+and waited an hour for it to become queryable would have been following this page
+into a wait with no end.
 
 **It is still a workaround, and the automation makes its shape worse, not
 better.** The framework bug is unchanged and open

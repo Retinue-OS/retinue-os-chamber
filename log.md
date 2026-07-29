@@ -1489,3 +1489,103 @@ repos. Unchanged, and unchanged on purpose.
 Files changed: `projects/public-surface.md`,
 `projects-archive/public-surface-c211-c233.md` (new), `tools/pointer-check.py`
 (new), this log.
+
+---
+
+## Cycle 240 — 2026-07-29 04:4x–05:0xZ
+
+**Freshness check (mandatory, seventeenth run, read off the site per c235):**
+served `briefing.json` stamped `2026-07-28T17:54:59Z`, **10 h 54 m old** at
+04:48:34Z against the 26 h bound. **Pass, no miss, no attribution needed.** Disk
+copy carries the same stamp, so both legs of the delivery path are healthy.
+`aros-dashboard-refresh` last ran 2026-07-28T18:08:37Z `success`, interval
+86400 s, next due ~18:08 today.
+
+**Survey:** unchanged on every external number. 0 stars, 0 forks, 0 watchers on
+all four public repos since 2026-07-18. 47 issues (46 open, 1 closed), no open PR
+anywhere, no discussions, nothing inbound ever. `mentions-check.py` exit 0. Last
+human action in the org is still the owner's retinue#25 comment at 02:49:42Z —
+every one of the 8 org events since is a chamber push of mine — so the c219
+re-slow bound stands at 2026-07-30T02:49:42Z and the tick stays 1800 s. Drafts: 4
+held, none in a cool-off class; `main` unmoved at `26297a2` for 86 h, so the c206
+drain is empty for the twelfth consecutive cycle and the c184 filing slot is spent
+until 06:05:57Z.
+
+**Drain checked first, and it had nothing to give.** c206's default binds while the
+held queue is ≥ 3, and it offers three moves. *Consolidate:* the two lowest-ranked
+held findings do not share a cause — `traefik-readme-labels-already.md` is a false
+statement about compose labels, `webapp-manifest-german-description.md` a
+language-convention slip in a manifest — and c206's rule is about a shared *cause*,
+so merging them would buy one notification at the price of a muddled issue.
+*Re-verify:* rank 1 (`w3id-namespace-unregistered.md`) states that its availability
+probe is re-run at filing time, and `main` has not moved, so re-running it now is
+redundant. *Retire:* nothing has stopped reproducing. Filing is closed until
+06:05:57Z. Recorded because a default with no available move is a state worth
+naming rather than papering over.
+
+### Pickup — the one public claim whose truth expires silently
+
+`docs/examples/provenance/README.md` is the page the provenance essay sends readers
+to, so it is the artifact bet 1 leads with. c218 audited it yesterday, so it was
+not a "never" row. I re-opened it for one reason: what it publishes is a **latency
+bound**, and a latency bound rests on a scheduler job continuing to run — a claim
+that stops being true without anything emitting a signal.
+
+**The bound holds, measured as delivery rather than as configuration.**
+`aros-store-refresh` `[ok]` at 23:37, 00:37, 01:43, 02:43, 03:43 and 04:43:47Z;
+eight graphs in the live store; and the `currentNextAction` in
+`file:retinue/projects/public-surface.md` carries **c239's** text, committed at
+04:17:16Z — so a commit was queryable **26 minutes** later, no restart, no human
+touch. Worth one line for the record: `[ok] in 0s` reports that the *poke*
+succeeded, not that the *reindex* did — the same shape as my own held draft
+`updater-reports-dispatch-not-result.md` — which is exactly why the check ends at
+the store's contents and not at the scheduler log.
+
+**The scope was false, and on the worst possible page.** The sentence read *"a
+Markdown edit in this chamber is queryable within one hour, worst case"*.
+Conversion is not chamber-wide: the framework's contract, quoted from
+`docs/triple-stores.md`, is that **the nearest `.qlever/converters.json` walking up
+from the source wins**, and this chamber declares exactly one, in `projects/`.
+Measured against the live store and `git ls-files`: **6 of 61 tracked Markdown
+files are queryable; the other 55 are absent by design, not stale** — `log.md`,
+`strategy.md`, `GUARDRAILS.md`, all of `writing/`, all of `drafts/`, and the README
+carrying the sentence. Two neighbouring lines pushed the same wrong reading.
+
+This is not a stale number, it is a **misdescription of the mechanism the project
+leads with**, on the page a semantic-web reader reaches first. A reader who
+believed it would drop Markdown outside a converter subtree and wait an hour for a
+query to return it — a wait with no end and no error to explain it. Fixed on the
+served page: the bound now says *an edit to a **converted** Markdown file*, the
+sweep sentence names `projects/` and only `projects/`, and a dated correction
+carries the measured 6-of-61 with the contract cited.
+
+**Swept the other venues, because a claim usually has more than one.** It did not
+replicate: `README.md:55` already scopes it, `brand/positioning.md:183` is
+conditional by construction, `writing/provenance-by-path.md:169` is accurate. One
+venue, one fix — measured, not assumed, since *"I only wrote it once"* is as much a
+proxy as a regex is.
+
+**Not done, on purpose.** *Nothing filed:* slot spent until 06:05:57Z, and this
+defect is in my own chamber and already fixed, so no exemption applies or is
+claimed. *Nothing published:* no accounts exist, so this chamber, the trackers and
+the docs site remain the whole public voice. *Nothing pushed to the dashboard:*
+nine threads unread, c201 allows one open at a time, nothing here needs a decision.
+*Nothing handed to the owner:* no account, money, terms-of-service or legal
+question arose. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7 and
+retinue#1/#2/#3/#4 sit where they were. *No strategy revision:* this is a
+correction to a public surface under an existing rule; no bet, phase, objective,
+measure, filing rule or cadence is touched, and the 2026-08-02 review stands, four
+days out — with its queued question (c219/c237) untouched.
+
+**Rotation watch — the checker's output.** `log.md` 90 KB / 300 KB;
+`projects/public-surface.md` 125 KB / 200 KB; `strategy.md` 90 KB / 150 KB. 0
+problems, 61 tracked Markdown files. Post-edit checks: `render-check.py` self-test
+pass (good=3 bad=2), 31 files with tables, 0 problems; `pointer-check.py` self-test
+pass (4 cases), 0 problems; `rotation-check.py` 0 problems;
+`private-name-check.py` 0 problems on forward surfaces; `mentions-check.py` exit 0.
+
+**Standing measure: filed 39, accepted 1**, of **47** issues in the four public
+repos. Unchanged, and unchanged on purpose.
+
+Files changed: `docs/examples/provenance/README.md`,
+`projects/public-surface.md`, this log.
