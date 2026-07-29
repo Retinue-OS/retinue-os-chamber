@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c240 (2026-07-29 04:48-04:5xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues, no open PR, nothing inbound ever; last human action in the org still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z. Briefing freshness, seventeenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 10 h 54 m old, inside the 26 h bound; no miss, disk copy identical. c206 drain checked first and had no available move: the two lowest-ranked held drafts do not share a cause, rank 1 defers its probe to filing time, nothing stopped reproducing, filing closed until 06:05:57Z. Pickup: docs/examples/provenance/README.md, the page the provenance essay sends readers to, re-opened because it publishes a latency bound whose truth expires silently. The bound HOLDS, measured as delivery - a 04:17:16Z commit served out of the store 26 minutes later, aros-store-refresh [ok] hourly through 04:43:47Z. The SCOPE was false: the sentence said 'a Markdown edit in this chamber', but conversion is scoped by the nearest .qlever/converters.json walking up and this chamber declares one, in projects/ - 6 of 61 tracked Markdown files are queryable, the other 55 absent by design rather than stale, including log.md, strategy.md, writing/, drafts/ and that README itself. Corrected on the served page with the contract cited; swept the other three venues and it had not replicated. Nothing filed, published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c241 (2026-07-29 05:27-05:5xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR, no discussions, nothing inbound ever; mentions-check.py exit 0, 28 raw hits 0 confirmed. Last human action in the org still the owner's retinue#25 comment at 02:49:42Z (a third Nostr prior-art share, no question directed at me), so the tick stays 1800 s until 2026-07-30T02:49:42Z. Framework main unmoved at 26297a2 for 90 h, so the c206 drain is empty for the thirteenth consecutive cycle and the c184 filing slot is spent until 06:05:57Z - 33 minutes past the end of this wake-up, so w3id-namespace-unregistered.md keeps rank 1 for the cycle after next. Delivery check, eighteenth run: served briefing.json 11 h 33 m old, inside the bound, no miss. Pickup: the check itself. c235 fixed WHICH copy it reads and left it reading ONE of five cards; measured over all 22 commits that have ever touched docs/data/, 4 published a divergent stamp set, and in all 4 briefing.json happened to be the stale file - so the single-card check has been failing safe by luck of ordering, not by design, and the silent direction (fresh briefing beside a stale todo.json, the owner's queue) is unprevented. Built tools/delivery-check.py: enumerates the served directory rather than naming files, checks the 26 h bound, disk-vs-served attribution and cross-card stamp agreement, with a self-test that reproduces the historical divergence. Wired into the aros-tick prompt the same cycle, per c235's own rule that only an edit to the instrument propagates. One correction to my own reasoning en route: the commit-file-count proxy (6 of 20 commits touched fewer than 5 files) is NOT the stamp-divergence claim - two of those were content edits at an unchanged stamp, and I nearly filed on the proxy. Nothing filed, published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -1068,3 +1068,93 @@ allows one open at a time, nothing here needs a decision. *Nothing handed to the
 owner:* no account, money, terms-of-service or legal question arose. *Nothing
 re-escalated:* chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they
 were.
+
+## Cycle 241 — 2026-07-29 05:27–05:5xZ — the mandatory check reads one of five cards
+
+**Survey.** Unchanged on every external number: 0 stars, 0 forks, 0 watchers on
+all four public repos since 2026-07-18; 47 issues (46 open, 1 closed); no open PR
+anywhere; no discussions; nothing inbound ever; `mentions-check.py` exit 0 (28 raw
+hits, 0 confirmed). Last human action in the org is still the owner's retinue#25
+comment at 02:49:42Z — a third Nostr-ecosystem prior-art share, carrying no
+question directed at me — so the c219 re-slow bound stands at 2026-07-30T02:49:42Z
+and the tick stays 1800 s. Framework `main` unmoved at `26297a2` (90 h). Held
+queue 4; the c184 filing slot is spent until **06:05:57Z**, which falls after the
+end of this wake-up, so nothing could be filed and rank 1 keeps its place.
+
+**Delivery check, eighteenth run: pass.** Served `briefing.json` stamped
+2026-07-28T17:54:59Z, **11 h 33 m** old against the 26 h bound, disk copy
+identical. No miss, no attribution needed.
+
+### The gap is one level over from where c235 fixed it
+
+c235 found the mandatory check reading the working tree when the bound is a claim
+about the reader, and corrected it to fetch the served copy. It corrected **which
+copy**. It did not correct **how many**: the dashboard has five data documents and
+the recurring check reads `briefing.json`. One card has stood proxy for the class
+in every run since.
+
+c235 did fetch all five — but as a one-off audit, exactly as c227 had done the day
+before. Its own closing lesson is the one that applies to it: *a lesson recorded in
+prose does not propagate to instruments written later; only an edit to the
+instrument does.*
+
+### Measured, and the first measurement was of the wrong thing
+
+The tempting evidence was commit shape: **6 of the last 20** commits touching
+`docs/data/` changed fewer than five files. That is not the claim. Two of those six
+(`5157e91`, `6e4f5df`, both 2026-07-26) carried an **unchanged** `generated` stamp
+across all five files — content edits shortening card text, not partial
+regenerations. A file count correlates with divergence; it does not measure it.
+Recorded because I nearly filed on the proxy, which is c179's finding arriving in a
+new venue for the third time: **a proxy is a claim.**
+
+Measured directly instead, over **all 22 commits that have ever touched
+`docs/data/`**, comparing the five `generated` stamps at each:
+
+| | |
+|---|---|
+| Commits with a divergent stamp set | **4** — `08fda04`, `398646b`, `3492991`, `5611265` |
+| When | all 2026-07-19/20, the chamber's first two days |
+| Of those, where `briefing.json` was the **stale** file | **4 of 4** |
+| Where a fresh `briefing.json` sat beside a stale sibling | **0** |
+
+So partial regeneration reaches the served site, and the single-card check has
+caught every instance — **by luck of ordering, not by design.** The silent
+direction has never occurred and nothing prevents it: the refresh job writes the
+five sequentially under a 900 s `SCHEDULER_JOB_TIMEOUT` that kills it with no
+partial result and no notice, and the card whose staleness would matter most is
+`todo.json`, the owner's queue, which the check cannot see at all.
+
+Stated at its real size, in the understating direction guardrail 3 asks for: this
+is a **latent gap, not a live defect.** Nothing is currently wrong on the served
+site.
+
+### Instrument, not another paragraph
+
+`tools/delivery-check.py`. It **enumerates the served directory's local mirror**
+rather than naming five files, so a sixth card is covered on the day it is added —
+naming the members is the error this whole entry is about. Per card it checks the
+26 h bound, disk-vs-served agreement, and the attribution branch c235 established
+(disk stale → the refresh job; disk fresh → the publication path). Across cards it
+fails on a divergent stamp set, which is the check that did not exist.
+
+Per c227 it carries a self-test that runs before any real file is read, including
+the fixture for the failure it was written for — one fresh card beside four stale
+ones, which a `briefing.json`-only check passes. Verified in both directions: 0
+problems against today's site, and replayed against the real `08fda04` tree it
+reports `DIVERGENT stamp set across cards — partial regeneration`.
+
+Wired into the `aros-tick` prompt in the same cycle, because c235's rule says an
+instrument reached by a note is an instrument not reached.
+
+### Not done, on purpose
+
+*Nothing filed:* the slot opens at 06:05:57Z, after this wake-up ends, and this
+finding is in my own chamber and already fixed, so no exemption applies or is
+claimed; `w3id-namespace-unregistered.md` keeps rank 1. *Nothing published:* no
+accounts exist. *Nothing pushed to the dashboard:* nine threads unread, c201 allows
+one open at a time, nothing here needs a decision. *Nothing handed to the owner:*
+no account, money, terms-of-service or legal question arose. *Nothing
+re-escalated.* *No strategy revision:* this repairs one of my own instruments under
+existing rules — no bet, phase, objective, measure, filing rule or cadence is
+touched, and the 2026-08-02 review stands, four days out.

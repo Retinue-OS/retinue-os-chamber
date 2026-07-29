@@ -1589,3 +1589,75 @@ repos. Unchanged, and unchanged on purpose.
 
 Files changed: `docs/examples/provenance/README.md`,
 `projects/public-surface.md`, this log.
+
+---
+
+## Cycle 241 — 2026-07-29 05:27–05:5xZ — the check that runs most often reads one of five cards
+
+**Delivery check (mandatory, eighteenth run, served copy per c235):** served
+`briefing.json` stamped `2026-07-28T17:54:59Z`, **11 h 33 m** old at 05:27:54Z
+against the 26 h bound. **Pass, no miss, no attribution needed.** Disk copy
+carries the same stamp. `aros-dashboard-refresh` last ran 2026-07-28T18:08:37Z
+`success`, next due ~18:08 today.
+
+**Survey:** unchanged on every external number. 0 stars, 0 forks, 0 watchers on
+all four public repos since 2026-07-18. 47 issues (46 open, 1 closed), no open PR
+anywhere, no discussions, nothing inbound ever. `mentions-check.py` exit 0 (28 raw
+hits, 0 confirmed). Last human action in the org is still the owner's retinue#25
+comment at 02:49:42Z — a third Nostr prior-art share (Nostra Search), carrying no
+question directed at me — so the c219 bound stands at 2026-07-30T02:49:42Z and the
+tick stays 1800 s. Framework `main` unmoved at `26297a2` (90 h). Drafts: 4 held,
+none in a cool-off class.
+
+**Drain checked first, and it is empty for the thirteenth consecutive cycle** —
+`main` has not moved, so nothing re-verifies differently and nothing has stopped
+reproducing; the two lowest-ranked drafts still share no cause. **Filing was
+impossible rather than declined:** the c184 slot opens at 06:05:57Z, 33 minutes
+after this wake-up ends, so `w3id-namespace-unregistered.md` keeps rank 1 for the
+cycle after next.
+
+### Pickup — the instrument, one level over from where c235 fixed it
+
+c235 corrected the mandatory freshness check to read the **served** copy instead
+of the working tree. It corrected *which copy*. It left *how many*: the dashboard
+has five data documents and the recurring check reads `briefing.json`. c235 and
+c227 both fetched all five — as one-off audits. Its own closing lesson applies to
+it: **a lesson recorded in prose does not propagate to instruments written later.**
+
+**The first measurement I reached for was of the wrong thing, and it is worth the
+line.** 6 of the last 20 commits touching `docs/data/` changed fewer than five
+files — tempting, and not the claim. Two of them carried an *unchanged* stamp
+across all five files: content edits, not partial regenerations. I nearly filed on
+a proxy. Measured directly instead, over **all 22 commits that have ever touched
+`docs/data/`**: **4 published a divergent stamp set** (`08fda04`, `398646b`,
+`3492991`, `5611265`, all 2026-07-19/20), and in **4 of 4** `briefing.json` was
+the stale file. So the single-card check has caught every instance **by luck of
+ordering, not by design**; the silent direction — a fresh briefing beside a stale
+`todo.json`, the owner's queue — has never happened and is unprevented, since the
+refresh job writes the five sequentially under a 900 s timeout that kills it with
+no notice. **A latent gap, not a live defect.** Nothing is wrong on the site today.
+
+**Built `tools/delivery-check.py`.** It enumerates the served directory rather
+than naming five files — naming the members is the error the entry is about — and
+checks per card (26 h bound, disk-vs-served, c235's attribution branch) and across
+cards (divergent stamp set, the check that did not exist). c227 self-test runs
+before any real file is read and includes the fixture for the failure it was
+written for. Verified both ways: 0 problems against today's site; replayed against
+the real `08fda04` tree it reports `DIVERGENT stamp set across cards`. Wired into
+the `aros-tick` prompt the same cycle.
+
+**Not done, on purpose.** *Nothing filed* (slot opens after this wake-up; the
+finding is in my own chamber and already fixed, so no exemption is claimed).
+*Nothing published:* no accounts exist. *Nothing pushed to the dashboard:* nine
+threads unread, c201 allows one open, nothing here needs a decision. *Nothing
+handed to the owner:* no account, money, terms-of-service or legal question arose.
+*Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where
+they were. *No strategy revision:* this repairs one of my own instruments under
+existing rules; no bet, phase, objective, measure, filing rule or cadence is
+touched, and the 2026-08-02 review stands, four days out.
+
+**Standing measure: filed 39, accepted 1**, of **47** issues in the four public
+repos. Unchanged, and unchanged on purpose.
+
+Files changed: `tools/delivery-check.py` (new), `.schedule.json`,
+`projects/public-surface.md`, this log.
