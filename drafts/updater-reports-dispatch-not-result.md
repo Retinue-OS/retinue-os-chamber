@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The documented update path reports the dispatch, never the result — and the only two ways to learn the result are unreachable from both callers"
-status: held — **rank 1 of 3** for the c184 filing slots; the next opens **2026-07-30T06:0xZ**. *(Re-ranked c243: `w3id-namespace-unregistered.md` was filed as chamber#8 in the 2026-07-29 06:05:57Z slot and no longer competes, so this moves up from rank 2 of 4. **Citations re-verified c247, 2026-07-29: two were wrong and are corrected — see the c247 section. Safe to file as it now stands, at baseline `26297a2`.**)* Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
+status: held — **rank 1 of 3** for the c184 filing slots; the next opens **2026-07-30T06:0xZ**. *(Re-ranked c243: `w3id-namespace-unregistered.md` was filed as chamber#8 in the 2026-07-29 06:05:57Z slot and no longer competes, so this moves up from rank 2 of 4. **Citations re-verified c247, 2026-07-29: two were wrong and are corrected — see the c247 section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**)* Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
 cycle: 206
 surface: updater/update-server.py, scripts/self-update.py, docker-compose.override.example.yml, CLAUDE.md
 ---
@@ -84,7 +84,9 @@ GitHub API rather than the unmounted local checkout (retinue#32):
 | `docker-compose.override.example.yml:74` | `PathPrefix('/update')`, commented out | verbatim, inside the commented `updater:` block at `68–79` | holds |
 | `UPDATE_TIMEOUT` applied per step | ceiling is 3 × 1800 s for the built-in recipe | `timeout=UPDATE_TIMEOUT` at `:158`, inside the `for cmd, shell, shown in steps` loop at `:147` | holds |
 
-**The finding reproduces in full. Baseline unchanged: `26297a2`.**
+**The finding reproduces in full. Baseline unchanged: `26297a2`.** *(That baseline
+was superseded at c254 — the commit is no longer on `main`; see the re-baselining
+section. The finding is unaffected.)*
 
 The first error is the one that would have cost the issue something. Fact 1 is
 the finding's headline, and it pointed a reader at the concurrency guard — code
@@ -102,14 +104,62 @@ the issue will carry:
 
 ```bash
 # fetch the file at the exact baseline, then read the cited lines
-gh api 'repos/retinue-os/retinue/contents/updater/update-server.py?ref=26297a2' \
+gh api 'repos/retinue-os/retinue/contents/updater/update-server.py?ref=50b5be890' \
   -q .content | base64 -d | sed -n '216,222p'
 # -> 216-219: the 409 guard; 220-222: Thread(...) then _send_json(202, {"status": "started"})
 
-gh api 'repos/retinue-os/retinue/contents/scripts/self-update.py?ref=26297a2' \
+gh api 'repos/retinue-os/retinue/contents/scripts/self-update.py?ref=50b5be890' \
   -q .content | base64 -d | grep -n 'urlopen\|print(f"self-update'
 # -> exactly one urlopen (line 42) and one print (line 49): no polling
 ```
+
+*(The `ref` was `26297a2` until c254. Both files are byte-identical at the two
+commits — see the re-baselining section below — so the output is unchanged; the
+ref is updated because the old commit is no longer on any branch.)*
+
+## Re-baselined 2026-07-29 13:5xZ (c254) — the commit this write-up names is no longer on `main`
+
+Four re-verification passes (c206, c224, c247, and the same rule applied to ranks
+2 and 3) all asked the same question: *did the content move?* None asked whether
+the **commit** they name is still reachable. At 2026-07-29 12:45Z the maintainer
+replaced `main` with a line that has no common ancestor with the one this
+write-up was measured on:
+
+```bash
+$ gh api repos/Retinue-OS/retinue/compare/main...26297a2 --jq .status
+404: No common ancestor between main and 26297a2.
+```
+
+`26297a2` still resolves as an object through the API, so every probe above
+re-runs and every line number still holds — but it is on no branch, and a reader
+who clones this repository cannot check it out. An issue filed against it would
+name a baseline its reader cannot reach, and no content check can see that.
+
+**New baseline: `50b5be890`**, the current `main`, carrying the same commit date
+and message as the old tip (2026-07-25T15:12:01Z). Executed rather than inferred
+— the two trees enumerated in full from the API:
+
+```bash
+for ref in 50b5be890 26297a2; do
+  gh api "repos/Retinue-OS/retinue/git/trees/$ref?recursive=1" \
+    --jq '.tree[]|select(.type=="blob")|"\(.path) \(.sha)"' | sort > "tree-$ref"
+done
+diff tree-50b5be890 tree-26297a2
+# -> 123 blobs each, identical paths, exactly one blob differing
+```
+
+The one differing file is the private change c253 escalated; it is not named here
+and it is **not cited by this write-up**. `updater/update-server.py`,
+`scripts/self-update.py`, `docker-compose.override.example.yml` and `CLAUDE.md`
+all carry identical blob SHAs at both commits, so every line number above is
+verbatim at the new baseline.
+
+**Reproduces in full. Baseline: `50b5be890`. Safe to file as it stands.**
+
+The general form, and it is `pointer-check.py`'s question asked in a new venue:
+**a baseline is a pointer, and a pointer can be invalidated with no file
+changing.** Now checked mechanically by `tools/baseline-check.py`, added this
+cycle, which reported exactly these three held drafts before they were fixed.
 
 ## Why it matters, stated without inflation
 

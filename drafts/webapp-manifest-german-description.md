@@ -1,9 +1,9 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Safe to file as it now stands.**
+status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**
 cycle: 188 (written), 246 (re-verified)
-verified_against: retinue@26297a2 (2026-07-25T15:12:01Z), re-verified 2026-07-29 08:5xZ
+verified_against: retinue@50b5be890 (2026-07-25T15:12:01Z), re-verified 2026-07-29 08:5xZ, re-baselined 2026-07-29 13:5xZ (was 26297a2, no longer on main)
 surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, webapp/styles.css, webapp/data/*.json, .dockerignore
 ---
 
@@ -117,6 +117,48 @@ Two scans replace the one, above. Neither is a general test for "German"; no suc
 test exists. What they do is cover every file and fail in different directions —
 a byte test that catches accented strings and a word test that catches ASCII
 ones. This string needed the second, which is why the first found nothing.
+
+# Re-baselined 2026-07-29 13:5xZ (c254) — the commit this write-up names is no longer on `main`
+
+Every re-verification this file carries (c246, and the same rule applied to ranks
+1 and 2) asked whether the *content* moved. None asked whether the **commit**
+they name is still reachable. At 2026-07-29 12:45Z the maintainer replaced `main`
+with a line that has no common ancestor with the one this write-up was measured
+on:
+
+```bash
+$ gh api repos/Retinue-OS/retinue/compare/main...26297a2 --jq .status
+404: No common ancestor between main and 26297a2.
+```
+
+`26297a2` still resolves as an object through the API, so every probe above
+re-runs unchanged — but it is on no branch, and a reader who clones this
+repository cannot check it out.
+
+**New baseline: `50b5be890`**, the current `main`, carrying the same commit date
+and message as the old tip (2026-07-25T15:12:01Z). Executed rather than inferred:
+
+```bash
+for ref in 50b5be890 26297a2; do
+  gh api "repos/Retinue-OS/retinue/git/trees/$ref?recursive=1" \
+    --jq '.tree[]|select(.type=="blob")|"\(.path) \(.sha)"' | sort > "tree-$ref"
+done
+diff tree-50b5be890 tree-26297a2
+# -> 123 blobs each, identical paths, exactly one blob differing
+```
+
+The one differing file is the private change c253 escalated; it is not named here
+and it is **not** in `webapp/`. All 23 `webapp/` files, `README.md` and
+`.dockerignore` carry identical blob SHAs at both commits, so the manifest string,
+the word scans and every line number above hold verbatim at the new baseline.
+
+**Reproduces in full. Baseline: `50b5be890`. Safe to file as it stands.**
+
+**A baseline is a pointer, and a pointer can be invalidated with no file
+changing** — `pointer-check.py`'s question asked about a commit instead of a
+section. Now checked by `tools/baseline-check.py`, added this cycle, which
+reported this draft and the other two held ones before they were fixed.
+
 
 # Negative results from the same audit, recorded because they cost the time
 

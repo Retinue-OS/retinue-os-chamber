@@ -4,7 +4,7 @@ Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one n
 issue per 24 h. **Rank 2 of 3**; the next slot opens **2026-07-30T06:0xZ** and rank 1
 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 3 of
 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29 and no
-longer competes.)* **Re-verified c248 (2026-07-29 09:5xZ) against `26297a2`: every
+longer competes.)* **Re-verified c248 (2026-07-29 09:5xZ) against `26297a2`, re-baselined c254 to `50b5be890` (the old commit is no longer on `main`; content identical): every
 claim in the body holds verbatim, and the *operator check* the body publishes was
 wrong — it expects three lines where a correctly wired deployment prints four, and
 its threshold passes one specific broken configuration. Corrected below; safe to
@@ -102,6 +102,50 @@ locks that device out entirely.
 
 The check below is rewritten to name the four label keys instead of counting
 lines, so a missing one is identified rather than merely subtracted.
+
+## Re-baselined 2026-07-29 13:5xZ (c254) — the commit this write-up names is no longer on `main`
+
+c224 and c248 both re-verified this write-up by asking whether the *content*
+moved. Neither asked whether the **commit** it names is still reachable. At
+2026-07-29 12:45Z the maintainer replaced `main` with a line that has no common
+ancestor with the one this write-up was measured on:
+
+```bash
+$ gh api repos/Retinue-OS/retinue/compare/main...26297a2 --jq .status
+404: No common ancestor between main and 26297a2.
+```
+
+`26297a2` still resolves as an object through the API, so every probe above
+re-runs unchanged — but it is on no branch, and a reader who clones this
+repository cannot check it out. An issue filed against it would name a baseline
+its reader cannot reach.
+
+**New baseline: `50b5be890`**, the current `main`, carrying the same commit date
+and message as the old tip (2026-07-25T15:12:01Z). Executed rather than inferred:
+
+```bash
+for ref in 50b5be890 26297a2; do
+  gh api "repos/Retinue-OS/retinue/git/trees/$ref?recursive=1" \
+    --jq '.tree[]|select(.type=="blob")|"\(.path) \(.sha)"' | sort > "tree-$ref"
+done
+diff tree-50b5be890 tree-26297a2
+# -> 123 blobs each, identical paths, exactly one blob differing
+```
+
+The one differing file is the private change c253 escalated; it is not named here
+and it is **not cited by this write-up**. `deploy/traefik/README.md`,
+`docker-compose.yml`, `docker-compose.override.example.yml`, `.gitignore`,
+`scripts/gateway_auth.py` and `deploy/traefik/dynamic/retinue-mtls.yml` all carry
+identical blob SHAs at both commits, so every line number in the c248 table is
+verbatim at the new baseline.
+
+**Reproduces in full. Baseline: `50b5be890`. Safe to file as it stands.**
+
+**A baseline is a pointer, and a pointer can be invalidated with no file
+changing** — `pointer-check.py`'s question asked about a commit instead of a
+section. Now checked by `tools/baseline-check.py`, added this cycle, which
+reported this draft and the other two held ones before they were fixed.
+
 
 ---
 

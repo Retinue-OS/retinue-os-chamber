@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+"""Check that every baseline commit a held draft names is still reachable from `main`.
+
+Why this exists
+---------------
+A held write-up in `drafts/` is a measurement with a date and a commit on it. The
+c206 drain rule already says to re-verify one before filing, and cycles 224, 242,
+246, 247 and 248 each did — by re-fetching the cited files and re-reading the
+cited line numbers. Every one of those passes asked the same question: *did the
+content move?*
+
+None asked whether the **commit the write-up names** is still reachable. On
+2026-07-29 at 12:45Z the maintainer replaced `retinue-os/retinue`'s `main` with a
+line that has no common ancestor with the previous one. Nothing any held draft
+cites changed by a single byte — and all three held baselines (`26297a2`) went
+off the graph at once:
+
+    $ gh api repos/Retinue-OS/retinue/compare/main...26297a2 --jq .status
+    404: No common ancestor between main and 26297a2.
+
+The object still resolves through the API, so every probe still re-runs and every
+line number still holds. But an issue filed against that baseline names a commit
+its reader cannot check out of a fresh clone, and no content check can see it.
+
+**A baseline is a pointer, and a pointer can be invalidated with no file
+changing.** That is `pointer-check.py`'s question asked about a commit instead of
+a section, and it needs the network, so it lives in its own script.
+
+What it checks
+--------------
+For every **held** draft (frontmatter `status: held`, or `**Held**` in the body —
+filed and superseded drafts are skipped, since their baselines are history rather
+than a claim someone is about to publish), every commit-ish it names in a
+baseline context is resolved against the repository and classified:
+
+* reachable from the default branch  -> fine
+* resolves, but not reachable        -> off the current line (the c254 case)
+* does not resolve at all            -> a typo, or a deleted fork
+
+The **problem** reported is one per draft, not one per token: *this held draft
+names no baseline a reader could check out.* A write-up accumulates re-verification
+sections, each naming the commit it was measured at, and those older mentions stay
+true as history — flagging them would make the check noisy in exactly the files
+that are best maintained. What matters is whether at least one live commit is on
+the page.
+
+Usage
+-----
+    python3 tools/baseline-check.py [chamber-root] [--repo OWNER/NAME]
+
+Default repo is `Retinue-OS/retinue`, which is where every held draft currently
+points. A draft targeting another repo is checked against the wrong one — stated
+plainly rather than guessed at, because a check that silently uses the wrong
+repository is worse than no check. Fix by passing `--repo` when that changes.
+
+Exit status is 1 if any held draft names no reachable baseline at all.
+
+Instrument discipline
+---------------------
+Per c227 a new instrument gets a known-good and a known-bad case before its first
+result is believed. Two layers run on every invocation and the script refuses to
+report on real files if either fails:
+
+1. offline fixtures for the extractor and the held/filed classifier;
+2. a **live** pair against the repository — the current tip of the default branch
+   must come out `reachable`, and an all-zero SHA must come out `unknown`. An
+   all-pass from a checker whose probe is broken looks exactly like a clean run.
+"""
+
+import json
+import os
+import re
+import subprocess
+import sys
+
+DEFAULT_REPO = "Retinue-OS/retinue"
+
+# A draft is live for this check while it is held; filed/superseded ones are
+# history. `status: held` in frontmatter, or `**Held**` in prose (the older form).
+HELD = re.compile(r"(?im)^status:\s*held\b|\*\*Held\*\*")
+FILED = re.compile(r"(?im)^status:\s*(?:\*\*)?filed\b|^status:\s*\*\*FILED")
+
+# Commit-ish tokens, taken only from lines that are talking about a baseline.
+# The context test is what keeps conversation-thread ids and other hex-looking
+# tokens out; `?ref=` is included because those lines are commands a reader runs.
+CONTEXT = re.compile(
+    r"(?i)baseline|verified_against|read_against|measured\s+(?:now\s+)?against|"
+    r"re-verified[^\n]*against|\bmain\b[^\n]*@|@\s*`|[?&]ref="
+)
+SHA = re.compile(r"\b([0-9a-f]{7,40})\b")
+# Tokens that are hex but never a commit here.
+NOT_A_SHA = re.compile(r"(?i)thread|conversation|issue #|blob\b")
+
+
+def held_drafts(root):
+    """Tracked files under drafts/ that are held rather than filed."""
+    out = subprocess.run(
+        ["git", "-C", root, "ls-files", "drafts/*.md"], capture_output=True, text=True
+    )
+    for path in [p for p in out.stdout.split("\n") if p]:
+        try:
+            text = open(os.path.join(root, path), encoding="utf-8").read()
+        except OSError:
+            continue
+        if is_held(text):
+            yield path, text
+
+
+def is_held(text):
+    """Held wins over filed only when no filed status is present."""
+    if FILED.search(text):
+        return False
+    return bool(HELD.search(text))
+
+
+def baselines(text):
+    """Yield distinct commit-ish tokens named in a baseline context."""
+    seen = []
+    for line in text.split("\n"):
+        if not CONTEXT.search(line) or NOT_A_SHA.search(line):
+            continue
+        for sha in SHA.findall(line):
+            if sha not in seen:
+                seen.append(sha)
+    return seen
+
+
+def gh_json(path):
+    """GET one API path. Returns parsed JSON, or None on any failure."""
+    out = subprocess.run(
+        ["gh", "api", path], capture_output=True, text=True
+    )
+    if out.returncode != 0:
+        return None
+    try:
+        return json.loads(out.stdout)
+    except json.JSONDecodeError:
+        return None
+
+
+def classify(repo, sha, cache):
+    """'reachable' | 'unreachable' | 'unknown' for one commit-ish."""
+    if sha in cache:
+        return cache[sha]
+    verdict = "unknown"
+    if gh_json(f"repos/{repo}/commits/{sha}"):
+        cmp_ = gh_json(f"repos/{repo}/compare/HEAD...{sha}")
+        # 'identical'/'behind' mean the tip contains it; 'ahead'/'diverged' and a
+        # 404 (no common ancestor) mean it is off the current line.
+        status = (cmp_ or {}).get("status")
+        verdict = "reachable" if status in ("identical", "behind") else "unreachable"
+    cache[sha] = verdict
+    return verdict
+
+
+HELD_FM = '---\nstatus: held — rank 1\n---\nMeasured against `main` @ `26297a2`.\n'
+FILED_FM = '---\nstatus: filed 2026-07-27 as retinue#39\n---\nBaseline `26297a2`.\n'
+HELD_PROSE = "Written c198. **Held**, not filed.\nBaseline recorded: `abc1234`.\n"
+NOISE = "Escalated on dashboard thread e5f4f86f (c201).\nNo baseline here.\n"
+CMD = "    gh api 'repos/x/y/contents/f.py?ref=deadbee' -q .content\n"
+# A well-maintained write-up names its history *and* its current baseline; both
+# must be extracted, and the aggregation is what decides.
+LAYERED = (
+    "Measured against `main` @ `26297a2` (c224).\n"
+    "Re-baselined c254. New baseline: `50b5be890`, current `main`.\n"
+)
+
+
+def self_test():
+    checks = [
+        is_held(HELD_FM),
+        is_held(HELD_PROSE),
+        not is_held(FILED_FM),
+        not is_held(NOISE),
+        baselines(HELD_FM) == ["26297a2"],
+        baselines(HELD_PROSE) == ["abc1234"],
+        baselines(NOISE) == [],  # a thread id is not a baseline
+        baselines(CMD) == ["deadbee"],  # a ?ref= in a runnable command is
+        baselines(LAYERED) == ["26297a2", "50b5be890"],  # history and current
+    ]
+    return all(checks)
+
+
+def live_test(repo, cache):
+    """Known-good and known-bad against the real repository."""
+    head = gh_json(f"repos/{repo}/commits/HEAD")
+    if not head:
+        return False, "cannot reach the repository"
+    good = classify(repo, head["sha"], cache)
+    bad = classify(repo, "0" * 40, cache)
+    if good != "reachable":
+        return False, f"tip of {repo} classified {good}, expected reachable"
+    if bad != "unknown":
+        return False, f"all-zero SHA classified {bad}, expected unknown"
+    return True, head["sha"]
+
+
+def main():
+    args = [a for a in sys.argv[1:]]
+    repo = DEFAULT_REPO
+    if "--repo" in args:
+        i = args.index("--repo")
+        repo = args[i + 1]
+        del args[i : i + 2]
+    root = args[0] if args else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    if not self_test():
+        print("self-test FAILED — refusing to report on real files", file=sys.stderr)
+        return 2
+    cache = {}
+    ok, detail = live_test(repo, cache)
+    if not ok:
+        print(f"live probe FAILED ({detail}) — refusing to report", file=sys.stderr)
+        return 2
+    print(f"self-test: pass (9 offline cases, live pair against {repo} @ {detail[:9]})")
+
+    problems, drafts, probed = [], 0, 0
+    for path, text in held_drafts(root):
+        drafts += 1
+        verdicts = {}
+        for sha in baselines(text):
+            probed += 1
+            verdicts[sha] = classify(repo, sha, cache)
+        live = [s for s, v in verdicts.items() if v == "reachable"]
+        if live:
+            print(f"  ok  {path}: {', '.join(live)} on {repo}")
+        else:
+            detail = ", ".join(f"{s} ({v})" for s, v in verdicts.items()) or "none named"
+            problems.append(
+                f"NO-BASELINE  {path}: names no commit a reader can check out "
+                f"of {repo} — {detail}"
+            )
+
+    if not problems:
+        print(f"{drafts} held draft(s), {probed} baseline reference(s), 0 problems.")
+        return 0
+    print()
+    for line in problems:
+        print(line)
+    print(f"\n{drafts} held draft(s), {probed} baseline reference(s), {len(problems)} problem(s).")
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())
