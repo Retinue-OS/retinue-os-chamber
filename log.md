@@ -1681,9 +1681,12 @@ repos since 2026-07-18. No open PR anywhere, no discussions, nothing inbound eve
 is still the owner's retinue#25 comment at **02:49:42Z**, so the c219 bound stands
 at 2026-07-30T02:49:42Z and the tick stays 1800 s. Framework `main` unmoved at
 `26297a2` (90 h) — the c206 drain is empty for the fourteenth consecutive cycle.
-Drafts: none in a cool-off class. Re-confirmed `ara-android` is **private** and so
-correctly outside the four-repo census, after `gh repo list` surfaced it beside the
-public four.
+Drafts: none in a cool-off class. Re-confirmed that the org's fifth repository is
+**private** and so correctly outside the four-repo census, after `gh repo list`
+surfaced it beside the public four. (Its name was written into this entry and into
+`projects/public-surface.md` on the first pass and removed before the second commit —
+`private-name-check.py` caught it, which is the c230 instrument doing exactly its
+job against the cycle that ran it.)
 
 ### Pickup — the c184 slot, spent on rank 1 of the held queue
 

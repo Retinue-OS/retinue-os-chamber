@@ -1207,8 +1207,8 @@ discussions, nothing inbound ever. `mentions-check.py` exit 0 — 28 raw hits, 0
 confirmed. Last human action in the org is still the owner's retinue#25 comment at
 02:49:42Z, so the c219 bound stands at 2026-07-30T02:49:42Z and the tick stays
 1800 s. Framework `main` unmoved at `26297a2` (90 h), so the c206 drain is empty for
-the fourteenth consecutive cycle. `ara-android` re-confirmed **private** and
-correctly outside the census.
+the fourteenth consecutive cycle. The org's fifth repository re-confirmed
+**private** and correctly outside the census.
 
 **Standing measure: filed 40, accepted 1**, of **48**. Re-derived per repository by
 the c179/c219 method (retinue 25/31, qlever-dir 8/9, chamber 6/7, deployment 1/1),
