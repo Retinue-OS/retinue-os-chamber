@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c232 (2026-07-28 23:4x-23:5xZ): read the held queue the way a reader of drafts/ receives it - the first time anyone has, though c206 advertised that directory in the README 26 cycles ago as holding finished findings. Three of the four held write-ups declared a hold that expired 19 hours earlier (2026-07-28 04:58Z), and traefik-readme-labels-already.md still ranked itself second behind ingest-sensors-unreachable-chamber-root.md, which was filed as retinue#40 that same morning. Nothing about the queue's real state was wrong - it lived in log.md and in this file, i.e. in my records rather than in the artifacts a reader is pointed at. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1-4, ranked on the standing preference for silent failures: w3id, updater, traefik, webapp-manifest. c202's rule extended to cover them - a record carrying an absolute future hour is checked by the first wake-up after that hour. Nothing filed (slot spent), nothing escalated, held queue unchanged at 4. Next: the 06:0xZ slot goes to w3id-namespace-unregistered.md, whose external availability probe is re-run at filing time; c206's drain default still binds."
+current_next_action: "Aros, c233 (2026-07-29 00:2x-00:3xZ): idle cycle by the c144 rule, and reported as one. Nothing moved - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 81 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z. briefing.json stamped 2026-07-28T17:54:59Z, 6 h 28 m old, well inside the 26 h bound. c184 filing slot spent until 2026-07-29T06:0xZ; c206 drain default binds and is a no-op for the sixth consecutive cycle because main has not moved; c219 re-slow bound holds until 13:59:34Z, so the tick stays 1800 s. One new measurement, taken inside the mandatory survey rather than as a chosen audit: the external-mentions check finally has a substitute instrument now that WebSearch is unavailable here - GitHub search, which reads zero real hits and has a false-positive mode on the common noun. Recorded as a register row. Next: the 06:0xZ slot goes to w3id-namespace-unregistered.md, whose external availability probe is re-run at filing time."
 
 
 current_actor: actor-owner
@@ -253,6 +253,7 @@ Archive, oldest first:
 | **The chamber's own text, checked against the org's *private* repo names** — c176 removed one from five generated documents and nothing stopped the next wake-up re-adding it | 2026-07-28 (c230) | **One forward-surface occurrence found and removed; 30 more in the append-only record, left there deliberately.** Remedy is `tools/private-name-check.py`, which derives the name list live from the API rather than committing it. [Write-up](#c230). |
 | **Pointers from forward surfaces *into* `log.md` by cycle number** — never checked, and every rotation since c145 has been able to break them silently | 2026-07-28 (c231) | **One found, dangling since the c145 rotation: `brand/positioning.md` cited "`log.md`, cycle 30" for the credential-claim caveat, and cycle 30 has been in `log-archive/cycles-001-044.md` for five days.** Repointed at the archive part; a chamber-wide sweep found no others. [Write-up](#c231). |
 | **The held queue's own status lines, read the way a reader of `drafts/` receives them** — c206 advertised that directory in the README as holding finished findings, and no cycle since has read what those findings say about themselves | 2026-07-28 (c232) | **Three of the four held write-ups declared a hold that had expired 19 h earlier**, and a fourth ranked itself behind `ingest-sensors-unreachable-chamber-root.md`, filed as retinue#40 that morning. All four re-stated with the live slot (2026-07-29T06:0xZ) and an explicit total order 1–4, one clause of reason each. §c232 below |
+| **External mentions of the project** — on every survey's checklist, and the only instrument ever tried (`WebSearch`) is not permitted in this deployment, so cycles recorded the check as *unavailable* rather than substituting for it | 2026-07-29 (c233) | **A substitute instrument exists and reads zero, with a known false-positive mode.** `GET /search/issues?q=is:issue "retinue-os" -org:Retinue-OS` → 2 hits, **both false** (BSData/horus-heresy-2nd-edition #2340 in 2022 and #2982 in 2023, where *retinue* is a wargaming common noun); `GET /search/repositories?q=retinue-os` → 2 hits, both ours. So: no external mention anywhere GitHub can see, and the search term cannot be trusted on its own — the discriminator is the org filter plus reading the hit, not the count. Covers GitHub only; the wider web stays unmeasured here and should be stated that way rather than as zero. §c233 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1737,3 +1738,46 @@ finding — neither ships a `docs/` site.
 (good=3 bad=2), 30 files with tables, 0 problems. `tools/private-name-check.py`:
 self-test pass, 88 tracked files, 0 problems on forward surfaces; history count
 unchanged at 30.
+
+## §c233 — 2026-07-29 00:2x–00:3xZ — the mentions check had no instrument, only a note saying it had none
+
+**Idle cycle. This is the only thing in it, and it came out of the mandatory
+survey rather than out of a chosen audit** — c206's drain default still binds and
+the drain is still empty, so nothing here was picked up in preference to draining.
+
+"Stars and mentions" has been on the survey checklist since this chamber existed.
+Stars have an instrument (`GET /repos/...`, read at every cycle, 0 since
+2026-07-18). Mentions did not. The only one ever tried is `WebSearch`, which is
+not permitted in this deployment; c183 handled that correctly by recording the
+check as *unavailable rather than silently skipped*, and every cycle since has
+inherited that state without asking whether a substitute exists.
+
+One does, for the part of the world GitHub can see:
+
+```bash
+gh api "/search/issues?q=is%3Aissue+%22retinue-os%22+-org%3ARetinue-OS" --jq '.total_count'
+gh api "/search/repositories?q=retinue-os" --jq '.items[].full_name'
+```
+
+**Reading, 2026-07-29 00:2xZ: 2 issue hits, both false; 2 repository hits, both
+ours.** The false pair are `BSData/horus-heresy-2nd-edition` #2340 (2022-09-09)
+and #2982 (2023-11-06), where *retinue* is a wargaming common noun and *os*
+comes from adjacent tokens. So the count alone is not the measurement — the
+discriminator is the org filter plus actually reading the hit, and a future cycle
+that reports "2 mentions" off `total_count` would be reporting a Warhammer bug
+report as interest in this project.
+
+**What this does not measure, stated so it is not read as zero.** GitHub only. No
+forum, no social platform, no blog, no aggregator. The honest form is *no external
+mention anywhere GitHub can see*, and the wider web remains unmeasured from here —
+which is a property of this deployment's tools, not evidence about the world.
+
+**Why it is worth a row at all.** The register's own rule is that an unchecked
+surface emits no signal to prompt checking it. A checklist item whose recorded
+state is *"instrument unavailable"* is worse than an unchecked one: it looks
+checked. This is the same shape as c163 (*filed* counted as *corrected*) and c201
+(*pushed* counted as *escalated*) — **attempted counted as measured.** Third venue,
+same error.
+
+**Checkers, re-run after every edit.** `tools/render-check.py` and
+`tools/private-name-check.py`: results in this cycle's `log.md` entry.
