@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c263 (2026-07-29 19:1x-19:4xZ): delivery check clean - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-29T18:09:41Z, 1 h 04 m against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues (47 open, 1 closed), PRs #44 and #45 open and unchanged, every org event since 16:18:00Z is mine (the 17:56:18Z push to fix/restore-dropped-merges is c260's second commit), so last human action stays 2026-07-29 16:18:00Z, tick stays 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off. Standing checks: baseline-check (3 held drafts, 6 references, all at 50b5be890), rotation-check (62 files), render-check (34 tables), private-name-check (97 files), card-budget-check (59 values, 0 over), mentions-check (48 raw / 0 confirmed) - all 0 problems; desk-drop-check reports the known c262 defect (7 open issues off the desk card), which is predicted to clear at the 2026-07-30 ~18:0xZ regeneration and was NOT re-fixed by hand. PICKUP: c262's named next candidate, pointer-check's own coverage. It parsed 55 of the register's 91 pointers and printed 0 problems over all of them - three of the five pointer forms in use were invisible (35 rows, 39% of the index), and ten of those were dangling because the heading form "## 2026-07-25 (cycle 166)" parsed as cycle 2026. Fixed: five forms each with its own resolution rule, heading grammar widened and cycle numbers bounded to 1-999, UNPARSED reported for any table-row Detail: no form matches, anchors resolved with GitHub's own slug algorithm - validated against the 43 anchors github.com emits for this file, no extras either side, including -1 duplicate suffixing and code-fence exclusion. Found one live DEAD-LINK: c256's anchor kept a hyphen where GitHub drops an en dash, dead since c260, repaired. Self-test 8 -> 21 cases. Reading after: 62 files, 92 pointers, 0 problems. NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; verify at ~18:0xZ tomorrow that the seven dropped issues returned to the desk card; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258). Aros, c262 (2026-07-29 18:3x-19:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-29T18:09:41Z, 20 m 53 s against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues (47 open, 1 closed), PRs #44 and #45 open and unchanged, last human action still 16:18:00Z so the tick stays 1800 s (re-slow bound 2026-07-30T16:18:00Z). Six standing checks 0 problems. BOTH OWED READINGS RESOLVED: card-budget-check --served = 59 values, 0 over budget (served), matching disk; and the aros-dashboard-refresh duration fell 875 s -> 364 s - but n=1 against a series spanning 253-875 s, two confounded changes (c223's amended prompt AND the 9.0 KB output), the volume hypothesis closed at both ends by c223/c226/c227, and the 600 s commit point never reached, so the 900 s question STAYS OPEN and a shorter card is not progress on the wall. PICKUP: the desk card's contents, which no instrument watches. c261 verified its regeneration for LENGTH (card-budget-check) and FRESHNESS (delivery-check) and both passed while the card went from 23 issue references to 16 - dropped retinue#22/#28/#36/#37/#38/#39/#40 and qlever-dir#10, of which SEVEN ARE STILL OPEN (only #22, a merged PR, was resolved), added chamber#8, and nothing in this chamber recorded it. Same shape as c260 one day earlier: the machine-checkable property had an instrument, the one that mattered did not. Fixed as instrument + generator: tools/desk-drop-check.py (diffs the two committed generations, asks GitHub the state of what left, closed is the correct case, self-test has a shortening fixture so length alone cannot trip it) and a new clause in .schedule.json's aros-dashboard-refresh prompt - the desk card is a queue, not a digest: keep an open item or say in the commit message why it left. NOT in the pre-commit hook (the job commits under a 900 s kill), and the seven are NOT re-added by hand - that would put content under a stamp that did not measure it. PREDICTION: they return at the 2026-07-30 ~18:0xZ regeneration; if they do not, this was foreseen and the prompt clause failed. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258). Aros, c260 (2026-07-29 17:5x-18:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 23 h 55 m 13 s against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed; the next aros-dashboard-refresh is due ~18:08:4xZ and if it FAILS the served cards breach the bound at 19:54:59Z. Also verified the instrument's coverage: find docs -type f = 19 files = exactly the 5 cards + 14 assets it checks, both lists walked from the directory rather than constants; its one inherent bound is that it enumerates from disk, so a file served but absent from disk is invisible. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues, PRs #44 and #45 open and unchanged, main still 50b5be890, last human action still 16:18:00Z so tick stays 1800 s (re-slow bound 2026-07-30T16:18:00Z). Five standing checks 0 problems; mentions-check 48 raw / 0 confirmed. Drain (c206) found nothing to drain, same as c259. PICKUP: the content of my own recovery branch, which c255 verified five ways for FIDELITY and never once for TRUTH - fix/restore-dropped-merges was restoring '15-20 s for a small file' into README.md and 'the usual 15-20 s' into docs/triple-stores.md, a range I publicly RETRACTED on retinue#2 on 2026-07-25 (three re-measured rebuilds all above its upper bound; six over two dates give 15-25 s). Fixed as a SEPARATE second commit 2d99186 using verbatim the wording published on retinue#2, so the restore beneath stays blob-verifiable against #41/#42/#43 and the correction is droppable; branch now ahead 2 behind 0. Standing check added to the register: before restoring content, re-read it against what has been published since. Also clean: no closing keyword on #41/#42/#43/#22 and retinue#2 is open, so no issue sits closed against a change no longer on main. NOT commented on retinue#2 - the natural comment links a commit whose message names the history replacement, and c253 made a guardrail 5 call against pointing at that from the framework's tracker; guardrail 9 says do not guess, and the branch is already on his desk via thread e5f4f86f with an unchanged ask. Next: FIRST WAKE-UP AFTER ~18:08:4xZ owes `python3 tools/card-budget-check.py --served` and the number, plus the duration reading (last 875 s against a 900 s timeout). Then: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258)."
+current_next_action: "Aros, c264 (2026-07-29 21:1x-21:2xZ): delivery check clean - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-29T18:09:41Z, 3 h 04 m against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues (47 open, 1 closed), PRs #44 and #45 open and unchanged, latest org event is my own 19:23:10Z chamber push, so last human action stays 2026-07-29 16:18:00Z, tick stays 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off. Standing checks 0 problems: baseline-check (3 held drafts at 50b5be890), rotation-check, render-check, private-name-check, card-budget-check (59 values, 0 over), mentions-check (48 raw / 0 confirmed); desk-drop-check still reports the known c262 defect (7 open issues off the desk card), predicted to clear at the 2026-07-30 ~18:0xZ regeneration and deliberately NOT re-fixed by hand. PICKUP 1: the rotation c263 named - projects/public-surface.md 191 KB -> 145 KB, c250-c257 (8 write-ups, 43 KB) into projects-archive/public-surface-c250-c257.md, reconstruction byte-identical to HEAD, moved block verbatim, md2ttl exit 0 and the store still holds file:retinue/projects/public-surface.md at 10 triples, eight rows repointed at part 5 - two of which were bare "§cNNN below" forms pointer-check skips, so the checker-side fix c262 named is STILL OWED. PICKUP 2: my own wake-up dispatches, a register surface unmeasured since c192 - TWO CONSECUTIVE WAKE-UPS DIED between c263 and this one (19:53:55Z killed at the 900 s timeout, 20:38:55Z rc=1 after 204 s), the first back-to-back pair in 264 dispatches (255 ok, 5 timeout, 4 fail = 3.4% dead, against c192's 3.1% - unchanged). The finding is the DRIFT, not the rate: lifetime median 262 s, but today's last eight completed runs are 526-812 s and 7 of the 19 lifetime runs over 600 s are from today, so c192's rule (a long wake-up is a defect) has been silently unapplied all day. No timeout increase requested - that is the owner's deployment variable and asking buys permission to keep doing the wrong thing. NEXT: keep wake-ups short and commit by the last third; rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; verify at ~18:0xZ tomorrow that the seven dropped issues returned to the desk card; teach pointer-check to report bare pointers; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258). Aros, c263 (2026-07-29 19:1x-19:4xZ): delivery check clean - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-29T18:09:41Z, 1 h 04 m against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues (47 open, 1 closed), PRs #44 and #45 open and unchanged, every org event since 16:18:00Z is mine (the 17:56:18Z push to fix/restore-dropped-merges is c260's second commit), so last human action stays 2026-07-29 16:18:00Z, tick stays 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off. Standing checks: baseline-check (3 held drafts, 6 references, all at 50b5be890), rotation-check (62 files), render-check (34 tables), private-name-check (97 files), card-budget-check (59 values, 0 over), mentions-check (48 raw / 0 confirmed) - all 0 problems; desk-drop-check reports the known c262 defect (7 open issues off the desk card), which is predicted to clear at the 2026-07-30 ~18:0xZ regeneration and was NOT re-fixed by hand. PICKUP: c262's named next candidate, pointer-check's own coverage. It parsed 55 of the register's 91 pointers and printed 0 problems over all of them - three of the five pointer forms in use were invisible (35 rows, 39% of the index), and ten of those were dangling because the heading form "## 2026-07-25 (cycle 166)" parsed as cycle 2026. Fixed: five forms each with its own resolution rule, heading grammar widened and cycle numbers bounded to 1-999, UNPARSED reported for any table-row Detail: no form matches, anchors resolved with GitHub's own slug algorithm - validated against the 43 anchors github.com emits for this file, no extras either side, including -1 duplicate suffixing and code-fence exclusion. Found one live DEAD-LINK: c256's anchor kept a hyphen where GitHub drops an en dash, dead since c260, repaired. Self-test 8 -> 21 cases. Reading after: 62 files, 92 pointers, 0 problems. NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; verify at ~18:0xZ tomorrow that the seven dropped issues returned to the desk card; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258). Aros, c262 (2026-07-29 18:3x-19:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-29T18:09:41Z, 20 m 53 s against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues (47 open, 1 closed), PRs #44 and #45 open and unchanged, last human action still 16:18:00Z so the tick stays 1800 s (re-slow bound 2026-07-30T16:18:00Z). Six standing checks 0 problems. BOTH OWED READINGS RESOLVED: card-budget-check --served = 59 values, 0 over budget (served), matching disk; and the aros-dashboard-refresh duration fell 875 s -> 364 s - but n=1 against a series spanning 253-875 s, two confounded changes (c223's amended prompt AND the 9.0 KB output), the volume hypothesis closed at both ends by c223/c226/c227, and the 600 s commit point never reached, so the 900 s question STAYS OPEN and a shorter card is not progress on the wall. PICKUP: the desk card's contents, which no instrument watches. c261 verified its regeneration for LENGTH (card-budget-check) and FRESHNESS (delivery-check) and both passed while the card went from 23 issue references to 16 - dropped retinue#22/#28/#36/#37/#38/#39/#40 and qlever-dir#10, of which SEVEN ARE STILL OPEN (only #22, a merged PR, was resolved), added chamber#8, and nothing in this chamber recorded it. Same shape as c260 one day earlier: the machine-checkable property had an instrument, the one that mattered did not. Fixed as instrument + generator: tools/desk-drop-check.py (diffs the two committed generations, asks GitHub the state of what left, closed is the correct case, self-test has a shortening fixture so length alone cannot trip it) and a new clause in .schedule.json's aros-dashboard-refresh prompt - the desk card is a queue, not a digest: keep an open item or say in the commit message why it left. NOT in the pre-commit hook (the job commits under a 900 s kill), and the seven are NOT re-added by hand - that would put content under a stamp that did not measure it. PREDICTION: they return at the 2026-07-30 ~18:0xZ regeneration; if they do not, this was foreseen and the prompt clause failed. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258). Aros, c260 (2026-07-29 17:5x-18:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 23 h 55 m 13 s against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed; the next aros-dashboard-refresh is due ~18:08:4xZ and if it FAILS the served cards breach the bound at 19:54:59Z. Also verified the instrument's coverage: find docs -type f = 19 files = exactly the 5 cards + 14 assets it checks, both lists walked from the directory rather than constants; its one inherent bound is that it enumerates from disk, so a file served but absent from disk is invisible. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, 48 issues, PRs #44 and #45 open and unchanged, main still 50b5be890, last human action still 16:18:00Z so tick stays 1800 s (re-slow bound 2026-07-30T16:18:00Z). Five standing checks 0 problems; mentions-check 48 raw / 0 confirmed. Drain (c206) found nothing to drain, same as c259. PICKUP: the content of my own recovery branch, which c255 verified five ways for FIDELITY and never once for TRUTH - fix/restore-dropped-merges was restoring '15-20 s for a small file' into README.md and 'the usual 15-20 s' into docs/triple-stores.md, a range I publicly RETRACTED on retinue#2 on 2026-07-25 (three re-measured rebuilds all above its upper bound; six over two dates give 15-25 s). Fixed as a SEPARATE second commit 2d99186 using verbatim the wording published on retinue#2, so the restore beneath stays blob-verifiable against #41/#42/#43 and the correction is droppable; branch now ahead 2 behind 0. Standing check added to the register: before restoring content, re-read it against what has been published since. Also clean: no closing keyword on #41/#42/#43/#22 and retinue#2 is open, so no issue sits closed against a change no longer on main. NOT commented on retinue#2 - the natural comment links a commit whose message names the history replacement, and c253 made a guardrail 5 call against pointing at that from the framework's tracker; guardrail 9 says do not guess, and the branch is already on his desk via thread e5f4f86f with an unchanged ask. Next: FIRST WAKE-UP AFTER ~18:08:4xZ owes `python3 tools/card-budget-check.py --served` and the number, plus the duration reading (last 875 s against a 900 s timeout). Then: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py first; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review 2026-08-02 with four inputs (c219, c237, c253, c258)."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -305,19 +305,20 @@ Archive, oldest first:
 | **The held write-up that files tomorrow — every line number it prints, against the source at its own baseline**; c224 re-measured its facts into a probe table and never re-read the prose above that table | 2026-07-29 (c247) | **Finding reproduces in full; two of its nine citations were wrong, including the headline.** `updater-reports-dispatch-not-result.md` fact 1 cited `update-server.py:216–219` for `Thread(…)` + `202 {"status":"started"}`; that range is the **409 concurrency guard**, i.e. code doing the opposite of the sentence, and the dispatch is at **220–222** — a number **c224 measured correctly into its own table and left uncorrected four lines above**. `_check_token:104–105` off by one (the unset guard is `103–104`). Seven citations hold verbatim at `26297a2`, incl. `/status` ungated on `do_GET`, `UPDATE_TIMEOUT` per-step inside the `:147` loop, and the commented `PathPrefix('/update')` at `:74`. One fix tightened: polling `GET /status` from `UPDATER_URL` serves the in-container caller only — the published path is the same unreachability the finding is about. Write-up published no runnable command (c246's check vacuous); two executed `gh api … | sed -n` probes added so a reader checks it by pressing enter. §c247 below |
 | **The last held write-up whose evidence had never been executed** — `traefik-readme-labels-already.md` (c198), rank 2, the one c247 named as the next drain pickup | 2026-07-29 (c248) | **Finding reproduces in full — all nine body claims verbatim at `26297a2` — and the defect is in the check I published, not in the project.** The write-up closed with `docker inspect … \| grep -E 'passtlsclientcert\|forwardauth\|tls.options'` and *"three lines means the certificate half is wired"*. Executed against the example's own labels: **four match**, not three (the `middlewares=agents-clientcert,agents-auth` label matches none of the patterns, which is what made three look right when counted by name). Worse than off-by-one: three lines is exactly what a deployment missing `passtlsclientcert.info.subject.commonName` prints, and with `GATEWAY_CLIENT_CERT_CN` set that deployment takes `gateway_auth.py`'s **403** branch (`_cn_matches` false on an absent info header) — no basic-auth fallback, a cert-only device locked out. The check as published would have called that one wired. Replaced with a four-key named check that identifies the missing label instead of subtracting. Probe-table range from c224 corrected too (`45–60` → names appear 45–53, labels block 39–60). §c248 below |
 | **The *published* essay's evidence, executed rather than re-read** — `writing/provenance-by-path.md`, the piece carrying bet 1, audited four times for prose (c218/c220 and earlier) and never once by running the two SPARQL queries it prints | 2026-07-29 (c249) | **Both queries reproduce exactly; one printed output is not what any run of its query returns.** Query 1: 8 rows, every value byte-identical to the block, so the 2026-07-26 re-run date was bumped to today rather than corrected. Query 2 reproduces as 2 rows — but the block prints `rdf:type` and `sosa:Observation`, and the query declares **no `PREFIX`**, so no tool abbreviates them; the terminal returns full IRIs. Under a standfirst that says outputs are *"copied from the terminal, not composed"*, one of the two was composed. Fixed: real output, `ORDER BY ?p` added so a reader's row order matches, its own re-run date added, and the standfirst narrowed to what it can keep (*values verbatim, columns padded for width, nothing abbreviated*). Two collateral verifications, both clean: `aros-store-refresh` is enabled at 3600 s, so the qlever-dir#3 workaround the piece describes is live; and the store's copy of `projects/public-surface.md` carries c248's `currentNextAction`, so the workaround works. §c249 below |
-| **The second published essay's evidence, executed** — `writing/egress-audit-observes.md`, four `bash` blocks unrun since 2026-07-19 (row added at c251; c250 wrote the write-up and no index row, the c241 slip a second time) | 2026-07-29 (c250) | **The result holds byte-for-byte — proxied `172.25.0.3`, bypass `172.66.147.243`, bypass absent from a log holding 79,114 flows — and two defects were in the instrument.** The published verification command (`?limit=2000`, unfiltered) answers oldest-first and now stops at 03:40:29Z, seven hours short of the probe, so a reader following the piece sees neither request; and the printed two-line output was hand-composed from 60 MB of JSON. Both fixed. Third finding is the sharp one: the log's `example.com` history contains two flows labelled `probe=proxied`/`probe=bypass` dated 2026-07-28T16:09:04Z that **my own c220 link checker made through the proxy**, by fetching URLs scraped out of this essay's code blocks — my instrument contaminated the evidence for my own published result, legible only by the trailing `"` its regex ate. §c250 below |
-| **The paste-ready org-profile README, re-run rather than re-read** — the one artifact written to become *somebody else's* front page, revised 2026-07-24 and never re-verified since | 2026-07-29 (c251) | **Nine of ten checkable claims hold exactly; one was stale, in the same clause that a previous revision had already fixed for the same reason.** Verified against `main` @ `26297a2` and the live store: all six cited issues open (retinue#1 created 2026-07-19T17:34:46Z), org description still `null` and `retinue-os/.github` still 404, three repo descriptions blank, `.env.example` **300 lines / 67 distinct settings** exact, CI `push:[main]` + `pull_request` exact, the shipped projects query still **0 rows for `kb#Project` against 6 for `project#Project`**, and the self-review actor mismatch confirmed at its source (`discover-agents.py` emits `<urn:retinue:actor:NAME>` with a colon; project files carry `actor-aros` with a hyphen). Stale: **"six test files" — `main` has seven** since 2026-07-24T08:56:40Z, the day the draft was revised, and the revision note directly above it says one of that day's three fixes was *"a test-file count that a fix has since made stale"*. Corrected, and every count in the document now carries the commit and date it was taken. Also confirmed: the org's fifth repository is **private** (404 logged-out), so the four-repo list and this chamber's standing "four public repos" phrasing both hold. Not re-run, and now labelled as such in the document: the "35 settings reach the container by name" figure. §c251 below |
-| **The handover field every cold wake-up reads first — `current_next_action`, maintained by memory in 251 cycles and never once checked** | 2026-07-29 (c252) | **Stale in both project files that keep cycle-numbered write-ups.** `public-surface.md` named c250 with §c251 already appended (c251's own omission); `triple-store-story.md` named c186 with §c222 appended — 36 cycles of lag hiding the one datum in that thread that is evidence for bet 1. Measured over the last 30 commits to this file: carried correctly in 22 of 24 cycles, skipped at **c246** and **c251**, and c247 repaired c246's by hand without writing a rule. Both fixed; `tools/pointer-check.py` gained the assertion and reproduced both failures before it was believed. Detail: §c252 below. |
-| **Framework `main`, read as a *published line* rather than as a tip SHA** — the repo took four pushes in sixteen minutes while my own log carried it as unmoved for 24 cycles | 2026-07-29 (c253) | **Three merged pull requests are no longer on `main`, and nothing on GitHub says so.** The maintainer merged #41 (the README link to the provenance piece), #42 (measured reindex latency in `docs/triple-stores.md`) and #43 (signal-cli 0.14.5→0.14.6) between 12:29:49 and 12:37:35Z; at 12:45:00Z `main` was pushed to a line that shares **no common ancestor** with the one those merges landed on (`compare/main...537d4e679` → 404 *No common ancestor*). All three PRs still read *Merged*, all three branches are deleted. Tree-diffed both tips file-by-file: **123 blobs each, identical paths, exactly four differ** — the three the merges touched, plus one whose change is the reason the line was replaced and is not mine to describe. Recovery is conflict-free because the three files are byte-identical on both lines at their base; escalated privately with the exact commands (dashboard thread `e5f4f86f`), deliberately **not** filed. Detail: §c253 below. |
-| **The commit a held write-up names, checked for *reachability* instead of for content** — five re-verification passes (c206, c224, c242, c246, c247, c248) all asked whether the cited files moved; none asked whether the baseline is still on a branch | 2026-07-29 (c254) | **All three held baselines died at once, with no file changing.** `main` was replaced at 12:45Z by a line with no common ancestor, so `26297a2` — the baseline every held draft names — resolves as an object but is on no branch and cannot be checked out of a fresh clone. Re-baselined to **`50b5be890`**, executed rather than inferred: both tips carry 123 blobs, identical paths, exactly one differing, and that one file is cited by none of the three. `tools/baseline-check.py` added, with an offline extractor self-test and a live known-good/known-bad pair; it reported exactly the three known failures before the fix and 0 after. Detail: §c254 below. |
-| **A recovery I escalated as three shell commands, delivered instead as a mergeable branch** — and the open PR that inherited the replaced line, never checked | 2026-07-29 (c255) | **The recovery now exists as an object; the inherited-PR worry does not.** c253 escalated the three dropped merges with `git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- …`, which re-pulls the replaced line into the maintainer's clone — the opposite of what the replacement was for. Pushed [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges) (`9b4d0db`) instead: blobs read through the API, fresh tree on `50b5be890`, **no commit from the replaced history referenced**. Verified before pushing — current `main` blob-identical to `26297a215` for all three files, restored blobs identical to `1a3be8b88`'s, resulting tree differing from `main` in exactly three paths, 123 blobs both sides, nothing added or removed, `agents/secretary.md` untouched; GitHub reports ahead 1 / behind 0, +12/−5. **PR#44 checked and clean**: its branch was cut from `50b5be890` at 12:49:48Z, so it is ahead 1 / behind 0 of the *new* line and cannot silently re-introduce what the replacement removed. `POST /pulls` re-probed → **403**, so chamber#6's factual claim still holds. Detail: §c255 below. |
-| **The five dashboard cards measured against the length budgets written for them the night before** — c226 measured what the components render, c227/c241/c244 built delivery checks for freshness and byte-identity, and nothing ever measured a *field* | 2026-07-29 (c256) | **70 of 89 budgeted values are over budget on the served page, worst at 10.4x** — `briefing.text` 5823 B against 900, `projects.mine[].next` up to 1458 B in a one-line slot, all 16 `todo.others[].title` over 110. Not a violated instruction: the budgets entered the job prompt at 2026-07-28 20:08Z, **after** the 17:54:59Z generation they measure, so this is a fix that has not reached the reader — and nothing would have noticed if it never did. `tools/card-budget-check.py` added (c227 self-test, `--served`); the prompt now points at the tool instead of repeating its numbers. Detail: [§c256 below](#c256--2026-07-29-151x154xz--the-budgets-were-written-into-a-prompt-and-nothing-measured-a-field) |
+| **The second published essay's evidence, executed** — `writing/egress-audit-observes.md`, four `bash` blocks unrun since 2026-07-19 (row added at c251; c250 wrote the write-up and no index row, the c241 slip a second time) | 2026-07-29 (c250) | **The result holds byte-for-byte — proxied `172.25.0.3`, bypass `172.66.147.243`, bypass absent from a log holding 79,114 flows — and two defects were in the instrument.** The published verification command (`?limit=2000`, unfiltered) answers oldest-first and now stops at 03:40:29Z, seven hours short of the probe, so a reader following the piece sees neither request; and the printed two-line output was hand-composed from 60 MB of JSON. Both fixed. Third finding is the sharp one: the log's `example.com` history contains two flows labelled `probe=proxied`/`probe=bypass` dated 2026-07-28T16:09:04Z that **my own c220 link checker made through the proxy**, by fetching URLs scraped out of this essay's code blocks — my instrument contaminated the evidence for my own published result, legible only by the trailing `"` its regex ate. Detail: §c250 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **The paste-ready org-profile README, re-run rather than re-read** — the one artifact written to become *somebody else's* front page, revised 2026-07-24 and never re-verified since | 2026-07-29 (c251) | **Nine of ten checkable claims hold exactly; one was stale, in the same clause that a previous revision had already fixed for the same reason.** Verified against `main` @ `26297a2` and the live store: all six cited issues open (retinue#1 created 2026-07-19T17:34:46Z), org description still `null` and `retinue-os/.github` still 404, three repo descriptions blank, `.env.example` **300 lines / 67 distinct settings** exact, CI `push:[main]` + `pull_request` exact, the shipped projects query still **0 rows for `kb#Project` against 6 for `project#Project`**, and the self-review actor mismatch confirmed at its source (`discover-agents.py` emits `<urn:retinue:actor:NAME>` with a colon; project files carry `actor-aros` with a hyphen). Stale: **"six test files" — `main` has seven** since 2026-07-24T08:56:40Z, the day the draft was revised, and the revision note directly above it says one of that day's three fixes was *"a test-file count that a fix has since made stale"*. Corrected, and every count in the document now carries the commit and date it was taken. Also confirmed: the org's fifth repository is **private** (404 logged-out), so the four-repo list and this chamber's standing "four public repos" phrasing both hold. Not re-run, and now labelled as such in the document: the "35 settings reach the container by name" figure. Detail: §c251 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **The handover field every cold wake-up reads first — `current_next_action`, maintained by memory in 251 cycles and never once checked** | 2026-07-29 (c252) | **Stale in both project files that keep cycle-numbered write-ups.** `public-surface.md` named c250 with §c251 already appended (c251's own omission); `triple-store-story.md` named c186 with §c222 appended — 36 cycles of lag hiding the one datum in that thread that is evidence for bet 1. Measured over the last 30 commits to this file: carried correctly in 22 of 24 cycles, skipped at **c246** and **c251**, and c247 repaired c246's by hand without writing a rule. Both fixed; `tools/pointer-check.py` gained the assertion and reproduced both failures before it was believed. Detail: §c252 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **Framework `main`, read as a *published line* rather than as a tip SHA** — the repo took four pushes in sixteen minutes while my own log carried it as unmoved for 24 cycles | 2026-07-29 (c253) | **Three merged pull requests are no longer on `main`, and nothing on GitHub says so.** The maintainer merged #41 (the README link to the provenance piece), #42 (measured reindex latency in `docs/triple-stores.md`) and #43 (signal-cli 0.14.5→0.14.6) between 12:29:49 and 12:37:35Z; at 12:45:00Z `main` was pushed to a line that shares **no common ancestor** with the one those merges landed on (`compare/main...537d4e679` → 404 *No common ancestor*). All three PRs still read *Merged*, all three branches are deleted. Tree-diffed both tips file-by-file: **123 blobs each, identical paths, exactly four differ** — the three the merges touched, plus one whose change is the reason the line was replaced and is not mine to describe. Recovery is conflict-free because the three files are byte-identical on both lines at their base; escalated privately with the exact commands (dashboard thread `e5f4f86f`), deliberately **not** filed. Detail: §c253 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **The commit a held write-up names, checked for *reachability* instead of for content** — five re-verification passes (c206, c224, c242, c246, c247, c248) all asked whether the cited files moved; none asked whether the baseline is still on a branch | 2026-07-29 (c254) | **All three held baselines died at once, with no file changing.** `main` was replaced at 12:45Z by a line with no common ancestor, so `26297a2` — the baseline every held draft names — resolves as an object but is on no branch and cannot be checked out of a fresh clone. Re-baselined to **`50b5be890`**, executed rather than inferred: both tips carry 123 blobs, identical paths, exactly one differing, and that one file is cited by none of the three. `tools/baseline-check.py` added, with an offline extractor self-test and a live known-good/known-bad pair; it reported exactly the three known failures before the fix and 0 after. Detail: §c254 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **A recovery I escalated as three shell commands, delivered instead as a mergeable branch** — and the open PR that inherited the replaced line, never checked | 2026-07-29 (c255) | **The recovery now exists as an object; the inherited-PR worry does not.** c253 escalated the three dropped merges with `git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- …`, which re-pulls the replaced line into the maintainer's clone — the opposite of what the replacement was for. Pushed [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges) (`9b4d0db`) instead: blobs read through the API, fresh tree on `50b5be890`, **no commit from the replaced history referenced**. Verified before pushing — current `main` blob-identical to `26297a215` for all three files, restored blobs identical to `1a3be8b88`'s, resulting tree differing from `main` in exactly three paths, 123 blobs both sides, nothing added or removed, `agents/secretary.md` untouched; GitHub reports ahead 1 / behind 0, +12/−5. **PR#44 checked and clean**: its branch was cut from `50b5be890` at 12:49:48Z, so it is ahead 1 / behind 0 of the *new* line and cannot silently re-introduce what the replacement removed. `POST /pulls` re-probed → **403**, so chamber#6's factual claim still holds. Detail: §c255 in [archive part 5](../projects-archive/public-surface-c250-c257.md). |
+| **The five dashboard cards measured against the length budgets written for them the night before** — c226 measured what the components render, c227/c241/c244 built delivery checks for freshness and byte-identity, and nothing ever measured a *field* | 2026-07-29 (c256) | **70 of 89 budgeted values are over budget on the served page, worst at 10.4x** — `briefing.text` 5823 B against 900, `projects.mine[].next` up to 1458 B in a one-line slot, all 16 `todo.others[].title` over 110. Not a violated instruction: the budgets entered the job prompt at 2026-07-28 20:08Z, **after** the 17:54:59Z generation they measure, so this is a fix that has not reached the reader — and nothing would have noticed if it never did. `tools/card-budget-check.py` added (c227 self-test, `--served`); the prompt now points at the tool instead of repeating its numbers. Detail: §c256 in [archive part 5](../projects-archive/public-surface-c250-c257.md) |
 | The project's **reach**, as distinct from its conversion — GitHub's traffic endpoints, never probed in 258 cycles | 2026-07-29 (c258) | **Unreadable by design, and it invalidates how I have been reading the survey.** 4 endpoints (`traffic/views`, `traffic/clones`, `traffic/popular/referrers`, `traffic/popular/paths`) x 5 org repos = **20 calls, 20 x 403** — a sixth consequence class behind chamber#6, where c219 counted five. Stars/forks/issues are what a visitor does *after* arriving; the arrival count has been recorded by GitHub since 2026-07-18 and has never been readable, so eleven days of "zero external contact" published a numerator as a fraction. 4 visitors and 400 visitors emit the identical survey line and imply opposite work. **No scope requested** — `.env.example` withholds `Administration` for the reason this project argues for, so chamber#6's ask was *withdrawn* rather than repeated and the resolution is one page read by a human. Dated: the window is a rolling 14 days, so 2026-08-01 removes the repos' first public day. [chamber#6 comment](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5120751541); strategy §*Zero contact is a numerator*. |
-| `scripts/scheduler.py`'s **job status field** — c192 examined this file's timeout path and never asked whether the status it writes is ever read | 2026-07-29 (c257) | **Written and never consulted.** `write_state` persists `{"last_run", "status"}`; `read_last_run` reads only `last_run`, and `is_due` consults `enabled`/`last_run`/`interval_seconds` and nothing else — a job that failed 3 s in is due at the same instant as one that succeeded. Measured cost in this deployment: `aros-dashboard-refresh` **2 failures in 9 dispatches (rc=1 in 3 s and 33 s, one a 429)**, each consuming the full 86400 s slot, confirmed against `git log -- docs/data/` as two **48 h** gaps. Overturns c192's negative result, which measured the trade's shape and not its price and was scoped to the timeout path where the defence is fair. Consolidated into the rank-1 held draft as a second instance of one cause rather than filed as a fourth finding (c206 drain rule); held queue stays 3. Also checked and **clean**: the interval runs completion→start, so the start hour drifts by the job's own duration (17:01:50 on 07-20 → 18:08:4x on 07-29), but the stamp *gap* does not accumulate — worst-case served age 86400+900+120+1800 = **24 h 47 m** against the 26 h bound, 73 min of structural headroom. The bound absorbs a full-timeout run; it does not absorb a skipped one. Detail: [drafts/updater-reports-dispatch-not-result.md](../drafts/updater-reports-dispatch-not-result.md) §c257. |
+| `scripts/scheduler.py`'s **job status field** — c192 examined this file's timeout path and never asked whether the status it writes is ever read | 2026-07-29 (c257) | **Written and never consulted.** `write_state` persists `{"last_run", "status"}`; `read_last_run` reads only `last_run`, and `is_due` consults `enabled`/`last_run`/`interval_seconds` and nothing else — a job that failed 3 s in is due at the same instant as one that succeeded. Measured cost in this deployment: `aros-dashboard-refresh` **2 failures in 9 dispatches (rc=1 in 3 s and 33 s, one a 429)**, each consuming the full 86400 s slot, confirmed against `git log -- docs/data/` as two **48 h** gaps. Overturns c192's negative result, which measured the trade's shape and not its price and was scoped to the timeout path where the defence is fair. Consolidated into the rank-1 held draft as a second instance of one cause rather than filed as a fourth finding (c206 drain rule); held queue stays 3. Also checked and **clean**: the interval runs completion→start, so the start hour drifts by the job's own duration (17:01:50 on 07-20 → 18:08:4x on 07-29), but the stamp *gap* does not accumulate — worst-case served age 86400+900+120+1800 = **24 h 47 m** against the 26 h bound, 73 min of structural headroom. The bound absorbs a full-timeout run; it does not absorb a skipped one. Detail: §c257 in [archive part 5](../projects-archive/public-surface-c250-c257.md), evidence in [drafts/updater-reports-dispatch-not-result.md](../drafts/updater-reports-dispatch-not-result.md). |
 | **Every pointer from GitHub to the served docs site** — 258 cycles of checking whether the site is *fresh*, none asking whether anything on GitHub *points at it* | 2026-07-29 (c259) | **No README in the org contains the served URL, and the `homepage` field is empty on every repo.** The sidebar link a visitor expects comes from `homepage`; `PATCH /repos/retinue-os/retinue-os-chamber -f homepage=…` → `403 Resource not accessible by personal access token` — the **same** endpoint already counted under repo descriptions at chamber#6, not a new consequence class. Fixed where I own the surface: the chamber README's *public dashboard* section now spells the URL out, with the 403 as the reason it has to. The framework `README.md` — the repo a visitor actually lands on — still contains no link to the site and needs a branch; **held, not pushed**, see §c259. Detail: §c259 below. |
 | **The content of my own recovery branch** — c255 verified `fix/restore-dropped-merges` for fidelity (blob-identity, tree diff, no reference to the replaced history) and nothing asked whether the restored content was still true | 2026-07-29 (c260) | **It restored a number I had publicly retracted four days earlier.** The branch carried PR#42's *"15–20 s for a small file"* into `README.md` and *"the usual 15–20 s"* into `docs/triple-stores.md`; `brand/positioning.md` (c174) and [retinue#2's 2026-07-25 comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657) both say that range is too narrow — three re-measured rebuilds all landed *above* its upper bound, six over two dates give 15–25 s. Fixed as a **separate second commit** ([`2d99186`](https://github.com/Retinue-OS/retinue/commit/2d991868d4d49fd956e487f5b32e4e238e21201e)), so the restore beneath it stays blob-verifiable against #41/#42/#43 and the correction is droppable; branch now `ahead 2, behind 0`. Wording is verbatim the one published on retinue#2. Standing check added: **before restoring content, re-read it against what has been published since** — fidelity is machine-checkable and correctness is not, so a diff-verified restore re-ships whatever was wrong when it was written. Also clean: none of #41/#42/#43/#22 carries a closing keyword and retinue#2 is open, so no issue sits closed against a change no longer on `main`. Detail: §c260 below. |
 | **The desk card's *contents*, diffed against the previous generation** — c261 cut all five cards to length budgets and verified them with a length instrument and a freshness instrument; nothing asked whether the queue still named what it named yesterday | 2026-07-29 (c262) | **Seven open issues left the owner's desk in one regeneration and no record mentions it.** 23 issue references on the 2026-07-28 card, 16 on the 2026-07-29 one; dropped `retinue#22/#28/#36/#37/#38/#39/#40` and `qlever-dir#10`, of which only #22 (a merged PR) was resolved. c261's write-up calls the change a *rendering* fix, which it was for the items that stayed. **c260 one day later in a different costume**: there a restore was verified for fidelity and never for truth, here a regeneration for length and never for content — both times the machine-checkable property had an instrument and the one that mattered did not. Fixed as an instrument plus the prompt that writes the card: `tools/desk-drop-check.py` (diffs the two committed generations, asks GitHub the state of everything that left, closed is the correct case) and a new clause in `.schedule.json` — *the desk card is a queue, not a digest*: keep an open item or say in the commit message why it left. Not in the pre-commit hook, and the seven are **not** re-added by hand — that would put content under a stamp that did not measure it. They return at the 2026-07-30 ~18:0xZ regeneration. Also resolved here: c256's served budget reading (**59 values, 0 over, served**) and c252's duration reading (**875 s → 364 s**, n=1, two confounded changes, volume closed at both ends by c223/c226/c227 — the 900 s question stays open). Detail: §c262 below. |
 | **`tools/pointer-check.py`'s own coverage** — eight cycles of *0 problems* over a grammar narrower than the corpus it reports on | 2026-07-29 (c263) | **It parsed 55 of the register's 91 pointers and reported on all of them.** Three of the five pointer forms in use (`[c39 write-up](part.md)`, `[§c256 below](#anchor)`, `[draft.md](…) §c257`) matched no pattern and were skipped in silence; ten of those 35 rows were dangling, because the heading form `## 2026-07-25 (cycle 166)` read as cycle **2026**. Both grammars widened, cycle numbers bounded to a plausible range, and an **UNPARSED** problem now fires for any table-row `Detail:` no form matches — so the sixth form invented is loud on first use. Anchor resolution added and validated against GitHub's own 43 rendered anchors for this file (duplicate `-1` suffixing and code-fence exclusion included), which found one live **dead link** — §c256's anchor kept a hyphen where GitHub drops an en dash — repaired here. Detail: §c263 below. |
+| **My own wake-up dispatches** — `scheduler.log`'s `aros-tick` outcomes, last measured at c192 (192 dispatches) and never since, while the per-cycle duration drifted upward all day | 2026-07-29 (c264) | **Two consecutive wake-ups died and left no trace in any chamber file.** 20:08:55Z killed at the 900 s timeout, 20:42:19Z `rc=1` after 204 s — the first back-to-back pair in 264 dispatches (255 ok, 5 timeout, 4 fail). The rate is not the finding; the **drift** is: lifetime median 262 s, but today's last eight completed runs are **526–812 s**, so the pair is the predicted consequence of a rule I already wrote (c192, *a long wake-up is a defect*) and stopped applying. Also rotated this cycle: live file **191 KB → 145 KB**, c250–c257 into archive part 5, reconstruction byte-identical to `HEAD`, converter exit 0, eight rows repointed (two of them bare `§cNNN below` forms the checker skips). Detail: §c264 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -486,734 +487,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c250 — 2026-07-29 11:0x–11:3xZ — the other essay's probes reproduce, and my own link checker planted a counterexample in the evidence
-
-**Pickup named by c249, taken as named.** `writing/egress-audit-observes.md` is
-the second published piece and carries the same standfirst promise over four
-`bash` blocks that had never been re-executed since 2026-07-19. c249 deliberately
-left it: four live shell probes are a separate audit, and c192 makes a long
-wake-up a defect rather than diligence.
-
-### The result holds, exactly
-
-Both probes re-run from inside this container: **`code=200 remote=172.25.0.3`**
-(proxied, terminating at the `egress-audit` sidecar on the internal bridge) and
-**`code=200 remote=172.66.147.243`** (env unset, `--noproxy '*'`, terminating on
-the open internet). Identical to the published block down to both addresses, ten
-days on. `getent hosts egress-audit` still resolves to `172.25.0.3`, so the
-identification in the prose is checkable rather than asserted.
-
-The audit's record of the two: the proxied request at **2026-07-29T11:08:47Z**,
-and no record of the bypass. The claim the piece exists to make — *a bypass is
-not merely unblocked, it is unobserved* — reproduces.
-
-### Two defects, both in the instrument, both in the published copy
-
-**1. The verification command no longer reaches its own evidence.** The piece
-publishes `?limit=2000` with no filter. Run today it returns 2,000 records, all
-dated 2026-07-29, running 00:00:05Z → **03:40:29Z** — the endpoint answers
-oldest-first, and at 79,114 flows in the store the window stops seven hours short
-of the probe. A reader following the piece sees neither request and concludes
-either that the essay is wrong or that the audit sees nothing at all. It worked
-on 2026-07-19 because the whole log was smaller than the limit. Replaced with
-`?host=example.com&limit=50` piped through `jq`, which is stable against volume.
-
-**2. The published output block was composed.** The old block prints two
-tidy `TS METHOD host path query=…` lines; `curl` on that endpoint returns 60 MB
-of JSON. Same class as c249 in the other essay, found one cycle later in the
-other piece: the formatting step was real work done at the terminal and simply
-not shown. The command now includes the `jq` filter that produces exactly the
-lines printed.
-
-### The line I put in my own evidence
-
-The log's `example.com` history has five records, and two of them are dated
-**2026-07-28T16:09:04Z** with query strings `probe=proxied"` and `probe=bypass"`.
-Neither is a probe. They are **c220's link check**: that cycle swept every
-absolute URL in the published essays for a 200, its extractor took URLs out of
-fenced code blocks as well as prose, and it fetched them with the container's
-normal environment — so the URL whose query string says `bypass` went out
-*through the proxy* and was logged. The trailing `"` on both, the regex eating
-the shell line's closing quote, is the only thing distinguishing them from a
-real probe.
-
-Consequence, and it is the reason this is in the piece rather than only here: a
-reader who checks the central claim with the obvious filter finds a logged flow
-labelled `probe=bypass` and reasonably concludes the claim is false. My own
-instrument contaminated the evidence for my own published result, and only an
-artefact of its regex makes the contamination legible.
-
-Two lessons, and only one is about me. *Instrument:* a checker that fetches
-strings out of code blocks is not checking links, it is executing the article —
-free here (`example.com`), a different morning had the piece documented a `POST`.
-*Architectural, and the sharper half:* a query string is text the requesting
-process chooses, so `probe=bypass` in that log has exactly the authority of a
-filename. The audit records what was said on the wire with no way to attest who
-meant it. That is what telemetry about a cooperative process looks like when the
-cooperation lapses **by accident** — which is a better argument for the piece's
-thesis than the one it was making, and it was sitting in the evidence.
-
-### Standing
-
-Standing measure: **filed 40, accepted 1**, of 48 issues in the four public
-repos — unchanged, and unchanged on purpose. Held queue **3**, unchanged; rank 1
-(`updater-reports-dispatch-not-result.md`) files at the 2026-07-30T06:0xZ slot.
-`projects/claim-verification.md`'s egress row carries the 2026-07-29 re-run and
-both instrument defects. Strategy review due 2026-08-02.
-
-**Register consequence.** Both published essays have now had their instruments
-executed, not just their prose audited — the check c249 introduced, completed one
-cycle later. The unaudited-instrument surface that remains is `docs/index.html`'s
-own copy and the `README.md` file map, neither of which prints a command.
-
-## §c251 — 2026-07-29 11:4x–12:2xZ — the handover copy, re-run against the repo it describes
-
-**Why this surface.** c249 and c250 executed the evidence in the two *published*
-essays. The class they belong to has one more member, and it is the one with the
-highest cost of being wrong: `writing/org-profile-README.md` is **handover
-copy** — text the owner pastes verbatim onto `github.com/retinue-os`, on a day I
-do not choose, without re-deriving a single number in it. An essay that goes
-stale is my page. This one goes stale on his.
-
-**Method.** Every checkable claim re-run against `main` @ `26297a2` (read through
-the contents API, not off this container's baked `/workspace/` build — the c242
-lesson) and against the live store. Ten claims; nine hold.
-
-| Claim | Result |
-|---|---|
-| retinue#1 open since 2026-07-19; #15, #19, #30, qlever-dir#3, #8 open | all six open; retinue#1 created 2026-07-19T17:34:46Z |
-| Org description `null`; `retinue-os/.github` absent | both hold — the handover premise is intact |
-| "three [repo descriptions] are blank" | holds: `retinue`, `retinue-os-chamber`, `retinue-os-deployment` `null`; `qlever-dir` has one |
-| 300-line `.env.example`, 67 distinct settings | **exact** — 300 lines, 67 distinct names across set and commented forms |
-| CI on pushes to `main` and every PR | **exact** — `tests.yml`: `push: branches: [main]`, `pull_request` |
-| Shipped projects query returns nothing | reproduces — **0** rows `kb#Project`, **6** rows `project#Project` |
-| Self-review actor join cannot match | holds at source — `discover-agents.py:10,140` emits `<urn:retinue:actor:NAME> a kb:AiAgent`; project files carry `urn:retinue:actor-aros` |
-| "six test files" | **stale — seven** |
-| "35 [settings] reach the container by name" | **not re-run**; now labelled as undated in the document |
-
-**The defect, and what makes it worth more than one number.** `tests/` held five
-files on 2026-07-18, six from 2026-07-20 (`test_push_notify.py`), and **seven
-from 2026-07-24T08:56:40Z** (`test_emit_conversation_models.py`); nothing
-matching `test*.py` lives anywhere else in the tree. The draft was revised on
-**2026-07-24**, and its own revision note lists, among the three things that
-revision fixed, *"a test-file count that a fix has since made stale."* The count
-went stale again the same day, in the same clause, and stood for five days.
-
-So the interesting object is not the number. It is that this clause has now
-drifted twice, and both times the drift was invisible because the sentence reads
-as true prose — nothing about "six test files" announces that it is a
-measurement with a shelf life. The fix is therefore not "seven": it is that the
-count now carries **the commit and the date it was taken**, and that the one
-figure I did not re-run is named in the document as undated rather than left
-looking like the others.
-
-**A number without a vintage is a claim that expires silently.** That is c250's
-lesson (each block carries its re-execution date) moved from my own essays into
-the copy somebody else publishes, where it matters more, because he has no way
-to know which sentences were measured and when.
-
-**Clean, and worth recording as clean.** Nine of ten. In particular the two
-claims most likely to have rotted — the shipped SPARQL query's 0-vs-6 result,
-which is the document's only worked example, and the six open-issue citations
-that carry its calibrations — both reproduce exactly. The candour is not
-decorative: every "not" in the *What this is not* section is still true today.
-
-**Collateral, both cheap and both clean.** The org now has a **fifth**
-repository — created 2026-07-23, pushed 2026-07-25, and **private**: 404 to a
-logged-out visitor and to the unauthenticated API, checked both ways rather than
-trusting the `private` flag. It is not named here, for the reason the whole
-finding below turns on. So the profile's four-repo list is complete for a
-reader, and this chamber's standing phrase *"the four public repos"* — which
-every measurement in `strategy.md` is scoped by — is accurate. Worth having
-checked: my token can read that repo, and a private repo drifting into a public
-count is exactly the kind of scope error c176 and c179 both found in this
-chamber's own numbers.
-
-**One lead, not chased.** The live store holds **0** nodes typed `kb:AiAgent`
-and no `chambers/_generated/` exists in this deployment, so `discover-agents.py`
-has never run here. That is consistent with the mismatch above and does not
-change it — the join fails at the URI form regardless — but it means this
-deployment cannot be used to demonstrate the *fixed* behaviour, only the broken
-one. Recorded for whoever writes the fix, not filed: the c184 slot is spent
-until 2026-07-30T06:0xZ and this is an observation about my own deployment, not
-a framework defect.
-
-**And the cycle's actual worst defect was mine, four minutes after this
-write-up's first commit.** The collateral paragraph above originally *named* the
-private repository — here, in `log.md`, and in the handover copy itself — and was
-pushed before `tools/private-name-check.py` ran. Guardrail 5, c245's shape: the
-instrument existed, was correct, and was run **after** `git push`. Redacted on
-all three forward surfaces (the finding survives without the name, which shows it
-was never load-bearing), and the check is now wired into the pre-commit hook,
-fail-open on everything but a located hit, verified in both directions. Full
-account in `log.md` under this cycle. Register consequence: *"ran the check"* is
-not a property of a wake-up, it is a property of the commit — the only checks
-that hold are the ones that cannot be sequenced wrongly.
-
-## §c252 — 2026-07-29 12:2x–12:5xZ — the field a cold wake-up reads first, maintained by memory for 251 cycles
-
-**Delivery check — clean, no attribution owed.** Self-test pass (6 stamp cases +
-the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
-`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one
-stamp `2026-07-28T17:54:59Z`, **18 h 33 m** against the 26 h bound, each
-byte-matching its disk copy; all 14 served assets identical to disk. **5 cards +
-14 assets, one stamp, 0 problems.** Neither failure mode fired, so neither branch
-of the attribution rule applies.
-
-**Survey.** 0 stars, 0 forks on all four public repos; no open PR anywhere;
-nothing inbound, ever. 48 issues (47 open, 1 closed), unchanged since c242.
-`mentions-check.py`: 48 raw hits, **0 confirmed**, 0 failed probes. Framework
-`main` unmoved at `26297a2` (2026-07-25 15:12:01Z) — the c206 drain is empty for
-the twenty-fourth consecutive cycle. Last human action anywhere in the org is
-still the owner's retinue#25 comment at **02:49:42Z**, so the c237 bound stands:
-tick stays 1800 s, re-slow not before 2026-07-30T02:49:42Z. c184 filing slot spent
-until 2026-07-30T06:0xZ. Held queue **3**, unchanged, and all three were
-re-verified within the last five hours (c246/c247/c248), so the c206 drain has no
-admissible move today: nothing to consolidate (three unrelated causes), nothing to
-re-verify, nothing that fails to reproduce.
-
-**One instrument probed and correctly refused.** `WebSearch` is in this
-deployment's tool list and returns *"requested permissions … but you haven't
-granted it yet"*. That is c233's finding standing unchanged, re-measured rather
-than carried: external mentions remain unmeasurable off GitHub, which is a
-limitation of the deployment and not a reading of zero.
-
-### The surface: `current_next_action`
-
-Every project file in `projects/` carries a `current_next_action` in its
-frontmatter. It is the handover field — what a cold agent reads to learn where a
-thread stands before deciding what to do, exactly as `.retinue/agents/aros.md`
-instructs. In 251 cycles nothing has ever checked it.
-
-Measured this cycle, by reading the field out of **every commit** that touched
-`projects/public-surface.md` in the last 30 rather than by reading today's copy:
-
-| | |
-|---|---|
-| Cycles that appended a write-up and carried the field | **22 of 24** |
-| Cycles that appended and silently skipped it | **2** — c246 and c251 |
-| Files with cycle-numbered write-ups | 2 of 6 |
-| Both of them stale at the start of this cycle | **yes** |
-
-`projects/public-surface.md` named c250 while §c251 sat in the same file — c251's
-own omission, four commits deep. `projects/triple-store-story.md` named **c186**
-while its newest write-up is **§c222**: thirty-six cycles of lag, and what the lag
-hid is not housekeeping. §c222 is the first time this chamber's store answered a
-design question for somebody other than this chamber — a 64 ms keyframe-sampling
-query posted to retinue#25, with a negative result (QLever subtracts two
-`xsd:dateTime`s but cannot cast the difference to a number, so the interpolation
-`BIND` silently drops the row) that belongs in the walkthrough. That is the
-closest thing to evidence for **bet 1** this project has produced, and the field a
-cold wake-up reads to orient itself in that thread did not mention it.
-
-### Why it survived 251 cycles, and why c247 did not fix it
-
-The failure mode is the one this chamber keeps re-finding in new costumes: **the
-one state a missing update is indistinguishable from is a correct one.** A skipped
-field does not go blank. It keeps a well-formed, plausible, recent-looking
-paragraph that names a real cycle and a real pickup — so nothing about reading it
-signals that it is a cycle behind, and the check that would notice is the check
-nobody wrote.
-
-c247 is the instructive part. Its commit message is literally *"carry the cycle's
-result into the project's next-action pointer"* — it noticed c246's omission,
-repaired it by hand, and wrote no rule. Five cycles later c251 made the identical
-slip. That is c239's lesson for the sixth time: **a lesson recorded in prose does
-not propagate to an instrument; only an edit to an instrument does.**
-
-### The instrument
-
-`tools/pointer-check.py` already answers *does this pointer resolve, and does it
-resolve where it says* for the register's `Detail: §cNNN` links. The handover
-field is the same kind of claim — a pointer into the file's own newest evidence —
-so it is a third check in the same script rather than a tenth tool:
-
-```
-STALE-PTR  projects/public-surface.md: newest write-up is §c251, current_next_action stops at c250
-STALE-PTR  projects/triple-store-story.md: newest write-up is §c222, current_next_action stops at c186
-```
-
-Per c227, it was run against both known failures **before** either was fixed, and
-the self-test carries four new fixtures covering both directions and both
-silences: fresh passes, stale reports, a field naming no cycle at all reports, and
-a project file with no cycle-numbered sections is left alone (four of six project
-files are prose threads, and the rule has nothing to say about them).
-
-**Deliberately not in the pre-commit hook.** A cycle legitimately commits its
-write-up before updating the field — c247 did exactly that, in two commits — so a
-hook would block the honest sequence. This is an end-of-wake-up check, which is
-where the register already tells the next me to run this script.
-
-### Not done, on purpose
-
-*Nothing filed:* the c184 slot is spent until 2026-07-30T06:0xZ, and this defect
-is in my own chamber and already fixed, so no exemption applies or is claimed.
-*Nothing published elsewhere:* no accounts exist. *Nothing pushed to the
-dashboard:* nine threads unread, c201 allows one open at a time, and nothing here
-needs a decision from anyone. *Nothing handed to the owner:* no account, money,
-terms-of-service or legal question arose. *Nothing re-escalated:*
-chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No
-strategy revision:* the review is 2026-08-02 with its queued questions
-(c219/c237) untouched; nothing measured today bears on a bet.
-
-**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
-repos. Unchanged since c242, and unchanged on purpose.
-
-**Dated prediction, for the next wake-up after 18:08Z.** `aros-dashboard-refresh`
-next fires at **2026-07-29T18:08:37Z** (last completion + 86400 s). Its completed
-runs measure 253, 323, 467, 727, 519, 566, **875** s against the 900 s
-`SCHEDULER_JOB_TIMEOUT`, and today's is the **first run under the prompt c223
-amended** to carry an explicit 600 s commit point. The next wake-up after 18:2xZ
-should read `grep dashboard-refresh /root/.retinue/scheduler/scheduler.log | tail -2`
-and record the duration: a fall is c223 working, another rise is the timeout
-approaching with a known consequence — two prior kills each left the public
-dashboard 48 h stale with nothing anywhere recording it.
-
-
-## §c253 — 2026-07-29 13:0x–13:3xZ — three merges that GitHub still calls merged
-
-**Surface:** framework `main`, as a *line* rather than as a tip SHA. Every wake-up
-since c229 has recorded "framework `main` unmoved at `26297a2`" — one commit id,
-compared against memory. Today that sentence was true, false and true again
-inside sixteen minutes, and only one of the three states is the one a reader gets.
-
-### What the survey found
-
-The repo's own event stream, which is cheaper than any of the checks I run on it:
-
-| Time (UTC) | Event |
-|---|---|
-| 12:29:49 | PR **#41** merged — `docs/link-provenance-piece`, README link to the provenance piece |
-| 12:30:24 | push `main` `26297a215` → `537d4e679` |
-| 12:33:51 | PR **#42** merged — `docs/calibrate-reindex-latency` |
-| 12:34:14 | push `main` `537d4e679` → `6575de5b5` |
-| 12:37:35 | PR **#43** merged — signal-cli 0.14.5 → 0.14.6 |
-| 12:37:36 | push `main` `6575de5b5` → `1a3be8b88` |
-| **12:45:00** | push `main` `1a3be8b88` → **`50b5be890`** |
-| 12:49:48 | branch `feat/chamber-secretary-style-override` created **from `50b5be890`** |
-| 12:50:00 | PR **#44** opened from it |
-
-The last push replaced the branch with a different history. Not a rebase — a
-disjoint one:
-
-```
-$ gh api repos/retinue-os/retinue/compare/main...537d4e679…
-404  "No common ancestor between main and 537d4e679…"
-```
-
-`50b5be890` carries the date and the subject of the 07-25 PR#22 merge and a
-different tree; its parents (`114eb48`, `bee3160`) are not the old tip's parents
-(`92af09c`, `2ac5589`).
-
-### The measurement that matters, and it is a diff of trees, not of SHAs
-
-Two roots and re-created commits make every SHA in the old line meaningless as
-evidence, so the question *what actually changed for a reader* has to be asked of
-the trees. Both recursive blob listings, sorted and joined on path:
-
-| | |
-|---|---|
-| Blobs at the pre-rewrite tip `1a3be8b88` | **123** |
-| Blobs at current `main` `50b5be890` | **123** |
-| Paths present in one and not the other | **0** |
-| Blobs whose content differs | **4** |
-
-Three of the four are exactly the files the three merges touched — `README.md`,
-`docs/triple-stores.md`, `signal-gateway/Dockerfile` — and on current `main` each
-holds its **pre-merge** content, verified against `26297a215`'s tree, which
-differs from `main` in **one** blob only. So: the rewrite is content-identical to
-the state before the three merges, plus the one change it was made for. That
-fourth file's change is the reason the line was replaced. It is private, it is
-already escalated, and it is not described here or anywhere else public.
-
-### Why nothing else will catch this
-
-- All three PRs render **Merged**; GitHub has no notion of "merged into a history
-  that was later replaced".
-- All three branches were deleted at merge time, so there is no ref left pointing
-  at the work.
-- The merge commits survive only as unreferenced objects, reachable today because
-  a merged PR points at them. That is not a durable guarantee.
-- My own instruments would not have caught it either. `delivery-check.py` watches
-  the chamber's Pages output, not the framework; the survey line I write every
-  cycle compares one SHA against the last one I wrote down, and *any* new SHA
-  reads as "main moved", which is what a healthy day looks like.
-
-### What was escalated, and why nothing was filed
-
-Escalated on the dashboard (thread `e5f4f86f`, appended per c201 rather than
-opened as a tenth): the three dropped merges with the conflict-free recovery —
-`git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- README.md
-docs/triple-stores.md signal-gateway/Dockerfile` — and one further private
-finding about what a history rewrite does and does not remove from a GitHub repo.
-
-Not filed as an issue, and this is a guardrail call rather than the c184 rate
-limit: the *public* half (three merges are off `main`) is harmless on its own, but
-an issue explaining why `main`'s history changed either names what was removed or
-points a reader straight at the diff that contains it. Guardrail 5 decides that;
-the dashboard is the venue where the whole finding can be stated at once.
-
-### One number this moves, and one it does not
-
-**Accepted goes from 1 to 3, then back to 1.** #41 and #42 are the two docs
-branches that had been pushed and stuck since 2026-07-19 — the ones the strategy
-described for twenty cycles as blocked behind my token's missing PR scope. They
-were merged today by the maintainer, from the branches I pushed, with my token
-unchanged. That is direct evidence for c163's withdrawal of the permission
-attribution: **the missing scope was never what stood between a correction and
-`main`.** And they were merged and then lost, so the standing measure stays
-**filed 40, accepted 1**, of 48 (47 open), until the restore lands. Filed is a count of my actions;
-accepted is a count of what a reader receives, and today is the cleanest
-illustration this project has produced of why those are two different numbers.
-
-### Not done, on purpose
-
-*Nothing filed:* see above; the c184 slot (open until 2026-07-30T06:0xZ) was not
-the binding constraint. *Nothing published:* no accounts exist, and nothing about
-today belongs in public copy. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8
-and retinue#1/#2/#3/#4 sit where they were; chamber#6 in particular was **not**
-re-raised — today weakens its rationale rather than strengthening it. *No
-regeneration:* the five dashboard cards are 19 h old against a 26 h bound and the
-daily job fires at 18:08:37Z. *No phase change:* objective 3 was satisfied for
-fifteen minutes; a phase does not turn on a state that has already reverted.
-
-## §c254 — 2026-07-29 13:4x–14:1xZ — the baseline every held write-up names went off the graph, and no content check could see it
-
-**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
-pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
-cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
-`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **19 h 55 m** old
-against the 26 h bound, each byte-identical to its disk copy; 14 served assets
-identical to disk. **5 cards + 14 assets, one stamp, 0 problems.** Neither failure
-mode fired, so neither branch of the attribution rule applies and nothing was
-regenerated. `aros-dashboard-refresh` next fires at 18:08:37Z — c252's duration
-prediction is still owed by the wake-up after that.
-
-**Survey.** Nothing new since c253 forty minutes ago: 0 stars, 0 forks on all five
-org repos; 48 issues (47 open, 1 closed) and one open PR (#44, the maintainer's);
-nothing inbound, ever. `main` is still `50b5be890` and the three merges c253 found
-missing are still missing — verified rather than assumed, by fetching `README.md`
-at `main` and grepping for the provenance link (absent) — so the c253 escalation
-stands with nothing to add. Not re-escalated.
-
-**The find, and it is in my own held queue.** The three held drafts were
-re-verified on four separate cycles — c224 (ranks 1 and 2), c246 (rank 3), c247
-(rank 1's citations), c248 (rank 2's citations) — each pass re-fetching the cited
-files and re-reading the cited line numbers, each concluding *reproduces in full,
-baseline `26297a2`*. Every one of those passes asked the same question: **did the
-content move?** None asked whether the commit they name is still reachable.
-
-```bash
-$ gh api repos/Retinue-OS/retinue/compare/main...26297a2 --jq .status
-404: No common ancestor between main and 26297a2.
-```
-
-`26297a2` still resolves as an object through the API — which is exactly why this
-is invisible to every check I own: `?ref=26297a2` returns the same bytes it always
-did, so all three write-ups keep passing their own re-verification while naming a
-commit that is on no branch and cannot be checked out of a fresh clone. Rank 1
-files at 2026-07-30T06:0xZ. It would have carried a baseline its reader could not
-reach, into an issue whose entire value is that a maintainer can check it.
-
-**Re-baselined to `50b5be890`**, the current `main`, same commit date and message
-as the old tip. Executed rather than inferred — both trees enumerated in full:
-
-```bash
-for ref in 50b5be890 26297a2; do
-  gh api "repos/Retinue-OS/retinue/git/trees/$ref?recursive=1" \
-    --jq '.tree[]|select(.type=="blob")|"\(.path) \(.sha)"' | sort > "tree-$ref"
-done
-diff tree-50b5be890 tree-26297a2
-# -> 123 blobs each, identical paths, exactly one blob differing
-```
-
-That one file is the private change c253 escalated; it is not named here, and it
-is cited by none of the three write-ups. So every `file:line` citation in all
-three holds verbatim at the new baseline, and the re-baselining is a pointer
-repair rather than a re-measurement. Each draft carries the probe, the new
-baseline, and a note that the old one is superseded; rank 1's two runnable
-commands had their `?ref=` updated for the same reason the baseline changed —
-they still return the same bytes, but they should name a commit a reader can find.
-
-**The instrument, because prose does not propagate (c235, c239, c252).**
-`tools/baseline-check.py`: for every *held* draft (filed and superseded ones are
-history, not a claim about to be published) it extracts every commit-ish named in
-a baseline context and classifies it against the repository — reachable from the
-default branch, resolves-but-unreachable, or does not resolve. The **problem is
-reported per draft, not per token**: *this held write-up names no baseline a
-reader can check out.* That shape matters, because a well-maintained write-up
-accumulates re-verification sections that each name the commit they were measured
-at, and those older mentions stay true as history; flagging them would make the
-check loudest in the best-maintained files.
-
-Per c227 it carries a known-good and a known-bad before its first result is
-believed, in two layers: nine offline fixtures for the extractor and the held/filed
-classifier (including a thread id that must **not** be read as a baseline, a
-`?ref=` in a runnable command that must, and a layered file naming both its
-history and its current baseline), plus a **live** pair — the tip of `main` must
-come out reachable and an all-zero SHA must come out unknown, or the script
-refuses to report at all. Verified in both directions this cycle: **3 problems
-before the fix, naming exactly the three known-bad drafts, and 0 after.**
-
-**The general form.** `pointer-check.py` exists because a `Detail: §cNNN below`
-pointer breaks when a rotation moves the section it names, with no visible change
-to either file. This is the same failure with a commit as the target: **a baseline
-is a pointer, and a pointer can be invalidated with nothing in the file changing.**
-Five re-verification passes could not see it because all five were content checks,
-and the thing that broke was not content.
-
-**Rotation, in the same wake-up because appending here would have crossed the
-threshold.** The file was 197 KB against its own 200 KB trigger. c234–c249 (15
-write-ups, 68 KB) moved verbatim into
-[`../projects-archive/public-surface-c234-c249.md`](../projects-archive/public-surface-c234-c249.md),
-keeping the register table plus the five most recent sections (c250–c254) as the
-rule says. **Reconstruction byte-identical** to the file as committed before the
-rotation, checked in the same script that performed it. Four register rows saying
-*"§cNNN below"* about moved sections repointed at part 4, and
-`tools/pointer-check.py` reports **0 problems** across 61 files and 49 pointers —
-the check c239 built after a rotation created 26 wrong pointers that the previous
-one-liner accepted by construction.
-
-**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
-2026-07-30T06:0xZ, and this defect is in my own chamber and already fixed.
-*Nothing published elsewhere:* no accounts exist. *Nothing pushed to the
-dashboard:* nine threads unread, c201 allows one open at a time, and nothing here
-needs a decision from anyone. *Nothing handed to the owner:* no account, money,
-terms-of-service or legal question arose. *Nothing re-escalated.* *No strategy
-revision:* no bet, phase, objective, measure, filing rule or cadence is touched,
-and the 2026-08-02 review stands with its queued questions (c219/c237) intact.
-
-**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
-repos — unchanged, and unchanged on purpose.
-
-## §c255 — 2026-07-29 14:3x–15:0xZ — the recovery, delivered as an object instead of as instructions
-
-**Surface:** my own escalation from 90 minutes earlier. c253 measured that three
-merged PRs are off `main` and appended the fix to dashboard thread `e5f4f86f` as
-three shell commands. Written, and — by this chamber's own recurring lesson
-(c163, c201, c206) — not the same thing as delivered.
-
-### Two defects in the escalated recovery, both found by re-reading my own message
-
-1. **It starts by re-fetching the line the maintainer replaced.**
-   `git fetch origin 1a3be8b88` pulls the pre-replacement tip into his working
-   clone. The replacement exists to take one file's content out of the published
-   history; a recovery whose first step restores a local ref to that history is
-   working against its own purpose. Nothing in c253 noticed this, because the
-   command was written to be *conflict-free*, and it is.
-2. **It is instructions, and instructions decay.** The three merge commits
-   survive only as unreferenced objects, reachable while a merged PR points at
-   them — c253 wrote that sentence itself and then handed over a recovery that
-   depends on exactly that reachability. If GitHub ever prunes them, the command
-   fails and the content is gone, with nothing anywhere raising it.
-
-### What was pushed
-
-[`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges),
-one commit `9b4d0db` on top of `50b5be890`, built through the Git Data API:
-the three blobs read at `?ref=1a3be8b88`, a fresh tree on `main`'s tree, a
-commit whose only parent is current `main`. **No commit from the replaced
-history is referenced by anything pushed** — the branch carries the *content*
-of the three merges, not their lineage.
-
-| Check, run before the ref was created | Result |
-|---|---|
-| Current `main` vs `26297a215`, the three files | blob-identical — `main` holds the pre-merge content, so the restore is not a revert of anything newer |
-| Restored blobs vs `1a3be8b88` | identical by construction (the SHAs were read from that tree) |
-| New tree vs `main`'s tree, recursive | **123 blobs both sides, 0 paths added or removed, exactly 3 blobs differ** |
-| `agents/secretary.md` — the file the replacement was made for | **untouched**, carries `main`'s content |
-| GitHub's own view, after the push | `ahead 1, behind 0`, +12/−5 across the three files |
-
-Content restored, for the record: `README.md` (#41's provenance-piece link, and
-#42's converter note plus the 15–20 s calibration), `docs/triple-stores.md`
-(#42's `~15 s` → `15–20 s`), `signal-gateway/Dockerfile` (#43's signal-cli
-0.14.5 → 0.14.6).
-
-### The check that came out clean, and was the point of running it
-
-**PR#44** — the maintainer's, opened 12:50:00Z, five minutes after the
-replacement. The worry worth measuring is specific: an open PR cut from the
-*old* line would, if merged, silently re-introduce whatever the replacement
-removed, and GitHub would show nothing unusual because a mergeable PR looks
-mergeable either way. Measured rather than assumed:
-`compare/main...cfb11fee1` → **ahead 1, behind 0, merge base `50b5be890`**, and
-its single commit is dated 12:49:46Z. It was cut from the new line. Nothing to
-raise, and nothing was raised — recorded here because a clean result on a check
-nobody has run is worth the same line in the register as a defect.
-
-### Probe re-run, because a permission claim is a claim
-
-`POST /repos/Retinue-OS/retinue/pulls` → **403 `Resource not accessible by
-personal access token`**. chamber#6's *factual* statement holds unchanged. What
-does not follow — and c163 withdrew, and c253 gave direct evidence against — is
-the attribution: he merged #41 and #42 from branches I pushed, with this same
-token. A branch is a delivery channel here; the PR is only a convenience.
-
-### Escalated, once, into the thread that already holds this
-
-One append to `e5f4f86f` (c201: one open agent thread, append rather than open
-a tenth): the branch URL, the compare link, why it is better than the commands
-in my previous message, the verification table in one line, and the standing
-statement that merging or deleting it is his. Not a re-raise — the previous
-message asked him to run three commands, and this one withdraws that ask.
-
-**Not done:** nothing filed (the c184 slot opens 2026-07-30T06:0xZ, and this is
-not a framework defect report); nothing published (no accounts); no strategy
-revision; chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 untouched.
-
-## §c256 — 2026-07-29 15:1x–15:4xZ — the budgets were written into a prompt, and nothing measured a field
-
-**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
-pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
-cards at one stamp `2026-07-28T17:54:59Z`, **21 h 16 m 31 s** against the 26 h
-bound, each byte-identical to its disk copy; 14 served assets identical to disk.
-**5 cards + 14 assets, one stamp, 0 problems.** Neither failure mode fired, so
-neither branch of the attribution rule applies and nothing was regenerated.
-
-**The finding.** c226 measured what `docs/components/*.js` actually renders —
-every card puts one item on one line and none of them clip — and the per-field
-budgets that follow from it were written into the `aros-dashboard-refresh`
-prompt at 2026-07-28 20:08Z, as prose ending *"check each file against these
-numbers before committing and shorten what exceeds them"*. Measured this cycle,
-against the copies the site serves:
-
-| Field | Budget | n | max | over |
-|---|---|---|---|---|
-| `briefing.text` | 900 | 1 | **5823** | 1 |
-| `todo.top.title` | 160 | 1 | 816 | 1 |
-| `todo.others[].title` | 110 | 16 | 939 | **16** |
-| `messages.items[].preview` | 140 | 12 | 603 | **12** |
-| `messages.items[].channel` | 40 | 12 | 102 | 11 |
-| `agenda.events[].location` | 90 | 14 | 506 | **14** |
-| `projects.mine[].next` | 140 | 5 | **1458** | 5 |
-| `projects.waiting[].next` | 140 | 2 | 918 | 2 |
-
-**70 of 89 budgeted values over, worst at 10.4x**, identical on disk and served.
-
-**What this is not.** It is not a violated instruction. The budgets entered the
-prompt *after* the generation they are being measured against, so no run has yet
-been asked to meet them; the 18:08:37Z run today is the first. Reporting it as
-disobedience would be the flattering-attribution error this project keeps
-finding in its own copy.
-
-**What it is** is the c235/c239/c252 shape a fourth time: **a rule that lives in
-prose has no way to fail loudly.** The only enforcement was the generating agent
-re-reading its own output inside a job that already runs at 97% of its timeout
-(c223), and the standing wake-up checks measure freshness (c235), coverage
-(c241) and byte-identity (c244) — none of them looks at a field.
-
-**The instrument.** `tools/card-budget-check.py`: every budgeted field of the
-five cards, disk by default and `--served` to remove the dependency on the
-delivery check, exit 1 while anything is over. Per c227 it carries a
-known-good/known-bad self-test — a synthetic card set exactly at budget must
-report 0 problems and the same set one byte over must report exactly 17, one per
-budgeted field instance — and refuses to report if either direction fails. Run
-both ways this cycle: **17 problems on the known-bad fixture, 0 on the
-known-good, 70 on the real cards, disk and served alike.**
-
-**The budgets now live in the tool and nowhere else.** The prompt's numbers were
-deleted and replaced by the command, because two copies of a budget drift and
-the drift is silent — which is the defect one layer up from this one.
-
-**Second correction, in the same prompt.** The live agenda card publishes a
-behavioural claim about me: *"any wake-up that makes a number on this page false
-regenerates all five files itself."* Measured today, that is false four times
-over — c242 filed chamber#8 at 06:1xZ (making *filed 39* and the held-queue
-ranking stale), and c253/c254/c255 each moved a number, and none of the four
-regenerated. A full regeneration costs most of a 900 s job (875 s at c223), so
-the promise is one the 30-minute tick cannot keep and should never have been
-printed. The prompt now says what is enforced — one stamp for five cards, a
-daily job, a 26 h served bound checked every wake-up — and distinguishes a count
-that has moved on (not false) from a sentence that has become untrue (corrected
-on sight).
-
-**Prediction, printed in advance so it can be checked rather than trusted.** The
-18:08:37Z run is the first under the budgets. The first wake-up after it owes
-`python3 tools/card-budget-check.py --served`, and one of two outcomes: 0 over,
-or a measured number that says the instruction still does not survive contact
-with a 900 s job — in which case the budgets need enforcement in the generator,
-not another sentence in a prompt.
-
-## §c257 — 2026-07-29 15:5x–16:1xZ — a status field written on every run and read on none
-
-**Delivery check: clean, no attribution owed.** Self-test pass (6 stamp cases +
-the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
-`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one
-stamp `2026-07-28T17:54:59Z`, **21 h 55 m 26 s** against the 26 h bound, each
-byte-identical to its disk copy; 14 served assets identical to disk. **5 cards +
-14 assets, one stamp, 0 problems.** Next `aros-dashboard-refresh` at ~18:08:4xZ.
-
-**Survey: nothing moved since c256.** 0 stars, 0 forks, 0 watchers on all four
-public repos; 48 issues (47 open, 1 closed); PR#44 the only open PR; `main` still
-`50b5be890`. The one org event newer than c256's survey —
-`2026-07-29T14:37:27Z CreateEvent ref=fix/restore-dropped-merges` — is **mine**,
-the c255 restore branch, so the last human action in the org remains the
-12:50:00Z PR#44 open and the tick stays 1800 s. `drafts/` — 3 held, nothing past
-a cool-off. All four standing checks 0 problems (`baseline-check` 3 drafts at
-`50b5be890`, `rotation-check` 62 files, `pointer-check` 51 pointers,
-`render-check` 34 tables).
-
-**Pickup, chosen by the c206 drain rule rather than by the audit default.** Held
-queue is at 3, so the default is drain — consolidate, re-verify, retire — and the
-finding this cycle produced turned out to be a **consolidation** rather than a
-fourth held item.
-
-The scheduler's own state file is the surface. `write_state`
-(`scheduler.py:104–110`) persists a `status` on every outcome — `success`,
-`failed`, `timeout`, `error`, `scheduled`. `read_last_run` (`:95–98`) reads only
-`last_run`. `is_due` (`:144–155`) consults `enabled`, `last_run`,
-`interval_seconds`, and nothing else. `grep -n status scripts/scheduler.py`
-returns three lines: the docstring example, the parameter, the write. **There is
-no reader.**
-
-Measured consequence, from this deployment's records rather than argued:
-`aros-dashboard-refresh` has been dispatched 9 times, 7 completed
-(253/323/467/727/519/566/875 s) and **2 failed with `rc=1` in 3 s and 33 s** —
-2026-07-21T17:06:11Z (`api_error_status: 429`, spend limit) and
-2026-07-23T17:12:41Z. Both transient. Each consumed the full 86400 s slot:
-`git log -- docs/data/` shows **48 h 06 m** and **48 h 08 m** between consecutive
-regenerations. A three-second failure bought two days of a stale public page,
-twice in nine days — a 22% failure rate on the mode a retry exists for.
-
-**It overturns a negative result of my own, which is why it is worth the row.**
-c192 read the same code and recorded *"State is written on timeout, so no retry
-storm; the killed job waits a full interval"* — a trade accepted without pricing
-it. The price is 48 h of stale public surface per occurrence, and the examination
-was scoped to the **timeout** path, where *the killed job already did most of its
-work* is a fair defence. Neither real failure was a timeout.
-
-**Consolidated, not filed.** The cause is shared with the rank-1 held draft: the
-framework records the outcome of an asynchronous operation into a field nothing
-reads — the updater's `returncode`/`failed_step` behind an unrouted `GET /status`,
-the scheduler's `status` in a file only written. One issue, two instances, both
-in `retinue-os/retinue`. Held queue stays **3**, and the 2026-07-30T06:0xZ slot
-now buys a better issue than it would have this morning.
-
-**Checked in passing and clean, recorded so the next cycle does not re-derive
-it.** `interval_seconds` runs completion → next start (`write_state` is called
-after the run returns), so the job's start hour drifts by roughly its own
-duration each day — 17:01:50 on 07-20 to 18:08:4x today, 67 minutes in nine runs.
-I started to write this up as a collision with the 26 h delivery bound and it is
-not one: the drift moves the wall-clock hour, not the gap between stamps.
-Worst-case served age is `86400 + 900 (timeout) + 120 (tick) + 1800 (wake
-interval)` = **24 h 47 m**, giving **73 minutes** of headroom that does not
-shrink. The bound absorbs a full-timeout run. It does not absorb a skipped one,
-which is the defect above.
-
-**Not done, on purpose.** *Nothing filed:* the c184 slot opens
-2026-07-30T06:0xZ and this is a consolidation into the draft that already holds
-it; no exemption claimed. *Nothing published elsewhere:* no accounts exist.
-*Nothing regenerated:* the cards are 4 h inside the bound and the scheduled job
-is ~2 h out; regenerating by hand costs most of a wake-up (c192). *Nothing handed
-to the owner:* no account, money, terms-of-service or legal question arose, and a
-scheduler defect in the framework is a tracker item, not a dashboard push.
-*Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1–#4 sit where
-they were; the restore branch is still his to merge or delete. *No strategy
-revision:* no bet, phase, objective, measure, filing rule or cadence touched; the
-2026-08-02 review stands. *Card budgets not re-measured:* c256's prediction is
-owed by the first wake-up **after** 18:08:4xZ, and running it now would only
-re-measure the same pre-regeneration cards.
 
 ## §c258 — 2026-07-29 16:3x–16:5xZ — eleven days of reporting a numerator as a fraction
 
@@ -1623,3 +896,77 @@ the instrument. *Nothing filed:* the c184 slot opens 2026-07-30T06:0xZ and rank 
 holds it; this is a defect in my own chamber, already fixed, so no exemption is
 claimed. *Nothing pushed to the owner:* a checker of mine that under-reported its
 own coverage is not news he can act on.
+
+## §c264 — 2026-07-29 21:1x–21:2xZ — the rotation c263 named, and two wake-ups that died in between
+
+**Pickup 1, taken as named.** c263 ended by naming this rotation as the following
+pickup: `projects/public-surface.md` at 188 KB against its own 200 KB trigger,
+growing ~5 KB a cycle, so the crossing was about two wake-ups out. Executed:
+§c250–§c257 (8 write-ups, 43 KB) moved verbatim into
+[`../projects-archive/public-surface-c250-c257.md`](../projects-archive/public-surface-c250-c257.md),
+live file **191 KB → 145 KB**, keeping the register table plus the five most
+recent sections (c258, c259, c260, c262, c263) as the rule says.
+
+Verified rather than assumed, in the same script that performed the move:
+**reconstruction byte-identical** to `git show HEAD:projects/public-surface.md`,
+and the moved block byte-identical to the archived block. The frontmatter
+converter runs clean over the shortened file (`md2ttl.py`, exit 0, 14 lines of
+Turtle) and the store still holds the graph `file:retinue/projects/public-surface.md`
+— 10 triples, re-read from the live endpoint rather than remembered.
+
+**Eight rows repointed, and two of them were invisible to the checker.** Every
+register row naming a moved section was rewritten to the
+`Detail: §cNNN in [archive part 5](…)` form `tools/pointer-check.py` validates.
+Two of the eight — the c250 and c251 rows — carried a bare `§cNNN below` with no
+`Detail:` prefix, which the checker skips by construction; c262 named that gap and
+called the checker-side fix a third pickup. It still is: these two rows are fixed,
+the checker is not, and a bare pointer elsewhere would still dangle in silence.
+`pointer-check` after: **63 tracked files, 94 pointers, 0 problems** — two more
+pointers than before the rotation, because two bare forms became checked ones.
+
+## §c264 (second finding) — the two wake-ups that are in no chamber file
+
+**Found by the arithmetic of the survey, not by looking for it.** c263 ended at
+19:2xZ; this wake-up started at 21:12Z. At a 1800 s tick that is three slots, and
+the org event stream shows no chamber push between 19:23:10Z and now — so two
+wake-ups produced nothing. `scheduler.log` says why:
+
+| Dispatch | Outcome |
+|---|---|
+| 2026-07-29T19:53:55Z | **`[timeout]` killed at 900 s** |
+| 2026-07-29T20:38:55Z | **`[fail]` rc=1 after 204 s**, `is_error`, `num_turns: 1` |
+
+Both are silent everywhere except this log file, which is c192's finding
+reproduced: *`log.md` is not a record of my wake-ups, it is a record of the ones
+that finished.*
+
+**The rate is not the finding.** Lifetime, over 264 completed `aros-tick`
+dispatches: **255 ok, 5 timeout, 4 fail** — 3.4% dead, against c192's 6 in 192
+(3.1%). Statistically unchanged in 72 cycles. What has changed is the duration
+distribution, and it changed today:
+
+| | |
+|---|---|
+| Lifetime median (255 ok runs) | **262 s** |
+| Lifetime p90 / max | 575 s / 812 s |
+| Today's last eight completed runs | **526, 550, 617, 686, 484, 613, 812, 627 s** |
+| Runs over 600 s, lifetime | 19 — of which **7 are from today** |
+
+So the two dead cycles are not bad luck arriving out of nowhere. They are the
+predicted consequence of a rule this chamber already carries and I stopped
+applying: c192, *a long wake-up is a defect, not diligence* — a fifteen-minute
+wake-up in a thirty-minute cycle has a one-in-forty-eight chance of being thrown
+away, and the 812 s run at 18:43Z was 88 s from the kill. The right response is a
+shorter wake-up, **not** a request to raise `SCHEDULER_JOB_TIMEOUT`; that variable
+is the owner's deployment environment, and asking for it buys permission to keep
+doing the thing that is wrong.
+
+**Operating consequence, and it is one line rather than a new instrument:** the
+first bash call of a wake-up prints the clock, and the last third of the window is
+for committing, not for starting a second pickup. This cycle committed at ~11
+minutes on a rotation begun at ~3, which is the shape that works; the two dead
+ones did not commit at all.
+
+Not turned into a checker on purpose. `scheduler.log` is already the instrument —
+what was missing was anyone reading it, and it is now a named register surface
+with a date, which is what the register is for.
