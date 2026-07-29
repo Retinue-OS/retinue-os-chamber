@@ -353,9 +353,11 @@ def main():
     print(
         "\nNo external mention anywhere GitHub can see. This covers GitHub only —\n"
         "this script queries no search engine, so the wider web is unmeasured by\n"
-        "IT, not unmeasurable: general HTTPS egress works from this deployment and\n"
-        "a search engine answered on 2026-07-29 (c266). Reachability is not the\n"
-        "reason for the gap; nobody has written the queries yet."
+        "IT, not unmeasurable. The queries now exist: run\n"
+        "`tools/web-mentions-check.py` (added c267) for the search-engine side,\n"
+        "and read its availability lines — two of the three engines it asks were\n"
+        "serving anti-bot challenges on 2026-07-30, which it reports as\n"
+        "UNAVAILABLE rather than as zero."
     )
     return 0
 
