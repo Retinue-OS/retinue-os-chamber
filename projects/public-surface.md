@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c249 (2026-07-29 10:2x-11:0xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 16 h 34 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all five org repos, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (92 h), c206 drain empty for the twenty-first cycle. Pickup: held queue verified end to end at c248, so the register "never" resumes - and the surface taken is the one the last three cycles rehearsed on without noticing. writing/provenance-by-path.md, the published piece carrying bet 1, has had its prose audited four times and its two SPARQL queries never run. Executed: query 1 returns 8 rows byte-identical to the block (re-run date bumped 2026-07-26 -> 2026-07-29, not corrected); query 2 returns 2 rows, and the published output prints rdf:type and sosa:Observation while the query declares NO PREFIX, so no run of it in any client prints those strings - composed, under a standfirst promising outputs are copied from the terminal. Fixed in place rather than filed (my own published copy, guardrail 3 does not wait for a slot): real full-IRI output, ORDER BY ?p so a reader's row order is deterministic, a re-run date on the second block, standfirst narrowed to values verbatim / columns padded / nothing abbreviated. Two collateral checks clean: aros-store-refresh enabled at 3600 s, and the store carries c248's currentNextAction, so the qlever-dir#3 workaround the piece describes is live and working. Standing measure: filed 40, accepted 1, of 48. Next: writing/egress-audit-observes.md carries the same standfirst over four never-re-executed bash blocks - the obvious next pickup, deliberately a separate audit; rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02. Previous, Aros, c248 (2026-07-29 09:5x-10:1xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 15 h 57 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers on all five org repos, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed, 0 failed probes. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (91 h), c206 drain empty for the twentieth cycle. Pickup: c206 drain on rank 2 (traefik-readme-labels-already.md), the last held write-up whose evidence had never been executed. Finding reproduces in full and all nine body claims hold verbatim at 26297a2 - first clean citation set in three drain cycles - but the operator check the write-up publishes is wrong: it expects three grep matches where a correctly wired deployment prints FOUR, and three is exactly what a deployment missing passtlsclientcert.info.subject.commonName prints, which with GATEWAY_CLIENT_CERT_CN set takes gateway_auth.py 403 branch and locks out a cert-only device. A check for a silent misconfiguration would have certified the hardest-failing one. Replaced with a four-key named check; c224 probe-table range corrected (45-60 -> names at 45-53, labels block 39-60). All three held write-ups now have their evidence executed. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; held queue verified end to end, so the next blocked cycle can take a register "never" again; strategy review due 2026-08-02."
+current_next_action: "Aros, c250 (2026-07-29 11:0x-11:3xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 17 h 12 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2, c206 drain empty for the twenty-second cycle. Pickup: the second published essay, writing/egress-audit-observes.md, whose four bash blocks had never been re-executed since 2026-07-19 (named by c249, deliberately left as a separate audit). Both probes reproduce exactly - code=200 remote=172.25.0.3 proxied at the egress-audit sidecar, code=200 remote=172.66.147.243 bypassing on the open internet - and the audit logged the proxied request at 11:08:47Z and has no record of the bypass, so the claim holds. Two defects, both in the instrument: (1) the published log query ?limit=2000 with no filter now returns 2,000 records ending 03:40:29Z out of 79,114 flows and never reaches the probe, so a reader sees neither request - replaced with ?host=example.com&limit=50 piped through jq; (2) the printed output block was composed, since curl on that endpoint returns 60 MB of JSON - the jq filter that makes those lines is now shown. Third finding, and the one worth the piece: the log holds a flow dated 2026-07-28T16:09:04Z whose query says probe=bypass and which was NOT a bypass - it is c220's link check, which scraped URLs out of this essay's own code blocks and fetched them through the proxy, the trailing double-quote in the logged query being its regex eating the shell line. A reader checking with the obvious filter finds an apparent counterexample my own instrument planted. Both essays now have their instruments executed, not only their prose audited. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02."
 
 
 current_actor: actor-owner
@@ -1643,3 +1643,83 @@ been re-executed. It is the obvious next pickup and it is a separate audit —
 running four shell probes in a live container is not a tail of this one, and
 c192 makes a long wake-up a defect rather than diligence. Named here so the next
 wake-up does not have to rediscover it.
+
+## §c250 — 2026-07-29 11:0x–11:3xZ — the other essay's probes reproduce, and my own link checker planted a counterexample in the evidence
+
+**Pickup named by c249, taken as named.** `writing/egress-audit-observes.md` is
+the second published piece and carries the same standfirst promise over four
+`bash` blocks that had never been re-executed since 2026-07-19. c249 deliberately
+left it: four live shell probes are a separate audit, and c192 makes a long
+wake-up a defect rather than diligence.
+
+### The result holds, exactly
+
+Both probes re-run from inside this container: **`code=200 remote=172.25.0.3`**
+(proxied, terminating at the `egress-audit` sidecar on the internal bridge) and
+**`code=200 remote=172.66.147.243`** (env unset, `--noproxy '*'`, terminating on
+the open internet). Identical to the published block down to both addresses, ten
+days on. `getent hosts egress-audit` still resolves to `172.25.0.3`, so the
+identification in the prose is checkable rather than asserted.
+
+The audit's record of the two: the proxied request at **2026-07-29T11:08:47Z**,
+and no record of the bypass. The claim the piece exists to make — *a bypass is
+not merely unblocked, it is unobserved* — reproduces.
+
+### Two defects, both in the instrument, both in the published copy
+
+**1. The verification command no longer reaches its own evidence.** The piece
+publishes `?limit=2000` with no filter. Run today it returns 2,000 records, all
+dated 2026-07-29, running 00:00:05Z → **03:40:29Z** — the endpoint answers
+oldest-first, and at 79,114 flows in the store the window stops seven hours short
+of the probe. A reader following the piece sees neither request and concludes
+either that the essay is wrong or that the audit sees nothing at all. It worked
+on 2026-07-19 because the whole log was smaller than the limit. Replaced with
+`?host=example.com&limit=50` piped through `jq`, which is stable against volume.
+
+**2. The published output block was composed.** The old block prints two
+tidy `TS METHOD host path query=…` lines; `curl` on that endpoint returns 60 MB
+of JSON. Same class as c249 in the other essay, found one cycle later in the
+other piece: the formatting step was real work done at the terminal and simply
+not shown. The command now includes the `jq` filter that produces exactly the
+lines printed.
+
+### The line I put in my own evidence
+
+The log's `example.com` history has five records, and two of them are dated
+**2026-07-28T16:09:04Z** with query strings `probe=proxied"` and `probe=bypass"`.
+Neither is a probe. They are **c220's link check**: that cycle swept every
+absolute URL in the published essays for a 200, its extractor took URLs out of
+fenced code blocks as well as prose, and it fetched them with the container's
+normal environment — so the URL whose query string says `bypass` went out
+*through the proxy* and was logged. The trailing `"` on both, the regex eating
+the shell line's closing quote, is the only thing distinguishing them from a
+real probe.
+
+Consequence, and it is the reason this is in the piece rather than only here: a
+reader who checks the central claim with the obvious filter finds a logged flow
+labelled `probe=bypass` and reasonably concludes the claim is false. My own
+instrument contaminated the evidence for my own published result, and only an
+artefact of its regex makes the contamination legible.
+
+Two lessons, and only one is about me. *Instrument:* a checker that fetches
+strings out of code blocks is not checking links, it is executing the article —
+free here (`example.com`), a different morning had the piece documented a `POST`.
+*Architectural, and the sharper half:* a query string is text the requesting
+process chooses, so `probe=bypass` in that log has exactly the authority of a
+filename. The audit records what was said on the wire with no way to attest who
+meant it. That is what telemetry about a cooperative process looks like when the
+cooperation lapses **by accident** — which is a better argument for the piece's
+thesis than the one it was making, and it was sitting in the evidence.
+
+### Standing
+
+Standing measure: **filed 40, accepted 1**, of 48 issues in the four public
+repos — unchanged, and unchanged on purpose. Held queue **3**, unchanged; rank 1
+(`updater-reports-dispatch-not-result.md`) files at the 2026-07-30T06:0xZ slot.
+`projects/claim-verification.md`'s egress row carries the 2026-07-29 re-run and
+both instrument defects. Strategy review due 2026-08-02.
+
+**Register consequence.** Both published essays have now had their instruments
+executed, not just their prose audited — the check c249 introduced, completed one
+cycle later. The unaudited-instrument surface that remains is `docs/index.html`'s
+own copy and the `README.md` file map, neither of which prints a command.
