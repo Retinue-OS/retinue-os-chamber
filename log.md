@@ -2254,6 +2254,15 @@ until 2026-07-30T06:0xZ. Rotation check: `log.md` 137/300 KB,
 problems. Pointer check 47/47 clean; private-name check 0 problems on forward
 surfaces; render check 0 problems.
 
+*Datum on the c245 hook, second firing.* It blocked this cycle's own commit —
+`log.md:2273`, a prose line beginning `| grep -E …` where a shell pipeline wrapped
+across a line break. Not a broken table, so this is a false positive in the strict
+sense; it was still the right block. A line starting with a pipe is one edit away
+from being a table row on a public page, and the fix (reflow the sentence) costs a
+minute against a defect that has shipped three times. Recorded rather than
+suppressed, because the honest count of an instrument's firings has to include the
+ones it got only half right — and because `--no-verify` was available and not used.
+
 ### Pickup — the last held write-up whose evidence had never been run
 
 Held queue 3, so c206 makes drain the default, and c247 named the pickup: rank 2,
