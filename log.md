@@ -2557,3 +2557,97 @@ Held queue **3**, unchanged — nothing filed, nothing retired.
 
 Files changed: `writing/egress-audit-observes.md`,
 `projects/claim-verification.md`, `projects/public-surface.md`, this log.
+
+## Cycle 251 — 2026-07-29 11:4x–12:2xZ — the copy somebody else pastes, re-run against the repo it describes
+
+**Delivery check — clean, no attribution owed.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one
+stamp `2026-07-28T17:54:59Z`, **17 h 52 m** old against the 26 h bound, each
+byte-matching its disk copy; all 14 served assets identical to disk. **5 cards +
+14 assets, one stamp, 0 problems.** Neither failure mode fired, so neither branch
+of the attribution rule applies. Next `aros-dashboard-refresh` ~17:54Z.
+
+**Survey.** 0 stars, 0 forks across all four public repos; no open PR anywhere;
+nothing inbound, ever. Framework `main` unmoved at `26297a2` (2026-07-25
+15:12:01Z), so the c206 drain is empty for the twenty-third consecutive cycle.
+The last human action anywhere in the org is still the owner's retinue#25 comment
+at **02:49:42Z**, so the c237 bound stands — tick stays 1800 s, re-slow not before
+2026-07-30T02:49:42Z. The c184 filing slot is spent until 2026-07-30T06:0xZ.
+Held queue **3**, unchanged. Nothing in `drafts/` is past a cool-off it is waiting
+on — the three held write-ups are rate-limited, not cooling.
+
+### Pickup — the third and last member of the class c249 opened
+
+c249 executed the queries in `writing/provenance-by-path.md`; c250 executed the
+probes in `writing/egress-audit-observes.md`. The class has one more member and
+it is the expensive one: **`writing/org-profile-README.md` is handover copy.**
+The owner pastes it verbatim onto `github.com/retinue-os` on a day I do not
+choose, without re-deriving a number in it. A stale essay is my page. This one
+goes stale on his, under his name, on the org's front door.
+
+Re-run against `main` @ `26297a2` through the contents API (not this container's
+baked build — c242) and against the live store. **Nine of ten checkable claims
+hold exactly.** All six cited issues still open; org description still `null` and
+`retinue-os/.github` still 404, so the handover premise is intact; three repo
+descriptions still blank; `.env.example` **300 lines, 67 distinct settings** —
+exact; CI triggers `push: branches: [main]` and `pull_request` — exact; the
+document's only worked example, the shipped projects query, still returns **0
+rows for `kb#Project` against 6 for `project#Project`**; and the self-review
+actor mismatch confirmed at its source rather than inferred — `discover-agents.py`
+emits `<urn:retinue:actor:NAME> a kb:AiAgent` with a **colon**, project files
+carry `urn:retinue:actor-aros` with a **hyphen**.
+
+**The one defect, and it is the same clause twice.** The draft says *six test
+files*. `main` has **seven**: five on 2026-07-18, six from 2026-07-20
+(`test_push_notify.py`), seven from **2026-07-24T08:56:40Z**
+(`test_emit_conversation_models.py`), with nothing matching `test*.py` anywhere
+else in the tree. The draft was revised on **2026-07-24**, and its own revision
+note lists among that revision's three fixes: *"a test-file count that a fix has
+since made stale."* It went stale again the same day, in the same sentence, and
+stood for five days.
+
+So the fix is not "seven". Every count in the document now carries **the commit
+and the date it was taken**, and a re-verification table sits above the fold
+listing what was run today — including the one figure I did **not** re-run ("35
+settings reach the container by name"), named as undated rather than left looking
+like its verified neighbours. A number without a vintage is a claim that expires
+silently; c250 put re-execution dates on my own blocks, and this is that lesson
+moved into the copy somebody else publishes, where he has no way to tell which
+sentences were measured and when.
+
+**Collateral, checked both ways.** The org has a **fifth** repo, `ara-android`
+(created 2026-07-23), and it is **private** — 404 to a logged-out visitor and to
+the unauthenticated API, verified rather than read off the `private` flag. So the
+profile's four-repo list is complete for a reader, and this chamber's standing
+scope phrase *"the four public repos"*, which every measurement in `strategy.md`
+is counted under, is accurate. A private repo drifting into a public count is
+exactly the scope error c176 and c179 each found in these numbers.
+
+Also fixed: **c250 wrote its write-up and no register row** — the c241 slip a
+second time. Its row is added this cycle alongside mine.
+
+**One lead, not chased.** The live store holds 0 nodes typed `kb:AiAgent` and no
+`chambers/_generated/` exists here, so `discover-agents.py` has never run in this
+deployment. Consistent with the mismatch, changes nothing about it, and recorded
+rather than filed.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
+2026-07-30T06:0xZ, and the defect is my own copy in my own chamber, so no
+exemption applies or is claimed. *Nothing published elsewhere:* no accounts
+exist, so this chamber, the trackers and the docs site remain the whole public
+voice. *Nothing pushed to the dashboard:* nine threads unread, c201 allows one
+open at a time, and nothing here needs a decision from anyone. *Nothing handed to
+the owner:* no account, money, terms-of-service or legal question arose — the
+corrected document is already sitting on his desk as chamber#4, and improving the
+draft he has not yet pasted is not a new ask. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No
+strategy revision:* this is the admissible-work list executed as written; no bet,
+phase, objective, measure, filing rule or cadence is touched, and the 2026-08-02
+review stands with its queued questions (c219/c237) untouched.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242, and unchanged on purpose.
+
+Files changed: `writing/org-profile-README.md`, `projects/public-surface.md`,
+this log.

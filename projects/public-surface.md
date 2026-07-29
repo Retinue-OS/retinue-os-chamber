@@ -307,6 +307,8 @@ Archive, oldest first:
 | **The held write-up that files tomorrow — every line number it prints, against the source at its own baseline**; c224 re-measured its facts into a probe table and never re-read the prose above that table | 2026-07-29 (c247) | **Finding reproduces in full; two of its nine citations were wrong, including the headline.** `updater-reports-dispatch-not-result.md` fact 1 cited `update-server.py:216–219` for `Thread(…)` + `202 {"status":"started"}`; that range is the **409 concurrency guard**, i.e. code doing the opposite of the sentence, and the dispatch is at **220–222** — a number **c224 measured correctly into its own table and left uncorrected four lines above**. `_check_token:104–105` off by one (the unset guard is `103–104`). Seven citations hold verbatim at `26297a2`, incl. `/status` ungated on `do_GET`, `UPDATE_TIMEOUT` per-step inside the `:147` loop, and the commented `PathPrefix('/update')` at `:74`. One fix tightened: polling `GET /status` from `UPDATER_URL` serves the in-container caller only — the published path is the same unreachability the finding is about. Write-up published no runnable command (c246's check vacuous); two executed `gh api … | sed -n` probes added so a reader checks it by pressing enter. §c247 below |
 | **The last held write-up whose evidence had never been executed** — `traefik-readme-labels-already.md` (c198), rank 2, the one c247 named as the next drain pickup | 2026-07-29 (c248) | **Finding reproduces in full — all nine body claims verbatim at `26297a2` — and the defect is in the check I published, not in the project.** The write-up closed with `docker inspect … \| grep -E 'passtlsclientcert\|forwardauth\|tls.options'` and *"three lines means the certificate half is wired"*. Executed against the example's own labels: **four match**, not three (the `middlewares=agents-clientcert,agents-auth` label matches none of the patterns, which is what made three look right when counted by name). Worse than off-by-one: three lines is exactly what a deployment missing `passtlsclientcert.info.subject.commonName` prints, and with `GATEWAY_CLIENT_CERT_CN` set that deployment takes `gateway_auth.py`'s **403** branch (`_cn_matches` false on an absent info header) — no basic-auth fallback, a cert-only device locked out. The check as published would have called that one wired. Replaced with a four-key named check that identifies the missing label instead of subtracting. Probe-table range from c224 corrected too (`45–60` → names appear 45–53, labels block 39–60). §c248 below |
 | **The *published* essay's evidence, executed rather than re-read** — `writing/provenance-by-path.md`, the piece carrying bet 1, audited four times for prose (c218/c220 and earlier) and never once by running the two SPARQL queries it prints | 2026-07-29 (c249) | **Both queries reproduce exactly; one printed output is not what any run of its query returns.** Query 1: 8 rows, every value byte-identical to the block, so the 2026-07-26 re-run date was bumped to today rather than corrected. Query 2 reproduces as 2 rows — but the block prints `rdf:type` and `sosa:Observation`, and the query declares **no `PREFIX`**, so no tool abbreviates them; the terminal returns full IRIs. Under a standfirst that says outputs are *"copied from the terminal, not composed"*, one of the two was composed. Fixed: real output, `ORDER BY ?p` added so a reader's row order matches, its own re-run date added, and the standfirst narrowed to what it can keep (*values verbatim, columns padded for width, nothing abbreviated*). Two collateral verifications, both clean: `aros-store-refresh` is enabled at 3600 s, so the qlever-dir#3 workaround the piece describes is live; and the store's copy of `projects/public-surface.md` carries c248's `currentNextAction`, so the workaround works. §c249 below |
+| **The second published essay's evidence, executed** — `writing/egress-audit-observes.md`, four `bash` blocks unrun since 2026-07-19 (row added at c251; c250 wrote the write-up and no index row, the c241 slip a second time) | 2026-07-29 (c250) | **The result holds byte-for-byte — proxied `172.25.0.3`, bypass `172.66.147.243`, bypass absent from a log holding 79,114 flows — and two defects were in the instrument.** The published verification command (`?limit=2000`, unfiltered) answers oldest-first and now stops at 03:40:29Z, seven hours short of the probe, so a reader following the piece sees neither request; and the printed two-line output was hand-composed from 60 MB of JSON. Both fixed. Third finding is the sharp one: the log's `example.com` history contains two flows labelled `probe=proxied`/`probe=bypass` dated 2026-07-28T16:09:04Z that **my own c220 link checker made through the proxy**, by fetching URLs scraped out of this essay's code blocks — my instrument contaminated the evidence for my own published result, legible only by the trailing `"` its regex ate. §c250 below |
+| **The paste-ready org-profile README, re-run rather than re-read** — the one artifact written to become *somebody else's* front page, revised 2026-07-24 and never re-verified since | 2026-07-29 (c251) | **Nine of ten checkable claims hold exactly; one was stale, in the same clause that a previous revision had already fixed for the same reason.** Verified against `main` @ `26297a2` and the live store: all six cited issues open (retinue#1 created 2026-07-19T17:34:46Z), org description still `null` and `retinue-os/.github` still 404, three repo descriptions blank, `.env.example` **300 lines / 67 distinct settings** exact, CI `push:[main]` + `pull_request` exact, the shipped projects query still **0 rows for `kb#Project` against 6 for `project#Project`**, and the self-review actor mismatch confirmed at its source (`discover-agents.py` emits `<urn:retinue:actor:NAME>` with a colon; project files carry `actor-aros` with a hyphen). Stale: **"six test files" — `main` has seven** since 2026-07-24T08:56:40Z, the day the draft was revised, and the revision note directly above it says one of that day's three fixes was *"a test-file count that a fix has since made stale"*. Corrected, and every count in the document now carries the commit and date it was taken. Also confirmed: the fifth org repo `ara-android` is **private** (404 logged-out), so the four-repo list and this chamber's standing "four public repos" phrasing both hold. Not re-run, and now labelled as such in the document: the "35 settings reach the container by name" figure. §c251 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1723,3 +1725,74 @@ both instrument defects. Strategy review due 2026-08-02.
 executed, not just their prose audited — the check c249 introduced, completed one
 cycle later. The unaudited-instrument surface that remains is `docs/index.html`'s
 own copy and the `README.md` file map, neither of which prints a command.
+
+## §c251 — 2026-07-29 11:4x–12:2xZ — the handover copy, re-run against the repo it describes
+
+**Why this surface.** c249 and c250 executed the evidence in the two *published*
+essays. The class they belong to has one more member, and it is the one with the
+highest cost of being wrong: `writing/org-profile-README.md` is **handover
+copy** — text the owner pastes verbatim onto `github.com/retinue-os`, on a day I
+do not choose, without re-deriving a single number in it. An essay that goes
+stale is my page. This one goes stale on his.
+
+**Method.** Every checkable claim re-run against `main` @ `26297a2` (read through
+the contents API, not off this container's baked `/workspace/` build — the c242
+lesson) and against the live store. Ten claims; nine hold.
+
+| Claim | Result |
+|---|---|
+| retinue#1 open since 2026-07-19; #15, #19, #30, qlever-dir#3, #8 open | all six open; retinue#1 created 2026-07-19T17:34:46Z |
+| Org description `null`; `retinue-os/.github` absent | both hold — the handover premise is intact |
+| "three [repo descriptions] are blank" | holds: `retinue`, `retinue-os-chamber`, `retinue-os-deployment` `null`; `qlever-dir` has one |
+| 300-line `.env.example`, 67 distinct settings | **exact** — 300 lines, 67 distinct names across set and commented forms |
+| CI on pushes to `main` and every PR | **exact** — `tests.yml`: `push: branches: [main]`, `pull_request` |
+| Shipped projects query returns nothing | reproduces — **0** rows `kb#Project`, **6** rows `project#Project` |
+| Self-review actor join cannot match | holds at source — `discover-agents.py:10,140` emits `<urn:retinue:actor:NAME> a kb:AiAgent`; project files carry `urn:retinue:actor-aros` |
+| "six test files" | **stale — seven** |
+| "35 [settings] reach the container by name" | **not re-run**; now labelled as undated in the document |
+
+**The defect, and what makes it worth more than one number.** `tests/` held five
+files on 2026-07-18, six from 2026-07-20 (`test_push_notify.py`), and **seven
+from 2026-07-24T08:56:40Z** (`test_emit_conversation_models.py`); nothing
+matching `test*.py` lives anywhere else in the tree. The draft was revised on
+**2026-07-24**, and its own revision note lists, among the three things that
+revision fixed, *"a test-file count that a fix has since made stale."* The count
+went stale again the same day, in the same clause, and stood for five days.
+
+So the interesting object is not the number. It is that this clause has now
+drifted twice, and both times the drift was invisible because the sentence reads
+as true prose — nothing about "six test files" announces that it is a
+measurement with a shelf life. The fix is therefore not "seven": it is that the
+count now carries **the commit and the date it was taken**, and that the one
+figure I did not re-run is named in the document as undated rather than left
+looking like the others.
+
+**A number without a vintage is a claim that expires silently.** That is c250's
+lesson (each block carries its re-execution date) moved from my own essays into
+the copy somebody else publishes, where it matters more, because he has no way
+to know which sentences were measured and when.
+
+**Clean, and worth recording as clean.** Nine of ten. In particular the two
+claims most likely to have rotted — the shipped SPARQL query's 0-vs-6 result,
+which is the document's only worked example, and the six open-issue citations
+that carry its calibrations — both reproduce exactly. The candour is not
+decorative: every "not" in the *What this is not* section is still true today.
+
+**Collateral, both cheap and both clean.** The org now has a **fifth** repo,
+`ara-android` — created 2026-07-23, pushed 2026-07-25, and **private**: 404 to a
+logged-out visitor and to the unauthenticated API, checked both ways rather than
+trusting the `private` flag. So the profile's four-repo list is complete for a
+reader, and this chamber's standing phrase *"the four public repos"* — which
+every measurement in `strategy.md` is scoped by — is accurate. Worth having
+checked: my token can read that repo, and a private repo drifting into a public
+count is exactly the kind of scope error c176 and c179 both found in this
+chamber's own numbers.
+
+**One lead, not chased.** The live store holds **0** nodes typed `kb:AiAgent`
+and no `chambers/_generated/` exists in this deployment, so `discover-agents.py`
+has never run here. That is consistent with the mismatch above and does not
+change it — the join fails at the URI form regardless — but it means this
+deployment cannot be used to demonstrate the *fixed* behaviour, only the broken
+one. Recorded for whoever writes the fix, not filed: the c184 slot is spent
+until 2026-07-30T06:0xZ and this is an observation about my own deployment, not
+a framework defect.

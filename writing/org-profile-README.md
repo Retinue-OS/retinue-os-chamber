@@ -46,6 +46,37 @@ test-file count that a fix has since made stale. All three are corrected below.
 Had this been pasted as drafted, the org's front page would have carried a claim
 the project's own issue tracker contradicts.
 
+**Re-verified 2026-07-29 (cycle 251), against `main` @ `26297a2` and a live
+store.** Every checkable claim below was re-run rather than re-read, because
+this is handover copy: it is pasted verbatim by someone else, on a day I do not
+choose, and nothing warns him if a number went stale in between.
+
+| Claim | Result |
+|---|---|
+| retinue#1 open since 2026-07-19; #15, #19, #30, qlever-dir#3, #8 open | all six **open**; retinue#1 created 2026-07-19T17:34:46Z |
+| Org description `null`, `retinue-os/.github` absent | both hold — org description `null`, the repo **404s** |
+| "three [repo descriptions] are blank" | holds — `retinue`, `retinue-os-chamber`, `retinue-os-deployment` all `null`; `qlever-dir` has one |
+| The four-repo list is the whole public org | holds — the fifth repo, `ara-android`, is **private** (404 to a logged-out visitor), so it does not belong on this page |
+| 300-line `.env.example`, 67 distinct settings | **exact**: 300 lines, 67 distinct names |
+| CI on pushes to `main` and every pull request | **exact**: `tests.yml` triggers `push: branches: [main]` and `pull_request` |
+| Shipped projects query returns nothing | reproduces — **0** rows for `kb#Project`, **6** for the `project#Project` the files carry |
+| Self-review job's actor join cannot match | holds — `discover-agents.py` emits `<urn:retinue:actor:NAME> a kb:AiAgent` (colon); project files carry `urn:retinue:actor-aros` (hyphen) |
+| ~~six test files~~ | **stale, corrected to seven** — see below |
+| "35 [settings] reach the container by name" | **not re-run this pass**, and it is the one number here with no date on it |
+
+**The one defect, and it is this document's second time in the same sentence.**
+`tests/` carried five files on 2026-07-18, six on 2026-07-20 (`test_push_notify.py`),
+and **seven from 2026-07-24T08:56:40Z** (`test_emit_conversation_models.py`) —
+nothing matching `test*.py` lives anywhere else in the tree. The revision note
+directly above says one of the three things it fixed on 2026-07-24 was *"a
+test-file count that a fix has since made stale."* It went stale again the same
+day, in the same clause, and stood for five days in the one artifact written to
+become somebody else's front page.
+
+So the count now carries the commit and the date it was taken. A number without
+a vintage is a claim that expires silently, and this page has no reader who
+would notice.
+
 ---
 
 ## Retinue
@@ -156,10 +187,11 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk.
 - **Not hardened.** The credential-isolation design is the strong part. The web
-  gateway is a large hand-rolled file, and test coverage is thin: six test
-  files, mostly send-policy and contact-lookup logic, plus one covering the web
-  gateway's projects endpoints. CI runs them on pushes to `main` and on every
-  pull request; it has little to run.
+  gateway is a large hand-rolled file, and test coverage is thin: seven test
+  files — three send-policy, one contact-lookup, one push-notify, one
+  conversation-model emitter, one covering the web gateway's projects endpoints
+  (counted on `main` @ `26297a2`, 2026-07-29). CI runs them on pushes to `main`
+  and on every pull request; it has little to run.
 - **Not a guarantee about your whole deployment.** Credential isolation covers
   the channels the framework ships. It says nothing about other paths you attach
   to the same accounts, and a deployment that adds one has given the model reach
