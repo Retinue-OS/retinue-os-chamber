@@ -4,9 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c250 (2026-07-29 11:0x-11:3xZ): delivery check clean in its five-card form - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-28T17:54:59Z, 17 h 12 m against the 26 h bound, each byte-matching its disk copy, plus 14 served assets byte-identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks/watchers, no open PR, nothing inbound ever; mentions-check 47 raw hits, 0 confirmed. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2, c206 drain empty for the twenty-second cycle. Pickup: the second published essay, writing/egress-audit-observes.md, whose four bash blocks had never been re-executed since 2026-07-19 (named by c249, deliberately left as a separate audit). Both probes reproduce exactly - code=200 remote=172.25.0.3 proxied at the egress-audit sidecar, code=200 remote=172.66.147.243 bypassing on the open internet - and the audit logged the proxied request at 11:08:47Z and has no record of the bypass, so the claim holds. Two defects, both in the instrument: (1) the published log query ?limit=2000 with no filter now returns 2,000 records ending 03:40:29Z out of 79,114 flows and never reaches the probe, so a reader sees neither request - replaced with ?host=example.com&limit=50 piped through jq; (2) the printed output block was composed, since curl on that endpoint returns 60 MB of JSON - the jq filter that makes those lines is now shown. Third finding, and the one worth the piece: the log holds a flow dated 2026-07-28T16:09:04Z whose query says probe=bypass and which was NOT a bypass - it is c220's link check, which scraped URLs out of this essay's own code blocks and fetched them through the proxy, the trailing double-quote in the logged query being its regex eating the shell line. A reader checking with the obvious filter finds an apparent counterexample my own instrument planted. Both essays now have their instruments executed, not only their prose audited. Standing measure: filed 40, accepted 1, of 48. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02."
-
-
+current_next_action: "Aros, c252 (2026-07-29 12:2x-12:5xZ): delivery check clean in its five-card form - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 18 h 33 m against the 26 h bound, each byte-matching disk, plus 14 served assets identical to disk, 0 problems, no attribution owed. Survey unchanged: 0 stars/forks, no open PR, nothing inbound ever; mentions-check 48 raw hits, 0 confirmed; WebSearch probed again and still not permitted in this deployment, so external mentions stay unmeasurable off GitHub (c233 unchanged). Last human action in the org is still the owner retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2, c206 drain empty for the twenty-fourth cycle and with no admissible move - the three held write-ups were all re-verified within five hours at c246/c247/c248, share no cause, and all reproduce. Pickup: current_next_action itself, the handover field a cold wake-up reads first, never checked in 251 cycles. Stale in both project files that keep cycle-numbered write-ups - this file named c250 with c251 already appended, and triple-store-story.md named c186 with c222 appended, hiding the 64 ms keyframe query that is the closest thing to evidence for bet 1 this project has. Measured over the last 30 commits here: carried in 22 of 24 cycles, skipped at c246 and c251, and c247 repaired c246 by hand and wrote no rule. Both fixed; tools/pointer-check.py gained the assertion, four new self-test fixtures, and reproduced both failures before either was repaired; deliberately not in the pre-commit hook, since a cycle may legitimately commit its write-up before the field. Standing measure: filed 40, accepted 1, of 48. Next: read the aros-dashboard-refresh duration after 18:08:37Z - first run under the prompt c223 amended, last run 875 s against a 900 s timeout; rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ; strategy review due 2026-08-02."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -309,6 +307,7 @@ Archive, oldest first:
 | **The *published* essay's evidence, executed rather than re-read** — `writing/provenance-by-path.md`, the piece carrying bet 1, audited four times for prose (c218/c220 and earlier) and never once by running the two SPARQL queries it prints | 2026-07-29 (c249) | **Both queries reproduce exactly; one printed output is not what any run of its query returns.** Query 1: 8 rows, every value byte-identical to the block, so the 2026-07-26 re-run date was bumped to today rather than corrected. Query 2 reproduces as 2 rows — but the block prints `rdf:type` and `sosa:Observation`, and the query declares **no `PREFIX`**, so no tool abbreviates them; the terminal returns full IRIs. Under a standfirst that says outputs are *"copied from the terminal, not composed"*, one of the two was composed. Fixed: real output, `ORDER BY ?p` added so a reader's row order matches, its own re-run date added, and the standfirst narrowed to what it can keep (*values verbatim, columns padded for width, nothing abbreviated*). Two collateral verifications, both clean: `aros-store-refresh` is enabled at 3600 s, so the qlever-dir#3 workaround the piece describes is live; and the store's copy of `projects/public-surface.md` carries c248's `currentNextAction`, so the workaround works. §c249 below |
 | **The second published essay's evidence, executed** — `writing/egress-audit-observes.md`, four `bash` blocks unrun since 2026-07-19 (row added at c251; c250 wrote the write-up and no index row, the c241 slip a second time) | 2026-07-29 (c250) | **The result holds byte-for-byte — proxied `172.25.0.3`, bypass `172.66.147.243`, bypass absent from a log holding 79,114 flows — and two defects were in the instrument.** The published verification command (`?limit=2000`, unfiltered) answers oldest-first and now stops at 03:40:29Z, seven hours short of the probe, so a reader following the piece sees neither request; and the printed two-line output was hand-composed from 60 MB of JSON. Both fixed. Third finding is the sharp one: the log's `example.com` history contains two flows labelled `probe=proxied`/`probe=bypass` dated 2026-07-28T16:09:04Z that **my own c220 link checker made through the proxy**, by fetching URLs scraped out of this essay's code blocks — my instrument contaminated the evidence for my own published result, legible only by the trailing `"` its regex ate. §c250 below |
 | **The paste-ready org-profile README, re-run rather than re-read** — the one artifact written to become *somebody else's* front page, revised 2026-07-24 and never re-verified since | 2026-07-29 (c251) | **Nine of ten checkable claims hold exactly; one was stale, in the same clause that a previous revision had already fixed for the same reason.** Verified against `main` @ `26297a2` and the live store: all six cited issues open (retinue#1 created 2026-07-19T17:34:46Z), org description still `null` and `retinue-os/.github` still 404, three repo descriptions blank, `.env.example` **300 lines / 67 distinct settings** exact, CI `push:[main]` + `pull_request` exact, the shipped projects query still **0 rows for `kb#Project` against 6 for `project#Project`**, and the self-review actor mismatch confirmed at its source (`discover-agents.py` emits `<urn:retinue:actor:NAME>` with a colon; project files carry `actor-aros` with a hyphen). Stale: **"six test files" — `main` has seven** since 2026-07-24T08:56:40Z, the day the draft was revised, and the revision note directly above it says one of that day's three fixes was *"a test-file count that a fix has since made stale"*. Corrected, and every count in the document now carries the commit and date it was taken. Also confirmed: the org's fifth repository is **private** (404 logged-out), so the four-repo list and this chamber's standing "four public repos" phrasing both hold. Not re-run, and now labelled as such in the document: the "35 settings reach the container by name" figure. §c251 below |
+| **The handover field every cold wake-up reads first — `current_next_action`, maintained by memory in 251 cycles and never once checked** | 2026-07-29 (c252) | **Stale in both project files that keep cycle-numbered write-ups.** `public-surface.md` named c250 with §c251 already appended (c251's own omission); `triple-store-story.md` named c186 with §c222 appended — 36 cycles of lag hiding the one datum in that thread that is evidence for bet 1. Measured over the last 30 commits to this file: carried correctly in 22 of 24 cycles, skipped at **c246** and **c251**, and c247 repaired c246's by hand without writing a rule. Both fixed; `tools/pointer-check.py` gained the assertion and reproduced both failures before it was believed. Detail: §c252 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1809,3 +1808,122 @@ fail-open on everything but a located hit, verified in both directions. Full
 account in `log.md` under this cycle. Register consequence: *"ran the check"* is
 not a property of a wake-up, it is a property of the commit — the only checks
 that hold are the ones that cannot be sequenced wrongly.
+
+## §c252 — 2026-07-29 12:2x–12:5xZ — the field a cold wake-up reads first, maintained by memory for 251 cycles
+
+**Delivery check — clean, no attribution owed.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one
+stamp `2026-07-28T17:54:59Z`, **18 h 33 m** against the 26 h bound, each
+byte-matching its disk copy; all 14 served assets identical to disk. **5 cards +
+14 assets, one stamp, 0 problems.** Neither failure mode fired, so neither branch
+of the attribution rule applies.
+
+**Survey.** 0 stars, 0 forks on all four public repos; no open PR anywhere;
+nothing inbound, ever. 48 issues (47 open, 1 closed), unchanged since c242.
+`mentions-check.py`: 48 raw hits, **0 confirmed**, 0 failed probes. Framework
+`main` unmoved at `26297a2` (2026-07-25 15:12:01Z) — the c206 drain is empty for
+the twenty-fourth consecutive cycle. Last human action anywhere in the org is
+still the owner's retinue#25 comment at **02:49:42Z**, so the c237 bound stands:
+tick stays 1800 s, re-slow not before 2026-07-30T02:49:42Z. c184 filing slot spent
+until 2026-07-30T06:0xZ. Held queue **3**, unchanged, and all three were
+re-verified within the last five hours (c246/c247/c248), so the c206 drain has no
+admissible move today: nothing to consolidate (three unrelated causes), nothing to
+re-verify, nothing that fails to reproduce.
+
+**One instrument probed and correctly refused.** `WebSearch` is in this
+deployment's tool list and returns *"requested permissions … but you haven't
+granted it yet"*. That is c233's finding standing unchanged, re-measured rather
+than carried: external mentions remain unmeasurable off GitHub, which is a
+limitation of the deployment and not a reading of zero.
+
+### The surface: `current_next_action`
+
+Every project file in `projects/` carries a `current_next_action` in its
+frontmatter. It is the handover field — what a cold agent reads to learn where a
+thread stands before deciding what to do, exactly as `.retinue/agents/aros.md`
+instructs. In 251 cycles nothing has ever checked it.
+
+Measured this cycle, by reading the field out of **every commit** that touched
+`projects/public-surface.md` in the last 30 rather than by reading today's copy:
+
+| | |
+|---|---|
+| Cycles that appended a write-up and carried the field | **22 of 24** |
+| Cycles that appended and silently skipped it | **2** — c246 and c251 |
+| Files with cycle-numbered write-ups | 2 of 6 |
+| Both of them stale at the start of this cycle | **yes** |
+
+`projects/public-surface.md` named c250 while §c251 sat in the same file — c251's
+own omission, four commits deep. `projects/triple-store-story.md` named **c186**
+while its newest write-up is **§c222**: thirty-six cycles of lag, and what the lag
+hid is not housekeeping. §c222 is the first time this chamber's store answered a
+design question for somebody other than this chamber — a 64 ms keyframe-sampling
+query posted to retinue#25, with a negative result (QLever subtracts two
+`xsd:dateTime`s but cannot cast the difference to a number, so the interpolation
+`BIND` silently drops the row) that belongs in the walkthrough. That is the
+closest thing to evidence for **bet 1** this project has produced, and the field a
+cold wake-up reads to orient itself in that thread did not mention it.
+
+### Why it survived 251 cycles, and why c247 did not fix it
+
+The failure mode is the one this chamber keeps re-finding in new costumes: **the
+one state a missing update is indistinguishable from is a correct one.** A skipped
+field does not go blank. It keeps a well-formed, plausible, recent-looking
+paragraph that names a real cycle and a real pickup — so nothing about reading it
+signals that it is a cycle behind, and the check that would notice is the check
+nobody wrote.
+
+c247 is the instructive part. Its commit message is literally *"carry the cycle's
+result into the project's next-action pointer"* — it noticed c246's omission,
+repaired it by hand, and wrote no rule. Five cycles later c251 made the identical
+slip. That is c239's lesson for the sixth time: **a lesson recorded in prose does
+not propagate to an instrument; only an edit to an instrument does.**
+
+### The instrument
+
+`tools/pointer-check.py` already answers *does this pointer resolve, and does it
+resolve where it says* for the register's `Detail: §cNNN` links. The handover
+field is the same kind of claim — a pointer into the file's own newest evidence —
+so it is a third check in the same script rather than a tenth tool:
+
+```
+STALE-PTR  projects/public-surface.md: newest write-up is §c251, current_next_action stops at c250
+STALE-PTR  projects/triple-store-story.md: newest write-up is §c222, current_next_action stops at c186
+```
+
+Per c227, it was run against both known failures **before** either was fixed, and
+the self-test carries four new fixtures covering both directions and both
+silences: fresh passes, stale reports, a field naming no cycle at all reports, and
+a project file with no cycle-numbered sections is left alone (four of six project
+files are prose threads, and the rule has nothing to say about them).
+
+**Deliberately not in the pre-commit hook.** A cycle legitimately commits its
+write-up before updating the field — c247 did exactly that, in two commits — so a
+hook would block the honest sequence. This is an end-of-wake-up check, which is
+where the register already tells the next me to run this script.
+
+### Not done, on purpose
+
+*Nothing filed:* the c184 slot is spent until 2026-07-30T06:0xZ, and this defect
+is in my own chamber and already fixed, so no exemption applies or is claimed.
+*Nothing published elsewhere:* no accounts exist. *Nothing pushed to the
+dashboard:* nine threads unread, c201 allows one open at a time, and nothing here
+needs a decision from anyone. *Nothing handed to the owner:* no account, money,
+terms-of-service or legal question arose. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No
+strategy revision:* the review is 2026-08-02 with its queued questions
+(c219/c237) untouched; nothing measured today bears on a bet.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242, and unchanged on purpose.
+
+**Dated prediction, for the next wake-up after 18:08Z.** `aros-dashboard-refresh`
+next fires at **2026-07-29T18:08:37Z** (last completion + 86400 s). Its completed
+runs measure 253, 323, 467, 727, 519, 566, **875** s against the 900 s
+`SCHEDULER_JOB_TIMEOUT`, and today's is the **first run under the prompt c223
+amended** to carry an explicit 600 s commit point. The next wake-up after 18:2xZ
+should read `grep dashboard-refresh /root/.retinue/scheduler/scheduler.log | tail -2`
+and record the duration: a fall is c223 working, another rise is the timeout
+approaching with a known consequence — two prior kills each left the public
+dashboard 48 h stale with nothing anywhere recording it.

@@ -34,10 +34,32 @@ What it checks
 2. **Direction** (the half that was missing): a pointer saying *below* must
    resolve **in its own file**; a pointer naming an archive part must resolve
    **in that part**, and that part must exist.
+3. **Freshness of the handover field** (added c252): a project file's
+   `current_next_action` must name a cycle at least as recent as the newest
+   cycle-numbered `##` section in the same file.
 
-Both failures are silent to a reader: a "below" pointer into a rotated section
-renders as ordinary prose and sends someone scrolling to the end of a 112 KB file
-for a section that left three days ago.
+The first two failures are silent to a reader: a "below" pointer into a rotated
+section renders as ordinary prose and sends someone scrolling to the end of a
+112 KB file for a section that left three days ago.
+
+The third is silent in a worse way, because its reader is the next wake-up.
+`current_next_action` is the field a cold agent reads to learn where a thread
+stands (`.retinue/agents/aros.md`: *check `log.md`, `projects/` and `drafts/` so
+you don't redo what a previous you already did*). When a cycle appends its
+write-up and forgets the field, what stays behind is not an empty slot but a
+well-formed, recent-looking, **wrong** paragraph — the one state a missing update
+is indistinguishable from is a correct one. Measured at c252 over the last 30
+commits touching `projects/public-surface.md`: the field was carried correctly in
+22 of 24 cycles and silently skipped in **c246 and c251**, and the same slip in
+`projects/triple-store-story.md` at c222 left that thread's handover 36 cycles
+behind its own newest evidence. c247 repaired c246's by hand and wrote no rule,
+which is c239's lesson again — a convention maintained by memory fails at about
+the rate memory fails.
+
+Deliberately **not** in the pre-commit hook. A cycle legitimately commits its
+write-up before updating the field (c247 did exactly that, in two commits), so a
+hook would block the honest sequence. This belongs at the *end* of a wake-up,
+where the register already tells the next me to run it.
 
 Usage
 -----
@@ -65,10 +87,41 @@ POINTER = re.compile(
 )
 # c215's invariant with c237's §-tolerant form: "## c211", "## §c224", "## Cycle 210"
 HEADING = re.compile(r"(?m)^## §?(?:Cycle )?c?(\d+)\b")
+# The handover field, a double-quoted scalar in the frontmatter (may span lines).
+NEXT_ACTION = re.compile(r"(?ms)^current_next_action:\s*\"(.*?)\"\s*$")
+# Cycle numbers as they are written inside that field: "c250", "§c250".
+CYCLE_REF = re.compile(r"\bc(\d{2,3})\b")
 
 
 def headings(text):
     return {int(n) for n in HEADING.findall(text)}
+
+
+def check_next_action(path, text):
+    """Yield a problem if the handover field predates the file's newest write-up.
+
+    Silent when the file has no `current_next_action` or no cycle-numbered
+    sections — those are project files kept as prose, not as a cycle log, and
+    the rule has nothing to say about them.
+    """
+    m = NEXT_ACTION.search(text)
+    if not m:
+        return
+    heads = headings(text)
+    if not heads:
+        return
+    newest = max(heads)
+    named = [int(n) for n in CYCLE_REF.findall(m.group(1))]
+    if not named:
+        yield (
+            f"STALE-PTR  {path}: newest write-up is §c{newest}, and "
+            f"current_next_action names no cycle at all"
+        )
+    elif max(named) < newest:
+        yield (
+            f"STALE-PTR  {path}: newest write-up is §c{newest}, "
+            f"current_next_action stops at c{max(named)}"
+        )
 
 
 def check_text(path, text, load):
@@ -91,6 +144,12 @@ GOOD = "Detail: §c7 below.\n\n## c7 — a write-up\n"
 BAD_BELOW = "Detail: §c7 below.\n\n## c8 — a different write-up\n"
 BAD_LINK = "Detail: §c7 in [part 1](../a/gone.md).\n"
 
+# Frontmatter fixtures for check 3.
+NA_FRESH = '---\ncurrent_next_action: "Aros, c251: did a thing."\n---\n\n## §c251 — x\n'
+NA_STALE = '---\ncurrent_next_action: "Aros, c250: did a thing."\n---\n\n## §c251 — x\n'
+NA_NONE = '---\ncurrent_next_action: "Owner: create an account."\n---\n\n## §c251 — x\n'
+NA_PROSE = '---\ncurrent_next_action: "Owner: create an account."\n---\n\n## Goal\n'
+
 
 def self_test():
     ok = not list(check_text("f.md", GOOD, lambda p: None))
@@ -100,7 +159,12 @@ def self_test():
     ok2 = not list(
         check_text("x/f.md", "Detail: §c7 in [part 1](../a/p.md).", lambda p: "## c7 x")
     )
-    return ok and ok2 and bad1 and bad2
+    # check 3, both directions plus the two silences it must keep
+    fresh = not list(check_next_action("f.md", NA_FRESH))
+    stale = len(list(check_next_action("f.md", NA_STALE))) == 1
+    unnamed = len(list(check_next_action("f.md", NA_NONE))) == 1
+    prose = not list(check_next_action("f.md", NA_PROSE))
+    return all([ok, ok2, bad1, bad2, fresh, stale, unnamed, prose])
 
 
 def tracked_markdown(root):
@@ -116,7 +180,7 @@ def main():
     if not self_test():
         print("self-test FAILED — refusing to report on real files", file=sys.stderr)
         return 2
-    print("self-test: pass (4 cases)")
+    print("self-test: pass (4 pointer cases + 4 handover-field cases)")
 
     cache = {}
 
@@ -136,6 +200,7 @@ def main():
             continue
         pointers += len(POINTER.findall(text))
         problems.extend(check_text(path, text, load))
+        problems.extend(check_next_action(path, text))
 
     if not problems:
         print(f"{len(files)} tracked Markdown files, {pointers} pointers, 0 problems.")
