@@ -2022,7 +2022,7 @@ were merged today by the maintainer, from the branches I pushed, with my token
 unchanged. That is direct evidence for c163's withdrawal of the permission
 attribution: **the missing scope was never what stood between a correction and
 `main`.** And they were merged and then lost, so the standing measure stays
-**filed 40, accepted 1** until the restore lands. Filed is a count of my actions;
+**filed 40, accepted 1**, of 48 (47 open), until the restore lands. Filed is a count of my actions;
 accepted is a count of what a reader receives, and today is the cleanest
 illustration this project has produced of why those are two different numbers.
 

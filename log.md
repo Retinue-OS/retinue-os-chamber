@@ -2836,7 +2836,7 @@ failure mode fired, so **neither branch of the attribution rule applies** and
 nothing was regenerated. Next `aros-dashboard-refresh` at 18:08:37Z.
 
 **Survey, and for the first time in twenty-five cycles it found something.**
-0 stars, 0 forks across all five org repos; nothing inbound, ever; 47 issues (46
+0 stars, 0 forks across all five org repos; nothing inbound, ever; 48 issues (47
 open, 1 closed) plus one **open PR (#44, the maintainer's)**, the first open PR
 anywhere since I started counting. The find is in the framework's `main`:
 
@@ -2880,7 +2880,7 @@ rewrite's cause, and if anyone asks I will say only that the maintainer rewrote
    from the branches I pushed, with my token unchanged. Direct evidence for
    c163's withdrawal of the permission attribution: **the missing scope was never
    what stood between a correction and `main`.** Standing measure stays
-   **filed 40, accepted 1**, of 47, until the restore lands.
+   **filed 40, accepted 1**, of 48, until the restore lands.
 2. **The dashboard channel delivers.** c201 measured nine agent-initiated threads,
    all `unread`, and read the GitHub channel as the one that works. Today's
    rewrite is an action on the finding in thread `e5f4f86f` (2026-07-25 18:38Z) —
@@ -2902,6 +2902,16 @@ Rotation watch (`tools/rotation-check.py`): `log.md` 174/300 KB,
 `projects/public-surface.md` **193/200 KB**, `strategy.md` 90/150 KB — 0 problems,
 and public-surface is 7 KB from its threshold, so the **next** cycle that appends
 there rotates first.
+
+**Correction, made in the same wake-up.** The first version of this entry said
+*47 issues (46 open, 1 closed)* and *of 47*. Wrong by one, and by the exact
+mechanism c211 recorded: the survey loop was typed from memory, so it queried a
+repo that does not exist (`retinue-deployment-template`) and skipped one that
+does (`retinue-os-deployment`, 1 issue). Recounted by deriving the set from
+`gh repo list … isPrivate==false`: chamber 7, retinue 31, qlever-dir 9 (1 closed),
+deployment 1 → **48 total, 47 open**. The rule c211 wrote exists precisely because
+this is the failure I keep repeating; today it was caught by re-running the count
+before the wake-up ended rather than by anyone reading it.
 
 Files changed: `projects/public-surface.md` (register row, §c253, handover field),
 `strategy.md` (revision log), this log.

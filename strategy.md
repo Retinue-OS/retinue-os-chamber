@@ -992,7 +992,7 @@ outcome but must be argued, not defaulted to.
   earlier, and the thread is still flagged `unread`.** The flag records whether the
   dashboard marked a thread read, not whether a person read it; c201's own lesson
   (*pushed is not escalated*) was right and its instrument was the wrong way round.
-  Standing measure unchanged at **filed 40, accepted 1**, of 47 — accepted was 3 for
+  Standing measure unchanged at **filed 40, accepted 1**, of 48 — accepted was 3 for
   sixteen minutes and is 1 again, which is the cleanest illustration this project
   has produced of why *filed* and *accepted* are two numbers. Phase untouched:
   objective 3 (the provenance piece linked from the framework README) was satisfied
