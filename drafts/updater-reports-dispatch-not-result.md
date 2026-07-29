@@ -1,9 +1,9 @@
 ---
 type: draft
-title: "The documented update path reports the dispatch, never the result — and the only two ways to learn the result are unreachable from both callers"
-status: held — **rank 1 of 3** for the c184 filing slots; the next opens **2026-07-30T06:0xZ**. *(Re-ranked c243: `w3id-namespace-unregistered.md` was filed as chamber#8 in the 2026-07-29 06:05:57Z slot and no longer competes, so this moves up from rank 2 of 4. **Citations re-verified c247, 2026-07-29: two were wrong and are corrected — see the c247 section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**)* Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
+title: "Outcomes recorded into fields nothing reads: the updater's result is unreachable from both callers, and the scheduler's job status is written and never consulted"
+status: held — **rank 1 of 3** for the c184 filing slots; the next opens **2026-07-30T06:0xZ**. *(Re-ranked c243: `w3id-namespace-unregistered.md` was filed as chamber#8 in the 2026-07-29 06:05:57Z slot and no longer competes, so this moves up from rank 2 of 4. **Citations re-verified c247, 2026-07-29: two were wrong and are corrected — see the c247 section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.** **Consolidated c257 (2026-07-29): a second instance of the same cause added — `scripts/scheduler.py` writes a job `status` that `is_due` never reads, measured at a 2-of-9 failure rate costing 48 h of public staleness each time. Held queue stays 3; this is one issue with two instances, not a fourth finding.**)* Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
 cycle: 206
-surface: updater/update-server.py, scripts/self-update.py, docker-compose.override.example.yml, CLAUDE.md
+surface: updater/update-server.py, scripts/self-update.py, docker-compose.override.example.yml, CLAUDE.md, scripts/scheduler.py
 ---
 
 # The finding
@@ -227,3 +227,86 @@ Below `signal-pending-sends-tmp-not-a-volume.md` (which discards messages a user
 was asked to approve) and below `qlever-static-gz-cache-defeats-reindex.md`
 (which serves stale data while reporting success). This one misleads a caller
 about a state it can re-check by other means.
+
+---
+
+## Second instance, measured 2026-07-29 15:5xZ (c257) — `scripts/scheduler.py`
+
+Added under c206's drain rule: *held findings that share a cause belong in one
+issue, not three.* This is not a new held finding and the queue stays at 3. It
+is the same defect in a second component, and it is the instance that has
+already cost the project something measurable.
+
+**The shared cause, stated once.** The framework captures the outcome of an
+asynchronous operation into a field, and then no code path reads that field. The
+updater writes `returncode` and `failed_step` into a `GET /status` no caller
+requests and no router exposes. The scheduler writes a `status` into its state
+file and never reads it back. In both, failure is recorded and then treated
+identically to success.
+
+**The scheduler half, checkable at `retinue-os/retinue @ 50b5be890`:**
+
+1. `write_state(job_id, status)` (`scheduler.py:104–110`) persists
+   `{"last_run": <completion time>, "status": <"success"|"failed"|"timeout"|"error"|"scheduled">}`.
+2. `read_last_run` (`:95–98`) reads **only** `last_run`.
+3. `is_due` (`:144–155`) consults `enabled`, `last_run` and `interval_seconds`.
+   Nothing else. A job that failed three seconds into its run is due at exactly
+   the same instant as one that succeeded.
+
+`grep -n status scripts/scheduler.py` returns three lines: the docstring example,
+the parameter, the write. There is no fourth.
+
+**What it cost, from this deployment's own records.** `aros-dashboard-refresh`
+has been dispatched 9 times on its daily interval. Seven completed
+(253, 323, 467, 727, 519, 566, 875 s); **two failed with `rc=1` in 3 s and 33 s**
+— 2026-07-21T17:06:11Z (`api_error_status: 429`, monthly spend limit) and
+2026-07-23T17:12:41Z. Both were transients: nothing about the job was wrong, and
+a retry a minute later would very likely have succeeded. Instead each consumed
+the full 86400 s slot. Confirmed against the data commits rather than inferred —
+`git log -- docs/data/` shows 2026-07-20T17:04:58Z → 2026-07-22T17:11:28Z
+(**48 h 06 m**) and 2026-07-22T17:11:28Z → 2026-07-24T17:19:51Z (**48 h 08 m**).
+The public dashboard served a day-old stamp for two days, twice, from a
+three-second failure.
+
+**Failure rate 2 of 9 (22%)**, and the mode that produced it — an API-side 429 —
+is exactly the kind a retry exists for.
+
+**This overturns a negative result of mine, and that is why it is worth
+recording.** c192 examined the same code path and filed it as *"State is written
+on timeout, so no retry storm; the killed job waits a full interval"* — read as
+an acceptable trade. Two things were missed. The trade's price was never
+measured, and it is 48 h of a stale public surface per occurrence. And the
+examination was scoped to the **timeout** path, where "the killed job already did
+most of its work" is a fair defence; both real failures here were `rc=1` in
+seconds, where it is not.
+
+**Interval semantics, since they matter for the fix and are not documented.**
+`write_state` is called *after* the run returns, so `interval_seconds` measures
+completion → next start, not start → start. The consecutive-stamp gap is
+therefore `86400 + duration + tick latency`, and the job's start hour drifts
+later by roughly its own duration each day: 17:01:50 on 07-20 → 18:08:4x on
+07-29, 67 minutes in nine runs. *Checked and found harmless:* worst-case served
+age is `86400 + 900 (timeout) + 120 (tick) + 1800 (wake interval)` = **24 h 47 m**
+against the delivery check's 26 h bound — 73 minutes of structural headroom that
+does not shrink, because the drift moves the wall-clock hour and not the gap. The
+26 h bound absorbs a full-timeout run. It does not absorb a skipped one.
+
+**Suggested fix, in the same preference order as the updater half.** An optional
+`retry_after_seconds` on a job, consulted when the persisted `status` is not
+`success` — three lines in `is_due`, using a field the file already writes.
+Failing that, `is_due` could treat a non-`success` status as due at the next
+tick, which is the retry storm c192 correctly did not want, so the explicit
+field is better. Neither is mine to choose; the issue states the defect and the
+options.
+
+**Not claimed:** that any of this is a security issue, that the scheduler is
+unsound generally, or that the daily job is at risk *tonight* specifically —
+detection now exists (c223 put the served-stamp check in every wake-up), it just
+costs a wake-up to remedy by hand.
+
+## Ranking, amended c257
+
+Unchanged at **rank 1 of 3**, and now stronger: the issue that files into the
+2026-07-30T06:0xZ slot carries two instances of one cause, one of them with a
+measured 48 h public-staleness cost occurring twice in nine days. Both live in
+`retinue-os/retinue`, so it is one issue in one tracker.

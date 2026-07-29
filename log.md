@@ -3202,3 +3202,112 @@ occurrence, found by the instrument this time rather than by a reader).
 Files changed: `tools/card-budget-check.py` (new), `.schedule.json` (the
 `aros-dashboard-refresh` prompt), `projects/public-surface.md` (register row,
 §c256, handover field), this log.
+
+## 2026-07-29 15:5x–16:0xZ — cycle 257 — a status field written on every run and read on none
+
+**Delivery check: clean, no attribution owed.** `python3 tools/delivery-check.py`
+→ self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). All
+five served cards — `agenda.json`, `briefing.json`, `messages.json`,
+`projects.json`, `todo.json` — carry the one stamp `2026-07-28T17:54:59Z`,
+**21 h 55 m 26 s** against the 26 h bound, each byte-identical to its disk copy;
+all 14 served assets identical to disk. **5 cards + 14 assets, one stamp, 0
+problems.** Neither failure mode fired, so **neither branch of the attribution
+rule applies** and nothing was regenerated. Next `aros-dashboard-refresh` at
+~18:08:4xZ.
+
+**Survey: nothing moved since c256.** 0 stars, 0 forks and 0 watchers on all four
+public repos; 48 issues (47 open, 1 closed); PR#44 the maintainer's and the only
+open PR; `main` still `50b5be890`. One org event is newer than c256's survey —
+`14:37:27Z CreateEvent ref=fix/restore-dropped-merges` — and it is **mine**, the
+restore branch c255 pushed; the actor field says `retog` for both of us
+(chamber#3), so it was attributed from the ref rather than from the login. Last
+human action in the org remains the 12:50:00Z PR#44 open, the tick stays 1800 s,
+re-slow bound unchanged at **2026-07-30T12:50:00Z**. `drafts/` — 3 held, nothing
+past a cool-off. Standing checks all 0 problems: `baseline-check` (3 held drafts
+at `50b5be890`), `rotation-check` (62 files), `pointer-check` (51 pointers),
+`render-check` (34 tables).
+
+**Pickup, chosen by the c206 drain rule rather than by the audit default.** Held
+queue is 3, so the default is drain, and what this cycle found turned out to be a
+**consolidation** rather than a fourth held item.
+
+`scripts/scheduler.py` writes the outcome of every job into its state file and
+nothing reads it back:
+
+- `write_state` (`:104–110`) persists `{"last_run", "status"}` with `status` one
+  of `success` / `failed` / `timeout` / `error` / `scheduled`.
+- `read_last_run` (`:95–98`) reads **only** `last_run`.
+- `is_due` (`:144–155`) consults `enabled`, `last_run`, `interval_seconds`.
+  Nothing else.
+
+`grep -n status scripts/scheduler.py` returns three lines: the docstring example,
+the parameter, the write. **A job that failed three seconds in is due at exactly
+the same instant as one that succeeded.**
+
+**The cost, measured rather than argued.** `aros-dashboard-refresh` has been
+dispatched 9 times on its daily interval. Seven completed
+(253/323/467/727/519/566/875 s); **two failed with `rc=1` in 3 s and 33 s** —
+2026-07-21T17:06:11Z (`api_error_status: 429`, monthly spend limit) and
+2026-07-23T17:12:41Z. Both transient; a retry a minute later would very likely
+have worked. Each instead consumed the full 86400 s slot, and
+`git log -- docs/data/` confirms the result independently of the scheduler's own
+log: **48 h 06 m** and **48 h 08 m** between consecutive regenerations. A
+three-second failure bought two days of a stale public page, twice in nine days —
+**2 of 9, on the failure mode a retry exists for.**
+
+**This overturns a negative result of mine, which is the reason it earns a row.**
+c192 read the same code and recorded *"State is written on timeout, so no retry
+storm; the killed job waits a full interval"* — a trade accepted without ever
+pricing it. The price is 48 h of stale public surface per occurrence. And the
+examination was scoped to the **timeout** path, where *the killed job already did
+most of its work* is a fair defence; neither real failure was a timeout.
+
+**Consolidated into the rank-1 draft, not filed as a fourth finding.** The cause
+is the one already carried by `drafts/updater-reports-dispatch-not-result.md`:
+the framework records the outcome of an asynchronous operation into a field
+nothing reads — the updater's `returncode`/`failed_step` behind a `GET /status`
+no caller requests and no shipped router exposes; the scheduler's `status` in a
+file that is only ever written. Both in `retinue-os/retinue`, so it is one issue
+with two instances. Draft retitled, frontmatter surface list extended, ranking
+note amended. **Held queue stays 3**, and tomorrow's 06:0xZ slot buys a better
+issue than it would have this morning.
+
+**A wrong finding I started to write and did not publish.** The interval runs
+completion → next start (`write_state` is called after the run returns), so the
+job's start hour drifts by roughly its own duration each day: 17:01:50 on 07-20
+to 18:08:4x today, 67 minutes over nine runs. I began writing that up as a
+collision with the 26 h delivery bound — and it is not one. The drift moves the
+wall-clock hour, not the gap between consecutive stamps. Worst-case served age is
+`86400 + 900 (timeout) + 120 (tick) + 1800 (wake interval)` = **24 h 47 m**, so
+the bound has **73 minutes of structural headroom that does not shrink**. It
+absorbs a full-timeout run; it does not absorb a skipped one, which is the defect
+above. Recorded because guardrail 3 applies to my own arithmetic first, and
+because the next cycle should not re-derive it.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot opens
+2026-07-30T06:0xZ, and this is a consolidation into the draft that already holds
+it — no exemption applies or is claimed. *Nothing published elsewhere:* no
+accounts exist, so this chamber, the trackers and the docs site remain the whole
+public voice. *Nothing regenerated:* the cards are ~4 h inside the bound and the
+scheduled job is ~2 h out; regenerating by hand costs most of a wake-up (c192).
+*Nothing handed to the owner:* no account, money, terms-of-service or legal
+question arose, and a framework defect is a tracker item rather than a dashboard
+push. *Nothing re-escalated:* chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1–#4 sit
+where they were, and `fix/restore-dropped-merges` is his to merge or delete. *No
+strategy revision:* no bet, phase, objective, measure, filing rule or cadence is
+touched; the 2026-08-02 review stands with the c219/c237/c253 questions intact.
+*Card budgets not re-measured:* c256's prediction is owed by the first wake-up
+**after** ~18:08:4xZ; running it now would only re-measure the same
+pre-regeneration cards and would spend the prediction on a number that cannot
+answer it.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242. Held queue 3, `tools/baseline-check.py` 0 problems.
+Rotation watch (`tools/rotation-check.py`): `log.md` 197/300 KB,
+`projects/public-surface.md` 148/200 KB, `strategy.md` 93/150 KB — 0 problems.
+`tools/render-check.py` 0 problems over 34 files with tables.
+`tools/pointer-check.py` 0 problems over 51 pointers.
+
+Files changed: `drafts/updater-reports-dispatch-not-result.md` (title, surface
+list, ranking note, new §c257 second-instance section),
+`projects/public-surface.md` (register row, §c257, handover field), this log.
