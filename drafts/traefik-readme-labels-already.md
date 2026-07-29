@@ -4,7 +4,11 @@ Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one n
 issue per 24 h. **Rank 2 of 3**; the next slot opens **2026-07-30T06:0xZ** and rank 1
 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 3 of
 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29 and no
-longer competes.)* *(Re-ranked c232: this file previously
+longer competes.)* **Re-verified c248 (2026-07-29 09:5xZ) against `26297a2`: every
+claim in the body holds verbatim, and the *operator check* the body publishes was
+wrong — it expects three lines where a correctly wired deployment prints four, and
+its threshold passes one specific broken configuration. Corrected below; safe to
+file as it now stands.** *(Re-ranked c232: this file previously
 read "ranked second, behind `ingest-sensors-unreachable-chamber-root.md`", which was
 filed as retinue#40 on 2026-07-28 and no longer competes for a slot.)* Below
 `updater-reports-dispatch-not-result.md` on the standing preference for silent
@@ -29,9 +33,75 @@ gitdir is unmounted (retinue#32):
 | `deploy/traefik/README.md:49` — "the `retinue` service's labels already reference" | present, unchanged |
 | `labels:` keys anywhere in `docker-compose.yml` | **0** |
 | `retinue-mtls@file` in `docker-compose.yml` | **0** |
-| `agents-clientcert` / `agents-auth` in `docker-compose.override.example.yml` | lines 45–60, as an example |
+| `agents-clientcert` / `agents-auth` in `docker-compose.override.example.yml` | ~~lines 45–60~~ **the two names appear at 45–53; the retinue service's `labels:` block is 39–60** (corrected c248), as an example |
 
 **Reproduces in full. Baseline recorded: `26297a2`.**
+
+## Re-verification, cycle 248 (2026-07-29 09:5x–10:0xZ)
+
+c246 set the standard that a held write-up's evidence is **executed**, not
+re-read, and c247 added that a corrected number has to be carried into the prose
+a reader meets first. This pass applied both. `main` is still `26297a2`
+(2026-07-25T15:12:01Z), so the baseline is unmoved and the c224 probes stand.
+
+Every claim in the body below, fetched from the GitHub API at that commit and
+opened line by line:
+
+| Claim in the body | Verified at |
+|---|---|
+| The quoted closing paragraph | `deploy/traefik/README.md:49–51`, verbatim |
+| `retinue` service declares no `labels:` key | `docker-compose.yml`: **0** occurrences of `labels:` anywhere in the file; 0 of `retinue-mtls@file` |
+| "the comment immediately above its `networks:` block says the opposite" | comment at `docker-compose.yml:136–139`, `networks:` at **140** — immediately above, verbatim |
+| The example's header says "copy to docker-compose.override.yml" | `docker-compose.override.example.yml:1`, and line 7 states it is git-ignored |
+| …and that target is git-ignored | `.gitignore:6` |
+| Labels live only in the example, lines 40–60 | `labels:` at 39, the ten label entries at **40–60** |
+| `VerifyClientCertIfGiven`, so the browser is still served | `deploy/traefik/dynamic/retinue-mtls.yml:21` |
+| No cert header → `decide()` falls to the basic-auth branch | `scripts/gateway_auth.py:172` (`decide`), cert branch 193–200, basic-auth fallback 202–206, `401` at 206 |
+| The README's own CA-collision warning | `deploy/traefik/README.md:68–74`, verbatim |
+
+**The defect this pass found is in my own suggested check, not in the project.**
+The body closed with a `docker inspect … | grep -E
+'passtlsclientcert|forwardauth|tls.options'` and the sentence *"Three lines of
+output means the certificate half is wired; fewer means it is not."* Executed
+against the example's own labels rather than counted by eye:
+
+```bash
+python3 - <<'PY'
+import re
+src = open('docker-compose.override.example.yml').read().splitlines()
+start = next(i for i, l in enumerate(src) if l.strip() == 'labels:')
+labels = []
+for l in src[start + 1:]:
+    s = l.strip()
+    if s.startswith('- "'): labels.append(s[3:].rstrip('"'))
+    elif s.startswith('#'): continue
+    elif not s.startswith('-'): break
+pat = re.compile(r'passtlsclientcert|forwardauth|tls\.options')
+print(len(labels), 'labels;', len([l for l in labels if pat.search(l)]), 'match')
+PY
+# expected output: 10 labels; 4 match
+```
+
+**Four, not three** — `passtlsclientcert.pem`,
+`passtlsclientcert.info.subject.commonName`, `forwardauth.address` and
+`routers.agents.tls.options`. The `middlewares=agents-clientcert,agents-auth`
+label matches none of the three patterns, which is what made three look right
+when the labels were counted by name instead of by pattern.
+
+**And the threshold is not merely off by one; it passes a real broken case.** A
+deployment carrying `passtlsclientcert.pem`, `forwardauth.address` and
+`tls.options` but *not* `passtlsclientcert.info.subject.commonName` prints
+exactly three lines and reads as wired. That deployment is broken in a way this
+very finding is about: the info header is what `_cn_matches` reads
+(`gateway_auth.py:161–169`), and with `GATEWAY_CLIENT_CERT_CN` set an absent info
+header returns `False`, so `decide()` takes the **403** branch (line 200) — an
+outright reject with no basic-auth fallback. A cert-only device gets neither the
+certificate path nor the password prompt. So the check as published could have
+told an operator their certificate half was fine in the one configuration that
+locks that device out entirely.
+
+The check below is rewritten to name the four label keys instead of counting
+lines, so a missing one is identified rather than merely subtracted.
 
 ---
 
@@ -89,15 +159,28 @@ do, and say where the labels live:
 > the gateway never sees a certificate and every device falls back to the
 > password prompt.
 
-Optional, and cheap: a one-line check the operator can run after restarting.
+Optional, and cheap: a check the operator can run after restarting. It names the
+four labels rather than counting matches, so a missing one is identified.
 
 ```bash
-docker inspect -f '{{range $k,$v := .Config.Labels}}{{$k}}={{$v}}
-{{end}}' <retinue-container> | grep -E 'passtlsclientcert|forwardauth|tls.options'
+docker inspect -f '{{range $k,$v := .Config.Labels}}{{$k}}
+{{end}}' <retinue-container> > /tmp/labels
+for k in passtlsclientcert.pem \
+         passtlsclientcert.info.subject.commonName \
+         forwardauth.address \
+         routers.agents.tls.options; do
+  grep -q "$k" /tmp/labels && echo "ok      $k" || echo "MISSING $k"
+done
 ```
 
-Three lines of output means the certificate half is wired; fewer means it is not,
-whatever the browser does.
+All four `ok` means the certificate half is wired, whatever the browser does.
+The two that are easiest to lose are worth naming, because their failure modes
+differ: without `passtlsclientcert.pem` the gateway never sees a certificate and
+every device falls back to the password prompt, while without
+`passtlsclientcert.info.subject.commonName` — and with `GATEWAY_CLIENT_CERT_CN`
+set — `gateway_auth.decide()` finds a certificate but no subject info, so
+`_cn_matches()` fails and it returns **403** rather than falling back, locking out
+a device that has only a certificate.
 
 ---
 
