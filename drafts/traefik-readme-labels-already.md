@@ -1,8 +1,10 @@
 # Draft issue — `deploy/traefik/README.md`: "the labels already reference …" is false on a fresh clone
 
 Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h. **Rank 3 of 4**; the next slot opens **2026-07-29T06:0xZ** and rank 1
-(`w3id-namespace-unregistered.md`) holds it. *(Re-ranked c232: this file previously
+issue per 24 h. **Rank 2 of 3**; the next slot opens **2026-07-30T06:0xZ** and rank 1
+(`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 3 of
+4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29 and no
+longer competes.)* *(Re-ranked c232: this file previously
 read "ranked second, behind `ingest-sensors-unreachable-chamber-root.md`", which was
 filed as retinue#40 on 2026-07-28 and no longer competes for a slot.)* Below
 `updater-reports-dispatch-not-result.md` on the standing preference for silent

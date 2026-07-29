@@ -29,6 +29,24 @@ What it measures, and what it does not
 Measured: issues and pull requests outside the org that name this project;
 repositories whose name matches; code outside the org that links to it.
 
+c243 (2026-07-29) found that the first half of that sentence was a label rather
+than a measurement. Both issue probes read `is:issue "<term>"`, which **excludes
+pull requests** — so two probes announcing "issues and PRs" had never once looked
+at a PR. The PR side is not empty: `is:pull-request "qlever-dir" -org:Retinue-OS`
+returns **19 raw hits**, none of which any run of this script had ever read. They
+all turn out to be the same tokenizer artefact (`qlever` + `dir` in QLever's own
+ecosystem), so the reading does not move — but "the answer would have been the
+same" is not a reason a probe may skip half its declared surface, and next month
+the PR side is where a reference to this project would most plausibly appear.
+
+The queries need the qualifier for a second reason, found the same day (c242):
+`/search/issues` now returns **422 Query must include 'is:issue' or
+'is:pull-request'** when neither is present. `gh` exits non-zero on that, so
+`gh_search` reports it as a failed probe rather than a zero — verified, not
+assumed. A caller that only tested for an empty item list would read a malformed
+query as *nothing found*, which is the failure mode this whole file exists to
+prevent.
+
 **Not** measured: any forum, social platform, blog, aggregator, or search engine.
 The honest form of a zero from this script is *"no external mention anywhere
 GitHub can see"*, and the wider web stays unmeasured from this deployment — which
@@ -96,6 +114,15 @@ KNOWN_BAD = [
     "files.",
 ]
 
+# Word-level matchers for the label check below. Written as regexes with real
+# boundaries because the first version of that check split the label on
+# whitespace and looked for the token "pr" — which does not match "PRs", the
+# exact wording of the two probes it was written to catch. It passed the
+# pre-c243 probe set on the first replay. A guard that agrees with the fix but
+# not with the defect is decoration.
+PR_WORD_RE = re.compile(r"\b(prs?|pull[- ]requests?)\b", re.IGNORECASE)
+ISSUE_WORD_RE = re.compile(r"\bissues?\b", re.IGNORECASE)
+
 KNOWN_GOOD = [
     "Saw this in https://github.com/Retinue-OS/retinue — the sidecar gateway "
     "design is worth a read.",
@@ -114,6 +141,43 @@ def self_test():
     for text in KNOWN_GOOD:
         if not CONFIRM_RE.search(text):
             failures.append(f"known-good rejected: {text[:60]!r}")
+    return failures
+
+
+def probe_test():
+    """Check each probe's label against the query it actually runs (c243).
+
+    A classifier fixture cannot catch a probe that searches the wrong half of a
+    surface: the hits it never receives are the ones it cannot misclassify. The
+    defect this reproduces is the real one — two probes labelled *"issues and
+    PRs"* running `is:issue`, which excludes every pull request.
+
+    Two rules, both structural:
+
+    1. A `/search/issues` query must carry `is:issue` or `is:pull-request`, or
+       GitHub answers 422 (c242) — a probe that cannot run is worse than one that
+       runs wrong, because its zero looks identical.
+    2. The label must name the half the qualifier selects. A label is a claim
+       about what was measured; it is published in this script's output and
+       copied into log entries, so it is read by people who never see the query.
+    """
+    failures = []
+    for label, endpoint, query, _extractor, _accept in PROBES:
+        if endpoint != "issues":
+            continue
+        is_issue = "is:issue" in query
+        is_pr = "is:pull-request" in query
+        low = label.lower()
+        if not (is_issue or is_pr):
+            failures.append(f"probe {label!r}: no is:issue/is:pull-request — 422")
+            continue
+        if is_issue and is_pr:
+            failures.append(f"probe {label!r}: both qualifiers, GitHub takes one")
+            continue
+        if is_issue and PR_WORD_RE.search(low):
+            failures.append(f"probe {label!r}: label claims PRs, query is is:issue")
+        if is_pr and ISSUE_WORD_RE.search(low):
+            failures.append(f"probe {label!r}: label claims issues, query is PRs")
     return failures
 
 
@@ -168,16 +232,30 @@ def url_of(item):
 
 PROBES = [
     (
-        "issues and PRs naming the org",
+        "issues naming the org",
         "issues",
         f'is:issue "retinue-os" -org:{ORG}',
         text_of_issue,
         None,
     ),
     (
-        "issues and PRs naming qlever-dir",
+        "PRs naming the org",
+        "issues",
+        f'is:pull-request "retinue-os" -org:{ORG}',
+        text_of_issue,
+        None,
+    ),
+    (
+        "issues naming qlever-dir",
         "issues",
         f'is:issue "qlever-dir" -org:{ORG}',
+        text_of_issue,
+        None,
+    ),
+    (
+        "PRs naming qlever-dir",
+        "issues",
+        f'is:pull-request "qlever-dir" -org:{ORG}',
         text_of_issue,
         None,
     ),
@@ -206,13 +284,16 @@ PROBES = [
 
 
 def main():
-    failures = self_test()
+    failures = self_test() + probe_test()
     if failures:
         print("self-test: FAIL — refusing to report on live data")
         for line in failures:
             print(f"  {line}")
         return 1
-    print(f"self-test: pass ({len(KNOWN_GOOD) + len(KNOWN_BAD)} cases)")
+    print(
+        f"self-test: pass ({len(KNOWN_GOOD) + len(KNOWN_BAD)} classifier cases, "
+        f"{len(PROBES)} probes label-checked)"
+    )
 
     confirmed, unclassified, errors = [], [], []
     total_raw = 0

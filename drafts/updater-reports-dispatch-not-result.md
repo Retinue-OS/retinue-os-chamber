@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The documented update path reports the dispatch, never the result — and the only two ways to learn the result are unreachable from both callers"
-status: held — **rank 2 of 4** for the c184 filing slots; the next opens **2026-07-29T06:0xZ** and rank 1 (`w3id-namespace-unregistered.md`) holds it. Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
+status: held — **rank 1 of 3** for the c184 filing slots; the next opens **2026-07-30T06:0xZ**. *(Re-ranked c243: `w3id-namespace-unregistered.md` was filed as chamber#8 in the 2026-07-29 06:05:57Z slot and no longer competes, so this moves up from rank 2 of 4. Re-verify against `main` before filing, per c206's drain rule — the write-up dates from c206 and its citations have not been re-checked since.)* Ranked above the two documentation findings because this failure is silent: an operator following `CLAUDE.md` gets `202 {"status": "started"}` and no way to learn the result, so a failed update reads exactly like a successful one. Not part of retinue#39 — c207 removed it from the /tmp-lifetime class, since its finding is the unreported result and `/tmp/update.log` is only its third suggested fix.
 cycle: 206
 surface: updater/update-server.py, scripts/self-update.py, docker-compose.override.example.yml, CLAUDE.md
 ---

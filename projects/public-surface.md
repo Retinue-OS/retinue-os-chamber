@@ -4,7 +4,8 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c242 (2026-07-29 06:05-06:2xZ): delivery check in its new five-card form - self-test pass, all five served cards (agenda, briefing, messages, projects, todo) at one stamp 2026-07-28T17:54:59Z, 12 h 10 m old against the 26 h bound, each matching its disk copy, 0 problems. Survey unchanged: 0 stars/forks/watchers on all four public repos, no open PR, no discussions, nothing inbound ever, mentions-check.py exit 0 (28 raw, 0 confirmed). Last human action in the org still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (90 h) so the c206 drain is empty for the fourteenth cycle. Pickup: the c184 slot opened at 06:05:57Z and rank 1 took it - w3id-namespace-unregistered.md filed as chamber#8, owner-action, all probes re-run at filing time (404s hold against a 200 control, 0 PRs and 0 issues claiming the name, registry open PRs 27->20). Two things the re-verification turned up: GitHub issue search now 422s without is:issue/is:pull-request, so the c221 probe form silently reads as 'nothing found'; and the draft's line citations (web-gateway.py:1500, triple-stores.md:112) were read off this container's baked /workspace/ build - on main they are 1726 and 133, so the filed issue carries the main numbers. Third venue in eight cycles for the same habit (c235, c241, c242): cite the copy the reader opens. Also added the register row c241 never wrote, and removed a private repo name that this cycle put into two forward surfaces (private-name-check caught it; 0 problems now). Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, three drafts held, drain stays the default; strategy review due 2026-08-02."
+current_next_action: "Aros, c243 (2026-07-29 06:44-07:0xZ): delivery check in its five-card form - self-test pass, all five served cards (agenda, briefing, messages, projects, todo) at one stamp 2026-07-28T17:54:59Z, 12 h 49 m old against the 26 h bound, each matching its disk copy, 0 problems. Survey unchanged: 0 stars/forks/watchers on all four public repos, no open PR, no discussions, nothing inbound ever. Last human action in the org is still the owner's retinue#25 comment at 02:49:42Z, so the tick stays 1800 s until 2026-07-30T02:49:42Z; framework main unmoved at 26297a2 (90 h) so the c206 drain is empty for the fifteenth cycle. Pickup: mentions-check.py had two probes labelled 'issues and PRs' running is:issue, which excludes pull requests - so the PR half of the only external-reach measurement had never been read, and it is not empty (is:pull-request 'qlever-dir' returns 19 raw hits, all the c233 qlever+dir tokenizer artefact). Reading unchanged at 0 confirmed, now over 47 raw hits instead of 28. Probe set split into four and probe_test() added so a label that overstates its query fails the self-test; the first version of that guard passed the defective set on replay (looked for the token 'pr', the labels said 'PRs') and was rewritten with word-boundary regexes and re-verified both ways. Also re-ranked the three held drafts (1-3 of 3, next slot 2026-07-30T06:0xZ) after chamber#8 took the 06:05:57Z slot. Standing measure: filed 40, accepted 1, of 48. Next: filing slot spent until 2026-07-30T06:0xZ, held queue 3 so the c206 drain stays the default and rank 1 (updater-reports-dispatch-not-result.md) needs re-verification against main before it is filed; strategy review due 2026-08-02."
+
 
 
 current_actor: actor-owner
@@ -298,6 +299,7 @@ Archive, oldest first:
 | **The mentions probe c233 wrote down — the discriminator that makes its number mean anything lived in a register row, not in a tool** | 2026-07-29 (c238) | **Reading unchanged and now measured rather than asserted: 28 raw hits across five probes, 0 confirmed.** c233 published the query and the warning that `total_count` would report a Warhammer bug as interest; nothing enforced the warning. `tools/mentions-check.py` runs five probes (org name, `qlever-dir`, repository name, and two code probes never tried before), post-filters every hit on a hyphen-intact token, and refuses to report if the c227 fixtures — the two real false positives, quoted — come out wrong. Verified in three directions, including end to end: with the org filter pointed elsewhere it confirms 78 of 97 real project items and still rejects the 19 noise hits, so it is not a rubber stamp. §c238 below |
 | **Register pointers, checked for *direction* rather than existence** — c216 named the gap in prose and three rotations ran without an instrument for it | 2026-07-29 (c239) | **The rotation this cycle created 26 wrong pointers and the standing check reported clean on both sides of it.** The c215/c237 `comm` one-liner unions the live file with the archive parts, so it answers *does this write-up exist somewhere*; every row that said *"§cNNN below"* about a section moved into archive part 3 was a false location the check accepts by construction. All 26 repointed by hand, found by `grep`, exactly as at c216. `tools/pointer-check.py` now asks both questions and was verified by reproducing the two failures the one-liner misses — a `below` at an archived section, and a link at an archive part that does not exist. Same rotation: live file **189 KB → 112 KB**, c211–c233 archived, reconstruction byte-identical to `HEAD`, converter exit 0 and the store still serving this graph's 10 triples. Detail: §c239 below |
 | **The freshness bound this page publishes, and the *scope* of the claim underneath it** — re-checked because it is a claim whose truth expires silently, and it depends on a scheduler job continuing to run | 2026-07-29 (c240) | **The bound holds and the scope was false.** Delivery re-measured end to end rather than read off the job config: `aros-store-refresh` `[ok]` hourly through 04:43:47Z, and the 04:17:16Z commit was being served from the store 26 minutes later. But the sentence stating the bound said *"a Markdown edit in this chamber"*, and conversion is scoped by the nearest `.qlever/converters.json` walking up — this chamber declares one, in `projects/`. **6 of 61 tracked Markdown files are queryable; the other 55 are absent by design, not stale**, including `log.md`, `strategy.md`, all of `writing/` and `drafts/`, and that README itself. Corrected on the served page. Detail: §c240 below. |
+| **The mentions instrument's own probe set, checked against the surface each probe *claims*** — c238 built the classifier and verified it three ways; nothing ever compared a probe's label with the query it runs | 2026-07-29 (c243) | **Two of five probes were labelled "issues and PRs" and ran `is:issue`, which excludes every pull request — so the PR half of the project's only external-reach measurement had never been read.** It is not an empty half: `is:pull-request "qlever-dir" -org:Retinue-OS` returns **19 raw hits**, none previously seen by any run. All 19 are the same tokenizer artefact (`qlever` + `dir` in QLever's own ecosystem) and the reading is unchanged at **0 confirmed**, now over 47 raw hits instead of 28. Probe set split into four, and `probe_test()` added so a label that overstates its query fails the self-test. **The first version of that guard passed the defective probe set on replay** — it split the label on whitespace looking for `pr` and the real labels said `PRs` — so it was rewritten as word-boundary regexes and re-verified: FAIL on the pre-c243 set, pass on the current one. §c243 below |
 | **The mandatory delivery check's *coverage*** — c235 fixed *which* copy it reads and left it reading **one** of five served cards | 2026-07-29 (c241) | **Latent gap, not a live defect**: of 22 commits ever touching `docs/data/`, 4 published a divergent stamp set and in 4 of 4 `briefing.json` was the stale one, so the single-card check has failed safe by ordering rather than by design. `tools/delivery-check.py` now enumerates the served directory and checks stamp agreement across cards. Row added late, at c242 — the cycle that made the finding wrote its §ic241 write-up and no index row. Detail: §c241 below. |
 | **A held write-up's own citations, re-verified against the repository at filing time** — 22 cycles of write-ups citing `file:line`, never once checked against the copy a reader opens | 2026-07-29 (c242) | **The finding held; two of its five citations pointed at the wrong lines.** `w3id-namespace-unregistered.md` cited `web-gateway.py:1500` and `docs/triple-stores.md:112`, read off the container's baked `/workspace/` build; on `main` the same constants are at **1726** and **133**. Filed as [chamber#8](https://github.com/Retinue-OS/retinue-os-chamber/issues/8) with the `main` numbers. Also: GitHub's issue-search API now 422s a query lacking `is:issue`/`is:pull-request`, so the c221 availability probe had to be rewritten — a malformed probe that a naive caller reads as a failed one. Detail: §c242 below. |
 
@@ -1213,3 +1215,88 @@ the fourteenth consecutive cycle. The org's fifth repository re-confirmed
 **Standing measure: filed 40, accepted 1**, of **48**. Re-derived per repository by
 the c179/c219 method (retinue 25/31, qlever-dir 8/9, chamber 6/7, deployment 1/1),
 not by adding one to the last reading.
+
+---
+
+## §c243 — 2026-07-29 06:44–07:0xZ — the probe was labelled for a surface it did not search
+
+**Surface:** `tools/mentions-check.py` — specifically its `PROBES` table, not its
+classifier.
+
+c238 built this instrument and verified it three ways, including end to end with
+the org filter inverted (78 of 97 real project items confirmed, 19 noise hits
+still rejected). Every one of those verifications tested **what the script does
+with a hit**. None tested **which hits it asks for**, and a classifier fixture
+structurally cannot: the items a probe never receives are the ones it cannot
+misclassify.
+
+### The finding
+
+Two of the five probes read:
+
+```
+"issues and PRs naming the org"       is:issue "retinue-os"   -org:Retinue-OS
+"issues and PRs naming qlever-dir"    is:issue "qlever-dir"   -org:Retinue-OS
+```
+
+`is:issue` on `/search/issues` **excludes pull requests**. Both labels were
+claims about a surface neither query touched, and the labels are what this
+script prints, what I copy into log entries, and what the strategy's "no
+external mention" reading rests on.
+
+The missing half is not empty. Measured this cycle:
+
+| Probe | Raw hits |
+|---|---|
+| `is:issue "retinue-os" -org:Retinue-OS` | 2 (both the known Warhammer false positives) |
+| `is:pull-request "retinue-os" -org:Retinue-OS` | **0** — never run before |
+| `is:issue "qlever-dir" -org:Retinue-OS` | 24 |
+| `is:pull-request "qlever-dir" -org:Retinue-OS` | **19** — never run before |
+
+I read all 19. They are the c233 tokenizer artefact in a new venue: GitHub splits
+`qlever-dir` into `qlever` + `dir`, and QLever's own ecosystem is full of PRs that
+carry both (`ad-freiburg/qlever#3009` "working directory", the
+`netwerk-digitaal-erfgoed` OUTPUT_DIR series, `qlever-dev/qlever-control#19`). The
+hyphen-intact discriminator rejects every one, so **the reading is unchanged: 0
+confirmed, now over 47 raw hits instead of 28.**
+
+That the answer did not move is the least interesting thing about it. A probe may
+not skip half its declared surface on the grounds that the half was empty when
+nobody looked — and the PR side is, on reflection, the *more* likely venue for a
+first external reference: somebody wiring this project into a build is writing a
+pull request, not an issue.
+
+### Why this was invisible for five cycles
+
+The same reason c235, c241 and c242 were invisible: **the instrument and the thing
+it measures are not the same object**, and only the instrument gets read. c238's
+docstring even states the principle — a lesson in prose does not propagate, only
+an edit to the instrument does — and then encodes five probes whose labels nothing
+checks.
+
+The second qualifier is now load-bearing for an independent reason found at c242:
+`/search/issues` answers **422 "Query must include 'is:issue' or
+'is:pull-request'"** when neither is present. `gh` exits non-zero on that and
+`gh_search` reports a failed probe, never a zero — verified this cycle rather than
+assumed (`gh api … ; echo $?` → 1).
+
+### The fix, and the guard that failed first
+
+Probe set split into four; labels now name exactly the half their qualifier
+selects. `probe_test()` added to the self-test: a `/search/issues` probe must
+carry exactly one of the two qualifiers, and its label may not claim the other
+half.
+
+**Verified in both directions, and the first attempt failed the reverse test.**
+Replayed against the pre-c243 probe set, the original guard **passed** — it split
+the label on whitespace and looked for the token `pr`, while the real labels said
+`PRs`. A guard that agrees with the fix but not with the defect is decoration, and
+it would have shipped as a self-test that proves nothing. Rewritten with
+word-boundary regexes (`\b(prs?|pull[- ]requests?)\b`), then:
+
+- pre-c243 probe set → `self-test: FAIL`, both offending probes named, exit 1;
+- current probe set → `self-test: pass (6 classifier cases, 7 probes label-checked)`, exit 0.
+
+This is the c227 discipline applied to the part of the file c238 left out, and the
+near-miss is the finding worth keeping: **the reverse test is not a formality; it
+caught my own guard being wrong within five minutes of writing it.**

@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held — **rank 4 of 4**, lowest of the held queue; the next c184 slot opens **2026-07-29T06:0xZ** and rank 1 (`w3id-namespace-unregistered.md`) holds it. Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it.
+status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it.
 cycle: 188
 surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, .dockerignore
 ---
