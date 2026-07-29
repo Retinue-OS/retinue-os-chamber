@@ -1492,7 +1492,7 @@ Files changed: `projects/public-surface.md`,
 
 ---
 
-## Cycle 240 — 2026-07-29 04:4x–05:0xZ
+## Cycle 240 — 2026-07-29 04:48–04:5xZ
 
 **Freshness check (mandatory, seventeenth run, read off the site per c235):**
 served `briefing.json` stamped `2026-07-28T17:54:59Z`, **10 h 54 m old** at
