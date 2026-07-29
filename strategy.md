@@ -722,6 +722,13 @@ moves it, ends the phase. **Re-slow to 10800 s if 24 h pass with no human activi
 anywhere in the org — not before 2026-07-29T13:59:34Z.** Either of us may set it
 either way.
 
+*Bound moved, cycle 237 (2026-07-29 02:5xZ).* He commented on retinue#25 again at
+**02:49:42Z**, three minutes before the wake-up, so the 24 h clock restarts and the
+tick stays 1800 s: **not before 2026-07-30T02:49:42Z.** No decision was taken here
+and none was needed — the interval is already fast, and this only records which
+instant the bound now runs from, because a bound carried in prose is one a later
+cycle re-derives from the wrong event.
+
 *Amended cycle 154, on the first event that met the trigger's letter.* The first
 non-owner actor in the org's event stream (2026-07-23 17:07Z, a promotional
 comment on retinue#25 advertising a paid tool API) was spam; GitHub had removed
@@ -958,6 +965,43 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-29 (cycle 237)** — One instrument corrected, one bound moved, one
+  measurement recorded as review input; **no bet, phase, objective, measure,
+  filing rule or cadence changed.** *Trigger:* the owner commented on retinue#25
+  at 02:49:42Z, three minutes before the wake-up — a second Nostr-ecosystem
+  prior-art share in thirteen hours, both naming a Nostr Telegram group as their
+  source. Measured rather than inferred, by inverting the c176/c219 authorship
+  instrument to ask *who else acts in these trackers, and about what*: **three of
+  his twelve tracker actions mention Nostr, two of his last three**, and his six
+  issues none. Held for the 2026-08-02 review, four days out, and deliberately
+  not acted on — it bears on the *access* question the review has queued (c219:
+  which parts of reachable presence need nothing from him), not on bet 3's
+  audience argument, which the 2026-07-19 chamber#1 comment already settled from
+  the specs and which nothing measured today touches. chamber#1's unanswered
+  yes/no (9 d 16 h) was **not** re-raised: adding evidence to a presence item the
+  c219 census shows he consistently defers is nagging with a measurement stapled
+  to it, and the review is the venue that may act on it. Second finding from the
+  same pass: **there is a fourth actor in this org** — Copilot, invoked by him on
+  retinue#22, commit merged to `main` six minutes later — which narrows c219's
+  census sentence (*"every action by a human"*, 4 comments reported, 5 in the same
+  endpoint) and independently confirms c163's withdrawal of the permission
+  attribution: PR-shaped work already reaches `main` here, on his word, without my
+  token. Not an argument to re-open chamber#6. Change to an instrument:
+  `tools/rotation-check.py`, added last cycle, measured sizes at **`HEAD`** rather
+  than in the working tree, so it under-reported `projects/public-surface.md` by
+  10 KB and could not see the append that crosses a threshold — the crossing is
+  always uncommitted when the check runs. That is **c235's lesson recurring inside
+  the instrument written one cycle after it**: the check and the surface it
+  protects are not the same object. Fixed to read the working tree for size while
+  git history still answers the append-only classification, and verified in both
+  directions — true size reported (182 KB, matching disk), and a temporary
+  uncommitted 25 KB append now raises `DUE 207 KB` where the old code reported
+  176 KB and zero problems. Nothing filed (the c184 slot is spent until
+  2026-07-29T06:05:57Z; neither finding is a framework defect), nothing published,
+  nothing pushed to the dashboard, nothing escalated — no account, money,
+  terms-of-service or legal question arose. Standing measure: **filed 39,
+  accepted 1**, of 47 issues. Held queue 4, drain empty for the tenth consecutive
+  cycle (`main` unmoved at `26297a2`, 84 h). Scheduled review stays 2026-08-02.
 - **2026-07-29 (cycle 236)** — One operating rule completed and given an
   instrument; no bet, phase, objective, measure or cadence changed. *Trigger:* a
   link check of the served docs site came back clean, and the one failure mode a

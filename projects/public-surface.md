@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c236 (2026-07-29 02:1x-02:3xZ): survey unchanged - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, framework main unmoved at 26297a2 for 83 h, last human action in the org still the owner's retinue#25 comment at 2026-07-28T13:59:34Z, 9 agent-initiated dashboard threads all still unread. Briefing freshness, thirteenth run and second read off the SITE per the corrected c235 instrument: served briefing.json stamped 2026-07-28T17:54:59Z, 8 h 19 m old, inside the 26 h bound - no miss, no attribution needed. Two results. (1) Clean: the served front page's 11 external links all return 200 and all six Markdown targets render (richTextTruncated false, largest 19 KB) - first time the front door's outbound links were checked as a class. (2) One step behind them, a finding: the rotation rule says every append-only file rotates and instruments two, and strategy.md is the third - strictly non-decreasing across all 31 revisions, 3.2 KB to 84 KB in ten days, linked from README.md, named by no threshold and no watch line. Threshold set at 150 KB with the revision log cutting into strategy-archive/, and the hand-enumerated watch replaced by tools/rotation-check.py, verified both ways (0 problems as committed, UNCOVERED strategy.md with the threshold removed). c190 under-reach recurring, c235 lesson applied. Nothing filed: the c184 slot is spent until 06:05:57Z and the defect is my own. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
+current_next_action: "Aros, c237 (2026-07-29 02:5x-03:1xZ): survey unchanged on every external number - 0 stars/forks/watchers on all four public repos since 2026-07-18, 47 issues (46 open, 1 closed), no open PR anywhere, discussions disabled, framework main unmoved at 26297a2 for 84 h, 9 agent-initiated dashboard threads all still unread, nothing inbound ever. One change: the owner commented on retinue#25 at 02:49:42Z, three minutes before the wake-up, a second Nostr-ecosystem prior-art share - so the c219 re-slow bound resets to 2026-07-30T02:49:42Z and the tick stays 1800 s. Briefing freshness, fourteenth run, read off the site per c235: served briefing.json stamped 2026-07-28T17:54:59Z, 8 h 57 m old, inside the 26 h bound; no miss, no attribution needed, disk copy identical. Pickup: classified every non-Aros item in the four trackers, the c176/c219 instrument inverted to ask who else acts here. (a) Three of his twelve actions mention Nostr, two of the last three, both sourced from a Nostr Telegram group - held for the 2026-08-02 review as input to the queued access question, chamber#1 not re-raised. (b) A fourth actor exists: Copilot, invoked by him on retinue#22, commit merged six minutes later - which narrows c219's census sentence and independently confirms c163's withdrawal of the permission attribution. Nothing filed (c184 slot spent until 06:05:57Z), published, pushed or escalated. Next: the 06:05:57Z slot goes to w3id-namespace-unregistered.md, availability probe at filing time."
 
 
 current_actor: actor-owner
@@ -105,10 +105,24 @@ belongs in any wake-up that appends here:
 ```bash
 # every cycle with a register row must have an h2 write-up in this file or the archive
 comm -23 <(grep -o 'Detail: §c[0-9]*' projects/public-surface.md | grep -o '[0-9]*' | sort -u) \
-         <(grep -ho '^## \(Cycle \)\?c\?[0-9]*' projects/public-surface.md projects-archive/*.md \
+         <(grep -ho '^## §\?\(Cycle \)\?c\?[0-9]*' projects/public-surface.md projects-archive/*.md \
            | grep -o '[0-9]*' | sort -u)
 # empty output = no dangling pointer
 ```
+
+**Pattern corrected 2026-07-29 (c237), on a false positive it raised about
+itself.** Headings have drifted to a `## §cNNN` form — §c224 and §c232–§c237, six
+of them — and the original pattern anchored on `## ` followed directly by an
+optional `c` and a digit, so the `§` made every one of those write-ups invisible
+to its own check. Today it reported `224` as a dangling pointer while §c224 sits
+in this file at its documented heading. The failure is in the safe direction (it
+over-reports rather than missing a real dangling pointer), which is exactly why it
+survived: a check that prints a spurious number every run is a check whose output
+stops being read, and the next real dangling pointer arrives in that noise. One
+character — `§\?` — and the c215 invariant is a matcher again rather than a
+convention I keep in my head. Same finding as c219 for the disclosure line and
+c179 for the authorship regex, on a third instrument: **a proxy is a claim, and a
+heading format that drifts silently breaks every tool anchored to it.**
 
 The general shape is the one this chamber keeps finding: **a rule that names a
 unit has to say what the unit is, or the next writer will infer it from the
@@ -257,6 +271,7 @@ Archive, oldest first:
 | **External mentions of the project** — on every survey's checklist, and the only instrument ever tried (`WebSearch`) is not permitted in this deployment, so cycles recorded the check as *unavailable* rather than substituting for it | 2026-07-29 (c233) | **A substitute instrument exists and reads zero, with a known false-positive mode.** `GET /search/issues?q=is:issue "retinue-os" -org:Retinue-OS` → 2 hits, **both false** (BSData/horus-heresy-2nd-edition #2340 in 2022 and #2982 in 2023, where *retinue* is a wargaming common noun); `GET /search/repositories?q=retinue-os` → 2 hits, both ours. So: no external mention anywhere GitHub can see, and the search term cannot be trusted on its own — the discriminator is the org filter plus reading the hit, not the count. Covers GitHub only; the wider web stays unmeasured here and should be stated that way rather than as zero. §c233 below |
 | **The mandatory briefing-freshness check itself** — run twelve times since c223, always against the working tree, never against the site it protects | 2026-07-29 (c235) | **The check reads `docs/data/briefing.json` on disk; the 26 h bound is a claim about the Pages copy a reader opens.** They are joined by a delivery path this register has already documented failing twice (c146, c168). A one-commit build lag is bounded by the next push; a *failed* build is not — the served bytes freeze, the disk stamp reads fresh indefinitely, which is the exact silence the check exists to break. Measured today: all five documents byte-identical disk vs. served (SHA-256), Pages `built`, latest build `eaa74b05` = `main`, briefing 7 h 41 m old — **clean, gap latent not live**. Instrument corrected in `.schedule.json` the same cycle: read the served stamp, use the disk stamp only to attribute. c190's shape a second time — c145's "fetch the surface a reader gets" never propagated to an instrument written 78 cycles later. §c235 below |
 | **Rotation coverage — the rule says "every append-only file rotates" and names two; nobody ever enumerated** | 2026-07-29 (c236) | **`strategy.md` is the third and had no threshold: strictly non-decreasing across all 31 revisions, 3.2 KB → 84 KB in ten days, linked from `README.md`, absent from every rotation-watch line.** At 400 KB GitHub serves it as unrendered source — the c145 failure, on the file that states the c145 rule. Threshold set (150 KB, revision log → `strategy-archive/`, down to 100 KB) and the watch replaced by `tools/rotation-check.py`, which classifies append-only from git history rather than from habit and carries the c227 self-test. Verified both ways: 0 problems as committed, `UNCOVERED strategy.md` with the threshold removed. Same cycle, clean: the served front page's 11 external links all 200, all six Markdown targets render (`richTextTruncated: false`) — first check of the front door's links as a class. §c236 below |
+| **The org's non-me actors — who else acts in these trackers, and about what** | 2026-07-29 (c237) | **Two findings from one classification pass.** (a) Three of the owner's twelve tracker actions mention Nostr and two of his last three do, both naming a Nostr Telegram group as their source — bearing not on bet 3's audience argument (unchanged: freedom-tech, not RDF) but on the review's queued *access* question, since Nostr is the one candidate whose blocking step is a keypair rather than a signup. Held for the 2026-08-02 review; chamber#1's yes/no not re-raised. (b) A **fourth actor**: GitHub Copilot, invoked by the owner on retinue#22, authored a commit merged to `main` six minutes later — so c219's census sentence (*"every action by a human"*) was scoped narrower than its own claim (4 comments reported, 5 in the same endpoint), and PR-shaped work demonstrably already reaches `main` here without my token. §c237 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -2029,3 +2044,90 @@ From now on the rotation-watch line in each log entry is that command's output.
 **Not filed.** The defect is in this chamber's own operating rule, it is fixed in
 the cycle that found it, and the c184 slot is spent until 06:05:57Z regardless.
 Nothing here is a defect in the framework, in `qlever-dir` or in Pages.
+
+## §c237 — 2026-07-29 02:5x–03:1xZ — the org's non-me actors, classified for the first time
+
+**Trigger.** The survey found a human action three minutes old: the owner
+commented on retinue#25 at 2026-07-29T02:49:42Z, a second prior-art share
+(*Nostra Search*, `github.com/nostrasearch/nostrasearch.github.io`, an
+experimental community-curated search index authenticated with Nostr keys),
+following his `chat.vims.com` share on the same issue 12 h 50 m earlier. Two
+Nostr-ecosystem shares in thirteen hours is the sort of pattern that is either a
+signal or an artefact of me reading three data points, and c27's clock rule says
+which one it is only after counting.
+
+**Method, and it is the c176 method pointed at a question it was never asked.**
+Every issue and every issue-endpoint comment in the four public repos, fetched
+whole, filtered to those **not** carrying one of the four historical Aros
+disclosure forms (c219's corrected pattern), then classified for a `nostr`
+mention in body or title. This is the same instrument the standing measure uses,
+inverted: it normally answers *which are mine*, and the complement — *who else
+acts here, and about what* — had never been read off it.
+
+**Result A: the Nostr cluster is real, small, and one-sided.**
+
+| Non-Aros action | Date | Nostr? |
+|---|---|---|
+| chamber#1 comment, *"Nostr Should also be considered"* | 2026-07-19 | yes |
+| retinue#13 comment (requirement clarification) | 2026-07-21 | no |
+| qlever-dir#8 comment (skolemize alternative) | 2026-07-25 | no |
+| retinue#22 comment, *"@copilot please fix the merge conflicts"* | 2026-07-25 | no |
+| retinue#25 comment, `chat.vims.com` / `keys.vims.com` | 2026-07-28 | yes |
+| retinue#25 comment, *Nostra Search* | 2026-07-29 | yes |
+| His six issues (retinue#13/#15/#16/#18/#19/#25) | 07-21 → 07-23 | none |
+
+**Three of his twelve tracker actions mention Nostr; two of his last three.**
+Both recent ones name their source explicitly — *"shared in the Nostr Telegram
+group"*, *"Telegram share"* — so the owner is a participant in a Nostr community
+that circulates exactly this project's subject matter, and has been forwarding
+from it into the tracker for two consecutive days.
+
+**What that does and does not bear on.** It does not touch bet 3's *audience*
+argument: the 2026-07-19 comment on chamber#1 already recorded, from the specs,
+that Nostr's centre of gravity is freedom-tech and bitcoin rather than RDF, and
+nothing measured today changes that. What it touches is the *access* argument,
+which is a different question and the one the 2026-08-02 review has queued
+(c219: *which parts of "reachable presence" need nothing from him*). Of the three
+candidate platforms, Nostr is the only one where the blocking step is a keypair
+rather than a signup — and it is now also the only one where the project has a
+demonstrated route to an existing community, because the owner is already in one.
+
+**Held for the review, not acted on, and the restraint is the point.** The yes/no
+this depends on has sat unanswered on chamber#1 since 2026-07-19 (9 d 16 h), and
+it was asked properly the first time: the guardrail-7 ambiguity stated, the
+default named as *no*, the relay-selection rule pre-committed. Adding "and here
+is more evidence you should say yes" to a presence item the c219 census shows he
+consistently defers is nagging with a measurement stapled to it. The evidence
+goes to the review, which is four days out and is the venue that may act on it.
+
+**Result B: there is a fourth actor in this org and no census had ever counted
+it.** The retinue#22 exchange is the owner writing *"@copilot please fix the
+merge conflicts in this pull request"* at 2026-07-25T15:06:54Z, Copilot replying
+at 15:08:56Z, and a commit **authored by `Copilot`** landing on
+`feat/conversation-model-picker`, merged 15:12:01Z. So a coding agent with push
+access operates in this repository on the owner's instruction.
+
+Two things follow, and both are about my own records rather than about him.
+
+1. **c219's census was scoped narrower than its own sentence.** It reported
+   *"every action by a human in the org's issue trackers"* and listed **4**
+   comments; the same endpoint returns **5** for him, the missing one being the
+   retinue#22 Copilot request. A PR conversation is arguably not "the issue
+   tracker", but the endpoint does not make that distinction and the sentence did
+   not claim it — the count was of what I happened to fetch. Same shape as c176,
+   c179 and c219 itself: **a count's scope is part of the claim**, and here the
+   scope was inherited from a query rather than chosen.
+2. **It is a second, independent confirmation of c163's withdrawal.** c163
+   withdrew the attribution that a missing PR scope is what keeps my corrections
+   from landing. The stronger version of that withdrawal is now measurable:
+   PR-shaped work already reaches `main` in this org through an agent, on the
+   owner's word, in six minutes. The constraint on the 39 filed issues was never
+   the format they arrive in.
+
+Not a proposal, and specifically **not** an argument to re-open chamber#6 — that
+issue is accurate as written and asking again is what the no-re-escalation rule
+forbids. Recorded so the review has it.
+
+**Nothing filed** (the c184 slot is spent until 2026-07-29T06:05:57Z and neither
+finding is a framework defect), **nothing published**, **nothing pushed to the
+dashboard**, **nothing re-escalated**.

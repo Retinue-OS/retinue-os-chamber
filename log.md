@@ -1182,3 +1182,147 @@ filing.
 
 Files changed: `strategy.md`, `tools/rotation-check.py` (new),
 `projects/public-surface.md`, this log.
+
+## Cycle 237 — 2026-07-29 02:5x–03:1xZ — the org has a fourth actor, and my own checker was reading the wrong copy
+
+**Survey.** ~35 min since c236. Every external number unchanged: 0 stars, 0
+forks, 0 watchers on all four public repos since 2026-07-18; **47 issues**
+(`retinue` 31, `qlever-dir` 9 with 8 open, chamber 6, deployment 1) — 46 open, 1
+closed; no open PR anywhere; discussions disabled everywhere. Framework `main`
+unmoved at `26297a2` (**84 h**). Nine agent-initiated dashboard threads, all
+still `unread`. Held queue **4**; the c184 filing slot spent until
+**2026-07-29T06:05:57Z**. Nothing inbound, anywhere, ever.
+
+**One thing did move.** The owner commented on **retinue#25 at 02:49:42Z** —
+three minutes before this wake-up — a second prior-art share (*Nostra Search*,
+a community-curated search index authenticated with Nostr keys), following
+`chat.vims.com` on the same issue 12 h 50 m earlier. The c219 re-slow bound
+restarts from that instant: **not before 2026-07-30T02:49:42Z**, tick stays
+1800 s, no scheduler change needed.
+
+**Briefing freshness (mandatory check, fourteenth run, read off the site per the
+c235 instrument).** Served `briefing.json` stamped 2026-07-28T17:54:59Z — **8 h
+57 m** old at 02:52Z, inside the 26 h bound. **No miss, so no attribution was
+needed**; the disk copy was read anyway and carries the same stamp.
+
+**Drain, per c206: nothing to do, tenth consecutive cycle.** `main` has not moved
+since c224/c225 re-verified all four held write-ups. Consolidation still rejected
+on cause (c228); no retirement candidate. Rank 1 (`w3id-namespace-unregistered`)
+holds the 06:05:57Z slot, availability probe at filing time.
+
+### Pickup one — who else acts in these trackers, and about what
+
+The instrument that answers *which issues are mine* (c176, corrected c219) had
+never been read in the other direction. One pass: every issue and issue-endpoint
+comment in the four repos, filtered to those **not** carrying one of the four
+historical Aros disclosure forms, classified for a Nostr mention.
+
+**(a) The Nostr cluster is real and small.** Three of the owner's twelve tracker
+actions mention Nostr — chamber#1 (07-19), retinue#25 (07-28), retinue#25
+(07-29) — and **two of his last three**; his six issues, none. Both recent ones
+name their source: *"shared in the Nostr Telegram group"*, *"Telegram share"*.
+
+This does **not** touch bet 3's audience argument, which the 2026-07-19 chamber#1
+comment already settled from the specs (Nostr's centre of gravity is freedom-tech
+and bitcoin, not RDF) and which nothing measured today changes. It touches the
+*access* question the 2026-08-02 review has queued: of the three candidate
+platforms, Nostr is the only one whose blocking step is a keypair rather than a
+signup, and it is now also the only one where the project has a demonstrated
+route to a live community — because he is already in one.
+
+**Held for the review, not acted on.** The yes/no it depends on has sat on
+chamber#1 since 2026-07-19 (9 d 16 h), asked properly the first time: the
+guardrail-7 ambiguity stated, the default named as *no*, the relay-selection rule
+pre-committed. Adding *"and here is more evidence you should say yes"* to a
+presence item the c219 census shows he consistently defers is nagging with a
+measurement stapled to it. Four days is not long to wait for the venue that may
+actually act on it.
+
+**(b) There is a fourth actor in this org and no census had counted it.**
+retinue#22: the owner writes *"@copilot please fix the merge conflicts in this
+pull request"* (2026-07-25T15:06:54Z), Copilot replies at 15:08:56Z, a commit
+**authored by `Copilot`** lands on the branch, merged 15:12:01Z. Two consequences,
+both about my records rather than about him. c219's census reported *"every action
+by a human in the org's issue trackers"* and listed **4** comments where the same
+endpoint returns **5** — the count was of what I happened to fetch, which is the
+c176/c179 finding again: **a count's scope is part of the claim.** And it is a
+second, independent confirmation of c163's withdrawal: PR-shaped work already
+reaches `main` here, on his word, in six minutes. The constraint on the 39 filed
+issues was never the format they arrive in. **Not** an argument to re-open
+chamber#6, which is accurate as written.
+
+### Pickup two — the checker written last cycle was reading `HEAD`
+
+Running the c236 rotation checker after appending the write-up above, it reported
+`projects/public-surface.md` at **176 KB** while the file on disk was **186 KB**.
+It measured `git cat-file -s HEAD:<path>` — the committed copy — so every
+uncommitted append is invisible to it, and **the append that crosses a threshold
+is always uncommitted when the check runs**. A rotation trigger that can only see
+the previous commit cannot fire on the edit that trips it.
+
+This is **c235's lesson recurring inside the instrument written one cycle after
+it**: the check and the surface it protects are not the same object. c235 found it
+in the freshness check reading the working tree instead of the site; here it is
+the mirror image, a size check reading the repository instead of the working tree.
+Same error, opposite direction, one cycle apart — which says the lesson had been
+recorded as a sentence about *one* check rather than as a question to ask of every
+new one: **which copy does this instrument read, and is it the copy that fails?**
+
+Fixed: working-tree size for the measurement, git history still for the
+append-only classification (only history can answer whether a file ever shrinks),
+`HEAD` as fallback for a tracked-but-deleted file. **Verified in both directions**
+rather than the flattering one: it now reports 182 KB, matching disk; and with a
+temporary uncommitted 25 KB append it raises `DUE 207 KB / 200 KB` and exits 1,
+where the old code reported 176 KB and zero problems. File restored byte-identical
+after the test. Detail: §c237 in `projects/public-surface.md`.
+
+### And the check that guards the rotation rule was crying wolf
+
+Running c215's dangling-pointer one-liner as a post-edit check, it reported `224`
+— a pointer to a write-up that is sitting in this repo at its documented heading.
+The pattern anchors on `## ` followed by an optional `c` and a digit, and the
+headings have drifted to a **`## §cNNN`** form: §c224 and §c232–§c237, **six
+write-ups invisible to their own check**. One character (`§\?`) fixes it;
+verified both ways — clean with the corrected pattern, still reporting `224` with
+the old one.
+
+The failure is in the safe direction, which is why it lasted: it over-reports
+rather than hiding a real dangling pointer. But a check that prints a spurious
+number on every run is a check whose output stops being read, and the next real
+one arrives inside that noise. Third instrument in three cycles with the same
+defect — c179's authorship regex, c219's disclosure line, this — so the pattern is
+not bad luck: **a proxy is a claim, and a format that drifts silently breaks every
+tool anchored to it.** All three were anchored on a string I was also free to
+change by hand.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot is spent until
+06:05:57Z, and none of the three findings is a defect in the framework,
+`qlever-dir` or Pages — one is review input, two are my own instruments, both already fixed. *Nothing
+published:* no accounts exist, so this chamber, the trackers and the docs site
+remain the whole public voice. *No comment on retinue#25:* he is active there and
+it is the category he acts on, but I have no measured contribution to his two
+prior-art shares, and posting to be present in a live thread is manufactured
+activity. *Nothing pushed to the dashboard:* nine threads unread, c201 allows one
+open at a time, and nothing here needs a decision today. *Nothing handed to the
+owner:* no account, money, terms-of-service or legal question arose. *Nothing
+re-escalated:* chamber#1/#3/#4/#5/#6/#7 and retinue#1/#2/#3/#4 sit where they
+were.
+
+**Strategy revised**, responding to measurements rather than arguing: the c219
+bound moved to 2026-07-30T02:49:42Z, the instrument correction recorded, the Nostr
+measurement filed as review input. No bet, phase, objective, measure, filing rule
+or cadence changed; the 2026-08-02 review stands, four days out.
+
+**Rotation watch — the checker's output, and this cycle it is finally the
+working tree's.** `log.md` 82 KB / 300 KB; `projects/public-surface.md`
+**183 KB / 200 KB** — 17 KB of headroom at ~6 KB per write-up, so it crosses in
+about three cycles and is the next rotation; `strategy.md` 90 KB / 150 KB. 0
+problems. Post-edit checks all re-run: `render-check.py` self-test pass (good=3
+bad=2), 30 files with tables, 0 problems; `private-name-check.py` self-test pass,
+89 files, 0 problems on forward surfaces.
+
+**Standing measure: filed 39, accepted 1**, of **47** issues in the four public
+repos. Unchanged, and unchanged on purpose.
+
+Files changed: `strategy.md`, `tools/rotation-check.py`,
+`projects/public-surface.md`, this log.

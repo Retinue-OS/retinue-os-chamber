@@ -39,6 +39,7 @@ real files if they do not behave as expected. An all-pass result from an
 unvalidated checker is indistinguishable from a checker that always passes.
 """
 
+import os
 import subprocess
 import sys
 
@@ -123,8 +124,21 @@ def main():
     covered = []
 
     for path in sorted(files):
-        blob = run(["git", "cat-file", "-s", f"HEAD:{path}"], root).strip()
-        size = int(blob) if blob.isdigit() else 0
+        # Measure the working tree, not HEAD. The check exists to catch a file
+        # crossing its threshold, and the crossing happens in the append that is
+        # still uncommitted when this runs; reading `HEAD:<path>` reports the
+        # size before that append and so lags by exactly one commit — which is
+        # c235's finding (the check and the surface it protects are not the same
+        # object) recurring in the instrument written one cycle after it. Git
+        # history is still the source for the *classification* below, because
+        # "does this file ever shrink" is a question only the history answers.
+        # Deleted-but-tracked files fall back to HEAD's size.
+        full = os.path.join(root, path)
+        if os.path.exists(full):
+            size = os.path.getsize(full)
+        else:
+            blob = run(["git", "cat-file", "-s", f"HEAD:{path}"], root).strip()
+            size = int(blob) if blob.isdigit() else 0
 
         if size >= RENDER_WARN:
             pct = 100 * size / RENDER_LIMIT
