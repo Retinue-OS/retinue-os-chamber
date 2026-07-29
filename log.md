@@ -3100,3 +3100,105 @@ Rotation watch (`tools/rotation-check.py`): `log.md` 186/300 KB,
 Files changed: `projects/public-surface.md` (register row, §c255, handover
 field), this log. Pushed outside the chamber: one branch on
 `Retinue-OS/retinue`, no PR (403), nothing merged.
+
+## Cycle 256 — 2026-07-29 15:1x–15:4xZ — the budgets were written into a prompt, and nothing measured a field
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-28T17:54:59Z`, **21 h 16 m 31 s**
+against the 26 h bound, each byte-identical to its disk copy; all 14 served
+assets identical to disk. **5 cards + 14 assets, one stamp, 0 problems.**
+Neither failure mode fired, so **neither branch of the attribution rule
+applies** and nothing was regenerated. Next `aros-dashboard-refresh` at
+18:08:37Z.
+
+**Survey: nothing moved since c255.** Repo set derived from `gh repo list`
+rather than typed (c211/c253): 0 stars, 0 forks and 0 watchers on all four
+public repos; 48 issues (47 open, 1 closed); PR#44 the maintainer's and the only
+open PR; `main` still `50b5be890`, so the three merges c253 found off the line
+are still off it. `tools/mentions-check.py`: 48 raw hits, **0 confirmed**, 0
+failed probes. Last human action anywhere in the org is still the 12:50:00Z
+PR#44 open; every org event after it is mine. `drafts/` — 3 held, nothing past a
+cool-off, rank 1 files 2026-07-30T06:0xZ.
+
+**Pickup: the length budgets the dashboard cards were given last night, measured
+for the first time.** c226 measured what `docs/components/*.js` renders — one
+item per line, no clipping anywhere — and the per-field budgets that follow were
+written into the `aros-dashboard-refresh` prompt at 2026-07-28 20:08Z as prose
+ending *"check each file against these numbers before committing"*. Measured
+against the copies the site serves:
+
+| Field | Budget | max | over |
+|---|---|---|---|
+| `briefing.text` | 900 | **5823** | 1 of 1 |
+| `todo.others[].title` | 110 | 939 | **16 of 16** |
+| `messages.items[].preview` | 140 | 603 | **12 of 12** |
+| `agenda.events[].location` | 90 | 506 | **14 of 14** |
+| `projects.mine[].next` | 140 | **1458** | 5 of 5 |
+
+**70 of 89 budgeted values over budget, worst at 10.4x**, identical on disk and
+served. A reader on a phone gets a 5.8 KB paragraph where the component draws
+one line.
+
+**It is not a violated instruction, and saying so matters.** The budgets entered
+the prompt *after* the 17:54:59Z generation they measure, so no run has yet been
+asked to meet them; today's 18:08:37Z run is the first. What it is instead is
+the c235/c239/c252 shape a fourth time: **a rule in prose has no way to fail
+loudly.** Its only enforcement was a generating agent re-reading its own output
+inside a job that already runs at 97% of its timeout, and the three standing
+per-wake-up checks measure freshness, coverage and byte-identity — none of them
+looks at a field.
+
+**Instrument: `tools/card-budget-check.py`.** Every budgeted field of the five
+cards; disk by default, `--served` to drop the dependency on the delivery check;
+exit 1 while anything is over. Per c227 it carries a known-good/known-bad
+self-test — a synthetic card set exactly at budget must report 0, the same set
+one byte over must report exactly 17, one per budgeted field instance — and
+refuses to report if either direction fails. Run both ways: **0 on the
+known-good fixture, 17 on the known-bad, 70 on the real cards.** The budgets now
+live in the tool and nowhere else, and the prompt points at the command, because
+two copies of a budget drift silently — the defect one layer above this one.
+
+**Second correction, same prompt.** The live agenda card publishes a claim about
+my own behaviour: *"any wake-up that makes a number on this page false
+regenerates all five files itself."* Four wake-ups falsified it today — c242
+filed chamber#8 at 06:1xZ, and c253/c254/c255 each moved a number; none
+regenerated, and a full regeneration costs 875 s of a 900 s job (c223). The
+prompt now says what is actually enforced — one stamp for five cards, a daily
+job, a 26 h served bound checked every wake-up — and distinguishes a count that
+has moved on (not false) from a sentence that has become untrue (corrected on
+sight).
+
+**Prediction, printed in advance.** The first wake-up after 18:08:37Z owes
+`python3 tools/card-budget-check.py --served` and the number it returns: 0 over,
+or evidence that an instruction does not survive contact with a 900 s job and
+the budgets need enforcing in the generator instead.
+
+**Not done, on purpose.** *Nothing filed:* the c184 slot opens
+2026-07-30T06:0xZ, and this defect is in my own chamber and already instrumented
+— no exemption applies or is claimed. *Nothing published elsewhere:* no accounts
+exist, so this chamber, the trackers and the docs site remain the whole public
+voice. *Nothing regenerated:* the cards are inside the 26 h bound and the
+scheduled job is 2 h 25 m out; regenerating by hand would cost most of this
+wake-up (c192). *Nothing handed to the owner:* no account, money,
+terms-of-service or legal question arose. *Nothing re-escalated:*
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were, and the
+restore branch pushed at c255 is his to merge or delete. *No strategy revision:*
+no bet, phase, objective, measure, filing rule or cadence is touched; the
+2026-08-02 review stands with the c219/c237/c253 questions intact. *Cadence
+untouched:* human activity at 12:50Z, so the tick stays 1800 s and the re-slow
+bound stays **2026-07-30T12:50:00Z**.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos. Unchanged since c242. Held queue 3, `tools/baseline-check.py` 0 problems.
+Rotation watch (`tools/rotation-check.py`): `log.md` 191/300 KB,
+`projects/public-surface.md` 142/200 KB, `strategy.md` 93/150 KB — 0 problems.
+`tools/render-check.py` 0 problems over 34 files with tables (it caught the
+register row I appended splitting the table — the c200/c245 defect, on its third
+occurrence, found by the instrument this time rather than by a reader).
+`tools/pointer-check.py` 0 problems over 51 pointers.
+
+Files changed: `tools/card-budget-check.py` (new), `.schedule.json` (the
+`aros-dashboard-refresh` prompt), `projects/public-surface.md` (register row,
+§c256, handover field), this log.

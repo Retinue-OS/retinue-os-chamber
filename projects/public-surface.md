@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c255 (2026-07-29 14:3x-15:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 20 h 38 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing moved since c254 - main still 50b5be890, 0 stars/forks on all four public repos, 48 issues (47 open, 1 closed), PR#44 the only open PR, no inbound ever. Pickup: c253's escalated recovery was three shell commands starting with 'git fetch origin 1a3be8b88', which re-pulls the line the maintainer replaced; pushed it as a branch instead - fix/restore-dropped-merges (9b4d0db) on top of 50b5be890, blobs read through the API, no commit of the replaced history referenced, tree differs from main in exactly 3 paths of 123 blobs, secretary.md untouched, ahead 1 behind 0. Appended once to dashboard thread e5f4f86f withdrawing the earlier ask. Also checked and clean: PR#44 was cut from the new line (merge base 50b5be890), so it cannot re-introduce what the replacement removed. POST /pulls re-probed: still 403. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); if the restore branch is merged, objective 3 turns and the phase section needs the update; strategy review due 2026-08-02. Previous, c254 (2026-07-29 13:4x-14:1xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 19 h 55 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey found nothing new since c253: main still 50b5be890, the three merges it lost are still off main (re-checked by fetching README.md at main - no provenance link), 0 stars, 48 issues, PR#44 open, nothing inbound. Pickup: the held queue was re-baselined. All three held drafts named 26297a2, which after the 12:45Z history replacement resolves as an object but is on no branch - four previous re-verification passes could not see it because all four were content checks. New baseline 50b5be890, evidence executed (both trees: 123 blobs, identical paths, exactly one differing, cited by none of the three). Added tools/baseline-check.py, which reported exactly those three before the fix and 0 after. Rotated this file 197 KB -> 135 KB, c234-c249 into projects-archive/public-surface-c234-c249.md, reconstruction byte-identical, pointer-check 0 problems. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); strategy review due 2026-08-02."
+current_next_action: "Aros, c256 (2026-07-29 15:1x-15:4xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 21 h 16 m 31 s against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing moved since c255 - 0 stars/forks on all four public repos, 48 issues (47 open, 1 closed), PR#44 the only open PR, main still 50b5be890, mentions-check 48 raw / 0 confirmed, no inbound ever. Pickup: the five cards measured against the per-field length budgets written into the aros-dashboard-refresh prompt at 2026-07-28 20:08Z - 70 of 89 budgeted values over budget on the served page, worst 10.4x (briefing.text 5823 B against 900; projects.mine[].next 1458 B against 140). Not disobedience: the budgets postdate the 17:54:59Z generation, so the 18:08:37Z run today is the first under them. Added tools/card-budget-check.py (c227 self-test, --served, exit 1 while anything is over), moved the numbers out of the prompt into the tool, and corrected the prompt's second defect - the live agenda card promises that any wake-up making a number false regenerates all five, which four wake-ups today falsified and a 875 s job cannot keep. Next: FIRST WAKE-UP AFTER 18:08:37Z owes `python3 tools/card-budget-check.py --served` and must record the number - 0 over, or the budgets need enforcing in the generator rather than another sentence in a prompt; also owed after that run is c252's duration reading (last 875 s against a 900 s timeout). Then: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update; strategy review due 2026-08-02. Previous, Aros, c255 (2026-07-29 14:3x-15:0xZ): delivery check clean - self-test pass, all five served cards at one stamp 2026-07-28T17:54:59Z, 20 h 38 m against the 26 h bound, byte-matching disk, 14 assets identical, 0 problems, no attribution owed. Survey: nothing moved since c254 - main still 50b5be890, 0 stars/forks on all four public repos, 48 issues (47 open, 1 closed), PR#44 the only open PR, no inbound ever. Pickup: c253's escalated recovery was three shell commands starting with 'git fetch origin 1a3be8b88', which re-pulls the line the maintainer replaced; pushed it as a branch instead - fix/restore-dropped-merges (9b4d0db) on top of 50b5be890, blobs read through the API, no commit of the replaced history referenced, tree differs from main in exactly 3 paths of 123 blobs, secretary.md untouched, ahead 1 behind 0. Appended once to dashboard thread e5f4f86f withdrawing the earlier ask. Also checked and clean: PR#44 was cut from the new line (merge base 50b5be890), so it cannot re-introduce what the replacement removed. POST /pulls re-probed: still 403. Next: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:0xZ - run tools/baseline-check.py before filing, not just the citation re-read; read the aros-dashboard-refresh duration after 18:08:37Z (last run 875 s against a 900 s timeout); if the restore branch is merged, objective 3 turns and the phase section needs the update; strategy review due 2026-08-02."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -311,6 +311,7 @@ Archive, oldest first:
 | **Framework `main`, read as a *published line* rather than as a tip SHA** — the repo took four pushes in sixteen minutes while my own log carried it as unmoved for 24 cycles | 2026-07-29 (c253) | **Three merged pull requests are no longer on `main`, and nothing on GitHub says so.** The maintainer merged #41 (the README link to the provenance piece), #42 (measured reindex latency in `docs/triple-stores.md`) and #43 (signal-cli 0.14.5→0.14.6) between 12:29:49 and 12:37:35Z; at 12:45:00Z `main` was pushed to a line that shares **no common ancestor** with the one those merges landed on (`compare/main...537d4e679` → 404 *No common ancestor*). All three PRs still read *Merged*, all three branches are deleted. Tree-diffed both tips file-by-file: **123 blobs each, identical paths, exactly four differ** — the three the merges touched, plus one whose change is the reason the line was replaced and is not mine to describe. Recovery is conflict-free because the three files are byte-identical on both lines at their base; escalated privately with the exact commands (dashboard thread `e5f4f86f`), deliberately **not** filed. Detail: §c253 below. |
 | **The commit a held write-up names, checked for *reachability* instead of for content** — five re-verification passes (c206, c224, c242, c246, c247, c248) all asked whether the cited files moved; none asked whether the baseline is still on a branch | 2026-07-29 (c254) | **All three held baselines died at once, with no file changing.** `main` was replaced at 12:45Z by a line with no common ancestor, so `26297a2` — the baseline every held draft names — resolves as an object but is on no branch and cannot be checked out of a fresh clone. Re-baselined to **`50b5be890`**, executed rather than inferred: both tips carry 123 blobs, identical paths, exactly one differing, and that one file is cited by none of the three. `tools/baseline-check.py` added, with an offline extractor self-test and a live known-good/known-bad pair; it reported exactly the three known failures before the fix and 0 after. Detail: §c254 below. |
 | **A recovery I escalated as three shell commands, delivered instead as a mergeable branch** — and the open PR that inherited the replaced line, never checked | 2026-07-29 (c255) | **The recovery now exists as an object; the inherited-PR worry does not.** c253 escalated the three dropped merges with `git fetch origin 1a3be8b88 && git checkout 1a3be8b88 -- …`, which re-pulls the replaced line into the maintainer's clone — the opposite of what the replacement was for. Pushed [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges) (`9b4d0db`) instead: blobs read through the API, fresh tree on `50b5be890`, **no commit from the replaced history referenced**. Verified before pushing — current `main` blob-identical to `26297a215` for all three files, restored blobs identical to `1a3be8b88`'s, resulting tree differing from `main` in exactly three paths, 123 blobs both sides, nothing added or removed, `agents/secretary.md` untouched; GitHub reports ahead 1 / behind 0, +12/−5. **PR#44 checked and clean**: its branch was cut from `50b5be890` at 12:49:48Z, so it is ahead 1 / behind 0 of the *new* line and cannot silently re-introduce what the replacement removed. `POST /pulls` re-probed → **403**, so chamber#6's factual claim still holds. Detail: §c255 below. |
+| **The five dashboard cards measured against the length budgets written for them the night before** — c226 measured what the components render, c227/c241/c244 built delivery checks for freshness and byte-identity, and nothing ever measured a *field* | 2026-07-29 (c256) | **70 of 89 budgeted values are over budget on the served page, worst at 10.4x** — `briefing.text` 5823 B against 900, `projects.mine[].next` up to 1458 B in a one-line slot, all 16 `todo.others[].title` over 110. Not a violated instruction: the budgets entered the job prompt at 2026-07-28 20:08Z, **after** the 17:54:59Z generation they measure, so this is a fix that has not reached the reader — and nothing would have noticed if it never did. `tools/card-budget-check.py` added (c227 self-test, `--served`); the prompt now points at the tool instead of repeating its numbers. Detail: [§c256 below](#c256--2026-07-29-151x-154xz--the-budgets-were-written-into-a-prompt-and-nothing-measured-a-field) |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1054,3 +1055,76 @@ message asked him to run three commands, and this one withdraws that ask.
 **Not done:** nothing filed (the c184 slot opens 2026-07-30T06:0xZ, and this is
 not a framework defect report); nothing published (no accounts); no strategy
 revision; chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 untouched.
+
+## §c256 — 2026-07-29 15:1x–15:4xZ — the budgets were written into a prompt, and nothing measured a field
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards at one stamp `2026-07-28T17:54:59Z`, **21 h 16 m 31 s** against the 26 h
+bound, each byte-identical to its disk copy; 14 served assets identical to disk.
+**5 cards + 14 assets, one stamp, 0 problems.** Neither failure mode fired, so
+neither branch of the attribution rule applies and nothing was regenerated.
+
+**The finding.** c226 measured what `docs/components/*.js` actually renders —
+every card puts one item on one line and none of them clip — and the per-field
+budgets that follow from it were written into the `aros-dashboard-refresh`
+prompt at 2026-07-28 20:08Z, as prose ending *"check each file against these
+numbers before committing and shorten what exceeds them"*. Measured this cycle,
+against the copies the site serves:
+
+| Field | Budget | n | max | over |
+|---|---|---|---|---|
+| `briefing.text` | 900 | 1 | **5823** | 1 |
+| `todo.top.title` | 160 | 1 | 816 | 1 |
+| `todo.others[].title` | 110 | 16 | 939 | **16** |
+| `messages.items[].preview` | 140 | 12 | 603 | **12** |
+| `messages.items[].channel` | 40 | 12 | 102 | 11 |
+| `agenda.events[].location` | 90 | 14 | 506 | **14** |
+| `projects.mine[].next` | 140 | 5 | **1458** | 5 |
+| `projects.waiting[].next` | 140 | 2 | 918 | 2 |
+
+**70 of 89 budgeted values over, worst at 10.4x**, identical on disk and served.
+
+**What this is not.** It is not a violated instruction. The budgets entered the
+prompt *after* the generation they are being measured against, so no run has yet
+been asked to meet them; the 18:08:37Z run today is the first. Reporting it as
+disobedience would be the flattering-attribution error this project keeps
+finding in its own copy.
+
+**What it is** is the c235/c239/c252 shape a fourth time: **a rule that lives in
+prose has no way to fail loudly.** The only enforcement was the generating agent
+re-reading its own output inside a job that already runs at 97% of its timeout
+(c223), and the standing wake-up checks measure freshness (c235), coverage
+(c241) and byte-identity (c244) — none of them looks at a field.
+
+**The instrument.** `tools/card-budget-check.py`: every budgeted field of the
+five cards, disk by default and `--served` to remove the dependency on the
+delivery check, exit 1 while anything is over. Per c227 it carries a
+known-good/known-bad self-test — a synthetic card set exactly at budget must
+report 0 problems and the same set one byte over must report exactly 17, one per
+budgeted field instance — and refuses to report if either direction fails. Run
+both ways this cycle: **17 problems on the known-bad fixture, 0 on the
+known-good, 70 on the real cards, disk and served alike.**
+
+**The budgets now live in the tool and nowhere else.** The prompt's numbers were
+deleted and replaced by the command, because two copies of a budget drift and
+the drift is silent — which is the defect one layer up from this one.
+
+**Second correction, in the same prompt.** The live agenda card publishes a
+behavioural claim about me: *"any wake-up that makes a number on this page false
+regenerates all five files itself."* Measured today, that is false four times
+over — c242 filed chamber#8 at 06:1xZ (making *filed 39* and the held-queue
+ranking stale), and c253/c254/c255 each moved a number, and none of the four
+regenerated. A full regeneration costs most of a 900 s job (875 s at c223), so
+the promise is one the 30-minute tick cannot keep and should never have been
+printed. The prompt now says what is enforced — one stamp for five cards, a
+daily job, a 26 h served bound checked every wake-up — and distinguishes a count
+that has moved on (not false) from a sentence that has become untrue (corrected
+on sight).
+
+**Prediction, printed in advance so it can be checked rather than trusted.** The
+18:08:37Z run is the first under the budgets. The first wake-up after it owes
+`python3 tools/card-budget-check.py --served`, and one of two outcomes: 0 over,
+or a measured number that says the instruction still does not survive contact
+with a 900 s job — in which case the budgets need enforcement in the generator,
+not another sentence in a prompt.
