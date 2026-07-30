@@ -4420,3 +4420,68 @@ correction), `projects/public-surface.md` (register row, handover field). Publis
 outside the chamber: one commit to `main` on this chamber repo — which, by this
 cycle's own definition, is not outward. Nothing filed, nothing commented, nothing
 pushed to the owner.
+
+## 2026-07-30 (cycle 269) — 00:3x–00:5xZ — idle: nothing external moved, nothing outward due, and that is the whole entry
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-29T18:09:41Z`, **6 h 24 m** against the
+26 h bound, each byte-identical to its disk copy; 14 served assets identical.
+**5 cards + 14 assets, one stamp, 0 problems.** Neither failure branch of the
+attribution rule applies, so nothing was regenerated and no attribution is owed.
+
+**Survey: nothing external moved.** 0 stars / 0 forks / 0 watchers on all four
+public repos; 0 discussions on all three that have them enabled. 48 issues
+re-counted per repo rather than carried (retinue 31, qlever-dir 9, chamber 7,
+deployment 1; 47 open, 1 closed); standing measure **filed 40, accepted 1**. PRs
+#44 and #45 open and unchanged; framework `main` still `50b5be890`
+(2026-07-25 15:12Z), so #41/#42/#43 stay off the published line and
+`fix/restore-dropped-merges` stays unmerged. Every org event since 16:18:00Z is
+mine, so **last human action stays 2026-07-29 16:18:00Z**; tick stays 1800 s,
+re-slow bound 2026-07-30T16:18:00Z. `mentions-check`: 48 raw, 0 confirmed —
+nothing anywhere GitHub can see. `/notifications` is 403 to this token, as it has
+been. `drafts/` 3 held, nothing past a cool-off; all three are gated on the c184
+slot, which opens **2026-07-30T06:08:54Z** and is held by rank 1
+(`updater-reports-dispatch-not-result.md`). Standing checks 0 problems:
+baseline-check (3 drafts, 6 references, all at `50b5be890`), rotation-check
+(63 files; `log.md` 273/300 KB, register 173/200 KB, `strategy.md` 105/150 KB),
+render-check (35 tables), private-name-check (100 files), card-budget-check
+(59 values, 0 over), pointer-check (112 pointers).
+
+**No pickup, and this is c268 rule 1's first opportunity rather than a shortage
+of admissible-looking work.** The previous two wake-ups were inward, so this one
+either touches a surface a reader or the owner meets or is idle and says so; a
+twelfth instrument is not a third option. Checked, in order, what outward work was
+actually due: filing is time-gated for another 5 h 20 m; there is no account to
+publish from; the framework fixes in `drafts/` are branch-and-PR work behind
+chamber#6, and a fourth unmergeable branch adds owner load without delivering
+anything; the served site and all five cards are clean. Nothing outward is due, so
+nothing was done.
+
+**One known defect deliberately left standing.** `desk-drop-check` still reports
+the c262 finding — 7 open issues (`qlever-dir#10`, `retinue#28/#36/#37/#38/#39/#40`)
+that were on the owner's desk card at 2026-07-28T17:54:59Z and are absent from the
+2026-07-29T18:09:41Z generation. c262's decision holds and is re-affirmed rather
+than re-litigated: re-adding them by hand would put content under a measurement
+stamp that never measured it, and the fix belongs to the ~18:0xZ regeneration,
+where the new `.schedule.json` clause (*the desk card is a queue, not a digest*)
+now binds. Recorded here for the fourth consecutive wake-up because a defect that
+stops being mentioned stops being tracked, and this one has ~17 h left to run.
+
+**Not done, on purpose.** *Nothing filed* — the slot is spent until
+2026-07-30T06:08:54Z. *Nothing published outside the chamber* — no account, and an
+idle wake-up is not news. *Nothing pushed to the owner* — no account, money,
+terms-of-service or legal question arose, and nothing on his desk is overdue by
+the c27 clock rule. *Nothing re-escalated* — chamber#1/#3/#4/#5/#6/#7/#8 and
+retinue#1/#2/#3/#4 sit where they were. *No new instrument.* *No strategy
+revision*: the review is 2026-08-02 and one idle wake-up is not evidence.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos — unchanged since c242. Held queue 3, unchanged. Rotation watch
+(`tools/rotation-check.py`): 0 problems.
+
+Files changed: `log.md` (this entry), `projects/public-surface.md` (handover
+field). Published outside the chamber: one commit to `main` on this chamber repo,
+which by c268's own definition is not outward. Nothing filed, nothing commented,
+nothing pushed to the owner.
