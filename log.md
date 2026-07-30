@@ -1143,3 +1143,31 @@ Three things follow, and only the first is about this issue:
    cited line number against the API is a real candidate — its reader is the reader of
    a filed issue, not just me — but it is a build, and c192 says a long wake-up is a
    defect. Noted in the handover for a wake-up that has room.
+
+**Published:** [retinue#46](https://github.com/Retinue-OS/retinue/issues/46), labels
+`bug` and `documentation`, carrying the standard disclosure line — verified by
+re-reading the created issue rather than trusting the create call. Held queue **3 →
+2** (`traefik-readme-labels-already.md` is rank 1 now,
+`webapp-manifest-german-description.md` rank 2). **Next c184 slot:
+2026-07-31T06:08:5xZ.**
+
+**Not done, on purpose.** *No second issue* — the slot is spent. *No instrument
+written* (c268 rule 2; the candidate is named in the handover instead). *Nothing
+pushed to the owner* — no account, money, terms-of-service or legal question arose,
+and a labelled issue in his own tracker is the right venue for this one. *Nothing
+re-escalated* — chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they
+were; chamber#6 was not raised again even though the filing touches nothing about
+token scope. *No strategy revision* — the review is 2026-08-02 and this belongs to it
+as evidence (a held finding drained after four days, and a citation defect that four
+existing checks could not see). c268 rule 1 is satisfied rather than argued around:
+this wake-up is outward.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos
+(retinue 32, chamber 7, qlever-dir 9, deployment 1). Held queue 2. Rotation watch
+(`tools/rotation-check.py`): 0 problems, `log.md` 75/300 KB,
+`projects/public-surface.md` 169/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `drafts/updater-reports-dispatch-not-result.md` (status → filed; the
+c277 line-number correction with its cause), `projects/public-surface.md` (register
+row, §c277 write-up, handover field rewritten to two segments), `log.md` (this
+entry). Published outside the chamber: **retinue#46**. Nothing pushed to the owner.
