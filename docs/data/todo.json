@@ -1,53 +1,59 @@
 {
-  "generated": "2026-07-29T18:09:41Z",
+  "generated": "2026-07-30T02:37:42Z",
   "top": {
-    "title": "chamber#1: create the Mastodon and Bluesky accounts and hand them to Aros - opened 2026-07-18 22:17:48 UTC, 10 d 19 h 51 m"
+    "title": "chamber#1: create the Mastodon and Bluesky accounts and hand them to Aros - opened 2026-07-18 22:17:48 UTC, 11 d 4 h"
   },
   "others": [
     {
-      "title": "chamber#3 + chamber#6: a GitHub account and token for Aros, one action - 2026-07-20, 9 d 16 h"
+      "title": "chamber#3 + chamber#6: a GitHub account and token for Aros, one action - 2026-07-20, 10 d 0 h and 9 d 22 h"
     },
     {
-      "title": "retinue#1: projects card and self-review both return 0 rows - 2026-07-19 17:34:46 UTC, 10 d 0 h"
+      "title": "chamber#4: create retinue-os/.github, set the descriptions - 2026-07-20 02:41:34 UTC, 9 d 23 h"
     },
     {
-      "title": "retinue#4: Actions cannot open the bump PR - 2026-07-20 11:04:39 UTC, 9 d 7 h 5 m"
+      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20 03:15:31 UTC, 9 d 23 h"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20 03:15:31 UTC, 9 d 14 h 54 m"
+      "title": "chamber#7: merge or reject branch claude/aros-issues-triage-goei5k - 2026-07-20, 9 d 22 h"
     },
     {
-      "title": "Nine dashboard threads unanswered, oldest 2026-07-19 20:25:47 UTC, newest 2026-07-26 13:26:48 UTC"
+      "title": "chamber#8: w3id.org/retinue unregistered, every vocabulary IRI 404s - 2026-07-29 06:08:54 UTC, 20 h 28 m"
     },
     {
-      "title": "chamber#7: merge or reject branch claude/aros-issues-triage-goei5k - 2026-07-20 04:24:43 UTC, 9 d 13 h"
+      "title": "retinue#1: projects card and self-review both return 0 rows - 2026-07-19 17:34:46 UTC, 10 d 9 h"
+    },
+    {
+      "title": "retinue#4: Actions cannot open the bump PR, next cron 2026-08-03 08:00 UTC - 9 d 15 h old"
     },
     {
       "title": "retinue#15 and #19, the two security issues - 2026-07-21 08:49:17 and 19:52:06 UTC, both past a week"
     },
     {
-      "title": "retinue#26 + #27: the claim corrections that follow - 2026-07-24, 5 d 10 h and 5 d 4 h at this stamp"
+      "title": "retinue#26 + #27: the claim corrections that follow - 2026-07-24, 5 d 19 h and 5 d 13 h"
     },
     {
-      "title": "chamber#4: create retinue-os/.github, set the descriptions - 2026-07-20 02:41:34 UTC, 9 d 15 h"
+      "title": "retinue#2: docs on main still say ~15 s reindex; re-measured 20-25 s here on 2026-07-25"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered, every vocabulary IRI 404s - 2026-07-29 06:08:54 UTC, 12 h"
+      "title": "retinue#3: review.md is stale on tests and CI - 2026-07-20 04:24:05 UTC, 9 d 22 h"
+    },
+    {
+      "title": "retinue#36/#37/#38/#39/#40: five findings opened 2026-07-26 to 07-28, none reviewed yet"
+    },
+    {
+      "title": "retinue#28 + qlever-dir#10: the two items PR 22 left open, and the unwatched new directory"
+    },
+    {
+      "title": "qlever-dir#8: blank nodes collide across files - opened 2026-07-23 15:52:25 UTC, 6 d 10 h"
+    },
+    {
+      "title": "Nine dashboard threads unanswered, oldest 2026-07-19 20:25:47 UTC, newest 2026-07-26 13:26:48 UTC"
     },
     {
       "title": "Your own PRs #44 and #45 are open and unmerged - 2026-07-29 12:50:00 and 16:18:00 UTC"
     },
     {
-      "title": "Branch fix/restore-dropped-merges awaits merge or deletion - corrected 2026-07-29 17:56 UTC"
-    },
-    {
-      "title": "qlever-dir#8: blank nodes collide across files - 2026-07-23 15:52:25 UTC, 6 d 2 h 17 m"
-    },
-    {
-      "title": "retinue#2: docs still say ~15 s reindex; its branch needs a decision - 2026-07-19 23:18:06 UTC, 9 d 18 h"
-    },
-    {
-      "title": "retinue#3: review.md is stale on tests and CI - 2026-07-20 04:24:05 UTC, 9 d 13 h 45 m"
+      "title": "Branch fix/restore-dropped-merges awaits merge or deletion - pushed 2026-07-29 17:56 UTC"
     },
     {
       "title": "Next issue may be filed 2026-07-30 06:08 UTC: one per 24 h. Three findings written up and held"

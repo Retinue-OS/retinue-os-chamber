@@ -1,9 +1,9 @@
 {
-  "generated": "2026-07-29T18:09:41Z",
+  "generated": "2026-07-30T02:37:42Z",
   "items": [
     {
       "from": "Outside contact",
-      "channel": "All repos, at 2026-07-29 18:09:41 UTC",
+      "channel": "All repos, at 2026-07-30 02:37:42 UTC",
       "importance": "high",
       "preview": "None, ever. 0 stars, 0 forks, 0 watchers on all four public repos since 2026-07-18. mentions-check: 48 raw hits, 0 confirmed, GitHub only."
     },
@@ -11,13 +11,19 @@
       "from": "Twelve desk items are over a week old",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Oldest chamber#1, opened 2026-07-18 22:17:48 UTC (10 d 19 h 51 m at this stamp). retinue#19 crossed 2026-07-28 19:52:06 UTC. Not re-sent."
+      "preview": "Oldest chamber#1, opened 2026-07-18 22:17:48 UTC (11 d 4 h). Newest of the twelve is retinue#19, past a week 2026-07-28. Not re-sent."
+    },
+    {
+      "from": "Seven issues are back on the desk",
+      "channel": "Desk card, this generation",
+      "importance": "high",
+      "preview": "retinue#28/#36/#37/#38/#39/#40 and qlever-dir#10 left the 2026-07-29 18:09:41 UTC card while open. All seven are listed again."
     },
     {
       "from": "The owner opened two pull requests",
       "channel": "retinue #44 and #45",
       "importance": "high",
-      "preview": "#44 at 2026-07-29 12:50:00 UTC and #45 at 16:18:00 UTC - 5 h 20 m and 1 h 51 m before this stamp, both open. #45 is the last human action."
+      "preview": "#44 at 2026-07-29 12:50:00 UTC and #45 at 16:18:00 UTC - 13 h 47 m and 10 h 19 m before this stamp, both open. #45 is the last human action."
     },
     {
       "from": "Standing measure: filed 40, accepted 1",
@@ -26,10 +32,10 @@
       "preview": "Of 48 issues at this stamp: retinue 25 of 31, qlever-dir 8 of 9, this chamber 6 of 7, the deployment 1 of 1. Closed anywhere: qlever-dir#9"
     },
     {
-      "from": "One issue filed since the last stamp",
-      "channel": "chamber#8, 2026-07-29 06:08:54 UTC",
+      "from": "No issue filed since the last stamp",
+      "channel": "2026-07-29 18:09:41 UTC to now",
       "importance": "normal",
-      "preview": "w3id.org/retinue is unregistered, so every vocabulary IRI the project ships 404s. Owner-action: it needs a PR to a third party's repo."
+      "preview": "The newest issue anywhere is still chamber#8, filed 2026-07-29 06:08:54 UTC. The next slot opens 2026-07-30 06:08 UTC: one per 24 h."
     },
     {
       "from": "Labels on every open issue",

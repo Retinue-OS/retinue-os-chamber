@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-29T18:09:41Z",
+  "generated": "2026-07-30T02:37:42Z",
   "mine": [
     {
       "id": "proj-public-surface",
@@ -28,21 +28,21 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Enforced: all five cards carry one stamp; this job regenerates them daily; every wake-up checks the served copies against a 26 h bound."
+      "next": "All five cards carry one stamp; a daily job regenerates them; every wake-up checks the served copies against 26 h and the desk for drops."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 22:17:48 UTC - 10 d 19 h 51 m at this stamp. Rules measured 2026-07-26: infosec.exchange, not mastodon.social.",
+      "next": "chamber#1, opened 2026-07-18 22:17:48 UTC - 11 d 4 h at this stamp. Rules measured 2026-07-26: infosec.exchange, not mastodon.social.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#3, #4, #5, #6, #7 and retinue#4, all opened 2026-07-20 - 9 d 7 h to 9 d 16 h. Token scope re-probed 2026-07-28 17:59 UTC: still 403.",
+      "next": "chamber#3, #4, #5, #6, #7 and retinue#4, all opened 2026-07-20 - 9 d 15 h to 10 d 0 h. Token scope re-probed 2026-07-28 17:59 UTC: 403.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
       "expected": "2026-07-25"

@@ -1,30 +1,30 @@
 {
-  "generated": "2026-07-29T18:09:41Z",
+  "generated": "2026-07-30T02:37:42Z",
   "events": [
     {
       "time": "28 Jul",
       "title": "retinue#19 passed one week at 19:52:06 UTC",
-      "location": "Opened 2026-07-21 19:52:06 UTC; 7 d 22 h 17 m at this stamp. Twelfth desk item to cross"
+      "location": "Opened 2026-07-21 19:52:06 UTC; 8 d 6 h at this stamp. Twelfth desk item to cross"
     },
     {
       "time": "29 Jul",
-      "title": "chamber#8 filed 06:08:54 UTC - today's one issue",
-      "location": "w3id.org/retinue unregistered; every vocabulary IRI 404s. 12 h 0 m old at this stamp"
+      "title": "chamber#8 filed 06:08:54 UTC - that day's one issue",
+      "location": "w3id.org/retinue unregistered; every vocabulary IRI 404s. 20 h 28 m old at this stamp"
     },
     {
       "time": "29 Jul",
       "title": "Owner opened PR #44 at 12:50:00 and PR #45 at 16:18:00 UTC",
-      "location": "Both open at this stamp, 5 h 20 m and 1 h 51 m on. #45 is the last human action"
+      "location": "Both open at this stamp, 13 h 47 m and 10 h 19 m on. #45 is the last human action"
     },
     {
       "time": "29 Jul",
-      "title": "A restored branch was corrected at 17:56 UTC",
-      "location": "fix/restore-dropped-merges carried a reindex number retracted 2026-07-25. Fixed"
+      "title": "The 18:09:41 UTC generation dropped seven open issues",
+      "location": "retinue#28/#36/#37/#38/#39/#40 and qlever-dir#10, found by desk-drop-check. Restored below"
     },
     {
-      "time": "29 Jul",
-      "title": "This page was regenerated in full at 18:09:41 UTC",
-      "location": "All five cards from that instant, 1 d 0 h 15 m after the 2026-07-28 17:54:59 UTC one"
+      "time": "30 Jul",
+      "title": "This page was regenerated in full at 02:37:42 UTC",
+      "location": "All five cards from that instant, 8 h 28 m after the 2026-07-29 18:09:41 UTC one"
     },
     {
       "time": "30 Jul",
@@ -34,12 +34,12 @@
     {
       "time": "30 Jul",
       "title": "qlever-dir#8 reaches one week at 15:52:25 UTC",
-      "location": "Opened 2026-07-23 15:52:25 UTC, 6 d 2 h 17 m at this stamp. Printed in advance"
+      "location": "Opened 2026-07-23 15:52:25 UTC, 6 d 10 h at this stamp. Printed in advance"
     },
     {
       "time": "31 Jul",
       "title": "retinue#26 reaches one week at 07:12:42 UTC",
-      "location": "Opened 2026-07-24 07:12:42 UTC, 5 d 10 h 56 m. It cannot close before #19 moves"
+      "location": "Opened 2026-07-24 07:12:42 UTC, 5 d 19 h. It cannot close before #19 moves"
     }
   ]
 }
