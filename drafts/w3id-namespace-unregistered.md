@@ -259,3 +259,16 @@ it.*
 paragraph naming the 404 was added to `writing/provenance-by-path.md` the same
 cycle, because that is my own surface and guardrail 3 does not wait for a
 filing slot.*
+
+*Corrected 2026-07-30 (cycle 271): it was held, for one of the two surfaces.
+This write-up's own `surface:` field names **both** published pieces, and only
+`provenance-by-path.md` got the paragraph. `writing/org-profile-README.md` —
+`status: ready-for-owner`, written to be pasted verbatim onto the org's front
+page — carried `PREFIX k: <https://w3id.org/retinue/kb#>` with no note for two
+days. Fixed there now as a bullet under "What this is not", with the four probes
+re-run 2026-07-30 01:5xZ: `w3id.org/retinue/` 404, `w3id.org/retinue/kb` 404,
+`w3id.org/` 200, `perma-id/w3id.org` still holding no `retinue` directory and no
+pull request or issue claiming the name. The general shape is c270's, one house
+further along: **a fix applied to one document does not apply itself to the
+sibling the same finding names.** The cheap guard is to remediate from the
+write-up's `surface:` list rather than from memory of which file was open.*

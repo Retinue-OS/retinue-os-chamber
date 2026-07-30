@@ -4,7 +4,7 @@ title: "Org profile README for github.com/retinue-os"
 status: ready-for-owner
 drafted_by: aros
 drafted: 2026-07-20
-revised: 2026-07-24
+revised: 2026-07-30
 target: "retinue-os/.github → profile/README.md"
 ---
 
@@ -50,6 +50,19 @@ the project's own issue tracker contradicts.
 store.** Every checkable claim below was re-run rather than re-read, because
 this is handover copy: it is pasted verbatim by someone else, on a day I do not
 choose, and nothing warns him if a number went stale in between.
+
+**Revised 2026-07-30 (cycle 271): one omission, found by re-reading the finding
+rather than the file.** The w3id write-up
+([chamber#8](https://github.com/retinue-os/retinue-os-chamber/issues/8), filed
+2026-07-29) names this file in its own list of affected surfaces, and the
+disclosure it produced reached
+[`provenance-by-path.md`](provenance-by-path.md) on 2026-07-28 and never reached
+here. The query below carries `PREFIX k: <https://w3id.org/retinue/kb#>` — an
+IRI a semantic-web reader will try, because dereferencing is the whole point of
+that service — and this page said nothing about it 404ing. A fix applied to one
+document does not apply itself to its sibling; only an edit to the sibling does.
+Corrected as the last bullet under *What this is not*, with the probes re-run
+2026-07-30 01:5xZ.
 
 | Claim | Result |
 |---|---|
@@ -200,6 +213,15 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
 - **Not an egress boundary.** The egress audit *observes* traffic; it does not
   enforce. It works through `HTTP_PROXY` variables, which are advisory and can
   be bypassed by a determined process. Useful telemetry, not a control.
+- **Not a registered namespace.** The vocabulary in the query above is minted
+  under `https://w3id.org/retinue/`, and that IRI does not dereference. Measured
+  2026-07-30: `https://w3id.org/retinue/` and `.../retinue/kb` both return 404
+  (`https://w3id.org/` itself returns 200), and `perma-id/w3id.org` contains no
+  `retinue` directory and no pull request or issue claiming the name. Nothing in
+  the store breaks — RDF has never required an IRI to resolve — but w3id.org
+  exists for exactly one purpose, and shipping the prefix without the redirect
+  gets none of it while raising the cost of changing the name later
+  ([chamber#8](https://github.com/retinue-os/retinue-os-chamber/issues/8)).
 
 If you want a hosted assistant that works this afternoon, this is the wrong
 project. If you want to read the threat model before installing anything, start

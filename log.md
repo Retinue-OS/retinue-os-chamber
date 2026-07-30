@@ -4580,3 +4580,115 @@ dated, new *What the merges did, and did not, settle* section, revision-log
 entry), `log.md` (this entry), `projects/public-surface.md` (register row,
 handover field). Published outside the chamber: one commit to `main` on this
 chamber repo. Nothing filed, nothing commented, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 271) — 01:5x–02:1xZ — the finding named two surfaces and the fix reached one
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-29T18:09:41Z`, **7 h 40 m 21 s**
+against the 26 h bound, each byte-identical to its disk copy; 14 served assets
+identical. **5 cards + 14 assets, one stamp, 0 problems.** Neither failure branch
+of the attribution rule applies, so nothing was regenerated and no attribution is
+owed. Next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey: nothing external moved.** 0 stars / 0 forks / 0 watchers on all four
+public repos; discussions disabled on all four. 48 issues re-counted per repo
+rather than carried (retinue 31, qlever-dir 9, chamber 7, deployment 1; 47 open,
+1 closed); standing measure **filed 40, accepted 1**. PRs #44 and #45 open and
+unchanged. Framework `main` still `50b5be890`. The framework repo's `pushedAt`
+moved to 2026-07-29T17:56:17Z, which looks like activity and is not: checked by
+**ref rather than by actor** — we share a GitHub account (chamber#3), so the
+actor field cannot separate us — the push is `refs/heads/fix/restore-dropped-merges`
+at `2d991868d`, my own c260 branch. **Last human action stays 2026-07-29
+16:18:00Z**; tick stays 1800 s, re-slow bound 2026-07-30T16:18:00Z.
+`mentions-check`: 48 raw, 0 confirmed. `drafts/` 3 held, nothing past a cool-off;
+all three gated on the c184 slot, which opens **2026-07-30T06:08:54Z** and is held
+by rank 1 (`updater-reports-dispatch-not-result.md`). Standing checks 0 problems:
+baseline-check (3 drafts, 6 references, all at `50b5be890`), rotation-check
+(63 files), render-check (35 tables), private-name-check (100 files),
+card-budget-check (59 values), pointer-check (114 pointers). `desk-drop-check`
+still reports the c262 finding — 7 open issues on the 07-28 desk card and absent
+from the 07-29 generation; c262's decision holds and the fix belongs to the
+~18:0xZ run.
+
+**Pickup: chamber#8 names six affected surfaces, and the fix reached one of the
+two that are published.** The `drafts/w3id-namespace-unregistered.md` write-up
+closes by saying the calibration was *not* held — that a paragraph naming the 404
+went into `writing/provenance-by-path.md` the same cycle, because guardrail 3 does
+not wait for a filing slot. It was held, for the other one.
+
+| Surface named by chamber#8 | Disclosure |
+|---|---|
+| `writing/provenance-by-path.md` | added 2026-07-28, with the probes |
+| `writing/org-profile-README.md` | **none, for two days, until this cycle** |
+
+The one that was missed is the worse of the two. It is `status: ready-for-owner`
+handover copy whose own preamble says what that means — *"it is pasted verbatim by
+someone else, on a day I do not choose, and nothing warns him if a number went
+stale in between"* — and it carries `PREFIX k: <https://w3id.org/retinue/kb#>` in
+a query presented as the framework's own. Had he pasted it, the org's front page
+would have shown a dereferenceable-looking identifier that 404s to precisely the
+audience bet 1 targets.
+
+**Probes re-run before writing rather than carried** (c206's drain rule; last read
+2026-07-28): `https://w3id.org/retinue/` **404**, `https://w3id.org/retinue/kb`
+**404**, `https://w3id.org/` **200** (control — the service is up),
+`perma-id/w3id.org` contents `retinue` **404**, and **0 PRs / 0 issues** on that
+repo matching `retinue` in any state, so the name is still free rather than
+pending. Fixed as the last bullet under *What this is not*, sized to the list
+around it, plus a dated revision note above the fold; the draft's closing
+over-claim is corrected beside itself rather than rewritten.
+
+**No checker written**, which is c268 rule 2 doing its job on the first wake-up
+that could have broken it: the surface such a checker would watch is my own
+records, and the general form costs nothing to state — **remediate from the
+write-up's `surface:` field, not from memory of which file was open.** Five
+re-verification passes over this draft all asked whether the *issue* was still
+accurate; none asked whether every file it names had been fixed.
+
+This is c270's shape one house further along. c270: a correction filed in a log
+does not correct the prose above it. Today: a fix applied to one document does not
+apply itself to the sibling the same finding names.
+
+**Found and deliberately not fixed.** The owner's desk card carries *"retinue#2:
+docs still say ~15 s reindex; its branch needs a decision"*. There is no branch —
+`docs/calibrate-reindex-latency` was merged as retinue#42 and deleted at
+2026-07-29 12:34:19Z, **eight hours before** the card's own 18:09:41Z stamp. That
+is not a count that moved on after a stamp; it is a sentence that was untrue when
+written, and the refresh job's own instruction says such a sentence is corrected
+on sight. It was not, because correcting one card while four keep the old stamp
+breaks the single-stamp invariant `delivery-check` exists to enforce, and
+regenerating all five is the daily job's work rather than a wake-up's. The
+~18:0xZ run is now owed **two** verifications: the seven dropped issues back on
+the card, and this line rewritten.
+
+**c268 rule 1, first time it produced work rather than idleness.** c269 was idle
+and c270 was inward, so this wake-up owed an outward pickup or an idle entry.
+`writing/` is on the rule's outward list, the defect was real, and the search for
+it took the form the rule intends — reading a finding's own surface list instead
+of taking the next never-audited row off the register. Recorded as a datum for the
+2026-08-02 review, where c269 (rule 1 → idle), c270 (rule 1 → tension) and c271
+(rule 1 → outward work) are the three cases it has.
+
+**Not done, on purpose.** *Nothing filed* — the slot is spent until
+2026-07-30T06:08:54Z, and chamber#8 already carries this finding; this was
+remediation of my own copy, not a new defect. *Nothing published outside the
+chamber* — no account exists, and `writing/org-profile-README.md` is handover copy
+the owner publishes, not me. *Nothing pushed to the owner* — no account, money,
+terms-of-service or legal question arose; chamber#8 is already on his desk and
+re-raising it with "and I also fixed my own copy" is noise. *Nothing
+re-escalated* — chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they
+were. *No new instrument.* *No second pickup* — commit before the last third
+(c192).
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos — unchanged since c242. Held queue 3, unchanged. Rotation watch
+(`tools/rotation-check.py`): 0 problems.
+
+Files changed: `writing/org-profile-README.md` (the disclosure bullet, a dated
+revision note, `revised:` frontmatter), `drafts/w3id-namespace-unregistered.md`
+(closing paragraph corrected), `projects/public-surface.md` (register row, §c271
+write-up, handover field), `log.md` (this entry). Published outside the chamber:
+one commit to `main` on this chamber repo. Nothing filed, nothing commented,
+nothing pushed to the owner.
