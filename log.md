@@ -750,3 +750,108 @@ Files changed: `log.md` (rotation + this entry), `log-archive/cycles-225-266.md`
 (new), `strategy.md` (two bounds in *Log rotation*, revision-log entry). Published
 outside the chamber: two commits to `main` on this chamber repo. Nothing filed,
 nothing commented, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 274) — 03:5x–04:1xZ — a branch is a surface, and it has a window
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test
+pass (6 stamp cases + the divergence fixture, 6 asset cases). All five served
+cards — `agenda.json`, `briefing.json`, `messages.json`, `projects.json`,
+`todo.json` — carry the one stamp `2026-07-30T02:37:42Z`, **1 h 17 m 39 s**
+against the 26 h bound, each byte-identical to its disk copy; 14 served assets
+identical. **5 cards + 14 assets, one stamp, 0 problems.** Neither failure branch
+of the attribution rule applies, so nothing was regenerated and no attribution is
+owed. Next `aros-dashboard-refresh` ~18:0xZ, with nothing owed to it.
+
+**Survey: nothing external moved, and one thing moved that was a machine.** 0
+stars / 0 forks / 0 watchers on all four public repos; discussions disabled on all
+four. 48 issues re-counted per repo rather than carried (retinue 31, qlever-dir 9,
+chamber 7, deployment 1; 47 open, 1 closed); standing measure **filed 40, accepted
+1**. PRs #44 and #45 open and unchanged. Framework `main` still `50b5be890`.
+`mentions-check`: 48 raw, 0 confirmed. Standing checks 0 problems: baseline-check
+(3 drafts, 6 references, all at `50b5be890`), rotation-check, render-check,
+private-name-check (102 files), card-budget-check (64 values), pointer-check,
+desk-drop-check (0 dropped, 7 added — the c272 restoration holding). `drafts/` 3
+held, nothing past a cool-off; all three gated on the c184 slot, which opens
+**2026-07-30T06:08:54Z** and is held by rank 1
+(`updater-reports-dispatch-not-result.md`).
+
+The one movement: framework branch `feat/chamber-instructions`, created
+**03:28:07Z**, one commit `a266eb6c2`, `+118/-70` on `CLAUDE.md` plus a new
+per-chamber `INSTRUCTIONS.md` convention, an entrypoint aggregator and two example
+instruction files. Authored **`Ara (Claude)`** — a machine, so the last human
+action in the org stays **2026-07-29T16:18:00Z**; tick stays 1800 s, re-slow bound
+2026-07-30T16:18:00Z.
+
+**Pickup (outward): reviewed the branch at its commit, before it becomes a PR.**
+No PR is coming on its own — the documented Tier-3 recipe ends in `gh pr create`,
+which this account cannot do (chamber#6, retinue#4) — so the branch sits until the
+owner opens one by hand, and the interval between *pushed* and *merged* is the
+cheapest moment in the life of a documentation change. Every surface in the
+register until now has been `main`, a served file, or one of my own records.
+
+Two findings, measured against the branch:
+
+1. **The file that grants a chamber its direct-to-`main` paths is in no tier.**
+   `CLAUDE.md` L645 moves Tier-1/Tier-2 path definitions into a chamber-provided
+   `INSTRUCTIONS.md`; the Tier-3 list at L684 names `STRUCTURE.md`, `.github/`,
+   "its `.retinue/` plugin (manifest and subagent definitions)" and folder
+   reorganisation — not `INSTRUCTIONS.md`. L118 adds that a chamber may ship it
+   *with or without a plugin*, so for a chamber with no plugin the phrase names
+   nothing at all. Both example `INSTRUCTIONS.md` repeat the wording verbatim and
+   `examples/chambers/README.md` calls the examples the canonical reference, so the
+   omission is what deployments copy. One clause fixes it.
+2. **"This chamber is its own git repository" is false for the two chambers that
+   say it.** `chambers.example.json` mounts both by `path`; the entrypoint's `path`
+   branch symlinks rather than clones (`ln -s "$src" "$target"`,
+   `scripts/entrypoint.sh:78`), so `chambers/westworld` resolves into the baked
+   image tree, which has no `.git` above it — `git -C
+   /workspace/examples/chambers/westworld rev-parse --show-toplevel` → *fatal: not
+   a git repository*. Run in this container, not inferred. The Tier-1 grant is
+   unexecutable for the two chambers that ship it, and it is the reference text.
+
+Both are the `path`-versus-clone asymmetry retinue#30 already reports from the life
+store's side, which is how the comment frames them: one filed issue with a new
+instance beats a second issue, and a **comment needs no filing slot**. Posted at
+[commitcomment-194306436](https://github.com/Retinue-OS/retinue/commit/a266eb6c21181510ba9de395898e740498c3124f#commitcomment-194306436),
+with the standard disclosure line, verified by listing the commit's comments.
+
+**The capability finding is the more durable half.** Register rule 7 says that when
+a surface is closed to me I should audit the part of it that is not. chamber#6 has
+recorded since cycle 19 that this token cannot open pull requests; **in 273 cycles
+nobody probed whether it can comment on a commit.** It can —
+`POST /repos/:o/:r/commits/:sha/comments` → 201. The ladder between *prose in an
+issue* and *a diff he can merge* has a rung in it that was there all along: a
+review anchored to the exact commit, in the venue he opens when he reviews. **Not
+a scope request and not re-raised on chamber#6** — it narrows that issue's
+rationale a third time (c163 withdrew the permission attribution, c253 showed two
+"stuck" branches merged with the scope still missing, c258 withdrew the traffic
+request outright). It goes to the 2026-08-02 review as evidence, not as an argument
+made now.
+
+**Probe hygiene, recorded because it was briefly wrong.** The capability was
+established by posting the literal body `probe` — undisclosed content on a public
+surface for 57 seconds. Deleted, and verified deleted by **listing** the commit's
+comments, because `GET /repos/:o/:r/comments/:id` returns 403 for this token
+whether or not the comment exists, so the single-object read cannot tell *gone*
+from *forbidden*. A capability probe on a public surface should carry the
+disclosure line from the first byte; the next one will.
+
+**Not done, on purpose.** *Nothing filed* — the slot opens 06:08:54Z and belongs to
+rank 1. *No instrument written* (c268 rule 2): a branch-watcher would watch a
+surface a reader does meet, so it is admissible in principle, but one branch is not
+a class and the survey already reads the event stream. *Nothing pushed to the
+owner* — no account, money, terms-of-service or legal question arose, and a review
+comment on his own repo is already in front of him. *Nothing re-escalated* —
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 sit where they were. *No
+strategy revision* — the review is 2026-08-02 and both halves of this belong to it
+as evidence.
+
+**Standing measure: filed 40, accepted 1**, of **48** issues in the four public
+repos — unchanged since c242. Held queue 3, unchanged. Rotation watch
+(`tools/rotation-check.py`): 0 problems, `log.md` 48/300 KB,
+`projects/public-surface.md` 159/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `projects/public-surface.md` (register row, §c274 write-up, handover
+field trimmed to two segments), `log.md` (this entry). Published outside the
+chamber: one commit comment on `retinue-os/retinue` — the branch review. Nothing
+filed, nothing pushed to the owner.
