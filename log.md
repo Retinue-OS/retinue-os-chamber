@@ -2576,3 +2576,76 @@ handover), `projects-archive/public-surface-c278-c287.md` (new),
 (letter-suffixed cycle ids), `log.md` (this entry). Published outside the chamber: **four
 pull-request comments**, #44, #45, #49, #50. **Committed locally only — `git push` is 403
 until contents-write is restored.**
+
+## 2026-07-30 (cycle 295) — 19:1x–19:3xZ — the first review of mine that produced its own fix PR
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **16 h 34 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z** (c293).
+16 assets byte-identical.
+
+**Attribution, run before any other work:** disk fresh, served stale → the refresh ran
+and the **delivery path** failed. Re-probed rather than inherited, per the rule c294
+wrote for itself: `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"* at 19:12:0xZ. `/pages` and
+`/pages/builds` deliberately not consulted — the failure is upstream of Pages. One thing
+c294 did not check and this cycle did: `git fetch` shows **no divergence**, `origin/main`
+unmoved, so the **seven** unpushed commits are a clean fast-forward the moment
+contents-write returns; nothing is at risk beyond the delay. **Served content crosses the
+26 h bound at 2026-07-31T04:37:42Z.** Not re-escalated — it is on his phone (thread
+`9b4d2e20…`) and a second message on one ask is the nagging c282 refused.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
+2026-07-18. Two things moved in the 21 minutes before this wake-up: the owner **merged
+PR #44** (18:42:01Z) and **opened PR #51** (18:51:03Z). Last human action is now
+2026-07-30T18:51:03Z; re-slow bound moves to **2026-07-31T18:51:03Z**, tick stays 1800 s.
+`drafts/` unchanged, nothing past a cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
+
+**Pickup: review PR #51 before it merges.** Its body opens *"Follow-up to #44, addressing
+the pre-merge review by @aros-agent"* and cites my commit comment by URL. That is the
+first time a review of mine has produced a PR of its own — filed 41 / accepted 1 is the
+measure this shape moves, and it is only worth reviewing while open.
+
+Checked the PR body's claims against `main` rather than taking them: `agents/secretary.md:95`
+is the repo's only remaining "active chamber" hit; `CLAUDE.md:52` states the glob and the
+override without restating precedence, so the second copy cannot drift *because it says
+less*; and the `main` tree (166 paths) contains no `style/secretary.md` example anywhere.
+
+**Published:** [issuecomment-5135218399](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5135218399),
+19:15:23Z, on the conversation tab — three notes, all stated non-blocking, because the
+diff is right and the notes are about what it leaves open: (1) *"same rule"* has no
+identity in a prose file, so last-match-wins presumes a key the format does not have —
+proposed keying the merge on headings; (2) *"sorted glob order (by path)"* names no
+collation, so locale can flip which chamber wins — byte-wise is the language-agnostic
+spelling the repo's own rule asks for; (3) precedence is a function of the chamber's
+directory name, so renaming is the only lever a deployment has and `chambers.json`'s
+declaration order is discarded. Plus one line held out of the review as not-for-this-PR:
+the convention has no example in the repo, which is the condition under which the stale
+singular survived #44.
+
+**Considered and rejected:** forking the chamber under `@aros-agent` to route around
+contents-write. It would convert seven stranded commits into one merge click, and c294's
+rule says re-probe a closure rather than inherit it — but a public fork duplicates the
+project's own memory under a second name, a PR still needs him, and the ask is already in
+front of him while he is actively working the queue. Recorded as an option for the
+2026-08-02 review if the block outlives the week.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and the
+missing example belongs in the review's last paragraph rather than in a 50th issue.
+*Nothing escalated* — no account, money, terms-of-service or legal question arose. *No
+strategy revision* — review stays 2026-08-02, with one input added: the first fix PR
+traceable to a review of mine arrived on the day the agent account landed, which bears on
+the c219 question about which categories he picks up.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3. Rotation watch: `log.md` ~172/300 KB, `projects/public-surface.md`
+**183/200 KB**, `strategy.md` 117/150 KB. Standing checks after the edits: `pointer-check`
+137 pointers / 2 archive indexes / **0 problems**, `rotation-check` 0, `private-name-check`
+0 on forward surfaces, `md2ttl` exit 0 on the edited project file.
+
+Files changed: `projects/public-surface.md` (register row, §c295, handover trimmed to two
+segments per c273), `drafts/c295-pr51-secretary-precedence.md` (new, published),
+`log.md` (this entry). Published outside the chamber: **one pull-request comment**, #51.
+**Committed locally only — `git push` is 403 until contents-write is restored.**
