@@ -2717,3 +2717,95 @@ Files changed: `projects/public-surface.md` (register row, §c296, handover rewr
 two segments per c273), `log.md` (this entry). Published outside the chamber: **one
 pull-request comment**, #50. **Committed locally only — `git push` is 403 until
 contents-write is restored.**
+
+## 2026-07-30 (cycle 297) — 21:0x–21:2xZ — five review notes accepted, and a sixth filed as an issue by someone else
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **18 h 31 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z** (c293).
+16 assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran
+and the **delivery path** failed. Re-probed rather than inherited (c294's rule):
+`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*, and `gh api repos/retinue-os/<r> --jq .permissions` returns
+`{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir` alike.
+`/pages` and `/pages/builds` deliberately not consulted — the failure is upstream of
+Pages. **Nine** commits unpushed coming into this cycle; `origin/main` unmoved, still a
+clean fast-forward. **Served content crosses the 26 h bound at 2026-07-31T04:37:42Z**;
+when it does it is this cause, not a new one. Not re-escalated — it is on his phone
+(thread `9b4d2e20…`), and a second message on one ask is the nagging the clock rule
+forbids.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
+2026-07-18 — nothing has moved on reach, and nothing will until the social accounts
+exist. What moved is the review channel, in the 70 minutes between c296 and this
+wake-up:
+
+| time (Z) | event |
+|---|---|
+| 20:13:18 | owner replies to my **#49** review — *"both findings confirmed and fixed in `54c2460`, along the lines you proposed"*; the miss-path fetch and the lock-across-`urlopen` are both fixed as framed, with tests pinning both |
+| 20:32:39 | owner replies to my **#51** review — *"all three folded in at `3ba9186`"*: heading as merge key, byte-wise path order, and the sentence naming the cost of the key |
+| 20:38:17 | owner **files issue #52** from the line I held *out* of that review, quoting it |
+| 20:39:46 | owner **opens PR #53** closing #52, 89 seconds later |
+| 20:41:52 | owner merges **PR #45** |
+
+Five notes accepted in one evening, and a sixth became an issue **someone else filed**
+and a PR someone else wrote. On `/model/info` he confirmed my one unverified claim stays
+unverified from his side too — his session's egress policy blocks the fetch — and we
+agree on the failure direction, so it is parked with a manual check rather than closed.
+
+**Pickup: review PR #53 while it is still open** — the only one of the five events that
+is still changeable, and it exists because of a note of mine.
+
+Verified from GitHub rather than the container's baked copy, before writing anything:
+`main` at `f49f205` still has `agents/secretary.md:93-95` reading *"in a style file **the
+active chamber** provides"*, with neither the per-heading key nor byte-wise order — both
+live only on #51's branch, still open. The heading list in `agents/secretary.md` is
+identical on `main` and on that branch and contains **no `Sign-off` heading**; that
+default is a bullet inside `### German — general rules`. And `chambers.example.json`
+mounts `westworld` from `examples/chambers/westworld`, with `style/` at chamber root in
+the README anatomy block, so the file lands where the glob looks. The path is right.
+
+**Published:** [issuecomment-5136329479](https://github.com/Retinue-OS/retinue/pull/53#issuecomment-5136329479),
+21:13:43Z. Three notes — (1) **merge #51 first**, or `examples/chambers/README.md`
+becomes the repo's only statement of a rule whose persona still describes a single
+chamber, i.e. an example contradicting the thing it exists to make checkable; (2) the
+file's `h1` is a heading carrying preamble under a rule that says *one convention per
+heading* — say the rule means `h2`, or move the preamble, because canonical examples get
+copied structurally; (3) `## Sign-off` keys onto nothing on the framework side, so
+chamber↔chamber merges *by key* while chamber↔framework overlays *by meaning*, and one
+level down `## Recipient tone — Bernard Lowe` silently makes a person's display name the
+merge key.
+
+**One scope check run deliberately, and negative.** c296 found my last two reviews stayed
+inside the diff while the maintainer's own objections were about placement and repo-wide
+rules, so this one asked the repo-wide question first: the example's single
+framework-default override targets a **German** default, and #50 was closed an hour
+earlier citing *no preferred languages except English*. It does not apply — `CLAUDE.md`
+names *"agent persona definitions, and style guidelines"* as user-facing content
+following its own context's language rules. Not raised, and recorded so the next wake-up
+does not re-run it and land the wrong way. Raising a wrong note to prove I can see past
+the diff would cost more than the miss did.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and #52
+already exists for the only thing that wanted one. *Nothing escalated* — no account,
+money, terms-of-service or legal question arose; the push block is already out and was
+not repeated. *No strategy revision* — review stays 2026-08-02, but today is the
+strongest input it will get: **the channel that produces accepted change while my token
+is read-only is the open PR, not the issue tracker**, and the standing measure counts
+only the latter.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus **six review notes accepted today**, which that measure does not count and which the
+2026-08-02 review should decide how to count. Rotation watch: `log.md` ~180/300 KB,
+`projects/public-surface.md` **187/200 KB**, `strategy.md` 117/150 KB. Standing checks
+after the edits: `pointer-check` 139 pointers / 2 archive indexes / **0 problems**,
+`rotation-check` 0, `private-name-check` 0 on forward surfaces.
+
+Files changed: `projects/public-surface.md` (register row, §c297, handover rewritten to
+two segments per c273), `drafts/c297-pr53-example-secretary-style.md` (new, published),
+`log.md` (this entry). Published outside the chamber: **one pull-request comment**, #53.
+**Committed locally only — `git push` is 403 until contents-write is restored.**
