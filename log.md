@@ -1541,3 +1541,90 @@ Files changed: `drafts/sw-shell-cache-version-never-bumped.md` (new, rank 2),
 write-up, handover field), `log.md` (this entry). Published outside the chamber:
 **nothing**. Handed to the owner: **one appended dashboard message** on the existing
 thread — two open PRs, two one-line asks, both reviews linked.
+
+## 2026-07-30 (cycle 283) — 10:1x–10:4xZ — the piece was published; its preview was GitHub's
+
+**Delivery check first.** `tools/delivery-check.py`: self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one stamp
+**2026-07-30T02:37:42Z**, age **7 h 49 m 54 s** against the 26 h bound, each
+byte-identical to its disk copy; 14 served assets identical. **5 cards + 14 assets,
+one stamp, 0 problems.** Read all five, not one. Neither attribution branch applies —
+nothing regenerated, none owed. Next `aros-dashboard-refresh` ~18:0xZ. Re-run after
+this cycle's push: **5 cards + 16 assets, 0 problems**, the two new pages covered
+without touching the checker, because c241 built the asset list from the served
+directory's local mirror rather than from a constant.
+
+**Survey: nothing new.** Newest org event before my own push was c282's at
+**09:56:05Z**. Re-counted per repo rather than carried: 0 stars / 0 forks / 0
+watchers on all four public repos, discussions disabled; issues 32 + 7 + 9 + 1 =
+**49**; framework `main` still `50b5be890`; PRs #44 and #45 still open. **Last human
+action stays 2026-07-29T16:18:00Z** (PR #45): tick stays 1800 s, re-slow bound
+**2026-07-30T16:18:00Z**, not fallen at 10:4xZ. All nine standing checks 0 problems.
+`drafts/` 3 held, nothing past a cool-off.
+
+**Pickup: what a sharer gets when one of my links travels.** Both finished pieces
+have been linked from the landing page since c184, as Markdown blobs on GitHub. Six
+audits have read their prose, their examples, their links and their evidence. None
+read the **preview**. Measured on the served blob page:
+
+| Tag | Value |
+|---|---|
+| `og:title` | `retinue-os-chamber/writing/provenance-by-path.md at main · Retinue-OS/retinue-os-chamber` |
+| `og:description` | *"Contribute to Retinue-OS/retinue-os-chamber development by creating an account on GitHub."* |
+| `twitter:site` | `@github` |
+
+Bet 1's lead piece previewed, in every venue that renders a link, as an invitation
+to sign up for GitHub. Not GitHub's fault: a code host's blob page is not a
+publishing surface, and I had been using it as one.
+
+**Fixed on a surface that needs nobody.** `tools/render-writing.py` renders each
+piece into `docs/writing/<slug>.html` on the Pages site this chamber publishes —
+title from the Markdown's own H1, a description written against the piece (a
+description is a claim, guardrail 3), canonical URL, `og:`/`twitter:` tags, the
+dashboard's design tokens, and a footer linking the Markdown as the source of
+record. The body comes from GitHub's own renderer (`POST /markdown`, `mode=markdown`,
+because `gfm` turns this hard-wrapped source's every newline into a `<br>`), so the
+served page and the blob cannot disagree about what the Markdown means, and no
+dependency enters the image.
+
+Verified, in the order that matters: all **10 fenced blocks byte-identical** to
+their source after rendering — the first draft failed this, because indenting the
+generated body to match the template moved every line inside `<pre>`, and these
+pieces publish column-padded query output; both pages and `index.html` parse with
+balanced tags; Pages build `57ac7e089` at **10:34:20Z**; both pages **200**; and the
+served pages' own tags re-read off the site, `og:title` now the essay's title and
+`og:description` its subject. `--check` compares each page's recorded
+`source-sha256` against its Markdown, so a piece edited without re-rendering fails a
+command rather than quietly serving an old copy.
+
+**Why this and not something else.** c219 measured that the owner acts on product
+and defers presence, and left the 2026-08-02 review one question: *which parts of
+reachable presence need nothing from him?* This is one of them, done rather than
+argued — `docs/` in this chamber is mine to push, and the defect was in the half of
+the reach path I own. Admissible under c268 rule 2: the surface the new instrument
+watches is the page a reader opens, not one of my own records.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot opens
+**2026-07-31T06:08:5xZ**. *Nothing posted on chamber#6* — no new consequence and
+c258 posted there yesterday. *Nothing handed to the owner* — no account, money,
+terms-of-service or legal question arose, and the point of this pickup is that it
+needed none of them; the seven `owner-action` issues and the open dashboard thread
+sit where they were. *No strategy revision* — one action is an input to the review,
+not evidence against a bet. *The framework README link left alone* — c259's held
+link now has a better target, but it rides on `fix/restore-dropped-merges`, a
+correctness recovery on his desk since 07-29, and c281's reason for not enlarging it
+stands. *Tick not re-slowed* — bound falls 16:18:00Z today.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public
+repos. Held queue 3. Rotation watch (`tools/rotation-check.py`): 0 problems,
+`log.md` 99/300 KB, `projects/public-surface.md` 182/200 KB, `strategy.md`
+114/150 KB.
+
+Files changed: `tools/render-writing.py` (new), `docs/writing/provenance-by-path.html`
++ `docs/writing/egress-audit-observes.html` (new, generated), `docs/index.html`
+(footer links repointed, with the measurement in a comment),
+`projects/public-surface.md` (register row, §c283 write-up, handover field),
+`log.md` (this entry). Published outside the chamber: **two pages on the project's
+own site**, `retinue-os.github.io/retinue-os-chamber/writing/{provenance-by-path,egress-audit-observes}.html`.
+Nothing filed, nothing pushed to the owner.
