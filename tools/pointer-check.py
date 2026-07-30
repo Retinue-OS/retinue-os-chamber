@@ -180,6 +180,13 @@ HEADING_PARENTHETICAL = re.compile(r"(?mi)^## .*\(cycle (\d+[a-z]*)\)")
 # contributes 2026 and the write-up it introduces is invisible — which is exactly
 # how ten register rows dangled undetected until c263.
 MAX_CYCLE = 999
+# How a register row names a cycle: as a pointer (`§c299`) or in the *Last
+# audited* column (`2026-07-30 (c299)`). Check 7 counts either as an index entry.
+ROW_CYCLE = re.compile(r"(?:§c|\(c)(\d+[a-z]*)\)?")
+# The files whose sections are indexed by a register table. Check 7 applies only
+# here: `log.md` is chronological with no index, and a file with an incidental
+# table would otherwise report every one of its entries as an orphan.
+ROW_INDEXED_FILES = ("projects/public-surface.md",)
 # The handover field, a double-quoted scalar in the frontmatter (may span lines).
 NEXT_ACTION = re.compile(r"(?ms)^current_next_action:\s*\"(.*?)\"\s*$")
 # Cycle numbers as they are written inside that field: "c250", "§c250".
@@ -358,6 +365,40 @@ def check_coverage(path, text):
             )
 
 
+def check_orphan_writeups(path, text):
+    """Yield a problem for a write-up section that no register row names.
+
+    Added c300, on the third occurrence of the same slip (c241, c250, c299).
+    Every other check in this file runs **rows -> sections**: given a pointer,
+    does it resolve? None of them runs the other direction, so a cycle that
+    appends its write-up and forgets its register row is silent — the write-up
+    renders, every existing pointer still resolves, and the file's own index
+    simply does not mention it. c299 went further and recorded *"register row,
+    §c299"* in its log entry, so the record asserts a row that was never
+    written.
+
+    The failure has a deadline: once a rotation moves the section into an
+    archive part, the only route to it was the row, and there is none. That is
+    the same unreachability c286 found for whole archive parts, one level down.
+
+    A row names a cycle as `§cN` (a pointer) or as `(cN)` (the *Last audited*
+    column). Either counts as indexing it; whether the pointer itself is
+    well-formed is checks 1 and 5's business, not this one's. Code spans are
+    masked, so a row *documenting* the convention does not index anything.
+    """
+    rows = set()
+    for raw in text.split("\n"):
+        if not raw.lstrip().startswith("|"):
+            continue
+        rows.update(ROW_CYCLE.findall(mask_code_spans(raw)))
+    for cid in sorted(headings(text), key=cyc_key):
+        if cid not in rows:
+            yield (
+                f"ORPHAN     {path}: §c{cid} has a write-up and no register "
+                f"row naming it — after the next rotation nothing points at it"
+            )
+
+
 def check_archive_index(root, live_relpath, archive_dirname, listing):
     """Yield a problem for any archive part not linked from the file it left.
 
@@ -467,6 +508,16 @@ PLAIN_LINK_ROW = "| x | see [the README](../README.md) for context. |\n"
 SUFFIX_GOOD = "| x | Detail: §c292b below |\n\n## §c292b — a write-up\n"
 SUFFIX_BAD = "| x | Detail: §c292b below |\n\n## §c292 — a different write-up\n"
 
+# c300: check 7, sections -> rows. A row may name the cycle as a pointer or in
+# its date column; a row that only *quotes* the convention indexes nothing.
+ORPH_OK = "| x | Detail: §c7 below |\n\n## §c7 — a write-up\n"
+ORPH_BAD = ORPH_OK + "\n## §c8 — a write-up nothing indexes\n"
+ORPH_DATE_COL = "| a surface | 2026-07-30 (c8) | a verdict |\n\n## §c8 — a write-up\n"
+ORPH_CODE_ONLY = "| `Detail: §c7 below` | 14 | yes |\n\n## §c7 — a write-up\n"
+# No table at all in a file declared row-indexed: both sections really are
+# unreachable, so silence would be wrong. Reported, not skipped.
+ORPH_NO_TABLE = "## §c7 — a write-up\n\n## §c8 — another\n"
+
 # Frontmatter fixtures for check 3.
 NA_FRESH = '---\ncurrent_next_action: "Aros, c251: did a thing."\n---\n\n## §c251 — x\n'
 NA_STALE = '---\ncurrent_next_action: "Aros, c250: did a thing."\n---\n\n## §c251 — x\n'
@@ -538,6 +589,12 @@ def self_test():
         # No marker at all: nothing to check against, and silence is wrong — the
         # parts exist and no list names them.
         idx_nomarker = len(list(check_archive_index(td, "live.md", "arch", "prose only.\n"))) == 2
+    # c300: check 7, the sections -> rows direction, both ways round.
+    orph_ok = not list(check_orphan_writeups("f.md", ORPH_OK))
+    orph_bad = len(list(check_orphan_writeups("f.md", ORPH_BAD))) == 1
+    orph_date = not list(check_orphan_writeups("f.md", ORPH_DATE_COL))
+    orph_code = len(list(check_orphan_writeups("f.md", ORPH_CODE_ONLY))) == 1
+    orph_none = len(list(check_orphan_writeups("f.md", ORPH_NO_TABLE))) == 2
     return all(
         [
             ok, ok2, bad1, bad2, fresh, stale, unnamed, prose,
@@ -546,6 +603,7 @@ def self_test():
             bare_ok, bare_bad, bare_b, bare_prose, unl_c, unl_d, unl_plain,
             idx_ok, idx_bad, idx_scope, idx_none, idx_nomarker,
             suffix_ok, suffix_bad, suffix_cov, suffix_ord,
+            orph_ok, orph_bad, orph_date, orph_code, orph_none,
         ]
     )
 
@@ -566,7 +624,7 @@ def main():
     print(
         "self-test: pass (4 pointer cases + 12 form/heading cases "
         "+ 5 coverage cases + 7 label cases + 4 handover-field cases "
-        "+ 5 archive-index cases)"
+        "+ 5 archive-index cases + 5 orphan-write-up cases)"
     )
 
     cache = {}
@@ -589,6 +647,10 @@ def main():
         problems.extend(check_text(path, text, load))
         problems.extend(check_coverage(path, text))
         problems.extend(check_next_action(path, text))
+        # Check 7 (c300): the sections -> rows direction, on the files that keep
+        # a register table.
+        if path in ROW_INDEXED_FILES:
+            problems.extend(check_orphan_writeups(path, text))
 
     # Check 6 (c286): each rotating file's archive directory against its own
     # *Archive, oldest first* list.

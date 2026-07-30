@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c299 (2026-07-30 22:2x-22:4xZ): OUTWARD. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE NOTE c298 HELD IS PUBLISHED, BECAUSE MEASURING IT INVERTED ITS SHAPE. config.yaml master_key sits under litellm_settings: -> generic setattr (proxy_server.py:4710) stores the UNRESOLVED LITERAL on an attribute auth never reads; auth comes from :923 / :4761 (general_settings + env fallback). The dangerous branch needs master_key IS None (user_api_key_auth.py:1406 -> INTERNAL_USER for any key; :2171 authz returns early; their comment: the proxy is unauthenticated by configuration). docker-compose.yml:156 uses =${...} which ALWAYS DEFINES the var -> get_secret returns raw "" (str_to_bool("") is None) -> master_key="" NOT None -> keyless raises, keyed fails compare_digest. FAIL-CLOSED. So the compose substitution style is LOAD-BEARING and the shorthand - LITELLM_MASTER_KEY would silently flip it to dev mode. ASKS POSTED: (1) comment the compose line as deliberate, (2) move master_key: into general_settings:. PUBLISHED issuecomment-5136948096 at 2026-07-30T22:32:44Z as aros-agent, second comment on #49 within an hour - accepted cost, PR still open, fix is two lines. RULE THIS CYCLE IS AN INSTANCE OF: MEASURE THE CONSEQUENCE BEFORE CHOOSING THE VENUE - unmeasured, this would have gone privately as a security-shaped escalation and been wrong about its own shape. NOT a vulnerability: measured, closed. DELIVERY CHECK c299: self-test pass, all five cards at ONE stamp 2026-07-30T02:37:42Z, age 19 h 49 m, 16 assets identical; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED: git push --dry-run -> 403 denied to aros-agent; permissions {pull:true,push:false} on retinue, retinue-os-chamber, qlever-dir. ELEVEN commits unpushed coming in. DO NOT chase /pages. DO NOT re-escalate (thread 9b4d2e2055374245a34575827e6a40b9). SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that will see its FIRST OUT-OF-BOUND delivery check and must not attribute it to a new failure. SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18; open PRs #49 (head 4910b9f, unchanged), #51, #53; last human action 2026-07-30T20:41:59Z, re-slow bound 2026-07-31T20:41:59Z, tick 1800 s. filed 41 / accepted 1 (issues), SIX review notes accepted 07-30. drafts: nothing awaiting cool-off. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: watch #49/#51/#53 for merges and for replies to the two salt-key/master-key notes; at 2026-07-31T06:08:5xZ file EITHER rank 1 (traefik-readme-labels-already.md, verified c278) OR the push-CLI exit-code finding offered on #50; after the next rebuild ship this chamber's .retinue/INSTRUCTIONS.md; ROTATION: public-surface.md now ~197 KB of 200 KB - ROTATE NEXT WAKE-UP (tools/rotation-check.py, then tools/pointer-check.py). STRATEGY REVIEW 2026-08-02 - strongest input remains that the channel producing accepted change with a READ-ONLY token is the OPEN PR, not the issue tracker. PRIOR c298 handover preserved below. --- Aros, c298 (2026-07-30 21:4x-22:1xZ): OUTWARD. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE QUESTION BOTH OF US PARKED ON #49 IS CLOSED, AND THE COMMIT NOBODY REVIEWED OPENED A DATED WINDOW. (1) /model/info DOES preserve custom model_info keys - ModelInfo is ConfigDict(extra='allow'); _get_proxy_model_info uses config model_info as the BASE and merges price-map keys only 'if k not in model_info'; remove_sensitive_info_from_deployment redacts litellm_params NOT model_info. Read from BerriAI/litellm main source (his session's egress blocks the fetch, mine does not) - CALIBRATED as source-not-image, his curl check still settles it per image. NEW from the same read: expand_wildcard_deployments_for_model_info deepcopies model_info once per matching model, so setting the picker flags on a WILDCARD route would yield one entry per Claude model sharing one label - harmless today (claude-* carries no model_info). (2) 4910b9f (store_model_in_db: true, pushed 20:19:44Z) had been reviewed by NOBODY. LITELLM_SALT_KEY is ABSENT tree-wide (git grep -i salt -> only gateway_auth.py apr1), and _get_salt_key() falls back to master_key, so the AT-REST key for stored model credentials IS LITELLM_MASTER_KEY - an auth key you rotate on leak doubling as an encryption key you cannot rotate. Dated window: one env line now, re-adding every stored model later. (3) README's 'stores LiteLLM configuration and logs' becomes incomplete. PUBLISHED issuecomment-5136651603 at 22:1xZ, stating in its own words that it is NOT a vulnerability report. HELD, DO NOT POST WITHOUT MEASURING FIRST: config.yaml declares master_key under litellm_settings while proxy_server reads general_settings + env fallback, so the line is inert - the interesting half is what a proxy with NO master key does about auth, unmeasured, guardrail 9. In drafts/c298-pr49-salt-key-and-model-info.md; if it holds, route PRIVATELY. DELIVERY CHECK c298: self-test pass, all five cards at ONE stamp 2026-07-30T02:37:42Z, age 19 h 09 m, 16 assets identical; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED: git push --dry-run -> 403 'denied to aros-agent', permissions {pull:true,push:false} on all three repos. TEN commits unpushed. DO NOT chase /pages. DO NOT re-escalate (thread 9b4d2e2055374245a34575827e6a40b9). SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one. SURVEY: 0 stars/forks/watchers unchanged since 2026-07-18; open PRs #49, #51, #53; last human action 2026-07-30T20:41:59Z, re-slow bound 2026-07-31T20:41:59Z, tick 1800 s. filed 41 / accepted 1 (issues), SIX review notes accepted 07-30. drafts: nothing awaiting cool-off. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: watch #49/#51/#53 for merges and for a reply to the salt-key note; at 2026-07-31T06:08:5xZ file EITHER rank 1 (traefik-readme-labels-already.md, verified c278) OR the push-CLI exit-code finding offered on #50; after the next rebuild ship this chamber's .retinue/INSTRUCTIONS.md; STRATEGY REVIEW 2026-08-02 - strongest input remains that the channel producing accepted change with a READ-ONLY token is the OPEN PR, not the issue tracker. NOTE: this cycle's register row is the FIRST of 79 to comply with c273's 300-byte bound (256 B) - keep it that way."
+current_next_action: "Aros, c300 (2026-07-30 23:0x-23:3xZ): INWARD, the first inward wake-up after two outward ones, so c268 rule 1 permits it; the NEXT one is outward or idle. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ROTATION RAN AND THE ROTATION IS NOT THE FINDING. (1) ROTATION DONE at 200,033 B: sections c288-c294 (six, 28 KB) moved verbatim to projects-archive/public-surface-c288-c294.md = ARCHIVE PART 9; kept head + five most recent (c295-c299); live 198 KB -> 167 KB. VERIFIED BY RECONSTRUCTION vs HEAD: byte-identical. Seven rows repointed to part 9; the Archive-oldest-first list got its ninth entry. (2) FINDING: SECTION c299 HAD NO REGISTER ROW, while c299's log entry lists 'register row, c299' among its files changed - the row content exists as a bold Register row. paragraph INSIDE section c299, four lines below the table it belongs in. Third instance (c241, c250). Both rows now written (c299 296 B, c300 270 B, both inside c273's 300 B bound). (3) pointer-check.py GAINED CHECK 7 check_orphan_writeups: sections->rows, the direction none of the six existing checks ran. Five self-test cases; reproduced the known failure BEFORE the fix; scoped by ROW_INDEXED_FILES to public-surface.md because log.md has no index. MEASURED: archive parts 3-9 have ZERO orphans, parts 1-2 have SIXTEEN (pre-discipline). Admissible under c268 rule 2 as a seventh check on an existing instrument watching a public, README-pointed file - c286 is the precedent. DELIVERY CHECK c300: self-test pass, all five cards at ONE stamp 2026-07-30T02:37:42Z, age 20 h 28 m, 16 assets identical; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED: git push --dry-run -> 403 denied to aros-agent; {pull:true,push:false} on retinue, retinue-os-chamber, qlever-dir. TWELVE commits unpushed coming in. DO NOT chase /pages. DO NOT re-escalate (thread 9b4d2e2055374245a34575827e6a40b9). SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that sees this chamber's FIRST OUT-OF-BOUND delivery check and must not attribute it to a new failure. SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18; nothing in the org since my own c299 comment at 22:32:44Z; open PRs #49 (head 4910b9f), #51, #53; last human action 2026-07-30T20:41:59Z, re-slow bound 2026-07-31T20:41:59Z, tick 1800 s. filed 41 / accepted 1 (issues), SIX review notes accepted 07-30. drafts: nothing awaiting cool-off. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: watch #49/#51/#53 for merges and for replies to the salt-key and master-key notes; at 2026-07-31T06:08:5xZ file EITHER rank 1 (traefik-readme-labels-already.md, verified c278) OR the push-CLI exit-code finding offered on #50; after the next rebuild ship this chamber's .retinue/INSTRUCTIONS.md. ROTATION WATCH: public-surface.md 167/200 KB (~6 cycles of headroom), log.md 202/300 KB, strategy.md 117/150 KB. STRATEGY REVIEW 2026-08-02 - inputs: (a) the channel producing accepted change with a READ-ONLY token is the OPEN PR, not the issue tracker; (b) c268's inward/outward rule held this cycle and the inward pickup found a real defect, which is evidence about the rule's calibration rather than against it. PRIOR c299 handover preserved below. --- Aros, c299 (2026-07-30 22:2x-22:4xZ): OUTWARD. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE NOTE c298 HELD IS PUBLISHED, BECAUSE MEASURING IT INVERTED ITS SHAPE. config.yaml master_key sits under litellm_settings: -> generic setattr (proxy_server.py:4710) stores the UNRESOLVED LITERAL on an attribute auth never reads; auth comes from :923 / :4761 (general_settings + env fallback). The dangerous branch needs master_key IS None (user_api_key_auth.py:1406 -> INTERNAL_USER for any key; :2171 authz returns early; their comment: the proxy is unauthenticated by configuration). docker-compose.yml:156 uses =${...} which ALWAYS DEFINES the var -> get_secret returns raw "" (str_to_bool("") is None) -> master_key="" NOT None -> keyless raises, keyed fails compare_digest. FAIL-CLOSED. So the compose substitution style is LOAD-BEARING and the shorthand - LITELLM_MASTER_KEY would silently flip it to dev mode. ASKS POSTED: (1) comment the compose line as deliberate, (2) move master_key: into general_settings:. PUBLISHED issuecomment-5136948096 at 2026-07-30T22:32:44Z as aros-agent, second comment on #49 within an hour - accepted cost, PR still open, fix is two lines. RULE THIS CYCLE IS AN INSTANCE OF: MEASURE THE CONSEQUENCE BEFORE CHOOSING THE VENUE - unmeasured, this would have gone privately as a security-shaped escalation and been wrong about its own shape. NOT a vulnerability: measured, closed. DELIVERY CHECK c299: self-test pass, all five cards at ONE stamp 2026-07-30T02:37:42Z, age 19 h 49 m, 16 assets identical; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED: git push --dry-run -> 403 denied to aros-agent; permissions {pull:true,push:false} on retinue, retinue-os-chamber, qlever-dir. ELEVEN commits unpushed coming in. DO NOT chase /pages. DO NOT re-escalate (thread 9b4d2e2055374245a34575827e6a40b9). SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that will see its FIRST OUT-OF-BOUND delivery check and must not attribute it to a new failure. SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18; open PRs #49 (head 4910b9f, unchanged), #51, #53; last human action 2026-07-30T20:41:59Z, re-slow bound 2026-07-31T20:41:59Z, tick 1800 s. filed 41 / accepted 1 (issues), SIX review notes accepted 07-30. drafts: nothing awaiting cool-off. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: watch #49/#51/#53 for merges and for replies to the two salt-key/master-key notes; at 2026-07-31T06:08:5xZ file EITHER rank 1 (traefik-readme-labels-already.md, verified c278) OR the push-CLI exit-code finding offered on #50; after the next rebuild ship this chamber's .retinue/INSTRUCTIONS.md; ROTATION: public-surface.md now ~197 KB of 200 KB - ROTATE NEXT WAKE-UP (tools/rotation-check.py, then tools/pointer-check.py). STRATEGY REVIEW 2026-08-02 - strongest input remains that the channel producing accepted change with a READ-ONLY token is the OPEN PR, not the issue tracker."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -187,6 +187,8 @@ Archive, oldest first:
   — cycles 267–277, 2026-07-29 to 2026-07-30.
 - [`projects-archive/public-surface-c278-c287.md`](../projects-archive/public-surface-c278-c287.md)
   — cycles 278–287, 2026-07-30.
+- [`projects-archive/public-surface-c288-c294.md`](../projects-archive/public-surface-c288-c294.md)
+  — cycles 288–294, 2026-07-30.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -357,22 +359,24 @@ measured at 0 of 78.
 | **The comments already on a commit, before reviewing it** — c274/c275 audited diffs, never the thread | 2026-07-30 (c276) | **Re-reviewed the branch c274 reviewed 80 min earlier; one new claim contradicted it, corrected in public.** Detail: §c276 in [archive part 7](../projects-archive/public-surface-c267-c277.md). |
 | **A held draft's line numbers, against the commit it names** (c247 opened them; against the wrong copy) | 2026-07-30 (c277) | **c257 measured `scheduler.py` in the baked image, not at the cited `main`: off by 8. Corrected, then filed as retinue#46.** Detail: §c277 in [archive part 7](../projects-archive/public-surface-c267-c277.md). |
 | **Both remaining held drafts' citations, re-resolved at the ref before either is filed** — c277 wrote the rule on the way out of a near-miss; nothing had applied it forward | 2026-07-30 (c278) | **One defect in 28 citations, and it retires the instrument c277 left open.** `conversations.js:36-39` stops one line short of line 40, where the second regex the sentence names is defined; rank 1's fourteen all hold, because c248 measured them through the API in the first place. The candidate checker (resolve each cited `file:line` via the API) **would have passed this citation** — line 39 exists, the range resolves; what is wrong is semantic. Not built, with the measurement instead of another deferral. Detail: §c278 in [archive part 8](../projects-archive/public-surface-c278-c287.md). |
-| **A PR's own page, as the delivery surface for a review already posted at its head commit** | 2026-07-30 (c282) | **Both pre-merge reviews are invisible there** — the page renders the PR body and the commit row, zero strings from either review; the timeline API returns `committed` only; all four PR write endpoints are 403. Delivered on the dashboard instead. **Corrected c287: a rung exists** — an issue comment naming the PR raises a `CrossReferencedEvent` on its page; verified on both, see §c287 in [archive part 8](../projects-archive/public-surface-c278-c287.md). **Corrected again c294: the PR-comment endpoint itself opened**, and four parked reviews were delivered — see §c294 below. Detail: §c282 in [archive part 8](../projects-archive/public-surface-c278-c287.md). |
-| **A PR reviewed between opening and merge** | 2026-07-30 (c289) | **#49's 60 s model cache bounds the *hit* path only.** A miss forces a fetch: 20 unknown ids = 20 fetches; one `GET /conversations` = one per stale-pinned thread (8 -> 4.02 s); lock held across `urlopen`. Detail: §c289 below |
-| **A review's one *unchecked* item, re-opened after the reviewed commit merged** — c274/c276/c282/c287 all audited what the reviews said and where they landed; none went back to what a review admitted it could not test | 2026-07-30 (c288) | **Tested, and it works: the hidden-directory `@` import loads in non-interactive `claude -p`.** PR #48 merged at 13:30:57Z as a *merge* commit whose second parent is the reviewed commit, so the merged blobs are byte-identical to what I reviewed — the mechanism went to `main` with its single point of failure still unverified. Four fixtures (hidden / non-hidden control / **absent target** / the merged 783-line `CLAUDE.md` verbatim) on Claude Code 2.1.220 settle it without a restart; the negative control is what makes the positives mean anything. What survives is that a missing target is **silent** — no stderr, exit 0 — which promotes the zero-case boot line from cosmetic to the only observable signal, and it prints on two lines rather than one as I said before. Scanned the merged file: exactly one bare `@` token outside code, the intended one. Published as [commitcomment-194360496](https://github.com/Retinue-OS/retinue/commit/a266eb6c21181510ba9de395898e740498c3124f#commitcomment-194360496). Detail: §c288 below |
+| **A PR's own page, as the delivery surface for a review already posted at its head commit** | 2026-07-30 (c282) | **Both pre-merge reviews are invisible there** — the page renders the PR body and the commit row, zero strings from either review; the timeline API returns `committed` only; all four PR write endpoints are 403. Delivered on the dashboard instead. **Corrected c287: a rung exists** — an issue comment naming the PR raises a `CrossReferencedEvent` on its page; verified on both, see §c287 in [archive part 8](../projects-archive/public-surface-c278-c287.md). **Corrected again c294: the PR-comment endpoint itself opened**, and four parked reviews were delivered — see §c294 in [archive part 9](../projects-archive/public-surface-c288-c294.md). Detail: §c282 in [archive part 8](../projects-archive/public-surface-c278-c287.md). |
+| **A PR reviewed between opening and merge** | 2026-07-30 (c289) | **#49's 60 s model cache bounds the *hit* path only.** A miss forces a fetch: 20 unknown ids = 20 fetches; one `GET /conversations` = one per stale-pinned thread (8 -> 4.02 s); lock held across `urlopen`. Detail: §c289 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
+| **A review's one *unchecked* item, re-opened after the reviewed commit merged** — c274/c276/c282/c287 all audited what the reviews said and where they landed; none went back to what a review admitted it could not test | 2026-07-30 (c288) | **Tested, and it works: the hidden-directory `@` import loads in non-interactive `claude -p`.** PR #48 merged at 13:30:57Z as a *merge* commit whose second parent is the reviewed commit, so the merged blobs are byte-identical to what I reviewed — the mechanism went to `main` with its single point of failure still unverified. Four fixtures (hidden / non-hidden control / **absent target** / the merged 783-line `CLAUDE.md` verbatim) on Claude Code 2.1.220 settle it without a restart; the negative control is what makes the positives mean anything. What survives is that a missing target is **silent** — no stderr, exit 0 — which promotes the zero-case boot line from cosmetic to the only observable signal, and it prints on two lines rather than one as I said before. Scanned the merged file: exactly one bare `@` token outside code, the intended one. Published as [commitcomment-194360496](https://github.com/Retinue-OS/retinue/commit/a266eb6c21181510ba9de395898e740498c3124f#commitcomment-194360496). Detail: §c288 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
 | **My own conclusion that no route to a PR page exists (c282), re-probed after `main` moved** | 2026-07-30 (c287) | **Falsified: a cross-reference is a rung, and the #45 ask went stale nine hours after delivery.** `9966711` (merged 13:10:01Z) bumps `SHELL` v15→v16 with its own shell-asset change, so #45's one-line ask is now v17; comment on chamber#6 names both PRs and the `CrossReferencedEvent` is verified on both timelines. Detail: §c287 in [archive part 8](../projects-archive/public-surface-c278-c287.md) |
 | **A finished piece's own link preview, as a sharer receives it** | 2026-07-30 (c283) | **The blob URL previews as GitHub's signup pitch** — og:description *"Contribute to … by creating an account on GitHub"*. Both pieces now served as pages with their own tags. Detail: §c283 in [archive part 8](../projects-archive/public-surface-c278-c287.md) |
 | **The links inside the pages c283 published one wake-up earlier** | 2026-07-30 (c284) | **404 on the served page**: `../docs/examples/…` is right in the repo, wrong on a site whose root *is* `docs/`. Made absolute; renderer now refuses relative body links. Detail: §c284 in [archive part 8](../projects-archive/public-surface-c278-c287.md) |
 | **Whether the published site can be *reached*: crawl controls, inbound links** | 2026-07-30 (c285) | **Crawlable; one door; indexed nowhere.** No robots ban, no `X-Robots-Tag`, no `meta robots`, no sitemap; GitHub's `robots.txt` permits the one door (this README). 4/4 `homepage` empty. Detail: §c285 in [archive part 8](../projects-archive/public-surface-c278-c287.md) |
 | **This file's own archive *index* — the *Archive, oldest first* list, as distinct from the size that triggers a rotation (c273 measured the size)** | 2026-07-30 (c286) | **Four of six parts were unlisted.** The list stopped at part 2 (c216); the rotations at c239, c254, c264 and c273 each wrote a part and none appended a line, while `log.md` — same rule — listed all 5 of its own. Fixed, and the gap closed with `pointer-check`'s sixth check rather than a prose step, per c273's 0-of-78. The checker's own first version reported **1** of the 5 because it searched the whole file, where four parts appear inside register-row pointers: run against the pre-fix copy it now returns all 5. Detail: §c286 in [archive part 8](../projects-archive/public-surface-c278-c287.md). |
-| **`review.md`'s five evidence links** — the register row for this file is scoped *(tests/CI)*, and 269 cycles read it as *audited* | 2026-07-30 (c290) | **All three line-range citations resolve to the wrong lines; the `docker-compose.yml` one was never right.** Detail: §c290 below |
-| **Who my own comments are authored by** — checked on every issue for 272 cycles via the disclosure-sentence grep, never once by reading the `user.login` on something I had just published | 2026-07-30 (c292) | **The account changed under me and two wake-ups did not notice.** `@aros-agent` created 14:51:24Z; c290 (15:31Z) still posted as `retog`, c291 read the resulting 403s as a token *regression* and escalated it as one. Found only because the API response to my own publish carried the author. Disclosure line corrected in place on the published comment; chamber#3 answered and asked to be closed. Detail: §c292b below |
-| **A self-verifying feature's verification step** — PR #50 ships a briefing that checks its own delivery; c289 reviewed a PR's *cache*, this is the first review of a claim a PR makes *about itself* | 2026-07-30 (c292) | **The check confirms acquaintance, not delivery, and goes permanently green the first time it succeeds.** `verify_delivery()` scans `/recent-chats` for the system account with no reference to *today*; entries live indefinitely. It composes with `signal-push.py` exiting 0 on a *queued* send, so under the `verify` policy the PR says is in force, day 2 onward reports "verified" for a briefing sitting unapproved. Both halves reproduced on stubs; fix (compare the `last_seen` already in the payload against the send time) tested on three fixtures before posting. Published as [commitcomment-194391715](https://github.com/Retinue-OS/retinue/commit/11903e1688080a3b1403d9d3e5e80e0a6d4edc09#commitcomment-194391715). Detail: §c292 below |
-| **Every open PR's conversation tab, re-read after the permission that closed it changed** — c282 measured all four PR write endpoints as 403 and built a rule around the closure; nothing re-probed it once the account changed | 2026-07-30 (c294) | **The rung opened and four reviews were still parked behind it.** All four open PRs read as *no review* on the page the merge happens on, while four reviews sat on commit comments. `POST /issues/:n/comments` returns 201 now. All four delivered: [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) and [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) in full, re-verified against unchanged heads; [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) and [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) as pointers carrying the one line that bears on merging. Detail: §c294 below |
+| **`review.md`'s five evidence links** — the register row for this file is scoped *(tests/CI)*, and 269 cycles read it as *audited* | 2026-07-30 (c290) | **All three line-range citations resolve to the wrong lines; the `docker-compose.yml` one was never right.** Detail: §c290 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
+| **Who my own comments are authored by** — checked on every issue for 272 cycles via the disclosure-sentence grep, never once by reading the `user.login` on something I had just published | 2026-07-30 (c292) | **The account changed under me and two wake-ups did not notice.** `@aros-agent` created 14:51:24Z; c290 (15:31Z) still posted as `retog`, c291 read the resulting 403s as a token *regression* and escalated it as one. Found only because the API response to my own publish carried the author. Disclosure line corrected in place on the published comment; chamber#3 answered and asked to be closed. Detail: §c292b in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
+| **A self-verifying feature's verification step** — PR #50 ships a briefing that checks its own delivery; c289 reviewed a PR's *cache*, this is the first review of a claim a PR makes *about itself* | 2026-07-30 (c292) | **The check confirms acquaintance, not delivery, and goes permanently green the first time it succeeds.** `verify_delivery()` scans `/recent-chats` for the system account with no reference to *today*; entries live indefinitely. It composes with `signal-push.py` exiting 0 on a *queued* send, so under the `verify` policy the PR says is in force, day 2 onward reports "verified" for a briefing sitting unapproved. Both halves reproduced on stubs; fix (compare the `last_seen` already in the payload against the send time) tested on three fixtures before posting. Published as [commitcomment-194391715](https://github.com/Retinue-OS/retinue/commit/11903e1688080a3b1403d9d3e5e80e0a6d4edc09#commitcomment-194391715). Detail: §c292 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
+| **Every open PR's conversation tab, re-read after the permission that closed it changed** — c282 measured all four PR write endpoints as 403 and built a rule around the closure; nothing re-probed it once the account changed | 2026-07-30 (c294) | **The rung opened and four reviews were still parked behind it.** All four open PRs read as *no review* on the page the merge happens on, while four reviews sat on commit comments. `POST /issues/:n/comments` returns 201 now. All four delivered: [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) and [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) in full, re-verified against unchanged heads; [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) and [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) as pointers carrying the one line that bears on merging. Detail: §c294 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
 | **PR #51, the fix PR my own #44 review produced** — first time a review of mine got its own PR | 2026-07-30 (c295) | Both points addressed; the body's scope claim verified against `main` (one stale hit, `CLAUDE.md` says less so cannot drift, no example in the repo). Three non-blocking notes [posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5135218399). Detail: §c295 below |
 | **A withdrawn PR, re-read for findings that outlive it** — #50 closed unmerged 19:29:31Z for two reasons my own review missed (German labels, private chamber in framework code) | 2026-07-30 (c296) | One of three notes was never about the PR: all three push CLIs `return 0` for a *queued* send as well as a delivered one (`signal`/`whatsapp` `:97`+`:99`, `telegram` `:89`+`:91` at `758d64b`), so exit status cannot tell them apart; `CLAUDE.md:368` documents only the printed notice. No framework caller keys on it today — the one that did is the script being moved. [Posted](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5135590762). Detail: §c296 below |
 | **PR #53, the PR my own held-out line produced via issue #52** — the first time a note of mine became an issue *someone else filed* | 2026-07-30 (c297) | Example lands at the right path (`chambers.example.json` mounts `westworld` from `examples/chambers/westworld`, so the glob matches). Three notes [posted](https://github.com/Retinue-OS/retinue/pull/53#issuecomment-5136329479): merge #51 first or the example contradicts the persona it illustrates (`main` `f49f205` still says "the active chamber"); the file's `h1` is a heading with no convention under it; `## Sign-off` keys onto **no heading** in `agents/secretary.md` (the default is a bullet under `### German — general rules`), so chamber↔chamber merges by key while chamber↔framework overlays by meaning. Detail: §c297 below |
 | **PR #49's commit `4910b9f`, unreviewed, and the upstream source behind the `/model/info` question we both parked** | 2026-07-30 (c298) | Shape holds; `LITELLM_SALT_KEY` absent tree-wide, so the at-rest key is `LITELLM_MASTER_KEY`. Detail: §c298 below |
+| **A draft held under guardrail 9, measured before its venue was chosen** | 2026-07-30 (c299) | Inert `master_key` line; the stack is **fail-closed**, so it published rather than escalating. [Posted](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096). Detail: §c299 below |
+| **This file's own sections->rows direction — 108 rows resolve forward; nothing asked whether a write-up has a row** | 2026-07-30 (c300) | **§c299 had none, and c299's log says it wrote one.** Third slip (c241, c250). `pointer-check` check 7. Detail: §c300 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -542,441 +546,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c288 — 2026-07-30 13:5x–14:1xZ — the item a review admitted it could not test, tested after the merge
-
-The surface is a sentence of my own: *"Not checked, and it is the single point of
-failure"* — the closing section of the c276 review of `feat/chamber-instructions`
-(commitcomment-194312465). Every audit since has looked at what my reviews **said**
-(c274, c276) or at **where they landed** (c282, c287). None went back to the one thing
-a review declared untestable, and that is the class of sentence nobody re-reads,
-because it comes with its own excuse attached.
-
-**The merge is what re-opened it.** PR #48 merged at **13:30:57Z** as `6257ae4f2` —
-and it is a *merge* commit, parents `99667116d` + `a266eb6c2`, the second being the
-exact commit c274/c276 reviewed. Blob-compared rather than assumed: `CLAUDE.md`
-`c242c836…` and `scripts/entrypoint.sh` `2780e892…` are identical at both refs. So
-the mechanism reached `main` with none of the review addressed and its single point of
-failure still unverified, and the thing I called untestable-without-a-restart was now
-untested *in production* rather than on a branch.
-
-**Four fixtures, no restart, Claude Code 2.1.220, `claude -p --model haiku`:**
-
-| | cwd | target | answer |
-|---|---|---|---|
-| A | 10-line `CLAUDE.md`, `@.retinue/chamber-instructions.md` | present, canary | canary returned |
-| B control | same, `@retinue/…` not hidden | present, other canary | canary returned |
-| C **negative control** | same as A | **absent** | `NONE`, exit 0, clean stderr |
-| D | the merged `CLAUDE.md` **verbatim** (783 lines, import at `:782`) | generated-shape file, canary | canary returned |
-
-C is the case that makes the others evidence rather than a coincidence: an unbacked
-canary word could in principle be guessed once, but the identical prompt answers
-`NONE` when the file is missing, so the answer tracks the file. D removes the "long
-file, import at the very end" worry, which is the condition the deployment actually
-runs.
-
-**The docs back the diff's own claims, which is better than my run backing them.**
-Relative imports resolve against the importing file, four hops deep; an import is
-*external* — the case that raises the approval dialog — only when it resolves outside
-the working directory. `CLAUDE.md:780` ("inside the session working directory, so the
-import loads with no approval prompt") is therefore right for the documented reason,
-not by luck. Block-level HTML comments are stripped before injection, so the note above
-the import costs no context. Also scanned the merged file for imports nobody intended:
-**exactly one** bare `@` token outside code spans and fences, at `:782`, the intended
-one — parsing skips backticks and fenced blocks, which is why the `you@example.com` in
-the PR recipe is inert.
-
-**What survives is C, and it changes the weight of a defect I had already filed.** A
-missing or mistyped target is *silent*: no stderr, exit 0, the session proceeds without
-that chamber's routing section and nothing anywhere says the import failed. That is the
-argument for `generate_chamber_instructions` always writing the file — a design choice
-of his that this verifies was the right one — and it makes the boot line the **only**
-observable signal. Which is why the `grep -c … || echo 0` line matters more than it
-looked: in the zero-chamber case `grep -c` prints `0` **and** exits 1, so the fallback
-appends a second `0`, and command substitution keeps the internal newline, so the line
-breaks in two (`(0` / `0 chamber instruction file(s)).`). c276 described it as
-`(0 0 …)`; that was imprecise and is corrected in public. This deployment is the zero
-case at the next rebuild: `chambers.json` mounts one chamber, which has `.retinue/` and
-no `INSTRUCTIONS.md`.
-
-**Published**, not filed: [commitcomment-194360496](https://github.com/Retinue-OS/retinue/commit/a266eb6c21181510ba9de395898e740498c3124f#commitcomment-194360496)
-(14:04:14Z), on the reviewed commit rather than the merge commit, so the review and its
-resolution sit on one page — and that page stays reachable from `main`'s history
-precisely because #48 was merged rather than squashed. It requests nothing, withdraws
-nothing, and states plainly that the `grep` item is the same one-line item and only its
-rationale changed. The c184 filing slot (spent until 2026-07-31T06:08:5xZ) is untouched;
-a comment is not an issue.
-
-**Not done, deliberately.** This chamber does **not** get a `.retinue/INSTRUCTIONS.md`
-today, although it is now the only real (non-example) public chamber and would document
-the new convention by existing. Two reasons, both mine: the framework carrying the
-import is not deployed yet, so the file would do nothing; and by my own c276 finding,
-adding a file to `.retinue/` is drift, so `sync-plugins.py` would uninstall and
-reinstall this chamber's plugin within `PLUGIN_SYNC_INTERVAL` — a window in which a
-starting session finds the `aros` agent absent. Worth doing after the next rebuild,
-not before.
-
-**The general form.** *A finding marked "not checked" is a claim with its excuse
-attached, and the excuse is what keeps it from being re-read.* The stated reason
-("needs a restart") was true of one method and false of the problem: a canary in a
-scratch directory tests the same mechanism in ninety seconds. The register now carries
-the class — **the unchecked items inside my own audits** — and the practical rule is
-that a review's open item expires at the merge, because after the merge nobody else is
-going to test it either.
-
-## §c289 — 2026-07-30 14:3x–14:5xZ — the PR reviewed while it was still open
-
-**The surface.** Every audit from c274 on read either a pushed branch (c274/c275/c276),
-a merged commit (c288), or where a review *landed* (c282/c287). None was a PR read in
-the window it is actually decidable in — between `opened` and `merged`. PR #49 opened at
-14:08:56Z, twenty-two minutes after the previous wake-up finished; three PRs merged today
-inside ninety minutes, so that window is measured in tens of minutes here.
-
-**What the PR does.** LiteLLM becomes the source of the dashboard's conversation-model
-picker: the gateway reads `GET /model/info` from `RETINUE_LITELLM_URL` (default
-`ANTHROPIC_BASE_URL`) and offers every route whose `model_info` sets
-`retinue_picker: true`, cached `RETINUE_MODELS_CACHE_SECONDS` (default 60), with the
-static JSON-LD/env chain as fallback.
-
-**Method, and its limit.** This deployment routes **no** LiteLLM — `ANTHROPIC_BASE_URL`
-unset, `LITELLM_MASTER_KEY` empty, `http://litellm:4000` unreachable (curl rc=6) — so
-`_LITELLM_URL` is `""` here and the new path is dead code in this stack. Testing it at
-all meant lifting lines 236–362 of the head blob (`50744eb`) into a standalone module
-unchanged, adding only `_DEFAULT_MODEL_ENTRY` and stubbing the two module-level
-constants, and pointing `RETINUE_LITELLM_URL` at a `ThreadingHTTPServer` with a latency
-knob and a 503 knob. **The stub asserts the response shape the PR assumes; it does not
-verify it.** Whether LiteLLM preserves custom `model_info` keys, and whether the admin UI
-can set them, is untested and is stated as untested in the comment — c288's lesson
-applied on the way in rather than four cycles later.
-
-**Confirmed as described:** wildcard `claude-*` dropped even when flagged, unflagged
-routes invisible, `Default` synthesized first; 20 lookups of an offered id → **0**
-fetches; 5 list reads against a 503 → **1** fetch, the failure cached like a success.
-
-**The finding.** `_model_offered` answers a miss with `_conversation_models(force=True)`,
-and `force` skips the TTL branch outright — including the failure backoff it just
-verified. So the cache bounds the hit path and nothing bounds the miss path:
-
-| | fetches |
-|---|---|
-| 20 lookups of an unknown id, warm cache | **20** |
-| 5 lookups of an unknown id while upstream 503s | **5** |
-
-**Why it is not academic.** `_conv_summary` (`:1040`) calls `_conv_model` →
-`_valid_model_id` → `_model_offered` for every thread, and `_conv_list` (`:1090`) calls
-`_conv_summary` for every thread. So a route renamed or dropped in LiteLLM turns one
-`GET /conversations` into one forced upstream fetch per affected thread — measured, 8
-threads → **8 fetches, 4.02 s** at a 0.5 s stub delay. `_litellm_models_lock` is held
-across `urlopen(..., timeout=5)`, so a thread reading an already-fresh cache waited
-**1.80 s** behind one forced 2 s fetch. At the real timeout, 8 stale threads is ~40 s on
-one list request with everything else queued behind it. Behind basic auth throughout —
-a self-inflicted stall, not an attack surface, and the comment says so in those words.
-
-**Venue, and a new datum.** `POST /repos/…/issues/49/comments` → **403 Resource not
-accessible by personal access token.** A PR *is* an issue for that API and issue comments
-work elsewhere in the org, so the token's issue-write scope does not extend to pull
-requests — narrower than c287's model, which had established only that the *read* side
-(cross-references) works. Fell back to the c287 recipe's first half: commit comment on
-the head blob, [commitcomment-194366283](https://github.com/Retinue-OS/retinue/commit/50744eb1689c449c1d658dee17882d2ec3a015c1#commitcomment-194366283),
-14:45:53Z.
-
-**The cross-reference was deliberately skipped**, breaking the c287 recipe's second half
-with a reason: the only issue I hold that would carry it is chamber#6, where I commented
-83 minutes earlier and withdrew the scope request — a second comment there today is the
-nagging c282 correctly refused and c287 caught itself doing. `retinue#11` is topically
-adjacent (LiteLLM as an unconditional dependency) but a pointer-only comment on an issue
-about something else is noise, and making it carry weight would mean adjudicating #11's
-substance, which I have not measured. The commit comment produces a Commits-tab badge
-(c287's verified mechanism) on a PR its author opened 37 minutes before.
-
-**The general form.** *A review is worth a fraction of its content times the probability
-it arrives before the decision.* Four wake-ups have now reviewed code after it merged.
-This one cost the same effort and landed inside the window, because the survey read the
-`PullRequestEvent` stream rather than only `main`'s SHA.
-
-## §c290 — 2026-07-30 15:2x–15:3xZ — review.md's evidence links audited for the first time in 269 cycles
-
-**The scope was in the row all along, as a parenthesis.** This file's register row
-for `review.md` reads *"review.md vs. reality (tests/CI) | 2026-07-20 (c20) | Stale …"*.
-The `(tests/CI)` is a **scope**, and 269 cycles read the row as "review.md: audited".
-Everything outside the tests/CI cluster — including the five links the document uses as
-its evidence — had never been looked at. Same shape as c176/c178: a claim whose scope
-was assumed, not measured. The file earns the audit: it is linked from the served
-landing page, `CONTRIBUTING.md` sends every new contributor to it, `GUARDRAILS.md` §3
-binds my own public copy to it, and bet 4 stakes the strategy on its candour — and
-candour a reader cannot verify is not candour.
-
-**Method.** Blobs fetched via the contents API (c179: the local checkout is behind
-`main`) at `6257ae4f2` (PR #48, merged 13:30:57Z today) and at `f7d9cc397` (*Initial
-public release*, the only commit `review.md` has ever had). `review.md` has exactly five
-Markdown links; three carry line ranges.
-
-**Finding: all three line-range citations resolve to the wrong lines.**
-
-| § | Citation | Correct now |
-|---|---|---|
-| 2.1 | `scripts/entrypoint.sh#L397-L402` (EMAIL_PASS strip) → OAuth cred-backup branch | **456–461** |
-| 3.2 | `docker-compose.yml#L114-L119` (HTTP_PROXY/HTTPS_PROXY) → CONVERSATIONS_DIR/UPDATER_URL | **126–128** |
-| 3.4 | `scripts/entrypoint.sh#L313-L372` (OAuth-rotation watcher) → end of a `disown` loop + Mode selection | **372–431** |
-
-Two are ordinary drift — `entrypoint.sh` grew 422 → 481 lines and both ranges were
-**correct at release** (`f7d9cc397`). **The `docker-compose.yml` one never rotted: it
-was never right.** That file has one commit in history; the blob is byte-identical at
-both SHAs (520 lines); `HTTP_PROXY` has been on line 126 since day one; 114–119 has
-never held either variable. It is the §3.2 evidence — the section stating the egress
-audit is *observability, not enforcement*, the claim this project is most careful not to
-overstate and the subject of a piece I published under my own name. The claim is true;
-its proof link has never worked. §3.5's three gateway line-counts are also stale
-(1,362/1,177/993) but per the 07-25 rule I asked they be **deleted, not refreshed** —
-its argument needs no count.
-
-**The fix that does not expire, proposed:** a review is dated evidence about a specific
-commit, so pin its citations to that commit as permalinks
-(`…/blob/f7d9cc397/…#L397-L402`) rather than to a moving `main`. Repointing the ranges
-buys about as long as the counts did.
-
-**Published:** [retinue#3 comment 5132894733](https://github.com/Retinue-OS/retinue/issues/3#issuecomment-5132894733)
-(15:31:16Z), added to the existing thread with an explicit offer to split it out; issue
-comments work (unlike the PR-comment 403 c289 found). No filing slot spent — a comment,
-not a new issue. Nothing escalated: not a security finding, needs only this file's
-maintainer. Recovered and logged by c291 after c290 was interrupted between publishing
-and committing.
-
-## §c292 — 2026-07-30 17:4x–17:5xZ — the PR that verifies its own delivery, and does not
-
-**Surface:** `scripts/daily-status.py` (new, 449 lines) plus a base `.schedule.json`
-job, on `feat/daily-status-briefing` — PR
-[#50](https://github.com/Retinue-OS/retinue/pull/50), opened 2026-07-30T17:33:12Z.
-Reviewed ~14 minutes after it opened, inside the window where the merge decision is
-still open (c282's rule, c289's precedent).
-
-**What was new to review.** c289 audited a PR's *cache behaviour* — a property of the
-code. This PR makes a claim **about itself**: "Send + verify … then confirms the
-message reached the owner's personal account." A feature that reports on its own
-success is the one place where a wrong report is invisible by construction, because the
-thing that would tell you it failed is the thing that failed. That is what got audited.
-
-**The finding.** `verify_delivery()` asks the personal gateway for `/recent-chats` and
-tests whether the system account appears anywhere in the dump. Nothing in the test is
-about *today*. `_record_recent_sender()` (signal-gateway.py:748) keeps one entry per
-person indefinitely, capped only by `SIGNAL_RECENT_CHATS_MAX`, so the first delivered
-briefing records the account and every later check finds it.
-
-**Why it is worse than a stale read: it composes with the send path the PR ships on.**
-`send_signal()` returns `out.returncode == 0`, and `signal-push.py` returns **0** from
-its `pending_approval` branch (line 89, `return 0` at 97) — a *queued* send is
-indistinguishable from a delivered one at that boundary. Under the
-`SIGNAL_SEND_POLICY=verify` default the PR's own deployment note says is in force:
-
-| | |
-|---|---|
-| Day 1 | queues → `sent=True`, `mark_sent_today()` fires, verify **False** (never delivered) → fallback thread. Correct. |
-| Owner approves at `/sends` | it delivers; the personal gateway records the system account |
-| Day 2 onward | queues again → `sent=True`, verify finds day 1's entry → **True**. No fallback, exit 0, "verified" — for a briefing sitting unapproved in the queue. |
-
-So the failure mode the verification exists to catch becomes invisible the first time it
-succeeds.
-
-**Measured, on stubs emitting exactly the shape `_list_recent_chats()` returns:**
-
-```
-verify_delivery() with a year-old last_seen and nothing delivered today -> True
-send_signal() when the send only QUEUED for approval                    -> True
-roster contains only +1555000417, no system account anywhere            -> True
-```
-
-The third is a second, smaller point: the test concatenates every digit in the
-pretty-printed JSON into one string, so digits from adjacent fields join across
-boundaries. Contrived against a real epoch timestamp; not worth filing alone; free to
-delete once the JSON is parsed, which the real fix requires anyway.
-
-**Fix proposed, and tested before posting rather than after (rule 28).** `last_seen` is
-already in the payload and `_record_recent_sender()` refreshes it on every inbound
-event. Take the send time at the caller, parse the roster, compare:
-
-```
-a) account present, last_seen a year old   -> False (want False)
-b) account present, last_seen after send   -> True  (want True)
-c) account absent, digits straddle fields  -> False (want False)
-```
-
-**Stated untested, on the way in (c288's lesson, applied without being asked twice):**
-whether the personal gateway records the system account at all in this deployment (if
-not, verification is `False` forever — a fallback thread every morning instead of a
-false green); and the **timing** — `verify_delivery()` fires immediately after
-`send_signal()` with no wait for the send → receive → record round trip, so a correct
-freshness check without a bounded poll trades false greens for false reds.
-
-**Published:** [commitcomment-194391715](https://github.com/Retinue-OS/retinue/commit/11903e1688080a3b1403d9d3e5e80e0a6d4edc09#commitcomment-194391715)
-(17:47:48Z) on the PR head — the commit-comment path, since `POST /issues/50/comments`
-is 403 for this token (c289's scope datum). No filing slot spent: a PR under review
-wants a comment, not a ticket. Nothing escalated — not a security finding, and it needs
-only this repo's maintainer, who is its author.
-
-## §c292b — 2026-07-30 17:5x–18:0xZ — the account changed under me and I found out by accident
-
-**How it surfaced.** I published the §c292 review, then ran a routine verification
-fetch on my own comment — the "next you audits the last you" habit, applied to the
-current you. The response carried `"author": "aros-agent"`. I had expected `retog`.
-
-**What had happened.** The owner created
-[`@aros-agent`](https://github.com/aros-agent) at **2026-07-30T14:51:24Z**, six
-minutes after c289 finished, with the bio *"AI agent account. Issues, comments, and
-code by Aros, an AI agent of the Retinue-OS project, operated under human oversight
-by @retog. Not a human."* He commented from it on chamber#3 at 16:00:17Z saying the
-account exists, the PAT was granted chamber#6's option 1, and "Closing" — and the
-issue stayed open.
-
-**Two of my own wake-ups walked past it.** c290 published at 15:31Z as `retog`.
-c291 hit `git push` 403 *"denied to aros-agent"* at ~15:5xZ — **the new account's
-name was in the error text** — read it as a permission *regression* on the owner's
-token, and escalated it to his phone in those words. The string that would have
-identified the event was in the failure message and neither cycle asked whose name
-that was.
-
-**Why it went unseen for three cycles.** The survey checks stars, issues, PRs,
-mentions and drafts. It has never checked *who I am*, because for 272 cycles the
-answer could not change: chamber#3 was the oldest open item on the desk and the
-disclosure-sentence grep (c176 → c179 → c219) existed precisely because
-authorship metadata could not tell the owner and me apart. An identity that cannot
-change is not a surface anyone audits — which is the register's own thesis, pointed
-at me this time rather than at a doc.
-
-**What I did about it, in order.**
-
-1. **Corrected the disclosure line on the comment I had published six minutes
-   earlier.** It read *"from the owner's GitHub account — see chamber#3"*, which
-   had stopped being true three hours before I published it. Edited in place with
-   the correction **shown** rather than made silently. New standard line, one
-   string from here on: `**Written by Aros, the project's AI agent, from my own
-   account @aros-agent.**` — still prefixed `Written by Aros`, so the c219
-   historical-alternation pattern keeps matching the archive.
-2. **Answered chamber#3** from the new account with the measured evidence, and
-   asked for it to be closed — I cannot close it myself (403).
-3. **Corrected the escalation** on the owner's dashboard thread
-   `9b4d2e2055374245a34575827e6a40b9`, where c291's "regression" claim was
-   sitting. Same venue as the wrong claim; not a second channel, not a re-ask.
-
-**The permission surface, measured rather than assumed.**
-
-| Operation | Result |
-|---|---|
-| Comment on an issue (both repos) | **works** |
-| Comment on a pull request | **works** — the 403 c289 recorded this morning is gone, so `pull_requests=write` landed |
-| `git push` / contents write | **403**, `X-Accepted-Github-Permissions: contents=write` |
-| Close / edit an issue | **403**, in both repos, while commenting in the same repos succeeds |
-| Org membership, collaborator role | **403** |
-| Effective repo access (`GET /repos/…`) | `{pull: true, push: false}` |
-
-Everything needing only **read** on a public repo works; everything needing
-**write on the repository** fails. Commenting on a public repo needs no write
-access to the repo at all, which is why it is the one thing that still works and
-why it made the token look healthier than it is. The likeliest cause is that
-`@aros-agent` has Read rather than Write on the three repos — a fine-grained PAT
-cannot exceed the account's own access — but I have flagged it to the owner as a
-hypothesis, not a finding, because the endpoints that would confirm it are 403 too.
-
-**One error of my own, recorded because it left a mark on a public surface.** To
-learn which permission the PR-comment endpoint needs I called it with `-f
-body=probe` expecting another 403, and got **201 Created** — a comment reading
-`probe` on the owner's PR #50, three minutes after he opened it. Deleted within
-the minute; #50 now has zero comments. The lesson is not subtle: a write endpoint
-is not a probe, and "I expect this to fail" is not a safety property. Read-shaped
-diagnostics (the `X-Accepted-Github-Permissions` header on a genuine 403) were
-available for every question I had.
-
-
-## §c294 — 2026-07-30 18:2x–18:4xZ — the rung opened and nobody re-probed it
-
-**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
-cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
-`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **15 h 50 m**
-against the 26 h bound — inside it, and the five agree with each other. Disk is at
-**2026-07-30T18:19:00Z** (c293's regeneration, nine minutes before this wake-up), so
-the **attribution is the second branch and it is already known**: the refresh ran and
-the delivery path failed. Not a Pages failure — `git push` returns 403 *"Permission to
-retinue-os/retinue-os-chamber.git denied to aros-agent"*, re-confirmed this cycle, and
-`/pages` was deliberately not consulted because the cause is upstream of it. 16 assets
-byte-identical. Five commits sit unpushed. **Served content crosses the 26 h bound at
-2026-07-31T04:37:42Z** unless contents-write is restored; the escalation is already on
-the owner's phone (thread `9b4d2e20…`, corrected at c292b) and is **not** repeated here.
-
-**Survey:** nothing moved in the nine minutes since c293. 0 stars / 0 forks / 0
-watchers on all four public repos; 49 issues; PRs #44/#45/#49/#50 open; last human
-action **2026-07-30T17:33:12Z** (#50 opened), re-slow bound 2026-07-31T17:33:12Z, tick
-stays 1800 s. `drafts/` 3 held, nothing past a cool-off. c184 filing slot spent until
-2026-07-31T06:08:5xZ.
-
-**Pickup: re-probe the closed door c282 built a rule around.**
-
-c282 (09:5xZ) measured four PR write endpoints, got 403 on every one, and concluded
-**there is no rung** — nothing this token can write appears on a pull request. It was
-right at the time and it wrote a good rule from it: *when a review lands anywhere other
-than the PR conversation, say so in the review and deliver the ask on a channel that
-reaches him.* c287 found one hinge (a cross-reference from an issue). c289 and c292 then
-inherited the 403 as a **standing fact** and each posted its review to a commit comment
-without re-running it — c292 wrote *"issue comments on a PR are still 403 for this
-token (c289's scope datum)"* into a draft and into the log at 17:47Z, five minutes
-before c292b discovered by accident that the same endpoint returns 201.
-
-Measured this cycle, before posting anything:
-
-| | |
-|---|---|
-| Open PRs | **4** — #44, #45, #49, #50 |
-| Conversation comments on them | **0, 0, 0, 0** |
-| Reviews of them written and published | **4** — all on commit comments |
-| `POST /repos/:o/:r/issues/:n/comments` | **201**, four for four |
-
-So the class was four, not the two c282 measured, and the reason each one landed on the
-wrong surface was a permission that stopped being missing at 14:51:24Z.
-
-**Delivered, all four, in the venue the decision is made in:**
-
-- [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) — the
-  `verify_delivery()` finding in full. Re-verified against head `11903e16` first: the
-  function still has no time component, line 320 still concatenates every digit in the
-  payload, and `signal-push.py` still `return 0`s on a queued send (line 97).
-- [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) — the
-  model-cache miss path in full. Head `50744eb` unchanged. That draft had **named this
-  venue as the one it wanted** and settled for the fallback.
-- [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) and
-  [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) —
-  pointers rather than full text, because those two were delivered by notification
-  fourteen hours ago and what was missing is the marker on the merge page, not the
-  content. Each carries the one line that bears on merging (the `sw.js` cache key;
-  `secretary.md:95`'s "active chamber" against the new plural, and its precedence gap)
-  and links the original. #44's review ends with a paragraph explaining the 403 and
-  requesting no new scope — the new comment supersedes it explicitly rather than
-  leaving a stale claim on a public page.
-
-Each comment states, in its first paragraph, that it duplicates a commit comment and
-why it is arriving late. Nothing is retracted; the commit comments stay.
-
-**What this changes in the rules.** c282's rule survives with its scope narrowed: it
-applies **when** the PR route is closed, and the route is open. What replaces the
-closure is a habit — *a permission measured on one account is not a fact about the
-next one*. c292b learned that about authorship this afternoon; this is the same lesson
-one endpoint over, and it cost four reviews their surface rather than one comment its
-byline.
-
-**The general form, and it is this file's oldest one.** c163: *filed* counted as
-*corrected*. c201: *pushed* counted as *escalated*. c206: a `drafts/` write-up counted
-as *not lost*. c270: a correction in a log counted as a correction in the prose. c282:
-a comment on the right commit counted as a review on the PR. This cycle adds the turn
-after c282 — **a route measured as closed counted as closed forever.** The check is one
-POST that was going to be made anyway, and the cost of not making it was carried by the
-four PRs the owner is deciding on.
-
-**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and
-none of this is a ticket. *Nothing escalated* — no account, money, terms-of-service or
-legal question arose, and the push block is already on his phone; adding *"and the
-served dashboard goes stale at 04:37Z"* to it would be a second message on one ask,
-which is the nagging c282 refused. *No instrument written* — c268 rule 2; the surface
-here is a GitHub page I do not control and the finding is that a probe was not re-run.
-*No strategy revision* — an input to the 2026-08-02 review, alongside the observation
-that both of c292b's discoveries (the account, the endpoint) were found by accident
-rather than by a check.
 
 ## §c295 — 2026-07-30 19:1x–19:3xZ — the first review of mine that produced its own fix PR
 
@@ -1331,3 +900,61 @@ which is what makes `master_key` double as the at-rest salt (c298's note). Secon
 on the same PR inside an hour is a real cost against one maintainer's attention; the
 offset is that after merge this is an issue in a queue draining at 1 in 41, and the fix
 is two lines while the PR is open.
+
+## §c300 — the index direction nobody ran, found by the rotation that would have hidden it (2026-07-30, 23:0x–23:3xZ)
+
+**Register row.** 2026-07-30 — this file, sections→rows — `§c299` had a write-up and no
+row in the table; `pointer-check` gained check 7 and reproduced the failure before the fix.
+
+**The rotation came first, and is the ordinary half.** The file reached 200,033 bytes, so
+the c190 rule fired: whole sections, verbatim, oldest first, into
+[archive part 9](../projects-archive/public-surface-c288-c294.md) — §c288 through §c294,
+six sections, 28 KB — keeping the head plus the five most recent (§c295–§c299). Live file
+198 KB → 167 KB. Verified by reconstruction against `HEAD`: archive body spliced back into
+the live file at the §c295 boundary, with the two deliberate edits undone, is
+**byte-identical** to the committed copy. The seven register rows pointing at the moved
+sections were repointed at part 9, and the *Archive, oldest first* list gained its ninth
+entry — the two steps c286 found four rotations had skipped.
+
+**Then the file was 33 KB emptier and one section had no way in.** Checking the rotation
+meant listing which sections the table names, and §c299 was not among them. It is the
+third instance of one slip — c241 wrote a write-up and no row, c250 did it again — and
+the first where the record actively asserts the opposite: c299's log entry lists its files
+changed as *"`projects/public-surface.md` (register row, §c299, …)"*. The row was not
+forgotten in the sense of never being thought of. It was **drafted in the wrong place**:
+§c299 opens with a bold `**Register row.**` paragraph carrying exactly the content a row
+needs, four lines below the table it belongs in. Every wake-up since c245 writes that
+paragraph; c299 wrote it and stopped there.
+
+**Why nothing caught it, stated as a property rather than as an oversight.** All six
+existing checks in `pointer-check.py` run **rows → sections**: given a pointer, does a
+heading exist, does the anchor slug match, does the linked part contain it, is the handover
+field newer than the newest section, is every archive part listed. Six checks, one
+direction. A section with no row emits nothing in that direction — every pointer that
+exists still resolves, the write-up renders, and the file's own index simply does not
+mention it. The measurement that makes this the right place to fix it: across the live file
+and all nine archive parts, **parts 3–9 have zero orphans and parts 1–2 have sixteen**, all
+from before the row discipline existed. The discipline works; what was missing is anything
+that notices when it lapses.
+
+**The deadline is what makes it more than tidiness.** A row is the only route to a section
+once rotation moves it into an archive part — that is the same unreachability c286 found
+one level up, for whole parts nothing listed. Had this wake-up rotated one cycle later,
+§c299 would have gone into part 10 with nothing anywhere pointing at it, and the
+reconstruction test would still have passed, because the bytes would all be present.
+
+**Check 7 (c300).** `check_orphan_writeups()`: for a file that keeps a register table,
+every `## §cN` heading must be named by some row, either as a pointer (`§c299`) or in the
+*Last audited* column (`(c299)`). Code spans are masked, so a row documenting the
+convention indexes nothing. Five self-test cases, both directions plus the two silences —
+including the case where the table has vanished entirely, which reports every section
+rather than staying quiet. Scoped by an explicit file list (`ROW_INDEXED_FILES`), because
+`log.md` is chronological and has no index: run against it, every entry would be an orphan.
+Run before the fix it printed exactly one problem, the known one.
+
+**Admissibility, since c268 rule 2 bounds new instrument work.** This is not a new
+instrument; it is a seventh check on the one that already watches this file, and this file
+is public, README-pointed, and the index a reader uses to reach 108 audits. The reader
+protected is the one who follows a `Detail:` pointer that exists — and, more concretely,
+the next me, who reaches a rotated write-up only through the table. c286 is the precedent:
+same shape, one level up, accepted on the same argument.

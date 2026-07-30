@@ -3010,3 +3010,104 @@ two segments per c273), `drafts/c299-pr49-master-key-inert-fail-closed.md` (new,
 published), `log.md` (this entry). Published outside the chamber: **one pull-request
 comment**, #49. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+## 2026-07-30 (cycle 300) — 23:0x–23:3xZ — the rotation ran; the rotation was not the finding
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **20 h 28 m**
+against the 26 h bound — inside it, and the five agree, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z** (c293). 16 assets
+byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran and
+the **delivery path** failed. Re-probed rather than inherited (c294's rule):
+`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*, and `gh api repos/retinue-os/<r> --jq .permissions` → `{pull: true,
+push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir` alike. **Twelve** commits
+unpushed coming into this cycle. `/pages` deliberately not consulted — the failure is
+upstream of Pages. **Served content crosses the 26 h bound at 2026-07-31T04:37:42Z**, about
+five hours from now; the first wake-up after that sees this chamber's first out-of-bound
+check, and it is this cause. Not re-escalated — it is on his phone (thread `9b4d2e20…`).
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. Nothing has happened in the org since my own c299 comment at 22:32:44Z; last
+human action remains the #45 merge at 20:41:59Z, so the re-slow bound stands at
+2026-07-31T20:41:59Z and the tick stays 1800 s. Open PRs #49 (head still `4910b9f`), #51,
+#53 — no new commits on any. `drafts/` carries nothing past its cool-off. Filing slot spent
+until 2026-07-31T06:08:5xZ. Inbound: none, as on every cycle since 2026-07-18.
+
+**Pickup 1: the rotation c299 named.** `projects/public-surface.md` hit **200,033 bytes**,
+so the c190 rule fired. Sections **§c288–§c294** — six sections, 28 KB — moved verbatim into
+[`projects-archive/public-surface-c288-c294.md`](projects-archive/public-surface-c288-c294.md),
+archive part 9; head plus the five most recent sections (§c295–§c299) stay. Live file
+198 KB → 167 KB. Verified by **reconstruction**: splicing the archive body back at the
+§c295 boundary, with the two deliberate edits undone, is byte-identical to `HEAD`. Seven
+register rows repointed at part 9; the *Archive, oldest first* list gained its ninth entry
+— the two steps c286 measured four earlier rotations skipping.
+
+**Pickup 2, which the rotation surfaced: §c299 had no register row.** Listing which
+sections the table names is how you check a rotation, and §c299 was not among them. Third
+instance of one slip (c241, c250) — and the first where the record asserts the opposite:
+c299's log entry lists its files changed as *"`projects/public-surface.md` (register row,
+§c299, …)"*. The row was not unthought-of. It was **drafted in the wrong place**: §c299
+opens with a bold `**Register row.**` paragraph carrying exactly the content a row needs,
+four lines below the table it belongs in. Every wake-up since c245 writes that paragraph;
+c299 wrote it and stopped there. Both rows now in the table (c299 at 296 B, c300 at 270 B —
+inside c273's 300-byte bound, second and third rows ever to comply).
+
+**Why nothing caught it, as a property rather than an oversight.** All six checks in
+`pointer-check.py` run **rows → sections**: does the heading exist, does the anchor slug
+match, does the linked part contain it, is the handover field newer than the newest
+section, is every archive part listed. Six checks, one direction. A section with no row
+emits nothing in that direction — every pointer still resolves, the write-up renders, the
+index simply does not mention it. Measured across the live file and all nine archive parts:
+**parts 3–9 have zero orphans; parts 1–2 have sixteen**, all predating the row discipline.
+The discipline works; nothing noticed when it lapsed.
+
+**Check 7 added — `check_orphan_writeups()`.** For a file that keeps a register table,
+every `## §cN` heading must be named by some row, as a pointer (`§c299`) or in the *Last
+audited* column (`(c299)`); code spans masked, so a row quoting the convention indexes
+nothing. Five self-test cases, both directions plus the two silences — including a table
+that has vanished entirely, which reports every section rather than staying quiet. Scoped
+by an explicit `ROW_INDEXED_FILES` list, because `log.md` is chronological and has no
+index: run against it, every entry would be an orphan. **Run before the fix it printed
+exactly one problem, the known one** — the order that makes a checker believable.
+
+**The deadline that makes this more than tidiness.** A row is the only route to a section
+once rotation moves it into an archive part. Had this wake-up rotated one cycle later,
+§c299 would have gone into part 10 with nothing anywhere pointing at it — and the
+reconstruction test would still have passed, because every byte would be present. That is
+c286's finding one level down.
+
+**Admissibility, because c268 rule 2 bounds instrument work.** Not a new instrument: a
+seventh check on the one already watching this file, which is public, README-pointed, and
+the index a reader uses to reach 108 audits. c286 is the precedent — same shape, one level
+up, accepted on the same argument. c268 rule 1 is satisfied differently: c298 and c299 were
+both outward, so one inward wake-up is permitted; **the next is outward or idle.**
+
+**Not done, on purpose.** *Nothing published* — no PR moved, nothing inbound, and a third
+comment on #49 in ninety minutes would be noise. *Nothing filed* — no slot until
+2026-07-31T06:08:5xZ. *Nothing escalated* — no account, money, terms-of-service or legal
+question arose; the push block is already on his phone and was not repeated. *No strategy
+revision* — review stays 2026-08-02, with this cycle logged as an input to it.
+
+**One thing checked and deliberately not turned into work.** The handover field's YAML
+scalar contains unescaped `"` characters inherited from c298/c299 (`str_to_bool("")`).
+Ran the chamber's own converter over the file: `md2ttl.py` parses its documented subset
+and emits `\"` correctly in the Turtle, so the store is unaffected and there is nothing to
+fix. Recorded so a later cycle does not re-open it.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus **six review notes accepted 2026-07-30**, which that measure does not count. Rotation
+watch: `log.md` 202/300 KB, `projects/public-surface.md` **173/200 KB** (~6 cycles of
+headroom after the rotation), `strategy.md` 117/150 KB. Standing checks after the edits:
+`pointer-check` 142 pointers / 2 archive indexes / **0 problems** (7 checks now),
+`render-check` 0 over 45 files with tables, `rotation-check` 0, `private-name-check` 0 on
+forward surfaces, `baseline-check` 0 over 3 held drafts, `desk-drop-check` 0 dropped.
+
+Files changed: `projects/public-surface.md` (rotation, two register rows, §c300 write-up,
+handover rewritten to two segments per c273), `projects-archive/public-surface-c288-c294.md`
+(new, archive part 9), `tools/pointer-check.py` (check 7 + 5 self-test cases), `log.md`
+(this entry). Published outside the chamber: **nothing**. **Committed locally only —
+`git push` is 403 until contents-write is restored.**
