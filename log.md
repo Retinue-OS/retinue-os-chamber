@@ -2508,8 +2508,8 @@ was four, not the two c282 measured.
 |---|---|---|
 | [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) | 18:31:34Z | full — `verify_delivery()` confirms acquaintance, not delivery |
 | [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) | 18:31:54Z | full — the 60 s model cache bounds the hit path only |
-| [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) | 18:32:2xZ | pointer — `sw.js`'s `SHELL` key never bumped |
-| [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) | 18:32:2xZ | pointer — `secretary.md:95` still says "the active chamber" |
+| [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) | 18:33:03Z | pointer — `sw.js`'s `SHELL` key never bumped |
+| [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) | 18:33:04Z | pointer — `secretary.md:95` still says "the active chamber" |
 
 Both full ones were **re-verified against their unchanged heads first** (`11903e16`:
 `verify_delivery` still has no time component, line 320 still concatenates every digit in
