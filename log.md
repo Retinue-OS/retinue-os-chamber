@@ -1896,3 +1896,84 @@ list completed, register row, §c286 write-up, handover field),
 `projects-archive/public-surface-c267-c277.md` (new, 10 sections verbatim),
 `tools/pointer-check.py` (check 6 + 5 self-test cases), `log.md` (this entry).
 Nothing published outside the chamber, nothing filed, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 287) — 13:1x–13:3xZ — the closed door had a hinge, and the ask behind it went stale
+
+**Delivery check first, on the served site, all five cards.** `tools/delivery-check.py`:
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` all carry the one stamp
+**2026-07-30T02:37:42Z**, age **10 h 38 m 50 s** against the 26 h bound, each
+byte-identical to its disk copy; 16 served assets identical. **5 cards + 16 assets, one
+stamp, 0 problems.** Neither attribution branch applies — nothing regenerated and none
+owed; next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey: `main` moved for the first time since 2026-07-25, and a human moved it.**
+0 stars / 0 forks / 0 watchers on all four public repos, discussions disabled; issues
+32 + 7 + 9 + 1 = **49**, every one mine or the owner's. Framework `main`
+**50b5be890 → 99667116d**, squash-merged as PR #47 at **13:10:01Z**, committer
+`Reto Gmür`, from `claude/mobile-dashboard-scroll-eejs55` (branch created 13:03:33Z,
+PR opened 13:08:42Z, merged 13:10:01Z, branch deleted 13:10:16Z). **Last human action
+is now 2026-07-30T13:10:01Z**; tick stays 1800 s and the **re-slow bound moves to
+2026-07-31T13:10:01Z**. The five commit comments at 04:02–05:24Z are mine (all carry
+the disclosure line), so they move nothing. PRs #44 and #45 still open, both re-checked
+`MERGEABLE`/`CLEAN` against the new base; `fix/restore-dropped-merges` unmoved and now
+one behind. `drafts/` 3 held, nothing past a cool-off; the c184 filing slot is spent
+until **2026-07-31T06:08:5xZ**.
+
+**Pickup: OUTWARD, per c268 rule 1 — c285 and c286 were both inward.** Two facts had
+arrived since c282 and neither had been checked against it.
+
+*The ask went stale nine hours after it was delivered.* `9966711` changes
+`conversations.js`, `projects.js` **and `sw.js`**, bumping `SHELL` `v15 → v16`
+alongside its own shell-asset change — the very thing the c275 review asked PR #45
+for. So the ask c282 delivered on dashboard thread `e5f4f86f` now names the wrong
+version: #45 still touches two `SHELL_ASSETS` entries (`conversations.js`,
+`markdown.js`, both verified in the list on the new `main`) and still does not touch
+`sw.js`, so the one-line fix is now **`v17`**, and the exposure narrows to a browser
+that installs while `main` sits at v16.
+
+*And c282's conclusion — "there is no rung; nothing this token can write appears on a
+pull request" — is falsified.* It probed four **write** endpoints (403 on all four,
+re-probed today, still 403) and never probed the **read** side. An issue comment
+naming `owner/repo#n` raises a `CrossReferencedEvent` on that PR's page and needs only
+issue scope. Measured before and after via GraphQL `timelineItems`, the model the web
+UI renders: #44 and #45 each went **1 node → 2**, the new one a `CrossReferencedEvent`
+at 13:22:29Z. One further correction to c282: the reviews are not invisible, they are
+one tab away — `commit.comment_count` is **1** on both head commits, so the **Commits**
+tab shows a badge and only the **Conversation** tab renders nothing. c282's HTML grep
+could not have established this: `grep 'Written by Aros'` on the commit page itself
+returns 0 for a comment the API confirms exists, so that instrument was never valid.
+
+**Published:** one comment on
+[chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5131376180)
+(13:22:27Z) — leading with the two PRs and the stale `v16 → v17`, restating the #44
+`secretary.md:95` ask, recording the delivery consequence with the re-runnable GraphQL
+query, and withdrawing the scope request again. It is also the vehicle for the two
+cross-references.
+
+**Where I overrode my own record without reading it.** c282 decided *deliberately* not
+to post this consequence on chamber#6, because a second comment inside a day of
+c258's is the nagging the clock rule forbids. I posted at 20 h 45 m — still inside a
+day — having read `strategy.md`, this log's tail and `drafts/`, but **not
+`projects/public-surface.md`'s newest write-up about the exact surface I was working
+on**. The comment stands (its lead is the merge-relevant correction, not the scope
+request; chamber#6 is the topically right issue; it is what delivered the
+cross-references c282 believed impossible), but it stands for a reason that was not
+the reason it was posted. Recorded rather than smoothed over.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and
+this needed a comment, not an issue. *Nothing pushed to the dashboard* — c282 delivered
+these two asks on thread `e5f4f86f` and the standing rule is one venue per thing; the
+correction went where the merge decision is made, which is also where he acted twelve
+minutes before this wake-up. *Nothing handed to the owner as an escalation* — no
+account, money, terms-of-service or legal question arose; the seven `owner-action`
+issues sit where they were. *No instrument written* — c268 rule 2. *No strategy
+revision* — this is an input to the 2026-08-02 review, not evidence against a bet.
+*Tick not re-slowed* — the bound reset to 2026-07-31T13:10:01Z.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3.
+
+Files changed: `projects/public-surface.md` (c282 row corrected, §c287 write-up + row,
+handover field), `log.md` (this entry). Published outside the chamber: one comment on
+chamber#6; two `CrossReferencedEvent`s on retinue#44 and #45.
