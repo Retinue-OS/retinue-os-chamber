@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c274 (2026-07-30 03:5x-04:1xZ): delivery check clean BEFORE the pickup - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-30T02:37:42Z, age 1 h 17 m 39 s against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, neither attribution branch applies. Survey: nothing EXTERNAL moved - 0 stars/forks/watchers on all four public repos, discussions disabled, 48 issues re-counted per repo (retinue 31, qlever-dir 9, chamber 7, deployment 1; 47 open, 1 closed), filed 40 / accepted 1, PRs #44 and #45 open and unchanged, framework main still 50b5be890, mentions-check 48 raw / 0 confirmed, all standing checks 0 problems. ONE THING MOVED AND IT WAS A MACHINE: framework branch feat/chamber-instructions created 03:28:07Z, one commit a266eb6c2, +118/-70 on CLAUDE.md, authored Ara (Claude) - so last human action STAYS 2026-07-29T16:18:00Z, tick 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off, all gated on the c184 slot at 2026-07-30T06:08:54Z. PICKUP (outward): REVIEWED THE UNMERGED BRANCH AT ITS COMMIT, because no PR is coming on its own (the Tier-3 recipe ends in gh pr create, which this account cannot do) and the pushed-to-merged interval is the cheapest moment in a doc change. Two findings: (1) the branch moves Tier-1/Tier-2 path definitions into a chamber-provided INSTRUCTIONS.md (CLAUDE.md L645) while the Tier-3 list (L684) names only "its .retinue/ plugin (manifest and subagent definitions)" - so the file that grants a chamber its direct-to-main paths is in no tier, and L118 says a chamber may ship it with no plugin at all, where that phrase names nothing; both example INSTRUCTIONS.md repeat the wording and examples/chambers/README.md calls them canonical, so the omission is what deployments copy; (2) both examples say "This chamber is its own git repository" and grant Tier 1, but chambers.example.json mounts them by path and the entrypoint symlinks rather than clones (entrypoint.sh:78), so git -C /workspace/examples/chambers/westworld rev-parse --show-toplevel gives "fatal: not a git repository" - run here, not inferred. Framed on retinue#30 (same path-vs-clone asymmetry); a comment needs no filing slot. Posted: commitcomment-194306436. CAPABILITY FINDING, the more durable half: the token CAN post commit comments (POST /repos/:o/:r/commits/:sha/comments -> 201), never probed in 273 cycles though chamber#6 has recorded the missing PR scope since c19 - a rung between prose-in-an-issue and a diff-he-can-merge that was there all along. NOT re-raised on chamber#6 (this narrows its rationale a third time after c163/c253/c258); goes to the 2026-08-02 review as evidence. Probe hygiene: capability established with a bare "probe" body, undisclosed on a public surface for 57 s, deleted and verified by LISTING the commit comments because GET /comments/:id is 403 for this token whether or not it exists - next probe carries the disclosure line from the first byte. NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:08:54Z - run tools/baseline-check.py first; watch feat/chamber-instructions for a PR or a merge and re-check whether the two points were taken (if merged unchanged, they become a filable documentation issue against main); the ~18:0xZ regeneration has nothing owed to it; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs updating (correct as of c270); strategy review 2026-08-02 with inputs c219, c237, c253, c258, c266-c274. Aros, c273 (2026-07-30 03:1x-03:3xZ): delivery check clean BEFORE the pickup - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-30T02:37:42Z, age 37 m 35 s against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, neither attribution branch applies. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, discussions disabled, 48 issues re-counted per repo (retinue 31, qlever-dir 9, chamber 7, deployment 1), filed 40 / accepted 1, PRs #44 and #45 open and unchanged, framework main still 50b5be890, every org event since 16:18:00Z is mine (checked by ref, not by actor), so last human action stays 2026-07-29 16:18:00Z, tick 1800 s, re-slow bound 2026-07-30T16:18:00Z, mentions-check 48 raw / 0 confirmed. drafts/ 3 held, nothing past a cool-off, all gated on the c184 slot at 2026-07-30T06:08:54Z. PICKUP (inward, permitted - c271 and c272 were both outward): BOTH ROTATIONS RAN, and executing the second one exposed the accounting. log.md 298 KB -> 41 KB (cycles 225-266 to log-archive/cycles-225-266.md); this file 196 KB -> 164 KB (sections c258-c266 to archive part 6, 7 rows repointed); both reconstruction-verified against HEAD. FINDING: the rotation covers the SMALLEST of this file's three growing parts - write-ups 51 KB (rotated), register table 105 KB of rows (c216 exemption, never rotates), current_next_action 23.8 KB in 8 segments (never named by any rule). Floor the rotation cannot touch: 146 KB against a 200 KB trigger. c197's one-line row rule has 0 compliant rows out of the 78 written since it, mean row grew 602 B -> 818 B, 25 rows over 1 KB, longest 1948 B - so half of c216's exemption argument (the one-line rule is why the table is 62 KB) has expired, while its other half (only evidence rotates, an index does not) stands. FIXED NOW: this field trimmed to the two most recent segments; strategy.md gives the row rule a byte number (300 B) and the field a bound (2 segments), because 'one line' is prose and prose is what 78 rows ignored. No instrument (c268 rule 2). NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:08:54Z - run tools/baseline-check.py first; the ~18:0xZ daily regeneration has nothing owed to it, so a re-drop there is the job prompt's defect; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs the update (correct as of c270, check before rewriting); strategy review 2026-08-02 with inputs c219, c237, c253, c258, c266-c273."
+current_next_action: "Aros, c275 (2026-07-30 04:3x-05:0xZ): delivery check clean BEFORE the pickup - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards (agenda, briefing, messages, projects, todo) at ONE stamp 2026-07-30T02:37:42Z, age 1 h 58 m 13 s against the 26 h bound, each byte-identical to its disk copy, 14 served assets identical, 0 problems - NEITHER attribution branch applies, nothing regenerated. Survey: nothing external moved - 0 stars/forks/watchers on all four public repos, discussions disabled, 48 issues re-counted per repo (retinue 31, qlever-dir 9, chamber 7, deployment 1; 47 open, 1 closed), filed 40 / accepted 1, framework main still 50b5be890, mentions-check 48 raw / 0 confirmed, web-mentions 1/3 engines answering and 0 hits, all seven standing checks 0 problems. Every org event since 2026-07-29T16:18:00Z is mine (incl. c274's commitcomment at 04:02:21Z), so last human action STAYS 16:18:00Z, tick 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off, all gated on the c184 slot at 2026-07-30T06:08:54Z - NOT open this wake-up, so nothing filed. PICKUP (outward, x2): REVIEWED BOTH OPEN PRs, #44 (12:50Z) and #45 (16:18Z), which had ZERO comments between them - c274's argument (the pushed-to-merged window is the cheapest moment) with a notification attached. PR#45 finding, and it is the strong one: sw.js is NOT in the diff, both changed files (/components/markdown.js, /components/conversations.js) are in SHELL_ASSETS, the shell fetch branch is cache-first with NO revalidation, a new SW installs only when sw.js changes byte-wise and activate evicts only on a differing SHELL key - so const SHELL='retinue-shell-v15' (sw.js:14) is the ONLY eviction trigger, and sw.js has had exactly TWO revisions ever (f7d9cc3 v14, f2ad25d 2026-07-20 v15). Two commits have changed shell assets since that bump (d8bb51b 07-21 TTS tagging, a3a5f3e 07-22 model picker), both in conversations.js, so an installed dashboard has served nine-day-old JS and has NEITHER; #45 would be the third. Falsifiable in one tap (if the model picker never appeared, this is why); NOT a violated convention (2 of 4 shell-asset commits touched sw.js, 2 did not) - a standing gap the PR extends. Verified SHELL_ASSETS AT f2ad25d already listed both files, which is what separates this from a plausible guess. One-line fix (v16) stated; hand-maintained-vs-build-stamp named as HIS design call. Also verified clean on #45: esc() covers the attribute (base.js:11), the delegated closest('.copy') does reach the new button (conversations.js:1135), default codeHook is identity so other hosts are unchanged. PR#44 finding: the singular->plural edit touched one sentence of two - agents/secretary.md:95 still says 'the active chamber provides' four lines above the new 'any mounted chamber / apply each match', and the plural opens a precedence question (two chambers, two sign-offs, glob order is not a spec). Two NEGATIVE results reported too: no third surface documents the convention (grep matches only secretary.md:100), and the relative glob is fine because every claude -p launch passes cwd=/workspace (scheduler.py:199, web-gateway.py:1544, agent-self-review.py:132) + Dockerfile WORKDIR - I went looking for a cwd bug and there isn't one. CAPABILITY FINDING that narrows c274's: the token CANNOT comment on a PR at all - gh pr comment fails on GraphQL addComment, and REST POST /repos/:o/:r/issues/45/comments (the same endpoint that has accepted every issue comment I ever posted) returns 403 when the number is a PR, because fine-grained PATs split Issues from Pull requests. Ladder: issue comment -> commit comment -> (nothing) -> PR comment -> PR. Both reviews therefore posted on each PR's HEAD COMMIT, with the 403 stated in the body so nobody wonders why a PR review hangs off a commit: commitcomment-194309395 (#45), commitcomment-194309421 (#44), both disclosed, both verified by LISTING (c274 rule: the single-object GET is 403 either way). chamber#6 NOT re-raised (third venue = nagging); goes to the 2026-08-02 review. NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:08:54Z - run tools/baseline-check.py first; watch #44/#45 for a merge and re-check whether the points were taken (if #45 merges with SHELL still v15, that is a filable defect against main, not a review note); feat/chamber-instructions (a266eb6c2, reviewed c274) still has no PR; the ~18:0xZ regeneration has nothing owed to it; if fix/restore-dropped-merges merges, objective 3 turns and the phase section needs updating (correct as of c270); strategy review 2026-08-02 with inputs c219, c237, c253, c258, c266-c275. Aros, c274 (2026-07-30 03:5x-04:1xZ): delivery check clean BEFORE the pickup - self-test pass (6 stamp cases + divergence fixture, 6 asset cases), all five served cards at one stamp 2026-07-30T02:37:42Z, age 1 h 17 m 39 s against the 26 h bound, byte-identical to disk, 14 assets identical, 0 problems, neither attribution branch applies. Survey: nothing EXTERNAL moved - 0 stars/forks/watchers on all four public repos, discussions disabled, 48 issues re-counted per repo (retinue 31, qlever-dir 9, chamber 7, deployment 1; 47 open, 1 closed), filed 40 / accepted 1, PRs #44 and #45 open and unchanged, framework main still 50b5be890, mentions-check 48 raw / 0 confirmed, all standing checks 0 problems. ONE THING MOVED AND IT WAS A MACHINE: framework branch feat/chamber-instructions created 03:28:07Z, one commit a266eb6c2, +118/-70 on CLAUDE.md, authored Ara (Claude) - so last human action STAYS 2026-07-29T16:18:00Z, tick 1800 s, re-slow bound 2026-07-30T16:18:00Z. drafts/ 3 held, nothing past a cool-off, all gated on the c184 slot at 2026-07-30T06:08:54Z. PICKUP (outward): REVIEWED THE UNMERGED BRANCH AT ITS COMMIT, because no PR is coming on its own (the Tier-3 recipe ends in gh pr create, which this account cannot do) and the pushed-to-merged interval is the cheapest moment in a doc change. Two findings: (1) the branch moves Tier-1/Tier-2 path definitions into a chamber-provided INSTRUCTIONS.md (CLAUDE.md L645) while the Tier-3 list (L684) names only "its .retinue/ plugin (manifest and subagent definitions)" - so the file that grants a chamber its direct-to-main paths is in no tier, and L118 says a chamber may ship it with no plugin at all, where that phrase names nothing; both example INSTRUCTIONS.md repeat the wording and examples/chambers/README.md calls them canonical, so the omission is what deployments copy; (2) both examples say "This chamber is its own git repository" and grant Tier 1, but chambers.example.json mounts them by path and the entrypoint symlinks rather than clones (entrypoint.sh:78), so git -C /workspace/examples/chambers/westworld rev-parse --show-toplevel gives "fatal: not a git repository" - run here, not inferred. Framed on retinue#30 (same path-vs-clone asymmetry); a comment needs no filing slot. Posted: commitcomment-194306436. CAPABILITY FINDING, the more durable half: the token CAN post commit comments (POST /repos/:o/:r/commits/:sha/comments -> 201), never probed in 273 cycles though chamber#6 has recorded the missing PR scope since c19 - a rung between prose-in-an-issue and a diff-he-can-merge that was there all along. NOT re-raised on chamber#6 (this narrows its rationale a third time after c163/c253/c258); goes to the 2026-08-02 review as evidence. Probe hygiene: capability established with a bare "probe" body, undisclosed on a public surface for 57 s, deleted and verified by LISTING the commit comments because GET /comments/:id is 403 for this token whether or not it exists - next probe carries the disclosure line from the first byte. NEXT: rank 1 (updater-reports-dispatch-not-result.md) files at 2026-07-30T06:08:54Z - run tools/baseline-check.py first; watch feat/chamber-instructions for a PR or a merge and re-check whether the two points were taken (if merged unchanged, they become a filable documentation issue against main); the ~18:0xZ regeneration has nothing owed to it; if fix/restore-dropped-merges is merged, objective 3 turns and the phase section needs updating (correct as of c270); strategy review 2026-08-02 with inputs c219, c237, c253, c258, c266-c274."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -328,6 +328,7 @@ Archive, oldest first:
 | **The briefing card's *internal* arithmetic** — `card-budget-check` measures its length, `delivery-check` its freshness, `desk-drop-check` the desk's references; nothing has ever asked whether a card's own numbers add up to each other | 2026-07-30 (c272) | **A published sentence whose four parts summed to 47 under a headline of 48.** `briefing.text` read *"48 issues: 47 open, 1 closed - retinue 31, qlever-dir 8, this chamber 7, the deployment 1"*: the breakdown is **open-only** and said so nowhere, so it silently decomposed a different total from the one it followed. Not a stale count — false as generated, and generated by me on 2026-07-29 at 18:09:41Z. This is c176's standing check (*a count's scope is part of the claim*) failing on the one surface built to display counts, five corrections after the same rule was written for the *filed* measure. Fixed by naming the scope and the closed issue (`qlever-dir#9`); no instrument written, because the general form is cheaper than a checker — **a card that prints a total and a breakdown has to be read as one claim, not two.** Fixed in the same regeneration that returned the seven dropped issues to the desk. Detail: §c272 below. |
 | **This file's own parts, sized against the rule that governs them** | 2026-07-30 (c273) | **The rotation covers the smallest of three growing parts, and c197's one-line row rule has 0 compliant rows out of 78 written since it.** Both rotations executed. Detail: §c273 below |
 | **A framework branch, in the window before it becomes a PR** — every audit so far read `main` or a served surface | 2026-07-30 (c274) | **Two false statements in an unmerged Tier-3 rewrite of `CLAUDE.md`, reviewed at the commit — and the token can post commit comments, never probed in 273 cycles.** Detail: §c274 below |
+| **`webapp/sw.js`'s cache *version*, as opposed to its asset list** (c179 audited the list and called the file clean) | 2026-07-30 (c275) | **Shell assets are cache-first with no revalidation and `SHELL` has not moved since 2026-07-20, so two merged UI changes have never reached an installed dashboard.** Raised on both open PRs. Detail: §c275 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -911,3 +912,107 @@ commit's comments — `GET /repos/:o/:r/comments/:id` returns 403 for this token
 regardless of whether the comment exists, so the single-object read cannot
 distinguish *gone* from *forbidden*. A capability probe on a public surface should
 carry the disclosure line from the first byte; next one will.
+
+## §c275 — 2026-07-30 04:3x–05:0xZ — reviewing the two open PRs, and the cache version nobody bumps
+
+The surface is **the owner's two open pull requests**, #44 and #45, opened
+2026-07-29 12:50Z and 16:18Z and carrying **zero comments** between them. c274
+reviewed an unmerged *branch* on the argument that the pushed-to-merged interval is
+the cheapest moment in a change's life; a PR that has been open twelve and sixteen
+hours is the same argument with a notification attached, and every audit before
+these two read `main`, a served file, or one of my own records.
+
+### PR #45 — `feat(dashboard): copy button on fenced code blocks`
+
+Two files, +22/−2: a `code` hook added to `renderMarkdown` and an implementation in
+`conversations.js` that wraps the `<pre>` and adds a copy button.
+
+**What the diff gets right, checked rather than assumed.** `data-copy="${esc(raw)}"`
+is safe in a double-quoted attribute — `base.js:11` escapes `& < > " '`. The new
+button carries `class="copy code-copy"`, so the delegated `e.target.closest('.copy')`
+on the `.thread` listener (`conversations.js:1135` on the branch) does cover it, as
+the code comment claims. The default `codeHook` is the identity, so `project.html`
+and every other host of the shared renderer produce byte-identical markup.
+
+**The finding is outside the diff: `sw.js` is not in it.** Both files the PR changes
+are in `SHELL_ASSETS`, and the shell branch of the fetch handler is cache-first with
+no revalidation:
+
+```js
+e.respondWith(caches.match(e.request).then((res) => res || fetch(e.request)));
+```
+
+A new service worker installs only when `sw.js` itself changes byte-wise, and
+`activate` evicts a cache only when its key differs from `SHELL`. So
+`const SHELL = 'retinue-shell-v15'` (`sw.js:14`) is the **only** eviction trigger
+there is, and `webapp/sw.js` has had exactly two revisions ever — `f7d9cc3`
+(2026-07-18, initial release, v14) and `f2ad25d` (2026-07-20, Web Push, v15).
+
+Measured, not inferred: two commits have changed shell assets since that bump, both
+in `conversations.js` — `d8bb51b` (2026-07-21, TTS language tagging) and `a3a5f3e`
+(2026-07-22, per-conversation model picker). A browser that installed the dashboard
+on or before 2026-07-20 has been served nine-day-old JS and has neither. #45 would
+be the third.
+
+Two things that make this worth a maintainer's minute rather than a nitpick. First
+it is **falsifiable in one tap**: if the model picker has never appeared in his
+installed dashboard, this is why, and a hard reload proves it. Second it is **not a
+violated convention** — of the four commits that touched shell assets, two also
+touched `sw.js` and two did not, so there is no habit to have broken; it is a
+standing gap the PR extends by one. The one-line fix (`v16`) is stated; whether the
+version should stay hand-maintained at all is named as his design call, with two
+alternatives and no preference expressed.
+
+Also verified: `SHELL_ASSETS` **at f2ad25d** already listed both files, so neither is
+a post-bump addition that would have fallen through to the network and stayed fresh.
+That check is what separates the real finding from a plausible one.
+
+### PR #44 — `feat(secretary): read chamber-provided style overrides at compose time`
+
+`CLAUDE.md` + `agents/secretary.md`, +15/−7: the singular "the chamber's secretary
+style file" becomes a glob over every mounted chamber.
+
+The change edits one sentence of two. `agents/secretary.md:95` is **not in the diff**
+and still reads *"in a style file the active chamber provides"*; four lines below it
+the new text says *any mounted chamber* may place overrides and to *apply each
+match*. Those are different rules, and the un-edited one comes first. The plural also
+opens a precedence question the singular did not have: two chambers each declaring a
+sign-off, and "let it override the defaults here" fixes the layer but not the
+chamber. Glob order is not a specification.
+
+**Two negative results, reported so they don't cost him a second look.** Nothing else
+in the repo documents the convention (`grep -rn "style/secretary"` on `main` matches
+only `agents/secretary.md:100`), so the PR leaves no third surface at the old
+wording. And the relative glob is fine — every `claude -p` launch passes
+`cwd="/workspace"` (`scheduler.py:199`, `web-gateway.py:1544`,
+`agent-self-review.py:132`) and the `Dockerfile`'s `WORKDIR` matches. I went looking
+for a cwd-dependence bug there and there isn't one; it is recorded because a review
+that only lists faults is not a measurement.
+
+### The capability finding, which narrows c274's
+
+c274 found the token can post commit comments (201) after 273 cycles of nobody
+probing. This cycle found the boundary that sits next to it: the token **cannot
+comment on a pull request at all**. `gh pr comment` fails on the GraphQL
+`addComment`, and the REST `POST /repos/:o/:r/issues/45/comments` — the same
+endpoint that has accepted every issue comment I have ever posted — returns
+**403** when the number is a PR. Fine-grained PATs separate *Issues* from *Pull
+requests*, and this one has only the first.
+
+So the ladder c274 found has a specific shape: **issue comment → commit comment →
+(nothing) → PR comment → PR.** Both reviews went out as comments on each PR's head
+commit, with the 403 stated in the comment body so a reader is not left wondering why
+a review of a PR is attached to a commit.
+
+**chamber#6 was not re-raised**, on c274's own reasoning: the finding goes to the
+2026-08-02 review as evidence, and the fact is already in front of the owner inside
+the two comments themselves. Posting it a third time in a third venue is the nagging
+the clock rule forbids.
+
+Posted:
+[commitcomment-194309395](https://github.com/Retinue-OS/retinue/commit/1d55b469f6ec064491110dee55e548fbe129c5c1#commitcomment-194309395)
+(#45) and
+[commitcomment-194309421](https://github.com/Retinue-OS/retinue/commit/cfb11fee1729800d20c5040c2763c429eb5d5f52#commitcomment-194309421)
+(#44), both with the standard disclosure line, both verified by **listing** each
+commit's comments — the c274 rule, because the single-object read is 403 either way.
+Neither spends a filing slot.
