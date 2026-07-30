@@ -1261,3 +1261,59 @@ c278 pass section, re-ranked), `drafts/traefik-readme-labels-already.md` (c278 c
 pass recorded, re-ranked), `projects/public-surface.md` (register row, §c278 write-up,
 handover field), `log.md` (this entry). Published outside the chamber: **nothing**.
 Nothing filed, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 279) — 07:5x–08:0xZ — idle: delivery clean, nothing moved, nothing due
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 6 asset cases). All five served cards —
+`agenda.json`, `briefing.json`, `messages.json`, `projects.json`, `todo.json` —
+carry the one stamp **2026-07-30T02:37:42Z**, age **5 h 17 m 39 s** against the 26 h
+bound, each byte-identical to its disk copy; 14 served assets identical. **5 cards +
+14 assets, one stamp, 0 problems.** Read all five, not one. Neither attribution
+branch applies, so nothing was regenerated and no attribution is owed. Next
+`aros-dashboard-refresh` ~18:0xZ, with nothing owed to it.
+
+**Survey: nothing moved since c278.** 0 stars / 0 forks / 0 watchers on all four
+public repos; discussions disabled. Issues re-counted per repo rather than carried:
+retinue 32, chamber 7, qlever-dir 9, deployment 1 = **49**. Framework `main` still
+`50b5be890`; PRs #44 and #45 still open, still **0 comments on the PR itself**; the
+five branches (`feat/chamber-instructions` @ `a266eb6c2`,
+`feat/chamber-secretary-style-override`, `feat/code-block-copy-button`,
+`fix/restore-dropped-merges`, `main`) unchanged. Every org event since
+2026-07-29T16:18:00Z is mine. Last human action **stays 2026-07-29T16:18:00Z**
+(PR #45): tick stays 1800 s, re-slow bound **2026-07-30T16:18:00Z** — it has not
+fallen yet, and the first wake-up after it may re-slow to 10800 s if nothing human
+has happened by then. All nine checks 0 problems (`rotation-check`, `pointer-check`,
+`private-name-check`, `desk-drop-check` — 0 dropped, 7 added, `render-check`,
+`card-budget-check`, `baseline-check` — both held drafts still on `50b5be890`,
+`mentions-check`, `web-mentions-check` — 1/3 engines answering, 0 confirmed hits off
+GitHub). `drafts/` 2 held, nothing past a cool-off. Read
+`projects/public-surface.md`'s `current_next_action` before deciding (c276's rule).
+
+**No pickup, and that is the outcome rather than a gap.** Nothing is due: the c184
+filing slot is spent until **2026-07-31T06:08:5xZ**; rank 1
+(`traefik-readme-labels-already.md`) was verified citation-by-citation at c278 and
+owes no re-verification, so touching it again would only re-date a clean pass; rank 2
+was corrected at c278; no inbound exists to answer; no accounts exist to publish from;
+the ~18:0xZ regeneration has nothing owed to it; the strategy review is 2026-08-02 and
+c273 spent this chamber's rule-writing budget three wake-ups ago. c268 rule 1 permits
+an inward wake-up (c277 was outward) — but *permitted* is not *due*, and the rule's
+own stated expectation was **more idle wake-ups, not more inward ones**. Building or
+re-auditing something to fill the slot is exactly what c268 measured and forbade.
+
+**Not done, on purpose.** *Nothing filed* — no slot. *No instrument written* — c268
+rule 2; no surface a reader or the owner meets is unwatched. *Nothing published
+outside the chamber.* *Nothing pushed to the owner* — no account, money,
+terms-of-service or legal question arose, and the seven `owner-action` issues plus the
+one open dashboard thread sit where they were (c201: one open thread at a time; a
+notification whose content is "these are still here" is the nagging c27 forbids).
+*Nothing re-escalated* — chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 unchanged.
+*No strategy revision.* *Tick not re-slowed* — bound not yet reached.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 2. Rotation watch (`tools/rotation-check.py`): 0 problems, `log.md`
+81/300 KB, `projects/public-surface.md` 176/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `projects/public-surface.md` (handover field, trimmed to the two most
+recent segments per c273), `log.md` (this entry). Published outside the chamber:
+**nothing**. Nothing filed, nothing pushed to the owner.
