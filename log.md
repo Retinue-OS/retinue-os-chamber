@@ -2649,3 +2649,71 @@ Files changed: `projects/public-surface.md` (register row, §c295, handover trim
 segments per c273), `drafts/c295-pr51-secretary-precedence.md` (new, published),
 `log.md` (this entry). Published outside the chamber: **one pull-request comment**, #51.
 **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-30 (cycle 296) — 19:4x–20:0xZ — the PR was withdrawn; one of its findings was never about it
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **17 h 11 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z** (c293).
+16 assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran
+and the **delivery path** failed. Re-probed rather than inherited (c294's rule):
+`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*, and `gh api repos/retinue-os/<r> --jq .permissions` returns
+`{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir` alike.
+`/pages` and `/pages/builds` deliberately not consulted — the failure is upstream of
+Pages. **Eight** commits unpushed; `origin/main` unmoved, so they remain a clean
+fast-forward. **The served dashboard crosses the 26 h bound at 2026-07-31T04:37:42Z.**
+Not re-escalated: it is on his phone (thread `9b4d2e20…`), and a second message on one
+ask is the nagging the clock rule forbids.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
+2026-07-18. One thing moved in the 26 minutes since c295: the owner **closed PR #50
+without merging** at 19:29:31Z, with a written rationale. Open PRs are now #45, #49, #51.
+`drafts/` unchanged — all three "held" items are already published, so nothing is
+awaiting a cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
+
+**What the withdrawal says about my reviews.** His two reasons were hard-coded German
+output labels in framework code (the repo's own *no preferred languages except English*
+rule) and the Ari sent-folder statistic wiring a private chamber into public framework
+code. **My review, posted 62 minutes earlier, raised neither.** It asked whether the
+delivery verification worked; it never asked whether the code belonged in this repo.
+Same shape as c295's #51 review, which also stayed inside the diff. Two consecutive
+reviews inside the diff while the maintainer's objections were about **placement** and
+**repo-wide rules** — an input to the 2026-08-02 review, not a rule change today.
+
+**Pickup: rescue the finding that was never about the PR.** Two of my three notes move
+to the private chamber with `daily-status.py`. The third is framework code. At `main`
+`758d64b`: `signal-push.py` `:89` branch `return 0` @ `:97` against `:99` for a delivered
+send; `whatsapp-push.py` identical; `telegram-push.py` `:81`/`:89`/`:91`. **Exit status
+cannot distinguish a delivered send from one queued at `/sends`**, and `CLAUDE.md:368`
+documents only the printed notice. Grepped `main` before claiming anything: **no
+framework caller keys on the exit code today** — the only one that did is the script
+being moved, so the false green travels with it.
+
+**Published:** [issuecomment-5135590762](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5135590762),
+on the closed PR — the venue where the decision was made, and the one place the finding
+would otherwise die with the branch. It concedes the two misses in its first line, names
+no preferred fix among three defensible ones (a distinct exit code for queued, a
+`--require-delivery` flag, or callers parsing stdout), and offers to file it as an issue
+tomorrow rather than filing it now.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ. *Nothing
+escalated* — no account, money, terms-of-service or legal question arose; the push block
+is already out and was not repeated. *No strategy revision* — review stays 2026-08-02.
+*No new instrument* (c268 rule 2), and rule 1 is satisfied outward rather than argued
+around.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Rotation watch: `log.md` ~176/300 KB, `projects/public-surface.md` **181/200 KB**,
+`strategy.md` 117/150 KB. Standing checks after the edits: `pointer-check` 138 pointers /
+2 archive indexes / **0 problems**, `rotation-check` 0, `private-name-check` 0 on forward
+surfaces.
+
+Files changed: `projects/public-surface.md` (register row, §c296, handover rewritten to
+two segments per c273), `log.md` (this entry). Published outside the chamber: **one
+pull-request comment**, #50. **Committed locally only — `git push` is 403 until
+contents-write is restored.**
