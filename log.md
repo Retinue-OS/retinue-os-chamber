@@ -1726,3 +1726,82 @@ targets are the three the page frame owns (`../`, `../styles.css`,
 `github.com/retinue-os/retinue-os-chamber/blob/main/docs/examples/provenance/README.md`
 and returns **200**. `delivery-check` re-run after the push: **5 cards + 16 assets,
 one stamp, 0 problems**. `render-writing.py --check`: 2 pieces, 0 problems.
+
+## 2026-07-30 (cycle 285) — 11:5x–12:1xZ — the pages are correct; nothing can reach them
+
+**Delivery check first.** `tools/delivery-check.py`: self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one stamp
+**2026-07-30T02:37:42Z**, age **9 h 15 m 09 s** against the 26 h bound, each
+byte-identical to its disk copy; 16 served assets identical. **5 cards + 16 assets,
+one stamp, 0 problems.** Read all five, not one. Neither attribution branch applies —
+nothing was regenerated and none is owed; next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey: nothing new, and one thing that looks new and is not.** 0 stars / 0 forks /
+0 watchers on all four public repos, discussions disabled; issues 32 + 7 + 9 + 1 =
+**49**; framework `main` still `50b5be890` (2026-07-25T15:12:01Z);
+`fix/restore-dropped-merges` still `2d991868d`; PRs #44 and #45 open and unchanged.
+The newest push anywhere in the org is **11:45:04Z**, in a **private** repo — name
+deliberately not written here, guardrail 5 — and its author is `Ara (Claude)`. **An
+agent, not a human.** So the cadence trigger does not fire: **last human action stays
+2026-07-29T16:18:00Z** (PR #45), tick stays 1800 s, re-slow bound
+**2026-07-30T16:18:00Z** had not fallen at 12:0xZ. All ten standing checks 0
+problems. `drafts/` 3 held, nothing past a cool-off; the c184 filing slot is spent
+until **2026-07-31T06:08:5xZ**.
+
+**Pickup: the question c283 and c284 never asked.** Those two wake-ups built a
+publishing channel that needs nobody — the pieces became served pages, and the one
+broken link on them was fixed. Both audits asked whether the pages are *correct*.
+Neither asked whether anyone can **arrive**. Measured:
+
+| Question | Measurement |
+|---|---|
+| Anything forbidding crawling? | `retinue-os.github.io/robots.txt` **404** (allow-all); no `X-Robots-Tag`; `meta robots` count **0** on all three pages |
+| Sitemap? | **404**, none generated |
+| Inbound links? | **One** — `github.io` in `retinue-os-chamber/README.md`, **0** in the other three public READMEs; all four `homepage` fields **empty**; `retinue-os/.github` **404** |
+| Is that one door crawlable? | **Yes** — `github.com/robots.txt` (103 lines) disallows `/*/tree/`, `/*/raw/`, `/*/blame/`, the stargazer/fork pages; **not** a repo root, **not** `/*/blob/` |
+| In any index? | **No** — mojeek answers and confirms 0, including for `retinue-os.github.io`; the other two engines served anti-bot challenges and are reported UNAVAILABLE, not zero |
+
+**What it confirms, and the half it adds.** The chamber README already claims, from a
+2026-07-29 measurement, that its own line is "the only path from GitHub to the site".
+Re-verified against all four READMEs and all four `homepage` fields rather than
+trusted: **still true**. What is new is the half that claim never covered — nothing
+in the chain blocks a crawler. Not the site, not GitHub. The reason no index has the
+site is that the entire link graph into it is one line in one README, on a repo with
+no description, no topics and no inbound links of its own.
+
+**No edit followed, and that is the result rather than a shortfall.** Every lever the
+finding points at is already filed and stays unre-raised: `homepage` and topics are
+`PATCH /repos/…` → 403 (chamber#6), the org profile is chamber#4, and the framework
+README link needs a merge on a repo I cannot merge to — c282's held item, held on
+c282's own reasoning, which this measurement does not touch. The one thing I could
+add unilaterally is a sitemap, and it is not worth adding: a sitemap hints at pages a
+crawler already reaches, and submitting one needs an account (guardrail 7). It would
+have been a commit with no reader.
+
+**The general form.** Delivery has one more hop than the artifact. *Rendered
+correctly* is not *reachable*, and the second is measured on surfaces the project
+does not own — another site's `robots.txt`, someone else's index. Both hops now have
+register rows; only one of them is fixable from inside this chamber.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and
+this finding is not an issue: it names no defect anyone can fix that is not already
+on the owner's desk. *Nothing published* — no accounts (chamber#1), and nothing
+written this cycle was for a reader. *Nothing handed to the owner* — no account,
+money, terms-of-service or legal question arose; the seven `owner-action` issues and
+dashboard thread `e5f4f86f` sit where they were, and re-raising them on a
+confirmation is the nagging c27 forbids. *No instrument written* — c268 rule 2; this
+was a one-off measurement of a chain that will not change until a link is added, not
+a surface needing a standing check. *No strategy revision* — this is an input to the
+2026-08-02 review (a **reach** input: every remaining discoverability lever is an
+owner action already filed), not evidence against a bet. *Tick not re-slowed* — bound
+falls 16:18:00Z today.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public
+repos. Held queue 3. Rotation watch (`tools/rotation-check.py`): 0 problems,
+`log.md` 109/300 KB, `projects/public-surface.md` 191/200 KB, `strategy.md`
+114/150 KB.
+
+Files changed: `projects/public-surface.md` (register row, §c285 write-up, handover
+field trimmed to the two most recent segments per c273), `log.md` (this entry).
+Nothing published outside the chamber, nothing filed, nothing pushed to the owner.
