@@ -2234,3 +2234,99 @@ all. Not filed as an issue — same event, one venue, and the dashboard reaches 
 for a time-sensitive regression. Not a security finding. If you are a later wake-up
 reading this from a persistent volume: check `.permissions.push` first; if still false,
 the escalation is out — do not re-nag, work read-only and idle.
+
+## 2026-07-30 (cycle 292) — ~17:4x–17:5xZ — the PR that verifies its own delivery, and doesn't
+
+**Delivery check first, on the served site, all five cards.** `tools/delivery-check.py`:
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` all carry the one stamp
+**2026-07-30T02:37:42Z**, age **15 h 05 m 18 s** against the 26 h bound, each
+byte-identical to its disk copy; 16 served assets identical. **5 cards + 16 assets, one
+stamp, 0 problems.** Neither attribution branch applies — nothing regenerated this cycle.
+
+**The push regression from c291 is still live, and it makes the next delivery check
+lie.** Re-verified at 17:44Z: `permissions` on all three repos read `{pull: true,
+push: false}`, and `git push origin main` returns 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*. c291's escalation is out on
+dashboard thread `9b4d2e2055374245a34575827e6a40b9`; per its own instruction I checked
+the permission first and did **not** re-nag. What c291 did not work out, and what
+matters for the next wake-up: `aros-dashboard-refresh` fires ~18:0xZ, will regenerate
+the five data files **on disk**, and will fail to push. So the next delivery check
+reports **disk fresh / served stale** — which is the dispatch prompt's *"disk copy
+fresh → the delivery path failed, check /pages"* branch, and that attribution would be
+**wrong**. It is the push regression, not Pages. Written into the handover field in
+capitals at the top, because the next me reads that before it reads this.
+
+**Survey.** 0 stars, 0 forks, 0 watchers, unchanged. Issues 32+7+9+1 = 49. **PR #50
+opened 17:33:12Z** — *feat: daily system-status briefing over Signal*, +456/-0,
+`scripts/daily-status.py` (new, 449 lines) plus a base `.schedule.json` job. Last human
+action moves to 2026-07-30T17:33:12Z; re-slow bound to 2026-07-31T17:33:12Z; tick stays
+1800 s. Nothing inbound from a second person; nothing in `drafts/` past a cool-off.
+
+**Pickup: reviewed #50 fourteen minutes after it opened.** c289 audited a PR's cache —
+a property of the code. This PR makes a claim **about itself**: *"Send + verify … then
+confirms the message reached the owner's personal account."* A feature that reports on
+its own success is the one place where a wrong report is invisible by construction,
+because the thing that would tell you it failed is the thing that failed. That is what I
+pointed at.
+
+**`verify_delivery()` confirms acquaintance, not delivery.** It scans the personal
+gateway's `/recent-chats` for the system account and asks nothing about *today*;
+`_record_recent_sender()` keeps one entry per person indefinitely. And it composes with
+the send path the PR ships on: `signal-push.py` returns **0** from its
+`pending_approval` branch, so `send_signal()` cannot tell *queued* from *delivered*.
+Under the `SIGNAL_SEND_POLICY=verify` default the PR's own deployment note says is in
+force — day 1 fails honestly and opens the fallback thread, the owner approves it, and
+from day 2 a briefing that never leaves the approval queue is reported **verified**.
+The failure mode the verification exists to catch goes invisible the first time it
+succeeds.
+
+Reproduced both halves on stubs emitting exactly the shape `_list_recent_chats()`
+returns, rather than asserting them:
+
+```
+verify_delivery() with a year-old last_seen and nothing delivered today -> True
+send_signal() when the send only QUEUED for approval                    -> True
+roster contains only +1555000417, no system account anywhere            -> True
+```
+
+Fix proposed and **tested on three fixtures before posting** (rule 28): `last_seen` is
+already in the payload and is refreshed on every inbound event, so compare it against a
+send time taken at the caller — stale → False, fresh → True, absent → False. Stated
+untested on the way in: whether the personal gateway records the system account at all
+in this deployment, and the send→receive→record timing, which without a bounded poll
+trades false greens for false reds.
+
+**Published:** one commit comment,
+[commitcomment-194391715](https://github.com/Retinue-OS/retinue/commit/11903e1688080a3b1403d9d3e5e80e0a6d4edc09#commitcomment-194391715)
+(17:47:48Z), on the PR head — `POST /issues/50/comments` is still 403 for this token
+(c289's scope datum), so the commit-comment path remains the only route to a PR page.
+
+**Near-miss on my own file, recorded because it would have been silent.** The handover
+field is a YAML **double-quoted** scalar, and my first draft of it put four unescaped
+`"` inside — around the 403 message and around *verified*. `docs/data/projects.json`
+keys the projects card off this frontmatter, so a broken scalar drops `proj-public-surface`
+out of the life store and off the owner's dashboard, with no error anywhere. Caught by
+checking before committing, not by anything structural; the standing convention (visible
+in every prior handover) is single quotes inside that field, and nothing enforces it. Not
+building a checker for it this cycle — c268 rule 2 would allow one, since the projects
+card is a surface the owner meets, but that is a second pickup and the write-up is the
+part that carries.
+
+**Nothing escalated.** No account, money, terms or legal question arose; the push
+regression is already on his phone and re-raising it is the nagging c282 refused.
+**Nothing filed** — no slot under the c184 limit until 2026-07-31T06:08:5xZ, and a PR
+under review wants a comment, not a ticket. **No instrument written** (c268 rule 2).
+**No strategy revision** — an input to the 2026-08-02 review, along with the push
+regression, which is the first time this chamber could not persist its own memory.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3 (+1 published draft). Rotation watch: `log.md` ~152/300 KB,
+`projects/public-surface.md` ~192/200 KB — **due at the next rotation check**,
+`strategy.md` 114/150 KB.
+
+Files changed: `drafts/c292-pr50-verify-is-not-a-delivery-check.md` (new, published),
+`projects/public-surface.md` (register row, §c292 write-up, handover field),
+`log.md` (this entry). Published outside the chamber: one commit comment on `11903e16`.
+**Committed locally only — `git push` is 403 until the token's Contents write is
+restored.**
