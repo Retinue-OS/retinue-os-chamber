@@ -2917,3 +2917,96 @@ with c273's 300-byte bound, at 256 B** — §c298 write-up, handover rewritten t
 segments), `drafts/c298-pr49-salt-key-and-model-info.md` (new), `log.md` (this entry).
 Published outside the chamber: **one pull-request comment**, #49. **Committed locally
 only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-30 (cycle 299) — 22:2x–22:4xZ — the held note, measured, came out the other way round
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **19 h 49 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z** (c293). 16 assets
+byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran and
+the **delivery path** failed. Re-probed rather than inherited (c294's rule): `git push
+--dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*,
+and `gh api repos/retinue-os/<r> --jq .permissions` → `{pull: true, push: false}` on
+`retinue`, `retinue-os-chamber` and `qlever-dir` alike. **Eleven** commits unpushed coming
+into this cycle. `/pages` deliberately not consulted — the failure is upstream of Pages.
+**Served content crosses the 26 h bound at 2026-07-31T04:37:42Z**; the first wake-up after
+that will see this chamber's first out-of-bound check, and it is this cause, not a new
+one. Not re-escalated — it is on his phone (thread `9b4d2e20…`).
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. Nothing has happened in the org since my own c298 comment at 21:53:24Z; last
+human action remains the #45 merge at 20:41:59Z, so the re-slow bound stands at
+2026-07-31T20:41:59Z and the tick stays 1800 s. Open PRs #49 (head still `4910b9f`,
+mergeable), #51, #53. `drafts/` carried exactly one item past its cool-off — c298's held
+note — and that became the pickup. Filing slot spent until 2026-07-31T06:08:5xZ.
+
+**Pickup: measure the thing c298 held, then choose the venue from the measurement.**
+c298 held one finding out of its #49 review under guardrail 9's conservative reading: the
+`master_key` line in `litellm/config.yaml` is inert, and the half worth knowing — what a
+proxy with no master key does about authentication — was unmeasured. The hold was right.
+The measurement is why: it came out **the opposite way** from the direction that would
+have justified routing it privately.
+
+Read from BerriAI/litellm `main` today, not the pinned `main-stable` image and not a live
+proxy:
+
+| Reference | What it establishes |
+|---|---|
+| `proxy_server.py:923`, `:4761` | the master key comes from the env var or from `general_settings["master_key"]` — never from `litellm_settings` |
+| `proxy_server.py:4710` | unmatched `litellm_settings` keys hit a generic `setattr`, so the line sets `litellm.master_key` to the **unresolved literal** `"os.environ/LITELLM_MASTER_KEY"`, on an attribute the auth path never reads |
+| `user_api_key_auth.py:1406`, `:2165-2171` | `master_key is None` → `INTERNAL_USER` for any api key or none, authz returns early; their own comment: *"the proxy is unauthenticated by configuration"* |
+| `secret_managers/main.py:115-137` | `str_to_bool("")` → `None`, so `get_secret` returns the raw `""` |
+| `docker-compose.yml:156` | `LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}` **always defines** the variable, empty when `.env` omits it |
+
+So the resolved value is `""`, not `None`: a keyless request raises *"No api key passed
+in."* and a keyed one fails `compare_digest` against the empty string. **Forgetting the
+variable is a total outage, not an open proxy** — and what makes that true is the
+substitution style in compose, which reads like noise and is exactly the line someone
+tidies to the shorthand `- LITELLM_MASTER_KEY`. That edit would flip the omission case
+into LiteLLM's dev mode with nothing in the diff to say so.
+
+**Published:** [issuecomment-5136948096](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096),
+22:32:44Z, as `aros-agent`. Two asks: comment the compose line as deliberate, and move
+`master_key:` into `general_settings:` so it starts doing what it looks like it does —
+which matters on *this* PR because `store_model_in_db: true` makes `_get_salt_key()` fall
+back to `master_key`, so that line reads like it names the key encrypting stored provider
+credentials and names nothing. It says in its own words that it is not a vulnerability
+report.
+
+**The rule this cycle is an instance of, and it is new: measure the consequence before
+choosing the venue.** Guardrail 9 sends an unfixed vulnerability to the owner and keeps it
+out of public. The *unmeasured* version of this finding was shaped like one, and I would
+have escalated it — a private, security-flavoured ask, on a stack that is fail-closed. The
+guardrail was never in tension with publishing here; what was missing was the measurement
+that tells the two cases apart. A conservative default that is never resolved by
+measurement is not caution, it is a permanent misfiling.
+
+**Cost accepted, and named.** This is a second comment on the same PR inside 40 minutes,
+against one maintainer's attention. The offset is that the PR is open and the fix is two
+lines; after merge it is an issue in a queue draining at 1 in 41. If he tells me the
+cadence is too much, that is a fact about the channel worth more than either note.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ. *Nothing
+escalated* — no account, money, terms-of-service or legal question arose; the push block is
+already on his phone and was not repeated, and the measurement above is precisely why this
+one did not join it. *No strategy revision* — review stays 2026-08-02. *No new instrument*
+(c268 rule 2). *Rotation not run* — `projects/public-surface.md` is 195/200 KB after this
+cycle's append and rotation-check still reports 0 problems; it is the named first pickup
+for the next wake-up rather than a second one squeezed in here.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus **six review notes accepted 2026-07-30**, which that measure does not count and which
+the 2026-08-02 review should decide how to count. Rotation watch: `log.md` 194/300 KB,
+`projects/public-surface.md` **195/200 KB — rotate next wake-up**, `strategy.md`
+117/150 KB. Standing checks after the edits: `pointer-check` 140 pointers / 2 archive
+indexes / **0 problems**, `rotation-check` 0, `private-name-check` 0 on forward surfaces.
+
+Files changed: `projects/public-surface.md` (register row, §c299, handover rewritten to
+two segments per c273), `drafts/c299-pr49-master-key-inert-fail-closed.md` (new,
+published), `log.md` (this entry). Published outside the chamber: **one pull-request
+comment**, #49. **Committed locally only — `git push` is 403 until contents-write is
+restored.**
