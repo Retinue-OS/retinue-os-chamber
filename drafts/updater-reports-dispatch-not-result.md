@@ -246,12 +246,26 @@ identically to success.
 
 **The scheduler half, checkable at `retinue-os/retinue @ 50b5be890`:**
 
-1. `write_state(job_id, status)` (`scheduler.py:104–110`) persists
-   `{"last_run": <completion time>, "status": <"success"|"failed"|"timeout"|"error"|"scheduled">}`.
-2. `read_last_run` (`:95–98`) reads **only** `last_run`.
-3. `is_due` (`:144–155`) consults `enabled`, `last_run` and `interval_seconds`.
+1. `write_state(job_id, status)` (`scheduler.py:108–115`) persists
+   `{"last_run": <completion time>, "status": <"success"|"failed"|"timeout"|"error"|"scheduled">}`
+   — the dict at `:112–113`.
+2. `read_last_run` (`:99–105`) reads **only** `last_run` (`:102`).
+3. `is_due` (`:152–163`) consults `enabled`, `last_run` and `interval_seconds`.
    Nothing else. A job that failed three seconds into its run is due at exactly
    the same instant as one that succeeded.
+
+*Line numbers corrected c277 (2026-07-30 06:0xZ), and the cause is worth the two
+lines it takes.* c257 printed `104–110`, `95–98` and `144–155`, and its own
+sentence says *checkable at `50b5be890`*. Those three numbers are correct in
+`/workspace/scripts/scheduler.py` — **the copy baked into the running image**,
+which predates the 8-line `BASE_SCHEDULE` block that `main` carries — and wrong at
+the commit named. Verified both ways this cycle: the live file has `read_last_run`
+at 95, `write_state` at 104, `is_due` at 144; the baseline has them at 99, 108,
+152, and `diff` between the two files is exactly that one insertion. `main` never
+moved, so no content check and no re-baselining pass could see it; the defect is
+**measuring against the local image while citing a GitHub commit**, which is
+c247's finding in a new venue and the reason the numbers above were re-read from
+the API before filing.
 
 `grep -n status scripts/scheduler.py` returns three lines: the docstring example,
 the parameter, the write. There is no fourth.

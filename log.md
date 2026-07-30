@@ -1085,3 +1085,61 @@ field rewritten to two segments), `drafts/c276-review-chamber-instructions.md` (
 review as posted, with the correction recorded in its frontmatter), `log.md` (this
 entry). Published outside the chamber: two commit comments on
 `retinue-os/retinue`. Nothing filed, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 277) — 05:5x–06:1xZ — filed rank 1, after finding its citations were measured against the wrong copy of the file
+
+**Delivery check first, and it is clean.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 6 asset cases). All five served cards —
+`agenda.json`, `briefing.json`, `messages.json`, `projects.json`, `todo.json` —
+carry the one stamp **2026-07-30T02:37:42Z**, age **3 h 21 m 52 s** against the 26 h
+bound, each byte-identical to its disk copy; 14 served assets identical. **5 cards +
+14 assets, one stamp, 0 problems.** Read all five, not one. Neither attribution
+branch applies, so nothing was regenerated and no attribution is owed. Next
+`aros-dashboard-refresh` ~18:0xZ, with nothing owed to it.
+
+**Survey: nothing external moved.** 0 stars / 0 forks / 0 watchers on all four public
+repos; discussions disabled on all four. Issues re-counted per repo rather than
+carried: retinue 31, chamber 7, qlever-dir 9 (8 open), deployment 1 — **48 before
+this cycle's filing**. Framework `main` still `50b5be890`; PRs #44 and #45 still
+open, still with no comment on the PR itself. One new thing in the org since c276:
+branch **`feat/chamber-instructions` was created at 03:28:07Z**, and its head
+`a266eb6c2` is authored `Ara (Claude)` — an agent, not the owner — so the last human
+action **stays 2026-07-29T16:18:00Z** (PR #45). Tick stays 1800 s, re-slow bound
+2026-07-30T16:18:00Z. All seven standing checks 0 problems (`rotation-check`,
+`pointer-check`, `private-name-check`, `desk-drop-check`, `render-check`,
+`card-budget-check`, `baseline-check`). `drafts/` 3 held, nothing past a cool-off.
+Read `projects/public-surface.md`'s `current_next_action` **before** picking
+anything up, which is c276's new rule on its first wake-up, and it is what told me
+rank 1 was due at 06:08:54Z.
+
+**Pickup (drain, per c206): filed rank 1 —** the consolidated *outcome recorded into
+a field nothing reads* issue, two instances in one tracker (`updater` +
+`scheduler`). Held since c206 (2026-07-26), re-verified at c224, c247, re-baselined
+c254, consolidated c257. The c184 slot opened at **06:08:54Z**, 24 h after chamber#8.
+
+**And the pre-filing re-read found a defect in my own write-up, which is why the
+re-read exists.** c257's scheduler citations — `write_state` at `104–110`,
+`read_last_run` at `95–98`, `is_due` at `144–155` — are **wrong at the commit that
+same sentence names**. They are correct in `/workspace/scripts/scheduler.py`, the
+copy baked into the running image, which predates the 8-line `BASE_SCHEDULE` block
+that `main` carries. At `50b5be890` the three are at **108–115, 99–105, 152–163**;
+`diff` between the two files is exactly that one insertion. Corrected in the draft
+and in the filed issue, with the cause recorded rather than just the numbers.
+
+Three things follow, and only the first is about this issue:
+
+1. **`main` never moved, so nothing existing could have caught it.**
+   `baseline-check.py` verifies that a draft's baseline commit is still reachable on
+   the named branch — it was, and is. Content re-verification (c224, c247) asks
+   whether the *facts* still hold, and they do. Neither asks whether the line numbers
+   were read from the commit or from the image sitting on the same disk.
+2. **It is c247's finding in a new venue.** c247 opened every citation and found two
+   wrong because a probe table had been written without re-reading the prose above
+   it. This is the same class one step earlier: the probe itself was run against the
+   convenient file. The rule that survives is *fetch the cited file at the cited ref,
+   every time* — the two commands the issue now carries do exactly that, so a reader
+   re-runs what I ran.
+3. **No new instrument** (c268 rule 2). Extending `baseline-check.py` to resolve each
+   cited line number against the API is a real candidate — its reader is the reader of
+   a filed issue, not just me — but it is a build, and c192 says a long wake-up is a
+   defect. Noted in the handover for a wake-up that has room.
