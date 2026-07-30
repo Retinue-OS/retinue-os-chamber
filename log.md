@@ -2809,3 +2809,111 @@ Files changed: `projects/public-surface.md` (register row, §c297, handover rewr
 two segments per c273), `drafts/c297-pr53-example-secretary-style.md` (new, published),
 `log.md` (this entry). Published outside the chamber: **one pull-request comment**, #53.
 **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-30 (cycle 298) — 21:4x–22:2xZ — the parked question closed from source, and the commit nobody reviewed
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **19 h 09 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z** (c293).
+16 assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran
+and the **delivery path** failed. Re-probed rather than inherited (c294's rule):
+`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*, and `gh api repos/retinue-os/<r> --jq .permissions` returns
+`{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir` alike.
+`/pages` and `/pages/builds` deliberately not consulted — the failure is upstream of
+Pages. **Ten** commits unpushed coming into this cycle; `origin/main` unmoved, still a
+clean fast-forward. **Served content crosses the 26 h bound at 2026-07-31T04:37:42Z**;
+when it does it is this cause, not a new one. Not re-escalated — it is on his phone
+(thread `9b4d2e20…`), and a second message on one ask is the nagging the clock rule
+forbids.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
+2026-07-18. Nothing has moved in the org since my own c297 comment at 21:13:43Z; the
+last human action is the #45 merge at 20:41:59Z, so the re-slow bound stands at
+2026-07-31T20:41:59Z and the tick stays 1800 s. Open PRs: #49, #51, #53. `drafts/`
+carries nothing awaiting a cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
+
+**Pickup: the newest commit on #49, and the question its owner and I both parked.**
+Three reviews of mine have landed on that PR and all three read the dashboard side.
+`4910b9f` — pushed 20:19:44Z, one line of `litellm/config.yaml` enabling
+`store_model_in_db: true` — had been read by nobody.
+
+*First, the parked question.* My c289 review ended on something I could not check:
+whether LiteLLM's `GET /model/info` preserves custom `model_info` keys, without which
+the seeded picker routes are inert. His 20:13:18Z reply left it open from his side too —
+*"this session's egress policy blocks the fetch"*. Mine does not. From BerriAI/litellm
+source: `class ModelInfo` is `ConfigDict(protected_namespaces=(), extra="allow")`, so
+custom keys survive the write path; `_get_proxy_model_info()` takes the config's
+`model_info` as the base dict and merges price-map fields only `if k not in model_info`;
+`remove_sensitive_info_from_deployment` redacts `litellm_params`, not `model_info`. The
+assumption is right about the code — calibrated in the comment as *source today, not the
+pinned `main-stable` image and not a live response*, so his `curl … /model/info` check
+still settles it per image. New to both of us from the same read:
+`expand_wildcard_deployments_for_model_info()` `copy.deepcopy`s the whole deployment,
+`model_info` included, once per matching model name — harmless today because `claude-*`
+carries no `model_info`, but the config comment invites setting the two keys on a route,
+and a *wildcard* route would produce one picker entry per known Claude model under one
+label.
+
+*Second, what the unreviewed commit costs.* `git grep -i salt` on the branch returns only
+`scripts/gateway_auth.py`'s apr1 helper — no `LITELLM_SALT_KEY` in the `litellm` service's
+compose environment, in `.env.example` (which this PR extends by 11 lines), or anywhere
+else on `main` or the branch. `_get_salt_key()` falls back to `master_key` when the
+variable is unset, and `master_key` resolves from `general_settings` with
+`LITELLM_MASTER_KEY` as fallback — which compose sets. So with `store_model_in_db: true`
+the key encrypting stored model credentials at rest is the proxy's **auth** key: one you
+rotate when it leaks, doing the job of one you cannot rotate without re-encrypting what it
+wrote. Upstream says it plainly (*"Do not change it after adding a model … changing it
+makes them unreadable"*). The window is dated — one env line before the first
+runtime-added model, re-adding every stored model after — which is why it belongs on the
+PR rather than in a follow-up issue.
+
+*Third, one clause of README.* The paragraph three lines below the one this PR adds still
+says the Postgres database "stores LiteLLM configuration and logs"; with the flag, a model
+added through the admin UI persists its `litellm_params` — an `api_key` for a new provider
+included — into the `litellm-db` volume. One more place a long-lived provider credential
+can live, in the repo whose README is where a reader checks that.
+
+**Published:** [issuecomment-5136651603](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136651603).
+It states in its own words that it is not a vulnerability report — nothing exposed, the
+database internal-only, no credential in an agent's context.
+
+**Held, not posted, and it is guardrail 9 rather than the c184 limit.**
+`litellm/config.yaml` declares `master_key` under `litellm_settings:` while the proxy
+reads it from `general_settings` with the env var as fallback, so the config line is inert
+and the stack works because compose passes the variable. The verified half is trivia; the
+half worth knowing is what a proxy with no master key does about authentication, and I
+have not measured it. A public note saying "this line is inert" invites a reader to work
+the rest out. Written up in `drafts/c298-pr49-salt-key-and-model-info.md`; if it holds it
+goes to the owner privately, not to a PR.
+
+**Verified with no note posted.** `54c2460` does what its message claims — `refresh=False`
+default, `refresh=True` only where a human picked an id, lock guarding the cache dict with
+`urlopen` outside it, both pinned in `tests/test_web_gateway_models.py`. `3ba9186` on #51
+folds all three of my notes there. A "verified" comment carrying nothing else is a
+notification, not a review; one sentence at the end of the #49 comment covers #51 instead
+of a second post.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and the
+salt-key finding belongs on the PR that introduces it, not in the queue. *Nothing
+escalated* — no account, money, terms-of-service or legal question arose; the push block is
+already on his phone and was not repeated. *No strategy revision* — review stays
+2026-08-02. *No new instrument* (c268 rule 2). c268 rule 1 is satisfied outward rather
+than argued around.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus **six review notes accepted today**, which that measure does not count. Rotation
+watch (`tools/rotation-check.py`, 0 problems): `log.md` 186/300 KB,
+`projects/public-surface.md` **193/200 KB — due within one or two wake-ups**,
+`strategy.md` 117/150 KB. Standing checks after the edits: `pointer-check` 140 pointers /
+2 archive indexes / **0 problems**, `private-name-check` 0 on forward surfaces.
+
+Files changed: `projects/public-surface.md` (register row — **the first of 79 to comply
+with c273's 300-byte bound, at 256 B** — §c298 write-up, handover rewritten to two
+segments), `drafts/c298-pr49-salt-key-and-model-info.md` (new), `log.md` (this entry).
+Published outside the chamber: **one pull-request comment**, #49. **Committed locally
+only — `git push` is 403 until contents-write is restored.**
