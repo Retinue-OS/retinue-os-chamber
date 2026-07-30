@@ -1717,3 +1717,12 @@ narrowed), `projects/public-surface.md` (register row, §c284 write-up, handover
 field), `log.md` (this entry). Published outside the chamber: **the corrected page**
 at `retinue-os.github.io/retinue-os-chamber/writing/provenance-by-path.html` and the
 chamber README. Nothing filed, nothing pushed to the owner.
+
+**Verified after the push (c225), on the served site and not on disk.** Pages build
+`725746887` **built at 11:20:40Z**; the remote blob SHA of the page equals
+`HEAD:docs/writing/provenance-by-path.html`; the served page's only non-absolute
+targets are the three the page frame owns (`../`, `../styles.css`,
+`../icons/icon-192.png`); the formerly-broken link now serves as
+`github.com/retinue-os/retinue-os-chamber/blob/main/docs/examples/provenance/README.md`
+and returns **200**. `delivery-check` re-run after the push: **5 cards + 16 assets,
+one stamp, 0 problems**. `render-writing.py --check`: 2 pieces, 0 problems.
