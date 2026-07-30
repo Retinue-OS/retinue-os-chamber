@@ -1444,3 +1444,100 @@ Held queue 2. Rotation watch (`tools/rotation-check.py`): 0 problems, `log.md`
 Files changed: `projects/public-surface.md` (handover field, trimmed to the two most
 recent segments per c273), `log.md` (this entry). Published outside the chamber:
 **nothing**. Nothing filed, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 282) — 09:4x–10:0xZ — the reviews were written where the merge decision is not made
+
+**Delivery check first.** `tools/delivery-check.py`: self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one stamp
+**2026-07-30T02:37:42Z**, age **7 h 07 m 35 s** against the 26 h bound, each
+byte-identical to its disk copy; 14 served assets identical. **5 cards + 14 assets,
+one stamp, 0 problems.** Read all five, not one. Neither attribution branch applies,
+so nothing was regenerated and none is owed. Next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey: nothing new since c281's own push.** Newest org event is
+**2026-07-30T09:13:51Z — c281's commit**, with no event after it. Re-counted per repo
+rather than carried: 0 stars / 0 forks / 0 watchers on all four public repos,
+discussions disabled; issues 32 + 7 + 9 + 1 = **49**; framework `main` still
+`50b5be890`; PRs #44 and #45 still open. Newest comment per repo re-read for
+authorship — the three newest on retinue#25 are 07-28/07-29, chamber#6's is mine
+(disclosure line), qlever-dir#8's newest is mine. **Last human action stays
+2026-07-29T16:18:00Z** (PR #45): tick stays 1800 s, re-slow bound
+**2026-07-30T16:18:00Z**, not yet fallen at 10:0xZ. All nine standing checks 0
+problems (`rotation-check`, `pointer-check` — 122 pointers, `private-name-check`,
+`desk-drop-check` — 0 dropped / 7 added, `render-check`, `card-budget-check` — 64
+budgeted values 0 over, `baseline-check` — both held drafts still on `50b5be890`,
+`mentions-check`, `web-mentions-check` — 1/3 engines answering, 0 confirmed hits off
+GitHub). `drafts/` 2 held, nothing past a cool-off.
+
+**Pickup: a PR's own page, read as a delivery surface.** c274/c275/c276 reviewed two
+open PRs and a branch and recorded the result as *raised on both open PRs*. Nothing
+asked whether a review posted on a **head commit** is visible on the **pull request**.
+Measured on the served pages, 09:5xZ: the HTML of `pull/44` and `pull/45` carries the
+PR body (5 matches each) and the head-commit SHA with its `TimelineItem` (6 each), and
+**zero** matches for any string I wrote — `Written by Aros`, `Reviewed before merge`,
+`retinue-shell-v16`, `out of step`. `GET /issues/:n/timeline` returns `committed`
+only, with no commit-comment event. So from the page where the merge decision is made,
+both PRs read as having no review, and one of them needs a one-line change before
+merge or the feature it adds never reaches an already-installed dashboard.
+
+**Then probed every write route to a PR page, each as an actual POST rather than an
+inference:** `POST /issues/45/comments` **403** (known, c275); `POST
+/pulls/45/reviews` with `event=COMMENT` **403**; `POST /pulls/45/comments` (line
+review comment) **403**; `PATCH /pulls/45` **403**. The last three had never been
+probed in 281 cycles. c275 described a ladder with the top rung missing; the
+measurement is sharper — **there is no rung.** Nothing this token can write appears on
+a pull request. Seventh consequence of chamber#6, recorded here and **not** posted
+there: c258 posted the sixth on 2026-07-29 16:37Z and a second comment inside a day is
+the nagging c27 forbids. **No scope is requested** — a token that cannot review a PR
+is a smaller problem than a token that can administer a repo, which is the trade
+`.env.example` makes on purpose.
+
+**Delivered on the channel that exists.** Appended to the open dashboard thread
+`e5f4f86f` — per c201, one open agent-initiated thread at a time, and appending bumps
+it back onto the card instead of opening a tenth. The message carries both review
+links **and both one-line asks in its own body**, so neither is behind a click: #45
+wants `const SHELL = 'retinue-shell-v16';` before merge, #44 wants
+`agents/secretary.md:95` widened from *the active chamber* to any mounted chamber plus
+a written precedence order — each with *what happens if he does nothing*. Re-verified
+against **current** `main` before sending, because the 2026-07-29 12:45Z history
+replacement could have moved the citations: `webapp/sw.js:14` is
+`retinue-shell-v15`, last touched `f2ad25d5` (2026-07-20), and `webapp/components/`
+changed twice after it — `d8bb51bf` (07-21), `a3a5f3ee` (07-22) — both in
+`SHELL_ASSETS`, neither bumping the key.
+
+**Written up for the filing queue, not filed.** `drafts/sw-shell-cache-version-never-bumped.md`,
+**rank 2 of 3**. It is a live behaviour defect and would normally outrank rank 1's
+docs inaccuracy — held below it because rank 1 has been delivered nowhere and this one
+the owner has now read twice. It carries its own retirement condition: **do not file
+it if #45 merges with a `SHELL` bump**, re-verify first (c206).
+
+**The general form, and it is this chamber's oldest lesson at a finer grain than
+before.** c163: *filed* counted as *corrected*. c201: *pushed* counted as
+*escalated*. c206: a `drafts/` write-up counted as *not lost*. c270: a correction in
+the log counted as a correction in the prose. This one is a comment on the right
+repository, about the right commit, minutes before the decision — and still not on the
+page. **A review is delivered where the decision is made, not where the code is.**
+The check is one `curl` and a `grep` for a string I wrote, and it costs less than the
+review did. No instrument written (c268 rule 2): the finding is that a route is
+closed, not that a checker was missing.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot opens
+**2026-07-31T06:08:5xZ**. *Nothing posted on chamber#6* — see above. *Nothing
+published outside the chamber* — no accounts exist. *No strategy revision* — this
+changes an operating habit, not a bet; it is an input to the 2026-08-02 review as a
+data point **for** c268 (three idle wake-ups, then one outward one with a real
+finding, is exactly the pattern those rules were written to produce). *Tick not
+re-slowed* — bound falls 16:18:00Z today. *No re-escalation* —
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 unchanged.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3. Rotation watch (`tools/rotation-check.py`): 0 problems, `log.md`
+95/300 KB, `projects/public-surface.md` 179/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `drafts/sw-shell-cache-version-never-bumped.md` (new, rank 2),
+`drafts/traefik-readme-labels-already.md` + `drafts/webapp-manifest-german-description.md`
+(re-ranked), `projects/public-surface.md` (register row, one corrected row, §c282
+write-up, handover field), `log.md` (this entry). Published outside the chamber:
+**nothing**. Handed to the owner: **one appended dashboard message** on the existing
+thread — two open PRs, two one-line asks, both reviews linked.

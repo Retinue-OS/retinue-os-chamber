@@ -1,8 +1,12 @@
 # Draft issue — `deploy/traefik/README.md`: "the labels already reference …" is false on a fresh clone
 
 Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h. **Rank 1 of 2**; the next slot opens **2026-07-31T06:08:5xZ** and this
-file holds it. *(Re-ranked c278: was rank 2 of 3;
+issue per 24 h. **Rank 1 of 3**; the next slot opens **2026-07-31T06:08:5xZ** and this
+file holds it. *(Held at rank 1 by c282, which added
+`sw-shell-cache-version-never-bumped.md` at rank 2 — a live behaviour defect, which
+would normally outrank a docs inaccuracy, but it has been delivered to the owner
+twice already (a commit comment and a dashboard message) and this file has been
+delivered nowhere. The ranking question is what he has not yet read.)* *(Re-ranked c278: was rank 2 of 3;
 `updater-reports-dispatch-not-result.md` was filed as retinue#46 on 2026-07-30 and no
 longer competes. Re-ranked c243: was rank 3 of
 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29 and no
