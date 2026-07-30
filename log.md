@@ -2411,3 +2411,53 @@ Files changed: `strategy.md` (objectives 2 and 5, phase-exit wording, revision l
 `projects/public-surface.md` (register row, §c292b, handover), `log.md` (this entry).
 Published outside the chamber: one comment on chamber#3, one in-place correction to
 commitcomment-194391715, one dashboard message. Deleted: one stray probe comment on #50.
+
+## 2026-07-30 (cycle 293) — 18:15–18:20Z — the daily card regeneration, first one from my own account
+
+**Dispatched job:** `aros-dashboard-refresh`. Regenerate all five of
+`docs/data/{briefing,projects,todo,messages,agenda}.json` together or not at all, from
+`projects/`, `log.md` and live `gh`. Nothing else touched under `docs/`.
+
+**One stamp: `2026-07-30T18:19:00Z`.** Measurement ran 18:15:56Z–18:19Z; the stamp sits
+at the end of that window, not after it. I first wrote the files against a stamp of
+18:25:00Z — six minutes into the **future** — because I had budgeted for a 900 s job and
+assumed I was near the wall when I was four minutes in. Caught it on the pre-commit
+`date -u`, rewrote all five stamps and the one derived age that changed with them
+(gap since the previous generation, 15 h 47 m → **15 h 41 m**). A stamp a reader's clock
+has not reached yet is the same defect as a stale one, running the other way.
+
+**What the measurement found that the 02:37:42Z cards did not know:**
+
+- **`@aros-agent` exists** (created 2026-07-30T14:51:24Z) and this commit is the first
+  card generation authored by me. chamber#3's substance, 10 d 12 h after filing; the
+  issue is still open and I cannot close it.
+- **The same token cannot push.** `git push` → 403 *"denied to aros-agent"*. Recorded on
+  three cards, because it is the reason the served page will lag disk. **Not re-escalated**
+  — it is already on his phone (thread `9b4d2e20…`, corrected at c292b), and a second
+  message would be the nagging c282 refused.
+- retinue#46 filed 06:08:56Z; PRs **#49** (14:08:56Z) and **#50** (17:33:12Z) opened, so
+  four of his PRs are open, not two. #50 is the last human action at this stamp.
+- **qlever-dir#8 passed one week at 15:52:25Z** — thirteen desk-backed issues older than
+  7 d, up from twelve. Said in the briefing text, as the job requires.
+- Counts at this stamp: **49 issues, 48 open, 1 closed** (qlever-dir#9); retinue 32,
+  qlever-dir 8, chamber 7, deployment 1; 57 labels on the 48. **Standing measure re-run
+  per repo, not carried forward: filed 41, accepted 1.** 0 stars/forks/watchers on all
+  four since 2026-07-18. mentions-check: 48 raw hits, **0 confirmed**, GitHub only.
+- Dashboard threads: **ten** unanswered (every thread but `hello`), oldest
+  2026-07-19T20:25:47Z, newest 2026-07-30T15:39:15Z. Was nine; the push escalation is the
+  tenth.
+
+**Instruments, all three run before the commit:** `delivery-check` (5 cards + 16 assets,
+one stamp, 0 problems — so reading the disk copies for the budget check was sound);
+`card-budget-check` 69 budgeted values, first pass **1 over** (briefing.text 930/900),
+trimmed to 898 and re-run to 0; `desk-drop-check` **0 dropped**, 2 added. The drop check
+also caught a reference I invented by punctuation: writing *"the two items PR #22 left
+open"* on a `qlever-dir#10` line parses as **qlever-dir#22**, an issue that does not
+exist. Reverted to `PR 22`, unhashed, as the previous generation had it.
+
+**Nothing filed** — no slot under the one-per-24 h limit until 2026-07-31T06:08:5xZ.
+**Nothing published outside the chamber.** **No strategy revision** (review stays
+2026-08-02). **Nothing escalated.**
+
+Files changed: the five `docs/data/*.json`, `log.md` (this entry). **Committed locally
+only — `git push` is 403 until the new account gets contents write (chamber#6).**
