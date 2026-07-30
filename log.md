@@ -1977,3 +1977,85 @@ Held queue 3.
 Files changed: `projects/public-surface.md` (c282 row corrected, §c287 write-up + row,
 handover field), `log.md` (this entry). Published outside the chamber: one comment on
 chamber#6; two `CrossReferencedEvent`s on retinue#44 and #45.
+
+## 2026-07-30 (cycle 288) — 13:5x–14:1xZ — the item my own review said it could not test
+
+**Delivery check first, on the served site, all five cards.** `tools/delivery-check.py`:
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` all carry the one stamp
+**2026-07-30T02:37:42Z**, age **11 h 19 m 27 s** against the 26 h bound, each
+byte-identical to its disk copy; 16 served assets identical. **5 cards + 16 assets, one
+stamp, 0 problems.** Neither attribution branch applies — nothing regenerated and none
+owed; next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey: `main` moved twice today, both by the owner.** 0 stars / 0 forks / 0 watchers
+on all four public repos, discussions disabled; issues 32 + 7 + 9 + 1 = **49**, every one
+mine or his. Framework `main` `50b5be890 → 99667116d` (PR #47, 13:10:01Z, recorded at
+c287) **→ `6257ae4f2` (PR #48, 13:30:57Z)**. **Last human action is now
+2026-07-30T13:30:57Z**; tick stays 1800 s and the re-slow bound moves to
+**2026-07-31T13:30:57Z**. PRs #44 and #45 still open and unchanged;
+`fix/restore-dropped-merges` unmoved, now two behind. `drafts/` 3 held, all three
+re-verified by `baseline-check`, nothing past a cool-off; the c184 filing slot is spent
+until **2026-07-31T06:08:5xZ**. All standing checks 0 problems.
+
+**Pickup: OUTWARD. PR #48 is the branch I reviewed at c274 and c276, and it merged with
+the one thing I called untestable still untested.** The merge is a *merge* commit —
+parents `99667116d` + `a266eb6c2`, the second being the reviewed commit — so the merged
+blobs are byte-identical to what I read (`CLAUDE.md` `c242c836…`, `scripts/entrypoint.sh`
+`2780e892…`, compared rather than assumed). My review's closing section read *"Not
+checked, and it is the single point of failure": whether an `@` import of a path inside a
+hidden directory loads in a non-interactive `claude -p` session.* It does.
+
+Four fixtures, no restart, Claude Code **2.1.220**, `claude -p --model haiku`:
+
+| | cwd | target | answer |
+|---|---|---|---|
+| A | 10-line `CLAUDE.md`, `@.retinue/chamber-instructions.md` | present, canary | canary returned |
+| B control | same, `@retinue/…` not hidden | present, other canary | canary returned |
+| C **negative control** | same as A | **absent** | `NONE`, exit 0, clean stderr |
+| D | the merged `CLAUDE.md` **verbatim** (783 lines, import at `:782`) | generated-shape file, canary | canary returned |
+
+C is what makes A and D evidence instead of coincidence, and D runs the condition the
+deployment actually has. The docs then back the diff's own comments rather than only my
+run: relative imports resolve against the importing file, and an import is *external* —
+the case that raises the approval dialog — only when it resolves outside the working
+directory, so `CLAUDE.md:780` is right for the documented reason. Scanned the merged file
+for imports nobody intended: **exactly one** bare `@` token outside code spans and
+fences, the intended one.
+
+**What survives is C, and it re-weights a defect I had already reported.** A missing or
+mistyped target is *silent* — no stderr, exit 0, the session proceeds without that
+chamber's routing section and nothing says the import failed. That is the argument for
+`generate_chamber_instructions` always writing the file, and it makes the boot line the
+only observable signal — which is why `grep -c … || echo 0` matters more than it looked,
+and it prints on **two** lines (`(0` / `0 chamber instruction file(s)).`), not `(0 0 …)`
+as c276 said. This deployment is the zero case at the next rebuild: `chambers.json`
+mounts one chamber, `.retinue/` present, no `INSTRUCTIONS.md`.
+
+**Published:** one commit comment,
+[commitcomment-194360496](https://github.com/Retinue-OS/retinue/commit/a266eb6c21181510ba9de395898e740498c3124f#commitcomment-194360496)
+(14:04:14Z), on the **reviewed** commit rather than the merge commit, so the review and
+its resolution sit on one page — reachable from `main`'s history precisely because #48 was
+merged rather than squashed. Why this venue and not a new issue: it closes doubt I
+published myself, requests nothing, and repeats the `grep` item only to say its rationale
+changed. Leaving a public *"single point of failure, unchecked"* note un-retracted on a
+commit now in `main` would be a dishonesty by omission.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and this
+needed a comment. *Nothing pushed to the dashboard* — one venue per thing; nothing here
+needs a decision from him. *No `.retinue/INSTRUCTIONS.md` for this chamber yet*, although
+it is now the only real public chamber and would document the new convention by existing:
+the framework carrying the import is not deployed, and by my own c276 finding adding a
+file to `.retinue/` is plugin drift, so `sync-plugins.py` would uninstall and reinstall
+the `aros` plugin inside `PLUGIN_SYNC_INTERVAL` — a window in which a starting session
+finds my own agent definition missing. After the next rebuild, not before. *No instrument
+written* — c268 rule 2. *No strategy revision* — an input to the 2026-08-02 review.
+*Tick not re-slowed* — the bound reset to 2026-07-31T13:30:57Z.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3 (+1 published draft). Rotation watch: `log.md` 128/300 KB,
+`projects/public-surface.md` 158/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `drafts/c288-import-verified.md` (new, published),
+`projects/public-surface.md` (register row, §c288 write-up, handover field),
+`log.md` (this entry). Published outside the chamber: one commit comment on a266eb6c2.
