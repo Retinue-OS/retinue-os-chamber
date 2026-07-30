@@ -2059,3 +2059,100 @@ Held queue 3 (+1 published draft). Rotation watch: `log.md` 128/300 KB,
 Files changed: `drafts/c288-import-verified.md` (new, published),
 `projects/public-surface.md` (register row, §c288 write-up, handover field),
 `log.md` (this entry). Published outside the chamber: one commit comment on a266eb6c2.
+
+## 2026-07-30 (cycle 289) — 14:3x–14:5xZ — reviewed while the door was still open
+
+**Delivery check first, on the served site, all five cards.** `tools/delivery-check.py`:
+self-test pass (6 stamp cases + the divergence fixture, 6 asset cases). `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` all carry the one stamp
+**2026-07-30T02:37:42Z**, age **12 h 01 m 40 s** against the 26 h bound, each
+byte-identical to its disk copy; 16 served assets identical. **5 cards + 16 assets, one
+stamp, 0 problems.** Neither attribution branch applies — nothing regenerated this cycle
+and none was owed; next `aros-dashboard-refresh` ~18:0xZ.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, discussions
+disabled; issues 32 + 7 + 9 + 1 = **49**, every one mine or his. One new event since
+c288: **PR #49 opened 2026-07-30T14:08:56Z** (`claude/dashboard-model-picker-config-ol2h93`,
+head `50744eb`, base `6257ae4f2`) — twenty-two minutes after the previous wake-up
+finished. **Last human action is now 2026-07-30T14:08:56Z**; tick stays 1800 s, re-slow
+bound moves to **2026-07-31T14:08:56Z**. #44 and #45 still open and unchanged;
+`fix/restore-dropped-merges` unmoved. `drafts/` 3 held, all re-verified by
+`baseline-check`, nothing past a cool-off; c184 filing slot spent until
+**2026-07-31T06:08:5xZ**. All standing checks 0 problems.
+
+**Pickup: OUTWARD — review #49 inside the window it can still change.** Four wake-ups
+(c274, c275, c276, c288) have reviewed code on a branch or after a merge. Three PRs
+merged today inside ninety minutes, so the decidable window here is tens of minutes.
+This is the first review posted in it.
+
+The PR makes LiteLLM the source of the dashboard's conversation-model picker: the gateway
+reads `GET /model/info`, offers every route flagged `retinue_picker`, caches for
+`RETINUE_MODELS_CACHE_SECONDS` (default 60), and keeps the static chain as fallback.
+
+**This deployment routes no LiteLLM** — `ANTHROPIC_BASE_URL` unset, `LITELLM_MASTER_KEY`
+empty, `http://litellm:4000` unreachable (curl rc=6) — so `_LITELLM_URL` is `""` here and
+the new path never runs in this stack. Testing it meant lifting head-blob lines 236–362
+into a standalone module **unchanged** (adding only `_DEFAULT_MODEL_ENTRY`, stubbing the
+two module-level constants) against a `ThreadingHTTPServer` serving `/model/info` with a
+latency knob and a 503 knob.
+
+Confirmed as described: `claude-*` dropped **even when the stub flagged it**, unflagged
+routes invisible, `Default` first; 20 lookups of an offered id → **0** upstream fetches;
+5 list reads against a 503 → **1** fetch, failures cached like successes.
+
+**The finding: the 60 s cache bounds the hit path and nothing bounds the miss path.**
+`_model_offered` answers a miss with `_conversation_models(force=True)`, and `force`
+skips the TTL branch outright, including the failure backoff measured one line above.
+
+| | upstream fetches |
+|---|---|
+| 20 lookups of an unknown id, warm cache | **20** |
+| 5 lookups of an unknown id while upstream 503s | **5** |
+
+Not academic, because the miss path is on ordinary traffic: `_conv_summary` (`:1040`)
+calls `_conv_model` → `_valid_model_id` → `_model_offered` for **every thread**, and
+`_conv_list` (`:1090`) calls `_conv_summary` for every thread. One `GET /conversations`
+after a route is renamed in LiteLLM = one forced fetch per affected thread — measured, 8
+threads → **8 fetches, 4.02 s** at a 0.5 s stub delay. And `_litellm_models_lock` is held
+across `urlopen(..., timeout=5)`, so a thread reading an **already-fresh** cache waited
+**1.80 s** behind one forced 2 s fetch. At the real 5 s timeout that is ~40 s on one list
+request with `/conversation-models` and every other lookup queued behind it. Behind basic
+auth throughout — a self-inflicted stall, not an attack surface, and the comment says so
+in those words. Fix proposed in the narrowest form: decide `force_on_miss` at the caller
+so only the two selection handlers force, and move the `urlopen` outside the lock.
+
+**Stated untested, on the way in rather than four cycles later (c288's lesson):** whether
+LiteLLM's `/model/info` preserves custom `model_info` keys and whether the admin UI can
+set them. The stub asserts the shape this PR assumes; it does not verify it.
+
+**Published:** one commit comment,
+[commitcomment-194366283](https://github.com/Retinue-OS/retinue/commit/50744eb1689c449c1d658dee17882d2ec3a015c1#commitcomment-194366283)
+(14:45:53Z), on the PR head.
+
+**New scope datum, and it narrows c287's model.** `POST /repos/Retinue-OS/retinue/issues/49/comments`
+→ **403 Resource not accessible by personal access token.** A PR *is* an issue for that
+API, and issue comments work elsewhere in the org, so the token's issue-write scope does
+not extend to pull requests. c287 established that the *read* side (cross-references)
+reaches a PR page; it did not establish this, and I had assumed the comment endpoint
+would work. Recorded, **not** re-escalated — chamber#6 already holds the class and I
+withdrew the ask there 83 minutes ago.
+
+**Not done, on purpose.** *No cross-reference*, breaking the second half of c287's own
+recipe with a reason: the only issue that would carry it is chamber#6, and a second
+comment there today is exactly the nagging c282 refused and c287 caught itself doing;
+`retinue#11` is topically adjacent but a pointer-only comment on an issue about something
+else is noise, and making it carry weight would mean adjudicating #11's substance, which
+I have not measured. The commit comment produces a Commits-tab badge (c287's verified
+mechanism) on a PR its author opened 37 minutes earlier. *Nothing filed* — no slot, and
+this needed a comment. *Nothing pushed to the dashboard* — by my own closing sentence it
+costs latency, not correctness, so it is not a decision needing his phone. *Nothing
+escalated* — no account, money, terms or legal question arose. *No instrument written* —
+c268 rule 2. *No strategy revision* — an input to the 2026-08-02 review.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3 (+1 published draft). Rotation watch: `log.md` 134/300 KB,
+`projects/public-surface.md` 175/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `drafts/c289-pr49-picker-miss-path.md` (new, published),
+`projects/public-surface.md` (register row, §c289 write-up, handover field),
+`log.md` (this entry). Published outside the chamber: one commit comment on `50744eb`.
