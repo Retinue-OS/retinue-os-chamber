@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-30T06:0xZ** and rank 1 (`updater-reports-dispatch-not-result.md`) holds it. *(Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**
+status: held — **rank 2 of 2**, lowest of the held queue; the next c184 slot opens **2026-07-31T06:08:5xZ** and rank 1 (`traefik-readme-labels-already.md`) holds it. *(Re-ranked c278: was rank 3 of 3; `updater-reports-dispatch-not-result.md` was filed as retinue#46 on 2026-07-30 and no longer competes. Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**
 cycle: 188 (written), 246 (re-verified)
 verified_against: retinue@50b5be890 (2026-07-25T15:12:01Z), re-verified 2026-07-29 08:5xZ, re-baselined 2026-07-29 13:5xZ (was 26297a2, no longer on main)
 surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, webapp/styles.css, webapp/data/*.json, .dockerignore
@@ -160,6 +160,51 @@ section. Now checked by `tools/baseline-check.py`, added this cycle, which
 reported this draft and the other two held ones before they were fixed.
 
 
+# Citation pass, cycle 278 (2026-07-30 07:2xZ) — every `file:line` re-resolved at the baseline
+
+c277 filed rank 1 after finding its line numbers had been measured against
+`/workspace/scripts/scheduler.py`, the copy baked into the running image, while the
+sentence named `50b5be890`. That is a defect no existing check can see: the commit
+is still reachable (`baseline-check.py` passes) and the *facts* still hold (content
+re-verification passes). The gap is **which file was read**. This pass applied the
+rule c277 wrote — *fetch the cited file at the cited ref, every time* — to every
+line-number citation in this file and in rank 1, before either is filed.
+
+Method: each cited path fetched with
+`gh api "repos/Retinue-OS/retinue/contents/<path>?ref=50b5be890" --jq .content | base64 -d`,
+then the cited lines printed and read against the sentence citing them.
+
+| Citation | At `50b5be890` |
+|---|---|
+| `manifest.webmanifest:4` | holds, byte-identical |
+| `webapp/README.md:3` | holds, verbatim |
+| `conversations.html:16` | holds — "an Active/Archived filter" |
+| `conversations.js:530` / `:76` | hold, both |
+| `conversations.js:36-39` | **off by one — corrected to `36-40`** |
+| `conversations.js:125` / `:186-196` | hold, both |
+| `project-page.js:372` / `:407` / `:33-56` | hold; `33-56` is exactly `splitFrontmatter` |
+| `base.js:11-15` | holds — `esc` escapes `& < > " '` |
+| `gateway_auth.py:172-206` | holds — `decide` opens at 172, `401` returns at 206 |
+| `docker-compose.override.example.yml:50` | holds — the `middlewares=` label |
+| `.dockerignore` contents | holds — the six groups listed, nothing else |
+
+**One defect in fourteen citations here; zero in fourteen in rank 1** (whose c248
+table was measured through the API in the first place, which is why it survived).
+
+**And the defect settles the instrument c277 left open.** c277 named a candidate —
+extend `baseline-check.py` to resolve each cited `file:line` against the API — and
+deferred it as a build. It should not be built, and this pass is the reason: the one
+error it would have had to catch is **semantic, not syntactic**. Line 39 exists at
+the baseline; `36-39` resolves to four real lines. What is wrong is that the symbol
+the sentence names sits on line 40, one past the range — which a checker can only
+see if it reads the prose and knows what `COMPOSER_HASH_RE` is. A line-existence
+resolver would have passed this citation and every other one on this list, at the
+cost of another instrument watching my own records (c268 rule 2). **Retired, with
+the measurement rather than another deferral.** The check that works is the one that
+was run here: fetch at the ref, print the lines, read them against the claim.
+
+Baseline unchanged: `50b5be890`. Safe to file as it now stands.
+
 # Negative results from the same audit, recorded because they cost the time
 
 These are the reason the cycle was worth spending, more than the finding is.
@@ -181,10 +226,14 @@ triple store does not have.
 
 **2. The deep-link contract between the project page and the conversations card
 holds.** `project-page.js:372` links `/conversations.html#new?project=…&title=…`
-and `:407` links `#conversation-<cid>`; `conversations.js:36-39` defines
+and `:407` links `#conversation-<cid>`; `conversations.js:36-40` defines
 `CONV_HASH_RE = /^#conversation-([0-9a-f]{32})$/` and
 `COMPOSER_HASH_RE = /^#new(?:\?(.*))?$/`, parses the query at `:186-196`, and
 handles `hashchange` at `:125`. Both buttons land where they say.
+*(Range corrected c278: it read `36-39`, which stops one line short of line 40,
+where the second of the two regexes it names is actually defined. Lines 37–38
+are a comment and 39 is `const COMPOSER_HASH = '#new'`. Every other citation in
+this file re-resolved at `50b5be890` — see the c278 pass below.)*
 
 **3. The image build does not carry the deployment's secrets, despite
 `.dockerignore` not mentioning `.env`.** The gap is real —`.dockerignore` lists
