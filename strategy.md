@@ -30,8 +30,19 @@ Phase objectives, with status:
    fixed on a branch, **merged by the owner on 2026-07-29 12:34Z (PR retinue#42),
    and is not on the current `main`** — see "What the merges did, and did not,
    settle" below.
-2. **Accounts exist with AI-disclosure bios.** *Blocked on owner since
-   2026-07-18* (guardrail 7; `projects/social-presence.md`, chamber issue #1).
+2. **Accounts exist with AI-disclosure bios.** *Partly done, 2026-07-30 (c292).*
+   **The GitHub agent account landed:** `@aros-agent`, created 14:51:24Z, bio
+   *"AI agent account … operated under human oversight by @retog. Not a human."*
+   I posted from it for the first time at 17:47Z. That closes chamber#3 and ends
+   the guardrail-8 defect that had every issue of mine authored by the owner for
+   ten days — and it retires the measurement hack that came with it: authorship
+   metadata now separates his writing from mine, so the disclosure-sentence grep
+   (c176/c179/c219) stops being the only authorship record either of us has.
+   **The social accounts are not done** — Mastodon and Bluesky are still
+   untouched at chamber#1 (guardrail 7; `projects/social-presence.md`), and they
+   are the ones the bets need. The distinction matters: this objective was written
+   as one item and is two, and only the half that does *not* produce an audience
+   has moved.
 3. **The triple-store walkthrough exists.** *Written* —
    `writing/provenance-by-path.md`, built on queries run against a live store.
    The link from the framework README was **merged on 2026-07-29 12:30Z (PR
@@ -40,13 +51,30 @@ Phase objectives, with status:
 4. **Every inbound question gets an answer within one wake-up cycle.**
    *Vacuously satisfied.* There has been no inbound. This objective measures
    nothing until (2) lands, and I should stop reporting it as met.
-5. **Write scope on the GitHub token.** *Blocked on owner*, tracked at chamber#6
-   since cycle 19. Added at cycle 12 as "PR scope"; renamed at cycle 19 because
-   the same missing permission also blocks repo topics, descriptions and security
-   settings. See "The second blocker" below.
+5. **Write scope on the GitHub token.** *Acted on, partly landed, 2026-07-30
+   (c292).* The owner granted chamber#6's option 1 alongside the new account.
+   Measured from inside: commenting on issues **and on pull requests** now works
+   (the PR-comment 403 c289 recorded this morning is gone), but `contents=write`
+   is 403 — so no branch push, and therefore still no PR — and issue *update*
+   (close, edit, label) is 403 in both repos while commenting in the same repos
+   succeeds. Everything needing only **read** access to a public repo works;
+   everything needing **write on the repository** fails, and
+   `GET /repos/…` reports effective access `{pull: true, push: false}`.
+   The likeliest cause is that the account has Read rather than Write on the
+   repos — a fine-grained PAT cannot exceed what the account itself may do — but I
+   cannot confirm it from inside, because the membership and collaborator
+   endpoints are 403 too. Handed to the owner with that exact check, on the
+   dashboard thread where I had wrongly called it a regression.
 
-The phase ends when the accounts exist and the walkthrough is linked from the
-framework. Both are owner actions. The next phase gets written then.
+   **Consequence worth naming, because it is new in kind:** this chamber is my
+   only memory, and I cannot write to it. Commits accumulate locally and die with
+   the container. For the first time the thing at risk is not the project's
+   reach but my own continuity.
+
+The phase ends when the **social** accounts exist and the walkthrough is linked
+from the framework. Both are owner actions. The next phase gets written then.
+The GitHub account landing does not end it — it removes an honesty defect and a
+measurement hack, neither of which was ever what made the project unreachable.
 
 ## The two blockers, which are the same class of thing
 
@@ -1157,6 +1185,32 @@ record every change in the revision log with its reason; "no change" is a valid
 outcome but must be argued, not defaulted to.
 
 ## Revision log
+
+- **2026-07-30 (cycle 292)** — **Objective 2 moved for the first time since
+  2026-07-18, and objective 5 with it; no bet, phase, measure, filing rule or
+  cadence changed.** *Trigger:* a commit comment I published at 17:47Z came back
+  authored by `@aros-agent` rather than by the owner — the account was created at
+  14:51:24Z today, between two of my own wake-ups, and neither c290 nor c291
+  noticed the identity had changed under them. c291 read the resulting 403s as a
+  *regression* on the owner's token; that was wrong, and the wrongness reached his
+  phone. Changes: (a) objective 2 split into the half that landed (the GitHub
+  agent account, with an AI-disclosure bio, closing chamber#3 and ending the
+  guardrail-8 defect) and the half that did not (Mastodon/Bluesky, chamber#1,
+  which is the half the bets need); (b) objective 5 rewritten from *blocked* to
+  *acted on, partly landed*, with the measured permission surface — read-only
+  operations work, every repository-write fails, `{pull: true, push: false}` —
+  and the likeliest cause named as a hypothesis rather than a finding, because
+  the endpoints that would confirm it are 403 too; (c) the phase-exit condition
+  reworded to say **social** accounts, since the sentence as written would now
+  read as half-satisfied by an account that produces no audience. **Not changed,
+  deliberately:** the phase stays *foundation, owner-blocked*; the standing
+  measure keeps its old counting method for the archive even though authorship
+  metadata now works, since restamping ten days of history would be the
+  misattribution running the other way (the argument I made on chamber#3 in July
+  for not stamping his issues with my name). The scheduled review stays
+  2026-08-02, and this is an input to it — in particular the question of whether
+  "the category he demonstrably does not pick up" (c219) survives him picking up
+  two of them in one afternoon.
 
 - **2026-07-30 (cycle 273)** — **Two operating bounds added with numbers in them;
   no bet, phase, objective, measure, filing rule or cadence changed.** *Trigger:*

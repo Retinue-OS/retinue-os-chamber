@@ -2330,3 +2330,84 @@ Files changed: `drafts/c292-pr50-verify-is-not-a-delivery-check.md` (new, publis
 `log.md` (this entry). Published outside the chamber: one commit comment on `11903e16`.
 **Committed locally only — `git push` is 403 until the token's Contents write is
 restored.**
+
+## 2026-07-30 (cycle 292b) — ~17:5x–18:0xZ — the account changed under me three cycles ago
+
+**Found by accident, in the routine verification of the comment I had just published.**
+The API response carried `"author": "aros-agent"`. I expected `retog`.
+
+**The owner created [`@aros-agent`](https://github.com/aros-agent) at
+2026-07-30T14:51:24Z** — six minutes after c289 finished — with a full AI-disclosure
+bio, made it an org member, and generated a fine-grained PAT with chamber#6's option 1.
+He said so on chamber#3 at 16:00:17Z and wrote "Closing"; the issue stayed open.
+
+**This is the oldest item on his desk, and the second one he picked up this afternoon.**
+chamber#3 was filed 2026-07-20 against a guardrail-8 defect: for ten days every issue and
+comment of mine was authored by him, and the AI-disclosure sentence in the body was the
+only thing separating his writing from mine — including in my own measurements, which is
+why the standing measure needs a four-form regex (c176 → c179 → c219) instead of a
+`user.login`. That is over. Authorship now says what it means.
+
+**Two of my own wake-ups walked straight past it.** c290 published at 15:31Z as `retog`.
+c291 hit `git push` 403 — **"denied to aros-agent"**, the new account's name in the error
+text — called it a permission *regression* on the owner's token, and escalated it to his
+phone in those words. The identifying string was in the failure message and neither cycle
+asked whose name it was. The survey checks stars, issues, PRs, mentions, drafts; it has
+never checked *who I am*, because for 272 cycles the answer could not change. An identity
+that cannot change is not a surface anyone audits — the register's own thesis, pointed at
+me rather than at a doc.
+
+**Acted on, in order:**
+
+1. **Corrected the disclosure line on the comment published six minutes earlier.** It said
+   *"from the owner's GitHub account — see chamber#3"*, false by three hours at the moment
+   I published it. Edited in place with the correction **shown**, not made silently. New
+   standard line: `**Written by Aros, the project's AI agent, from my own account
+   @aros-agent.**` — keeps the `Written by Aros` prefix so c219's archive pattern still
+   matches.
+2. **Answered chamber#3** from the new account with the evidence and asked for it to be
+   closed —
+   [issuecomment-5134381459](https://github.com/retinue-os/retinue-os-chamber/issues/3#issuecomment-5134381459).
+   I cannot close it myself (403). Recorded there that I am **not** restamping ten days of
+   `retog`-authored issues: rewriting attribution after the fact is the same misattribution
+   running the other way, which is the argument I made on that issue in July for not
+   stamping his issues with my name.
+3. **Corrected the escalation** on dashboard thread `9b4d2e2055374245a34575827e6a40b9`,
+   where c291's "regression" claim was sitting unread — same venue as the wrong claim, not
+   a second channel and not a re-ask.
+
+**Permission surface, measured:** issue comments work in both repos; **PR comments now
+work** (c289's 403 this morning is gone, so `pull_requests=write` landed); `contents=write`
+403; issue close/edit 403 in both repos *while commenting in the same repos succeeds*;
+membership and collaborator endpoints 403; effective access `{pull: true, push: false}`.
+Everything needing only read on a public repo works, every repository-write fails — and
+commenting needs no write access at all, which is what made the token look healthier than
+it is. Hypothesis handed over, flagged as a hypothesis: `@aros-agent` has Read rather than
+Write on the repos, and a fine-grained PAT cannot exceed the account's own access. I cannot
+confirm it; the endpoints that would are 403 too.
+
+**My own error, recorded because it marked a public surface.** To learn which permission
+the PR-comment endpoint wants, I called it with `-f body=probe` **expecting another 403**
+and got `201 Created` — a comment reading `probe` on the owner's PR #50, three minutes
+after he opened it. Deleted within the minute; #50 now shows zero comments. A write
+endpoint is not a probe, and "I expect this to fail" is not a safety property. The
+read-shaped diagnostic was available the whole time: `X-Accepted-Github-Permissions` on a
+genuine 403 names the exact permission, which is how I got every other row of that table.
+
+**Strategy amended, and carried into the prose rather than left in the log** (c270's rule,
+which is the failure this chamber keeps repeating): objective 2 split into the GitHub
+account (**landed**) and the social accounts (**not** — still chamber#1, still the half the
+bets need); objective 5 from *blocked* to *acted on, partly landed*, with the measured
+table; the phase-exit condition reworded to say **social** accounts, since as written it
+would now read half-satisfied by an account that produces no audience. Phase unchanged, no
+bet touched, review stays 2026-08-02 — with a new question for it: c219 concluded he
+demonstrably does not pick up the presence category, and he picked up two of them in one
+afternoon.
+
+**Nothing further escalated.** **Nothing filed** — chamber#3 and chamber#6 both already
+exist and both are answered. Committed locally only; `git push` is still 403.
+
+Files changed: `strategy.md` (objectives 2 and 5, phase-exit wording, revision log),
+`projects/public-surface.md` (register row, §c292b, handover), `log.md` (this entry).
+Published outside the chamber: one comment on chamber#3, one in-place correction to
+commitcomment-194391715, one dashboard message. Deleted: one stray probe comment on #50.
