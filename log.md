@@ -1374,3 +1374,73 @@ Held queue 2. Rotation watch (`tools/rotation-check.py`): 0 problems, `log.md`
 Files changed: `projects/public-surface.md` (handover field, trimmed to the two most
 recent segments per c273), `log.md` (this entry). Published outside the chamber:
 **nothing**. Nothing filed, nothing pushed to the owner.
+
+## 2026-07-30 (cycle 281) — 09:0x–09:2xZ — idle: delivery clean, nothing moved since c280, nothing due
+
+**Delivery check first.** `tools/delivery-check.py`: self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). All five served cards — `agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json` — carry the one stamp
+**2026-07-30T02:37:42Z**, age **6 h 28 m 38 s** against the 26 h bound, each
+byte-identical to its disk copy; 14 served assets identical. **5 cards + 14 assets,
+one stamp, 0 problems.** Read all five, not one. Neither attribution branch applies,
+so nothing was regenerated and none is owed. Next `aros-dashboard-refresh` ~18:0xZ,
+with nothing owed to it.
+
+**Survey: nothing at all since c280's own push.** The org event stream's newest entry
+is **2026-07-30T08:34:47Z — c280's commit**, and there is no event after it.
+Re-counted per repo rather than carried: 0 stars / 0 forks / 0 watchers on all four
+public repos, discussions disabled; issues 32 + 7 + 9 + 1 = **49**; framework `main`
+still `50b5be890`; PRs #44 and #45 still open with 0 comments on the PR itself; five
+branches unchanged (`feat/chamber-instructions` @ `a266eb6c2`,
+`feat/chamber-secretary-style-override`, `feat/code-block-copy-button`,
+`fix/restore-dropped-merges` @ `2d991868d`, `main`). Authorship re-derived rather than
+assumed: all five commit comments on the framework (04:02:20Z, 04:42:23Z, 04:42:36Z,
+05:23:56Z, 05:24:43Z) and retinue#46 (06:08:57Z) carry the AI-disclosure line, so they
+are mine, and `a266eb6c2` is authored `Ara (Claude)`. **Last human action stays
+2026-07-29T16:18:00Z** (PR #45); tick stays 1800 s; **re-slow bound
+2026-07-30T16:18:00Z has not fallen** — the first wake-up after it may re-slow to
+10800 s if nothing human has happened by then. Standing measure re-counted, not
+carried: **filed 41, accepted 1** (retinue 26, chamber 6, qlever-dir 8, deployment 1),
+of 49. All nine checks 0 problems (`rotation-check`, `pointer-check` — 121 pointers,
+`private-name-check`, `desk-drop-check` — 0 dropped / 7 added, `render-check`,
+`card-budget-check` — 64 budgeted values 0 over, `baseline-check` — both held drafts
+still on `50b5be890`, `mentions-check`, `web-mentions-check` — 1/3 engines answering,
+0 confirmed hits off GitHub). `drafts/` 2 held; every other draft carries a
+filed/published/superseded status, re-read this cycle rather than trusted.
+
+**No pickup, and c268 rule 1 admits only *outward* or *idle* here** (c279 and c280
+both changed nothing outside this chamber's bookkeeping). No outward item is
+available: the c184 filing slot is spent until **2026-07-31T06:08:5xZ**, so rank 1
+(`traefik-readme-labels-already.md`, verified citation-by-citation at c278) waits
+rather than jumps it; no inbound exists to answer; no accounts exist to publish from;
+both open PRs and `feat/chamber-instructions` already carry my reviews as commit
+comments (c275/c276), so re-commenting would be the nagging c27 forbids;
+`fix/restore-dropped-merges` cannot bit-rot against a `main` that has not moved; the
+~18:0xZ regeneration owes nothing; the review is 2026-08-02. **Re-examined and left
+held: c259's framework-README link to the served docs site.** c259 said it "goes into
+the next docs branch, or into that one if it comes back for another push", and c260
+did push to `fix/restore-dropped-merges` without taking it — so the stated condition
+fired once and was missed. Still not taken, on a fresh reason rather than the old one:
+adding a cosmetic third commit to a correctness recovery that has sat on the owner's
+desk since 2026-07-29 enlarges what he is being asked to review, and the link needs
+his merge either way, so it is not a reach lever that works without him. Recorded so
+the next wake-up does not re-derive it and conclude the opposite. **Third consecutive
+idle wake-up, which is the outcome c268 predicted in advance.**
+
+**Not done, on purpose.** *Nothing filed* — no slot. *No instrument written* — c268
+rule 2; every surface in the register a reader or the owner meets is watched, and
+nothing failed for want of a checker. *Nothing published outside the chamber.*
+*Nothing pushed to the owner* — no account, money, terms-of-service or legal question
+arose; the seven `owner-action` issues and the one open dashboard thread sit where
+they were (c201: one open thread at a time). *Nothing re-escalated* —
+chamber#1/#3/#4/#5/#6/#7/#8 and retinue#1/#2/#3/#4 unchanged. *No strategy revision* —
+this is one clean survey, not evidence against a bet, and c268 rule 1 forbids an
+inward wake-up here in any case. *Tick not re-slowed* — bound falls 16:18:00Z today.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 2. Rotation watch (`tools/rotation-check.py`): 0 problems, `log.md`
+90/300 KB, `projects/public-surface.md` 172/200 KB, `strategy.md` 114/150 KB.
+
+Files changed: `projects/public-surface.md` (handover field, trimmed to the two most
+recent segments per c273), `log.md` (this entry). Published outside the chamber:
+**nothing**. Nothing filed, nothing pushed to the owner.
