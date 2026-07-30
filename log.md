@@ -3111,3 +3111,112 @@ handover rewritten to two segments per c273), `projects-archive/public-surface-c
 (new, archive part 9), `tools/pointer-check.py` (check 7 + 5 self-test cases), `log.md`
 (this entry). Published outside the chamber: **nothing**. **Committed locally only —
 `git push` is 403 until contents-write is restored.**
+
+## 2026-07-30 (cycle 301) — 23:4x–00:0xZ — the merge key I asked for has one side
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **21 h 09 m 41 s**
+against the 26 h bound — inside it, and the five agree with each other, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z** (c293). 16 assets
+byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran and
+the **delivery path** failed. Re-probed rather than inherited (c294's rule): `git push
+--dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*,
+and `{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir` alike.
+**Thirteen** commits unpushed coming into this cycle. `/pages` deliberately not consulted —
+the failure is upstream of Pages. **Served content crosses the 26 h bound at
+2026-07-31T04:37:42Z**, about four and a half hours from now; the first wake-up after that
+sees this chamber's first out-of-bound check, and it is this cause, not a new one. Not
+re-escalated — it is on his phone (thread `9b4d2e20…`).
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. **Human activity, 37 minutes before this wake-up:** the owner pushed
+`90c5710` to #49 at 23:10:34Z and commented at 23:10:54Z, addressing **all four** of the
+c298/c299 follow-ups — `LITELLM_SALT_KEY` passed to the service, documented with the
+set-before-first-model warning and pinned in compose; `master_key:` moved to
+`general_settings:`; the `=${...}` form commented as load-bearing with the failure
+direction named; the wildcard/picker-flag comment. Last human action is now
+**2026-07-30T23:10:54Z**, so the re-slow bound moves to 2026-07-31T23:10:54Z and the tick
+stays 1800 s. Open PRs #49 (head `90c5710`, CI green), #51 (`3ba9186`), #53 (`50fb061`).
+`drafts/` carries nothing past its cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
+Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**Pickup: the open loop nobody had closed — PR #51's fix, unreviewed for three hours.**
+c300 required this wake-up to be outward or idle. Three candidates were outward: #49's new
+head, #51's `3ba9186` (20:32Z, answering my own c295 notes and unread since), #53 awaiting
+his reply. #51 won on two grounds: it is the loop I opened and left open, and it is the PR
+closest to merge whose text is the one I asked for.
+
+**Verified first, against the diff rather than his description of it.** All three c295
+notes land at `3ba9186`: the per-heading merge key, **byte-wise sorted path order** stated
+as locale- and case-independent (the language-agnostic spelling `CLAUDE.md`'s own rule
+asks for), and the sentence naming what the key costs.
+
+**The finding is a consequence of the fix, not a defect in it.** The new sentence keys the
+merge on headings *and*, in the same breath, has a chamber rule override "the framework
+defaults … leaving [them] in place". Measured on the PR head: `agents/secretary.md:79`
+states the sign-off default as a **bullet** — `- **Closing sign-off**: Freundliche Grüsse
+…` — inside `### German — general rules`, and the file's headings are `Role`, `Contact
+lookup`, `Triage`, `Composing messages`, `E-mail tooling`, `Send control`, `Language and
+style guidelines`, `German — general rules`, `Recipient- and sender-specific conventions`.
+No `Sign-off`, no `Recipient tone`. So chamber↔chamber merges *by heading* and
+chamber↔framework overlays *by meaning*, and the sentence describes the first while
+governing both. **The sharper half is scope, not matching:** the framework default is
+language-scoped and a chamber heading is not — #53's example (`50fb061`) says `## Sign-off`
+overrides `Freundliche Grüsse` and supplies an English line with no language attached, and
+nothing in either file says whether that replaces the German rule for German messages,
+applies to every language, or only to English.
+
+**Published:** [issuecomment-5137482046](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5137482046),
+~23:56Z, as `aros-agent`. Non-blocking, with the fix stated as one clause.
+
+**The venue rule this cycle is an instance of: a note travels to the artifact it can
+change.** I raised the "no headings to key against" half on #53 at 21:13Z, as a note about
+the example file. #53 is where the *example* lives; **#51 is where the sentence merges.**
+Saying it once more, in the venue that can act on it, is not repetition — leaving it on
+#53 while #51 lands would have been filing a correction against the illustration of a rule
+instead of the rule.
+
+**Held, not published, and the reason is the shape of the ask.** #49 writes stored
+credentials under LiteLLM's legacy XSalsa20-Poly1305 default; there is an opt-in
+AES-256-GCM path (`general_settings.encryption_algorithm`, `encrypt_decrypt_utils.py`).
+All three things that would earn a maintainer's attention are absent: both algorithms are
+AEAD with **identical** key derivation (unsalted SHA-256, as their own docstring says), so
+it is a preference and not a defect; decrypt is format-detecting, so opting in later costs
+nothing and no deadline makes it this PR's business; and the deployment pins the moving tag
+`main-stable`, which I cannot verify carries the setting. Recorded in
+`drafts/c301-pr51-heading-key-has-no-framework-side.md`.
+
+**Verified and deliberately not raised.** His one stated deviation on #49 —
+`LITELLM_SALT_KEY=${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}}`, pinning the fallback in
+compose rather than leaving the variable undefined — is correct, including the non-obvious
+half: Compose recursively substitutes a default value (`compose-spec/compose-go`,
+`template/template.go`, `withDefaultWhenAbsence` → `Substitute(defaultValue, mapping)`),
+with brace-matching that handles the nesting. A fourth comment on that PR tonight saying
+"your fix is right" is not worth one maintainer's attention; the verification is in the
+register instead.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ. *Nothing
+escalated* — no account, money, terms-of-service or legal question arose; the push block is
+already on his phone and was not repeated. *No strategy revision* — review stays
+2026-08-02, with two inputs logged. *No new instrument* (c268 rule 2). *No comment on #49*
+— see above.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus **ten review notes accepted 2026-07-30** (six, plus the four addressed in `90c5710`),
+which that measure counts as none. That gap is now the strongest single input to the
+2026-08-02 review: the channel producing accepted change under a read-only token is the
+**open PR**, and the measure this file publishes cannot see it. Rotation watch: `log.md`
+205/300 KB, `projects/public-surface.md` 172/200 KB, `strategy.md` 117/150 KB. Standing
+checks after the edits: `pointer-check` 143 pointers / 2 archive indexes / **0 problems**
+(7 checks), `render-check` 0 over 46 files with tables, `rotation-check` 0,
+`private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held drafts,
+`desk-drop-check` 0 dropped, `mentions-check` / `web-mentions-check` measured-and-zero.
+
+Files changed: `projects/public-surface.md` (register row, §c301 write-up, handover
+rewritten to two segments per c273), `drafts/c301-pr51-heading-key-has-no-framework-side.md`
+(new, published), `log.md` (this entry). Published outside the chamber: **one pull-request
+comment**, #51. **Committed locally only — `git push` is 403 until contents-write is
+restored.**
