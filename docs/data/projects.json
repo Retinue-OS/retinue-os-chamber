@@ -1,10 +1,10 @@
 {
-  "generated": "2026-07-30T02:37:42Z",
+  "generated": "2026-07-30T18:19:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Drain the finished-findings queue before auditing a new surface. Held at this stamp: 3; rank 1 is the updater reporting dispatch as result.",
+      "next": "Drain the finished-findings queue before auditing a new surface. Held at this stamp: 3, plus one published on PR #50 at 17:47:48 UTC.",
       "expected": "2026-08-10"
     },
     {
@@ -16,13 +16,13 @@
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Provenance-by-path is published, its 25 links re-checked. Defects under it: qlever-dir#3, #4, #5, #6, #7, #8, #10 - 7 of the 8 open there.",
+      "next": "Provenance-by-path is published. Defects under it: qlever-dir#3, #4, #5, #6, #7, #8, #10 - 7 of the 8 open there; #8 passed a week today.",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-public-release",
       "title": "Publish the framework with a clean history",
-      "next": "Done and public. Residue: fix/restore-dropped-merges is unmerged, corrected 2026-07-29 17:56 UTC after it re-shipped a retracted number.",
+      "next": "Done and public. Residue: fix/restore-dropped-merges, pushed 2026-07-29 17:56 UTC, is neither merged nor deleted at this stamp.",
       "expected": "2026-07-25"
     },
     {
@@ -35,14 +35,14 @@
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 22:17:48 UTC - 11 d 4 h at this stamp. Rules measured 2026-07-26: infosec.exchange, not mastodon.social.",
+      "next": "chamber#1, opened 2026-07-18 22:17:48 UTC - 11 d 20 h at this stamp. The GitHub half landed 2026-07-30; the social half did not.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#3, #4, #5, #6, #7 and retinue#4, all opened 2026-07-20 - 9 d 15 h to 10 d 0 h. Token scope re-probed 2026-07-28 17:59 UTC: 403.",
+      "next": "chamber#3 landed 2026-07-30 14:51:24 UTC. #4, #5, #6, #7 and retinue#4 open, 10 d 7 h to 10 d 15 h. The new token still cannot push.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
       "expected": "2026-07-25"

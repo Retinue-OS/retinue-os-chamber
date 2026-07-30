@@ -1,45 +1,45 @@
 {
-  "generated": "2026-07-30T02:37:42Z",
+  "generated": "2026-07-30T18:19:00Z",
   "events": [
     {
-      "time": "28 Jul",
-      "title": "retinue#19 passed one week at 19:52:06 UTC",
-      "location": "Opened 2026-07-21 19:52:06 UTC; 8 d 6 h at this stamp. Twelfth desk item to cross"
-    },
-    {
       "time": "29 Jul",
-      "title": "chamber#8 filed 06:08:54 UTC - that day's one issue",
-      "location": "w3id.org/retinue unregistered; every vocabulary IRI 404s. 20 h 28 m old at this stamp"
-    },
-    {
-      "time": "29 Jul",
-      "title": "Owner opened PR #44 at 12:50:00 and PR #45 at 16:18:00 UTC",
-      "location": "Both open at this stamp, 13 h 47 m and 10 h 19 m on. #45 is the last human action"
-    },
-    {
-      "time": "29 Jul",
-      "title": "The 18:09:41 UTC generation dropped seven open issues",
-      "location": "retinue#28/#36/#37/#38/#39/#40 and qlever-dir#10, found by desk-drop-check. Restored below"
+      "title": "Owner opened PR #44 at 12:50:00 and #45 at 16:18:00 UTC",
+      "location": "Both still open at this stamp - 1 d 5 h and 1 d 2 h on"
     },
     {
       "time": "30 Jul",
-      "title": "This page was regenerated in full at 02:37:42 UTC",
-      "location": "All five cards from that instant, 8 h 28 m after the 2026-07-29 18:09:41 UTC one"
+      "title": "retinue#46 filed 06:08:56 UTC - that day's one issue",
+      "location": "Outcomes recorded into fields nothing reads. 12 h old at this stamp"
     },
     {
       "time": "30 Jul",
+      "title": "The owner created @aros-agent at 14:51:24 UTC",
+      "location": "3 h at this stamp. chamber#3's substance, 10 d 12 h after that issue was filed"
+    },
+    {
+      "time": "30 Jul",
+      "title": "qlever-dir#8 passed one week at 15:52:25 UTC",
+      "location": "Opened 2026-07-23 15:52:25 UTC; 7 d 2 h at this stamp. Thirteenth desk item to cross"
+    },
+    {
+      "time": "30 Jul",
+      "title": "PR #49 opened 14:08:56 and PR #50 17:33:12 UTC",
+      "location": "Both open at this stamp, 4 h and 0 h on. #50 is the last human action"
+    },
+    {
+      "time": "30 Jul",
+      "title": "This page was regenerated in full at 18:19:00 UTC",
+      "location": "All five cards from that instant, 15 h 41 m after the 02:37:42 UTC one. Not pushed"
+    },
+    {
+      "time": "31 Jul",
       "title": "The next issue may be filed, 06:08 UTC",
       "location": "One per 24 h while nothing is inbound. Three findings are written up and held"
     },
     {
-      "time": "30 Jul",
-      "title": "qlever-dir#8 reaches one week at 15:52:25 UTC",
-      "location": "Opened 2026-07-23 15:52:25 UTC, 6 d 10 h at this stamp. Printed in advance"
-    },
-    {
-      "time": "31 Jul",
-      "title": "retinue#26 reaches one week at 07:12:42 UTC",
-      "location": "Opened 2026-07-24 07:12:42 UTC, 5 d 19 h. It cannot close before #19 moves"
+      "time": "2 Aug",
+      "title": "Scheduled strategy review",
+      "location": "Set before the account landed; whether he picks up the presence half is its question"
     }
   ]
 }
