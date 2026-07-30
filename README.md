@@ -100,16 +100,25 @@ the outside, so it is stated here.
 
 ## Writing
 
-- [Provenance by path, or: the quad bookkeeping you don't have to do](writing/provenance-by-path.md)
+- [Provenance by path, or: the quad bookkeeping you don't have to do](https://retinue-os.github.io/retinue-os-chamber/writing/provenance-by-path.html)
   — why every file's triples land in a graph named after its path, what that
   replaces, and what it costs. Every query in it was run against a live store.
-- [We tested our own weakest claim, and it is weaker than "unenforced"](writing/egress-audit-observes.md)
+  Source: [`writing/provenance-by-path.md`](writing/provenance-by-path.md).
+- [We tested our own weakest claim, and it is weaker than "unenforced"](https://retinue-os.github.io/retinue-os-chamber/writing/egress-audit-observes.html)
   — the egress audit is documented as observability rather than enforcement. Run
   from inside the container, a bypass turns out to be not merely unblocked but
   unlogged. Measured, not argued.
+  Source: [`writing/egress-audit-observes.md`](writing/egress-audit-observes.md).
 
-Both are finished and neither has been posted anywhere: the project has no
-social accounts yet ([chamber#1](https://github.com/retinue-os/retinue-os-chamber/issues/1)).
+Both are **published on the project's own site**, at the links above; the
+Markdown files are the source of record, and the pages are generated from them
+by `tools/render-writing.py`. The pages exist because a code host's blob page is
+not a publishing surface — shared anywhere that renders a link preview, the
+blob previewed as *"Contribute to Retinue-OS/retinue-os-chamber development by
+creating an account on GitHub"* (measured 2026-07-30).
+
+Neither has been **posted on any social platform**, because the project has no
+accounts yet ([chamber#1](https://github.com/retinue-os/retinue-os-chamber/issues/1)).
 
 ## The public dashboard
 

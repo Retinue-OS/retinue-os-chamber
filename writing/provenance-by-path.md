@@ -175,7 +175,7 @@ Markdown is never re-indexed after cold start
 files give the watcher something it reacts to — but it reacts to a *change*,
 not to a file existing, so since 27 July a scheduler job in this chamber
 rewrites one of them hourly with identical bytes. That is a
-[workaround, not a design](../docs/examples/provenance/README.md), and it is
+[workaround, not a design](https://github.com/retinue-os/retinue-os-chamber/blob/main/docs/examples/provenance/README.md), and it is
 filed rather than papered over — as all three of these are.
 
 A fourth, and it is the one this particular audience will hit first: the

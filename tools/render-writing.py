@@ -45,6 +45,20 @@ Usage
 `--check` compares the SHA-256 of each source Markdown file against the digest
 recorded in the page it produced, so a piece edited without re-rendering is
 caught by a command rather than by a reader.
+
+One rule about links, learned the hard way
+------------------------------------------
+The first render published a broken link, measured 2026-07-30: the source said
+`[workaround, not a design](../docs/examples/provenance/README.md)`, which is
+correct read from `writing/` in the repo and **404 on the site**, because Pages
+serves `docs/` *as the root* — so `../docs/…` from `/writing/x.html` asks for
+`/retinue-os-chamber/docs/…`, one path segment that does not exist. The same
+bytes are now read from two different base paths, and no relative link can be
+right in both.
+
+So: **every link in the body must be absolute** (or a `#` fragment). The
+renderer refuses to write a page otherwise, and `--check` reports it, rather
+than leaving the reader of the lead-story piece to find it.
 """
 
 import argparse
@@ -202,6 +216,39 @@ TEMPLATE = """<!doctype html>
 DIGEST_RE = re.compile(r"source-sha256: ([0-9a-f]{64})")
 ANCHOR_RE = re.compile(r'<a id="user-content-[^"]*" class="anchor".*?</a>', re.S)
 H1_RE = re.compile(r"^#\s+(.*)$", re.M)
+HREF_RE = re.compile(r'\bhref="([^"]*)"')
+SRC_RE = re.compile(r'\bsrc="([^"]*)"')
+
+
+def relative_targets(body):
+    """Links and images in a rendered body that are not absolute.
+
+    A relative target is resolved against the repo when the Markdown is read on
+    GitHub and against `docs/` when the same text is read on the site. Both
+    cannot hold, so the answer is not to translate them but to reject them.
+    """
+    bad = []
+    for target in HREF_RE.findall(body) + SRC_RE.findall(body):
+        t = target.strip()
+        if not t or t.startswith("#"):
+            continue
+        if re.match(r"^(https?:|mailto:|data:)", t):
+            continue
+        bad.append(t)
+    return bad
+
+
+def selftest():
+    """Known-good and known-bad, so the guard is verified rather than trusted."""
+    good = '<a href="https://example.org/x">x</a> <a href="#anchor">a</a>'
+    bad = '<a href="../docs/examples/provenance/README.md">workaround</a>'
+    if relative_targets(good) != []:
+        return "selftest: a body of absolute links was reported as relative"
+    if relative_targets(bad) != ["../docs/examples/provenance/README.md"]:
+        return "selftest: the c284 link (the defect this guard exists for) was not caught"
+    if relative_targets('<img src="icons/x.png">') != ["icons/x.png"]:
+        return "selftest: a relative image source was not caught"
+    return None
 
 
 def render_markdown(text):
@@ -230,6 +277,13 @@ def build(piece):
         raise RuntimeError(f"{piece['source']}: no level-1 heading to take a title from")
     title = m.group(1).strip()
     body = render_markdown(text)
+    bad = relative_targets(body)
+    if bad:
+        raise RuntimeError(
+            f"{piece['source']}: {len(bad)} relative link/image target(s) — "
+            f"correct in the repo, 404 on the site: {', '.join(bad[:5])}. "
+            "Make them absolute in the Markdown."
+        )
     page = TEMPLATE.format(
         title_esc=html.escape(title, quote=True),
         description_esc=html.escape(piece["description"], quote=True),
@@ -246,8 +300,13 @@ def build(piece):
     return digest, title, page
 
 
+# The only relative targets the page frame itself uses; anything else in a page
+# on disk came out of the Markdown and is the c284 defect.
+TEMPLATE_RELATIVE = {"../", "../styles.css", "../icons/icon-192.png"}
+
+
 def check(piece):
-    """Is the page on disk still the one this Markdown produces?"""
+    """Is the page on disk still the one this Markdown produces, and does it link?"""
     out = os.path.join(OUT_DIR, piece["slug"] + ".html")
     src = os.path.join(ROOT, piece["source"])
     if not os.path.exists(out):
@@ -255,12 +314,17 @@ def check(piece):
     with open(src, "rb") as fh:
         want = hashlib.sha256(fh.read()).hexdigest()
     with open(out, encoding="utf-8") as fh:
-        found = DIGEST_RE.search(fh.read())
+        page = fh.read()
+    found = DIGEST_RE.search(page)
     if not found:
         return f"{piece['slug']}.html: no source-sha256 stamp"
     if found.group(1) != want:
         return (f"{piece['slug']}.html: stale — built from {found.group(1)[:12]}, "
                 f"{piece['source']} is now {want[:12]}")
+    stray = [t for t in relative_targets(page) if t not in TEMPLATE_RELATIVE]
+    if stray:
+        return (f"{piece['slug']}.html: {len(stray)} relative target(s) from the "
+                f"Markdown — 404 on the site: {', '.join(stray[:5])}")
     return None
 
 
@@ -269,6 +333,12 @@ def main():
     ap.add_argument("--check", action="store_true",
                     help="verify each page against its source; write nothing")
     args = ap.parse_args()
+
+    failure = selftest()
+    if failure:
+        print(failure)
+        return 2
+    print("self-test: pass (3 link cases)")
 
     if args.check:
         problems = [p for p in (check(x) for x in PIECES) if p]
