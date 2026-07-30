@@ -81,6 +81,12 @@ What it checks
 
    The general form, and it is c235's again: **an instrument's grammar is a
    claim about its corpus**, and the corpus is written by hand.
+6. **Archive-index completeness** (added c286): every part in an archive
+   directory is linked from the *Archive, oldest first* list of the file that
+   rotates into it. Measured at c286: `projects/public-surface.md` listed 2 of
+   its 6 parts, while `log.md` — same rule, same shape — listed all 5. The
+   rotation produces two artifacts and only one of them is load-bearing for
+   anything else, so the list is the half that drifts.
 
 The first two failures are silent to a reader: a "below" pointer into a rotated
 section renders as ordinary prose and sends someone scrolling to the end of a
@@ -124,6 +130,7 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 
 # The five pointer forms the register uses, in one pattern. Named groups say
 # which one matched; `check_text` gives each its own resolution rule.
@@ -333,6 +340,73 @@ def check_coverage(path, text):
             )
 
 
+def check_archive_index(root, live_relpath, archive_dirname, listing):
+    """Yield a problem for any archive part not linked from the file it left.
+
+    Added c286. The rotation rule produces two artifacts: a part in an archive
+    directory, and a line in the live file's *Archive, oldest first* list. Only
+    the first is load-bearing for anything else, so the second drifted: measured
+    at c286, `projects/public-surface.md` listed 2 of its 6 parts — the four
+    rotations after c216 each wrote a part and none appended a line — while
+    `log.md`, running the same rule, listed all 5 of its own. Nothing signalled
+    the gap, because a part stays reachable from whichever register rows point
+    into it; the only reader who loses anything is one reading the list.
+
+    `listing` is the live file's text, and the search is scoped to the bullet
+    block under its `Archive, oldest first:` line — **not** to the whole file.
+    The first version of this function searched the whole text and reported 1 of
+    the 5 parts it was written to find: four of them are named elsewhere in the
+    same file, inside register-row pointers of the
+    `Detail: §c213 in [archive part 3](…)` form. A checker whose corpus is wider
+    than its claim passes for the wrong reason, which is c263's finding turned on
+    the checker written to answer it, one wake-up after c284 made the same
+    mistake's cousin — so this one was run against the pre-fix copy of the file
+    before it was believed.
+
+    The claim being checked is one-way on purpose: every part on disk must appear
+    in the list. A list entry for a part that does not exist is already caught by
+    the B/D pointer forms if any row points at it, and a bare dead link in the
+    list is `render-check`'s business, not this function's.
+    """
+    d = os.path.join(root, archive_dirname)
+    try:
+        parts = sorted(p for p in os.listdir(d) if p.endswith(".md"))
+    except OSError:
+        return
+    block = archive_list_block(listing)
+    for part in parts:
+        if f"{archive_dirname}/{part}" not in block:
+            yield (
+                f"UNLISTED   {live_relpath}: {archive_dirname}/{part} exists but is "
+                f"not in the file's archive list, so a reader of the list cannot find it"
+            )
+
+
+ARCHIVE_MARKER = re.compile(r"(?m)^Archive, oldest first:\s*$")
+
+
+def archive_list_block(text):
+    """The bullet list under `Archive, oldest first:`, or "" if there is none.
+
+    A bullet may wrap onto indented continuation lines (both live files write
+    them that way), so the block ends at the first line that is neither a
+    bullet, a continuation, nor blank.
+    """
+    m = ARCHIVE_MARKER.search(text)
+    if not m:
+        return ""
+    out = []
+    for line in text[m.end():].split("\n")[1:]:
+        if line.startswith("- ") or (line.startswith("  ") and line.strip()):
+            out.append(line)
+        elif not line.strip():
+            if out:
+                break
+        else:
+            break
+    return "\n".join(out)
+
+
 GOOD = "Detail: §c7 below.\n\n## c7 — a write-up\n"
 BAD_BELOW = "Detail: §c7 below.\n\n## c8 — a different write-up\n"
 BAD_LINK = "Detail: §c7 in [part 1](../a/gone.md).\n"
@@ -415,12 +489,33 @@ def self_test():
     unl_c = len(list(check_coverage("f.md", UNLABELLED_C))) == 1
     unl_d = len(list(check_coverage("f.md", UNLABELLED_D))) == 1
     unl_plain = not list(check_coverage("f.md", PLAIN_LINK_ROW))
+    # c286: check 6, both directions, against a real directory rather than a
+    # mocked listing — the defect it exists for was a file on disk that no line
+    # of prose mentioned, so the fixture has to have files on disk.
+    with tempfile.TemporaryDirectory() as td:
+        os.mkdir(os.path.join(td, "arch"))
+        for name in ("p1.md", "p2.md"):
+            open(os.path.join(td, "arch", name), "w").close()
+        head = "Archive, oldest first:\n\n"
+        both = head + "- [x](arch/p1.md)\n- [y](arch/p2.md)\n  wrapped continuation.\n\nprose.\n"
+        one = head + "- [x](arch/p1.md)\n\nprose.\n"
+        # The false pass the first version of this function returned: the missing
+        # part named in a register row *outside* the list must still be reported.
+        elsewhere = one + "\n| a surface | Detail: §c9 in [part 2](arch/p2.md). |\n"
+        idx_ok = not list(check_archive_index(td, "live.md", "arch", both))
+        idx_bad = len(list(check_archive_index(td, "live.md", "arch", one))) == 1
+        idx_scope = len(list(check_archive_index(td, "live.md", "arch", elsewhere))) == 1
+        idx_none = not list(check_archive_index(td, "live.md", "nosuchdir", ""))
+        # No marker at all: nothing to check against, and silence is wrong — the
+        # parts exist and no list names them.
+        idx_nomarker = len(list(check_archive_index(td, "live.md", "arch", "prose only.\n"))) == 2
     return all(
         [
             ok, ok2, bad1, bad2, fresh, stale, unnamed, prose,
             c_ok, c_bad, d_ok, d_bad, e_ok, e_bad, date_ok, date_bad,
             cov_bad, cov_prose, cov_header, cov_ok, cov_code,
             bare_ok, bare_bad, bare_b, bare_prose, unl_c, unl_d, unl_plain,
+            idx_ok, idx_bad, idx_scope, idx_none, idx_nomarker,
         ]
     )
 
@@ -440,7 +535,8 @@ def main():
         return 2
     print(
         "self-test: pass (4 pointer cases + 8 form/heading cases "
-        "+ 5 coverage cases + 7 label cases + 4 handover-field cases)"
+        "+ 5 coverage cases + 7 label cases + 4 handover-field cases "
+        "+ 5 archive-index cases)"
     )
 
     cache = {}
@@ -464,8 +560,20 @@ def main():
         problems.extend(check_coverage(path, text))
         problems.extend(check_next_action(path, text))
 
+    # Check 6 (c286): each rotating file's archive directory against its own
+    # *Archive, oldest first* list.
+    indexes = [
+        ("projects/public-surface.md", "projects-archive"),
+        ("log.md", "log-archive"),
+    ]
+    for live, archive in indexes:
+        problems.extend(check_archive_index(root, live, archive, load(live) or ""))
+
     if not problems:
-        print(f"{len(files)} tracked Markdown files, {pointers} pointers, 0 problems.")
+        print(
+            f"{len(files)} tracked Markdown files, {pointers} pointers, "
+            f"{len(indexes)} archive indexes, 0 problems."
+        )
         return 0
 
     print()
