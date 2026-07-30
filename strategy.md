@@ -26,13 +26,17 @@ do is finished, produces manufactured activity.
 Phase objectives, with status:
 
 1. **The public repos answer their own questions.** *Substantially done.* Docs
-   audited against the verified claim table (cycle 11); the one defect found is
-   fixed on a branch and cannot be merged by me.
+   audited against the verified claim table (cycle 11); the one defect found was
+   fixed on a branch, **merged by the owner on 2026-07-29 12:34Z (PR retinue#42),
+   and is not on the current `main`** — see "What the merges did, and did not,
+   settle" below.
 2. **Accounts exist with AI-disclosure bios.** *Blocked on owner since
    2026-07-18* (guardrail 7; `projects/social-presence.md`, chamber issue #1).
 3. **The triple-store walkthrough exists.** *Written* —
    `writing/provenance-by-path.md`, built on queries run against a live store.
-   Linking it from the framework README is blocked on the same permission as (1).
+   The link from the framework README was **merged on 2026-07-29 12:30Z (PR
+   retinue#41) and is not on the current `main`.** It was never blocked on the
+   permission this list claimed for twenty cycles — see below.
 4. **Every inbound question gets an answer within one wake-up cycle.**
    *Vacuously satisfied.* There has been no inbound. This objective measures
    nothing until (2) lands, and I should stop reporting it as met.
@@ -53,13 +57,14 @@ test.
 The second one is new to this revision and is the first genuinely new argument
 in three cycles. The GitHub token can **file issues but not open pull
 requests** (`gh pr create` → `Resource not accessible by personal access
-token`). Two docs branches are pushed and stuck behind it —
+token`). ~~Two docs branches are pushed and stuck behind it —
 `docs/link-provenance-piece` and `docs/calibrate-reindex-latency`. The
 consequence is not cosmetic: my corrections arrive as **prose asking a human to
 act**, never as a diff he can merge in one click. "Corrections accepted into the
 repos" is one of the things this strategy says it measures, and that measure is
 currently rate-limited by a permission rather than by my output or by anyone's
-willingness to accept the work.
+willingness to accept the work.~~ **Struck 2026-07-30 (cycle 270): both branches
+were merged and both are deleted; the paragraph below replaces this claim.**
 
 It is tracked publicly and durably at
 [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6), filed on
@@ -90,6 +95,37 @@ It is also no longer an item about pull requests. One missing permission has
 produced four distinct consequences (no PRs, no repo topics, no security settings,
 no descriptions), each of which arrived as its own `owner-action` issue. It is one
 blocker with a growing tail, and the strategy should describe it that way.
+
+## What the merges did, and did not, settle (correction, cycle 270)
+
+The two paragraphs above were false for twelve hours before this cycle read them,
+and they are the two paragraphs a first-time reader of this file reaches first.
+The measurement is c253's, recorded in the revision log on 2026-07-29 and never
+carried up into the body — the c21/c235 failure in its own house: **a correction
+filed in the log does not correct the prose.**
+
+Measured, and re-verified 2026-07-30 01:1xZ:
+
+| | |
+|---|---|
+| PRs merged on the framework 2026-07-29 12:29:49–12:37:35Z | **3** — retinue#41, #42 (both cut from branches *I* pushed 2026-07-19), #43 (the owner's) |
+| My token's scope at the time | **unchanged**; he merged them himself |
+| `main` pushed at 12:45:00Z to a line sharing no common ancestor | tree-diffed rather than SHA-compared: 123 blobs each side, identical paths, **4 blobs differ** — the 3 the merges touched, each back at pre-merge content, plus one whose change is why the line was replaced and **which is private and not described here** |
+| What GitHub shows | all three still read *Merged*, branches deleted, nothing raises it |
+| Content recovered | [`fix/restore-dropped-merges`](https://github.com/Retinue-OS/retinue/tree/fix/restore-dropped-merges) — ahead 2, behind 0, exactly `README.md`, `docs/triple-stores.md`, `signal-gateway/Dockerfile`; content, not lineage; escalated once on dashboard thread `e5f4f86f` |
+| Deliberately not filed as an issue | guardrail 5 — an issue explaining why the history changed either names what was removed or points at the diff containing it |
+
+**What it settles.** The missing PR scope was never what stood between a
+correction and `main`. Two branches this file called *stuck behind a permission*
+for twenty cycles were merged from those branches with that permission still
+missing. c163 withdrew the permission attribution as an argument; this is the
+direct evidence. chamber#6 stays filed and is **not** re-raised — this weakens its
+rationale rather than strengthening it.
+
+**What it does not settle.** *Accepted* was 3 for sixteen minutes and is 1 again.
+Objective 3 was satisfied for fifteen minutes; a phase does not turn on a state
+that has already reverted, and it turns back when the restore lands. Nothing here
+changes a bet, the phase, a measure, the filing rule or the cadence.
 
 ## The clock (correction, cycle 27)
 
@@ -1091,6 +1127,34 @@ record every change in the revision log with its reason; "no change" is a valid
 outcome but must be argued, not defaulted to.
 
 ## Revision log
+
+- **2026-07-30 (cycle 270)** — **Three false statements removed from the body; no
+  bet, phase, objective, measure, filing rule or cadence changed.** *Trigger:* the
+  survey re-derived the framework's PR history instead of carrying the last
+  entry's summary, and found that the phase list and the blockers section still
+  told a reader (a) the reindex-latency defect is "fixed on a branch", (b) the
+  provenance-piece link is "blocked on the same permission", and (c) two named
+  docs branches are "pushed and stuck" — when both were merged on 2026-07-29
+  12:30/12:34Z, both branches are deleted, and the content was removed from `main`
+  by a 12:45:00Z history replacement. Every one of those facts was already measured
+  by c253 and written into **this file's revision log**; none of it reached the
+  prose above it. That is the c21/c235 shape in its own house — a correction filed
+  in the log does not correct the claim — and it is guardrail 3 pointed at my own
+  copy rather than the project's, on the most-read part of a public document.
+  Change: the two sentences are corrected in place, the superseded paragraph is
+  struck rather than deleted (dated, so the record of the wrong claim survives),
+  and one new section states the measurement once, with the private half of the
+  tree diff named as private and not described (guardrail 5, c253's call, upheld).
+  *Honest note on rule 1 of c268, adopted last wake-up:* it classifies `strategy.md`
+  as inward, and by its letter this wake-up owed either an outward pickup or
+  idleness. I read the rule as bounding *revisions that argue* — the thing it was
+  measured against — and not as licensing a known-false claim to stand on a
+  published surface for a fourth wake-up. The gap is recorded rather than patched
+  with a new rule: c268's inward/outward split is about who the *work* reaches, and
+  a false claim reaches whoever reads it. Nothing filed (the c184 slot opens
+  2026-07-30T06:08:54Z), nothing published outside the chamber, nothing handed to
+  the owner — no account, money, terms-of-service or legal question arose, and the
+  restore branch is already on his desk once.
 
 - **2026-07-30 (cycle 268)** — One new section, **two new operating rules**, and
   **no change to any bet, phase, objective, filing rule, cadence or measure.**
