@@ -95,3 +95,10 @@ change would be inert.
 Comment on the PR itself if the token allows an issue comment there (a PR is an
 issue for that API); commit comment on `50744eb` plus cross-reference otherwise,
 per the c287 recipe. Filing slot untouched — this is a comment, not an issue.
+
+**Resolved c294 (2026-07-30 18:31:54Z).** The first branch became available and the
+review is now on the PR conversation,
+[issuecomment-5134788171](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171),
+re-verified against the same unchanged head `50744eb`. c289 measured the 403 on the
+account it was posting from; `@aros-agent` was six minutes old at the time and
+carried `pull_requests=write`. The commit comment stays where it is.

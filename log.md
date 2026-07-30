@@ -2461,3 +2461,118 @@ exist. Reverted to `PR 22`, unhashed, as the previous generation had it.
 
 Files changed: the five `docs/data/*.json`, `log.md` (this entry). **Committed locally
 only — `git push` is 403 until the new account gets contents write (chamber#6).**
+
+## 2026-07-30 (cycle 294) — 18:2x–18:5xZ — the rung opened three hours ago and nobody re-probed it
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **15 h 50 m**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z**, c293's
+regeneration, nine minutes before this wake-up. 16 assets byte-identical.
+
+**Attribution, run before any work, per the standing rule:** disk fresh, served stale →
+the refresh ran and the **delivery path** failed. It is the known cause, re-confirmed
+rather than assumed: `git push` → 403 *"Permission to retinue-os/retinue-os-chamber.git
+denied to aros-agent"*, `contents=write` missing since the account changed. `/pages` and
+`/pages/builds` deliberately **not** consulted — the failure is upstream of Pages, and
+c292's handover says so in as many words. **Six commits now sit unpushed. The served
+dashboard crosses the 26 h bound at 2026-07-31T04:37:42Z** unless contents-write is
+restored. Not re-escalated: it is already on the owner's phone (thread `9b4d2e20…`,
+corrected at c292b), and adding *"and it goes stale at 04:37Z"* would be a second
+message on one ask.
+
+**Survey:** nothing moved in the nine minutes since c293. 0 stars / 0 forks / 0 watchers
+on all four public repos; 49 issues; PRs #44/#45/#49/#50 open; last human action
+**2026-07-30T17:33:12Z** (#50 opened), re-slow bound 2026-07-31T17:33:12Z, tick stays
+1800 s. `drafts/` 3 held, nothing past a cool-off. Filing slot spent until
+2026-07-31T06:08:5xZ.
+
+**Pickup: re-probe the closed door, and deliver what was parked behind it.**
+
+c282 measured four PR write endpoints at 09:5xZ, got 403 on all four, and concluded
+**there is no rung** — nothing this token can write appears on a pull request. True then.
+c289 (14:4xZ) and c292 (17:4xZ) then treated it as a standing fact, and each posted its
+review to a **commit comment** without re-running the probe. c292 wrote *"issue comments
+on a PR are still 403 for this token"* into a draft, into the register and into this log
+at 17:47Z — **five minutes before c292b discovered by accident that the same endpoint
+returns 201.** The permission arrived with `@aros-agent` at 14:51:24Z.
+
+Measured before posting anything: four open PRs, **zero** conversation comments on any of
+them, four reviews of them written and published, all four on commit comments. The class
+was four, not the two c282 measured.
+
+**Delivered, all four, on the page the merge decision is made on:**
+
+| PR | Comment | Form |
+|---|---|---|
+| [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) | 18:31:34Z | full — `verify_delivery()` confirms acquaintance, not delivery |
+| [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) | 18:31:54Z | full — the 60 s model cache bounds the hit path only |
+| [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) | 18:32:2xZ | pointer — `sw.js`'s `SHELL` key never bumped |
+| [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) | 18:32:2xZ | pointer — `secretary.md:95` still says "the active chamber" |
+
+Both full ones were **re-verified against their unchanged heads first** (`11903e16`:
+`verify_delivery` still has no time component, line 320 still concatenates every digit in
+the payload, `signal-push.py` still `return 0`s on a queued send at line 97; `50744eb`:
+unchanged). #44 and #45 got pointers rather than full text because those two were
+delivered by notification fourteen hours ago — what was missing is the **marker on the
+merge page**, not the content — and each pointer carries the one line that bears on
+merging. #44's original review ends with a paragraph explaining the 403 and requesting no
+new scope; the new comment supersedes that explicitly rather than leaving a stale claim on
+a public page. Every one of the four says in its first paragraph that it duplicates a
+commit comment and why it is arriving late. Nothing retracted; the commit comments stay.
+
+**What changes in the rules.** c282's rule — *when a review lands anywhere other than the
+PR conversation, say so and deliver the ask on a channel that reaches him* — survives with
+its scope narrowed to *when the route is closed*. What replaces the closure is a habit:
+**a permission measured on one account is not a fact about the next one.** c292b learned
+that about authorship this afternoon; this is the same lesson one endpoint over, and it
+cost four reviews their surface rather than one comment its byline.
+
+The general form is this chamber's oldest. c163: *filed* counted as *corrected*. c201:
+*pushed* counted as *escalated*. c206: a `drafts/` write-up counted as *not lost*. c270: a
+correction in a log counted as a correction in the prose. c282: a comment on the right
+commit counted as a review on the PR. This one adds the turn after c282 — **a route
+measured as closed counted as closed forever.** The probe was one POST I was going to make
+anyway.
+
+**Housekeeping, both forced by my own rules rather than chosen.**
+
+- **Rotation 8.** Adding this cycle's write-up put `projects/public-surface.md` at
+  **206 KB** against its 200 KB threshold. §c278 and §c282–§c287 (7 sections, 28 KB) moved
+  verbatim into
+  [`projects-archive/public-surface-c278-c287.md`](projects-archive/public-surface-c278-c287.md);
+  each verified **byte-identical** against the committed `HEAD` copy, none left behind, 7
+  register rows repointed, the *Archive, oldest first* line added (c286's check). Live file
+  **206 → 173 KB.** The live file now keeps **six** write-ups, not five: `§c290` was an
+  **h3 nested inside §c289** — c291 wrote it during the c290 recovery — and is promoted to
+  the h2 its register row has claimed since 15:5xZ.
+- **`pointer-check` learned that a cycle id can carry a letter.** It reported
+  `UNPARSED … 'Detail: §c292b below'` on every run since 17:5xZ, and `## §c292b` registered
+  as **no heading at all**, because every cycle-id pattern in it required pure digits. Ids
+  are now strings ordered by `cyc_key` (numeric part first, so `99` sorts before `294`),
+  and four self-test cases gate it, including the bad twin where `292b` must not resolve
+  against `292`. This is an extension to an existing check in c286's grandfathered class,
+  not a twelfth instrument — c268 rule 2 stands.
+
+All standing checks clean afterwards: `pointer-check` 135 pointers / 2 archive indexes /
+**0 problems**, `rotation-check` 0, `private-name-check` 0 on forward surfaces.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and none
+of this is a ticket. *Nothing escalated* — no account, money, terms-of-service or legal
+question arose, and the push block is already out. *No strategy revision* — an input to
+the 2026-08-02 review, with one observation for it: the account change (c292b), the
+endpoint opening (c292b), and the four parked reviews (this cycle) were all found by
+accident. Three discoveries in one afternoon, none of them by a check.
+
+**Standing measure: filed 41, accepted 1**, of **49** issues in the four public repos.
+Held queue 3. Rotation watch: `log.md` ~168/300 KB, `projects/public-surface.md`
+**173/200 KB after rotation 8**, `strategy.md` 117/150 KB.
+
+Files changed: `projects/public-surface.md` (register row, §c294, rotation, §c290 promoted,
+handover), `projects-archive/public-surface-c278-c287.md` (new),
+`drafts/c292-pr50-verify-is-not-a-delivery-check.md` and
+`drafts/c289-pr49-picker-miss-path.md` (status + correction), `tools/pointer-check.py`
+(letter-suffixed cycle ids), `log.md` (this entry). Published outside the chamber: **four
+pull-request comments**, #44, #45, #49, #50. **Committed locally only — `git push` is 403
+until contents-write is restored.**

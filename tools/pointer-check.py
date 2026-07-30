@@ -151,13 +151,13 @@ import tempfile
 # prefixless one instead of guessing.
 POINTER = re.compile(
     r"(?:Detail: )(?:"
-    r"\[§?c(?P<c_cycle>\d+)[^\]]*\]\((?P<c_anchor>#[^)]+)\)"
-    r"|\[§?c(?P<d_cycle>\d+)[^\]]*\]\((?P<d_link>[^)#]+)(?:#[^)]*)?\)"
-    r"|\[[^\]]*\]\((?P<e_link>[^)#]+)(?:#[^)]*)?\)\s*§c(?P<e_cycle>\d+)"
+    r"\[§?c(?P<c_cycle>\d+[a-z]*)[^\]]*\]\((?P<c_anchor>#[^)]+)\)"
+    r"|\[§?c(?P<d_cycle>\d+[a-z]*)[^\]]*\]\((?P<d_link>[^)#]+)(?:#[^)]*)?\)"
+    r"|\[[^\]]*\]\((?P<e_link>[^)#]+)(?:#[^)]*)?\)\s*§c(?P<e_cycle>\d+[a-z]*)"
     r")"
     r"|(?:Detail: )?(?:"
-    r"§c(?P<a_cycle>\d+) (?P<a_below>below)"
-    r"|§c(?P<b_cycle>\d+) in \[[^\]]*\]\((?P<b_link>[^)]+)\)"
+    r"§c(?P<a_cycle>\d+\w*) (?P<a_below>below)"
+    r"|§c(?P<b_cycle>\d+\w*) in \[[^\]]*\]\((?P<b_link>[^)]+)\)"
     r")"
 )
 # Any `Detail:` at all, for the coverage check. If POINTER does not match at the
@@ -174,8 +174,8 @@ UNLABELLED_CDE = re.compile(
 )
 # c215's invariant with c237's §-tolerant form: "## c211", "## §c224", "## Cycle 210",
 # plus (c263) the date-first form "## 2026-07-25 (cycle 166) — …".
-HEADING = re.compile(r"(?m)^## §?(?:Cycle )?c?(\d+)\b")
-HEADING_PARENTHETICAL = re.compile(r"(?mi)^## .*\(cycle (\d+)\)")
+HEADING = re.compile(r"(?m)^## §?(?:Cycle )?c?(\d+[a-z]*)\b")
+HEADING_PARENTHETICAL = re.compile(r"(?mi)^## .*\(cycle (\d+[a-z]*)\)")
 # A cycle number is a small integer. Without this bound "## 2026-07-25 (cycle 166)"
 # contributes 2026 and the write-up it introduces is invisible — which is exactly
 # how ten register rows dangled undetected until c263.
@@ -186,6 +186,24 @@ NEXT_ACTION = re.compile(r"(?ms)^current_next_action:\s*\"(.*?)\"\s*$")
 CYCLE_REF = re.compile(r"\bc(\d{2,3})\b")
 
 
+def cyc_num(cid):
+    """The numeric part of a cycle id. `292b` -> 292 (added c294).
+
+    A cycle id is a number with an optional letter suffix: a wake-up that runs
+    twice inside one tick labels the second `292b`, and until c294 every regex
+    here required pure digits — so `## §c292b` registered as no heading at all
+    and the register row pointing at it reported UNPARSED on every run. Ids are
+    compared as strings and *ordered* by this function, since `99` sorts after
+    `294` lexicographically.
+    """
+    return int(re.match(r"\d+", cid).group())
+
+
+def cyc_key(cid):
+    """Sort key: numeric part first, then the suffix (`292` before `292b`)."""
+    return (cyc_num(cid), cid[len(str(cyc_num(cid))):])
+
+
 def headings(text):
     """Cycle numbers introduced by an h2, under any of the heading forms in use.
 
@@ -194,7 +212,7 @@ def headings(text):
     pointer, so the write-up under it reads as missing.
     """
     found = HEADING.findall(text) + HEADING_PARENTHETICAL.findall(text)
-    return {int(n) for n in found if 0 < int(n) <= MAX_CYCLE}
+    return {n for n in found if 0 < cyc_num(n) <= MAX_CYCLE}
 
 
 def slug(heading):
@@ -243,17 +261,17 @@ def check_next_action(path, text):
     heads = headings(text)
     if not heads:
         return
-    newest = max(heads)
-    named = [int(n) for n in CYCLE_REF.findall(m.group(1))]
+    newest = max(heads, key=cyc_key)
+    named = CYCLE_REF.findall(m.group(1))
     if not named:
         yield (
             f"STALE-PTR  {path}: newest write-up is §c{newest}, and "
             f"current_next_action names no cycle at all"
         )
-    elif max(named) < newest:
+    elif cyc_key(max(named, key=cyc_key)) < cyc_key(newest):
         yield (
             f"STALE-PTR  {path}: newest write-up is §c{newest}, "
-            f"current_next_action stops at c{max(named)}"
+            f"current_next_action stops at c{max(named, key=cyc_key)}"
         )
 
 
@@ -266,12 +284,12 @@ def check_text(path, text, load):
     for m in POINTER.finditer(text):
         # A / C: the claim is "in this file", with C also claiming an anchor.
         if m.group("a_below"):
-            cycle = int(m.group("a_cycle"))
+            cycle = m.group("a_cycle")
             if cycle not in headings(text):
                 yield f"WRONG-WAY  {path}: §c{cycle} says 'below', not an h2 in this file"
             continue
         if m.group("c_anchor"):
-            cycle = int(m.group("c_cycle"))
+            cycle = m.group("c_cycle")
             if cycle not in headings(text):
                 yield f"WRONG-WAY  {path}: §c{cycle} links within this file, which has no such h2"
             elif m.group("c_anchor")[1:] not in anchors(text):
@@ -281,7 +299,7 @@ def check_text(path, text, load):
         for cyc, lnk in (("b_cycle", "b_link"), ("d_cycle", "d_link")):
             if m.group(cyc) is None:
                 continue
-            cycle, link = int(m.group(cyc)), m.group(lnk)
+            cycle, link = m.group(cyc), m.group(lnk)
             target = resolve(link)
             if target is None:
                 yield f"MISSING    {path}: §c{cycle} points at {link}, which does not exist"
@@ -291,7 +309,7 @@ def check_text(path, text, load):
         # E: the evidence is a whole file (a held draft), and the cycle that
         # filed it is a write-up in *this* file. Both halves are claims.
         if m.group("e_link"):
-            cycle, link = int(m.group("e_cycle")), m.group("e_link")
+            cycle, link = m.group("e_cycle"), m.group("e_link")
             if resolve(link) is None:
                 yield f"MISSING    {path}: §c{cycle} points at {link}, which does not exist"
             if cycle not in headings(text):
@@ -442,6 +460,13 @@ UNLABELLED_D = "| x | see the [c7 write-up](../a/p.md). |\n"
 # …while an ordinary link in a cell is not a pointer and must stay silent.
 PLAIN_LINK_ROW = "| x | see [the README](../README.md) for context. |\n"
 
+# c294: a cycle id with a letter suffix — a wake-up that ran twice inside one
+# tick. Before c294 the heading regex required pure digits, so `## §c292b`
+# registered as no heading and its own register row reported UNPARSED. The bad
+# twin keeps the suffix load-bearing: `292b` must not resolve against `292`.
+SUFFIX_GOOD = "| x | Detail: §c292b below |\n\n## §c292b — a write-up\n"
+SUFFIX_BAD = "| x | Detail: §c292b below |\n\n## §c292 — a different write-up\n"
+
 # Frontmatter fixtures for check 3.
 NA_FRESH = '---\ncurrent_next_action: "Aros, c251: did a thing."\n---\n\n## §c251 — x\n'
 NA_STALE = '---\ncurrent_next_action: "Aros, c250: did a thing."\n---\n\n## §c251 — x\n'
@@ -489,6 +514,10 @@ def self_test():
     unl_c = len(list(check_coverage("f.md", UNLABELLED_C))) == 1
     unl_d = len(list(check_coverage("f.md", UNLABELLED_D))) == 1
     unl_plain = not list(check_coverage("f.md", PLAIN_LINK_ROW))
+    suffix_ok = not list(check_text("f.md", SUFFIX_GOOD, lambda p: None))
+    suffix_bad = len(list(check_text("f.md", SUFFIX_BAD, lambda p: None))) == 1
+    suffix_cov = not list(check_coverage("f.md", SUFFIX_GOOD))
+    suffix_ord = cyc_key("292b") > cyc_key("292") and cyc_key("99") < cyc_key("294")
     # c286: check 6, both directions, against a real directory rather than a
     # mocked listing — the defect it exists for was a file on disk that no line
     # of prose mentioned, so the fixture has to have files on disk.
@@ -516,6 +545,7 @@ def self_test():
             cov_bad, cov_prose, cov_header, cov_ok, cov_code,
             bare_ok, bare_bad, bare_b, bare_prose, unl_c, unl_d, unl_plain,
             idx_ok, idx_bad, idx_scope, idx_none, idx_nomarker,
+            suffix_ok, suffix_bad, suffix_cov, suffix_ord,
         ]
     )
 
@@ -534,7 +564,7 @@ def main():
         print("self-test FAILED — refusing to report on real files", file=sys.stderr)
         return 2
     print(
-        "self-test: pass (4 pointer cases + 8 form/heading cases "
+        "self-test: pass (4 pointer cases + 12 form/heading cases "
         "+ 5 coverage cases + 7 label cases + 4 handover-field cases "
         "+ 5 archive-index cases)"
     )

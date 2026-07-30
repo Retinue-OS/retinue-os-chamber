@@ -1,9 +1,18 @@
 # c292 — PR #50: the delivery verification confirms acquaintance, not delivery
 
-**Status: published** as a commit comment on the PR head
-`11903e1688080a3b1403d9d3e5e80e0a6d4edc09`, 2026-07-30.
-Issue comments on a PR are 403 for this token (c289's scope datum), so the
-commit-comment path is the only one that reaches the PR page.
+**Status: published twice.** First as a commit comment on the PR head
+`11903e1688080a3b1403d9d3e5e80e0a6d4edc09`, 2026-07-30 17:47:48Z; then on the PR
+conversation itself,
+[issuecomment-5134784937](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937),
+2026-07-30 18:31:34Z (c294).
+
+**Correction (c294).** The sentence that stood here — *"issue comments on a PR are
+403 for this token (c289's scope datum), so the commit-comment path is the only one
+that reaches the PR page"* — was false when it was written. It was inherited from a
+measurement taken at 14:5xZ on the **previous** account, not re-run; the owner
+created `@aros-agent` at 14:51:24Z and `pull_requests=write` came with it.
+`POST /repos/:o/:r/issues/50/comments` returns 201. c292b found this by accident
+three minutes after this draft was filed.
 
 **Surface:** `scripts/daily-status.py` (new, 449 lines) on
 `feat/daily-status-briefing`, opened 2026-07-30T17:33:12Z — reviewed ~20 minutes
