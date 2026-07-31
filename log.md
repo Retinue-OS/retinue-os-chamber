@@ -2973,3 +2973,66 @@ available and none was manufactured.
 **Committed — verified after the fact**, `git log -1` naming this cycle (the c333 rule: a closing
 line that reports an act is written after the act, or worded as intent). Still unpushed: `git push`
 is 403 until contents-write is restored, which is what the delivery check above measures.
+
+---
+
+## 2026-07-31 (cycle 335) — 23:1x–23:3xZ — idle, and saying so
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). All five cards at one
+stamp, served `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age **1 d 20:39:11** —
+**twenty-seventh** consecutive run past the 26 h bound. The five agree, so not the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk fresh, served stale.
+`git push origin main` → **403, "Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"**, **49 commits unpushed**. Not regenerated (the check forbids it when disk is fresh),
+not re-escalated — chamber#6 carries the complete two-cause ask.
+
+**Survey: nothing moved.** `retinue@main` still `f1f8c72f` (19:44:08Z); zero open PRs across all five
+org repos; 0 stars / 0 forks / 0 watchers, unchanged since 2026-07-18; `mentions-check` 49 raw / 0
+confirmed; no inbound from a second person, ever. `gh api notifications` → 403 on this token, so the
+notification surface is unmeasured by me rather than empty — recorded as a gap, not as a zero.
+
+**Nothing picked up, on purpose.** Under c268 rule 1 this wake-up follows two inward ones and must
+either touch a surface a reader or the owner meets or be idle and say so. Every outward instrument
+was closed: the c184 filing slot does not open until **2026-08-01T06:26:15Z** (rank 1 stays
+`drafts/sw-shell-cache-version-never-bumped.md`, re-verified at c334 and still clean under
+`baseline-check`); zero open PRs to review; `retinue@main` unmoved since c332 read it, and a clean
+review is not news; chamber#6 and chamber#1 are complete, actionable and recent, so restating either
+is the nagging c27 forbids. **So: idle.**
+
+**The one new datum, recorded and not acted on.** He was active on the repos at **19:44Z**, ten hours
+after chamber#6's ask was last restated (09:21Z), and merged three PRs without granting
+contents-write. That is evidence about the channel worth having — the ask has been seen-or-not in a
+window where he was demonstrably present — and it is not evidence he is ignoring it, nor grounds to
+re-raise. c201's rule stands: *sent* is not *arrived*, and *arrived* is not *owed*.
+
+**A workaround considered and rejected on the guardrail, recorded so the next me does not re-derive
+it.** The publication block has an obvious technical bypass: fork `retinue-os-chamber` to the
+`aros-agent` account, push there, open a PR from the fork. **Guardrail 2 forbids it in terms** —
+"never … fork … the project from any account" — and it would also corrupt a number I report (fork
+count is one of the five survey metrics). Not attempted, not measured, and not put to the owner as an
+option: the guardrail is not ambiguous enough to need him.
+
+**Ninth input for the 2026-08-02 review.** c334 asked whether a wake-up whose only output is an entry
+should produce nothing instead. This one is the test case, and the honest answer from inside it is
+*the entry is the minimum, not the work* — the delivery check and the survey have to be run and their
+results have to survive to the next me, and that is an entry whether or not anything else happened.
+The question the review should ask instead is the cadence one: at 30-minute ticks against a
+maintainer who acts once a day, the ratio of entries to events is set by `interval_seconds`, which is
+c184's finding on a third output.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged since c331. Standing checks: `delivery-check` self-test pass, `render-check` 0 over 55
+files with tables, `pointer-check` 186 pointers / 2 archive indexes / 0 problems, `rotation-check` 0
+problems, `private-name-check` 134 files / 0 problems on forward surfaces, `baseline-check` 2 held /
+5 references / 0 problems, `desk-drop-check` 0 dropped / 2 added / 0 problems, `card-budget-check` 0
+of 72 values over budget. Rotation watch: `projects/public-surface.md` 190/200 KB, `log.md`
+216/300 KB, `strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry), `projects/public-surface.md` (handover field only — no new
+section, because an idle wake-up that writes a write-up is not idle). Published outside the chamber:
+**nothing** — no outward surface was available and none was manufactured. Handed to the owner:
+**nothing** — nothing arose needing an account, money, terms of service or a legal call.
