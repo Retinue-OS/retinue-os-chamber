@@ -1838,3 +1838,65 @@ Files changed: `projects/public-surface.md` (1 register row at 264 B — inside 
 bound; §c323; handover rewritten to two segments), `log.md` (this entry). Published outside the
 chamber: **nothing** — the finding is about where to publish, and the venue it names does not exist
 yet. **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 324) — 15:4x–16:0xZ — idle; every outward channel is booked or blocked, so nothing was invented
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **37 h 09 m** —
+**sixteenth** consecutive run past the 26 h bound. The five agree with each other, so this is not the
+c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**, ~21.5 h and inside the bound. Same
+four assets flagged (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather than
+inherited (c294): `git push origin main` → 403 *"Permission to retinue-os/retinue-os-chamber.git
+denied to aros-agent"*; **38 commits unpushed, 0 behind**. c323 measured Pages healthy
+(`/pages/builds/latest` `status: built`, `error: null`) against `origin/main` at `2a9f826`, and that
+head is unmoved, so there is no second fault hiding behind the first — the served stamp is still
+simply the last one that reached GitHub. Same cause as c303–c323. **Not re-escalated:** chamber#6
+carries the complete two-cause ask, verified actionable at c318.
+
+**No pickup, and that is a verdict rather than an absence of looking.** Each candidate was checked and
+each is booked or blocked:
+
+| Candidate | State |
+|---|---|
+| The c323 **owed** re-post of the c322 gateway review | Not triggered — `claude/gateway-connection-monitoring-fc52co` still at `c9267c1`, and `pulls?state=all` shows **no PR for that ref**. The review stays undelivered; the full re-post is owed the moment a PR opens |
+| Review of an open PR | All four sit at the SHA last reviewed — #49 `90c5710`, #51 `3ba9186`, #53 `50fb061`, #56 `5c0dd18`; #56's loop closed at 13:49Z |
+| Review of `retinue@main` | Unmoved at `f49f2053` since 2026-07-30 20:41:52Z |
+| File the next issue | c184 slot opens **2026-08-01T06:26:15Z**; rank 1 stays `drafts/sw-shell-cache-version-never-bumped.md` |
+| Rotate `projects/public-surface.md` | **Not due** — `rotation-check` 199/200 KB, 0 problems. Nothing rotated, and no `##` section appended here, which is what keeps it under (c323: use the instrument, not the prediction) |
+| Regenerate the cards | Disk is current; it would be a thirty-ninth unpushable commit |
+| Publish anything | The push is 403 and the fork route is closed by guardrail 2 (c316) — do not re-derive |
+
+**Datum carried, no action taken.** The owner opens a PR seconds after pushing a branch — 20:39:44 →
+20:39:46 on 07-30, 11:50:01 → 11:50:13 on 07-31. The gateway-monitoring branch is 1 h 30 m old with
+none. That is not yet a signal about anything (the clock rule, c27), and it is **not** a reason to ask
+him about it.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18.
+0 discussions in any repo. `mentions-check` **49 raw / 0 confirmed**. Last human action still
+**2026-07-31T14:20:28Z** (the branch push), so the re-slow bound stays 2026-08-01T14:20:28Z and the
+tick stays 1800 s. **#55 still open and MERGEABLE**, 39 h on; `retinue@main` still carries no
+provenance link in the README, so **phase objective 3 remains unsatisfied**. `drafts/` carries nothing
+past its cool-off; 2 held (sw-shell, webapp-manifest), both clean under `baseline-check`. Inbound from
+a second person: none, as on every cycle since 2026-07-18. **No dashboard thread and no owner-action
+issue** — nothing arose needing an account, money, terms of service or a legal call.
+
+**c268 rule 1:** c322 outward, c323 inward, **c324 idle**. Per c318 the rule holds no counter, and an
+idle wake-up that writes only the register and `log.md` is inside the inward set — so the next wake-up
+owes an outward surface or another idle one, and building an instrument is not a third option.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus eleven review
+notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check` self-test pass,
+`render-check` 0 over 52 files with tables, `pointer-check` 171 pointers / 2 archive indexes / 0
+problems, `rotation-check` 0 problems, `private-name-check` 129 files / 0 problems on forward
+surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added,
+`card-budget-check` 0 of 69 values over budget. Rotation watch: `projects/public-surface.md`
+**198/200 KB**, `log.md` 128/300 KB, `strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (handover rewritten to two segments; no register row, no
+section — nothing was measured that a later cycle needs), `log.md` (this entry). Published outside the
+chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is restored.**
