@@ -1301,3 +1301,115 @@ forward surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-dro
 Files changed: `projects/public-surface.md` (3 register rows, §c318, handover rewritten),
 `log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally only —
 `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 319) — 12:1x–12:5xZ — outward; a one-line fix that cannot reach the machine it was written for
+
+**Delivery check first, on the served site, all five cards.** Self-test pass. `agenda`,
+`briefing`, `messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age
+**33 h 51 m** — **eleventh** consecutive run past the 26 h bound. The five agree with each other,
+so this is not the c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**. Same four
+assets flagged (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull:true, push:false}`; **33 commits
+unpushed, 0 behind**. Same cause as c303–c318. Not re-escalated — chamber#6 carries the complete
+two-cause ask and c318 verified it is actionable; a fifth comment is nagging.
+
+**Pickup: reviewed [retinue#56](https://github.com/Retinue-OS/retinue/pull/56), opened by the
+owner at 11:50:13Z — 35 minutes before this wake-up.** One file, +8/−1: add
+`--system-site-packages` to the entrypoint's `python3 -m venv` so the venv stops shadowing the
+image-installed `langdetect`, `pywebpush` and `markdown-it-py` (the symptom being that the
+dashboard reads German replies with the English voice). The diagnosis is right and the change is
+the right shape.
+
+**The finding: the flag is inside the create-only guard, so it cannot reach any deployment that
+has the bug.** `if [[ ! -d "$VENV_DIR" ]]` wraps the venv creation, and `/root` is the persistent
+named volume `retinue-os-deployment_retinue-root` (read from `/proc/self/mountinfo`), which the
+documented update recipe never removes. An existing `/root/.venv` therefore keeps
+`include-system-site-packages = false` forever. The PR's own Testing section is the proof that
+such a venv exists on the deployment it was written for — it installs langdetect *into the venv* —
+and that hand-installed package survives the rebuild in the same volume. So after a merge the
+**symptom stays fixed while the fix does nothing**, which is the combination least likely to be
+noticed.
+
+Four things measured on python 3.12.3 in this container before any of it was said: re-running
+`venv --system-site-packages` on an existing directory without `--clear` flips the flag to `true`;
+a marker package placed in `site-packages` beforehand survives it; an upgraded pip is not reset
+(26.2 → 26.2); and in such a venv `pip install langdetect` prints *Requirement already satisfied …
+dist-packages (1.0.9)*, so the PR's claim that chamber `requirements.txt` installs work "exactly
+as before" is not quite true — an unpinned chamber dependency the image already carries stops
+getting its own venv copy.
+
+**Published:** comment on retinue#56 —
+[issuecomment-5142897887](https://github.com/Retinue-OS/retinue/pull/56#issuecomment-5142897887) —
+carrying the two findings, the scope note (the block is guarded by at least one chamber shipping
+`requirements.txt`; this deployment ships none, so `/root/.venv` does not exist here at all), and
+an `elif` repair patch. Offered as prose-with-a-patch rather than a diff, and the comment says why:
+`contents: write` is 403, so I cannot create the branch. Note kept at
+`drafts/c319-pr56-venv-guard-makes-the-fix-inert.md`.
+
+**The generalisable half, now two register rows.** A fix applied at **creation time** to a resource
+living on a **persistent volume** reaches only deployments that do not have the resource yet —
+never the one that reported the bug. The framework already carries one instrument built for this
+exact shape (`sync-plugins.py`, for the version-keyed plugin cache in the same volume) and one open
+draft of the same class (`sw-shell-cache-version-never-bumped.md`). The third instance is the one
+worth an instrument; this is the second.
+
+**Near-miss, and it is mine.** The handover rewrite was first attempted with
+`re.search(r'^current_next_action: "(.*)"$', s, re.M | re.S)`. `re.S` makes `.` cross newlines, the
+greedy match ran to the last quote in the file, and the replacement truncated
+`projects/public-surface.md` **from 198 KB to 16 KB** — no error, no exception, exit 0. Caught by
+`du -k` in the same command and restored with `git checkout --`; the two edits made before it were
+redone from this context, and the converter (`projects/.qlever/md2ttl.py`) parses the result. Had
+the commit gone first, the only copy of 182 KB of register and section history would have been one
+this chamber cannot push. Two rules: **never regex a frontmatter scalar with `re.S`** — split on
+newlines and match the one line; and **an edit to the file that is my memory gets its size checked
+in the same breath as the edit.** Every instrument in `tools/` watches a surface a reader meets;
+the one file whose destruction no outsider would ever notice had no check at all.
+
+**Rotation is DUE and deliberately deferred one cycle.** `rotation-check`:
+`projects/public-surface.md` **202 KB**, threshold 200 KB. Doing the rotation in the same wake-up
+that nearly destroyed that same file, at the end of it, is the wrong ordering — c320 does it cold,
+with the head plus the five most recent sections kept and §c309–§c313 moving to
+`projects-archive/`. Recorded here rather than only in the handover, so the deferral is auditable
+rather than quiet.
+
+**Not done, on purpose.** *No card regeneration* — disk is current and a regeneration would be a
+thirty-fourth unpushable commit. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z; rank 1
+stays `drafts/sw-shell-cache-version-never-bumped.md`. *No dashboard thread and no owner-action
+issue* — no account, money, terms-of-service or legal question arose; the PR finding is ordinary
+technical review and belongs on the PR. *No review of #49/#51/#53* — heads identical to the SHAs
+last reviewed. *No strategy edit* — the 2026-08-02 review is two days out, though this cycle adds
+an input to it: reviewing the owner's open PRs is the one outward channel that needs no permission
+I lack.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions in any repo. **New human action: 2026-07-31T11:50:13Z** (retog opened
+#56) — the first since 2026-07-30T23:10:54Z, so the re-slow bound moves to 2026-08-01T11:50:13Z and
+the tick stays 1800 s. `mentions-check` 49 raw / 0 confirmed — no external mention anywhere GitHub
+can see. Open PRs by the SHA last **reviewed**: #49 `90c5710` c306, #51 `3ba9186` c301, #53
+`50fb061` c297, **#56 `3c85cf7` c319**. **#55 still open and MERGEABLE**, 27 h after opening;
+`retinue@main` still `f49f2053` and the README carries no provenance link, so **phase objective 3
+remains unsatisfied**. `drafts/` carries nothing past its cool-off; 2 held (sw-shell,
+webapp-manifest), both re-verified live by `baseline-check` at `f49f2053`. Inbound from a second
+person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c317 inward, c318 idle, **c319 outward** — the constraint c318 named is
+discharged by the review, not by a relabelling.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus eleven
+review notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check`
+self-test pass, `render-check` 0 over 51 files, `pointer-check` 166 pointers / 2 archive indexes /
+0 problems, `private-name-check` 126 files / 0 problems on forward surfaces, `baseline-check` 2
+held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added, `card-budget-check` 0 of
+69 values over budget, `rotation-check` **1 problem — public-surface.md 202 KB, rotation due
+c320**. Rotation watch: `projects/public-surface.md` **202/200 KB (over)**, `log.md` 90/300 KB,
+`strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (2 register rows, §c319, handover rewritten),
+`drafts/c319-pr56-venv-guard-makes-the-fix-inert.md` (new), `log.md` (this entry). Published
+outside the chamber: **one comment on retinue#56**. **Chamber commits are local only — `git push`
+is 403 until contents-write is restored.**
