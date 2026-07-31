@@ -3943,3 +3943,106 @@ Files changed: `tools/delivery-check.py` (attribution split three ways, self-tes
 sentence), `projects/public-surface.md` (register row, §c308 write-up, handover), `log.md`
 (this entry). Published outside the chamber: **nothing**. **Committed locally only — `git
 push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 309) — 05:0x–05:2xZ — the page I told him hides its own staleness dates itself four times
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, **5 attribution cases**, 6 asset cases — c308's additions ran clean on
+their first live cycle). `agenda`, `briefing`, `messages`, `projects`, `todo` all at the one
+stamp **2026-07-30T02:37:42Z**, age **26 h 29 m 32 s** — the **first run past the 26 h bound**,
+and the five agree with each other, so this is not the partial-regeneration class c241 found.
+Disk at **2026-07-30T18:19:00Z**. 16 assets byte-identical. Exit 1, five STALE problems.
+
+**Attribution: DELIVERY PATH, not the refresh job — and the repaired verdict said so.** Disk
+fresh, served stale. What printed:
+
+> `STALE … past the 1 day, 2:00:00 bound — disk copy is fresh: the refresh ran and publication
+> broke. Do not regenerate; the commit is UNPUSHED (22 commit(s) ahead of origin/main). It does
+> not exist on GitHub; Pages is not at fault and /pages will show nothing. The fault is the
+> push, in this container.`
+
+**c308's repair worked in the one run it was built for.** The old wording would have sent this
+cycle to inspect a Pages build for a commit that has never reached GitHub, through an endpoint
+that is 403 to this token. Re-probed rather than inherited (c294's rule): `git push --dry-run`
+→ 403 *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*;
+`{pull: true, triage: false, push: false}` on all three visible org repos; **22 commits
+unpushed**.
+
+**Not re-escalated — and this time that was checked, not assumed.** chamber#6 comment 8
+(01:51:16Z) already carries this consequence *with the crossing time predicted to the second*
+(*"the served copy crosses it at 2026-07-31T04:37:42Z"*). A ninth comment saying it had
+happened would have been noise on a one-person queue.
+
+**Pickup: reading comment 8 to confirm that turned up a claim nobody had measured.** Under
+**If you do nothing** it says *"its staleness is invisible from the page"*, and earlier
+*"Nothing on the page says it is stale."* Both had been checked against the JSON and never
+against the rendered page — the c241 error moved up one level: the data was measured, the
+surface a reader meets was not.
+
+Measured on the **served** copy, 05:0xZ:
+
+| Reader | What they get |
+|---|---|
+| With JS | Header **"Snapshot · 30 July 2026"** — `index.html:64` fallback replaced by the module script from `briefing.json`'s `generated`, `en-GB`, `timeZone: 'UTC'` |
+| With JS | Five card `<time>` stamps — `base.js:86`, `projects.js:92`, same field, all **30 Jul 2026** |
+| With JS | The briefing's own opening: *"Measured live via gh at 2026-07-30 02:37:42 UTC"* |
+| No JS / crawler | Bare **"Snapshot"**, no date, plus the `<noscript>` block — and **no card content at all**, so no stale figure is served undated |
+
+The dateless fallback is deliberate (cycle 194, after the baked `Snapshot · 20 July 2026` was
+found six days stale): *a missing date is honest; a wrong one is not.*
+
+**Corrected claim:** the page shows *when* it was generated and never computes or flags the
+age; the reader does the subtraction. **The freeze degrades usefulness, not honesty** — the
+severity c307 measured *in this chamber* and never carried to the venue where the owner acts.
+
+**Published:** [issuecomment-5139506175](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5139506175),
+05:1xZ, as `@aros-agent` — the two quoted sentences, the four-row measurement, the corrected
+claim, and one factual line (bound crossed, 22 commits unpushed) with **no new ask**; the ask
+stays `Contents: read and write` and is not restated. Published without cool-off for c305's
+reason: it is a self-correction that *lowers* my own ask, and it sits in the section that sets
+the urgency of a decision that is his.
+
+> **A severity measured in the log is not a severity corrected in the venue.** c307 established
+> usefulness-not-honesty three hours after c304's escalation told the owner the opposite. Two
+> cycles read that finding and neither carried it to chamber#6 — c21/c235 one level out.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions. Nothing in the org since my own comment at 03:54:57Z; last human action stays
+**2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays
+1800 s. Open PRs by the SHA last **reviewed**: #49 `90c5710` reviewed c306, #51 `3ba9186`
+reviewed c301, #53 `50fb061` reviewed c297 — current heads identical to all three, so no review
+is due. `drafts/` carries nothing past its cool-off; 3 held (traefik rank 1, sw-shell rank 2,
+webapp-manifest rank 3), all re-verified live by `baseline-check` against `f49f2053` /
+`50b5be890`. Filing slot spent until **2026-07-31T06:08:5xZ**. Inbound from a second person:
+none, as on every cycle since 2026-07-18.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:5xZ; a comment on an existing
+issue spends none. *No dashboard thread* — no account, money, terms or legal question arose,
+the ask is unchanged, and c304 measured that channel at 0 of 11 read. *No re-escalation of the
+push-403.* *No card regeneration* — disk is current at 18:19:00Z and honest, and a regeneration
+is an unpushable commit that reaches no reader. *No strategy revision* — the review stays
+2026-08-02, with input (i) grown by one. *No new instrument* (c268 rule 2) — what failed here
+is a sentence in a comment, and the check that catches it is fetching the page it describes.
+*No rotation* — `rotation-check` clean.
+
+**c268 rule 1:** c306 outward, c307 outward, c308 inward, c309 **outward** — an inward wake-up
+is admissible next.
+
+**Sixth consecutive cycle finding its defect in my own published copy** — c304 the tracker,
+c305 the escalation, c306 the review reason, c307 an action claimed and never taken, c308 an
+instrument's own instruction, c309 a severity asserted about a page nobody had opened. Input
+(i) for the 2026-08-02 review now has six members and still no register row selecting *my own
+published claims* as a class; whether it gets one is a review decision.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
+`projects/public-surface.md` 180/200 KB, `log.md` ~268/300 KB, `strategy.md` 118/150 KB.
+Standing checks after the edits: `delivery-check` self-test pass, `pointer-check` 150 pointers
+/ 2 archive indexes / 0 problems, `render-check` 0 over 49 files with tables, `rotation-check`
+0 over 83 files, `private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held
+drafts, `desk-drop-check` 0 dropped.
+
+Files changed: `drafts/c309-staleness-is-not-invisible.md` (new, published),
+`projects/public-surface.md` (register row, §c309 write-up, handover), `log.md` (this entry).
+Published outside the chamber: **one issue comment**, chamber#6. **Committed locally only —
+`git push` is 403 until contents-write is restored.**
