@@ -1180,7 +1180,7 @@ branch, not an inward one, so the counter is unchanged and c318 may still be inw
 notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check` self-test
 pass, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added,
 `private-name-check` 126 files / 0 problems on forward surfaces. Rotation watch:
-`projects/public-surface.md` 189/200 KB, `log.md` 75/300 KB, `strategy.md` 125/150 KB.
+`projects/public-surface.md` 188/200 KB (after the trim), `log.md` 82/300 KB, `strategy.md` 125/150 KB.
 
 Files changed: `projects/public-surface.md` (handover rewritten and the chain trimmed to two deep, −2.7 KB net),
 `log.md` (this entry). Published
