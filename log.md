@@ -2318,3 +2318,112 @@ forward surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-dro
 Files changed: `projects/public-surface.md` (2 register rows, §c328, handover rewritten to two
 segments), `log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally
 only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 329) — 19:0x–19:3xZ — the first merge that landed my review notes, and the note it left behind
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **1 d 16 h 27 m** —
+**twenty-first** consecutive run past the 26 h bound. The five agree with each other, so this is not
+the c241 partial-regeneration class. Disk now **2026-07-31T18:35:03Z**. Same four assets flagged
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **44 commits unpushed, 0
+behind**. Disk fresh, served stale — the refresh ran and publication broke, same single cause as
+c303–c328. **Not re-escalated:** chamber#6 carries the complete two-cause ask, verified actionable at
+c318.
+
+**The c328 fork is resolved, and it resolved the benign way.** c328 stated the test in advance so this
+cycle would read an instrument rather than guess: disk stamp moved → the daily job fired and the
+attribution stays *delivery path*; disk stamp still `2026-07-30T18:19:00Z` past 20:19Z → both copies
+stale and the attribution becomes *the refresh job* for the first time since c303. Measured:
+`/root/.retinue/scheduler/aros-dashboard-refresh.json` reads `last_run 2026-07-31T18:40:30Z`,
+`status: success`, and the disk cards carry `2026-07-31T18:35:03Z`. The job fired **18 minutes past
+due, immediately after c328 ended** — which confirms c328's inferred mechanism: **the scheduler waits
+on a job rather than forking it**, so a long tick *delays* the daily slot without skipping it. No card
+regeneration was owed and none was done. The value here is not the finding but its form: a fork
+written down before the evidence existed, resolved by one file read, with no room to rationalise
+either branch afterwards.
+
+**Pickup — `retinue@main` moved for the first time since `f49f2053`.** He merged
+[#51](https://github.com/Retinue-OS/retinue/pull/51) at **2026-07-31T18:48:33Z**, twenty minutes
+before this wake-up started. Two questions in order, and the first one matters more.
+
+**Merged is present, this time.** The c270 class — a merge whose content is not on `main` afterwards
+— did **not** recur. On `main @ 2fb1a9e2`: `agents/secretary.md:95` carries "any mounted chamber may
+provide", `:109` the byte-wise path sort, and the PR's own second commit message reads *"Addresses
+Aros's review on #51"*. This is the first time the standing measure's *review notes accepted* figure
+is backed by content on `main` rather than by a diff in an open PR — and after c270 that distinction
+is the whole measure.
+
+**The fourth note shipped unaddressed.** My comment of 2026-07-30 23:53:16Z said the heading merge key
+has only one side. Measured on `main` today:
+
+| | |
+|---|---|
+| `agents/secretary.md:104` | the key is the heading — "the heading is the rule's identity — what the merge compares" |
+| `agents/secretary.md:79` | the framework's own sign-off default is a **bullet**, under `### German — general rules` (`:67`) |
+| Headings in that file | Role, Contact lookup, Triage, Composing messages, E-mail tooling, Send control, Language and style guidelines, German — general rules, Recipient- and sender-specific conventions — **no `Sign-off`** |
+| `git/trees/main?recursive=1`, grep `style` | `webapp/styles.css` only — **no `chambers/*/style/secretary.md` anywhere on `main`** |
+
+Re-measured rather than inherited from c301: PR **#53** at `50fb061` holds the only instance of the
+contract, and it sharpens the case — its `## Sign-off` states in its own words that it overrides
+`Freundliche Grüsse`, a default scoped to `### German — general rules`, and supplies
+`These violent delights have violent ends` with **no language attached**. So the undefined case is
+concrete: does a chamber's `## Sign-off` replace the German sign-off for German messages, apply to
+every language, or only to English? `CLAUDE.md`'s "no preferred languages except English" asks for
+per-item language metadata rather than a default that quietly wins across languages.
+
+**Venue chosen on the rate limit, not on preference.** The c184 slot opens 2026-08-01T06:26:15Z,
+eleven hours out, so an issue was not available. A comment on the PR where the exchange already lives
+costs one notification, reaches him with the context loaded, and asks a one-word decision — track it
+and I file one small issue when the slot opens, or drop it and I retire the draft with his answer in
+it. Posted:
+[issuecomment-5146545921](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5146545921).
+Write-up: `drafts/c329-pr51-merged-with-one-note-unaddressed.md`.
+
+**Not done, on purpose.** *No token-scope sentence in that comment* — it is why I offered an issue
+rather than a diff (`contents: write` is 403, so I cannot create the branch), but chamber#6 carries
+that ask in full and attaching it to an unrelated technical note is exactly the nudge c27's clock rule
+forbids. *Nothing filed.* *No nudge on my own #55* — `created_at 2026-07-31T09:19:53Z`, so 9 h 5x m
+at this wake-up, computed and not incremented (c328's rule, first application); still open,
+`mergeable: true`, 0 comments, and c328's measurement stands unchanged. *No review of #49/#53/#56/#57*
+— every one sits at the SHA last reviewed. *No strategy edit* — the review is 2026-08-02 and this is
+an input to it. *No dashboard thread, no owner-action issue* — nothing arose needing an account,
+money, terms of service or a legal call.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18.
+0 discussions. `mentions-check` **49 raw / 0 confirmed**. Last human action in the org is now
+**2026-07-31T18:48:43Z** (his branch delete after the merge), so the re-slow bound moves to
+2026-08-01T18:48:43Z and the tick stays 1800 s. `retinue@main` is now **`2fb1a9e2`** — every baseline
+in this chamber that still says `f49f2053` is one merge behind — and its README still carries no
+provenance link, so **phase objective 3 remains unsatisfied** and #55 is still the one-click fix.
+`drafts/` carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both
+clean under `baseline-check`. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c327 inward, c328 inward, **c329 outward** — the owed outward surface is discharged
+and the next wake-up starts clean.
+
+**One line for the 2026-08-02 review.** The measure *corrections accepted into the repos* has been
+counting acceptance **in a pull request**. c270 showed that a merge can be reverted out of `main`
+within sixteen minutes, and today shows the check that distinguishes them costs one API call. The
+only checkable form of the measure is **content present on `main` after the merge**, re-read rather
+than remembered, and the review should say so in the definition instead of leaving each cycle to
+decide what "accepted" meant.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus review notes
+now **verified present on `main`** rather than accepted in a diff, and one open PR of my own.
+Standing checks: `delivery-check` self-test pass, `render-check` 0 over 54 files with tables,
+`pointer-check` 176 pointers / 2 archive indexes / 0 problems, `rotation-check` **0 problems**,
+`private-name-check` 131 files / 0 problems on forward surfaces, `baseline-check` 2 held / 4
+references / 0 problems, `desk-drop-check` 0 dropped / 3 added, `card-budget-check` 0 of 72 values
+over budget. Rotation watch: `projects/public-surface.md` **192/200 KB**, `log.md` 172/300 KB,
+`strategy.md` 125/150 KB.
+
+Files changed: `drafts/c329-pr51-merged-with-one-note-unaddressed.md` (new),
+`projects/public-surface.md` (1 register row, §c329, handover rewritten to two segments), `log.md`
+(this entry). Published outside the chamber: **one comment on retinue#51**. **Committed locally only
+— `git push` is 403 until contents-write is restored.**
