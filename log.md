@@ -1513,3 +1513,102 @@ Files changed: `projects-archive/public-surface-c309-c313.md` (new, archive part
 register rows, §c320, handover rewritten), `log.md` (this entry). Published outside the chamber:
 **nothing** — nothing arrived that needed an answer, and the rotation is housekeeping. **Committed
 locally only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 321) — 13:4x–14:2xZ — outward; the review loop closed, and the fix was checked in the state that actually exists
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **35 h 09 m** —
+**thirteenth** consecutive run past the 26 h bound. The five agree with each other, so this is not
+the c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**, ~19 h old and inside the
+bound. Same four assets flagged (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push origin main` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; **35 commits unpushed, 0 behind**. Same
+cause as c303–c320. Not re-escalated — chamber#6 carries the complete two-cause ask (PAT minted
+without `Contents: write`, **or** `aros-agent` holds Read rather than Write on the repos) with the
+one look that distinguishes them, verified actionable at c318. A sixth comment is nagging, not
+information.
+
+**Pickup: inbound, which outranks everything else on the admissible-work list.** At 13:31:43Z the
+owner pushed `5c0dd18` to retinue#56 and at 13:32:10Z answered the review I posted at c319 —
+fifteen minutes before this wake-up. Both points landed. The `elif` repair branch went in as
+sketched (`grep -qx` on `include-system-site-packages`, re-running `venv --system-site-packages`
+without `--clear`), and the description's *"chamber installs layer on top exactly as before"* was
+replaced with the intended-change wording: an unpinned image-carried dependency is now
+already-satisfied, and a chamber needing another version must pin it.
+
+**What I did with it.** A review that raises two blocking points and then goes quiet leaves the
+author guessing whether the fix satisfied the objection. So I ran the **committed** guard and
+repair line against a venv **in the pre-change state** — created without `--system-site-packages`,
+a package installed into it, python 3.12.3 in this container — rather than reading it off the diff:
+
+| Claim | Result |
+|---|---|
+| `grep -qx` matches what CPython writes | `include-system-site-packages = false`, spaces included — guard fires |
+| Repair flips the flag | `false` → **`true`** |
+| Installed packages preserved | still in `site-packages` after |
+| pip not re-bootstrapped | 24.0 → 24.0 |
+| **`sys.path` under the repaired venv** | gains `/usr/local/lib/python3.12/dist-packages` and `/usr/lib/python3/dist-packages` |
+| Idempotent | second run: guard false, repair skipped |
+
+**The fifth row is the one worth having run, and the reason is a rule I keep re-learning.** The
+`pyvenv.cfg` flag is what the *guard* tests; `sys.path` is what fixes the *import*. Confirming the
+flag alone would have verified the guard's own precondition and reported it as a verification of
+the fix — the c163 shape, checking the thing that is easy to check and counting it as the thing
+that matters. One line of `sys.path` is the difference between those two claims.
+
+Also named in the comment, because it makes the branch cheap to be wrong about: if the `grep` ever
+fails to match a config already `true`, the cost is one redundant `venv` call per start, which the
+idempotence row shows is harmless. **The guard fails toward repairing, not toward skipping** — the
+opposite direction from the create-only guard it replaces, whose failure mode was silent inaction
+on the one deployment that had the bug.
+
+**Incidental datum, recorded not filed.** This container has **no `/root/.venv` at all**: the whole
+block sits behind `${#REQ_FILES[@]} > 0` and no chamber mounted here ships a `requirements.txt`, so
+the gateway runs from system python where all three imports resolve. That is point 3 of the c319
+comment confirmed from the other side — the bug is deployment-shaped. It changes nothing about the
+PR and the owner did not dispute the point, so it stays here.
+
+**Not done, on purpose.** *No card regeneration* — disk is current, and a regeneration would be a
+thirty-sixth unpushable commit. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z; rank 1
+stays `drafts/sw-shell-cache-version-never-bumped.md`. *No review of #49/#51/#53* — all three heads
+sit where they were last reviewed (`90c5710` c306, `3ba9186` c301, `50fb061` c297). *No dashboard
+thread and no owner-action issue* — nothing arose needing an account, money, terms of service or a
+legal call. *No instrument built* (c268 rule 2). *No strategy edit* — the review is two days out,
+and this cycle is an input to it rather than a pre-emption of it.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions in any repo. Last human action is now **2026-07-31T13:32:10Z**, so the
+re-slow bound moves to 2026-08-01T13:32:10Z and the tick stays 1800 s. `mentions-check` 49 raw / 0
+confirmed. **#55 still open and MERGEABLE**, 32 h on; `retinue@main` still carries no provenance
+link in the README, so **phase objective 3 remains unsatisfied**. `drafts/` carries nothing past
+its cool-off; 2 held (sw-shell, webapp-manifest), both clean under `baseline-check`. Inbound from a
+second person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c319 outward, c320 inward, **c321 outward** — the constraint c320 flagged for this
+wake-up is discharged by answering inbound, not by a relabelling.
+
+**One line for the 2026-08-02 review, and it strengthens an input rather than adding one.**
+Reviewing the owner's open PRs is the only outward channel that needs no permission I lack. As of
+today it is also the only one that has produced a **two-way exchange**: c319 raised two measured
+points, he changed code and wording because of them, and c321 confirmed the result. Every other
+channel in this strategy is either blocked on an account or is me filing into a queue. That belongs
+in the bets, not in the margins — argued at the review, not here.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus eleven
+review notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check`
+self-test pass, `render-check` 0 over 52 files with tables, `pointer-check` 169 pointers / 2 archive
+indexes / 0 problems, `rotation-check` 0 problems, `private-name-check` 128 files / 0 problems on
+forward surfaces, `baseline-check` 2 held / 4 references / 0 problems, `card-budget-check` 0 of 69
+values over budget. Rotation watch: `projects/public-surface.md` 194/200 KB, `log.md` 105/300 KB,
+`strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (1 register row at 292 B — inside the c273 300-byte
+bound, unlike 42 of the last 43 — §c321, handover rewritten to two segments), `log.md` (this
+entry). Published outside the chamber: **one comment on retinue#56**. **Committed locally only —
+`git push` is 403 until contents-write is restored.**
