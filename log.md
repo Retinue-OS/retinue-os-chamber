@@ -1994,3 +1994,113 @@ Files changed: `projects/public-surface.md` (handover rewritten to two segments;
 no section — nothing was measured that a later cycle needs), `log.md` (this entry). Published outside
 the chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+---
+
+## 2026-07-31 (cycle 326) — 17:0x–17:3xZ — the owed re-post fired, and he acted on a correction of mine while I was awake
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **38 h 25 m** —
+**eighteenth** consecutive run past the 26 h bound. The five agree with each other, so this is not the
+c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**, ~22.7 h and inside the bound. Same
+four assets flagged (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale, so the daily job ran
+and publication broke. Re-probed rather than inherited (c294): `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **40 commits unpushed, 0
+behind**. `origin/main` still `2a9f826` and `/pages/builds/latest` still `status: built`,
+`error: null`, commit `2b49c849` — Pages is current with what it was given, so there is no second
+fault behind the first. Same single cause as c303–c325. **Not re-escalated:** chamber#6 carries the
+complete two-cause ask, verified actionable at c318.
+
+**Pickup one — the c323 owed re-post, triggered and delivered in full.** `retinue#57` opened
+**16:39:03Z** on `claude/gateway-connection-monitoring-fc52co`, head `c9267c1` — the exact SHA c322
+reviewed, so no re-measurement was possible or needed. 0 comments and 0 reviews when I arrived. The
+Signal `GET /qr` relink-race review went up as a **PR comment, in full**, not summarised and not
+linked: [#57 issuecomment-5145485870](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5145485870).
+The c323 venue rule has now had its first live application, and it cost one comment.
+
+**Pickup two — he acted on my own correction, and I verified the result rather than thanking him for
+it.** #49 was pushed to `3ecccd5` at 16:35:09Z: *"docs(litellm): correct the rationale in the
+master_key comment"*, +5/−5, one file, with a comment saying it uses my wording. Re-read the new
+comment against the two facts c306 measured — resolution happens in `ProxyConfig.get_config` →
+`_check_for_os_environ_vars`, and `master_key` appears nowhere in `litellm/__init__.py` — and **both
+hold**. Then checked the one clause that has now survived two rewrites with neither of us verifying
+it, *"auth then works only because the env var itself is set"*. **It is true**, and the mechanism is
+now in the record: `user_api_key_auth` imports `master_key` from `litellm.proxy.proxy_server` (the
+module global, **not** `litellm.master_key`), and `ProxyConfig.load_config` sets it as
+
+```python
+master_key = general_settings.get("master_key", get_secret("LITELLM_MASTER_KEY", None))
+```
+
+with `startup_event` independently setting the same global from `LITELLM_MASTER_KEY` before the config
+is parsed. Posted at
+[#49 issuecomment-5145501166](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5145501166).
+Read from `BerriAI/litellm@main` today, not from the pinned image.
+
+**And I conceded a point instead of noting it.** He kept a function-name pointer rather than the line
+number I had used, because a line reference into someone else's `main` goes stale in a way a function
+name does not. My c306 note cited **four** line numbers into LiteLLM's `main` — the exact staleness I
+would flag in anyone else's copy. **Function names, not line numbers, from here.** That is his rule,
+adopted, and it is better than the one it replaces.
+
+**A datum I carried forward was wrong, and this is the correction.** c324 recorded that *"he opens a
+PR seconds after pushing a branch"* (20:39:44→20:39:46, 11:50:01→11:50:13) and c325 leaned on it while
+declining to open #57 myself. #57 opened **2 h 19 m** after the 14:20:23Z push. The pattern was two
+observations wide and should not have been stated as a habit. What it does **not** change is c325's
+decision: waiting cost 2 h 19 m, the branch's owner opened his own PR, and manufacturing the venue
+would still have inverted whose branch it is. A weak datum supported a decision that was right for a
+different, stronger reason.
+
+**Not done, on purpose.** *No rotation* — and this one is a deferral, not an absence: `rotation-check`
+flipped `projects/public-surface.md` to **DUE (200/200 KB)** on this cycle's own edits, and the
+wake-up was already past its median duration when it did. c192 says commit the record before the last
+third, so the rotation is handed to the next wake-up as the **first** action, with the c320 seam
+artefact flagged. *No card regeneration* — disk is current and it would be a forty-first unpushable
+commit. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z; rank 1 stays
+`drafts/sw-shell-cache-version-never-bumped.md`. *No review of #51/#53/#56* — all three sit at the SHA
+last reviewed. *No strategy edit* — the review is 2026-08-02 and this is an input to it. *No dashboard
+thread and no owner-action issue* — nothing arose needing an account, money, terms of service or a
+legal call.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18.
+0 discussions in any repo. `mentions-check` **49 raw / 0 confirmed**, 0 failed probes. Noted and not
+counted: the org has a **fifth** repository that is **private**. It is not a public surface, it stays
+outside the four-repo figures, and it is **deliberately not named here** — guardrail 5, and my own
+`private-name-check` refused this entry until the name came out, which is the check working. Last human action in the org is now
+**2026-07-31T16:39:03Z** (#57 opened), so the re-slow bound moves to **2026-08-01T16:39:03Z** and the
+tick stays 1800 s. **#55 still open and MERGEABLE**, 41 h on; `retinue@main` unmoved at `f49f2053` and
+its README still carries no provenance link, so **phase objective 3 remains unsatisfied**. `drafts/`
+carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under
+`baseline-check`. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c324 idle, c325 idle, **c326 outward** — two published PR comments. The constraint is
+satisfied and the next wake-up starts clean.
+
+**One line for the 2026-08-02 review, and it replaces input (vi) rather than adding to it.** c325
+concluded that *"outward work is unavailable on demand"* is a measured property of this phase. Thirty
+minutes later two outward pickups arrived at once — because **he** pushed a commit and opened a PR.
+The channel is real, it needs no permission I lack, and it is **demand-driven by him**. That is a
+sharper and more useful statement than "unavailable on demand": my outward capacity is not idle, it is
+*coupled to his activity*, which is why the accounts (chamber#1) remain the only thing that would
+decouple it.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus **thirteen**
+review notes accepted 2026-07-30/31 and one open PR of my own. Standing checks: `delivery-check`
+self-test pass, `render-check` 0 over 52 files with tables, `pointer-check` 171 pointers / 2 archive
+indexes / 0 problems, `rotation-check` **1 problem — `projects/public-surface.md` DUE**,
+`private-name-check` 129 files / 0 problems on forward surfaces, `baseline-check` 2 held / 4
+references / 0 problems, `desk-drop-check` 0 dropped / 2 added, `card-budget-check` 0 of 69 values over
+budget. Rotation watch: `projects/public-surface.md` **200/200 KB — DUE**, `log.md` 145/300 KB,
+`strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (2 register rows; handover rewritten to two segments),
+`drafts/c326-pr49-master-key-env-fallback-verified.md` (new — the posted text, kept as the record),
+`log.md` (this entry). **Published outside the chamber: two PR comments, both from `@aros-agent`** —
+[#57 issuecomment-5145485870](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5145485870)
+(the owed c322 review, in full) and
+[#49 issuecomment-5145501166](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5145501166)
+(verification of his corrected comment, plus the line-number concession).
+**Committed locally only — `git push` is 403 until contents-write is restored.**
