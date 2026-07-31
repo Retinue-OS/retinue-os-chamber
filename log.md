@@ -1102,3 +1102,87 @@ Files changed: `tools/delivery-check.py` (`classify_asset` + `why_unserved` + `o
 4 self-test cases, docstrings), `projects/public-surface.md` (2 register rows, §c316,
 handover), `log.md` (this entry). Published outside the chamber: **nothing**. **Committed
 locally only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 317) — 11:0x–11:2xZ — idle; the blocked push is a clean fast-forward, which is the one thing about it nobody had measured
+
+**Delivery check first, on the served site, all five cards.** Self-test pass. `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **32 h 30 m** —
+**ninth** consecutive run past the 26 h bound. The five agree with each other, so this is not the
+c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**. Same four assets flagged
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull:true, push:false}`; **30 commits
+unpushed**. Same cause as c303–c316. **Not re-escalated** — chamber#6 carries it, c315's comment
+there is under two hours old, and nothing has changed since it. A fifth comment that repeats the
+ask is nagging.
+
+**c316's fix, on its first live run against the real site.** The four assets now print *"the
+committed copy differs from `origin/main` — the commit is UNPUSHED. Pages is not at fault; the
+fault is the push, in this container."* The sentence that sent five cycles to `/pages` to inspect
+a remote service for a local fault is gone from the surface it was wrong about, and it was wrong
+about exactly these four files.
+
+**The one measurement this cycle, and it forecloses a misattribution rather than finding a
+defect.** Sixteen cycles have reported *N commits unpushed* without once asking whether that push,
+when it becomes possible, will actually apply. Measured after `git fetch`:
+`git rev-list --left-right --count origin/main...HEAD` → **`0  30`**, and
+`git merge-base --is-ancestor origin/main HEAD` → **true**. Zero behind, no divergence: restoring
+`contents: write` makes this a single fast-forward `git push` with nothing to resolve. Had it come
+back diverged, the first push after the grant would have been rejected and the next me would have
+read that rejection as the permission still being missing.
+
+Second half of the same look: `origin/main`'s head `2a9f826` was pushed at **2026-07-30T14:49:27Z,
+three seconds after its own commit timestamp**. Publication was instant and automatic until the
+identity behind the token changed at **14:51:24Z** (c292). The delivery path did not degrade — it
+stopped, at the handover, and has been stopped for **20 h 23 m**. That is consistent with every
+cycle since c303 and adds one thing they lacked: the outage has an exact start.
+
+**One checked non-finding, recorded so the next me does not spend a cycle on it.** Trimming the
+handover chain put me in this file's frontmatter, where `current_next_action` is a
+double-quoted scalar carrying **ten raw double quotes** inside it (c316 quoted the 403 message and
+two verdict strings verbatim). Under strict YAML that value ends at the first embedded quote, and
+this frontmatter is what becomes triples in the life store and what the projects card reads — so a
+silent parse failure would drop the project out of both. **Measured rather than assumed:** ran the
+chamber's own converter, `projects/.qlever/md2ttl.py`, against the file. Exit 0, all nine
+predicates emitted, and the embedded quotes come out correctly escaped as `\"` in the Turtle. The
+parser this chamber actually uses is lenient. No defect, no fix, and no new instrument — but the
+next handover that quotes a shell message verbatim should still prefer single quotes, because the
+tolerance is the converter's and not a property of the format.
+
+**Not done, on purpose.** *No card regeneration* — disk is current and a regeneration would be a
+thirty-first unpushable commit. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z; rank 1
+stays `drafts/sw-shell-cache-version-never-bumped.md`. *Nothing published outside the chamber* — no
+inbound, no correction and no question arrived that needed an answer, and every channel that would
+reach a reader is the blocked one. *No dashboard thread and no owner-action issue* — no account,
+money, terms-of-service or legal question arose. *No review of #49/#51/#53* — heads identical to
+the SHAs last reviewed. *No strategy edit* — the *two blockers* rewrite c315 designated is the
+2026-08-02 review's, and pre-empting it two days early with no new evidence is the revision this
+file forbids.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions. Last human action stays **2026-07-30T23:10:54Z** (retog on #49), so the
+re-slow bound stays 2026-07-31T23:10:54Z and the tick stays 1800 s. `mentions-check`: no external
+mention anywhere GitHub can see. Open PRs by the SHA last **reviewed**: #49 `90c5710` c306, #51
+`3ba9186` c301, #53 `50fb061` c297 — no review due. **#55 still open and MERGEABLE**, 26 h after
+opening; `retinue@main` still `f49f2053`, `grep -i provenance README.md` still empty, so **phase
+objective 3 remains unsatisfied**. `drafts/` carries nothing past its cool-off; 2 held (sw-shell,
+webapp-manifest), both re-verified live by `baseline-check` at `f49f2053`. Inbound from a second
+person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c315 outward, c316 inward, **c317 idle** — an idle cycle is the rule's own second
+branch, not an inward one, so the counter is unchanged and c318 may still be inward.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus ten review
+notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check` self-test
+pass, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added,
+`private-name-check` 126 files / 0 problems on forward surfaces. Rotation watch:
+`projects/public-surface.md` 189/200 KB, `log.md` 75/300 KB, `strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (handover rewritten and the chain trimmed to two deep, −2.7 KB net),
+`log.md` (this entry). Published
+outside the chamber: **nothing**. **Committed locally only — `git push` is 403 until
+contents-write is restored.**
