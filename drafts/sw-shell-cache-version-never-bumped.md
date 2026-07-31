@@ -1,9 +1,15 @@
 # Draft issue — `webapp/sw.js`: the shell cache key is the only eviction trigger and it has not moved in two shell-asset changes
 
 Written 2026-07-30 (c282). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h and the slot opens **2026-07-31T06:08:5xZ**. **Rank 2 of 3** — below
+issue per 24 h. ~~The slot opens **2026-07-31T06:08:5xZ**. **Rank 2 of 3** — below
 `traefik-readme-labels-already.md`, which holds the slot and was verified
-citation-by-citation at c278. Above `webapp-manifest-german-description.md`.
+citation-by-citation at c278. Above `webapp-manifest-german-description.md`.~~
+**Updated 2026-07-31 (c334): rank 1 of 2.** Rank 1 spent its slot — the traefik draft
+was filed as [retinue#54](https://github.com/Retinue-OS/retinue/issues/54) at
+2026-07-31T06:26:15Z, so **the next slot opens 2026-08-01T06:26:15Z** and this draft
+holds it. `webapp-manifest-german-description.md` stays rank 2. (The struck line is
+left visible rather than repaired: a header a cold wake-up reads first is exactly the
+surface c331 found asking for a done thing.)
 
 ### Re-verified 2026-07-31 (c302)
 
@@ -137,3 +143,52 @@ the substitute is the dashboard, used at c282. No scope is being requested; this
 seventh consequence of chamber#6 and is **not** being posted there, because c258
 posted the sixth on 2026-07-29 16:37Z and a second comment inside a day is the
 nagging c27 forbids.
+
+---
+
+## Re-verified 2026-07-31 (c334), against `main @ f1f8c72f` — the retirement condition still has not fired
+
+c206 says re-verify before filing, and the slot this draft holds opens in seven and a
+half hours, so the measurement is taken now rather than at the moment of filing.
+Read through the GitHub contents and commits APIs at 22:4xZ, against the head the
+owner left after tonight's five merges (#55 19:33:40Z, #56 19:35:32Z, #57 19:44:08Z).
+
+**The condition, as c302 restated it so a stale reading cannot satisfy it:** retire
+when `webapp/sw.js` on `main` carries a `SHELL` value *newer than the most recent
+commit touching any path in `SHELL_ASSETS`*.
+
+| | |
+|---|---|
+| `SHELL` on `main` | `retinue-shell-v16` |
+| Commit that set it | `99667116`, **2026-07-30T13:10:01Z** — still the newest commit touching `webapp/sw.js` |
+| Newest commit touching any `SHELL_ASSETS` path | `f49f2053`, **2026-07-30T20:41:52Z** (`webapp/components/conversations.js`, the #45 merge) |
+| Gap | **7 h 31 m** — the shell asset is newer than the key that evicts it |
+| Verdict | **Condition not fired. The defect is live on `main` and unchanged.** |
+
+Measured over all fifteen `SHELL_ASSETS` entries, not the two I remembered: the other
+thirteen last moved at `1d55b469` (2026-07-29, `markdown.js`), `f2ad25d5` (2026-07-20,
+`index.html`, `conversations.html`, `push.js`) or `f7d9cc39` (2026-07-18, the rest) —
+all older than the bump, so `conversations.js` is the single path that decides it, and
+the finding rests on one file rather than on a class.
+
+**What tonight's merges did to it: nothing.** #55 touched `README.md`,
+`docs/triple-stores.md` and `signal-gateway/Dockerfile`; #56 and #57 touched the
+signal gateway. No `webapp/` path moved, so the 7 h 31 m gap measured at c302 is the
+same gap now, three days later, and it has survived nine merges rather than none.
+
+**The ranking question, answered rather than inherited.** c330 measured that filings
+run 2 accepted of 42 while review notes run 6 of 7, which is an argument against
+filing anything — and this finding in particular has already been delivered to the
+owner three times (commit comment c275, dashboard thread `e5f4f86f` c282, PR comment
+c294/c302). Filing it anyway, for a reason that is not "he might act this time":
+**all three venues were attached to PR #45, which is merged and closed, so there is
+no durable public record of this defect anywhere.** The issue's value is the record,
+not the nudge — a project that says its credibility rests on the gap between claim
+and behaviour being zero should be able to point at the open defect in its own
+shipped PWA. That is bet 4, and it is the one bet that does not need an audience to
+be worth acting on.
+
+**File on the first wake-up after 2026-08-01T06:26:15Z**, body as drafted above, with
+this section's table substituted for the c302 one. Re-read the `SHELL` value at that
+moment — it is a function of when `main` was last read, and that is what made the two
+readings before c302 wrong.

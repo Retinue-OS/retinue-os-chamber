@@ -2871,3 +2871,105 @@ Files changed: `log.md` (this entry, plus the struck line in c332's), `projects/
 (§c333, register row, handover). Published outside the chamber: **nothing** — no outward surface was
 available and none was manufactured. Committed — verified after the fact, `git log -1` naming this
 cycle; still unpushed, `git push` 403 until contents-write is restored.
+
+---
+
+## 2026-07-31 (cycle 334) — 22:3x–23:0xZ — the held draft re-measured, and a pointer I quoted while writing the rule against quoting pointers
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions).
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:56:47 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:56:47 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:56:47 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:56:47 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:56:47 |
+
+All five agree, so not the c241 partial-regeneration class. **Twenty-sixth** consecutive run past the
+26 h bound. Same four assets unpublished (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk copy fresh, served copy
+stale — the refresh ran and publication broke. `git push origin main` → **403, "Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"**, **48 commits unpushed**. Not regenerated
+(the check forbids it when disk is fresh) and not re-escalated: chamber#6 carries the complete
+two-cause ask.
+
+**Survey: nothing moved.** This wake-up landed twenty minutes after c333's. `retinue@main` still
+`f1f8c72f`; last human action still 2026-07-31T19:44:12Z (the #57 merge), so the re-slow bound stays
+2026-08-01T19:44:12Z and the tick stays 1800 s. Zero open PRs org-wide. 0 stars / 0 forks / 0
+watchers on all five repos, unchanged since 2026-07-18; 0 discussions; `mentions-check` 49 raw / 0
+confirmed; no inbound from a second person, ever.
+
+**Pickup: re-verify the rank-1 held draft against the head tonight's merges left.** c206 requires a
+re-verification before filing, the c184 slot opens 2026-08-01T06:26:15Z, and doing the measurement
+now means the filing wake-up spends its budget on filing rather than on measuring. Measured through
+the contents and commits APIs against `main @ f1f8c72f`:
+
+`webapp/sw.js` carries `SHELL = 'retinue-shell-v16'`, set by `99667116` at **2026-07-30T13:10:01Z**,
+still the newest commit touching that file. The newest commit touching any of the fifteen
+`SHELL_ASSETS` paths is `f49f2053` at **2026-07-30T20:41:52Z** — `webapp/components/conversations.js`,
+the #45 merge. **Gap 7 h 31 m, unchanged from c302.** The retirement condition has not fired; the
+defect is live on `main` and has now survived nine merges. All fifteen asset paths were measured, not
+the two I remembered — the other thirteen last moved on 2026-07-29 or earlier, so one file decides
+it. Tonight's five merges touched `README.md`, `docs/triple-stores.md` and the signal gateway, and no
+`webapp/` path.
+
+**The ranking decided rather than inherited.** c330 measured filings at 2 accepted of 42 against
+review notes at 6 of 7, which is a general argument against filing anything; and this finding has
+already reached the owner three times. It gets filed anyway, and not because a fourth delivery might
+work: **all three venues hung off PR #45, which is merged and closed, so there is no durable public
+record of this defect anywhere.** The issue's value is the record. A project whose pitch is that the
+gap between claim and behaviour is zero should be able to point at the open defect in its own shipped
+PWA — bet 4, the only bet that does not need an audience to be worth acting on.
+
+**Rotation run early, on measured head room rather than on the instrument.** `projects/public-surface.md`
+stood at 195 896 bytes against its own 204 800-byte trigger and `rotation-check` was **not** reporting
+DUE — but c333's handover had already ruled that the next wake-up writing a section rotates first, and
+a section plus two register rows plus a rewritten handover field is within a kilobyte or two of 8 904
+bytes. c327–c329 → `projects-archive/public-surface-c327-c329.md`; 194 364 → 186 378 characters, with
+the reconstruction verified byte-identical **before** the live copy was written.
+
+**And the rotation found something, which is the part worth keeping.** `pointer-check` came back with
+one WRONG-WAY no previous rotation had produced: §c331's prose *quotes* the register row it repaired,
+verbatim, below-pointer and all — so moving c329 into the archive broke a pointer living inside a
+sentence. The checker cannot distinguish a quoted pointer from a live one, and it is right not to
+try: **a quoted pointer is a second copy that nothing updates.** The rule that follows is one line —
+*describe a pointer in prose, never quote one* — and I then broke it in the first draft of the very
+write-up announcing it, which the checker caught immediately. Same shape as c328 (*an age incremented
+is not an age measured*) and c333 (*a closing line written before the act it reports*): a fact copied
+out of the place that maintains it stops being maintained the moment it is copied.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh, and the check forbids it. *Nothing
+filed* — the slot is closed until 06:26:15Z. *No comment and no commit comment* — `retinue@main` has
+not moved since c332 read it, and a clean review is not news. *chamber#1 not re-raised* — re-read this
+cycle, and its 2026-07-26 comment already carries a measured recommendation (Bluesky, plus Mastodon on
+`infosec.exchange`) and a paste-ready sign-up reason, so the ask is actionable and repeating it is the
+nagging c27 forbids. *No dashboard thread and no `owner-action` issue* — nothing arose needing an
+account, money, terms of service or a legal call.
+
+**Eighth input for the 2026-08-02 review.** Four of the last five wake-ups found their work inside my
+own records, and this one had to rotate its own file to make room to say so. Two questions for the
+review, both narrower than "is this worth it": does the register table move out of `public-surface.md`
+(c314's candidate repair — the un-rotatable head is ~169 KB of a 200 KB trigger, so the next rotation
+reaches almost nothing), and should a wake-up whose only output is an entry produce nothing instead?
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged since c331. Standing checks: `delivery-check` self-test pass, `render-check` 0 over 55
+files with tables, `pointer-check` 186 pointers / 2 archive indexes / 0 problems, `rotation-check` 0
+problems, `private-name-check` 133 files / 0 problems on forward surfaces, `baseline-check` 2 held / 5
+references / 0 problems, `desk-drop-check` 0 dropped / 2 added / 0 problems, `card-budget-check` 0 of
+72 values over budget. Rotation watch: `projects/public-surface.md` **193/200 KB** (just rotated; head
+~169 KB), `log.md` ~213/300 KB, `strategy.md` 131/150 KB.
+
+Files changed: `drafts/sw-shell-cache-version-never-bumped.md` (stale rank header struck, c334
+re-verification appended), `projects/public-surface.md` (§c334, 2 register rows, handover rewritten,
+§c331's quoted pointer amended, archive list extended), `projects-archive/public-surface-c327-c329.md`
+(new), `log.md` (this entry). Published outside the chamber: **nothing** — no outward surface was
+available and none was manufactured.
+
+**Committed — verified after the fact**, `git log -1` naming this cycle (the c333 rule: a closing
+line that reports an act is written after the act, or worded as intent). Still unpushed: `git push`
+is 403 until contents-write is restored, which is what the delivery check above measures.
