@@ -48,6 +48,15 @@ Phase objectives, with status:
    The link from the framework README was **merged on 2026-07-29 12:30Z (PR
    retinue#41) and is not on the current `main`.** It was never blocked on the
    permission this list claimed for twenty cycles — see below.
+
+   *Re-measured 2026-07-31 09:19Z (cycle 315), against `retinue@f49f2053`.* Still
+   absent — `grep -i provenance README.md` returns nothing, two days on. This
+   objective has therefore been unsatisfied that whole time while the line above
+   read as *written and merged*: **merged is not present**, and this list should
+   state it from the file rather than from the PR's badge. Now carried as
+   [retinue#55](https://github.com/Retinue-OS/retinue/pull/55) — `MERGEABLE`, CI
+   pass, +15/−5 across the three files — a one-click merge rather than prose
+   asking him to act. **The objective turns on the merge, not on the PR.**
 4. **Every inbound question gets an answer within one wake-up cycle.**
    *Vacuously satisfied.* There has been no inbound. This objective measures
    nothing until (2) lands, and I should stop reporting it as met.
@@ -55,7 +64,9 @@ Phase objectives, with status:
    (c292).* The owner granted chamber#6's option 1 alongside the new account.
    Measured from inside: commenting on issues **and on pull requests** now works
    (the PR-comment 403 c289 recorded this morning is gone), but `contents=write`
-   is 403 — so no branch push, and therefore still no PR — and issue *update*
+   is 403 — so no branch push, and ~~therefore still no PR~~ (**struck cycle
+   315: the inference is false — a PR off an *existing* remote branch opens
+   fine, retinue#55; only branch creation is blocked**) — and issue *update*
    (close, edit, label) is 403 in both repos while commenting in the same repos
    succeeds. Everything needing only **read** access to a public repo works;
    everything needing **write on the repository** fails, and
@@ -103,9 +114,27 @@ can grant, and between them they gate everything the bets below are supposed to
 test.
 
 The second one is new to this revision and is the first genuinely new argument
-in three cycles. The GitHub token can **file issues but not open pull
+in three cycles. ~~The GitHub token can **file issues but not open pull
 requests** (`gh pr create` → `Resource not accessible by personal access
-token`). ~~Two docs branches are pushed and stuck behind it —
+token`).~~ **Struck 2026-07-31 (cycle 315): false of the account that has run
+this deployment since 2026-07-30.** `POST /repos/…/retinue/pulls` from an
+existing remote branch returns **201** — [retinue#55](https://github.com/Retinue-OS/retinue/pull/55)
+is the proof — while `POST /git/refs`, `PUT /contents` and `git push` are all
+403. The granted scope is `pull_requests: write`; the missing one is
+`contents: write`, and this section has named the wrong one for twenty-three
+cycles. The original 403 was measured **once**, on the *owner's* token, before
+`@aros-agent` existed, and every handover since inherited it as fact. **An
+inherited 403 is not a measurement** (c19, c310, now this) — a permission
+measured on one identity says nothing about another.
+
+What survives the correction is narrower and still binding: I can turn a branch
+**that already exists on the remote** into a diff he merges in one click, and I
+cannot create the branch. `fix/restore-dropped-merges` was the only such branch
+and #55 has now spent it. So the ask at chamber#6 is unchanged and the
+consequence for delivery is unchanged — 28 unpushed commits, a dashboard serving
+30-hour-old data — but "no PRs" leaves the list.
+
+~~Two docs branches are pushed and stuck behind it —
 `docs/link-provenance-piece` and `docs/calibrate-reindex-latency`. The
 consequence is not cosmetic: my corrections arrive as **prose asking a human to
 act**, never as a diff he can merge in one click. "Corrections accepted into the
@@ -1206,6 +1235,28 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-31 (cycle 315)** — **Correction, and it removes a blocker this file
+  has claimed for twenty-three cycles.** *Trigger:* the c268 rule-1 obligation to
+  make this wake-up outward sent me to a register surface unchecked since c270 —
+  what `main` actually contains — which found the content of merged #41/#42/#43
+  still absent two days on, and, in trying to hand him a diff instead of prose,
+  found that **this account can open pull requests**. Changes: (a) *The two
+  blockers* struck its central claim — `POST …/pulls` off an existing remote
+  branch returns 201, while `POST /git/refs`, `PUT /contents` and `git push` are
+  403, so the missing scope is `contents: write` and never was `pull_requests`;
+  (b) objective 5's inference *"no branch push, therefore still no PR"* struck for
+  the same reason; (c) objective 3 re-measured and marked unsatisfied — it had
+  read *written and merged* for two days while `grep -i provenance README.md`
+  returned nothing, so the list now states it from the file rather than from the
+  PR's badge. **No bet, phase, measure, filing rule or cadence changed** — the
+  phase still ends on the social accounts, and the delivery blocker is untouched
+  (28 unpushed commits, the dashboard serving 30-hour-old data). What changed is
+  which permission this file names, and it names one fewer. The general lesson,
+  third instance after c19 and c310: **an inherited 403 is not a measurement**, and
+  one measured on the owner's identity says nothing about mine. Escalated only as
+  a correction that *shrinks* my own ask, on chamber#6, with no new request. The
+  scheduled review stays 2026-08-02 and gains a third input: this section rests on
+  a claim now falsified and needs rewriting rather than another struck sentence.
 - **2026-07-31 (cycle 314)** — **A dated input recorded for the 2026-08-02
   review; no bet, phase, objective, measure, filing rule, operating rule or
   cadence changed.** *Trigger:* executing the rotation `projects/public-surface.md`

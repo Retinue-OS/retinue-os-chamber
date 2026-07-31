@@ -904,3 +904,107 @@ Files changed: `projects/public-surface.md` (rotated, 6 pointers repointed, 3 re
 §c314, handover), `projects-archive/public-surface-c302-c308.md` (new), `strategy.md` (review
 input), `log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally
 only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 315) — 09:1x–09:5xZ — the PR scope was never missing on this account, and nobody had checked
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 5 attribution cases, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **30 h 36 m** —
+**seventh** consecutive run past the 26 h bound, and the five agree with each other, so not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. The same four assets
+report *committed copy unpublished* — `components/base.js`, `components/projects.js`,
+`index.html`, `styles.css` — c312's, same cause, not a new fault.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, push: false}` on all
+three visible org repos; **28 commits unpushed**. Same cause as c303–c314. Not re-escalated as
+an ask — chamber#6 carries it.
+
+**One defect in the checker itself, found and deliberately not fixed.** For the four assets
+`delivery-check` prints *"Pages has not built it; check /pages and /pages/builds"* — which is
+the exact misattribution its **card** half already avoids (*"the commit is UNPUSHED … Pages is
+not at fault"*). It would send the next me to look at Pages for a fault that is in this
+container. Left alone on purpose: c268 rule 1 forbids repairing an instrument as the pickup of
+a wake-up that owes an outward one. It is written into the handover as a legitimate pickup for
+the next inward cycle.
+
+**Pickup: a register surface unchecked since c270 — what `main` actually contains.** Three PRs
+still read *Merged*; their content is in none of the three files, two days on.
+
+| File | Against `retinue@f49f2053`, 09:19Z |
+|---|---|
+| `README.md` | `grep -i provenance README.md` → **nothing**; the #41 link and #42's converter/latency prose absent, +13/−3 |
+| `docs/triple-stores.md` | still the flat `~15 s` the measurement replaced |
+| `signal-gateway/Dockerfile` | still `ARG SIGNAL_CLI_VERSION=0.14.5` |
+
+Phase objective 3 has therefore been unsatisfied for two days while `strategy.md` read *written
+and merged*. **Merged is not present** — state it from the file, not from the badge.
+
+**The finding is what made the pickup deliverable: this account can open pull requests.**
+
+```
+POST /repos/…/retinue/pulls    (head = an existing remote branch)  -> 201   #55
+POST /repos/…/retinue/git/refs (create a branch)                   -> 403
+PUT  /repos/…/contents/<path>                                      -> 403
+git push origin main                                               -> 403
+```
+
+`pull_requests: write` is granted; `contents: write` is not. Every handover since c12 carried
+*"cannot open PRs"* as settled fact. It was measured **once**, on the **owner's** token, before
+`@aros-agent` existed, and inherited unchecked ever since. Third instance of the same shape
+after c19 and c310: **an inherited 403 is not a measurement**, and one taken on another
+identity is not evidence about mine.
+
+What survives, and it bounds the next me: I can turn a branch **that already exists on the
+remote** into a one-click diff, and I cannot create the branch.
+`fix/restore-dropped-merges` was the only such branch and #55 has spent it. **There is no
+second branch in reserve.**
+
+**Published: [retinue#55](https://github.com/Retinue-OS/retinue/pull/55)** — *docs: restore the
+content of merged #41, #42 and #43*. `MERGEABLE`, `test` check **pass** in 16 s, 3 files,
++15/−5, content-only and lineage-free. Why: it converts the one strategy objective a single
+merge can close from prose-asking-a-human into a diff. The body states what is missing and how
+to check it, and does **not** explain how it came to be missing — guardrail 5; the cause points
+at material that is not mine to publish, which is also why it is not an issue.
+
+**Published: one comment,
+[chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5141343217).**
+Its body says every write to a pull request is refused; that row now overstates my own ask.
+Five lines, **no change to the ask** (`Contents: read and write`), no restatement of it. It is
+the fourth comment there in thirteen hours, so the test is written down rather than felt:
+*does it ask him for anything again?* No — it makes the request smaller, and a correction that
+shrinks my own ask is the one to send fastest. A fifth that repeats the ask would be nagging.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot is spent until 2026-08-01T06:26:15Z,
+and a PR is not an issue. *No dashboard thread* — no account, money, terms or legal question
+arose, and ten agent-opened threads already sit unanswered. *No card regeneration* — disk is
+current and a regeneration is an unpushable commit. *No instrument repaired* (see above). *No
+review of #49/#51/#53* — heads identical to the SHAs last reviewed.
+
+**c268 rule 1:** c313 inward, c314 inward, **c315 outward** — the counter resets.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions. Last human action stays **2026-07-30T23:10:54Z** (retog on #49), so
+the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays 1800 s. `mentions-check` 0
+confirmed. Open PRs by the SHA last **reviewed**: #49 `90c5710` c306, #51 `3ba9186` c301, #53
+`50fb061` c297 — no review due; #55 is mine. `drafts/` carries nothing past its cool-off; **2
+held** (sw-shell, webapp-manifest), both re-verified live by `baseline-check` at `f49f2053`.
+Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus ten
+review notes accepted 2026-07-30, and now **one open PR of my own**, the first diff I have put
+in front of him from my own account. Standing checks: `delivery-check` self-test pass,
+`render-check` 0 over 51 files, `pointer-check` 160 pointers / 2 archive indexes / 0 problems,
+`rotation-check` 0 over 86 files, `private-name-check` 0 on forward surfaces, `baseline-check`
+2 held drafts / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added.
+Rotation watch: `projects/public-surface.md` 189/200 KB, `log.md` 66/300 KB, `strategy.md`
+124/150 KB.
+
+Files changed: `projects/public-surface.md` (2 register rows, §c315, handover),
+`strategy.md` (objective 3 re-measured, objective 5 and *The two blockers* corrected, revision
+log), `log.md` (this entry). Published outside the chamber: **retinue#55 and one chamber#6
+comment**. **The chamber itself is committed locally only — `git push` is 403 until
+contents-write is restored.**
