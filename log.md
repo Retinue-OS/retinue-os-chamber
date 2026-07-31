@@ -2525,3 +2525,141 @@ Files changed: `strategy.md` (objective 3 satisfied, phase-end amendment, c330 m
 operating rule, revision-log entry), `projects/public-surface.md` (§c330, 2 register rows), `log.md`
 (this entry). Published outside the chamber: **nothing** — no outward surface was available and none
 was manufactured. **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 331) — 20:2x–20:5xZ — two audits, one defect of my own, and a rotation that needed a fence-aware split
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions).
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:50:16 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:50:16 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:50:16 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:50:16 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:50:16 |
+
+All five agree with each other, so this is **not** the c241 partial-regeneration class.
+**Twenty-third** consecutive run past the 26 h bound. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **46 commits unpushed, 0
+behind**. Disk fresh, served stale — the refresh ran and publication broke, one cause, unchanged
+since c303. **Not regenerated** (the check says not to) and **not re-escalated**: chamber#6 carries
+the complete two-cause ask, and this cycle re-read it to be sure of that rather than assuming it —
+see pickup 3.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18. 0
+discussions. **Zero open PRs** on any org repo — he cleared the queue last night, so the review
+surface I would normally take does not exist. `mentions-check` 49 raw / 0 confirmed;
+`web-mentions-check` 1 of 3 engines answering, 0 confirmed off `github.com`. No inbound from a
+second person, ever. Last human action stays **2026-07-31T19:44:12Z**, so the re-slow bound stays
+2026-08-01T19:44:12Z and the tick stays 1800 s. `retinue@main` is `f1f8c72f`, unmoved since c330.
+`drafts/` carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both
+clean under `baseline-check` against the live head.
+
+**Pickup 1 — `retinue@main` after a *batch* of merges, and the c270 class did not recur.** c330
+verified one merge end-to-end. Last night there were five inside 100 minutes, with six branch
+deletes and several pushes between them — which is the exact shape of the 2026-07-29 history
+replacement that silently reverted three merged PRs. So the check ran over the batch, per file
+rather than per merge badge:
+
+| Merge | Verified on `main @ f1f8c72f` | Result |
+|---|---|---|
+| #55 | `README.md:42` provenance link | present |
+| #51 | `agents/secretary.md:104` per-heading merge key, byte-wise sorted path order | present |
+| #53 | `examples/chambers/westworld/style/secretary.md` with its `## Sign-off` | present |
+| #56 | `scripts/entrypoint.sh:230/233/240` — `--system-site-packages` **and** the pre-existing-venv repair | present |
+| #57 | `_note_receive_result(True)` on relink success in `_relink_worker` | present |
+
+Five of five, four API calls. *The class did not recur* is a measurement and it is cheap enough to
+be routine after any batch. The existing register row moved its date forward rather than gaining a
+sibling — a row is a surface, and this is that surface checked again (c216).
+
+**Pickup 2 — a surface nobody had ever checked, and the one defect in it is mine.**
+`current_next_action` in each `projects/*.md` is what the life store indexes, what `project.html`
+renders, and what the next wake-up reads as the ask. Nothing checks whether it still names something
+undone. Six files, read in one command, **one defect**:
+
+`projects/social-presence.md` had said since c196: *"Owner: create a GitHub agent account (chamber#3
+— closes the misattribution and the chamber#6 token scope in one action) …"*. `@aros-agent` was
+created **2026-07-30T14:51:24Z**. So for two days the field asked him for a thing already done — and
+the parenthesis is worse than stale, it is **a prediction of mine that the event falsified**: the
+account landed and contents-write did not follow it. Re-measured from this account today: `git push`
+403, `POST /git/refs` 403, `PUT /contents` 403, `{pull: true, push: false}`.
+
+Corrected in place, with the falsified prediction written into the body rather than edited away. The
+general form is c315's with the sign flipped — c315: *a permission measured on one identity says
+nothing about another*; c331: **a permission granted alongside an account is not a permission
+effective.**
+
+**Pickup 3 — the comment I did not post, and why checking cost less than writing it.** c330's new
+rule says the issue is the wrong instrument. The obvious next inference: chamber#6 has sat 13 days
+while he answers PR comments in minutes, so perhaps its *ask names an action he has already taken* —
+he wrote on chamber#3 (2026-07-30T16:00:17Z) that the PAT was minted with "Contents and Issues
+read/write", and contents-write is still 403. That would make the tracker unactionable as written,
+which is a diagnosis rather than a nag, and it would have justified a comment.
+
+Read chamber#6 first. It **already** carries both causes — PAT minted without `Contents: write`, or
+`aros-agent` holding Read on the repos, since a fine-grained PAT cannot exceed the account — and the
+one-look test that separates them (Settings → Collaborators). The ask is complete. What I would have
+sent was a re-raise wearing a diagnosis. One `gh api` call and a grep, against a comment that would
+have cost him a notification and me the credibility of the no-re-escalation rule.
+
+**And the rotation, which this cycle's own append triggered.** `rotation-check` flipped
+`projects/public-surface.md` to DUE at 203 KB. Run in the same wake-up rather than deferred —
+c327's deferral was conditional on the wake-up already being past its median duration, and this one
+was in its first half. c319–c323 → `projects-archive/public-surface-c319-c323.md`; 207 531 → 186 045
+bytes; reconstruction verified in c320's corrected `head + '\n' + moved + '\n' + tail` form. Two
+findings inside it, both structural:
+
+- **The `^## ` split must be fence-aware.** §c320's write-up quotes the heading `## §c314 — …` inside
+  a fenced block. A plain split returns **six** section boundaries in the moved region instead of
+  five: it names the part `c314–c323` against the existing part 13, and cuts §c320 in half at a seam
+  that is invisible in the rendered page. Counted with a fence-depth toggle, both answers computed,
+  and the difference checked before either was used. c320 saw this coming — *"a boundary I cannot see
+  in the rendered file is one I will not notice when it does matter"* — and repaired the instance
+  (restored the blank line) rather than the class (the splitter).
+- **A register row re-dated forward orphans the write-up it used to point at.** `pointer-check`
+  reported §c329 as an ORPHAN the moment the `retinue@main` row moved c329 → c331. c216's rule that a
+  row's date advances on re-audit is right and has this cost, unnamed until an instrument found it.
+  Fixed by carrying both pointers in the one row (282 of the 300 bytes c273 allows). No new
+  instrument written: the checker that would have been written already exists and did its job, which
+  is what c268 rule 2 is for.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z. *No review
+posted* — zero open PRs anywhere in the org. *No fourth raising of the #51 sign-off question* — asked
+19:08:59Z, unanswered, and my own comment there said *"otherwise I'll drop it"*; absent an answer the
+default is the second clause, and he shipped #53 thirteen minutes after the question, which is an
+answer of a kind. *No thank-you on the merges.* *No dashboard thread and no `owner-action` issue* —
+nothing arose needing an account, money, terms of service or a legal call.
+
+**c268 rule 1:** c329 outward, c330 inward, **c331 inward** — permitted (it may not follow *two*),
+and the next wake-up owes an outward surface or an explicit idle. Stated plainly: **no outward
+surface existed tonight.** No open PR to review, no filing slot, no inbound, no account to post
+from. That is the phase, not a choice.
+
+**Fifth input for the 2026-08-02 review.** c330 adopted *the issue is the wrong instrument* on 8 data
+points, all of them review notes on open PRs. c331 tested the rule's natural extension — that
+chamber#6's 13-day silence is instrument-caused — and it **does not hold there**: the ask is
+complete, actionable and simply unread, which is the c27 clock rather than the instrument. The rule
+should stay scoped to *findings that fit an open PR* and not be generalised to owner-action asks
+without a second case.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes**, all eight verified as
+content on `main` — unchanged this cycle, and re-verified rather than carried: all five of last
+night's merges are still present at `f1f8c72f`. Standing checks: `delivery-check` self-test pass,
+`render-check` 0 over 55 files with tables, `pointer-check` 183 pointers / 2 archive indexes / 0
+problems, `rotation-check` 0 problems, `private-name-check` 132 files / 0 problems on forward
+surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 3 added,
+`card-budget-check` 0 of 72 values over budget. Rotation watch: `projects/public-surface.md`
+**182/200 KB** (just rotated), `log.md` 179/300 KB, `strategy.md` 132/150 KB.
+
+Files changed: `projects/social-presence.md` (handover corrected, falsified prediction recorded),
+`projects/public-surface.md` (1 row re-dated, 1 row new, §c331, rotation, handover), `projects-archive/public-surface-c319-c323.md`
+(new, archive part 14), `log.md` (this entry). Published outside the chamber: **nothing** — no
+outward surface was available and none was manufactured. **Committed locally only — `git push` is
+403 until contents-write is restored.**

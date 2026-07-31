@@ -4,7 +4,7 @@ id: proj-social-presence
 title: "Establish the project's social accounts"
 goal: "Retinue has a small, honest, clearly-labelled presence where its audience already is."
 goal_status: not_achieved
-current_next_action: "Owner: create a GitHub agent account (chamber#3 - closes the misattribution and the chamber#6 token scope in one action), pick a Mastodon server and create the accounts, and rule on whether Aros may generate the Nostr keypair himself. Aros, c196: closed the success criterion that said each platform's automation policy must be read and recorded before the first post - open and self-assigned since 2026-07-19, unblocked the whole time. Measured from primary sources, not reputation: Bluesky has no bot-labelling convention at all (Community Guidelines 2025-09-19 and ToS 2025-08-14 carry no automation, bot or AI-content clause), so the reason bet 3 gave for choosing it is not in the documents - no prohibition either, so it stays. On Mastodon the software's bot flag is real but the binding rules are per-server, and the two servers with open registration are the two that exclude this account: mastodon.social rule 6 forbids accounts that solely post AI-generated content, mstdn.social bans LLM agents outright. Recommended instead: infosec.exchange (label as bot, at most 1 post/hour and 24/day, public visibility - a ceiling far above the intended volume) or techhub.social (bot label plus silent mode, which costs the public timeline). w3c.social holds bet 1's audience and its own on-topic rule rules it out as a main account. botsin.space, the fediverse's dedicated bot server, is dead. Recorded as a comment on chamber#1 with a draft sign-up reason he can paste, so the choice arrives with the work already done."
+current_next_action: "Owner: chamber#1 is now the single remaining term of the phase - pick a Mastodon server and create the social accounts, and rule on whether Aros may generate the Nostr keypair himself. Aros, c331 (2026-07-31): corrected this field, which had asked since c196 for a GitHub agent account that was created 2026-07-30T14:51:24Z, and which claimed that action closes the misattribution and the chamber#6 token scope in one action - the account landed, contents-write did not follow it, so the second half was a prediction and it is false. chamber#6 stays open and already carries the two-cause diagnosis (PAT minted without Contents write, or the account holding Read on the repos) with the one-look test that distinguishes them, so it is not re-raised here. What stands from c196, measured from each server's /api/v1/instance/rules: the Mastodon server choice is the whole decision, and the two open-registration servers are the two that exclude this account (mastodon.social rule 6, mstdn.social's LLM-agent ban). Recommended: infosec.exchange (label as bot, at most 1 post/hour and 24/day, public visibility - a ceiling far above the intended volume) or techhub.social (bot label plus silent mode, which costs the public timeline). w3c.social holds bet 1's audience and its own on-topic rule rules it out as a main account. botsin.space is dead. Bluesky has no bot-labelling convention in its Community Guidelines (2025-09-19) or ToS (2025-08-14) - no prohibition either, so it stays, but the reason bet 3 gave for it is not in the documents. Recorded as a comment on chamber#1 with a draft sign-up reason he can paste, so the choice arrives with the work already done."
 current_actor: actor-owner
 waiting_since: 2026-07-18
 expected_by: 2026-08-08
@@ -129,6 +129,21 @@ asks for one action — create `aros-agent`, invite it to the org, mint its toke
 with the scopes from
 [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6) — because
 that one action closes both issues.
+
+**Landed 2026-07-30, and the second half of that sentence is false.** `@aros-agent`
+was created 2026-07-30T14:51:24Z with an AI-disclosure bio, and every issue and
+comment since carries its authorship — so the guardrail-8 defect is over, and with
+it the disclosure-sentence grep that was the only authorship record either of us
+had. What did **not** follow is the token scope: measured from this account on
+2026-07-31, `git push` is 403, `POST /git/refs` and `PUT /contents` are 403, and
+`GET /repos/…` reports `{pull: true, push: false}`, while opening a pull request
+from a branch already on the remote returns 201. So chamber#6 is not closed by
+chamber#3, the two were not one action, and this file said they were for two days.
+Recorded here rather than edited away, because the prediction was mine: **a
+permission measured on one identity says nothing about another**, and the inverse —
+a permission *granted* alongside an account is not a permission *effective* — is
+the same error with the sign flipped. chamber#6 carries the two-cause diagnosis and
+the one-look test that distinguishes them; it is not re-raised from here.
 
 **Interim policy, effective 2026-07-20:** every issue and comment Aros writes
 opens with a first-line disclosure rather than a closing signature. Retrofitted
