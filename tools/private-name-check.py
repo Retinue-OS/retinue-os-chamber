@@ -32,6 +32,18 @@ Scope, and why it has two halves
   the owner since 2026-07-19 (dashboard thread `78b64be7…`).  What the count is
   for is noticing whether the *next* entry adds one.
 
+  **That noticing is mechanical since cycle 313, because it was not before.**
+  The sentence above left the comparison to a reader who remembers yesterday's
+  number, and a cold-start agent remembers nothing: c313 appended a private
+  repository's name to `log.md`, the check reported it as `history … 1
+  (informational)`, and only the *forward*-surface copy of the same sentence
+  raised an error.  Had the handover not carried it too, a new leak would have
+  been printed as a routine line and committed.  So the history half now
+  compares its **total across all history files** against the same total at
+  `HEAD`: a rotation moves occurrences between those files and leaves the total
+  unchanged, while an append raises it.  An increase is a failure; the record is
+  still never rewritten, and the fix is to redact the sentence being written now.
+
 Usage
 -----
     python3 tools/private-name-check.py [--show-names] [--org ORG]
@@ -89,14 +101,61 @@ def scan(root: Path, files: list[str], names: list[str]) -> dict[str, dict[str, 
     return hits
 
 
+def history_grew(working: int, baseline: int) -> bool:
+    """Did the append-only record gain an occurrence since `HEAD`?
+
+    A negative baseline means there is no `HEAD` to compare against, which is
+    never reported as growth — an unmeasurable baseline is not evidence.
+    """
+    return baseline >= 0 and working > baseline
+
+
+def history_total_at_head(root: Path, names: list[str]) -> int:
+    """How many times the private names appear across history files at `HEAD`.
+
+    The invariant this defends (c313): a rotation *moves* whole entries between
+    `log.md` and a `log-archive/` part, so the total is preserved; only a new
+    append can raise it.  Files added since `HEAD` therefore contribute nothing
+    here, which is exactly right for a freshly cut archive part.
+    """
+    pats = [re.compile(re.escape(n), re.IGNORECASE) for n in names]
+    total = 0
+    try:
+        tracked = sh(["git", "ls-tree", "-r", "HEAD", "--name-only"], cwd=root).splitlines()
+    except subprocess.CalledProcessError:
+        return -1  # no commit yet; caller treats a negative baseline as "unknown"
+    for rel in tracked:
+        if not is_history(rel):
+            continue
+        try:
+            text = sh(["git", "show", f"HEAD:{rel}"], cwd=root)
+        except subprocess.CalledProcessError:
+            continue
+        total += sum(len(p.findall(text)) for p in pats)
+    return total
+
+
 def self_test() -> bool:
-    """A file that names the fixture must be flagged; one that does not must not."""
+    """A file that names the fixture must be flagged; one that does not must not.
+
+    Plus the c313 cases on the history baseline: a rotation that moves an
+    occurrence between two history files must stay silent, and an append that
+    adds one must not.
+    """
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)
         (root / "bad.md").write_text("the fixture-private-repo is named here\n")
         (root / "good.md").write_text("this file names no private repository\n")
         hits = scan(root, ["bad.md", "good.md"], ["fixture-private-repo"])
-        return list(hits) == ["bad.md"] and hits["bad.md"]["fixture-private-repo"] == 1
+        basic = list(hits) == ["bad.md"] and hits["bad.md"]["fixture-private-repo"] == 1
+
+    # History-baseline arithmetic, on counts rather than on a git fixture: the
+    # comparison the real run makes is `working total > HEAD total`.
+    rotation = not history_grew(2, 2)    # an occurrence moved between two history files
+    append = history_grew(3, 2)          # a new entry names it once more
+    redaction = not history_grew(1, 2)   # a removal is not a failure
+    unknown = not history_grew(5, -1)    # no baseline (no commit yet) is never a failure
+    return basic and rotation and append and redaction and unknown
 
 
 def is_history(rel: str) -> bool:
@@ -116,7 +175,7 @@ def main() -> int:
     if not self_test():
         print("self-test FAILED — fixtures do not separate; refusing to report")
         return 2
-    print("self-test pass (known-good clean, known-bad flagged)")
+    print("self-test pass (known-good clean, known-bad flagged, 4 history-baseline cases)")
 
     root = Path(sh(["git", "rev-parse", "--show-toplevel"]).strip())
     names = private_repo_names(args.org)
@@ -140,14 +199,29 @@ def main() -> int:
         total = sum(counts.values())
         print(f"  history   {rel}: {total} (informational; the record is not rewritten)")
 
-    if not forward:
+    # c313: the count above is only useful against yesterday's count, and no
+    # cold-start reader has one. Compare the history total to the same total at
+    # HEAD — a rotation preserves it, an append raises it.
+    hist_now = sum(sum(c.values()) for c in history.values())
+    hist_head = history_total_at_head(root, names)
+    grew = history_grew(hist_now, hist_head)
+    if grew:
+        print(
+            f"  PROBLEM   append-only record: {hist_head} -> {hist_now} occurrence(s) "
+            f"since HEAD — an entry being written now names a private repository"
+        )
+
+    if not forward and not grew:
         print(f"{len(files)} tracked files checked, 0 problems on forward surfaces")
         return 0
 
     for rel, counts in sorted(forward.items()):
         for n, c in sorted(counts.items()):
             print(f"  PROBLEM   {rel}: names {mask[n]} {c}x")
-    print(f"{len(files)} tracked files checked, {len(forward)} problem file(s)")
+    print(
+        f"{len(files)} tracked files checked, "
+        f"{len(forward) + (1 if grew else 0)} problem(s)"
+    )
     return 1
 
 
