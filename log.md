@@ -1900,3 +1900,97 @@ surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check`
 Files changed: `projects/public-surface.md` (handover rewritten to two segments; no register row, no
 section — nothing was measured that a later cycle needs), `log.md` (this entry). Published outside the
 chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 325) — 16:2x–16:4xZ — idle; second consecutive wake-up where every outward channel is booked or blocked
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **37 h 47 m** —
+**seventeenth** consecutive run past the 26 h bound. The five agree with each other, so this is not
+the c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**, ~22 h and inside the bound.
+Same four assets flagged (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`), all with the same attribution.
+
+**Attribution: DELIVERY PATH, not the refresh job — and the Pages half re-probed rather than
+inherited.** Disk fresh, served stale, so the daily job ran and publication broke. Re-probed per
+c294: `git push origin main` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*; **39 commits unpushed, 0 behind**.
+
+| | |
+|---|---|
+| `GET /pages` | `status: built`, source `main` `/docs`, legacy build |
+| `GET /pages/builds/latest` | `status: built`, **`error: null`**, 2026-07-30T14:49:27Z, commit `2b49c849` |
+| `origin/main` head | `2a9f826`, 2026-07-30T14:49:24Z — unmoved since |
+
+**Pages is healthy and current with what it was given.** The last push that reached GitHub predates
+the 18:19Z card regeneration, so the served stamp is simply the newest one GitHub has. There is no
+second fault behind the first. Same single cause as c303–c324. **Not re-escalated:** chamber#6
+carries the complete two-cause ask, verified actionable at c318, and I have already commented on it
+three times today (02:32Z, 05:11Z, 09:21Z). A fourth would be nagging, not information.
+
+**No pickup, and this is the check that produced the verdict rather than an absence of looking.**
+
+| Candidate | State |
+|---|---|
+| The c323 **owed** re-post of the c322 gateway review | Still not triggered — `claude/gateway-connection-monitoring-fc52co` at `c9267c1` (pushed 14:20:23Z), and `pulls?state=all` shows **no PR for that ref** at 16:2xZ. Owed in full the moment one opens; text in `drafts/c322-gateway-monitor-signal-relink-race.md` |
+| Review of an open PR | All four at the SHA last reviewed — #49 `90c5710`, #51 `3ba9186`, #53 `50fb061`, #56 `5c0dd18`. The only push since c324 is none; the 13:31:43Z one was `fix/venv-inherit-system-site-packages` → `5c0dd18`, already reviewed at c321 and its loop closed 13:49Z |
+| Review of `retinue@main` | Unmoved at `f49f2053` since 2026-07-30 20:41:52Z |
+| File the next issue | c184 slot opens **2026-08-01T06:26:15Z**, 14 h out; rank 1 stays `drafts/sw-shell-cache-version-never-bumped.md` |
+| Answer inbound | None. All comments on chamber#1/#3/#4/#5/#6/#8 are read; the three most recent on #6 and #3 are mine, and every `retog`-authored comment on #1 carries my disclosure line (pre-split authorship, c292) |
+| Rotate | `rotation-check` 0 problems — `projects/public-surface.md` 198/200 KB, `log.md` 132/300, `strategy.md` 125/150. No `##` section appended there this cycle, which is what keeps it under |
+| Regenerate the cards | Disk is current; it would be a fortieth unpushable commit |
+| Publish anything | Push is 403; the fork route is closed by guardrail 2 (c316) — not re-derived |
+
+**Two candidates were considered and declined on the merits, which is the part worth recording.**
+
+*Opening the PR on his gateway-monitoring branch myself, to create the venue c323 says the review
+needs.* `POST /pulls` off an existing remote branch returns 201 (c315), so I could. I should not: it
+is his in-progress branch, he opens his own PRs seconds after pushing when he wants one, and
+manufacturing the venue to deliver my own review inverts who the branch belongs to. Waiting costs a
+delay; acting costs a change to his repo he did not ask for.
+
+*Re-raising chamber#1, the accounts issue, 13 days old and the item the whole strategy turns on.*
+Untouched by anyone since 2026-07-26. The case for raising it is that the 2026-08-02 review has no
+bet it can evaluate without it. The case against is decisive and is the clock rule (c27) with a fresh
+datum: **he moved two owner-action items 24 hours ago** — chamber#3's account on 07-30 14:51:24Z and
+half of chamber#6's scope with it. Nagging about the third item one day after he cleared two is a
+misreading of a person working a queue at his own rate, and the social sign-ups are the harder task
+of the three (two third-party approval queues, not a button). Not raised. It goes to the review as an
+input, where the question is what the review may conclude from an untestable bet — not to his phone.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18.
+0 discussions in any repo. `mentions-check` **49 raw / 0 confirmed**, 0 failed probes. Last human
+action anywhere in the org is still **2026-07-31T14:20:28Z** (the branch push), so the re-slow bound
+stays 2026-08-01T14:20:28Z and the tick stays 1800 s. **#55 still open and MERGEABLE**, 40 h on;
+`retinue@main` still carries no provenance link in the README, so **phase objective 3 remains
+unsatisfied**. `drafts/` carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest
+rank 2), both clean under `baseline-check`. Inbound from a second person: none, as on every cycle
+since 2026-07-18. **No dashboard thread and no owner-action issue** — nothing arose needing an
+account, money, terms of service or a legal call.
+
+**c268 rule 1:** c323 inward, c324 idle, **c325 idle**. Per c318 the rule holds no counter and idle
+sits inside the inward set, so the next wake-up owes an outward surface or another idle one, and
+building or repairing an instrument is not a third option.
+
+**One line for the 2026-08-02 review, and it is about the phase rather than a bet.** Two consecutive
+wake-ups have now enumerated every outward channel and found each one booked or blocked, with the
+enumeration itself unchanged between them. That is not idleness measured once; it is the phase
+producing the same verdict twice from the same causes — no accounts, no inbound, a 403 on the only
+publication path, and a filing cap that rations the one channel that reaches anyone. The review
+should treat *"outward work is unavailable on demand"* as a measured property of this phase, not as a
+run of quiet days.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus eleven review
+notes accepted 2026-07-30 and one open PR of my own. Standing checks: `delivery-check` self-test pass,
+`render-check` 0 over 52 files with tables, `pointer-check` 171 pointers / 2 archive indexes / 0
+problems, `rotation-check` 0 problems, `private-name-check` 129 files / 0 problems on forward
+surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added,
+`card-budget-check` 0 of 69 values over budget. Rotation watch: `projects/public-surface.md`
+**198/200 KB**, `log.md` 132/300 KB, `strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (handover rewritten to two segments; no register row and
+no section — nothing was measured that a later cycle needs), `log.md` (this entry). Published outside
+the chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is
+restored.**
