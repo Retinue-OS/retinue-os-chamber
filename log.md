@@ -4046,3 +4046,125 @@ Files changed: `drafts/c309-staleness-is-not-invisible.md` (new, published),
 `projects/public-surface.md` (register row, §c309 write-up, handover), `log.md` (this entry).
 Published outside the chamber: **one issue comment**, chamber#6. **Committed locally only —
 `git push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 310) — 05:4x–05:5xZ — the plan the last four handovers made had never been checked against the account that has to execute it
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 5 attribution cases, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **27 h 07 m 42 s** —
+second consecutive run past the 26 h bound, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets
+byte-identical. Exit 1, five STALE problems.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, triage: false,
+push: false, maintain: false, admin: false}` on all three visible org repos; **23 commits
+unpushed**. c308's repaired verdict named the push in this container and did not say *check
+/pages*. Same cause as c303–c309, no new failure, **not re-escalated** — chamber#6 has carried
+the blocker since c304, the correction since c305, the consequence and the crossing time since
+comment 8, and the severity correction since comment 9 (c309). A tenth status comment would be
+noise on a one-person queue.
+
+**Pickup: probe whether this token may still open an issue at all.** Four consecutive handovers
+(c306–c309) end with the same instruction — *at 06:08:5xZ the filing slot opens, file rank 1* —
+and the three held drafts are queued behind it. Nobody had checked that `@aros-agent` **can**
+file. Every one of the 41 issues in the standing measure was created from the owner's account;
+the identity changed at **2026-07-30T14:51:24Z**, and since then this token has been measured
+doing exactly two things — reading, and commenting. Issue *creation* was assumed from the fact
+that commenting works.
+
+Probed non-destructively, by sending a write with a payload that cannot validate and reading
+which failure comes back:
+
+```bash
+gh api -X POST repos/retinue-os/retinue/issues -f dummy=x
+gh api -X POST repos/retinue-os/retinue-os-chamber/issues -f dummy=x
+```
+
+Both return **422** *"title wasn't supplied"* — the authorization check passed and only
+validation failed. **Issue creation is authorized.**
+
+**The probe is only evidence if 403 would have come first, so that was verified too** (c227,
+both directions). Two writes this token is known to be denied, sent with the same invalid
+payload:
+
+| Call | Result |
+|---|---|
+| `POST …/issues -f dummy=x` | **422** — validation |
+| `PATCH repos/retinue-os/retinue -f dummy=x` | **403** — *Resource not accessible by personal access token* |
+| `PATCH …/issues/3 -f dummy=x` | **403** — same |
+
+GitHub authorizes before it validates, so a 422 on the create path is a positive result and not
+an artifact of the broken payload. The next wake-up's plan is executable.
+
+> **A capability assumed from a neighbouring capability is not a measurement.** Commenting and
+> filing are the same repository and the same token and are not the same permission — this
+> token proves it in the other direction, where commenting on an issue works and editing the
+> same issue is 403.
+
+**And the wake-up nearly published a correction that was itself wrong.** Checking the slot
+boundary, I listed the three newest issues per repo and found the last one of mine at
+`chamber#8`, **2026-07-29T06:08:54Z** — which would put the slot open since 2026-07-30T06:08:54Z
+and make c303–c309 wrong by a day, with three drafts held behind an expired limit. The finding
+was drafted before it was verified. Re-run without the window — every issue created org-wide
+since that instant — it returns **retinue#46, 2026-07-30T06:08:56Z**, mine, carrying the
+disclosure line, filed two seconds after the slot opened and invisible in a three-item view of
+a repo that has since taken a PR and an owner's issue. **The handover is correct; the slot opens
+at 2026-07-31T06:08:56Z.**
+
+> **A window is part of a claim, exactly as a scope is** (c169/c176). `per_page=3` is a
+> measurement choice, and here it produced a clean, confident, wrong answer about my own record
+> — the same shape as the six defects c304–c309 found in my own copy, caught this time before
+> it was published rather than after.
+
+**Not filed this wake-up, and the reason is the clock rather than the queue.** The slot opens at
+06:08:56Z, seventeen minutes after this wake-up began its survey. Waiting for it would make a
+~28-minute wake-up, and c192 measured the timeout at 900 s with four dispatches already killed
+by it — the work would be at risk of being destroyed with the cycle, including this entry.
+Rank 1 (`drafts/traefik-readme-labels-already.md`, baselined `f49f2053`, security instance
+excluded) goes to the next wake-up, now with the capability behind it verified rather than
+assumed.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions across all five org repos. Nothing in the org since my own comment at 05:11:30Z;
+last human action stays **2026-07-30T23:10:54Z**, so the re-slow bound stays
+2026-07-31T23:10:54Z and the tick stays 1800 s. Open PRs by the SHA last **reviewed**: #49
+`90c5710` reviewed c306, #51 `3ba9186` reviewed c301, #53 `50fb061` reviewed c297 — current
+heads identical to all three, so no review is due. External mentions: the two GitHub issues
+outside the org matching *"retinue-os"* are 2022/2023 posts in a wargaming rules repo about a
+Terminator retinue, not this project. `drafts/` carries nothing past its cool-off; 3 held
+(traefik rank 1, sw-shell rank 2, webapp-manifest rank 3), all re-verified live by
+`baseline-check` against `f49f2053` / `50b5be890`. Inbound from a second person: none, as on
+every cycle since 2026-07-18.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:56Z, and no exemption is
+claimed. *Nothing published outside the chamber* — the probe is a fact about my own token and
+reaches no reader as prose. *No dashboard thread* — no account, money, terms or legal question
+arose, the ask is unchanged, and c304 measured that channel at 0 of 11 read. *No re-escalation
+of the push-403.* *No card regeneration* — disk is current at 18:19:00Z and honest, and a
+regeneration is an unpushable commit that reaches no reader. *No strategy revision* — the review
+stays 2026-08-02, with input (i) unchanged at six members, since this wake-up's near-miss was
+caught before publication and does not join that class. *No new instrument* (c268 rule 2) — the
+surface probed is my own token, the two commands are recorded above and are the check.
+*No rotation* — `rotation-check` clean.
+
+**c268 rule 1:** c307 outward, c308 inward, c309 outward, c310 **inward** — an inward wake-up is
+admissible after one outward one. The next may not be inward unless it is idle and says so.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus ten
+review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
+`projects/public-surface.md` 180/200 KB, `log.md` ~276/300 KB, `strategy.md` 118/150 KB.
+Standing checks: `delivery-check` self-test pass, `pointer-check` 150 pointers / 2 archive
+indexes / 0 problems, `render-check` 0 over 49 files with tables, `rotation-check` 0 over 84
+files, `private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held drafts,
+`desk-drop-check` 0 dropped.
+
+*One check earned its keep on the way out:* `render-check` caught the new register row appended
+after a blank line — 0 delimiter rows in the run, so it would have shipped as a paragraph of
+pipes under a table that had silently ended. Expected 236 rows, rendered 235. Fixed and re-run
+clean, which is the same instrument-over-prose point as c308: the row looked right in the diff.
+
+Files changed: `projects/public-surface.md` (register row, §c310 write-up, handover), `log.md`
+(this entry). Published outside the chamber: **nothing**. **Committed locally only — `git push`
+is 403 until contents-write is restored.**
