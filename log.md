@@ -2191,3 +2191,130 @@ Files changed: `projects-archive/public-surface-c314-c318.md` (new — archive p
 register rows, §c327, handover rewritten to two segments), `log.md` (this entry). Published outside
 the chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+---
+
+## 2026-07-31 (cycle 328) — 18:2x–18:5xZ — a figure I incremented for twelve cycles instead of measuring, and the prior it was hiding
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). `agenda`, `briefing`,
+`messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **39 h 43 m** —
+**twentieth** consecutive run past the 26 h bound. The five agree with each other, so this is not the
+c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**, **24 h 02 m** — inside the bound,
+but only just. Same four assets flagged (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale, so the daily job ran
+and publication broke. Re-probed rather than inherited (c294): `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **42 commits unpushed, 0
+behind**. `origin/main` still `2a9f826` and `/pages/builds/latest` still `status: built`,
+`error: null`, commit `2b49c849` — Pages is current with what it was given. Same single cause as
+c303–c327. **Not re-escalated:** chamber#6 carries the complete two-cause ask, verified actionable at
+c318.
+
+**A fork in the attribution opens in the next two hours, and this cycle states it in advance rather
+than leaving the next one to guess.** The daily `aros-dashboard-refresh` job last ran
+**2026-07-30T18:22:31Z** with `status: success` (`/root/.retinue/scheduler/aros-dashboard-refresh.json`)
+and its interval is 86 400 s, so it is **due at 2026-07-31T18:22:31Z — during this wake-up**; the
+scheduler log shows it had not fired as of 18:20:14Z, when this tick started. The disk copy crosses
+the 26 h bound at **2026-07-31T20:19:00Z**. So the next wake-up reads a real instrument: disk stamp
+moved → the job fired and the attribution stays *delivery path*; disk still `2026-07-30T18:19:00Z`
+after 20:19Z → **both copies stale, and the attribution becomes the refresh job for the first time
+since c303**. I did not regenerate the cards myself: the job owns that, it is due within minutes, and
+a hand-run would be a forty-third unpushable commit *and* would erase the very signal the next cycle
+needs to read.
+
+**Re-checked at 18:32Z, and it sharpens the fork rather than resolving it.** The job was still
+unfired ten minutes past due, `last_run` still `2026-07-30T18:22:31Z`, disk still
+`2026-07-30T18:19:00Z` — while *this* tick was the job the scheduler was running. The `[run]`/`[ok]`
+pairs in `scheduler.log` carry durations, so the scheduler waits on a job rather than forking it,
+which would mean the daily refresh is queued **behind this very wake-up** and fires when I stop. That
+is one observation and a mechanism inferred from the log's shape, not a measurement of the scheduler,
+so it is written down as the hypothesis the next cycle gets to falsify: if the disk stamp has moved
+by then, a long tick merely delays the daily job; if it has not, the delay is the fault itself and a
+tick that outruns the daily slot is a delivery risk in its own right.
+
+**Pickup — the one recurring judgment call in this chamber, converted from recollection into a
+query.** "Should I nudge my own PR #55?" has been declined by feel on four consecutive cycles. It is
+now measured, and the measurement found the input wrong.
+
+**#55 is 9 h 05 m old, not 49 h.** `created_at` is **2026-07-31T09:19:53Z**
+(`gh api repos/retinue-os/retinue/pulls/55 --jq .created_at`). The figure first appears at **c316**
+(10:2x–10:5xZ) as *"still open and MERGEABLE, 25 h after opening"*, when the true age was **1 h 05 m**
+— wrong by exactly 24 h, which is a date slip (07-30 read for 07-31) and not a rounding. Every cycle
+since **incremented it by hand**: 25 → 26 → 27 → 32 → 39 → 40 → 41 → 49, across twelve cycles, and no
+cycle recomputed it. This is the class this chamber names more often than any other — **an inherited
+number is not a measurement** (c19, c310, c318) — with the aggravation that I inherited it from
+myself, through a handover I wrote to prevent exactly this.
+
+**Contained, and checked rather than assumed.** The wrong figure never left the chamber: #55 has 0
+comments, and no comment on chamber#6 (or anywhere else I have posted) states an age for it. Grep-ing
+the public copies before writing the correction is what separates a defect from an incident, and it
+is the check I would want a critic to see me run.
+
+**The prior it was hiding, which is the more useful half.** Sixteen PRs have ever been merged in
+`retinue-os/retinue`, and **all sixteen were authored by `retog`**:
+
+| Group | PRs | Latency |
+|---|---|---|
+| Opened and merged in one motion | #41 34 s, #42 22 s, #43 35 s, #47 1 m 19 s, #48 3 m 46 s, #6 4 m 21 s, #17 7 m 23 s | under 8 min |
+| Left open, then merged | #8 38 m, #7 1 h 34 m, #24 3 h 20 m, #21 21 h 03 m, #20 23 h 55 m, #45 1 d 4 h 24 m, #44 1 d 5 h 52 m, #14 2 d 3 h 21 m, #22 **2 d 18 h 56 m** | 38 min – 2 d 19 h |
+
+**No PR authored by anyone other than him has ever been merged here, so the prior for #55 is n = 0.**
+The nine-sample tail measures his latency on *his own* work, which is a different quantity. Note the
+three fastest: #41/#42/#43 carried **my** content and merged in 22–35 s — because he opened them
+himself. #55 is the first PR he must merge that he did not open, which is precisely why the history
+says nothing about it.
+
+**The decision stands; the reason it stood on does not.** c327 declined a nudge because #55 had been
+open "49 h" and a second comment adds no information. The second clause was always the real argument.
+The measured ones are better: #55 is **fourth of six open PRs by age** — #49 (28 h 16 m), #51
+(23 h 34 m), #53 (21 h 45 m) are all older and all his, with #56 (6 h 35 m) and #57 (1 h 46 m) behind
+it — and 9 h is short even against the slow group above. Nudging is not indicated, and this is the
+first cycle that can say so from data.
+
+**Standing rule added, one line and cheap to obey.** *An age in a survey line is computed from a
+stored ISO timestamp, never incremented.* Where a handover carries an age it carries the timestamp it
+was derived from, so the next cycle recomputes in one `date`-arithmetic step instead of adding an
+hour to a number whose origin it cannot see. The four ages in this entry each name their `created_at`.
+
+**Not done, on purpose.** *No card regeneration* — see the attribution fork above; the job owns it and
+firing by hand would destroy the signal. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z,
+12 h out; rank 1 stays `drafts/sw-shell-cache-version-never-bumped.md`. *No PR review* — all five of
+his open PRs sit at the SHA last reviewed (#49 `3ecccd5` c326, #51 `3ba9186` c301, #53 `50fb061` c297,
+#56 `5c0dd18` c321, #57 `c9267c1` c326), and no comment has been posted anywhere in the org since my
+own two at 17:04Z and 17:05Z. *No nudge on #55* — now declined on measurement. *No chamber#1 or
+chamber#6 re-raise* — c27's clock rule; he cleared two owner-action items on 07-30 and spent today in
+the PR queue. *No strategy edit* — the review is 2026-08-02 and this cycle is an input to it. *No
+dashboard thread and no owner-action issue* — nothing arose needing an account, money, terms of
+service or a legal call.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18.
+0 discussions (`has_discussions` false on `retinue`). `mentions-check` **49 raw / 0 confirmed**. Last
+human action in the org stays **2026-07-31T16:39:03Z** (#57 opened), so the re-slow bound stays
+2026-08-01T16:39:03Z and the tick stays 1800 s. `retinue@main` unmoved at `f49f2053` and its README
+still carries no provenance link, so **phase objective 3 remains unsatisfied**. `drafts/` carries
+nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under
+`baseline-check` at `f49f2053`. Inbound from a second person: none, as on every cycle since
+2026-07-18.
+
+**c268 rule 1:** c327 inward, **c328 inward** — two in a row, so the next wake-up owes an outward
+surface or idleness, and building or repairing an instrument is not a third option.
+
+**One line for the 2026-08-02 review.** The chamber's most-repeated finding — inherited claims decay
+silently — has now been produced **by the handover mechanism itself**, not by an upstream source. The
+review should ask whether the handover's job is to carry *conclusions* forward at all, or only the
+timestamps and SHAs from which a conclusion can be recomputed. That is the same question as c327's
+"what is the register for", arriving from the opposite end.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus thirteen
+review notes accepted 2026-07-30/31 and one open PR of my own. Standing checks: `delivery-check`
+self-test pass, `render-check` 0 over 53 files with tables, `pointer-check` 173 pointers / 2 archive
+indexes / 0 problems, `rotation-check` 0 problems, `private-name-check` 131 files / 0 problems on
+forward surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped /
+2 added, `card-budget-check` 0 of 69 values over budget. Rotation watch:
+`projects/public-surface.md` 188/200 KB, `log.md` 163/300 KB, `strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (2 register rows, §c328, handover rewritten to two
+segments), `log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally
+only — `git push` is 403 until contents-write is restored.**
