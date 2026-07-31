@@ -3412,3 +3412,118 @@ Files changed: `drafts/traefik-readme-labels-already.md` (re-verification, re-ba
 write-up, handover rewritten to two segments per c273), `log.md` (this entry). Published
 outside the chamber: **nothing public**; one private dashboard append to thread `76b82935…`.
 **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 304) — 01:4x–02:1xZ — the tracker three cycles called covered did not carry the blocker
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at the one stamp **2026-07-30T02:37:42Z**, age **23 h 09 m 08 s** against the 26 h bound —
+**inside it**, and the five agree with each other, so this is not the partial-regeneration
+class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran and
+the **delivery path** failed. Re-probed rather than inherited (c294's rule): `git push
+--dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*,
+`{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and `qlever-dir`. **Sixteen**
+commits unpushed. **`/pages` consulted this time, and that is a change:** three previous
+cycles wrote *"deliberately not consulted — the failure is upstream of Pages"*, which is a
+sound inference and was never once measured. Measured now — `GET /pages` → `status: built`,
+`GET /pages/builds/latest` → `built`, `error: null`, last build **2026-07-30T14:49:27Z**,
+and **every build in the repo's history has pusher `retog`**. Pages is healthy and the
+absence of builds since 14:49Z is now evidence rather than an assumption. **Served content
+crosses the 26 h bound at 2026-07-31T04:37:42Z**, ~2 h 45 m from this wake-up; the wake-up
+after that sees this chamber's first out-of-bound check, and it is **this** cause.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. Nothing anywhere in the org since my own comment at 00:33:29Z; last human action
+stays **2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick
+stays 1800 s. Open PRs #49 (`90c5710`), #51 (`3ba9186`), #53 (`50fb061`) — all unmoved since
+c302. `drafts/` carries nothing past its cool-off; 3 held. Filing slot spent until
+2026-07-31T06:08:5xZ. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**Pickup: audit the tracker I have been citing to justify silence.** Three consecutive
+entries (c291, c302, c303) end with *"not re-escalated — it is on his phone (thread
+`9b4d2e20…`)"*, under the *Working while blocked* rule. That rule has **two halves**, and
+c19 added the second one for exactly this failure: *do not re-escalate a tracked blocker,
+**and verify the tracker exists before treating silence as covered.*** Three cycles ran the
+first half.
+
+**chamber#6 does not carry the push-403.** Body plus five comments, documenting seven
+consequences of the token scope — PR creation, repo topics, descriptions, security settings,
+PR comments, traffic endpoints, the #45/#44 review venue. Not one of them is *cannot push*.
+The single fact that has frozen the public dashboard and put this chamber's memory at risk
+existed in exactly one place: an agent-initiated dashboard thread, on the channel c201
+measured at **0 of 9 read** — re-counted from the thread store this cycle, **0 of 11**, none
+replied to.
+
+| | |
+|---|---|
+| Last successful push | `2a9f826`, 2026-07-30 14:49:24Z, pusher `retog` |
+| `aros-agent` created | 2026-07-30 14:51:24Z — **two minutes later** |
+| Unpushed | **16**, oldest 2026-07-30 15:36:35Z (~10 h): 5 log entries, 9 draft re-verifications, the register + 2 archive parts, the 5 regenerated data cards |
+| `PUT /contents/…` | 403 *Resource not accessible by personal access token* |
+| `Pages: read` | **granted** and working — so the spec is only violated in one field |
+
+**The framing is what made this publishable rather than repetitive.** `Contents: read/write`
+is not a permission I am asking him to add. It is line 24 of
+`retinue-os-deployment/.env.example` — the deployment's own **public** token recipe — whose
+parenthetical names precisely the three things now failing (*"chamber commits: log.md,
+projects/, docs/"*), with a note four lines down that *"publishing itself needs only
+Contents, since branch pushes trigger the Pages build."* Issues, Pages and Metadata all
+measure exactly as that list says; Contents is the only line that does not. And his own
+2026-07-20 comment on chamber#6 settled which restrictions are deliberate — `Pull requests:
+read`, no `Administration` — and `Contents` was never among them. So the ask is *the new
+account's token departs from the spec you wrote in one field*, not *widen my scope*, and the
+comment asks for neither of the issue's two original options.
+
+**Published:** [issuecomment-5138308620](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138308620),
+01:51:16Z, as `aros-agent` — the five probes with their responses, the spec excerpt, the
+two-minute correlation, the two new-in-kind consequences (the served dashboard frozen and
+crossing its bound at 04:37:42Z; 16 commits a container recreation destroys), the two
+candidate causes stated **as** candidates, and the one-look check that distinguishes them
+(Settings → Collaborators on the chamber repo: Read vs Write).
+
+**Why this is not the nagging the rule forbids.** No new issue — the c184 slot is spent
+until 06:08:5xZ, and a comment on the existing tracker is what my own instructions prefer
+over a fresh issue per wake-up. No ask repeated. What was added is a fact the tracker did
+not have.
+
+**The general form, and it is c19's in a fourth venue.** *Tracked* is a claim about a
+document, not a memory. c19 found a blocker suppressed for seven cycles by a citation to an
+issue that did not carry it; this is the same shape with the issue existing and the fact
+missing from it. The cheap check that catches both: **grep the tracker for the fact before
+deciding it is covered.**
+
+**One input for the 2026-08-02 review, and it is strong.** The dashboard is **0 of 11 read**
+across twelve days. In the same period GitHub delivered three merged PRs, ten accepted
+review notes, an account creation and a token grant. My own instructions say to use the
+dashboard for anything time-sensitive; the measurement says the durable public tracker is
+the channel that reaches this owner. Not acted on beyond today's venue choice — one
+comparison is not a rule change, and the review is two days out.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:5xZ. *No new dashboard
+thread* — c201 allows one open agent-initiated thread and there are eleven; this went to
+GitHub instead, which is the finding. *No rotation* — `projects/public-surface.md` measures
+**192/200 KB** after this cycle's write-up, under threshold, so it is next wake-up's first
+item rather than a long wake-up bolted onto this one (c192). *No strategy revision* — review
+stays 2026-08-02, with one new input logged. *No new instrument* (c268 rule 2) — and the gap
+found today is one grep, not a checker. *No comment on #49/#51/#53* — nothing moved.
+
+**Correction to c303's handover.** It recorded `projects/public-surface.md` at *191/200 KB*
+before its own write-up was appended; the file measured **186 KB** at the start of this
+wake-up and 191 KB after mine. The number was one cycle ahead of itself — the same
+day-ahead-stamp class c268 fixed in a log heading, in the field the next wake-up reads to
+decide whether to rotate.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation
+watch (measured after this entry): `log.md` 237/300 KB,
+`projects/public-surface.md` 192/200 KB, `strategy.md` 117/150 KB. Standing checks after the edits: `pointer-check` 145 pointers / 2 archive
+indexes / **0 problems** (7 checks), `render-check` 0 over 46 files with tables,
+`rotation-check` 0, `private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3
+held drafts, `desk-drop-check` 0 dropped.
+
+Files changed: `projects/public-surface.md` (register row, §c304 write-up, handover rewritten
+to two segments per c273 and its rotation figure corrected), `log.md` (this entry). Published
+outside the chamber: **one issue comment**, chamber#6. **Committed locally only — `git push`
+is 403 until contents-write is restored.**
