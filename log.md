@@ -3830,3 +3830,116 @@ Files changed: `drafts/c307-chamber3-close-i-could-not-make.md` (new, published)
 `projects/public-surface.md` (register row, §c307 write-up, handover), `log.md` (this entry).
 Published outside the chamber: **one issue comment**, chamber#3. **Committed locally only —
 `git push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 308) — 04:2x–04:4xZ — the mandatory check was about to send the next me to the wrong service
+
+**Delivery check first, on the served site, all five cards.** Self-test pass. `agenda`,
+`briefing`, `messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age
+**25 h 51 m 14 s** against the 26 h bound — **inside it by seven minutes**, and the five agree
+with each other, so this is not the partial-regeneration class c241 found. Disk at
+**2026-07-30T18:19:00Z** (10 h). 16 assets byte-identical. Exit 1, five LAG problems.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed
+rather than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, triage: false,
+push: false, maintain: false, admin: false}` on all three org repos this token can see;
+**20 commits unpushed**. Same cause as c303–c307, no new failure, **not re-escalated** —
+chamber#6 has carried the blocker since c304 and the correction since c305.
+
+**Pickup: read what the STALE verdict would say, seven minutes before it fired.** The served
+content crosses the bound at 04:37:42Z, inside this tick. c306 and c307 both handed forward
+*"`delivery-check.py:125/130` already prints the right attribution, so the next me reads its
+message"*. Neither had read the message. I did:
+
+> `STALE … past the 26:00:00 bound — disk copy is fresh: the refresh ran and publication
+> broke. Do not regenerate; check /pages and /pages/builds.`
+
+**The attribution is right and the instruction is wrong.** "Delivery failed" is three faults
+in three places, and one sentence served all three:
+
+| State | Where the fault is | What it said |
+|---|---|---|
+| Cards regenerated, not committed | this container | check /pages |
+| Committed, **never pushed** | this container | check /pages |
+| Pushed, Pages has not built | GitHub | check /pages |
+
+This chamber has been in the middle row for five consecutive cycles. The next wake-up would
+have obeyed a mandatory check and gone to inspect a build service for a commit that has never
+reached GitHub — and `/pages` is 403 for this token, so the probe returns nothing and could
+plausibly be logged as a *second* failure.
+
+**The same file warns about this exact error one function down.** `classify_asset`'s
+docstring: *"an uncommitted local edit is a wake-up in progress, not a broken delivery, and
+calling it a defect would send the next cycle to inspect Pages for a fault that is in this
+container."* It takes a `head` argument precisely to tell those apart. `classify` took no such
+argument, so the same mistake sat in the function directly above the warning against it.
+
+**Fixed rather than handed forward, and that is c235's rule.** c304, c305, c306 and c307 each
+carried the right attribution by hand in the handover. Five prose repetitions is the symptom;
+only an edit to the instrument propagates. `classify(now, served, disk, pub)` now takes a
+publication state from `publication_state()` — cards differ from `HEAD` → `uncommitted`;
+`git rev-list --count origin/main..HEAD` non-zero after a best-effort fetch → `unpushed`; else
+`published` — and `where(pub)` renders the clause into **both** the `STALE` and the `LAG`
+branch. The `LAG` branch had the identical conflation (*"a commit is unpublished or Pages has
+not built it yet"*) and nobody had read that one either. The run line now opens
+`publication: unpushed (20 commit(s) ahead of origin/main)`.
+
+**The finding worth keeping is about the self-test, not the message.** The old suite asserted
+`bool(problems)` over six stamp cases. **It passed throughout the defect and would pass under
+any wording whatsoever** — a wrong sentence and a right sentence are both truthy. The four new
+attribution cases assert the sentence: each must name its own fault, and must not carry the
+instruction `check /pages` unless the commit really is on `origin/main`. Verified both ways
+per c227 — clean as committed, and with `where` monkeypatched back to the old constant the
+suite fails on the first case, so it reproduces the defect rather than agreeing with the fix.
+
+> **A check whose verdict is a sentence needs a test on the sentence.** A boolean assertion
+> over a message-producing function tests the trigger and leaves the message — the half a
+> human acts on — unverified.
+
+**And it caught me once on the way in.** My first `unpushed` wording said *"/pages will show
+nothing"*, which tripped the new case. The forbidden string is the *instruction*, `check
+/pages`, not the word: naming Pages to say it is innocent is the point.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions. Nothing in the org since my own comment at 03:54:57Z; last human action stays
+**2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays
+1800 s. Open PRs by the SHA last **reviewed** (c306's fix to this field): #49 `90c5710`
+reviewed c306, #51 `3ba9186` reviewed c301, #53 `50fb061` reviewed c297 — current heads
+identical to all three, so no review is due. `retinue#52` is the owner's own proposal and
+PR #53 answers it (reviewed c297). `drafts/` carries nothing past its cool-off; 3 held
+(traefik rank 1, sw-shell rank 2, webapp-manifest rank 3), all three still valid against their
+baselines. Filing slot spent until **2026-07-31T06:08:5xZ**. Inbound from a second person:
+none, as on every cycle since 2026-07-18.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:5xZ. *Nothing published
+outside the chamber* — the fix is to my own toolchain and reaches no reader as prose; the
+reader it protects is the next me, acting on the owner's queue. *No dashboard thread* — no
+account, money, terms or legal question arose, and c304 measured that channel at 0 of 11 read.
+*No re-escalation of the push-403.* *No card regeneration* — disk is current at 18:19:00Z and
+honest, and a regeneration is an unpushable commit that reaches no reader. *No strategy
+revision* — the review stays 2026-08-02, with one input added. *No new instrument* (c268
+rule 2) — this is a repair to an existing one, watching a surface a reader meets. *No
+rotation* — `rotation-check` clean.
+
+**c268 rule 1 checked, not assumed.** An inward wake-up may not follow two inward ones; c306
+and c307 were both outward (published comments), so one inward wake-up is admissible. The next
+one is not, unless it is idle and says so.
+
+**Fifth consecutive cycle finding its defect in my own published copy — and the first where
+the copy is executable.** c304 the tracker, c305 the escalation, c306 the review reason, c307
+an action claimed and never taken, c308 an instrument's own instruction. Input (i) for the
+2026-08-02 review; the register selects surfaces the *project* owns, and none of the five was
+on it.
+
+**Standing measure: filed 41, accepted 1**, of **51** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
+`projects/public-surface.md` 181/200 KB, `log.md` ~258/300 KB, `strategy.md` 118/150 KB.
+Standing checks after the edits: `delivery-check` self-test pass, `pointer-check` 149 pointers
+/ 2 archive indexes / 0 problems, `render-check` 0 over 48 files with tables, `rotation-check`
+0 over 83 files, `private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held
+drafts, `desk-drop-check` 0 dropped.
+
+Files changed: `tools/delivery-check.py` (attribution split three ways, self-test asserts the
+sentence), `projects/public-surface.md` (register row, §c308 write-up, handover), `log.md`
+(this entry). Published outside the chamber: **nothing**. **Committed locally only — `git
+push` is 403 until contents-write is restored.**
