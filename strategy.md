@@ -57,6 +57,31 @@ Phase objectives, with status:
    [retinue#55](https://github.com/Retinue-OS/retinue/pull/55) — `MERGEABLE`, CI
    pass, +15/−5 across the three files — a one-click merge rather than prose
    asking him to act. **The objective turns on the merge, not on the PR.**
+
+   ***Satisfied 2026-07-31T19:33:40Z (cycle 330), and this is the first time.***
+   He merged #55; measured twelve minutes later, **from content on `main`, not
+   from the PR's badge** — which is the whole check after c270:
+
+   | | |
+   |---|---|
+   | `README.md` on `main @ f1f8c72f` | line 42 carries the link to `writing/provenance-by-path.md` |
+   | Survived what killed the last one | **yes** — two further merges (#56 19:35:32Z, #57 19:44:08Z) landed on top and the line is still there |
+   | Link target resolves | **200**; the chamber's `origin/main` copy is `1fded9a9`, byte-identical to the local one, so the reader gets the current text and not a stale one |
+   | Every link *out* of the piece | **8/8 → 200**, re-checked this cycle |
+   | The caveat the piece depends on | still true — `qlever-dir#3` (watcher ignores converter extensions) is **open**, so the reindex-latency wording on `main` is not over-stated |
+   | Other two files of #55 | `docs/triple-stores.md` carries the latency caveat again (`:157`); `signal-gateway/Dockerfile` restored |
+
+   The measurement worth keeping is the last three rows. The objective was
+   "linked from the framework", and a link is only satisfied end-to-end: a
+   README line pointing at a 404, or at a file whose corrections sit in the 45
+   unpushed commits, would have read as *satisfied* under any check that stopped
+   at `grep -i provenance README.md`. It didn't, but the check that would have
+   caught it cost four commands and now belongs in the register.
+
+   **Consequence for the phase:** the phase-end condition had two clauses and is
+   down to one — the social accounts (chamber#1). Nothing else changes; an
+   unannounced README that no one has starred in 13 days does not become an
+   audience because a link inside it now resolves.
 4. **Every inbound question gets an answer within one wake-up cycle.**
    *Vacuously satisfied.* There has been no inbound. This objective measures
    nothing until (2) lands, and I should stop reporting it as met.
@@ -106,6 +131,17 @@ The phase ends when the **social** accounts exist and the walkthrough is linked
 from the framework. Both are owner actions. The next phase gets written then.
 The GitHub account landing does not end it — it removes an honesty defect and a
 measurement hack, neither of which was ever what made the project unreachable.
+
+*Amended cycle 330 (2026-07-31 19:5xZ).* **The second clause is now met** — see
+objective 3. The phase does not end, because the first clause is what the bets
+need and it has not moved: 0 stars, 0 forks, 0 watchers, 0 discussions, 0 inbound
+from a second person, unchanged since 2026-07-18. What changed is that the
+condition is now single-term, and the term is chamber#1. Worth saying plainly
+before the 2026-08-02 review reads this: **the walkthrough clause was never the
+one holding the phase shut**, and it took eleven days to satisfy a condition that
+even satisfied leaves the phase exactly where it was. A phase-end condition with
+a clause whose satisfaction changes nothing is a badly specified condition, and
+the review should either drop it or say what it was proxying for.
 
 ## The two blockers, which are the same class of thing
 
@@ -720,6 +756,41 @@ is a claim.** Guardrail 3 applies to my instruments before it applies to the
 project's copy, because a wrong instrument publishes a wrong number in someone
 else's hands as easily as in mine.
 
+*Reading, cycle 330 (2026-07-31 19:5xZ), and the second number finally moves.*
+**Filed 42** — computed across all five org repos, not incremented (**42 of 53**;
+the total grew by two since c329 and none of the two is mine). **Accepted:**
+
+| Accepted, by the only checkable definition — *content present on `main`, re-read after the merge* | |
+|---|---|
+| `qlever-dir#9` | filed 2026-07-23, fixed and merged 2026-07-25 |
+| `retinue#55` | **my own PR**, merged today 19:33:40Z, all three files verified on `main` at 19:4xZ under two later merges |
+| Review notes on `retinue#51` | 3 of 4 — re-verified today at `f1f8c72f` (`agents/secretary.md:95`, `:109`), so not a c270 revert |
+| Review notes on `retinue#56` | 2 of 2 — the persistent-volume repair is `scripts/entrypoint.sh:233`, present |
+| Finding on `retinue#57` | 1 — `_note_receive_result(True)` at `scripts/signal-gateway.py:1297`, present; he confirmed it in writing at 19:40:07Z and merged four minutes later |
+
+Reported as **2 filings accepted + 6 review notes landed**, not as one number,
+because they are different acts: a filing is a thing I asked someone to do, a
+review note is a thing I caught in work he was already doing. Collapsing them
+would flatter the first and hide which one actually works.
+
+**And which one works is the finding.** Filed→accepted for issues runs at 2 of 42
+over thirteen days. Review notes on open PRs run at 6 of 7 within hours, and today
+five of them landed inside a single 100-minute window. c163 diagnosed the zero
+drain rate as a queue with no reader; that was true then and is the wrong model
+now. The queue is not unread — it is **the wrong instrument**. An issue asks a
+maintainer to context-switch into work he was not doing; a review comment arrives
+inside work he is doing this minute. Same content, same author, same account, two
+orders of magnitude apart in latency.
+
+*Operating consequence, effective now, replacing nothing:* **when a finding fits
+an open PR, it goes there, and the issue is not filed.** The c184 one-per-24 h
+filing slot stays for findings with no open PR to attach to — but the slot is no
+longer the scarce resource I have been treating it as, and a finding held eleven
+hours waiting for it (c329) should have gone to the PR immediately, as that one
+in the end did. This is a claim with a falsification: *if the next ten review
+notes land slower than the next two filings, it is wrong* — and both numbers are
+in this table for whoever checks.
+
 ### What the owner acts on (measured cycle 219)
 
 Ten days of the trackers, classified by the corrected method above. Every action
@@ -1235,6 +1306,37 @@ outcome but must be argued, not defaulted to.
 
 ## Revision log
 
+- **2026-07-31 (cycle 330)** — **A phase objective is satisfied for the first
+  time, and the measure it feeds says the opposite of what this file has been
+  saying for a fortnight.** *Trigger:* the routine survey found `retinue@main`
+  pushed twelve minutes before the wake-up — he merged **#55** at 19:33:40Z,
+  **#56** at 19:35:32Z and **#57** at 19:44:08Z, and confirmed my #57 finding in
+  writing at 19:40:07Z. Changes: (a) **objective 3 marked satisfied**, measured
+  from content on `main` under two later merges rather than from the PR's badge
+  (c270's rule), and extended end-to-end — the link target returns 200, the
+  chamber's `origin/main` copy of the piece is byte-identical to the local one so
+  no reader gets a stale text, all 8 links out of the piece resolve, and the
+  reindex caveat it depends on is still true because `qlever-dir#3` is still open;
+  (b) the **phase-end condition amended** to note it is now single-term
+  (chamber#1), with the observation that a clause whose satisfaction changes
+  nothing was badly specified and the review should say what it proxied for;
+  (c) the standing measure re-read — **filed 42 of 53, computed not incremented**
+  — and **accepted** stated for the first time in the c329-recommended form,
+  *content present on `main`*: **2 filings + 6 review notes**, reported as two
+  numbers because they are different acts. **One operating rule changed:** a
+  finding that fits an open PR goes to that PR and is not filed as an issue —
+  filings run 2 accepted of 42 over thirteen days, review notes 6 of 7 within
+  hours, five of them inside one 100-minute window today. c163 called the zero
+  drain rate *a queue with no reader*; the better model is **the wrong
+  instrument** — an issue asks a maintainer to context-switch, a review note
+  arrives inside work he is already doing. Falsifiable as stated: wrong if the
+  next ten review notes land slower than the next two filings. **No bet, no
+  phase, no cadence changed** — the phase stays *foundation, owner-blocked* on
+  chamber#1, and 0 stars / 0 forks / 0 discussions / 0 inbound is unchanged since
+  2026-07-18. Not escalated: nothing here needs an account, money, terms or a
+  legal call, and the delivery blocker (45 unpushed commits, five cards 1 d 17 h
+  stale) is already stated in full at chamber#6 and is **not** re-raised. The
+  scheduled review stays 2026-08-02 and gains this as its fourth input.
 - **2026-07-31 (cycle 315)** — **Correction, and it removes a blocker this file
   has claimed for twenty-three cycles.** *Trigger:* the c268 rule-1 obligation to
   make this wake-up outward sent me to a register surface unchecked since c270 —

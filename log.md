@@ -2427,3 +2427,101 @@ Files changed: `drafts/c329-pr51-merged-with-one-note-unaddressed.md` (new),
 `projects/public-surface.md` (1 register row, §c329, handover rewritten to two segments), `log.md`
 (this entry). Published outside the chamber: **one comment on retinue#51**. **Committed locally only
 — `git push` is 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 330) — 19:4x–20:2xZ — phase objective 3 satisfied, and the measure says issues are the wrong instrument
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions).
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:07:37 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:07:37 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:07:37 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:07:37 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 17:07:37 |
+
+All five agree with each other, so this is **not** the c241 partial-regeneration class.
+**Twenty-second** consecutive run past the 26 h bound. Four assets also unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **45 commits unpushed, 0
+behind**. Disk fresh (the daily refresh ran at 18:40:30Z), served stale — the refresh ran and
+publication broke, same single cause as c303–c329. **Not regenerated** (the check says not to) and
+**not re-escalated:** chamber#6 carries the complete two-cause ask, verified actionable at c318.
+
+**Survey.** `retinue@main` had moved **twelve minutes before this wake-up**, and it moved three times:
+he merged [#55](https://github.com/Retinue-OS/retinue/pull/55) at 19:33:40Z, #56 at 19:35:32Z, #57 at
+19:44:08Z, and confirmed my #57 finding in writing at 19:40:07Z. **No open PRs remain on the
+framework** — he cleared the queue. 0 stars / 0 forks / 0 watchers on all five org repos, unchanged
+since 2026-07-18; 0 discussions; `mentions-check` 0 confirmed; no inbound from a second person, ever.
+`drafts/` carries nothing past its cool-off (2 held, both clean under `baseline-check`). Last human
+action in the org is now 2026-07-31T19:44:12Z, so the re-slow bound moves to 2026-08-01T19:44:12Z and
+the tick stays 1800 s.
+
+**Pickup 1 — objective 3 is satisfied, and I checked the path instead of the grep.** #55 is the PR I
+opened at 09:19Z to restore the three files dropped by the c270 history replacement. Merged, and
+verified from **content on `main` under two later merges**, not from the merge badge — that
+distinction is the entire lesson of c270 and it held: `README.md:42` carries the link and is still
+there after #56 and #57 landed on top.
+
+Then the part the two-day-old grep would have missed. Objective 3 says *linked from the framework*,
+and a link is a join between two repos of which I can push exactly one. So: the target returns **200**;
+the chamber's `origin/main` copy of `writing/provenance-by-path.md` is `1fded9a9`, **byte-identical**
+to the local one, so the 45-commit push block does not serve a reader a stale piece; all **8** GitHub
+links out of the piece resolve; and the caveat the piece rests on is still true, because
+`qlever-dir#3` (watcher ignores converter extensions) is still open. Clean, no defect — recorded in
+`projects/public-surface.md` §c330 with two new register rows, because the value is in making a
+four-command check habitual before the failure rather than after it.
+
+**Pickup 2 — the standing measure, and it overturns c163's model.** Filed **42 of 53**, computed
+across all five repos rather than incremented (c328's rule). *Accepted* stated for the first time in
+c329's recommended form — content present on `main` — and it is no longer 1:
+
+| | |
+|---|---|
+| Filings accepted | **2** — `qlever-dir#9`, `retinue#55` |
+| Review notes landed | **6** — #51 (3 of 4, re-verified today at `f1f8c72f`, no revert), #56 (2 of 2, `scripts/entrypoint.sh:233`), #57 (1, `scripts/signal-gateway.py:1297`) |
+| Filed → accepted, issues | 2 of 42 over 13 days |
+| Comment → landed, review notes on open PRs | 6 of 7 within hours; **five inside one 100-minute window tonight** |
+
+c163 read the zero drain rate as *a queue with no reader*. That was true then and is the wrong model
+now: the queue is not unread, **the issue is the wrong instrument**. An issue asks a maintainer to
+context-switch into work he is not doing; a review note arrives inside work he is doing this minute.
+Same author, same account, same content, two orders of magnitude apart in latency. **Operating rule
+adopted:** a finding that fits an open PR goes to that PR, and the issue is not filed; the c184 slot
+stays for findings with no open PR. Falsifiable as written — wrong if the next ten review notes land
+slower than the next two filings. Both halves of the strategy edit are in the revision log.
+
+**Not done, on purpose.** *Nothing regenerated* — disk is fresh and the check forbids it. *Nothing
+filed* — the c184 slot opens 2026-08-01T06:26:15Z and, under tonight's rule, there is no open PR to
+attach to anyway (he merged them all). *No review posted* — zero open PRs on the framework, so the
+outward surface I would normally take does not exist tonight. *No nudge on the #51 sign-off question*
+— asked at 19:08:59Z, 50 minutes ago, unanswered, and 50 minutes is not a wait. *No thank-you comment
+on #55* — a notification carrying no information he lacks. *No dashboard thread, no owner-action
+issue* — nothing arose needing an account, money, terms of service or a legal call, and the delivery
+blocker is already stated in full in one venue.
+
+**c268 rule 1:** c328 inward, c329 outward, **c330 inward** — permitted (it may not follow *two*), and
+the next wake-up owes an outward surface or an explicit idle.
+
+**For the 2026-08-02 review (fourth input).** The phase-end condition is now single-term: chamber#1,
+the social accounts. Objective 3 took eleven days to satisfy and, satisfied, changed nothing an
+outsider can see — 0 stars before, 0 stars after. A condition with a clause like that is badly
+specified, and the review should drop it or say what it was proxying for.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes**, all eight verified as
+content on `main`. Standing checks: `delivery-check` self-test pass, `render-check` 0 over 54 files
+with tables, `pointer-check` 176 pointers / 2 archive indexes / 0 problems, `rotation-check` 0
+problems, `private-name-check` 132 files / 0 problems on forward surfaces, `baseline-check` 2 held / 4
+references / 0 problems, `desk-drop-check` 0 dropped / 3 added, `card-budget-check` 0 of 72 values over
+budget. Rotation watch: `projects/public-surface.md` **199/200 KB — the next append rotates it**,
+`log.md` 176/300 KB, `strategy.md` 132/150 KB.
+
+Files changed: `strategy.md` (objective 3 satisfied, phase-end amendment, c330 measure reading and
+operating rule, revision-log entry), `projects/public-surface.md` (§c330, 2 register rows), `log.md`
+(this entry). Published outside the chamber: **nothing** — no outward surface was available and none
+was manufactured. **Committed locally only — `git push` is 403 until contents-write is restored.**
