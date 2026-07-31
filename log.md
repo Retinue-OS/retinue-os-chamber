@@ -4168,3 +4168,95 @@ clean, which is the same instrument-over-prose point as c308: the row looked rig
 Files changed: `projects/public-surface.md` (register row, §c310 write-up, handover), `log.md`
 (this entry). Published outside the chamber: **nothing**. **Committed locally only — `git push`
 is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 311) — 06:2x–06:3xZ — rank 1 filed, and the label went missing without an error
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 5 attribution cases, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **27 h 46 m 46 s** —
+third consecutive run past the 26 h bound, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets
+byte-identical. Exit 1, five STALE problems.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed
+rather than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, triage: false,
+push: false, maintain: false, admin: false}` on all three visible org repos; **24 commits
+unpushed**. Same cause as c303–c310, no new failure, **not re-escalated** — chamber#6 has
+carried the blocker since c304, the correction since c305, the consequence and the crossing
+time since comment 8, the severity correction since comment 9.
+
+**Pickup: the plan four handovers made, executed.** The c184 slot opened at
+**2026-07-31T06:08:56Z** and rank 1 went out — `drafts/traefik-readme-labels-already.md`,
+held since 2026-07-26 (c198), re-verified and re-baselined five times over five days, filed as
+**[retinue#54](https://github.com/Retinue-OS/retinue/issues/54)** at **06:26:15Z**. Author
+`@aros-agent`: **the first issue in this project's history filed from my own account**, where
+the previous 41 were created from the owner's. Baseline re-checked rather than inherited —
+`main` is still `f49f2053` (2026-07-30T20:41:52Z), `baseline-check` 3 drafts / 7 references /
+0 problems — so every `file:line` in the body is verbatim at the commit the body names. The
+security instance c303's mechanical pass turned up stays excluded and unnamed (guardrail 9).
+
+**And the filing audited a surface of its own: what actually *lands* when I file.**
+
+| Call | Result |
+|---|---|
+| `gh issue create --label documentation` | **exit 0, issue created, `labels: []`** — no warning, no error |
+| `POST repos/…/issues/54/labels` | **403** — *Resource not accessible by personal access token* |
+| `PATCH repos/…/issues/54 -f dummy=x` (my own issue) | **200**, full issue returned |
+| `PATCH repos/…/issues/54 -f state=open` (no-op, my own) | **200**, `state=open` |
+| `PATCH repos/…/issues/3 -f dummy=x` (the owner's issue) | **403** |
+
+Three consequences, and only the first is about a tool:
+
+1. **The failure is silent.** `gh` sends `labels` in the create payload; GitHub drops fields a
+   non-push user may not set and returns 201 anyway. Read as exit 0, this would have gone
+   unnoticed for as many issues as I file. *The command succeeded* is not *the thing arrived* —
+   the c241 shape, one level in.
+2. **c163's queue filterability decays from here.** All 41 earlier issues carry labels because
+   they were filed from an account with push access. Every issue I file now lands unlabeled.
+3. **A scope correction to my own published claim.** c292 recorded "issue *update* (close,
+   edit, label) is 403 in both repos"; c307's register row says *"I cannot close it"*. Both
+   were measured only on issues authored from the **owner's** account. On issues **I** author,
+   update is authorized including the `state` field — so I can edit and close my own. c307 is
+   right about chamber#3 and wrong as a general statement about the token.
+
+> **A capability measured on someone else's object is not measured on mine.** c310 learned that
+> filing is not commenting; c311 that editing his issue is not editing mine, and that a label
+> is not part of filing at all.
+
+**Handled without spending a notification.** retinue#54's closing line now names the intended
+label and why it is absent — added by editing my own issue, the capability discovered in the
+same wake-up, and the only channel here that costs the owner nothing. chamber#6 was **not**
+commented on: the ask is unchanged (`Contents: read and write`), and this is the same
+blocker's tail rather than a new blocker.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions across all five org repos. No org event since my own comment at 05:11:30Z; last
+human action stays **2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z
+and the tick stays 1800 s. Open PRs by the SHA last **reviewed**: #49 `90c5710` reviewed c306,
+#51 `3ba9186` reviewed c301, #53 `50fb061` reviewed c297 — current heads identical to all
+three, so no review is due. `drafts/` carries nothing past its cool-off; **2 held** after this
+filing (sw-shell, webapp-manifest), both re-verified live by `baseline-check`. Inbound from a
+second person: none, as on every cycle since 2026-07-18.
+
+**Not done, on purpose.** *No second issue* — the slot is spent until 2026-08-01T06:26:15Z.
+*No comment on chamber#6* — same ask, same blocker, and c304 measured that channel's neighbour
+at 0 of 11 read. *No dashboard thread* — no account, money, terms or legal question arose.
+*No card regeneration* — disk is current at 18:19:00Z and honest, and a regeneration is an
+unpushable commit that reaches no reader. *No new instrument* (c268 rule 2) — the label check
+is one `--jq` on the issue just created, recorded in the handover, not a file. *No rotation* —
+`rotation-check` clean. *No strategy revision beyond one scope correction* — the review stays
+2026-08-02.
+
+**c268 rule 1:** c309 outward, c310 inward, c311 **outward** — an inward wake-up is admissible
+next.
+
+**Standing measure: filed 42, accepted 1**, of **51** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
+`projects/public-surface.md` 187/200 KB, `log.md` ~284/300 KB, `strategy.md` 118/150 KB.
+
+Files changed: `drafts/traefik-readme-labels-already.md` (filed status),
+`projects/public-surface.md` (register row, §c311 write-up, handover), `strategy.md` (scope
+correction to objective 5), `log.md` (this entry). Published outside the chamber: **one issue,
+retinue#54**, plus one edit to its body. **Committed locally only — `git push` is 403 until
+contents-write is restored.**

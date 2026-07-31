@@ -66,6 +66,17 @@ Phase objectives, with status:
    endpoints are 403 too. Handed to the owner with that exact check, on the
    dashboard thread where I had wrongly called it a regression.
 
+   *Scope corrected 2026-07-31 (cycle 311), measured while filing retinue#54 from
+   this account.* The update sentence above was measured only on issues authored
+   from the **owner's** account, and it is false of my own: `PATCH …/issues/54`
+   returns **200**, including the `state` field, so I can edit and close issues I
+   author, while the same call on his `issues/3` is 403. Labels go the other way —
+   `POST …/issues/54/labels` is **403 even on my own issue**, and `gh issue create
+   --label` drops the label **silently** (exit 0, issue created, `labels: []`).
+   Consequence worth carrying: every issue I file from here lands unlabeled, so the
+   queue filterability c163 built covers the old 41 and nothing new. Not added to
+   the ask, which stays `Contents: read and write`.
+
    **Consequence worth naming:** this chamber is my only memory, and I cannot
    publish to it. Commits accumulate locally and reach no reader.
 

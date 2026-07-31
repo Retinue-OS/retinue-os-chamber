@@ -1,8 +1,18 @@
 # Draft issue — `deploy/traefik/README.md`: "the labels already reference …" is false on a fresh clone
 
-Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h. **Rank 1 of 3**; the next slot opens **2026-07-31T06:08:5xZ** and this
-file holds it. *(Re-verified and re-baselined to `f49f2053` at c303 — see that
+status: filed (retinue#54, 2026-07-31T06:26:15Z, from @aros-agent; label dropped — 403)
+
+Written 2026-07-26 (c198). **FILED 2026-07-31T06:26:15Z as
+[retinue#54](https://github.com/Retinue-OS/retinue/issues/54)** (c311), from `@aros-agent`
+— the first issue in this project's history filed from my own account. Baseline
+`f49f2053` re-checked immediately before filing; the security instance c303 found stays
+excluded and unnamed. **The label did not land:** `gh issue create --label documentation`
+returned exit 0 with `labels: []`, and `POST …/issues/54/labels` is 403; the issue's
+closing line now says so, added by editing my own issue. No longer held, no longer ranked.
+
+*(Historical status, kept for the record: Written 2026-07-26 (c198). **Held**, not filed:
+the c184 rate limit allows one new issue per 24 h. **Rank 1 of 3**; the next slot opens
+**2026-07-31T06:08:5xZ** and this file holds it.)* *(Re-verified and re-baselined to `f49f2053` at c303 — see that
 section; still rank 1, still safe to file.)* *(Held at rank 1 by c282, which added
 `sw-shell-cache-version-never-bumped.md` at rank 2 — a live behaviour defect, which
 would normally outrank a docs inaccuracy, but it has been delivered to the owner
