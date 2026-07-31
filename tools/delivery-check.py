@@ -47,12 +47,16 @@ the same enumeration argument applies one directory up: every file under
 `docs/` that Pages serves is compared byte-for-byte against its disk copy, and
 a mismatch is attributed rather than merely reported.
 
-Attribution matters here for the same reason it does for the stamps. Pages
-builds from `main:/docs`, so a served copy that differs from disk means either
-*the commit has not been published* (disk equals `HEAD`) or *the edit has not
-been committed* (disk differs from `HEAD`, and `HEAD` is what is served). Only
-the first is a delivery failure; the second is a working tree mid-wake-up, and
-calling it a defect would send the next cycle to inspect Pages for nothing.
+Attribution matters here for the same reason it does for the stamps, and it
+takes three revisions, not two. Pages builds from `origin/main:/docs`, so a
+served copy that differs from disk is one of: *the edit has not been committed*
+(disk differs from `HEAD`, and `HEAD` is what is served) — a working tree
+mid-wake-up, not a defect; *the commit has not been pushed* (disk equals
+`HEAD`, `origin/main` equals what is served) — the fault is here, in this
+container, and Pages never saw it; or *the commit is on `origin/main` and the
+site still disagrees* — only now is /pages the right place to look. Collapsing
+the middle case into the last one is what this check did on four real files for
+five cycles (c316).
 
 Usage
 -----
@@ -181,14 +185,32 @@ def where(pub):
             "before looking at Pages.")
 
 
-def classify_asset(served, disk, head):
+UNKNOWN = object()  # `origin` not supplied — distinct from "absent on origin".
+
+
+def classify_asset(served, disk, head, origin=UNKNOWN):
     """Verdicts for one served asset. Arguments are content digests or None.
 
     `served` is what the reader gets, `disk` the working tree, `head` the
-    committed copy Pages builds from. Distinguishing the last two is the whole
-    point: an uncommitted local edit is a wake-up in progress, not a broken
+    committed copy, `origin` that file's copy on `origin/main` (None when the
+    path does not exist there). Distinguishing disk from head is one half of
+    the point: an uncommitted local edit is a wake-up in progress, not a broken
     delivery, and reporting it as one would send the next cycle to inspect
     Pages for a fault that is in this container.
+
+    `origin` is the other half, and it is the half this function got wrong from
+    c241 until c316. It said *"Pages has not built it; check /pages"* for every
+    committed-but-unserved asset — the exact misattribution `where()` exists to
+    prevent one function up, in the same file, printed on the same run. Pages
+    builds from `origin/main`, so a commit still sitting in this container is
+    not something Pages could have built, and no amount of looking at
+    /pages/builds will show it. Measured on the four assets that carried this
+    verdict for five cycles: each one's served digest equalled its
+    `origin/main` digest exactly — the build was correct and complete, and the
+    only broken thing was the push.
+
+    The distinction is per file, not per repository: being N commits ahead of
+    `origin/main` says nothing about whether *this* path is among them.
     """
     problems = []
     if disk is None:
@@ -203,10 +225,7 @@ def classify_asset(served, disk, head):
     if head is None:
         problems.append("UNTRACKED and differs from the served copy")
     elif disk == head:
-        problems.append(
-            "UNPUBLISHED — the committed copy is not what the site serves. "
-            "Pages has not built it; check /pages and /pages/builds."
-        )
+        problems.append("UNPUBLISHED — " + why_unserved(head, origin))
     elif served == head:
         pass  # local edit, not yet committed. The site is correct for `main`.
     else:
@@ -214,6 +233,31 @@ def classify_asset(served, disk, head):
             "DIVERGED — served, disk and HEAD are three different files."
         )
     return problems
+
+
+def why_unserved(head, origin):
+    """One clause naming *where* an unserved-but-committed asset is stuck.
+
+    Separate from `classify_asset` for the reason `where()` is separate from
+    `classify`: the self-test can then assert the sentence rather than only
+    that a problem was raised, which is what let the wrong sentence survive
+    five cycles of a passing self-test.
+    """
+    if origin is UNKNOWN:
+        return ("the committed copy is not what the site serves, and whether "
+                "that commit is on `origin/main` was not checked — establish "
+                "that before looking at Pages.")
+    if origin is None:
+        return ("the committed copy is not on `origin/main` at all — the "
+                "commit adding it is UNPUSHED. Pages is not at fault; the "
+                "fault is the push, in this container.")
+    if origin != head:
+        return ("the committed copy differs from `origin/main` — the commit "
+                "is UNPUSHED. Pages is not at fault; the fault is the push, "
+                "in this container.")
+    return ("the committed copy IS on `origin/main` and the site still serves "
+            "something else — so this really is the build: check /pages and "
+            "/pages/builds.")
 
 
 def self_test():
@@ -271,16 +315,38 @@ def self_test():
     # The asset half, both directions. `a`/`b`/`c` stand for three digests.
     a, b, c = "aaa", "bbb", "ccc"
     asset_cases = [
-        (classify_asset(a, a, a), False, "served matches disk and HEAD"),
-        (classify_asset(b, a, a), True, "committed copy unpublished"),
-        (classify_asset(a, b, a), False, "uncommitted local edit"),
-        (classify_asset(a, b, c), True, "served, disk and HEAD all differ"),
-        (classify_asset(None, a, a), True, "asset not served"),
-        (classify_asset(a, b, None), True, "untracked and divergent"),
+        (classify_asset(a, a, a, a), False, "served matches disk and HEAD"),
+        (classify_asset(b, a, a, a), True, "committed copy unpublished"),
+        (classify_asset(a, b, a, a), False, "uncommitted local edit"),
+        (classify_asset(a, b, c, c), True, "served, disk and HEAD all differ"),
+        (classify_asset(None, a, a, a), True, "asset not served"),
+        (classify_asset(a, b, None, None), True, "untracked and divergent"),
     ]
     for got, expect_problem, why in asset_cases:
         if bool(got) != expect_problem:
             return f"asset classifier failed the {why!r} case"
+
+    # c316. The asset verdict names *where* too, and until this cycle it named
+    # the one place the fault was not — on a real run, on four real files, for
+    # five cycles, while the card half printed the correct attribution two
+    # inches above it. As with the c308 cases, these assert the sentence: a
+    # wrong message and a right message are both truthy, so the boolean cases
+    # above passed throughout the defect. The forbidden string is the
+    # *instruction* ("check /pages"), not the word.
+    unserved_cases = [
+        # served b, disk a, head a: committed, and origin/main has …
+        (b, "UNPUSHED", "check /pages"),      # … a different copy
+        (None, "UNPUSHED", "check /pages"),   # … no such path
+        (a, "check /pages", "UNPUSHED"),      # … the same copy: really Pages
+        (UNKNOWN, "was not checked", "check /pages and /pages/builds"),
+    ]
+    for origin, must, must_not in unserved_cases:
+        msg = " ".join(classify_asset(b, a, a, origin))
+        if must not in msg:
+            return f"unserved-asset verdict for origin={origin!r} omits {must!r}"
+        if must_not in msg:
+            return (f"unserved-asset verdict for origin={origin!r} wrongly "
+                    f"names {must_not!r}")
     return None
 
 
@@ -305,10 +371,23 @@ def fetch_bytes(path):
 
 
 def head_bytes(root, path):
-    """The committed copy Pages builds from, or None when untracked."""
+    """The locally committed copy, or None when untracked."""
+    return rev_bytes(root, "HEAD", path)
+
+
+def origin_bytes(root, path):
+    """The copy on `origin/main` — what Pages actually builds from.
+
+    None when the path does not exist there, which is itself an answer: an
+    asset that has never been pushed cannot have been built.
+    """
+    return rev_bytes(root, "origin/main", path)
+
+
+def rev_bytes(root, rev, path):
     try:
         out = subprocess.run(
-            ["git", "-C", root, "show", f"HEAD:{DOCS_DIR}/{path}"],
+            ["git", "-C", root, "show", f"{rev}:{DOCS_DIR}/{path}"],
             capture_output=True, timeout=TIMEOUT,
         )
         return out.stdout if out.returncode == 0 else None
@@ -388,7 +467,7 @@ def main():
         print("Refusing to report on real files.")
         return 2
     print("self-test: pass (6 stamp cases + the divergence fixture, "
-          "5 attribution cases, 6 asset cases)")
+          "5 attribution cases, 6 asset cases, 4 asset attributions)")
 
     data_dir = os.path.join(root, DATA_DIR)
     names = sorted(f for f in os.listdir(data_dir) if f.endswith(".json"))
@@ -445,7 +524,8 @@ def main():
                 disk = None
             served = digest(fetch_bytes(path))
             head = digest(head_bytes(root, path))
-            found = classify_asset(served, disk, head)
+            origin = digest(origin_bytes(root, path))
+            found = classify_asset(served, disk, head, origin)
             mark = "  " if not found else "! "
             print(f"{mark}{path:42} disk {disk}  served {served}")
             for p in found:
