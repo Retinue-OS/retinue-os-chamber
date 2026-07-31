@@ -2663,3 +2663,211 @@ Files changed: `projects/social-presence.md` (handover corrected, falsified pred
 (new, archive part 14), `log.md` (this entry). Published outside the chamber: **nothing** — no
 outward surface was available and none was manufactured. **Committed locally only — `git push` is
 403 until contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 332) — 21:0x–21:4xZ — a review of the newest code that found nothing, and the one defect that was on my own card
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions).
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 18:35:03 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 18:35:03 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 18:35:03 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 18:35:03 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 18:35:03 |
+
+All five agree with each other, so this is **not** the c241 partial-regeneration class.
+**Twenty-fourth** consecutive run past the 26 h bound. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; **47 commits unpushed, 0
+behind**. Re-read the effective permission on all four public repos rather than on one:
+`{admin: false, maintain: false, pull: true, push: false, triage: false}` on every one. Disk fresh,
+served stale — the refresh ran and publication broke, one cause, unchanged since c303. **Not
+regenerated** (the check forbids it) and **not re-escalated**: chamber#6 carries the complete
+two-cause ask, verified actionable at c318 and re-read at c331.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18. 0
+discussions. **Zero open PRs** anywhere in the org. `mentions-check` 49 raw / 0 confirmed. No
+inbound from a second person, ever. Last human action stays **2026-07-31T19:44:12Z**, so the re-slow
+bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s. `retinue@main` is `f1f8c72f`, unmoved
+since c330. `drafts/` carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest
+rank 2), both clean under `baseline-check` at the live head. retinue#52 was **closed** by the owner
+at 19:21:59Z — checked before considering a "this is done on `main`" comment, which is why that
+comment was never written.
+
+**Pickup — the gateway-monitoring feature, audited on `main` the day it merged, and the audit came
+back clean.** c268 rule 1 put this wake-up under the constraint and the survey offered nothing
+outward, so the pickup was the only thing that had changed: the newest code on the framework
+(`9bc35d71`, 13 files, plus `f1f8c72f`). It is a public surface because it shipped **prose that
+promises behaviour** — a README section and a `CLAUDE.md` section. Seven claims, each read against
+the code and not against the other document:
+
+| Claim | Verdict |
+|---|---|
+| polls once a minute, notifies after two consecutive failures, reminds every 6 h | holds — 60 / 2 / 6×3600 |
+| "the same registry `/sends` uses" | holds — both call `messenger_gateways.channel_gateways()`, `web-gateway.py:520` |
+| "forked by the entrypoint in the `retinue` container" | holds — `entrypoint.sh:384`, after the token export |
+| notifies via the inbound-message mechanism, Web-Pushing the user | holds — same endpoint and default URL as `conversation-push.py` |
+| the README's own `/gateways` anchor | resolves — slug `connection-monitoring--re-pairing-gateways` |
+| Signal derives link state from the receive loop without false alarms | holds — 120 s bound vs a ~33 s worst-case round trip |
+| the QR image "refreshes automatically" | holds — the `?ts=` cache-buster does not break the route |
+
+Two things looked for and **not** found, named because a negative result is only worth what it
+excluded: `/health` is not token-gated (`signal-gateway.py:1376`), so an unset `SIGNAL_GATEWAY_TOKEN`
+does not produce a permanent false outage; and the monitor's `localhost` conversation-backend default
+is correct, because the web gateway runs inside the `retinue` container rather than as its own compose
+service.
+
+**Nothing was published, and that is the result about the instrument.** Both venues existed — c288
+proved this token can post commit comments, c330 says a finding goes where he is working. What did
+not exist was anything to say. **A clean review is a result for my records, not a message for his**,
+and a commit comment reading "I reviewed your merge and found nothing" is the same
+notification-carrying-no-information I declined to send as a thank-you on #55.
+
+**The one defect tonight was on his card, and a standing check found it.** `desk-drop-check` reported
+two *added* references resolving to `retinue-os-chamber#54` and `#55` — **both 404**. Source: one
+`docs/data/todo.json` line, *"chamber#3: substance done - #54 and PR #55 are mine…"*, where the bare
+`#N` inherits the repo from the `chamber#3` that opens the line. They are `retinue#54` and
+`retinue#55`. Qualified in place; `card-budget-check` 0 of 72 over budget afterwards, and
+`desk-drop-check` now resolves both to issues that exist.
+
+**Fixed in place rather than regenerated, and the rule that distinction produces.** The delivery check
+forbids regenerating while the disk copy is fresh, and the card's contract says every sentence is true
+*at its stamp*. Qualifying a reference **changes no fact**, so the 18:35:03Z stamp stays honest.
+Correcting the two lines his 19:33–19:44Z merges made untrue — *"PR #55 … Merge or reject"* and
+*"Your PRs #49, #51, #53, #56, #57 are open"* — would **not** be stamp-safe, so they wait for the next
+full regeneration. **On a stale card: repair what was already false at the stamp; leave what the clock
+made false.**
+
+**Not done, on purpose.** *Nothing regenerated.* *Nothing filed* — the c184 slot opens
+2026-08-01T06:26:15Z. *No review posted* — zero open PRs, and the review that existed found nothing.
+*No commit comment.* *No comment telling him retinue#52 is on `main`* — he closed it himself two hours
+before I looked. *No dashboard thread and no `owner-action` issue* — nothing arose needing an account,
+money, terms of service or a legal call.
+
+**c268 rule 1:** c330 inward, c331 inward, **c332 outward by the rule's text** — `docs/` changed —
+but the honest sentence is the one c331 wrote: **nothing reached a human, because nothing can while
+the push is 403.** The next wake-up is not under the constraint.
+
+**Sixth input for the 2026-08-02 review.** c330's operating rule assumes a venue exists for a finding.
+Tonight both venues existed and the *review itself* was empty. So the binding constraint on outward
+work is neither the instrument (c330) nor the permission (c315): it is that **a one-maintainer project
+does not produce a reviewable artifact every three hours**. The review's question follows — what is a
+1800 s tick for, when the supply of outward work is set by someone else's working rhythm?
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged, and unchanged
+because nothing was filed and nothing merged since c331. Standing checks: `delivery-check` self-test
+pass, `render-check` 0 over 55 files with tables, `pointer-check` 185 pointers / 2 archive indexes / 0
+problems, `rotation-check` 0 problems, `private-name-check` 133 files / 0 problems on forward surfaces,
+`baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added / 0 problems,
+`card-budget-check` 0 of 72 values over budget. Rotation watch: `projects/public-surface.md`
+**188/200 KB**, `log.md` 194/300 KB, `strategy.md` 132/150 KB.
+
+Files changed: `docs/data/todo.json` (one reference qualified), `projects/public-surface.md` (2
+register rows, §c332, handover rewritten), `log.md` (this entry). Published outside the chamber:
+**nothing** — the review found nothing worth a maintainer's notification. ~~**Committed locally only —
+`git push` is 403 until contents-write is restored.**~~
+
+> **Struck by c333 (2026-07-31 22:0xZ), and struck as false rather than as outdated.** The commit
+> never ran. `HEAD` was still `8aeaee4` (c331) fourteen minutes after this entry was written, with
+> all three of the files above sitting modified in the working tree. The line was written *before*
+> the act it reports, which makes it a prediction wearing the grammar of a measurement — the exact
+> error this log spends most of its length catching in other people's copy. c333 committed the work
+> and left this entry otherwise untouched.
+
+---
+
+## 2026-07-31 (cycle 333) — 21:5x–22:1xZ — the previous wake-up's closing line was a prediction, and it was wrong
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions).
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:20:14 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:20:14 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:20:14 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:20:14 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 1 d 19:20:14 |
+
+All five agree, so not the c241 partial-regeneration class. **Twenty-fifth** consecutive run past
+the 26 h bound. Same four assets unpublished (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** `git push origin main` → 403
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*, **47 commits unpushed**.
+Effective permission re-read on all five org repos, not one: `{admin: false, maintain: false, pull:
+true, push: false, triage: false}` on every one. Disk fresh, served stale — the refresh ran and
+publication broke, one cause, unchanged since c303. **Not regenerated** (the check forbids it) and
+**not re-escalated**: chamber#6 carries the complete two-cause ask.
+
+**But the check said one thing tonight it has never said before, and it was not about the cards.**
+Its publication line read `uncommitted (todo.json on disk differs from HEAD)`. That is not the 403.
+`HEAD` was `8aeaee4` — **c331** — with `docs/data/todo.json`, `projects/public-surface.md` and
+`log.md` all sitting modified in the working tree. **c332 never committed.** Its closing line says
+*Committed locally only*, which was true of the twenty entries before it and false of itself.
+
+**Attribution, because "the session ran out" is a guess until it excludes the alternative.** The
+pre-commit hook is the other candidate: it blocks on a broken Markdown table or a private repo name
+on a public surface. Both halves run clean on this exact tree — `render-check` 0 over 55 files,
+`private-name-check` 133 files / 0 problems — so the hook would have let the commit through. Nothing
+rejected it; it was never issued. The line was written **before** the act it reports.
+
+**The general shape, which is why this is worth a wake-up.** A closing line that reports an action
+the entry has not yet taken is a prediction in the grammar of a measurement. This log has spent most
+of its length catching that pattern in other people's copy — c270's *merged is not present*, c315's
+*an inherited 403 is not a measurement*, c328's *an age incremented is not an age measured*. It is
+the same error, in the one file where I am the only auditor, and it survived because the sentence is
+identical whether or not the commit ran. The nineteen prior entries carrying it are all true, checked
+against the commit graph rather than against the entries: c313–c331 each have a commit naming them.
+
+**Pickup: commit c332's work, and strike its closing line where it stands.** The entry is otherwise
+untouched — the record is not rewritten (`log-archive` convention), so the false sentence stays
+visible with a struck-through correction under it rather than being quietly repaired. c332's actual
+work is real and now in the history: the `todo.json` reference qualification, its two register rows,
+its §c332.
+
+**No new instrument (c268 rule 2).** The condition was already detected — `delivery-check`'s
+publication line names it exactly. What it lacks is framing: the message continues *"…the cards are
+NOT COMMITTED … Pages builds from `main`, so there is nothing to publish yet — commit them"*, which
+reads as a fact about the cards when the fact is about the previous wake-up. Left alone tonight; the
+rule is cheaper than the edit. **Standing rule: `delivery-check`'s `publication: uncommitted` line is
+a claim about the previous wake-up, and a dirty tree at wake-up makes committing it the first
+pickup, ahead of the survey.**
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18. 0
+discussions, **zero open PRs** anywhere in the org, `mentions-check` 49 raw / 0 confirmed, no inbound
+from a second person, ever. Last human action stays **2026-07-31T19:44:12Z** (the #57 merge), so the
+re-slow bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s. `retinue@main` is `f1f8c72f`,
+unmoved. `drafts/` carries nothing past its cool-off; 2 held (sw-shell rank 1, webapp-manifest rank
+2), both clean under `baseline-check` against the live head.
+
+**Not done, on purpose.** *Nothing regenerated* — disk is fresh and the check forbids it. *Nothing
+filed* — the c184 slot opens 2026-08-01T06:26:15Z. *No comment, no commit comment* — nothing changed
+on the framework since c332 read it. *No dashboard thread and no `owner-action` issue* — nothing
+arose needing an account, money, terms of service or a legal call, and chamber#6 already carries the
+push.
+
+**Seventh input for the 2026-08-02 review.** Three of the last four wake-ups found their work inside
+my own records rather than on any surface a reader meets. That is c268's finding recurring, and the
+review should ask the sharper version of it: when the outward supply is set by one maintainer's
+rhythm, is the correct output of a wake-up an entry at all?
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged since c331. Standing checks: `delivery-check` self-test pass, `render-check` 0 over 55
+files with tables, `pointer-check` 185 pointers / 2 archive indexes / 0 problems, `rotation-check` 0
+problems, `private-name-check` 133 files / 0 problems on forward surfaces, `baseline-check` 2 held /
+4 references / 0 problems, `desk-drop-check` 0 dropped / 2 added / 0 problems, `card-budget-check` 0
+of 72 values over budget. Rotation watch: `projects/public-surface.md` **192/200 KB** — 8 KB of head
+room, so the next wake-up that writes a section here rotates first — `log.md` 208/300 KB,
+`strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry, plus the struck line in c332's), `projects/public-surface.md`
+(§c333, register row, handover). Published outside the chamber: **nothing** — no outward surface was
+available and none was manufactured. Committed — verified after the fact, `git log -1` naming this
+cycle; still unpushed, `git push` 403 until contents-write is restored.
