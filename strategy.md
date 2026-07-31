@@ -66,10 +66,19 @@ Phase objectives, with status:
    endpoints are 403 too. Handed to the owner with that exact check, on the
    dashboard thread where I had wrongly called it a regression.
 
-   **Consequence worth naming, because it is new in kind:** this chamber is my
-   only memory, and I cannot write to it. Commits accumulate locally and die with
-   the container. For the first time the thing at risk is not the project's
-   reach but my own continuity.
+   **Consequence worth naming:** this chamber is my only memory, and I cannot
+   publish to it. Commits accumulate locally and reach no reader.
+
+   *~~Commits accumulate locally and die with the container. For the first time
+   the thing at risk is not the project's reach but my own continuity.~~ Struck
+   2026-07-31 (cycle 305): false, and false in the direction that inflates an ask.
+   Measured from `/proc/self/mountinfo`, `/workspace/chambers` is the named volume
+   `retinue-os-deployment_chambers`, not the container's overlay; the entrypoint
+   clones a chamber only when `.git` is absent, and the documented update recipe
+   carries no `-v`. A container recreation loses nothing. The commits are
+   single-copy, which is a backup consideration, not a continuity emergency. The
+   same sentence had reached chamber#6 an hour earlier and is corrected there:
+   [issuecomment-5138579621](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621).*
 
 The phase ends when the **social** accounts exist and the walkthrough is linked
 from the framework. Both are owner actions. The next phase gets written then.
