@@ -3324,3 +3324,91 @@ retirement condition, delivery-note correction), `projects/public-surface.md` (r
 row, §c302 write-up, handover rewritten to two segments per c273), `log.md` (this entry).
 Published outside the chamber: **one pull-request comment**, #45. **Committed locally
 only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 303) — 01:0x–01:3xZ — the same false sentence, twice in one file, and only one half is publishable
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at the one stamp **2026-07-30T02:37:42Z**, age **22 h 31 m 06 s** against the 26 h bound —
+inside it, and the five agree with each other, so this is not the partial-regeneration class
+c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran and the
+**delivery path** failed. Re-probed rather than inherited (c294's rule): `git push --dry-run` →
+403 *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*. **Fifteen**
+commits unpushed coming into this cycle. `/pages` deliberately not consulted — the failure is
+upstream of Pages. **Served content crosses the 26 h bound at 2026-07-31T04:37:42Z**, about
+three and a half hours from now; the wake-up after that sees this chamber's first
+out-of-bound check, and it is this cause, not a new one. Not re-escalated — it is on his phone
+(thread `9b4d2e20…`).
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18.
+Nothing anywhere in the org since my own comment at 00:33:29Z; last human action stays
+**2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays
+1800 s. Open PRs #49 (`90c5710`), #51 (`3ba9186`), #53 (`50fb061`) — all three unmoved since
+c302; his 23:10:54Z comment on #49 asks nothing of me, and c301 already verified the half of it
+I could check. `drafts/` carries nothing past its cool-off. Filing slot spent until
+2026-07-31T06:08:5xZ. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**Pickup: drain, per c206** — the held queue has three items, so drain is the default rather
+than audit. Rank 1, `traefik-readme-labels-already.md`, holds the 06:08:5xZ slot that opens
+after this wake-up ends, and it has been verified four times and delivered nowhere.
+
+**Re-baselined `50b5be890` → `f49f2053` by blob identity, not by re-reading lines.** 7 ahead,
+0 behind, so the old baseline is still an ancestor — not the c254 case, where the named commit
+was on no branch. The two trees differ in exactly the ten files GitHub's compare lists
+(`CLAUDE.md`, `agents/secretary.md`, three `examples/chambers/` files, `scripts/entrypoint.sh`,
+four `webapp/` files), and **none of the six files the write-up cites is among them** —
+identical blob SHAs at both commits, so every line number in the c248 table is verbatim at the
+new baseline. One tree diff answers "did my citations move?"; re-fetching fourteen line ranges
+answers the same question more slowly.
+
+**The consolidate step found what four re-verifications did not.** c206's drain has three
+parts — consolidate, re-verify, retire — and only *re-verify* had ever been run on this draft.
+Consolidate asks whether held findings share a cause, so this pass searched all 31
+Markdown/YAML files on `f49f2053` for the same claim repeated elsewhere. **It is repeated, in
+the same file, in a section whose subject is security.** Named and not described in `drafts/`,
+per guardrail 9 and this chamber's own rule that no security finding sits there — the same
+handling c253 gave the private half of the tree diff.
+
+**Routed privately by appending, not by opening.** c201's rule is one open agent-initiated
+thread, and the right target already existed: thread `76b82935…` (2026-07-26, still unread) is
+about the *same security note* in the *same file*. The append states the addition, **repeats no
+ask** — that thread's yes/no question is unchanged and is still the only thing gating the
+private half — and bumps a five-day-old off-card thread back onto the dashboard's five-slot
+card, which is the side effect c201 designed the rule for. A new thread would have made an
+eleventh badge for a finding smaller than the one already sitting in that one.
+
+**The public issue is untouched.** It still covers the documentation claim only — the wiring
+section's closing paragraph, the base compose's zero `labels:` keys, the git-ignored example
+override — and it is still rank 1 and safe to file at 06:08:5xZ. The security-scoped instance
+does not travel with it. What is worth carrying forward is that the two cannot be fixed as one
+edit.
+
+**The general form: a citation list is a record of where I already looked.** c224 asked whether
+the content moved, c248 whether the evidence executed, c254 whether the commit was reachable,
+c278 whether the citations resolved. Four passes, four different questions, all of them aimed
+at the same lines. None asked **where else the claim lives**, which is one grep and found a
+second instance in the file the draft is named after.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ. *Nothing new
+escalated* — no account, money, terms-of-service or legal question arose; the push block was not
+repeated, and the security append carries no new ask. *No comment on #49/#51/#53* — nothing
+moved on them. *No strategy revision* — review stays 2026-08-02, one new input logged. *No new
+instrument* (c268 rule 2). *No rotation* — `projects/public-surface.md` is at 191/200 KB and is
+now due rather than optional; doing it on top of this pickup is the long wake-up c192 calls a
+defect, so it is the next wake-up's first item.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus ten
+review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
+`log.md` 220/300 KB, `projects/public-surface.md` 191/200 KB, `strategy.md` 117/150 KB.
+Standing checks after the edits: `pointer-check` 144 pointers / 2 archive indexes / **0
+problems** (7 checks), `render-check` 0 over 46 files with tables, `rotation-check` 0,
+`private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held drafts,
+`desk-drop-check` 0 dropped.
+
+Files changed: `drafts/traefik-readme-labels-already.md` (re-verification, re-baseline to
+`f49f2053`, the excluded instance named), `projects/public-surface.md` (register row, §c303
+write-up, handover rewritten to two segments per c273), `log.md` (this entry). Published
+outside the chamber: **nothing public**; one private dashboard append to thread `76b82935…`.
+**Committed locally only — `git push` is 403 until contents-write is restored.**

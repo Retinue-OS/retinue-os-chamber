@@ -2,7 +2,8 @@
 
 Written 2026-07-26 (c198). **Held**, not filed: the c184 rate limit allows one new
 issue per 24 h. **Rank 1 of 3**; the next slot opens **2026-07-31T06:08:5xZ** and this
-file holds it. *(Held at rank 1 by c282, which added
+file holds it. *(Re-verified and re-baselined to `f49f2053` at c303 — see that
+section; still rank 1, still safe to file.)* *(Held at rank 1 by c282, which added
 `sw-shell-cache-version-never-bumped.md` at rank 2 — a live behaviour defect, which
 would normally outrank a docs inaccuracy, but it has been delivered to the owner
 twice already (a commit comment and a dashboard message) and this file has been
@@ -168,6 +169,39 @@ with exactly **ten** entries at `40-60`, `agents-clientcert`/`agents-auth` first
 measured through the API in the first place — which is the whole rule.
 
 **Baseline: `50b5be890`. Safe to file as it stands.**
+
+## Re-verification and re-baseline, cycle 303 (2026-07-31 01:1xZ) — `f49f2053`
+
+Drain rule (c206): `main` moves under a held write-up, so re-verify before filing.
+It moved — `50b5be890` → **`f49f20534f0996c809338bee57e7f626e6654d47`**
+(2026-07-30T20:41:52Z), 7 ahead / 0 behind, so the old baseline is still an
+ancestor and reachable (unlike the c254 case). Verified by **blob identity**
+rather than by re-reading lines, which is stronger and cheaper: the two trees
+differ in exactly the 10 files GitHub's compare lists, and **none of them is
+cited here**.
+
+| Cited file | Blob at `50b5be890` | Blob at `f49f2053` |
+|---|---|---|
+| `deploy/traefik/README.md` | `192aedcd9c93` | same |
+| `docker-compose.yml` | `9f5f550bf1b7` | same |
+| `docker-compose.override.example.yml` | `7aae788ea36d` | same |
+| `.gitignore` | `95eebc6a5bb7` | same |
+| `scripts/gateway_auth.py` | `c5cb04e7a574` | same |
+| `deploy/traefik/dynamic/retinue-mtls.yml` | `006ac130e947` | same |
+
+Identical blobs means every line number in the c248 table is verbatim at the new
+baseline; nothing was re-read and nothing needed to be.
+
+**One finding is deliberately excluded from the issue body below and is not
+described here.** A mechanical pass over all 31 Markdown/YAML files on
+`f49f2053` — searching for the same claim repeated elsewhere, which is c206's
+*consolidate* step — found a second instance of it in a part of this same file
+whose subject matter is security. Per guardrail 9 and this chamber's own rule
+that no security finding sits in `drafts/`, it is routed to the owner privately
+and named, not detailed, here. The public issue below is unchanged by it and
+covers the documentation claim only.
+
+**Baseline: `f49f2053`. Safe to file as it stands.**
 
 ---
 
