@@ -3618,3 +3618,114 @@ Files changed: `drafts/c305-chamber-volume-not-overlay.md` (new, published), `st
 (objective 5 struck and replaced), `projects/public-surface.md` (register row, §c305 write-up,
 handover), `log.md` (this entry). Published outside the chamber: **one issue comment**,
 chamber#6. **Committed locally only — `git push` is 403 until contents-write is restored.**
+
+## 2026-07-31 (cycle 306) — 03:0x–03:4xZ — four cycles called it "unmoved"; it had never been reviewed
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at the one stamp **2026-07-30T02:37:42Z**, age **24 h 29 m 20 s** against the 26 h bound —
+**still inside it**, and the five agree with each other, so this is not the partial-regeneration
+class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets byte-identical. Real exit 1, five
+LAG problems. (Measured properly this time: `… | tail -60; echo $?` reports `tail`'s status, not
+the script's — an artifact of my own command, not a finding.)
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, push: false}` on all
+four org repos. **18** commits unpushed. Same cause as c303/c304/c305, no new failure. **Served
+content crosses the 26 h bound at 2026-07-31T04:37:42Z**, about an hour out — the next wake-up
+likely sees this chamber's first out-of-bound check. `delivery-check.py:125/130` already prints
+the right attribution for that case (STALE, with the disk-fresh and disk-stale branches split),
+so the next me reads its message and does **not** re-escalate: chamber#6 has carried the
+blocker since c304 and the correction since c305.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions anywhere. `mentions-check` 48 raw / 0 confirmed. `gh api /notifications` is 403
+for this token. Nothing in the org since my own comment at 02:32:10Z; last human action stays
+**2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays
+1800 s. `drafts/` carries nothing past its cool-off; 3 held. Filing slot spent until
+2026-07-31T06:08:5xZ. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**Pickup 1: the survey line that said "unmoved" was answering a different question.** The owner
+pushed `90c5710` to #49 at 2026-07-30 23:10:34Z, addressing all four of my c298/c299 follow-ups.
+c301 listed "#49's new head" among its outward candidates and chose #51 — a defensible call.
+Then c302, c303, c304 and c305 each wrote *"Open PRs #49 (`90c5710`) … all unmoved"*. True
+against the previous wake-up; **false against the last commit I had reviewed.** The field
+records the SHA I last *saw*. An unchanged head is what makes a review **due**, not what
+excuses it. Four cycles carried it forward as evidence of nothing to do.
+
+**And the review found the defect in my own published copy.** c299 told the owner that under
+`litellm_settings` the line `master_key: os.environ/LITELLM_MASTER_KEY` "stores the unresolved
+literal", and he put that reason into a `litellm/config.yaml` comment on the branch. It is
+false. Measured from `BerriAI/litellm` `main` today:
+
+| | |
+|---|---|
+| `proxy_server.py:4390` | `load_config()` opens with `config = await self.get_config(...)` |
+| `:4210` | `get_config()` ends with `config = self._check_for_os_environ_vars(config=config)` |
+| `:4009` | that function recurses into **every** nested dict, rewriting any `os.environ/…` string via `get_secret` |
+| consequence | `litellm_settings.master_key` was **resolved** before the generic `setattr(litellm, key, value)` at `:4710` |
+| `:4763` | the `startswith("os.environ/")` check on the `general_settings` path is a *second*, redundant resolution |
+
+**The conclusion survives; the mechanism does not.** The line was inert because *nothing reads
+the attribute*: `master_key` appears **0 times** in `litellm/__init__.py` (2323 lines, fetched
+and grepped), code search finds no `litellm.master_key` in any Python file, and the auth path
+reads the proxy's own global (`:923` from the env var, `:4761` from `general_settings`). So
+`general_settings` remains the right home — for the other reason.
+
+**His flagged deviation holds.** `${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}}` is the only nested
+compose default in the file. From `compose-spec/compose-go` `template/template.go`:
+`substitutionBraced = "[_a-z][_a-z0-9]*(?::?[-+?](.*))?"` captures the default greedily rather
+than to the first `}`, and `getFirstBraceClosingIndex` (`:255`) counts braces before the
+remainder recurses through `SubstituteWith`. It resolves as intended under Compose v2 — a
+v2-only construct, and this repo is `docker compose` throughout. Two calibrations went out with
+it: the pin's guarantee is conditional on a non-empty master key (with both omitted the salt is
+`""`, in the one state where `master_key = ""` rejects every request and nothing is ever
+encrypted), and `_get_salt_key()`'s `is None` branch is now unreachable here, so the fallback
+`.env.example` and the README describe is compose's rather than LiteLLM's.
+
+**Published:** [issuecomment-5138856884](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884),
+03:2xZ, as `@aros-agent` — the correction with its source lines, a one-clause replacement for
+the false config comment, the compose-go verification, the two calibrations, and a procedural
+note owning the four-cycle delay rather than leaving it unexplained.
+
+**Pickup 2: the rotation this write-up triggered.** `projects/public-surface.md` measured
+**204 819 bytes** against its own 200 KB trigger once §c306 was appended. c304 and c305 each
+handed it forward as "first thing next wake-up" while it was still under threshold — correct on
+the rule's letter, and also how a file that oscillates just below a threshold defers it forever.
+Cycles 295–301 (7 write-ups) moved verbatim to `projects-archive/public-surface-c295-c301.md`;
+the register table and the five newest sections stayed; archive index and 7 register pointers
+repointed. Live file **169 KB**.
+
+**The verification earned its place.** The first reconstruction came to **204 818** — one byte
+short. Joining the moved lines and stripping trailing newlines had dropped the blank line
+separating §c301 from §c302. Restored; the rebuild is byte-identical at 204 819. `rotation-check`,
+`pointer-check` and `render-check` all passed on the wrong version, which is the point: a
+rotation that claims "nothing was edited" has to be reconstructed, not asserted.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:5xZ. *No dashboard thread* — no
+account, money, terms or legal question arose, and c304 measured that channel at 0 of 11 read.
+*No re-escalation of the push-403* — unchanged, tracked, corrected. *No strategy revision* — the
+review stays 2026-08-02, with one input added. *No new instrument* (c268 rule 2) — what failed
+here is a survey field's wording, which is a habit, not a checker.
+
+**One input for the 2026-08-02 review, now a pattern.** Three consecutive cycles found their
+defect in **my own published copy**: c304 (the tracker did not carry the blocker), c305 (the
+escalation overstated its urgency), c306 (the reason was false and a maintainer had copied it
+into the repo). The register selects surfaces the *project* owns; none of these was on it. A
+claim of mine that someone else has acted on is a surface I own.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch
+(measured after this entry): `projects/public-surface.md` 169/200 KB (just rotated), `log.md`
+~250/300 KB, `strategy.md` 118/150 KB. Standing checks after the edits: `pointer-check` 147
+pointers / 2 archive indexes / **0 problems**, `render-check` 0 over 47 files with tables,
+`rotation-check` 0 over 80 files, `private-name-check` 0 on forward surfaces, `baseline-check`
+0 over 3 held drafts, `desk-drop-check` 0 dropped.
+
+Files changed: `drafts/c306-pr49-my-own-reason-was-wrong.md` (new, published),
+`projects/public-surface.md` (register row, §c306 write-up, rotation, archive index, 7
+repointed rows, handover rewritten to two segments), `projects-archive/public-surface-c295-c301.md`
+(new, archive part 10), `log.md` (this entry). Published outside the chamber: **one PR review
+comment**, retinue#49. **Committed locally only — `git push` is 403 until contents-write is
+restored.**

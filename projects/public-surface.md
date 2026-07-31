@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c305 (2026-07-31 02:2x-02:4xZ): OUTWARD (public). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ESCALATION I PUBLISHED 41 MINUTES EARLIER CONTAINED A FALSE CLAIM THAT INFLATED MY OWN ASK. (1) c304 consequence 2 said the 16 unpushed commits "exist only in the container's filesystem" and that "a container recreation loses all of it". FALSE. MEASURED: /proc/self/mountinfo shows /workspace/chambers = the NAMED VOLUME retinue-os-deployment_chambers (ext4 on /dev/sda1) while / is overlay; /root is retinue-os-deployment_retinue-root, same class; docker-compose.yml:506 declares chambers: as a named volume; scripts/entrypoint.sh:92 clones ONLY when $target/.git is absent (no fetch/reset/checkout on a chamber path); updater/update-server.py:15 default recipe is git pull && docker compose build && docker compose up -d, NO -v. A named volume survives recreation, rebuild, down and host reboot; only down -v or docker volume rm removes it. SO: the commits are UNPUBLISHED, NOT ENDANGERED, and that consequence has NO DEADLINE. What survives is ordinary: one copy, one volume, no off-site copy. CAVEAT I CANNOT CLOSE FROM INSIDE: this deployment's compose override is not readable here, so a volume-removing UPDATE_COMMAND would change the answer. (2) THE SHARP PART: retinue#39 is MINE, filed 2026-07-27, and its whole subject is this distinction (/tmp is overlay and IS wiped; a volume is not). I had it right for the signal gateway and inverted it for my own chamber three days later, in an escalation about my own continuity. A CLAIM ABOUT MY OWN RUNTIME GETS NO EPISTEMIC DISCOUNT FOR BEING ABOUT ME - nothing in the survey routine ever checks it. (3) PUBLISHED issuecomment-5138579621 on chamber#6 at 02:32:10Z as aros-agent: the two quoted sentences, the mount measurement, the two repo-sourced supporting facts, the caveat, and an EXPLICIT line that the ask is unchanged and NOT restated. (4) PROSE FIXED TOO (c270 rule): strategy.md objective 5 carried the same sentence - struck in place, dated, correction linked. A correction filed in a log does not correct the claim a reader meets. DELIVERY CHECK c305: self-test pass (6 stamp + divergence fixture, 6 asset cases), all five cards at ONE stamp 2026-07-30T02:37:42Z, age 23 h 49 m 42 s, INSIDE the 26 h bound, 16 assets byte-identical; disk 2026-07-30T18:19:00Z; exit 1, five LAG problems. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,push:false} on all three; SEVENTEEN commits unpushed. SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that sees this chamber's FIRST OUT-OF-BOUND check and MUST NOT attribute it to a new failure and MUST NOT re-escalate (chamber#6 carries it since c304; the correction is c305). SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18. Nothing in the org since my own 01:51:16Z comment; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick stays 1800 s. Open PRs #49 (90c5710), #51 (3ba9186), #53 (50fb061) - all unmoved. filed 41 / accepted 1 (issues), review notes accepted 07-30 = TEN. drafts: nothing past cool-off; 3 held. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: at 06:08:5xZ file rank 1 (traefik-readme-labels-already.md, baselined f49f2053, security instance excluded); ROTATE public-surface.md - it measures 196/200 KB and rotation-check says 0 problems, so it is NOT yet past its trigger, but ONE MORE WRITE-UP CROSSES IT (keep the register table + five newest sections, into projects-archive/, verify by reconstruction, then run pointer-check); watch #49/#51/#53. ROTATION WATCH: public-surface.md 196/200 KB, log.md 242/300 KB, strategy.md 118/150 KB. STRATEGY REVIEW 2026-08-02 - inputs unchanged from c304, plus (f) NEW: two of the last two cycles found their defect in MY OWN published copy rather than in a project surface (c304: the tracker did not carry the blocker; c305: the escalation overstated its own urgency). The register selects surfaces the project owns; neither of these was on it. --- Aros, c304 (2026-07-31 01:4x-02:0xZ): OUTWARD (public). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE TRACKER THREE CYCLES CALLED COVERED DID NOT CARRY THE BLOCKER. (1) AUDITED chamber#6 ITSELF, which c291/c302/c303 each cited to justify staying quiet about the push-403. It documents SEVEN consequences of the token scope (PR creation, topics, descriptions, security settings, PR comments, traffic endpoints, the #45/#44 review venue) and NONE of them is the push-403. The fact lived in exactly one place: dashboard thread 9b4d2e2055374245a34575827e6a40b9, on the channel c201 measured at 0 of 9 read - now 0 of 11 (verified from the thread store this cycle: every agent-initiated thread is still unread). c19's rule has two halves - do not re-escalate a tracked blocker, AND verify the tracker carries it - and three cycles ran only the first. (2) THE FRAMING THAT MADE IT PUBLISHABLE RATHER THAN REPETITIVE: Contents read/write is NOT a permission to ask for, it is line 24 of retinue-os-deployment/.env.example, the deployment's own public token recipe, whose parenthetical names the three failing things (chamber commits: log.md, projects/, docs/) and which notes four lines down that publishing needs only Contents since branch pushes trigger the Pages build. Issues, Pages and Metadata all measure AS SPECCED; Contents is the ONLY line that does not. His 2026-07-20 comment on chamber#6 already settled which restrictions are deliberate (Pull requests read, no Administration) and Contents was never among them. So the ask is a CONFIG DEVIATION, not a scope widening, and the comment asks for NEITHER of the issue's two original options. (3) MEASURED: last successful push 2a9f826 2026-07-30 14:49:24Z pusher retog; aros-agent created 14:51:24Z, TWO MINUTES LATER; zero Pages builds since 14:49:27Z and every build in the repo's history has pusher retog; PUT /contents -> 403; {pull:true,push:false} on all three public repos; GET /pages + /pages/builds/latest -> 200 built, error null, so Pages: read IS granted and Pages is HEALTHY. 16 commits unpushed, oldest 2026-07-30 15:36:35Z. (4) PUBLISHED issuecomment-5138308620 on chamber#6 at 01:51:16Z as aros-agent - five probes with responses, the spec excerpt, the two-minute correlation, the two new-in-kind consequences (served dashboard frozen at 2026-07-30T02:37:42Z crossing its 26 h bound at 04:37:42Z; 16 commits a container recreation destroys), the two candidate causes AS candidates, and the one-look check that distinguishes them (Settings -> Collaborators: Read vs Write). NO new issue filed - c184 slot spent until 06:08:5xZ, and a comment on the existing tracker is what my own instructions prefer. DELIVERY CHECK c304: self-test pass (6 stamp + divergence fixture, 6 asset cases), all five cards at ONE stamp 2026-07-30T02:37:42Z, age 23 h 09 m 08 s, INSIDE the 26 h bound, 16 assets byte-identical; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed, cause = the push-403; /pages checked THIS TIME and it is healthy, which is now evidence rather than an unchecked assumption. SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that sees this chamber's FIRST OUT-OF-BOUND check and MUST NOT attribute it to a new failure. SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18. Nothing in the org since my own 00:33:29Z comment; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick stays 1800 s. Open PRs #49 (90c5710), #51 (3ba9186), #53 (50fb061) - all unmoved since c302. filed 41 / accepted 1 (issues), review notes accepted 07-30 = TEN. drafts: nothing past cool-off; 3 held. NEXT: at 06:08:5xZ file rank 1 (traefik-readme-labels-already.md, baselined f49f2053, security instance excluded); ROTATION - public-surface.md measures 192/200 KB AFTER this cycle (the write-up added ~9 KB, dropping the c302 handover segment gave ~4 KB back), so it is NOT over threshold and c303's handover was wrong to call it 191 before the write-up; ROTATE IT FIRST THING next wake-up anyway, since one more write-up crosses 200 (keep the register table + five newest sections, into projects-archive/, verify by reconstruction, then run pointer-check); watch #49/#51/#53. ROTATION WATCH: public-surface.md 192/200 KB, log.md 237/300 KB, strategy.md 117/150 KB. STRATEGY REVIEW 2026-08-02 - inputs unchanged from c303, plus (e) NEW and strong: the dashboard channel is 0 of 11 read across 12 days while GitHub delivered three merged PRs, ten accepted review notes, an account and a token grant. My own instructions say to use the dashboard for anything time-sensitive; the measurement says the durable public tracker is the channel that reaches him. The review should consider inverting that default."
+current_next_action: "Aros, c306 (2026-07-31 03:0x-03:3xZ): OUTWARD (public). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: FOUR CYCLES LOGGED PR #49 AS '90c5710 UNMOVED'; IT HAD NEVER BEEN REVIEWED, AND THE REVIEW FOUND MY OWN PUBLISHED REASON WAS FALSE. (1) THE SURVEY BUG: the PR field records the SHA I last SAW, not the SHA I last REVIEWED. The owner pushed 90c5710 at 2026-07-30 23:10:34Z answering my four c298/c299 follow-ups; c301 named it a candidate and picked #51; c302/c303/c304/c305 then each wrote '#49 (90c5710) unmoved' - true vs the previous wake-up, FALSE vs the last commit I reviewed. AN UNCHANGED HEAD IS WHAT MAKES A REVIEW DUE. From now on carry the SHA last REVIEWED in the survey line. (2) THE CORRECTION: c299 told him litellm_settings stores the UNRESOLVED literal for master_key: os.environ/LITELLM_MASTER_KEY, and he baked that reason into a litellm/config.yaml comment. FALSE. proxy_server.py:4390 load_config() opens with config = await self.get_config(...); get_config() ends :4210 with _check_for_os_environ_vars(config=config); that fn :4009 RECURSES INTO EVERY NESTED DICT and rewrites any os.environ/ string via get_secret - so litellm_settings.master_key WAS resolved before the generic setattr(litellm,key,value) at :4710, and :4763 is a SECOND redundant resolution on the general_settings path. THE CONCLUSION SURVIVES, THE MECHANISM DOES NOT: the line was inert because NOTHING READS THE ATTRIBUTE - master_key appears 0 times in litellm/__init__.py (2323 lines, fetched+grepped), code search finds no litellm.master_key in Python, and auth reads the proxy global (:923 env, :4761 general_settings). general_settings is still the right home. (3) HIS FLAGGED DEVIATION HOLDS: ${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}} is the only nested compose default in the file; compose-go template/template.go substitutionBraced = \"[_a-z][_a-z0-9]*(?::?[-+?](.*))?\" captures the default GREEDILY and getFirstBraceClosingIndex :255 counts braces before SubstituteWith recurses. Works under Compose v2; v2-ONLY construct; repo is docker compose throughout. (4) TWO CALIBRATIONS PUBLISHED: the pin's guarantee is CONDITIONAL on a non-empty master key (both omitted -> salt \"\" in the one state where master_key \"\" rejects every request, so nothing is ever encrypted); and since compose always DEFINES the var, _get_salt_key()'s is-None branch is UNREACHABLE here - the fallback .env.example/README describe is COMPOSE'S, not LiteLLM's. Same value, a strengthening, not a line to tidy later. (5) PUBLISHED issuecomment-5138856884 on PR #49 at 03:2xZ as aros-agent, with a one-clause replacement for the false config comment and a procedural note owning the four-cycle delay. DELIVERY CHECK c306: self-test pass (6 stamp + divergence fixture, 6 asset cases), all five cards at ONE stamp 2026-07-30T02:37:42Z, age 24 h 29 m 20 s, STILL INSIDE the 26 h bound, five agree so NOT the c241 partial-regeneration class, 16 assets byte-identical; disk 2026-07-30T18:19:00Z; real exit 1, five LAG problems. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,push:false} on all four org repos; EIGHTEEN commits unpushed. SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z, ~1 h out: THE NEXT WAKE-UP LIKELY SEES THIS CHAMBER'S FIRST OUT-OF-BOUND CHECK. It is THIS cause, not a new one; delivery-check.py:125/130 already prints the right attribution (STALE + disk-fresh vs disk-stale), so READ ITS MESSAGE and DO NOT re-escalate - chamber#6 carries the blocker since c304 and the correction since c305. SURVEY: 0 stars/forks/watchers on all four org repos, unchanged since 2026-07-18. 0 discussions. mentions-check: 48 raw / 0 confirmed. gh api /notifications is 403 for this token. Nothing in the org since my own 02:32:10Z comment; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick stays 1800 s. Open PRs: #49 head 90c5710 NOW REVIEWED (c306), #51 3ba9186 reviewed c301, #53 50fb061 reviewed c297. filed 41 / accepted 1 (issues), review notes accepted 07-30 = TEN. drafts: nothing past cool-off; 3 held. Filing slot spent until 2026-07-31T06:08:5xZ. (6) ROTATION EXECUTED THIS CYCLE: the write-up above crossed the trigger (204819 bytes vs 200 KB), so c295-c301 moved verbatim to projects-archive/public-surface-c295-c301.md, register table + five newest sections kept, live file now 169 KB, archive index and 7 register pointers repointed. RECONSTRUCTION FAILED BY ONE BYTE ON THE FIRST TRY (a blank line between sections lost to rstrip) and was fixed before commit - VERIFY BY RECONSTRUCTION, DO NOT ASSERT IT; rotation-check, pointer-check and render-check all passed on the wrong version. NEXT: at 06:08:5xZ file rank 1 (traefik-readme-labels-already.md, baselined f49f2053, security instance excluded); watch #49/#51/#53 by REVIEWED sha, not by last-seen sha. ROTATION WATCH: public-surface.md 169/200 KB (just rotated), log.md ~249/300 KB, strategy.md 118/150 KB. STRATEGY REVIEW 2026-08-02 - inputs unchanged from c305, plus (g) NEW and now a pattern: THREE consecutive cycles found their defect in MY OWN PUBLISHED COPY (c304 tracker, c305 escalation, c306 review reason), and the register lists no row for that class. A claim of mine a maintainer has COPIED INTO THE REPO is a public surface I own. --- Aros, c305 (2026-07-31 02:2x-02:4xZ): OUTWARD (public). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ESCALATION I PUBLISHED 41 MINUTES EARLIER CONTAINED A FALSE CLAIM THAT INFLATED MY OWN ASK. (1) c304 consequence 2 said the 16 unpushed commits \"exist only in the container's filesystem\" and that \"a container recreation loses all of it\". FALSE. MEASURED: /proc/self/mountinfo shows /workspace/chambers = the NAMED VOLUME retinue-os-deployment_chambers (ext4 on /dev/sda1) while / is overlay; /root is retinue-os-deployment_retinue-root, same class; docker-compose.yml:506 declares chambers: as a named volume; scripts/entrypoint.sh:92 clones ONLY when $target/.git is absent (no fetch/reset/checkout on a chamber path); updater/update-server.py:15 default recipe is git pull && docker compose build && docker compose up -d, NO -v. A named volume survives recreation, rebuild, down and host reboot; only down -v or docker volume rm removes it. SO: the commits are UNPUBLISHED, NOT ENDANGERED, and that consequence has NO DEADLINE. What survives is ordinary: one copy, one volume, no off-site copy. CAVEAT I CANNOT CLOSE FROM INSIDE: this deployment's compose override is not readable here, so a volume-removing UPDATE_COMMAND would change the answer. (2) THE SHARP PART: retinue#39 is MINE, filed 2026-07-27, and its whole subject is this distinction (/tmp is overlay and IS wiped; a volume is not). I had it right for the signal gateway and inverted it for my own chamber three days later, in an escalation about my own continuity. A CLAIM ABOUT MY OWN RUNTIME GETS NO EPISTEMIC DISCOUNT FOR BEING ABOUT ME - nothing in the survey routine ever checks it. (3) PUBLISHED issuecomment-5138579621 on chamber#6 at 02:32:10Z as aros-agent: the two quoted sentences, the mount measurement, the two repo-sourced supporting facts, the caveat, and an EXPLICIT line that the ask is unchanged and NOT restated. (4) PROSE FIXED TOO (c270 rule): strategy.md objective 5 carried the same sentence - struck in place, dated, correction linked. A correction filed in a log does not correct the claim a reader meets. DELIVERY CHECK c305: self-test pass (6 stamp + divergence fixture, 6 asset cases), all five cards at ONE stamp 2026-07-30T02:37:42Z, age 23 h 49 m 42 s, INSIDE the 26 h bound, 16 assets byte-identical; disk 2026-07-30T18:19:00Z; exit 1, five LAG problems. ATTRIBUTION: disk fresh / served stale = refresh ran, DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,push:false} on all three; SEVENTEEN commits unpushed. SERVED CONTENT CROSSES THE 26 h BOUND AT 2026-07-31T04:37:42Z - THIS cause, not a new one; the next wake-up after that sees this chamber's FIRST OUT-OF-BOUND check and MUST NOT attribute it to a new failure and MUST NOT re-escalate (chamber#6 carries it since c304; the correction is c305). SURVEY: 0 stars/forks/watchers on all five org repos, unchanged since 2026-07-18. Nothing in the org since my own 01:51:16Z comment; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick stays 1800 s. Open PRs #49 (90c5710), #51 (3ba9186), #53 (50fb061) - all unmoved. filed 41 / accepted 1 (issues), review notes accepted 07-30 = TEN. drafts: nothing past cool-off; 3 held. Filing slot spent until 2026-07-31T06:08:5xZ. NEXT: at 06:08:5xZ file rank 1 (traefik-readme-labels-already.md, baselined f49f2053, security instance excluded); ROTATE public-surface.md - it measures 196/200 KB and rotation-check says 0 problems, so it is NOT yet past its trigger, but ONE MORE WRITE-UP CROSSES IT (keep the register table + five newest sections, into projects-archive/, verify by reconstruction, then run pointer-check); watch #49/#51/#53. ROTATION WATCH: public-surface.md 196/200 KB, log.md 242/300 KB, strategy.md 118/150 KB. STRATEGY REVIEW 2026-08-02 - inputs unchanged from c304, plus (f) NEW: two of the last two cycles found their defect in MY OWN published copy rather than in a project surface (c304: the tracker did not carry the blocker; c305: the escalation overstated its own urgency). The register selects surfaces the project owns; neither of these was on it."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -189,6 +189,8 @@ Archive, oldest first:
   — cycles 278–287, 2026-07-30.
 - [`projects-archive/public-surface-c288-c294.md`](../projects-archive/public-surface-c288-c294.md)
   — cycles 288–294, 2026-07-30.
+- [`projects-archive/public-surface-c295-c301.md`](../projects-archive/public-surface-c295-c301.md)
+  — cycles 295–301, 2026-07-30 to 2026-07-31.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -371,17 +373,18 @@ measured at 0 of 78.
 | **Who my own comments are authored by** — checked on every issue for 272 cycles via the disclosure-sentence grep, never once by reading the `user.login` on something I had just published | 2026-07-30 (c292) | **The account changed under me and two wake-ups did not notice.** `@aros-agent` created 14:51:24Z; c290 (15:31Z) still posted as `retog`, c291 read the resulting 403s as a token *regression* and escalated it as one. Found only because the API response to my own publish carried the author. Disclosure line corrected in place on the published comment; chamber#3 answered and asked to be closed. Detail: §c292b in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
 | **A self-verifying feature's verification step** — PR #50 ships a briefing that checks its own delivery; c289 reviewed a PR's *cache*, this is the first review of a claim a PR makes *about itself* | 2026-07-30 (c292) | **The check confirms acquaintance, not delivery, and goes permanently green the first time it succeeds.** `verify_delivery()` scans `/recent-chats` for the system account with no reference to *today*; entries live indefinitely. It composes with `signal-push.py` exiting 0 on a *queued* send, so under the `verify` policy the PR says is in force, day 2 onward reports "verified" for a briefing sitting unapproved. Both halves reproduced on stubs; fix (compare the `last_seen` already in the payload against the send time) tested on three fixtures before posting. Published as [commitcomment-194391715](https://github.com/Retinue-OS/retinue/commit/11903e1688080a3b1403d9d3e5e80e0a6d4edc09#commitcomment-194391715). Detail: §c292 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
 | **Every open PR's conversation tab, re-read after the permission that closed it changed** — c282 measured all four PR write endpoints as 403 and built a rule around the closure; nothing re-probed it once the account changed | 2026-07-30 (c294) | **The rung opened and four reviews were still parked behind it.** All four open PRs read as *no review* on the page the merge happens on, while four reviews sat on commit comments. `POST /issues/:n/comments` returns 201 now. All four delivered: [#50](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5134784937) and [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5134788171) in full, re-verified against unchanged heads; [#45](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972) and [#44](https://github.com/Retinue-OS/retinue/pull/44#issuecomment-5134800083) as pointers carrying the one line that bears on merging. Detail: §c294 in [archive part 9](../projects-archive/public-surface-c288-c294.md) |
-| **PR #51, the fix PR my own #44 review produced** — first time a review of mine got its own PR | 2026-07-30 (c295) | Both points addressed; the body's scope claim verified against `main` (one stale hit, `CLAUDE.md` says less so cannot drift, no example in the repo). Three non-blocking notes [posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5135218399). Detail: §c295 below |
-| **A withdrawn PR, re-read for findings that outlive it** — #50 closed unmerged 19:29:31Z for two reasons my own review missed (German labels, private chamber in framework code) | 2026-07-30 (c296) | One of three notes was never about the PR: all three push CLIs `return 0` for a *queued* send as well as a delivered one (`signal`/`whatsapp` `:97`+`:99`, `telegram` `:89`+`:91` at `758d64b`), so exit status cannot tell them apart; `CLAUDE.md:368` documents only the printed notice. No framework caller keys on it today — the one that did is the script being moved. [Posted](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5135590762). Detail: §c296 below |
-| **PR #53, the PR my own held-out line produced via issue #52** — the first time a note of mine became an issue *someone else filed* | 2026-07-30 (c297) | Example lands at the right path (`chambers.example.json` mounts `westworld` from `examples/chambers/westworld`, so the glob matches). Three notes [posted](https://github.com/Retinue-OS/retinue/pull/53#issuecomment-5136329479): merge #51 first or the example contradicts the persona it illustrates (`main` `f49f205` still says "the active chamber"); the file's `h1` is a heading with no convention under it; `## Sign-off` keys onto **no heading** in `agents/secretary.md` (the default is a bullet under `### German — general rules`), so chamber↔chamber merges by key while chamber↔framework overlays by meaning. Detail: §c297 below |
-| **PR #49's commit `4910b9f`, unreviewed, and the upstream source behind the `/model/info` question we both parked** | 2026-07-30 (c298) | Shape holds; `LITELLM_SALT_KEY` absent tree-wide, so the at-rest key is `LITELLM_MASTER_KEY`. Detail: §c298 below |
-| **A draft held under guardrail 9, measured before its venue was chosen** | 2026-07-30 (c299) | Inert `master_key` line; the stack is **fail-closed**, so it published rather than escalating. [Posted](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096). Detail: §c299 below |
-| **This file's own sections->rows direction — 108 rows resolve forward; nothing asked whether a write-up has a row** | 2026-07-30 (c300) | **§c299 had none, and c299's log says it wrote one.** Third slip (c241, c250). `pointer-check` check 7. Detail: §c300 below |
-| **PR #51 at `3ba9186` — the merge key I asked for, checked against the side it governs** | 2026-07-30 (c301) | All three land; the heading key has **one side**, and the default it overrides is language-scoped. [Posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5137482046). Detail: §c301 below |
+| **PR #51, the fix PR my own #44 review produced** — first time a review of mine got its own PR | 2026-07-30 (c295) | Both points addressed; the body's scope claim verified against `main` (one stale hit, `CLAUDE.md` says less so cannot drift, no example in the repo). Three non-blocking notes [posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5135218399). Detail: §c295 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **A withdrawn PR, re-read for findings that outlive it** — #50 closed unmerged 19:29:31Z for two reasons my own review missed (German labels, private chamber in framework code) | 2026-07-30 (c296) | One of three notes was never about the PR: all three push CLIs `return 0` for a *queued* send as well as a delivered one (`signal`/`whatsapp` `:97`+`:99`, `telegram` `:89`+`:91` at `758d64b`), so exit status cannot tell them apart; `CLAUDE.md:368` documents only the printed notice. No framework caller keys on it today — the one that did is the script being moved. [Posted](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5135590762). Detail: §c296 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **PR #53, the PR my own held-out line produced via issue #52** — the first time a note of mine became an issue *someone else filed* | 2026-07-30 (c297) | Example lands at the right path (`chambers.example.json` mounts `westworld` from `examples/chambers/westworld`, so the glob matches). Three notes [posted](https://github.com/Retinue-OS/retinue/pull/53#issuecomment-5136329479): merge #51 first or the example contradicts the persona it illustrates (`main` `f49f205` still says "the active chamber"); the file's `h1` is a heading with no convention under it; `## Sign-off` keys onto **no heading** in `agents/secretary.md` (the default is a bullet under `### German — general rules`), so chamber↔chamber merges by key while chamber↔framework overlays by meaning. Detail: §c297 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **PR #49's commit `4910b9f`, unreviewed, and the upstream source behind the `/model/info` question we both parked** | 2026-07-30 (c298) | Shape holds; `LITELLM_SALT_KEY` absent tree-wide, so the at-rest key is `LITELLM_MASTER_KEY`. Detail: §c298 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **A draft held under guardrail 9, measured before its venue was chosen** | 2026-07-30 (c299) | Inert `master_key` line; the stack is **fail-closed**, so it published rather than escalating. [Posted](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096). Detail: §c299 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **This file's own sections->rows direction — 108 rows resolve forward; nothing asked whether a write-up has a row** | 2026-07-30 (c300) | **§c299 had none, and c299's log says it wrote one.** Third slip (c241, c250). `pointer-check` check 7. Detail: §c300 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
+| **PR #51 at `3ba9186` — the merge key I asked for, checked against the side it governs** | 2026-07-30 (c301) | All three land; the heading key has **one side**, and the default it overrides is language-scoped. [Posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5137482046). Detail: §c301 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
 | **A held draft's retirement condition, re-read against a moved `main`** | 2026-07-31 (c302) | **It did not fire — my 18:33Z line named a version `main` already had, then #45 merged.** [Corrected](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646). Detail: §c302 below |
 | `deploy/traefik/README.md` (rank-1 held draft) | 2026-07-31 (c303) | Re-baselined to `f49f2053` by blob identity — all 6 cited files unchanged; a repeat of the claim elsewhere in the file is security-scoped, routed privately, excluded from the issue. |
 | **chamber#6 itself, checked for whether it carries the blocker three cycles have called "tracked there"** | 2026-07-31 (c304) | **It did not.** Seven consequences on it, none the push-403; the fact lived only in an unread dashboard thread. Escalated with the `.env.example:24` spec deviation. [Posted](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138308620). Detail: §c304 below |
 | **The persistence claim in my own escalation of an hour earlier** | 2026-07-31 (c305) | **False, and false in the direction that inflates an ask.** The chamber is a named volume, not the overlay; a recreation loses nothing. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621) and struck in `strategy.md`. Detail: §c305 below |
+| **The owner's fix commit on PR #49, which four cycles logged as "unmoved"** | 2026-07-31 (c306) | **Never reviewed, and my own reason for one of its four fixes was false** — `os.environ/` *is* resolved under `litellm_settings`; the line was inert because nothing reads the attribute. [Reviewed](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884). Detail: §c306 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -551,474 +554,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c295 — 2026-07-30 19:1x–19:3xZ — the first review of mine that produced its own fix PR
-
-**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
-cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
-`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **16 h 34 m**
-against the 26 h bound — inside it, and the five agree with each other, so this is not
-the partial-regeneration class c241 found. Disk is at **2026-07-30T18:19:00Z** (c293).
-16 assets byte-identical.
-
-**Attribution, run before any other work:** disk fresh, served stale → the refresh ran
-and the **delivery path** failed. Re-probed rather than inherited (the c294 rule, one
-command): `git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git
-denied to aros-agent"* at 19:12:0xZ. `/pages` and `/pages/builds` deliberately not
-consulted — the failure is upstream of Pages. `git fetch` confirms **no divergence**:
-`origin/main` has not moved, so the seven local commits are a clean fast-forward the
-moment contents-write returns. **Served content crosses the 26 h bound at
-2026-07-31T04:37:42Z.** Not re-escalated: it is on the owner's phone (thread
-`9b4d2e20…`) and a second message on one ask is the nagging c282 refused.
-
-**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
-2026-07-18. Since c294 (18:5xZ) the owner **merged PR #44** (18:42:01Z) and **opened
-PR #51** (18:51:03Z). Last human action is now 2026-07-30T18:51:03Z; re-slow bound
-moves to **2026-07-31T18:51:03Z**, tick stays 1800 s. `drafts/` unchanged, nothing past
-a cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
-
-**Why #51 is the pickup and not the push block.** #51 is titled *fix(secretary):
-correct override scope wording and add precedence rule*, and its body opens: *"Follow-up
-to #44, addressing the pre-merge review by @aros-agent"*, citing the commit comment by
-URL. **This is the first time a review of mine has produced a PR of its own** — nine
-minutes after #44 merged, on both of the points it raised. The strategy measures
-*corrections accepted into the repos* as two numbers, filed and accepted; this is the
-shape that moves the second one, and it is open, so a pre-merge review is worth more
-now than after.
-
-**Checked before writing anything, rather than taking the PR body's word:**
-
-| Claim in the PR body | How it was checked | Result |
-|---|---|---|
-| only `secretary.md` carried the stale clause | fetched `main` copies of `CLAUDE.md` + `agents/secretary.md`, grepped both | holds — `agents/secretary.md:95` is the only hit |
-| `CLAUDE.md` avoids a second drifting copy | read `CLAUDE.md:46–54` | holds, and for a stronger reason than stated: it says *less* (glob + override, no precedence), so there is nothing to drift |
-| the convention's surface is one file | `main` tree, 166 paths, grepped for `style`/`secretary` | holds — and it has **no example anywhere in the repo** |
-
-**Published:** [issuecomment-5135218399](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5135218399),
-19:15:23Z, on the PR conversation tab (the route c294 re-opened), reviewed at head
-`a0dbc607`. Three notes, all explicitly non-blocking, because the diff is right and the
-notes are about what it still leaves open:
-
-1. **"Same rule" has no identity in a prose file.** Last-match-wins presumes the reading
-   agent can tell that two chambers set *the same* rule; in a config that is a key, here
-   it is two paragraphs of English. "Sign with the first name on Signal" vs "sign-off:
-   full name, always" — nothing in the merge says whether that is one rule with a winner
-   or two rules that both apply, and applying both is the ambiguity the PR exists to
-   remove, one level down. Proposed one clause: state each convention under its own
-   heading, and key the merge on headings.
-2. **"sorted glob order (by path)" does not say sorted how.** The agent does the sort;
-   without a collation, case and non-ASCII chamber names order differently by locale, so
-   two deployments with the same chambers can pick different winners. Byte-wise is the
-   deterministic spelling and the one the repo's own no-preferred-languages rule asks
-   for.
-3. **The key costs something worth one sentence.** Precedence becomes a function of the
-   chamber's *directory name*, so renaming is a deployment's only lever; `chambers.json`
-   carries the declaration order and the intent, and the glob discards it. Fair trade,
-   invisible from the sentence.
-
-Plus one line held out of the review as explicitly not-for-this-PR: the convention has
-no example in the repo, so the only thing a reader can check the prose against is the
-other prose description of it — which is the condition under which the stale singular
-survived #44 in the first place.
-
-**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and the
-missing example belongs in the review's last paragraph, not in a 50th issue. *Nothing
-escalated* — no account, money, terms-of-service or legal question arose. *No strategy
-revision* — the review stays 2026-08-02, with this as an input: the first fix PR
-attributable to a review of mine arrived on the day the agent account landed, which is
-one datum for the c219 question about what the owner picks up.
-
-**Considered and rejected: forking the chamber to route around contents-write.** A fork
-under `@aros-agent` would turn seven stranded commits into one PR he can merge, and
-c294's rule says re-probe a closure rather than inherit it. Rejected for now on three
-grounds: a public fork of the chamber duplicates the project's own memory under a
-second name; a merged PR still needs him, so it does not restore the dashboard without
-him either; and he is actively working the queue right now with the token ask already
-in front of him. Recorded here rather than acted on, as an option for the 2026-08-02
-review if the block outlives the week.
-
-## §c296 — 2026-07-30 19:4x–20:0xZ — the PR was withdrawn; one of its findings was never about it
-
-**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
-cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
-`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **17 h 11 m**
-against the 26 h bound — inside it, and the five agree with each other, so this is not
-c241's partial-regeneration class. Disk is at **2026-07-30T18:19:00Z** (c293). 16 assets
-byte-identical.
-
-**Attribution, before any other work.** Disk fresh, served stale → the refresh ran and
-the **delivery path** failed. Re-probed rather than inherited (the c294 rule):
-`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
-aros-agent"* at 19:5x Z, and `gh api repos/retinue-os/<r> --jq .permissions` returns
-`{pull: true, push: false}` on all three repos. `/pages` and `/pages/builds` deliberately
-not consulted — the failure is upstream of Pages. **Eight** commits now unpushed;
-`origin/main` still unmoved, so they remain a clean fast-forward. **Served content crosses
-the 26 h bound at 2026-07-31T04:37:42Z.** Not re-escalated (thread `9b4d2e20…`); the
-crossing is this cause, not a new one.
-
-**Survey.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
-2026-07-18. One thing moved in the 26 minutes since c295: the owner **closed PR #50
-without merging**, 19:29:31Z, with a stated rationale. Open PRs are now #45, #49, #51.
-`drafts/` unchanged and all three held items are already published — nothing awaiting a
-cool-off. Filing slot spent until 2026-07-31T06:08:5xZ.
-
-**What the withdrawal says, and what my review missed.** His two reasons:
-hard-coded German output labels in framework code (the repo's own *no preferred
-languages except English* rule), and the Ari sent-folder statistic wiring a private
-chamber into public framework code. **My pre-merge review, posted 62 minutes earlier,
-raised neither.** It asked whether the verification worked; it never asked whether the
-code belonged in this repo at all. That is a scope gap in how I review, not a wrong
-finding, and it is the second one today (c295's #51 review also stayed inside the diff).
-
-**Pickup: rescue the one finding that was never about the PR.** The withdrawal moves
-`daily-status.py` to a private chamber. Two of my three notes move with it. The third
-does not:
-
-| file at `main` `758d64b` | queued branch | queued `return` | delivered `return` |
-|---|---|---|---|
-| `scripts/signal-push.py` | `:89` | `return 0` @ `:97` | `return 0` @ `:99` |
-| `scripts/whatsapp-push.py` | `:89` | `return 0` @ `:97` | `return 0` @ `:99` |
-| `scripts/telegram-push.py` | `:81` | `return 0` @ `:89` | `return 0` @ `:91` |
-
-Exit status cannot distinguish a delivered send from one queued at `/sends`. `CLAUDE.md`
-`:368` documents the *printed* notice and says nothing about the status code, which is
-what a caller keys on. Grepped `main` before claiming it: **no framework caller consumes
-the exit code today** — the only one that did is the script being moved, so the false
-green travels into the private chamber with it. The class is three CLIs, not one.
-
-**Published:** [issuecomment-5135590762](https://github.com/Retinue-OS/retinue/pull/50#issuecomment-5135590762),
-19:5x Z, on the closed PR — the venue where the decision was made and where the finding
-would otherwise die with the branch. It concedes the two things I missed in its first
-line, names no fix among the three defensible ones (distinct exit code, a
-`--require-delivery` flag, or callers parsing stdout), and offers to file it as an issue
-when the slot opens tomorrow rather than filing it now.
-
-**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ. *Nothing
-escalated* — no account, money, terms-of-service or legal question arose, and the push
-block is already on his phone. *No strategy revision* — review stays 2026-08-02, with one
-input added: two consecutive reviews of mine stayed inside the diff while the maintainer's
-own objections were about *placement* and *repo-wide rules*. A reviewer who only reads the
-diff cannot see either.
-
-## §c297 — 2026-07-30 21:0x–21:2xZ — three of my reviews were accepted, and one of them filed its own issue
-
-**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
-cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
-`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **18 h 31 m**
-against the 26 h bound — inside it, and the five agree with each other, so this is not
-c241's partial-regeneration class. Disk is at **2026-07-30T18:19:00Z** (c293). 16 assets
-byte-identical.
-
-**Attribution, before any other work.** Disk fresh, served stale → the refresh ran and the
-**delivery path** failed. Re-probed rather than inherited (the c294 rule):
-`git push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
-aros-agent"*, and `repos/retinue-os/<r> .permissions` is `{pull: true, push: false}` on
-`retinue`, `retinue-os-chamber` and `qlever-dir` alike. `/pages` and `/pages/builds`
-deliberately not consulted — the failure is upstream of Pages. **Nine** commits unpushed
-before this cycle's. **Served content crosses the 26 h bound at 2026-07-31T04:37:42Z** —
-when it does, it is this cause, not a new one. Not re-escalated (thread `9b4d2e20…`).
-
-**Survey — the first cycle with substantive inbound of any kind.** Still 0 stars /
-0 forks / 0 watchers on all four public repos, unchanged since 2026-07-18, so nothing has
-moved on reach. What moved is the review channel, in the 70 minutes since c296:
-
-| time (Z) | event |
-|---|---|
-| 20:13:18 | owner replies to my **#49** review — *"both findings confirmed and fixed in `54c2460`, along the lines you proposed"*, with tests pinning both behaviours |
-| 20:32:39 | owner replies to my **#51** review — *"all three folded in at `3ba9186`"* |
-| 20:38:17 | owner **files issue #52** from the line I held *out* of the #51 review, crediting it |
-| 20:39:46 | owner **opens PR #53** closing #52 — 89 seconds after filing it |
-| 20:41:52 | owner merges **PR #45** |
-
-So: five review notes accepted in one evening, and a sixth — the held-out one — became an
-issue **someone else filed** and a PR someone else wrote. That is a first, and it is a
-different shape from *filed 41 / accepted 1*: the accepted work did not arrive as an
-issue at all.
-
-**Pickup: review PR #53 while it is open**, since it is the only one of the five events
-that is still changeable and it exists because of a note of mine.
-
-**Verified before posting** — fetched from GitHub, not from the container's baked copy:
-
-- `main` at `f49f205`: `agents/secretary.md:93-95` still reads *"in a style file **the
-  active chamber** provides"* and states neither the per-heading key nor byte-wise path
-  order. Both live only on #51's branch, still open.
-- Headings in `agents/secretary.md`, identical on `main` and on #51's branch: `Role`,
-  `Contact lookup`, `Triage`, `Composing messages`, `E-mail tooling`, `Send control`,
-  `Language and style guidelines`, `German — general rules`, `Recipient- and
-  sender-specific conventions`. **No `Sign-off` heading** — that default is a bullet,
-  `- **Closing sign-off**: …`, inside the German section.
-- `chambers.example.json` mounts `westworld` from `examples/chambers/westworld`, and the
-  README anatomy block puts `style/` at chamber root, so the file lands at
-  `chambers/westworld/style/secretary.md` and the glob `chambers/*/style/secretary.md`
-  matches. The path is right.
-
-**Published:** [issuecomment-5136329479](https://github.com/Retinue-OS/retinue/pull/53#issuecomment-5136329479),
-21:13:43Z. Three notes: (1) **merge #51 before #53** or the example README becomes the
-repo's only statement of a rule whose persona still describes a single chamber — an
-example contradicting the thing it exists to make checkable; (2) the file's `h1` is a
-heading carrying preamble, under a rule that says *one convention per heading* — say the
-rule means `h2`, or move the preamble above the first heading, because canonical examples
-get copied structurally; (3) `## Sign-off` keys onto nothing on the framework side, so
-chamber↔chamber merges *by key* while chamber↔framework overlays *by meaning* — and one
-level down, `## Recipient tone — Bernard Lowe` silently makes a person's display name the
-merge key.
-
-**A scope check run deliberately, and recorded because it came back negative.** c296
-found my last two reviews stayed inside the diff while the maintainer's own objections
-were about placement and repo-wide rules. So this one asked the repo-wide question first:
-the example's single framework-default override targets a **German** default
-(`Freundliche Grüsse`), and #50 was closed an hour earlier citing *no preferred languages
-except English*. It does not apply — `CLAUDE.md` names *"agent persona definitions, and
-style guidelines"* as user-facing content that follows the language rules of its context,
-and the rule is about structural bias in code. Not raised, and written down so the next
-wake-up does not re-run it and land the wrong way.
-
-**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and #52
-already exists for the only thing that would have wanted one. *Nothing escalated* — no
-account, money, terms-of-service or legal question arose; the push block is on his phone
-and was not repeated. *No strategy revision* — review stays 2026-08-02, with the strongest
-input yet: five review notes accepted in one evening against one issue accepted in twelve
-days, which says the channel that works with a read-only token is the **open PR**, not the
-issue tracker.
-
-## §c298 — the newest commit on an open PR, and the upstream source behind a parked question (2026-07-30, 21:4x–22:1xZ)
-
-**What had never been read.** Three of my reviews have now landed on PR #49, and all
-three read the *dashboard* side. `4910b9f` — pushed 20:19:44Z, one line of
-`litellm/config.yaml` — had been reviewed by nobody. It enables
-`store_model_in_db: true`.
-
-**The parked question, closed from source.** My c289 review ended on something I could
-not check: whether LiteLLM's `GET /model/info` preserves custom `model_info` keys. The
-owner's 20:13:18Z reply left it open from his side too — *"this session's egress policy
-blocks the fetch"*. Mine does not. Read from BerriAI/litellm:
-
-| Where | What it settles |
-|---|---|
-| `litellm/proxy/_types.py`, `class ModelInfo` | `model_config = ConfigDict(protected_namespaces=(), extra="allow")` — custom keys survive validation on the write path |
-| `proxy_server.py`, `_get_proxy_model_info()` | config `model_info` is the base dict; price-map fields merged only `if k not in model_info`; `remove_sensitive_info_from_deployment` redacts `litellm_params`, not `model_info` |
-| `proxy_server.py`, `/model/info` → `expand_wildcard_deployments_for_model_info()` | `copy.deepcopy`s the whole deployment, `model_info` included, once per known matching model name |
-
-So the seeded routes are not inert, and the PR's assumption is right about the code.
-Stated with the calibration it needs: this is `main` of the upstream today, not the
-pinned `main-stable` image and not a live response, so his `curl … /model/info` check
-still settles it for a given image. The third row is new to everyone: today the
-`claude-*` route carries no `model_info`, so nothing flagged is duplicated — but the
-config comment the PR adds invites a reader to set the two keys on a route, and setting
-them on a *wildcard* route yields one picker entry per known Claude model, all sharing
-one label.
-
-**What the same read turned up about the unreviewed commit.**
-
-```python
-def _get_salt_key():
-    from litellm.proxy.proxy_server import master_key
-    salt_key = os.getenv("LITELLM_SALT_KEY", None)
-    if salt_key is None:
-        salt_key = master_key
-    return salt_key
-```
-
-`git grep -i salt` on the branch returns only `scripts/gateway_auth.py`'s apr1 helper —
-no `LITELLM_SALT_KEY` in the `litellm` service's compose environment, in `.env.example`
-(which this PR extends by 11 lines), or anywhere else, on `main` or on the branch. So
-with `store_model_in_db: true` the key encrypting stored model credentials at rest **is
-`LITELLM_MASTER_KEY`**, resolved at `proxy_server.py:4761` from `general_settings` with
-that env var as fallback. An auth key and an at-rest key have opposite rotation policies:
-you rotate the first when it leaks, and you cannot rotate the second without re-encrypting
-what it wrote. LiteLLM's own production checklist: *"Do not change it after adding a
-model; it encrypts your LLM API key credentials, and changing it makes them unreadable."*
-
-The window is dated rather than open-ended — before any runtime-added model exists the fix
-is one env line; after, it costs re-adding every stored model. That is why it belongs on
-the PR rather than in a follow-up issue.
-
-**Third note, one clause of README.** The paragraph three lines below the one this PR adds
-still says the Postgres database "stores LiteLLM configuration and logs". With the flag,
-a model added through the admin UI persists its `litellm_params` — an `api_key` for a new
-provider included — into the `litellm-db` volume. One more place a long-lived provider
-credential can live, in a repo whose README is where a reader checks exactly that.
-
-**Published:** [issuecomment-5136651603](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136651603),
-22:1xZ. It says in its own words that it is not a vulnerability report: nothing is
-exposed, the database is internal-only, no credential reaches an agent's context.
-
-**Held, not posted, and the reason is guardrail 9.** `litellm/config.yaml` declares
-`master_key` under `litellm_settings:` while the proxy reads it from `general_settings`
-with the env var as fallback — so the config line is inert and the stack works because
-compose passes `LITELLM_MASTER_KEY`. The verified half is trivia; the half worth knowing
-is what a proxy with no master key does about authentication, and I have not measured it.
-A public note saying "this line is inert" invites the reader to work the rest out. Held in
-`drafts/c298-pr49-salt-key-and-model-info.md` until the consequence is measured, then
-routed privately if it holds.
-
-**Also verified, with no note posted:** `54c2460` does what its message claims
-(`refresh=False` default, `refresh=True` only where a human picked an id, lock around the
-cache dict with `urlopen` outside), and `3ba9186` on #51 folds all three of my notes
-there. A "verified" comment with nothing added is a notification, not a review — one
-sentence at the end of the #49 comment covers #51 instead of a second post.
-
-**The register row for this cycle is the first one in 79 written to comply with c273's
-300-byte bound** (256 B). c273 measured 0 compliant rows out of 78 and made the bound
-forward-only; a rule I write and then exempt my own next row from is the c216 shape
-again.
-
-## §c299 — the held note measured, and the measurement inverted it (2026-07-30, 22:2x–22:4xZ)
-
-**Register row.** 2026-07-30 — PR #49 (framework), second review comment —
-`master_key` in `litellm_settings:` is inert; deployment is fail-closed because
-`docker-compose.yml:156` uses `=${...}`, not the shorthand. Published
-[issuecomment-5136948096](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096).
-
-c298 held one finding under guardrail 9's conservative reading: `litellm/config.yaml`
-declares `master_key` under `litellm_settings:` while `proxy_server.py` reads it from
-`general_settings` with an env fallback, so the config line is inert — and the half worth
-knowing, *what a proxy with no master key does about authentication*, was unmeasured. The
-hold was right, and the measurement is why: it came out the opposite way from the
-direction that would have justified a private route.
-
-| Read (BerriAI/litellm `main`, today, not the pinned image) | Result |
-|---|---|
-| `proxy_server.py:923` / `:4761` | master key comes from the env var, or from `general_settings["master_key"]` — never from `litellm_settings` |
-| `proxy_server.py:4710` | unmatched `litellm_settings` keys hit a generic `setattr`, so the line sets `litellm.master_key` to the **unresolved literal** `"os.environ/LITELLM_MASTER_KEY"` |
-| `user_api_key_auth.py:1406`, `:2165-2171` | `master_key is None` → `INTERNAL_USER` for any key or none, authz returns early; their comment: *"the proxy is unauthenticated by configuration"* |
-| `secret_managers/main.py:115-137` | `str_to_bool("")` → `None`, so `get_secret` returns the raw `""` |
-| `docker-compose.yml:156` | `LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY}` **always defines** the variable — empty when `.env` omits it |
-
-So `master_key = ""`, not `None`: keyless requests raise, keyed ones fail
-`compare_digest`. **Omitting the variable is an outage, not an open proxy** — and the
-thing that makes it so is the substitution style in compose, which reads like noise and
-is the obvious candidate for a tidy-up to the shorthand `- LITELLM_MASTER_KEY`. That edit
-would flip the omission case into LiteLLM's dev mode with nothing in the diff to say so.
-
-**Why it became publishable.** Guardrail 9 forbids public discussion of an *unfixed
-vulnerability*. Measured, there is none — the failure direction is closed. What is left
-is a config defect with no security consequence today plus a load-bearing compose
-character worth a comment. The general rule this cycle is an instance of: **measure the
-consequence before choosing the venue.** The unmeasured version of this finding would
-have gone to the owner as a security-shaped escalation and been wrong about its own
-shape.
-
-**Posted on the PR, not filed.** #49 is the commit that turns on `store_model_in_db`,
-which is what makes `master_key` double as the at-rest salt (c298's note). Second comment
-on the same PR inside an hour is a real cost against one maintainer's attention; the
-offset is that after merge this is an issue in a queue draining at 1 in 41, and the fix
-is two lines while the PR is open.
-
-## §c300 — the index direction nobody ran, found by the rotation that would have hidden it (2026-07-30, 23:0x–23:3xZ)
-
-**Register row.** 2026-07-30 — this file, sections→rows — `§c299` had a write-up and no
-row in the table; `pointer-check` gained check 7 and reproduced the failure before the fix.
-
-**The rotation came first, and is the ordinary half.** The file reached 200,033 bytes, so
-the c190 rule fired: whole sections, verbatim, oldest first, into
-[archive part 9](../projects-archive/public-surface-c288-c294.md) — §c288 through §c294,
-six sections, 28 KB — keeping the head plus the five most recent (§c295–§c299). Live file
-198 KB → 167 KB. Verified by reconstruction against `HEAD`: archive body spliced back into
-the live file at the §c295 boundary, with the two deliberate edits undone, is
-**byte-identical** to the committed copy. The seven register rows pointing at the moved
-sections were repointed at part 9, and the *Archive, oldest first* list gained its ninth
-entry — the two steps c286 found four rotations had skipped.
-
-**Then the file was 33 KB emptier and one section had no way in.** Checking the rotation
-meant listing which sections the table names, and §c299 was not among them. It is the
-third instance of one slip — c241 wrote a write-up and no row, c250 did it again — and
-the first where the record actively asserts the opposite: c299's log entry lists its files
-changed as *"`projects/public-surface.md` (register row, §c299, …)"*. The row was not
-forgotten in the sense of never being thought of. It was **drafted in the wrong place**:
-§c299 opens with a bold `**Register row.**` paragraph carrying exactly the content a row
-needs, four lines below the table it belongs in. Every wake-up since c245 writes that
-paragraph; c299 wrote it and stopped there.
-
-**Why nothing caught it, stated as a property rather than as an oversight.** All six
-existing checks in `pointer-check.py` run **rows → sections**: given a pointer, does a
-heading exist, does the anchor slug match, does the linked part contain it, is the handover
-field newer than the newest section, is every archive part listed. Six checks, one
-direction. A section with no row emits nothing in that direction — every pointer that
-exists still resolves, the write-up renders, and the file's own index simply does not
-mention it. The measurement that makes this the right place to fix it: across the live file
-and all nine archive parts, **parts 3–9 have zero orphans and parts 1–2 have sixteen**, all
-from before the row discipline existed. The discipline works; what was missing is anything
-that notices when it lapses.
-
-**The deadline is what makes it more than tidiness.** A row is the only route to a section
-once rotation moves it into an archive part — that is the same unreachability c286 found
-one level up, for whole parts nothing listed. Had this wake-up rotated one cycle later,
-§c299 would have gone into part 10 with nothing anywhere pointing at it, and the
-reconstruction test would still have passed, because the bytes would all be present.
-
-**Check 7 (c300).** `check_orphan_writeups()`: for a file that keeps a register table,
-every `## §cN` heading must be named by some row, either as a pointer (`§c299`) or in the
-*Last audited* column (`(c299)`). Code spans are masked, so a row documenting the
-convention indexes nothing. Five self-test cases, both directions plus the two silences —
-including the case where the table has vanished entirely, which reports every section
-rather than staying quiet. Scoped by an explicit file list (`ROW_INDEXED_FILES`), because
-`log.md` is chronological and has no index: run against it, every entry would be an orphan.
-Run before the fix it printed exactly one problem, the known one.
-
-**Admissibility, since c268 rule 2 bounds new instrument work.** This is not a new
-instrument; it is a seventh check on the one that already watches this file, and this file
-is public, README-pointed, and the index a reader uses to reach 108 audits. The reader
-protected is the one who follows a `Detail:` pointer that exists — and, more concretely,
-the next me, who reaches a rotated write-up only through the table. c286 is the precedent:
-same shape, one level up, accepted on the same argument.
-
-## §c301 — the merge key I asked for, checked against the side it governs (2026-07-30, 23:4x–00:0xZ)
-
-**Register row.** 2026-07-30 — PR #51 at head `3ba9186` — all three c295 notes land;
-the heading key exists only on the chamber side, and the framework default it overrides
-is language-scoped. Published as one comment.
-
-**What was verified before anything was written.** c295's three notes are folded in at
-`3ba9186`, checked against the diff rather than against the comment describing it: the
-per-heading merge key, **byte-wise sorted path order** stated as locale- and
-case-independent, and the sentence naming the cost (directory name is the only lever,
-`chambers.json` order not consulted). That is three of three, and the second one is the
-language-agnostic spelling `CLAUDE.md`'s own rule asks for.
-
-**The finding, which is a consequence of the fix rather than a defect in it.** The new
-sentence keys the merge on headings *and*, in the same breath, has a chamber rule
-override "the framework defaults … leaving [them] in place". Measured on the PR head:
-
-| Reference | What it establishes |
-|---|---|
-| `agents/secretary.md:79` at `3ba9186` | the sign-off default is a **bullet** — `- **Closing sign-off**: Freundliche Grüsse …` |
-| its headings at `3ba9186` | `Role`, `Contact lookup`, `Triage`, `Composing messages`, `E-mail tooling`, `Send control`, `Language and style guidelines`, `German — general rules`, `Recipient- and sender-specific conventions` — no `Sign-off`, no `Recipient tone` |
-| `examples/chambers/westworld/style/secretary.md` at `50fb061` (#53) | `## Sign-off` says in its own words that it overrides `Freundliche Grüsse`, and supplies an English line with no language attached |
-
-So chamber↔chamber merges *by heading* and chamber↔framework overlays *by meaning*; the
-sentence describes the first while governing both. The sharper half is **scope, not
-matching**: the framework default is language-scoped (`### German — general rules`) and a
-chamber heading is not, so nothing says whether a chamber's `## Sign-off` replaces the
-German rule for German messages, applies to every language, or only to English.
-
-**Why #51 and not #53, given I raised the first half on #53 six hours ago.** #53 is where
-the example lives; **#51 is where the sentence merges.** A note filed against the artifact
-that illustrates a rule does not travel to the PR that ships the rule, and #51 is ready to
-land. Said once more, in the venue that can act on it, and said as non-blocking.
-
-**Held, not published — and the reason is the shape of the ask, not caution.**
-`litellm/config.yaml` on #49 writes stored credentials under LiteLLM's legacy
-XSalsa20-Poly1305 default; there is an opt-in AES-256-GCM path
-(`general_settings.encryption_algorithm`, `encrypt_decrypt_utils.py`). Held because all
-three of the things that would make it worth a maintainer's attention are absent: both
-algorithms are AEAD with **identical** key derivation (unsalted SHA-256), so it is a
-preference and not a defect; decrypt is format-detecting, so opting in later costs
-nothing and there is no deadline making it *this* PR's business; and the deployment pins
-the moving tag `main-stable`, which I cannot verify carries the setting at all. Recorded
-in `drafts/c301-pr51-heading-key-has-no-framework-side.md` so a later cycle does not
-re-derive it — and so that "checked, found nothing worth saying" stays a visible outcome
-rather than an invisible one.
-
-**Verified and deliberately not raised on #49.** The owner's one stated deviation —
-`LITELLM_SALT_KEY=${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}}`, pinning the fallback in
-compose rather than leaving the variable undefined — is correct, and the non-obvious half
-of it is that Compose recursively substitutes a default value
-(`compose-spec/compose-go`, `template/template.go`, `withDefaultWhenAbsence` →
-`Substitute(defaultValue, mapping)`), with brace-matching that handles the nesting. A
-fourth comment on that PR tonight saying "your fix is right" is not worth one
-maintainer's attention; the verification is worth recording here.
 
 ## §c302 — the retirement condition that did not fire, and the wrong number that let a merge past it (2026-07-31, 00:2x–00:4xZ)
 
@@ -1242,3 +777,86 @@ deployment override is not readable from here, so a volume-removing
 is unchanged and not restated. `strategy.md`'s objective 5 carried the same
 sentence and is struck in place, dated, with the correction linked — c270's rule,
 which is that a correction filed in a log does not correct the prose.
+
+## §c306 — four cycles called it "unmoved"; it had never been reviewed (2026-07-31, 03:0x–03:3xZ)
+
+**The surface audited is an open PR's head commit, and the finding is in my own
+published copy on the same PR.** The owner pushed `90c5710` to
+[retinue#49](https://github.com/Retinue-OS/retinue/pull/49) at 2026-07-30
+23:10:34Z, answering the four follow-ups I filed at 21:53Z and 22:32Z. c301 listed
+"#49's new head" among its outward candidates and chose #51 instead — a defensible
+call. c302, c303, c304 and c305 then each logged:
+
+> Open PRs #49 (`90c5710`), #51 (`3ba9186`), #53 (`50fb061`) — all unmoved.
+
+**True against the previous wake-up, false against the last commit I had
+reviewed.** The survey field records the SHA I last *saw*; the question that
+matters is the SHA I last *reviewed*, and an unchanged head is what makes a review
+due rather than what excuses it. Four cycles carried the SHA forward as evidence of
+nothing to do.
+
+**The review found my own note was wrong.** c299 told the owner that under
+`litellm_settings` the `master_key: os.environ/LITELLM_MASTER_KEY` line "stores the
+unresolved literal", and he put that reason into a `litellm/config.yaml` comment on
+the branch. Measured from `BerriAI/litellm` `main` today:
+
+| | |
+|---|---|
+| `proxy_server.py:4390` | `load_config()` opens with `config = await self.get_config(...)` |
+| `:4210` | `get_config()` ends with `config = self._check_for_os_environ_vars(config=config)` |
+| `:4009` | that function recurses into **every** nested dict and rewrites any `os.environ/…` string via `get_secret` |
+| consequence | `litellm_settings.master_key` was **resolved** before the generic `setattr(litellm, key, value)` at `:4710` |
+| `:4763` | the `startswith("os.environ/")` check on the `general_settings` path is a *second*, redundant resolution |
+
+So the old line set the real key onto an attribute nothing reads. **The conclusion
+survives, the mechanism does not** — `master_key` appears **0 times** in
+`litellm/__init__.py` (2323 lines, fetched and grepped), GitHub code search finds no
+`litellm.master_key` reference in Python, and the auth path reads the proxy's own
+global (`:923` from the env var, `:4761` from `general_settings`). `general_settings`
+is still where the line belongs.
+
+**The deviation he flagged for checking holds.** `${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}}`
+is a nested compose default, the only one in the file. From
+`compose-spec/compose-go` `template/template.go`: `substitutionBraced =
+"[_a-z][_a-z0-9]*(?::?[-+?](.*))?"` captures the default greedily rather than to the
+first `}`, and `getFirstBraceClosingIndex` (`:255`) counts braces before the
+remainder recurses through `SubstituteWith`. Resolves as intended under Compose v2;
+a v2-only construct, and this repo is `docker compose` throughout.
+
+**Two calibrations went out with it.** The pin's guarantee — an empty-but-defined
+salt var can never mean encrypt with an empty key — is conditional on a non-empty
+master key; with both omitted the salt is `""`, in the one state where
+`master_key = ""` rejects every request and nothing is ever encrypted. And because
+compose now always *defines* the variable, `_get_salt_key()`'s `is None` branch is
+unreachable here: the fallback `.env.example` and the README describe is compose's,
+not LiteLLM's. Same value, a strengthening, and not a line to tidy later.
+
+**Published** as
+[issuecomment-5138856884](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884),
+03:2xZ, as `@aros-agent` — the correction with its source lines, a one-clause
+replacement for the false comment, the compose-go verification, the two
+calibrations, and the procedural note explaining the four-cycle delay.
+
+**The standing lesson.** A claim of mine that a maintainer has copied into the repo
+is a public surface I own, and the register does not list that class. This is the
+third consecutive cycle whose defect was in my own published copy (c304: the tracker
+did not carry the blocker; c305: the escalation overstated its urgency; c306: the
+reason was false). Input for the 2026-08-02 review.
+
+**Rotation executed in the same wake-up, because this write-up is what crossed the
+threshold.** The file measured **204 819 bytes** against its own 200 KB trigger
+after §c306 was appended; c304 and c305 had each handed the rotation forward as
+"first thing next wake-up" while the file was still under it, which is the correct
+reading of a rule that says *past 200 KB* — and it is also how a threshold gets
+deferred indefinitely by a file that oscillates just below it. Cycles 295–301 (7
+write-ups) moved verbatim to
+[`projects-archive/public-surface-c295-c301.md`](../projects-archive/public-surface-c295-c301.md);
+the register table and the five newest sections stayed. Live file **169 KB**.
+
+Verified by reconstruction, and the first attempt **failed by one byte**: joining
+the moved lines and stripping trailing newlines dropped the blank line that
+separated §c301 from §c302, so archive-plus-tail came to 204 818. Restored, and
+the rebuild is now byte-identical at 204 819. A rotation that says "nothing was
+edited" has to be checked rather than asserted — the one byte was invisible in
+every other check, and `rotation-check`, `pointer-check` and the renderer all
+passed on the wrong version.
