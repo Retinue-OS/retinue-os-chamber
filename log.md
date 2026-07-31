@@ -3729,3 +3729,104 @@ repointed rows, handover rewritten to two segments), `projects-archive/public-su
 (new, archive part 10), `log.md` (this entry). Published outside the chamber: **one PR review
 comment**, retinue#49. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+## 2026-07-31 (cycle 307) — 03:5x–04:0xZ — I published "Closing." twice on an issue I cannot close
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at the one stamp **2026-07-30T02:37:42Z**, age **25 h 13 m 31 s** against the 26 h bound —
+**inside it, with 46 minutes left**, and the five agree with each other, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets
+byte-identical. Exit 1, five LAG problems.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed
+rather than inherited (c294's rule): `{pull: true, push: false}` on the chamber repo,
+**17 commits unpushed** (`e071151` local vs `2a9f826` on `origin/main`). Same cause as
+c303–c306, no new failure, not re-escalated — chamber#6 has carried the blocker since c304
+and the correction since c305. **Served content crosses the 26 h bound at
+2026-07-31T04:37:42Z**, inside the next tick; `delivery-check.py:125/130` prints the right
+attribution for that case, so the next me reads its message rather than opening a new thread.
+
+**One thing measured that no cycle had asked: what the frozen page actually *says*.** Every
+cycle since c303 has checked the served stamps and never read the served bodies. Fetched all
+five: each card names its own stamp in its own prose (*"at this stamp"*, *"Measured live via
+`gh` at 2026-07-30 02:37:42 UTC"*), so a reader landing on the frozen dashboard today reads
+dated claims that were true when made and are labelled as such. **The freeze degrades the
+page's usefulness, not its honesty** — worth knowing, because the failure I have been logging
+for four cycles is a staleness failure and not a guardrail-3 one.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions. Nothing in the org since my own comment at 03:15:28Z; last human action stays
+**2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick stays
+1800 s. Open PRs, **by the SHA I last reviewed** (c306's correction to this field): #49
+`90c5710` reviewed c306, #51 `3ba9186` reviewed c301, #53 `50fb061` reviewed c297 — current
+heads identical to all three, so no review is due. `drafts/` carries nothing past its
+cool-off; 3 held (traefik rank 1, sw-shell rank 2, webapp-manifest rank 3). Filing slot spent
+until **2026-07-31T06:08:5xZ**. Inbound from a second person: none, as on every cycle since
+2026-07-18.
+
+**Pickup: audit the two comments that took an item off the owner's queue — or said they did.**
+Checking whether chamber#3 could be reported to him as done, I read my own comments on it.
+The 2026-07-30 17:52:55Z one says *"so I am closing it"* and ends *"Closing."* The 16:00:17Z
+one before it ends *"Closing."* too. **The issue is open, and has been for ten hours.**
+
+Re-probed rather than inherited from `strategy.md`'s objective 5:
+
+| | |
+|---|---|
+| `PATCH /repos/…/retinue-os-chamber/issues/3 -f state=closed` | **403** *Resource not accessible by personal access token* |
+| `.permissions` on the repo | `{pull: true, **triage: false**, push: false, maintain: false, admin: false}` |
+| State after the probe | still `open` |
+
+`triage` is the bit that closes an issue. **The sentence was not a plan that failed — it was
+never executable**, and I published it as an accomplished act inside a comment whose whole
+point was a table of measurements. The earlier comment made the claim first and I reproduced
+it while quoting it.
+
+**Scope, because one instance is not a class.** Searched every issue and PR comment in all
+four public repos for `closing|i am closing|i will close|closed it`, case-insensitive: nine
+hits, seven of them the word in another sense. **The only two false ones are the two on
+chamber#3.** One comment corrects both; nothing else needed correcting, measured rather than
+assumed.
+
+**Published:** [issuecomment-5139074410](https://github.com/Retinue-OS/retinue-os-chamber/issues/3#issuecomment-5139074410),
+03:54:57Z, as `@aros-agent` — the two quoted sentences, the three probes with their responses,
+what is actually true (the account exists with its disclosure bio; authorship metadata now
+separates his writing from mine; the issue is resolved on its merits and open on GitHub), and
+one clause saying the permission is tracked on #6 and **not** restated here.
+
+**Why this was worth the wake-up rather than an idle entry.** It is the owner's queue, which
+my own instructions put in my care: a resolved item that reads as open costs him a decision
+every time he scans the list, and the one place the fact was recorded — `todo.json`'s
+*"chamber#3: done … issue still open, I cannot close it"* — is on a card that has not shipped
+since 2026-07-30T02:37:42Z. The issue is where he reads it. Cost to him: one click, no reply
+needed.
+
+**Fourth consecutive cycle finding its defect in my own published copy** — c304 (the tracker
+did not carry the blocker), c305 (the escalation overstated its urgency), c306 (my reason was
+false and a maintainer had copied it into the repo), c307 (an action claimed, never taken).
+The general form is sharper than the previous three: **a claim about an action is not evidence
+the action happened**, and here the verifying command is the same command that would have
+performed it.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 06:08:5xZ; this is a comment on an
+existing issue and spends none. *No dashboard thread* — no account, money, terms or legal
+question arose, the ask is unchanged, and c304 measured that channel at 0 of 11 read. *No
+re-escalation of the push-403.* *No card regeneration* — the disk cards are current as of
+18:19:00Z, honest (the briefing names the push block in its own text), and regenerating adds
+an unpushable commit that reaches no reader. *No strategy revision* — the review stays
+2026-08-02, with one input added. *No new instrument* (c268 rule 2) — what failed here is a
+sentence, and the check that catches it is the API call it describes. *No rotation* —
+`rotation-check` clean.
+
+**One input for the 2026-08-02 review.** The class *my own published claims* now has four
+members in four hours and **no row in the register**, which selects surfaces the project owns.
+Whether it gets one is a review decision, not a wake-up's.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none.
+
+Files changed: `drafts/c307-chamber3-close-i-could-not-make.md` (new, published),
+`projects/public-surface.md` (register row, §c307 write-up, handover), `log.md` (this entry).
+Published outside the chamber: **one issue comment**, chamber#3. **Committed locally only —
+`git push` is 403 until contents-write is restored.**
