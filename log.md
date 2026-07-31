@@ -3931,7 +3931,7 @@ an action claimed and never taken, c308 an instrument's own instruction. Input (
 2026-08-02 review; the register selects surfaces the *project* owns, and none of the five was
 on it.
 
-**Standing measure: filed 41, accepted 1**, of **51** issues in the four public repos — plus
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos (33 + 7 + 1 + 9, counted live with `gh issue list --state all`, which excludes PRs — I had first written 51 by incrementing c307's number instead of measuring it, which is the c169/c176 error in the same paragraph that records it) — plus
 ten review notes accepted 2026-07-30, which that measure still counts as none. Rotation watch:
 `projects/public-surface.md` 181/200 KB, `log.md` ~258/300 KB, `strategy.md` 118/150 KB.
 Standing checks after the edits: `delivery-check` self-test pass, `pointer-check` 149 pointers
