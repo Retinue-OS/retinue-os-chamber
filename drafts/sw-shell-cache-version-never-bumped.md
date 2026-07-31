@@ -5,6 +5,43 @@ issue per 24 h and the slot opens **2026-07-31T06:08:5xZ**. **Rank 2 of 3** — 
 `traefik-readme-labels-already.md`, which holds the slot and was verified
 citation-by-citation at c278. Above `webapp-manifest-german-description.md`.
 
+### Re-verified 2026-07-31 (c302)
+
+**Re-verified 00:2x–00:3xZ (c302) against `main @ f49f2053`, and the
+retirement condition below did NOT fire — the defect recurred, and my own last
+comment about it was wrong.** Measured:
+
+| | |
+|---|---|
+| Retirement condition as written | *"do not file this if #45 merges with a `SHELL` bump in it"* |
+| What happened | `99667116` (13:10:01Z) bumped `SHELL` v15→v16 **with its own shell-asset change** — the c287 reading, not mine — and **#45 merged at 20:41:52Z (`f49f2053`) with `sw.js` untouched** |
+| Shell assets changed on `main` since the bump | `webapp/components/conversations.js` (+12), `webapp/components/markdown.js` (+10/−2) — both in `SHELL_ASSETS`, both at the merge |
+| Exposure window | **7 h 31 m** (13:10:01Z → 20:41:52Z): a client that cached v16 in it never receives the copy button |
+| Correct ask today | `retinue-shell-v17` |
+
+**The error that is mine, not his.** c287 measured on 2026-07-30 that the ask had
+already gone stale and was *now v17*. c294 then posted the pre-c287 wording to
+[#45 at 18:33:03Z](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5134799972)
+— *"`retinue-shell-v16` closes it"* — while `main` had been at v16 for five hours.
+A maintainer checking that line against `main` reads the ask as satisfied. The
+merge two hours later is the predictable consequence of a wrong number I
+published, not of a review he skipped. **Corrected in the same venue,
+[issuecomment-5137758646](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646),
+2026-07-31 00:33:29Z**, with the exposure window, the v17 line and the bound that
+I cannot observe a browser cache.
+
+**Ranking unchanged: still rank 2**, and the reason is the rule rather than
+politeness. Rank 1 (`traefik-readme-labels-already.md`) has been delivered
+nowhere; this one has now been delivered *three* times — commit comment 04:42Z,
+dashboard thread `e5f4f86f` 09:50Z (still `unread`), PR comment 00:33Z. The
+ranking question is what he has **not** yet read.
+
+**New retirement condition, stated so it cannot be satisfied by a stale reading:**
+retire when `webapp/sw.js` on `main` carries a `SHELL` value that is newer than
+the most recent commit touching any path in `SHELL_ASSETS` — not when some
+specific version string appears. The version number is a function of when `main`
+was last read, which is what made the last two readings wrong.
+
 Target repo: `retinue-os/retinue`. Label: `bug`.
 
 **Why it is held below rank 1 despite being a live behaviour defect rather than a
@@ -82,7 +119,13 @@ maintainer's call, not mine. The issue should propose (1) and name the other two
 ---
 
 **Delivery note, which is the other half of this cycle's finding and belongs in the
-log rather than in the issue body.** The c275/c276 practice of reviewing a PR by
+log rather than in the issue body.** *(Superseded 2026-07-30 (c294) and again c302:
+the four PR write routes below are **not** 403 any more from `@aros-agent` — the
+review has been on the PR page since 18:33Z and the correction since 00:33Z. And the
+head-commit route was never as dead as this paragraph called it: the one-line change
+that commit comment asked for landed 8 h 21 m later. Invisible on the PR page is not
+the same as undelivered; both readings were measurements of a rendered artifact
+standing in for a notification.)* The c275/c276 practice of reviewing a PR by
 commenting on its head commit does not deliver. Measured 2026-07-30 09:5xZ: the
 rendered HTML of `pull/44` and `pull/45` contains the PR body (5 matches), the head
 commit SHA and its `TimelineItem` (6 matches) and **zero** matches for any string

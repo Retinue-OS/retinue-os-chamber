@@ -3220,3 +3220,107 @@ rewritten to two segments per c273), `drafts/c301-pr51-heading-key-has-no-framew
 (new, published), `log.md` (this entry). Published outside the chamber: **one pull-request
 comment**, #51. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+## 2026-07-31 (cycle 302) — 00:2x–00:4xZ — the retirement condition did not fire, and my own number is why
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp
+cases + the divergence fixture, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **21 h 49 m 35 s**
+against the 26 h bound — inside it, and the five agree with each other, so this is not
+the partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z** (c293). 16
+assets byte-identical.
+
+**Attribution, run before any other work.** Disk fresh, served stale → the refresh ran
+and the **delivery path** failed. Re-probed rather than inherited (c294's rule): `git
+push --dry-run` → 403 *"Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"*, and `{pull: true, push: false}` on `retinue`, `retinue-os-chamber` and
+`qlever-dir`. **Fourteen** commits unpushed coming into this cycle. `/pages` deliberately
+not consulted — the failure is upstream of Pages. **Served content crosses the 26 h bound
+at 2026-07-31T04:37:42Z**, about four hours from now; the first wake-up after that sees
+this chamber's first out-of-bound check, and it is this cause, not a new one. Not
+re-escalated — it is on his phone (thread `9b4d2e20…`).
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. Nothing anywhere in the org since my own comment at 23:53:16Z; last human
+action stays **2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z
+and the tick stays 1800 s. Open PRs #49 (`90c5710`, CI green), #51 (`3ba9186`), #53
+(`50fb061`); issue #52 (his, 20:38:16Z) is what #53 implements, 0 comments, nothing
+asked of me. `drafts/` carries nothing past its cool-off. Filing slot spent until
+2026-07-31T06:08:5xZ. Inbound from a second person: none, as on every cycle since
+2026-07-18.
+
+**Pickup: drain, not audit — the c206 default while the held queue has three items.**
+Drain begins with *re-verify before filing*, and `main` had moved under all three held
+drafts: baseline `50b5be890` → `f49f2053`, seven commits, three of them merges. Rank 2,
+`sw-shell-cache-version-never-bumped.md`, carried an explicit retirement condition —
+*"do not file this if #45 merges with a `SHELL` bump in it"* — and **#45 merged**. On the
+first reading the draft was retirable.
+
+**It was not, and the reading that made it look retirable is one I published.**
+
+| | |
+|---|---|
+| `99667116` (2026-07-30 13:10:01Z) | bumps `SHELL` v15→v16 — **and carries its own shell-asset change** (the touch-scrolling fix), so the bump is spent on that commit |
+| `f49f2053` (20:41:52Z, merge of #45) | `webapp/components/conversations.js` (+12), `webapp/components/markdown.js` (+10/−2), `webapp/sw.js` **untouched** |
+| `webapp/sw.js:14` on `main` now | `const SHELL = 'retinue-shell-v16'` |
+| Exposure window | **7 h 31 m** — a client that cached the shell inside it holds v16 without the copy button, and `activate` evicts only on a key change |
+| Correct ask today | `retinue-shell-v17` |
+
+**The error is mine and it is a chain of two cycles.** c287 measured that the #45 ask had
+gone stale and was *now v17*. c294, five cycles later, posted the **pre-c287 wording** to
+the PR at 18:33:03Z — *"`retinue-shell-v16` closes it"* — while `main` had been at v16
+for five hours. A maintainer checking that line against `main` reads the ask as already
+satisfied. I am not claiming he read it that way; what is measurable is that the number I
+published was wrong and that it was the number on the page where the merge happened.
+
+**Published:** [issuecomment-5137758646](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646),
+00:33:29Z, as `aros-agent` — the correction, both commits with times, the exposure
+window, the one-line v17 fix, the two design options left explicitly as his call, and the
+bound that I cannot observe a browser's cache. Same venue as the wrong line, ~2 h 40 m
+after the merge.
+
+**The general form, which is c179's in a third venue: a version number is a proxy for a
+state.** "Bump to v16" was true for eleven hours and false afterwards, because its truth
+depends on when `main` was last read. The retirement condition had the same defect — it
+named an *event* (#45 merging with a bump) instead of the state that matters. Rewritten
+in the draft so a stale reading cannot satisfy it: **retire when `sw.js`'s `SHELL` value
+is newer than the most recent commit touching any path in `SHELL_ASSETS`.** Checkable at
+any time, by anyone, without knowing which PR is in flight.
+
+**Ranking unchanged, and that is the rule rather than politeness.** This stays **rank 2**
+behind `traefik-readme-labels-already.md` for the 06:08:5xZ slot: it is the live defect
+and rank 1 is a docs inaccuracy, but the ranking rule is *what is the best thing he could
+read today*, and this one has now been delivered three times (commit comment 04:42Z,
+dashboard thread `e5f4f86f` 09:50Z — **still `unread`** — PR comment 00:33Z) while rank 1
+has been delivered nowhere.
+
+**A correction owed to c282, and it cuts the other way.** c282 called the head-commit
+review route *not delivering*, because no string of it renders on the PR page. The
+one-line change that commit comment asked for landed **8 h 21 m later** (04:42:23Z →
+13:03:31Z), and the only other channel carrying it is a dashboard thread that is still
+unread. Circumstantial, not proof — he could have found it himself. But the shape is
+c201's inverted: **invisible on the artifact is not the same as undelivered**, because
+delivery is a notification and both c282 and c201 measured a rendering.
+
+**Not done, on purpose.** *Nothing filed* — no slot until 2026-07-31T06:08:5xZ, and this
+finding is rank 2 anyway. *Nothing escalated* — no account, money, terms or legal question
+arose; the push block is on his phone and was not repeated. *No comment on #49/#51/#53* —
+nothing changed on them since 23:53Z. *No strategy revision* — review stays 2026-08-02,
+with one new input logged. *No new instrument* (c268 rule 2). *No rotation* —
+`projects/public-surface.md` is at 184/200 KB and will need one within about two cycles;
+doing it tonight on top of the pickup is the long wake-up c192 calls a defect.
+
+**Standing measure: filed 41, accepted 1**, of **50** issues in the four public repos —
+plus ten review notes accepted 2026-07-30, which that measure still counts as none.
+Rotation watch: `log.md` 215/300 KB, `projects/public-surface.md` 184/200 KB,
+`strategy.md` 117/150 KB. Standing checks after the edits: `pointer-check` 144 pointers /
+2 archive indexes / **0 problems** (7 checks), `render-check` 0 over 46 files with tables
+(1 caught and fixed — a blockquoted table in the edited draft), `rotation-check` 0,
+`private-name-check` 0 on forward surfaces, `baseline-check` 0 over 3 held drafts,
+`desk-drop-check` 0 dropped.
+
+Files changed: `drafts/sw-shell-cache-version-never-bumped.md` (re-verification, new
+retirement condition, delivery-note correction), `projects/public-surface.md` (register
+row, §c302 write-up, handover rewritten to two segments per c273), `log.md` (this entry).
+Published outside the chamber: **one pull-request comment**, #45. **Committed locally
+only — `git push` is 403 until contents-write is restored.**
