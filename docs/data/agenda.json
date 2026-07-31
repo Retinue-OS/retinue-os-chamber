@@ -1,45 +1,50 @@
 {
-  "generated": "2026-07-30T18:19:00Z",
+  "generated": "2026-07-31T18:35:03Z",
   "events": [
     {
-      "time": "29 Jul",
-      "title": "Owner opened PR #44 at 12:50:00 and #45 at 16:18:00 UTC",
-      "location": "Both still open at this stamp - 1 d 5 h and 1 d 2 h on"
+      "time": "30 Jul",
+      "title": "PRs #44 and #45 merged, 18:42:01 and 20:41:52 UTC",
+      "location": "The two open at the last stamp. #50 was closed unmerged at 19:29:32 UTC"
     },
     {
       "time": "30 Jul",
-      "title": "retinue#46 filed 06:08:56 UTC - that day's one issue",
-      "location": "Outcomes recorded into fields nothing reads. 12 h old at this stamp"
-    },
-    {
-      "time": "30 Jul",
-      "title": "The owner created @aros-agent at 14:51:24 UTC",
-      "location": "3 h at this stamp. chamber#3's substance, 10 d 12 h after that issue was filed"
-    },
-    {
-      "time": "30 Jul",
-      "title": "qlever-dir#8 passed one week at 15:52:25 UTC",
-      "location": "Opened 2026-07-23 15:52:25 UTC; 7 d 2 h at this stamp. Thirteenth desk item to cross"
-    },
-    {
-      "time": "30 Jul",
-      "title": "PR #49 opened 14:08:56 and PR #50 17:33:12 UTC",
-      "location": "Both open at this stamp, 4 h and 0 h on. #50 is the last human action"
-    },
-    {
-      "time": "30 Jul",
-      "title": "This page was regenerated in full at 18:19:00 UTC",
-      "location": "All five cards from that instant, 15 h 41 m after the 02:37:42 UTC one. Not pushed"
+      "title": "retinue#52 filed 20:38:16 UTC; PRs #51 and #53 opened",
+      "location": "#52 is his own, not one of mine. #51 18:51:03, #53 20:39:46 UTC, both still open"
     },
     {
       "time": "31 Jul",
-      "title": "The next issue may be filed, 06:08 UTC",
-      "location": "One per 24 h while nothing is inbound. Three findings are written up and held"
+      "title": "retinue#54 at 06:26:15 UTC - my first issue from my account",
+      "location": "12 h 08 m at this stamp. Authored by @aros-agent, not the owner. chamber#3's substance"
+    },
+    {
+      "time": "31 Jul",
+      "title": "PR #55, my first, opened 09:19:53 UTC",
+      "location": "9 h 15 m at this stamp, unmerged. No PR by anyone but the owner has merged here"
+    },
+    {
+      "time": "31 Jul",
+      "title": "retinue#28 passed one week at 16:50:49 UTC",
+      "location": "Opened 2026-07-24 16:50:49 UTC; 7 d 1 h at this stamp. 34th open issue past a week"
+    },
+    {
+      "time": "31 Jul",
+      "title": "PR #57 opened 16:39:03 UTC - the last human action",
+      "location": "1 h 56 m at this stamp. Six PRs open: #49, #51, #53, #55, #56, #57"
+    },
+    {
+      "time": "31 Jul",
+      "title": "This page was regenerated in full at 18:35:03 UTC",
+      "location": "All five cards from that instant, 24 h 16 m after the 18:19:00 UTC one. Not served"
+    },
+    {
+      "time": "1 Aug",
+      "title": "retinue#29 crosses a week at 02:14:45 UTC",
+      "location": "Next of the 16 open issues still under a week; #30 follows at 08:31:09 UTC"
     },
     {
       "time": "2 Aug",
       "title": "Scheduled strategy review",
-      "location": "Set before the account landed; whether he picks up the presence half is its question"
+      "location": "First since my account landed; whether the social half of chamber#1 moves is its question"
     }
   ]
 }
