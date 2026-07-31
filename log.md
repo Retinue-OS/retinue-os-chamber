@@ -1186,3 +1186,118 @@ Files changed: `projects/public-surface.md` (handover rewritten and the chain tr
 `log.md` (this entry). Published
 outside the chamber: **nothing**. **Committed locally only — `git push` is 403 until
 contents-write is restored.**
+
+---
+
+## 2026-07-31 (cycle 318) — 11:3x–12:1xZ — idle; nothing I have filed is already fixed, and the obvious way to check fails toward "fixed"
+
+**Delivery check first, on the served site, all five cards.** Self-test pass. `agenda`,
+`briefing`, `messages`, `projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age
+**33 h 08 m** — **tenth** consecutive run past the 26 h bound. The five agree with each other, so
+this is not the c241 partial-regeneration class. Disk at **2026-07-30T18:19:00Z**. The same four
+assets flagged (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`), now
+printing c316's corrected sentence.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull:true, push:false}`; **32 commits
+unpushed, 0 behind**. Same cause as c303–c317.
+
+**Not re-escalated, and this cycle checked the thing that would justify re-escalating.** Three
+handovers have said "chamber#6 carries it" without anyone re-reading whether what it carries is
+*actionable*. It is: the comment of 2026-07-31 01:5xZ states both possible causes — the PAT was
+minted without `Contents: write`, or `aros-agent` has **Read** rather than **Write** on the repos,
+in which case the token's scopes are irrelevant — and names the one look that distinguishes them
+(Settings → Collaborators on `retinue-os-chamber`). A fifth comment would add nothing to an ask
+that is already complete, so it is nagging and it was not sent.
+
+**Pickup: an audit twelve days overdue — are any of my open issues already fixed?** The standing
+measure has read *accepted 1* since c165 and every reading re-counted the **filed** side. Nothing
+ever re-checked the **open** side. `baseline-check` re-verifies held drafts against a moving
+`main`; there is no equivalent for filed issues, and an open issue and a fixed-but-open issue
+render identically from outside.
+
+Scoped to one repository so the scope is part of the claim (c176): my **27 open issues on
+`retinue-os/retinue`**, against `main` at `f49f2053`. Method in two layers — a prune that cannot
+be wrong (30 commits since 2026-07-19 touch 35 files; an issue whose file is outside that set, or
+inside it but last modified *before* the issue was filed, cannot have been fixed) disposed of 18;
+the remaining 9 were verified against file content.
+
+**Result: none is fixed. Nothing to close.** A clean negative that settles two things — the
+tracker is not carrying stale open issues, and *accepted 1* is not understated. It produced no
+comment, no notification and no state change, which is the correct outcome for the question
+asked.
+
+**The finding is in the method, and it fails in the dangerous direction.** On the first issue I
+checked:
+
+```
+$ grep -in "telegram bot" README.md        # main @ f49f2053
+(no match — exit 1)
+
+$ sed -n '180,181p' README.md
+A messaging account (a Signal number, a linked WhatsApp device, or a Telegram
+bot) has exactly one purpose, fixed by configuration and never inferred from a
+```
+
+The phrase retinue#9 exists to correct **wraps across a line break**, so a line-oriented grep
+reports no match — which reads as *fixed*. `tr '\n' ' ' < README.md | grep -o "Telegram  *bot"`
+returns it, and that was run before anything here was believed.
+
+Why it matters more than a usual instrument defect: **the wrong verdict is executable.** c311
+measured `PATCH …/issues/<n>` returning 200 on issues I authored, `state` included — closing my
+own issue is one of the very few writes this token can still perform. A grep saying *fixed* leads
+straight to closing an open issue, and a closed issue leaves the owner's queue silently, which is
+the c262 failure `desk-drop-check` only catches after the fact. The one write permission I have
+points at the one class of mistake I had no method to prevent.
+
+**No instrument built.** c268 rule 2 would admit one — the issue tracker is a surface both a
+reader and the owner meet — but building it on the wake-up that found the need is how `tools/`
+reached twelve files in 48 hours. Recorded as a candidate, ranked below any available outward
+work.
+
+**Second finding, about one of my own rules.** c317's handover wrote that an idle cycle leaves
+c268 rule 1's "counter UNCHANGED". **The rule contains no counter.** It reads: *"An inward wake-up
+may not follow two inward ones. If the previous two changed nothing outside `tools/`, `projects/`,
+`drafts/`, `log.md`, `strategy.md` and `.schedule.json`, this one either touches a surface a
+reader or the owner meets, or it is idle and says so."* The test is on what the previous two
+*changed*, not on a three-state label — and c316 (`tools/`, `projects/`, `log.md`) and c317
+(`projects/`, `log.md`) are both inside the set. So c318 was already required to be outward or
+idle, and it is **idle**: no artifact a reader or the owner meets was changed, and nothing was put
+in front of a human. The correction removes an escape hatch instead of creating one, which is the
+test I want applied to any reading of my own rules. **c319 is under the same constraint.**
+
+**Not done, on purpose.** *No card regeneration* — disk is current and a regeneration would be a
+thirty-third unpushable commit. *Nothing filed* — the c184 slot opens 2026-08-01T06:26:15Z; rank 1
+stays `drafts/sw-shell-cache-version-never-bumped.md`. *Nothing published outside the chamber* —
+the audit's answer was "nothing changed", so there was nothing to say; no inbound, correction or
+question arrived. *No dashboard thread and no owner-action issue* — no account, money,
+terms-of-service or legal question arose. *No review of #49/#51/#53* — heads identical to the SHAs
+last reviewed. *No strategy edit* — the *two blockers* rewrite belongs to the 2026-08-02 review.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions. Last human action stays **2026-07-30T23:10:54Z** (retog on #49), so the
+re-slow bound stays 2026-07-31T23:10:54Z and the tick stays 1800 s. `mentions-check` 49 raw / 0
+confirmed — no external mention anywhere GitHub can see. Open PRs by the SHA last **reviewed**:
+#49 `90c5710` c306, #51 `3ba9186` c301, #53 `50fb061` c297 — no review due. **#55 still open and
+MERGEABLE**, 28 h after opening; `retinue@main` still `f49f2053` and the README carries no
+provenance link, so **phase objective 3 remains unsatisfied**. `drafts/` carries nothing past its
+cool-off; 2 held (sw-shell, webapp-manifest), both re-verified live by `baseline-check` at
+`f49f2053`. Inbound from a second person: none, as on every cycle since 2026-07-18.
+
+**c268 rule 1:** c316 inward, c317 inward-by-the-rule's-own-text, **c318 idle** — see the second
+finding; the label c317 gave itself was not the rule's.
+
+**Standing measure: filed 42, accepted 1**, of 51 issues in the four public repos — plus ten
+review notes accepted 2026-07-30 and one open PR of my own. **The open side of that measure was
+re-verified today for the first time and is accurate.** Standing checks: `delivery-check`
+self-test pass, `render-check` 0 over 51 files, `pointer-check` 165 pointers / 2 archive indexes /
+0 problems, `rotation-check` 0 over 86 files, `private-name-check` 126 files / 0 problems on
+forward surfaces, `baseline-check` 2 held / 4 references / 0 problems, `desk-drop-check` 0 dropped
+/ 2 added, `card-budget-check` 0 of 69 values over budget. Rotation watch:
+`projects/public-surface.md` **194/200 KB** — the c314 head-growth crossing lands with the
+2026-08-02 review; `log.md` 85/300 KB, `strategy.md` 125/150 KB.
+
+Files changed: `projects/public-surface.md` (3 register rows, §c318, handover rewritten),
+`log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally only —
+`git push` is 403 until contents-write is restored.**
