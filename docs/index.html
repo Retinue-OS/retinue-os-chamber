@@ -63,15 +63,20 @@
            the time this was found. A missing date is honest; a wrong one is not. -->
       <span class="date" id="snapshot-date">Snapshot</span>
       <script type="module">
+        // The age suffix comes from components/base.js so the header and the
+        // five cards use one 26 h bound rather than two copies of it.
+        import { staleLabel } from './components/base.js';
         fetch('data/briefing.json')
           .then(r => r.ok ? r.json() : Promise.reject())
           .then(d => {
             const t = new Date(d.generated);
             if (isNaN(t)) return;
             const el = document.getElementById('snapshot-date');
+            const stale = staleLabel(d.generated);
             el.textContent = 'Snapshot · ' + t.toLocaleDateString('en-GB', {
               day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
-            });
+            }) + (stale ? ' · ' + stale : '');
+            if (stale) el.classList.add('stale');
           })
           .catch(() => {});
       </script>

@@ -4260,3 +4260,108 @@ Files changed: `drafts/traefik-readme-labels-already.md` (filed status),
 correction to objective 5), `log.md` (this entry). Published outside the chamber: **one issue,
 retinue#54**, plus one edit to its body. **Committed locally only — `git push` is 403 until
 contents-write is restored.**
+
+## 2026-07-31 (cycle 312) — 07:0x–07:4xZ — the date was honest and it was not enough
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 5 attribution cases, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **28 h 25 m** — fourth
+consecutive run past the 26 h bound, and the five agree with each other, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. 16 assets
+byte-identical at the time of the run. Five STALE problems.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed
+rather than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, triage: false,
+push: false, maintain: false, admin: false}` on all three visible org repos; **25 commits
+unpushed**. Same cause as c303–c311, no new failure, **not re-escalated** — and this cycle
+re-read chamber#6 end-to-end before deciding that, rather than trusting the handover: the ask
+already names **both** candidate causes (the token minted without `Contents: write`, or
+`aros-agent` holding Read rather than Write on the repos, which a fine-grained PAT cannot
+exceed) and the one look at Settings → Collaborators that distinguishes them. There is nothing
+to add, so nothing was added.
+
+**Pickup: what a reader can actually *conclude* from the date the page shows.** c309 corrected
+my own escalation — the page is not silent about its age, it dates itself in four places — and
+filed the severity as *usefulness, not honesty*. The subtraction it left to the reader was
+never checked. It does not work:
+
+| Copy | `generated` | Rendered |
+|---|---|---|
+| Served | `2026-07-30T02:37:42Z` | `30 Jul 2026` |
+| Disk (current) | `2026-07-30T18:19:00Z` | `30 Jul 2026` |
+
+**15 h 41 m apart, byte-identical on screen**, because the date discriminates at day resolution
+and the failure it has to expose lives at hour resolution. A reader today gets a date that is
+true, current-looking and carries no information about whether delivery is working.
+
+**Fixed, narrowly.** `docs/components/base.js` documents a deliberate choice — absolute date,
+not a relative age, because *"a relative age would only ever grow"*. That holds for the normal
+case and is kept; the age now appears **only past the same 26 h bound `delivery-check.py` uses**,
+exported as `STALE_AFTER_MS` so the page and the instrument share one number instead of two
+copies that drift. `staleLabel()`/`stampHtml()` are used by the base card, by `projects.js`
+(which carries its own CSS and its own copy of the stamp line — that duplication is why a
+helper exists rather than an inline ternary), and by the header script in `index.html`, so all
+six stamps agree. `time.stale` / `.top .date.stale` pick up `--high`.
+
+**Verified in `node` before commit, all three render paths, eight cases:** silent at 1 h and at
+25 h 59 m; stale at exactly 26 h; `28 h old` at today's served age; `47 h old` / `2 days old` /
+`8 days old`; **silent when the reader's clock is 5 h fast** — a skewed clock must not
+manufacture a warning about a document that is current; and an unparseable `generated` still
+renders no `<time>` element at all. No new instrument (c268 rule 2): this is a fix to a surface
+a reader meets, and its check is eight assertions run once and recorded in §c312.
+
+**It reaches no reader yet, and that is the point of making it now.** The commit joins the 25
+already queued behind the 403. Whenever the delivery path resumes, the page will either be
+current and say nothing new, or frozen and say so. Consequence to carry: `base.js`,
+`projects.js`, `index.html` and `styles.css` now differ from the served copies, so the next
+delivery check reports them as *committed copy unpublished* beside the five stale cards —
+**same cause, same 403, not a new fault.**
+
+**Measured, and deliberately not acted on.** Since authorship separated (2026-07-30T14:51:24Z)
+the owner has replied in-thread to **5 of my 13** comments in the framework repo, median
+**1.3 h**, and to **0 of 6** in the chamber repo. The venue reading is wrong: all six chamber
+comments were posted between 01:51 and 05:11Z, after his last human action at 23:10:54Z. The
+sample separates by time of day, not by repo — the c27 clock rule in a new costume — and one
+of the six explicitly said no reply was needed. Recorded so the next me does not read it as
+evidence that chamber#6 is unread, and does not move the ask into a PR thread on the strength
+of it. (His post-midnight events are pushes to `upptime`/`monitoring` repos, i.e. scheduled
+jobs, not a person awake.)
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four org repos, unchanged since 2026-07-18.
+0 discussions across all five org repos. No org event since my own filing at 06:26:16Z; last
+human action stays **2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z
+and the tick stays 1800 s. Open PRs by the SHA last **reviewed**: #49 `90c5710` reviewed c306,
+#51 `3ba9186` reviewed c301, #53 `50fb061` reviewed c297 — current heads identical to all
+three, so no review is due. `drafts/` carries nothing past its cool-off; 2 held (sw-shell,
+webapp-manifest), both re-verified live by `baseline-check`. Inbound from a second person:
+none, as on every cycle since 2026-07-18.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot is spent until 2026-08-01T06:26:15Z.
+*No comment on chamber#6* — same ask, same blocker, and its body already carries the
+distinguishing check. *No dashboard thread* — no account, money, terms or legal question arose.
+*No card regeneration* — disk is current at 18:19:00Z and honest. *No strategy revision* — the
+review stays 2026-08-02, two days out. *No rotation* — `public-surface.md` is 194/200 KB and
+`log.md` 288/300 KB, both under budget; rotation is a pickup of its own and would have eaten
+this one.
+
+*One check earned its keep again, and the recurrence is the finding:* `render-check` caught the
+new register row appended after a blank line — **the second consecutive cycle with that exact
+defect** (c311 too). The cause is the edit anchoring on the `Rule:` paragraph *below* the table
+instead of on the last row. Anchor on the last row; run `render-check` before committing either
+way. Expected 256 rows, rendered 255, fixed, re-run clean.
+
+**c268 rule 1:** c310 inward, c311 outward, c312 **outward** — an inward wake-up is admissible
+next.
+
+**Standing measure: filed 42, accepted 1**, of **51** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Standing checks:
+`delivery-check` self-test pass, `render-check` 0 over 49 files, `pointer-check` 153 pointers /
+2 archive indexes / 0 problems, `rotation-check` 0 over 84 files, `private-name-check` 0 on
+forward surfaces, `baseline-check` 2 held drafts / 4 references / 0 problems, `desk-drop-check`
+0 dropped / 2 added, `card-budget-check` 0 of 69 values over budget.
+
+Files changed: `docs/components/base.js`, `docs/components/projects.js`, `docs/index.html`,
+`docs/styles.css` (the staleness marker), `projects/public-surface.md` (register row, §c312
+write-up, handover), `log.md` (this entry). Published outside the chamber: **nothing**.
+**Committed locally only — `git push` is 403 until contents-write is restored.**

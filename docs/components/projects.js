@@ -12,7 +12,7 @@
 // card's habit of going frameless edge-to-edge on phones and picking up a
 // border again on wider screens.
 
-import { esc, fmtDate } from './base.js';
+import { esc, fmtDate, stampHtml } from './base.js';
 
 const CSS = `
   :host { display: block; }
@@ -29,6 +29,7 @@ const CSS = `
   h2 { font-size: .82rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
        color: var(--muted, #8b93a3); margin: 0 0 10px; }
   time { font-size: .72rem; color: var(--muted, #8b93a3); }
+  time.stale { color: var(--high, #ff6b6b); }
   .muted { color: var(--muted, #8b93a3); margin: 4px 0; }
   .group-label { font-size: .72rem; font-weight: 600; letter-spacing: .04em;
        text-transform: uppercase; color: var(--muted, #8b93a3); margin: 14px 0 8px; }
@@ -89,7 +90,7 @@ class RetinueProjects extends HTMLElement {
       inner = '<p class="muted">Offline &ndash; no current data.</p>';
     } else {
       inner = this.body(data || {});
-      if (data && data.generated) stamp = `<time>${esc(fmtDate(data.generated))}</time>`;
+      if (data && data.generated) stamp = stampHtml(data.generated);
     }
     this.shadowRoot.innerHTML =
       `<style>${CSS}</style>` +

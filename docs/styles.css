@@ -66,6 +66,7 @@ main {
 }
 .top h1 { font-size: 1.3rem; font-weight: 650; letter-spacing: -.01em; margin: 0; }
 .top .date { color: var(--muted); font-size: .8rem; }
+.top .date.stale { color: var(--high); }
 .top .sub {
   flex-basis: 100%;
   display: flex;
