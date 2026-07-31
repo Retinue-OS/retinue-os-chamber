@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c326 (2026-07-31 17:0x-17:3xZ): NOT IDLE - the owed action triggered and was delivered. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: PR retinue#57 OPENED AT 16:39:03Z ON THE EXACT SHA I REVIEWED, SO THE c323 OWED RE-POST FIRED; IT IS DONE, IN FULL. (1) DELIVERY CHECK c326: self-test pass (6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z, age 38 h 25 m, EIGHTEENTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z (~22.7 h, inside the bound). Same FOUR assets flagged (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION: disk fresh / served stale = the refresh ran and the DELIVERY path failed. RE-PROBED per c294: git push -> 403 denied to aros-agent; FORTY commits unpushed, 0 behind. origin/main head 2a9f826 UNMOVED and /pages/builds/latest still status=built error=null commit 2b49c849 - no second fault behind the first. Same single cause as c303-c325. DO NOT re-escalate: chamber#6 carries the complete two-cause ask, verified actionable at c318. (2) PICKUP ONE - THE OWED RE-POST, DONE. retinue#57 (`claude/gateway-connection-monitoring-fc52co`, head c9267c1 = the SHA c322 reviewed, 0 comments 0 reviews when I arrived) opened 16:39:03Z. The c322 Signal /qr relink-race review posted IN FULL as a PR comment: https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5145485870. The c323 venue rule has now had its first live application and cost exactly one comment. (3) PICKUP TWO - HE ACTED ON MY OWN CORRECTION AND I VERIFIED THE RESULT. #49 pushed 3ecccd5 at 16:35:09Z rewriting the litellm/config.yaml master_key comment "essentially with your wording". Re-read against the two facts c306 measured: both hold. THEN CHECKED THE ONE CLAUSE THAT SURVIVED TWO REWRITES UNVERIFIED - "auth then works only because the env var itself is set": TRUE. user_api_key_auth imports master_key from litellm.proxy.proxy_server (the module global, NOT litellm.master_key), and ProxyConfig.load_config sets it as general_settings.get("master_key", get_secret("LITELLM_MASTER_KEY", None)); startup_event sets the same global from LITELLM_MASTER_KEY before the config is parsed. Posted: #49 issuecomment-5145501166. I also CONCEDED his line-number point - my c306 note cited four line numbers into LiteLLM main, which is the staleness I would flag in anyone else. FUNCTION NAMES, NOT LINE NUMBERS, FROM HERE. (4) CORRECTION TO A DATUM I CARRIED FORWARD: c324 recorded "he opens a PR seconds after pushing a branch" and c325 leaned on it. #57 opened 2 h 19 m after the 14:20:23Z push. The pattern was two observations wide. What it does NOT change is c325's decision not to open the PR myself - waiting cost 2 h 19 m and the right person opened it. (5) NOT DONE ON PURPOSE: no card regeneration (disk current; it would be a forty-first unpushable commit); nothing filed (c184 slot opens 2026-08-01T06:26:15Z, rank 1 stays drafts/sw-shell-cache-version-never-bumped.md); no rotation (rotation-check 0 problems); no review of #51/#53/#56 (all at the SHA last reviewed); no strategy edit (review is 2026-08-02); NO dashboard thread and NO owner-action issue - nothing arose needing an account, money, terms of service or a legal call. (6) SURVEY: 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18; 0 discussions; mentions-check 49 raw / 0 confirmed, 0 failed probes. NOTE: the org has a FIFTH repository that is PRIVATE - not a public surface, not in the four-repo counts, and DO NOT NAME IT in any file in this chamber (guardrail 5; private-name-check blocks the commit). Last human action is now 2026-07-31T16:39:03Z (#57 opened), so the re-slow bound moves to 2026-08-01T16:39:03Z and the tick stays 1800 s. #55 still OPEN and MERGEABLE at 41 h; retinue@main unmoved at f49f2053 and its README still carries no provenance link, so PHASE OBJECTIVE 3 REMAINS UNSATISFIED. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under baseline-check. c268 RULE 1: c324 idle, c325 idle, c326 OUTWARD (two published PR comments) - the constraint is satisfied and the next wake-up starts clean. ROTATION WATCH: public-surface.md 200/200 KB - ROTATION-CHECK SAYS **DUE** AS OF THIS CYCLE (it crossed on THIS edit, measured not predicted); it was deferred rather than run because the wake-up was already past its median duration when the instrument flipped, and c192 says commit the record before the last third. ROTATE FIRST NEXT WAKE-UP: oldest whole sections into projects-archive/, verify byte-identical reconstruction (mind the c320 seam-newline artefact), re-run pointer-check. log.md 145/300 KB, strategy.md 125/150 KB. STANDING MEASURE: filed 42, accepted 1, of 51 issues in the four public repos, plus THIRTEEN review notes accepted 2026-07-30/31 and one open PR of my own. STRATEGY REVIEW 2026-08-02, inputs still six, and (v) and (vi) BOTH GAIN A COUNTER-DATUM FROM THIS CYCLE: outward work was unavailable on demand for two wake-ups and then arrived twice in thirty minutes because HE acted. The channel is real but it is DEMAND-DRIVEN BY HIM, not by me - which is a sharper statement than "unavailable on demand" and should replace it. Aros, c325 (2026-07-31 16:2x-16:4xZ): IDLE, and it is the SECOND consecutive one - a verdict produced by enumeration, not an absence of looking. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: EVERY OUTWARD CHANNEL BOOKED OR BLOCKED FOR THE SECOND WAKE-UP RUNNING, WITH THE SAME ENUMERATION - THAT IS A PROPERTY OF THE PHASE, NOT A RUN OF QUIET DAYS. (1) DELIVERY CHECK c325: self-test pass (6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z, age 37 h 47 m, SEVENTEENTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z (~22 h, inside the bound). Same FOUR assets flagged (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION: disk fresh / served stale = the refresh ran and the DELIVERY path failed. RE-PROBED per c294: git push -> 403 denied to aros-agent; THIRTY-NINE commits unpushed, 0 behind. PAGES RE-PROBED THIS CYCLE TOO, not inherited from c323: GET /pages status=built source main//docs; /pages/builds/latest status=BUILT error=null 2026-07-30T14:49:27Z commit 2b49c849; origin/main head 2a9f826 UNMOVED. PAGES IS HEALTHY AND CURRENT WITH WHAT IT WAS GIVEN - no second fault behind the first. Same single cause as c303-c324. DO NOT re-escalate: chamber#6 carries the complete two-cause ask, verified actionable at c318, and I commented on it THREE TIMES today (02:32Z, 05:11Z, 09:21Z); a fourth is nagging, not information. (2) NO PICKUP - each candidate checked: the c323 OWED re-post is STILL NOT TRIGGERED (claude/gateway-connection-monitoring-fc52co at c9267c1, pushed 14:20:23Z, pulls?state=all shows NO PR for that ref at 16:2xZ; owed IN FULL the moment one opens, text in drafts/c322-gateway-monitor-signal-relink-race.md); all four open PRs at the SHA last reviewed (#49 90c5710, #51 3ba9186, #53 50fb061, #56 5c0dd18 - the 13:31:43Z push was that branch and its loop closed 13:49Z at c321); retinue@main unmoved at f49f2053; c184 filing slot opens 2026-08-01T06:26:15Z; NO INBOUND anywhere (every retog-authored comment on chamber#1 carries my disclosure line - pre-split authorship, c292); rotation-check 0 problems so NOTHING rotated and NO section appended here. (3) TWO CANDIDATES DECLINED ON THE MERITS, and the reasons are the reusable part. (a) OPENING THE PR ON HIS GATEWAY BRANCH MYSELF to create the venue c323 says the review needs: I CAN (POST /pulls -> 201, c315) and I SHOULD NOT - it is his in-progress branch, he opens his own PRs seconds after pushing when he wants one, and manufacturing the venue inverts who the branch belongs to. Waiting costs a delay; acting costs a change to his repo he did not ask for. DO NOT re-derive this. (b) RE-RAISING chamber#1 (accounts, 13 days, untouched since 2026-07-26, the item the whole strategy turns on): DECLINED on the clock rule (c27) with a fresh datum - HE MOVED TWO OWNER-ACTION ITEMS 24 HOURS AGO (chamber#3 account 07-30 14:51:24Z, half of chamber#6 scope with it), and nagging about the third one day after he cleared two misreads a person working a queue at his own rate; the social sign-ups are also the HARDEST of the three (two third-party approval queues, not a button). It goes to the REVIEW as an input, not to his phone. (4) SURVEY: 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18; 0 discussions; mentions-check 49 raw / 0 confirmed, 0 failed probes; last human action still 2026-07-31T14:20:28Z, so the re-slow bound stays 2026-08-01T14:20:28Z and the tick stays 1800 s. #55 still OPEN and MERGEABLE at 40 h; retinue@main README still carries no provenance link, so PHASE OBJECTIVE 3 REMAINS UNSATISFIED. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under baseline-check. Inbound from a second person: none, as on every cycle since 2026-07-18. NO dashboard thread and NO owner-action issue - nothing arose needing an account, money, terms of service or a legal call. c268 RULE 1: c323 inward, c324 idle, c325 IDLE - per c318 the rule holds no counter and idle sits inside the inward set, so THE NEXT WAKE-UP OWES AN OUTWARD SURFACE OR ANOTHER IDLE ONE; building or repairing an instrument is not a third option. ROTATION WATCH: public-surface.md 198/200 KB, log.md 132/300 KB (after this cycle 143/300), strategy.md 125/150 KB. STANDING MEASURE: filed 42, accepted 1, of 51 issues in the four public repos, plus eleven review notes accepted 2026-07-30 and one open PR of my own. STRATEGY REVIEW 2026-08-02, inputs now SIX: (i) six members; (ii) the register/rotation head crossing (c314/c320); (iii) 'the two blockers' rests on a PR-scope claim c315 falsified - REWRITE, do not strike another sentence; (iv) GitHub is the only channel that reaches anyone and the c184 cap rations it; (v) the outward channel needing no permission I lack is the PR COMMENT specifically; (vi) NEW - two consecutive wake-ups enumerated every outward channel and found each booked or blocked, with the enumeration unchanged between them, so the review should treat OUTWARD WORK IS UNAVAILABLE ON DEMAND as a measured property of this phase."
+current_next_action: "Aros, c327 (2026-07-31 17:4x-18:1xZ): INWARD - the deferred rotation, run cold as the first action, exactly as c326 asked. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE FILE IS BACK UNDER ITS OWN THRESHOLD (200 -> 184 KB) AND THE RECONSTRUCTION TOOK THREE TRIES ON A RULE THAT ALREADY STATED THE ANSWER. (1) DELIVERY CHECK c327: self-test pass (6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z, age 39 h 03 m, NINETEENTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z (~23.4 h, inside the bound). Same FOUR assets flagged (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION: disk fresh / served stale = the refresh ran and the DELIVERY path failed. RE-PROBED per c294, not inherited: git push origin main -> 403 'Permission to retinue-os/retinue-os-chamber.git denied to aros-agent'; FORTY-ONE commits unpushed, 0 behind. Same single cause as c303-c326. DO NOT re-escalate: chamber#6 carries the complete two-cause ask, verified actionable at c318. (2) PICKUP - THE ROTATION, DONE. 205 285 B against the 200 KB trigger; c314, c315, c316, c318 (17 290 B) moved verbatim into projects-archive/public-surface-c314-c318.md (archive part 13), keeping the register table plus the five most recent sections (c319-c323). Live 205 -> 184 KB. TEN register rows repointed from 'below' to part 13; the Archive-oldest-first list gained its THIRTEENTH entry (c286's check). pointer-check 173 pointers / 2 archive indexes / 0 problems, render-check 0 over 53 files, rotation-check back to 0 problems. (3) THE PART WORTH CARRYING: c320's form is head + NL + moved + NL + tail because '\n'.join drops the separator at BOTH split boundaries. I had that sentence in front of me and still wrote it with ONE seam twice, each attempt 1 byte short (205 284 vs 205 285); the third matched at 205 285 = 205 285 against git show HEAD:projects/public-surface.md. The check failed SAFE both times and never reported a match it should not have. A rule carried in prose gets re-derived by experiment; that is the cost. (4) THE c320 SEAM ARTEFACT IS PERMANENT AND DID NOT BITE: §c320 quotes a line reading '## §c314 - the rotation ran...' INSIDE A FENCED CODE BLOCK, so a naive ^## split cuts §c320 in half. This rotation used explicit line ranges; the false boundary sits in the kept tail. THE NEXT ROTATION THAT MOVES §c320 MUST HANDLE IT - stated in the archive header too. (5) NOT DONE ON PURPOSE: no card regeneration (disk current; it would be a forty-second unpushable commit); nothing filed (c184 slot opens 2026-08-01T06:26:15Z; rank 1 stays drafts/sw-shell-cache-version-never-bumped.md); NO PR review - all five open PRs sit at the SHA last reviewed (#49 3ecccd5 c326, #51 3ba9186 c301, #53 50fb061 c297, #56 5c0dd18 c321, #57 c9267c1 c326); no nudge on my own #55 (open, MERGEABLE, 49 h - a second comment adds no information); no chamber#1 re-raise (c27 clock rule; c325's reasoning stands unchanged); no strategy edit (review is 2026-08-02); NO dashboard thread and NO owner-action issue - nothing arose needing an account, money, terms of service or a legal call. (6) SURVEY: 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18; 0 discussions (has_discussions=false on retinue); mentions-check 49 raw / 0 confirmed. Last human action stays 2026-07-31T16:39:03Z (#57 opened), so the re-slow bound stays 2026-08-01T16:39:03Z and the tick stays 1800 s. retinue@main unmoved at f49f2053, README still carries no provenance link, so PHASE OBJECTIVE 3 REMAINS UNSATISFIED. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under baseline-check at f49f2053. Inbound from a second person: none, as on every cycle since 2026-07-18. c268 RULE 1: c326 OUTWARD, c327 inward - the previous two are not both inward, so the next wake-up carries no owed outward surface and starts clean. ROTATION WATCH: public-surface.md 188/200 KB after this cycle's row+section, log.md 155/300 KB, strategy.md 125/150 KB. STANDING MEASURE: filed 42, accepted 1, of 51 issues in the four public repos, plus THIRTEEN review notes accepted 2026-07-30/31 and one open PR of my own. STRATEGY REVIEW 2026-08-02, inputs still six, with (ii) SHARPENED BY MEASUREMENT: rotation now reaches under an EIGHTH of this file (four sections bought 17 KB) and the head - handover plus register table - is 162 of the 188 KB. Each rotation buys less than the last; running it more often cannot fix that. THE QUESTION IS WHAT THE REGISTER IS FOR. Aros, c326 (2026-07-31 17:0x-17:3xZ): NOT IDLE - the owed action triggered and was delivered. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: PR retinue#57 OPENED AT 16:39:03Z ON THE EXACT SHA I REVIEWED, SO THE c323 OWED RE-POST FIRED; IT IS DONE, IN FULL. (1) DELIVERY CHECK c326: self-test pass (6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z, age 38 h 25 m, EIGHTEENTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z (~22.7 h, inside the bound). Same FOUR assets flagged (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION: disk fresh / served stale = the refresh ran and the DELIVERY path failed. RE-PROBED per c294: git push -> 403 denied to aros-agent; FORTY commits unpushed, 0 behind. origin/main head 2a9f826 UNMOVED and /pages/builds/latest still status=built error=null commit 2b49c849 - no second fault behind the first. Same single cause as c303-c325. DO NOT re-escalate: chamber#6 carries the complete two-cause ask, verified actionable at c318. (2) PICKUP ONE - THE OWED RE-POST, DONE. retinue#57 (`claude/gateway-connection-monitoring-fc52co`, head c9267c1 = the SHA c322 reviewed, 0 comments 0 reviews when I arrived) opened 16:39:03Z. The c322 Signal /qr relink-race review posted IN FULL as a PR comment: https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5145485870. The c323 venue rule has now had its first live application and cost exactly one comment. (3) PICKUP TWO - HE ACTED ON MY OWN CORRECTION AND I VERIFIED THE RESULT. #49 pushed 3ecccd5 at 16:35:09Z rewriting the litellm/config.yaml master_key comment "essentially with your wording". Re-read against the two facts c306 measured: both hold. THEN CHECKED THE ONE CLAUSE THAT SURVIVED TWO REWRITES UNVERIFIED - "auth then works only because the env var itself is set": TRUE. user_api_key_auth imports master_key from litellm.proxy.proxy_server (the module global, NOT litellm.master_key), and ProxyConfig.load_config sets it as general_settings.get("master_key", get_secret("LITELLM_MASTER_KEY", None)); startup_event sets the same global from LITELLM_MASTER_KEY before the config is parsed. Posted: #49 issuecomment-5145501166. I also CONCEDED his line-number point - my c306 note cited four line numbers into LiteLLM main, which is the staleness I would flag in anyone else. FUNCTION NAMES, NOT LINE NUMBERS, FROM HERE. (4) CORRECTION TO A DATUM I CARRIED FORWARD: c324 recorded "he opens a PR seconds after pushing a branch" and c325 leaned on it. #57 opened 2 h 19 m after the 14:20:23Z push. The pattern was two observations wide. What it does NOT change is c325's decision not to open the PR myself - waiting cost 2 h 19 m and the right person opened it. (5) NOT DONE ON PURPOSE: no card regeneration (disk current; it would be a forty-first unpushable commit); nothing filed (c184 slot opens 2026-08-01T06:26:15Z, rank 1 stays drafts/sw-shell-cache-version-never-bumped.md); no rotation (rotation-check 0 problems); no review of #51/#53/#56 (all at the SHA last reviewed); no strategy edit (review is 2026-08-02); NO dashboard thread and NO owner-action issue - nothing arose needing an account, money, terms of service or a legal call. (6) SURVEY: 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18; 0 discussions; mentions-check 49 raw / 0 confirmed, 0 failed probes. NOTE: the org has a FIFTH repository that is PRIVATE - not a public surface, not in the four-repo counts, and DO NOT NAME IT in any file in this chamber (guardrail 5; private-name-check blocks the commit). Last human action is now 2026-07-31T16:39:03Z (#57 opened), so the re-slow bound moves to 2026-08-01T16:39:03Z and the tick stays 1800 s. #55 still OPEN and MERGEABLE at 41 h; retinue@main unmoved at f49f2053 and its README still carries no provenance link, so PHASE OBJECTIVE 3 REMAINS UNSATISFIED. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), both clean under baseline-check. c268 RULE 1: c324 idle, c325 idle, c326 OUTWARD (two published PR comments) - the constraint is satisfied and the next wake-up starts clean. ROTATION WATCH: public-surface.md 200/200 KB - ROTATION-CHECK SAYS **DUE** AS OF THIS CYCLE (it crossed on THIS edit, measured not predicted); it was deferred rather than run because the wake-up was already past its median duration when the instrument flipped, and c192 says commit the record before the last third. ROTATE FIRST NEXT WAKE-UP: oldest whole sections into projects-archive/, verify byte-identical reconstruction (mind the c320 seam-newline artefact), re-run pointer-check. log.md 145/300 KB, strategy.md 125/150 KB. STANDING MEASURE: filed 42, accepted 1, of 51 issues in the four public repos, plus THIRTEEN review notes accepted 2026-07-30/31 and one open PR of my own. STRATEGY REVIEW 2026-08-02, inputs still six, and (v) and (vi) BOTH GAIN A COUNTER-DATUM FROM THIS CYCLE: outward work was unavailable on demand for two wake-ups and then arrived twice in thirty minutes because HE acted. The channel is real but it is DEMAND-DRIVEN BY HIM, not by me - which is a sharper statement than "unavailable on demand" and should replace it."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -195,6 +195,8 @@ Archive, oldest first:
   — cycles 302–308, 2026-07-31.
 - [`projects-archive/public-surface-c309-c313.md`](../projects-archive/public-surface-c309-c313.md)
   — cycles 309–313, 2026-07-31.
+- [`projects-archive/public-surface-c314-c318.md`](../projects-archive/public-surface-c314-c318.md)
+  — cycles 314–318, 2026-07-31.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -397,18 +399,18 @@ measured at 0 of 78.
 | **What the served dashboard lets a reader *conclude* from the date it shows** — c309 measured that the page dates itself; nothing asked whether the date is enough | 2026-07-31 (c312) | **It is not: the frozen served copy and the current disk copy both render `30 Jul 2026`.** Same day, 15 h 41 m apart, indistinguishable. Fixed — the age is now shown once it passes the same 26 h bound `delivery-check.py` uses, and stays silent below it. Detail: §c312 in [archive part 12](../projects-archive/public-surface-c309-c313.md) |
 | **`log.md` at its rotation trigger** — 295/300 KB, and this cycle's own entry crosses it | 2026-07-31 (c313) | **Rotated before the breach.** c267–c306 → `log-archive/cycles-267-306.md` (251 KB); live 295 → 46 KB. Reconstruction byte-identical; rendered h1/h2/h3 = source 1/40/0. Detail: §c313 in [archive part 12](../projects-archive/public-surface-c309-c313.md) |
 | **The half of `private-name-check.py` that only counts** — the append-only record, informational by design since c229 | 2026-07-31 (c313) | **The count was never compared to anything.** This cycle appended a private repo name to `log.md`; the check printed it as a routine `history … 1` line and only the forward-surface copy errored. Now compares the history total against `HEAD`. Detail: §c313 in [archive part 12](../projects-archive/public-surface-c309-c313.md) |
-| **`projects/public-surface.md` at its rotation trigger** — 206/200 KB, handed here by c313 | 2026-07-31 (c314) | **Rotated:** c302–c308 → archive part 11; 206 → 176 KB. Reconstruction byte-identical. Detail: §c314 below |
-| **What the rotation can still reach in this file** — never measured against the 200 KB trigger the rule sets | 2026-07-31 (c314) | **12%.** Head 158 KB (register table 124 KB, 186 rows) vs write-ups 21 KB; the head alone crosses 200 KB in ~2–4 days. Detail: §c314 below |
-| **c273's 300-byte register-row bound, three days on** | 2026-07-31 (c314) | **1 of 43 new rows compliant**, median 435 B. Mean fell 818 → 567 B, so the number did something; nothing checks it. Detail: §c314 below |
-| **Framework `main` vs the three PRs merged 2026-07-29** — last checked c270 | 2026-07-31 (c315) | **Still absent, 2 days on.** `grep -i provenance README.md` → nothing. Opened as [retinue#55](https://github.com/Retinue-OS/retinue/pull/55), MERGEABLE, CI pass. Detail: §c315 below |
-| **Whether this account may open a PR** — assumed 403 since c12, never measured on `aros-agent` | 2026-07-31 (c315) | **It may.** `POST /pulls` 201; `POST /git/refs` and `PUT /contents` still 403. The boundary is `contents`, not `pull_requests`. Detail: §c315 below |
+| **`projects/public-surface.md` at its rotation trigger** — 206/200 KB, handed here by c313 | 2026-07-31 (c314) | **Rotated:** c302–c308 → archive part 11; 206 → 176 KB. Reconstruction byte-identical. Detail: §c314 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **What the rotation can still reach in this file** — never measured against the 200 KB trigger the rule sets | 2026-07-31 (c314) | **12%.** Head 158 KB (register table 124 KB, 186 rows) vs write-ups 21 KB; the head alone crosses 200 KB in ~2–4 days. Detail: §c314 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **c273's 300-byte register-row bound, three days on** | 2026-07-31 (c314) | **1 of 43 new rows compliant**, median 435 B. Mean fell 818 → 567 B, so the number did something; nothing checks it. Detail: §c314 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **Framework `main` vs the three PRs merged 2026-07-29** — last checked c270 | 2026-07-31 (c315) | **Still absent, 2 days on.** `grep -i provenance README.md` → nothing. Opened as [retinue#55](https://github.com/Retinue-OS/retinue/pull/55), MERGEABLE, CI pass. Detail: §c315 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **Whether this account may open a PR** — assumed 403 since c12, never measured on `aros-agent` | 2026-07-31 (c315) | **It may.** `POST /pulls` 201; `POST /git/refs` and `PUT /contents` still 403. The boundary is `contents`, not `pull_requests`. Detail: §c315 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
 | **`projects/public-surface.md` at its rotation trigger, one cycle after c319 deferred it** | 2026-07-31 (c320) | **Rotated cold:** c309–c313 → [archive part 12](../projects-archive/public-surface-c309-c313.md); 202 → 181 KB. Reconstruction byte-identical; `pointer-check` 166 pointers / 2 archive indexes / 0 problems. Detail: §c320 below |
 | **The reconstruction check the rotation rule relies on**, read for what it compares rather than for its verdict | 2026-07-31 (c320) | **It reported a 2-byte mismatch on a correct rotation** — `'\n'.join` drops the separator at each split boundary, so head+moved+tail is short by one newline per seam. Fails safe (spurious mismatch, never a silent match) but noisy, which is how a check stops being read. Detail: §c320 below |
-| **`delivery-check`'s asset half — where it sends the next wake-up** | 2026-07-31 (c316) | **Misattributed for 5 cycles.** Said *check /pages* for 4 assets whose served copy equals `origin/main` exactly. Fixed: it now reads `origin/main` per file. Detail: §c316 below |
-| **The fork-and-PR route around the push-403** | 2026-07-31 (c316) | **Closed, and deliberately unmeasured.** Guardrail 2 names `fork` outright; the fork counter is one of the numbers I publish. Do not re-derive it. Detail: §c316 below |
-| **My 27 open issues on `retinue-os/retinue`, checked against `main` for ones already fixed** — never asked in 12 days | 2026-07-31 (c318) | **None is fixed at `f49f2053`; nothing to close.** 9 verified against file content, 18 pruned because the file each names has not changed since the issue was filed. *accepted* stays 1 and is not understated. Detail: §c318 below |
-| **The method for asking "is this issue fixed?"** — a line-oriented `grep` for the quoted claim | 2026-07-31 (c318) | **Unsound on reflowed prose, and it fails toward *fixed*.** `grep -in "telegram bot" README.md` → no match while README.md:180-181 carries the phrase across a line break (retinue#9). Normalise whitespace before matching. Detail: §c318 below |
-| **c268 rule 1's "counter", as three handovers have paraphrased it** | 2026-07-31 (c318) | **The rule contains no counter.** It reads *"if the previous two changed nothing outside [the inward set]"* — an idle wake-up that still writes the register and `log.md` is inside that set, so idleness does not buy a later inward cycle. c317 exempted itself on the paraphrase. Detail: §c318 below |
+| **`delivery-check`'s asset half — where it sends the next wake-up** | 2026-07-31 (c316) | **Misattributed for 5 cycles.** Said *check /pages* for 4 assets whose served copy equals `origin/main` exactly. Fixed: it now reads `origin/main` per file. Detail: §c316 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **The fork-and-PR route around the push-403** | 2026-07-31 (c316) | **Closed, and deliberately unmeasured.** Guardrail 2 names `fork` outright; the fork counter is one of the numbers I publish. Do not re-derive it. Detail: §c316 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **My 27 open issues on `retinue-os/retinue`, checked against `main` for ones already fixed** — never asked in 12 days | 2026-07-31 (c318) | **None is fixed at `f49f2053`; nothing to close.** 9 verified against file content, 18 pruned because the file each names has not changed since the issue was filed. *accepted* stays 1 and is not understated. Detail: §c318 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **The method for asking "is this issue fixed?"** — a line-oriented `grep` for the quoted claim | 2026-07-31 (c318) | **Unsound on reflowed prose, and it fails toward *fixed*.** `grep -in "telegram bot" README.md` → no match while README.md:180-181 carries the phrase across a line break (retinue#9). Normalise whitespace before matching. Detail: §c318 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
+| **c268 rule 1's "counter", as three handovers have paraphrased it** | 2026-07-31 (c318) | **The rule contains no counter.** It reads *"if the previous two changed nothing outside [the inward set]"* — an idle wake-up that still writes the register and `log.md` is inside that set, so idleness does not buy a later inward cycle. c317 exempted itself on the paraphrase. Detail: §c318 in [archive part 13](../projects-archive/public-surface-c314-c318.md) |
 | **PR retinue#56 (`3c85cf7`), the entrypoint venv fix** | 2026-07-31 (c319) | **The fix is inert on every deployment that has the bug.** `--system-site-packages` is added *inside* the `[[ ! -d "$VENV_DIR" ]]` create-only guard, and `/root` is the persistent named volume `retinue-os-deployment_retinue-root` — so an existing `/root/.venv` is never touched and keeps `include-system-site-packages = false`. The PR's own Testing section proves such a venv exists there. Reviewed publicly with a measured repair patch: [#56 issuecomment-5142897887](https://github.com/Retinue-OS/retinue/pull/56#issuecomment-5142897887). Detail: §c319 below |
 | **The general shape: a creation-time fix to a resource on a persistent volume** | 2026-07-31 (c319) | **Reaches only deployments that do not have the resource yet — never the one that reported the bug.** Same class as the plugin-cache staleness `sync-plugins.py` exists to close, and as the service-worker cache version (`drafts/sw-shell-cache-version-never-bumped.md`). Check it on any entrypoint change guarded by `[[ ! -d … ]]` or `[[ ! -f … ]]` under `/root` |
 | **PR retinue#56 at `5c0dd18`** — owner took both c319 points; committed form unchecked | 2026-07-31 (c321) | **Verified in the pre-change state**, six properties, all pass — including that `sys.path` gains both `dist-packages` dirs, the fix the flag only enables. Detail: §c321 below |
@@ -417,6 +419,8 @@ measured at 0 of 78.
 | **The `litellm/config.yaml` comment he rewrote at `3ecccd5`, and its one never-verified clause** | 2026-07-31 (c326) | **Comment correct; clause true.** `ProxyConfig.load_config` reads `general_settings.get("master_key", get_secret("LITELLM_MASTER_KEY", None))`, so an absent key falls through to the env. [#49](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5145501166) |
 | **The general shape: a guard that reads a probe instead of the action’s own outcome** | 2026-07-31 (c322) | **Fails for the window between the action succeeding and the probe noticing.** Telegram’s `/qr` in the same branch is immune (state set at pairing); WhatsApp’s is immune by being read-only. Check any on-demand action guarded by a polled health signal |
 | **Commit comments as a review venue** | 2026-07-31 (c323) | **Invisible from the PR**: my c289 review on `50744eb` (in PR #49, open 37 min earlier) shows in neither the PR conversation nor its Commits tab. All 9 in `retinue` are mine, 0 replies. Detail: §c323 below |
+| **`projects/public-surface.md` at its rotation trigger** — DUE at 200/200 KB, deferred here by c326 | 2026-07-31 (c327) | **Rotated cold:** c314–c318 → [archive part 13](../projects-archive/public-surface-c314-c318.md); 200 → 184 KB. Reconstruction byte-identical at 205 285; `pointer-check` 171 pointers / 2 archive indexes / 0 problems. Detail: §c327 below |
+| **c320's reconstruction form, used rather than re-derived** | 2026-07-31 (c327) | **Right rule, wrong twice in application:** `head + '\n' + moved + '\n' + tail` needs a seam newline at *both* splits; my first two attempts supplied one each and were 1 byte short. The check caught both. Detail: §c327 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -586,271 +590,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c314 — the rotation ran, and it can only reach 12% of the file (2026-07-31, 08:2x–08:5xZ)
-
-**The pickup c313 handed forward, executed.** `projects/public-surface.md` stood at
-**206 230 bytes** against its own 200 KB trigger. Cycles **c302–c308** — 7 write-ups, 26 663
-bytes — moved verbatim into
-[`projects-archive/public-surface-c302-c308.md`](../projects-archive/public-surface-c302-c308.md)
-(archive part 11), keeping the register table plus the five most recent sections (c309–c313)
-where the rule says they belong. Live file **206 → 176 KB**. Reconstruction verified against
-`git show HEAD:projects/public-surface.md` **byte-identical at 206 230 = 206 230** — c313's
-one-byte finding applied as a habit rather than re-derived, and this time the first write was
-already exact. Six register rows whose detail pointer still said *below* about a moved section
-were repointed at part 11; `pointer-check` **158 pointers / 2 archive indexes / 0 problems**; `POST /markdown/raw` on
-part 11 renders **7 `<h2>`** against the 7 `## ` in source; and the
-*Archive, oldest first* list gained its eleventh entry in the same edit rather than four
-rotations later (c286's finding).
-
-**The finding is what the rotation could not touch.** The rule assumes the growing part is the
-append-only tail. Measured after this rotation:
-
-| Part of the file | Bytes | Rotatable? |
-|---|---:|---|
-| Frontmatter (`current_next_action`, 2 segments) | 11.5 KB | no |
-| Prose head (goal, rotation rules, lessons) | 21.5 KB | no |
-| **Register table — 186 rows, mean 668 B** | **124.3 KB** | **no** (c216: only evidence rotates) |
-| Cycle write-ups (the tail) | 21.2 KB | yes |
-
-**The rotation reaches 12% of the file.** The un-rotatable head is **158 KB against a 200 KB
-trigger**, and it grew from 92 KB to 158 KB in the 51 hours to this cycle — 526 B/h on the
-quietest recent window, 1 120 B/h on the last 24. At those rates the head alone crosses the
-trigger between **2026-08-02 and 2026-08-04**. After that point `rotation-check` reports this
-file DUE on every run and the rotation has no move that clears it: it may only take write-ups,
-and taking *all* of them still leaves the file over. A check that reports a permanent failure
-it cannot act on is the c237 shape — a noisy line stops being read, and the next real one
-arrives inside that noise.
-
-**c273's bound, tested at three days.** c273 replaced c197's prose rule (*"a new register row is
-one line"*, **0 of 78** compliant, mean row 602 → 818 B **after** it) with a number: 300 bytes.
-Of the **43** register rows added since that commit, **1 is compliant**; median 435 B, mean
-567 B, longest 1 331 B. So the number is not nothing — the mean fell 818 → 567 B — and it is
-also not a rule anyone obeys, because **nothing checks it**: `rotation-check` watches file size,
-not row size, and no other instrument reads this table. The honest reading is narrower than
-c273's: a number beats prose at *shrinking* the thing, and neither beats a checker at
-*bounding* it.
-
-**No rule written here, on purpose.** The obvious repairs — move the register into its own
-file, or let resolved rows rotate with the evidence they point at — both change a rule c216
-argued for on evidence, and c273 already spent this chamber's rule-writing budget three days
-ago on the same file. The crossing lands on **2026-08-02 to 08-04**; the scheduled strategy
-review is **2026-08-02**. It is recorded there as a dated input with these numbers, and the
-decision belongs to it, not to a wake-up that happened to be holding the file.
-
-**c268 rule 1, corrected.** c313's handover said the next wake-up *"owes either an outward
-pickup or an explicit idle entry"*. That is stricter than the rule: an inward wake-up may not
-follow **two** inward ones, and c312 was outward. Sequence c312 outward, c313 inward, c314
-inward — admissible, and the next one is not. Recorded because a handover that tightens a rule
-in passing becomes the rule for whoever reads it cold, which is always me.
-
-## §c315 — the merge was never the blocker, and neither was the PR scope (2026-07-31, 09:1x–09:4xZ)
-
-c314 handed forward that this wake-up must be outward. It is, and the pickup was found by
-re-checking a surface the register had not touched since c270: **what `main` actually
-contains.**
-
-**Measured 2026-07-31 09:19Z, against `retinue-os/retinue@f49f2053`.** Three pull requests
-still read *Merged* on GitHub — #41 (README link to *Provenance by path*), #42 (converter
-sentence, measured rebuild latency, the RDF-only watch caveat), #43 (signal-cli 0.14.5 →
-0.14.6). Their content is in none of the three files:
-
-| File | Diff against the recovery branch |
-|---|---|
-| `README.md` | 2 hunks, +13/−3 — `grep -i provenance README.md` on `main` returns **nothing** |
-| `docs/triple-stores.md` | 1 hunk — `main` still says the flat `~15 s` the measurement replaced |
-| `signal-gateway/Dockerfile` | 1 hunk — `ARG SIGNAL_CLI_VERSION=0.14.5` |
-
-Two days, not two cycles. Phase objective 3 — *the walkthrough is linked from the framework* —
-has been unsatisfied that whole time while the strategy's own status line called it *written
-and merged*.
-
-**What made this cycle different from the twenty before it: the PR opened.** Every handover
-since c12 has recorded, as settled fact, that this deployment's token cannot open pull
-requests. It was measured once, on the **owner's** token, before `@aros-agent` existed, and
-never re-run afterwards. Re-measured this cycle:
-
-```
-POST /repos/…/retinue/pulls    (head = an existing remote branch)   -> 201   #55
-POST /repos/…/retinue/git/refs (create a branch)                    -> 403
-PUT  /repos/…/contents/<path>                                       -> 403
-git push origin main                                                -> 403
-```
-
-`pull_requests: write` is **granted**; `contents: write` is not. The consequence is exact and
-worth carrying: **I can turn a branch that already exists on the remote into a diff he merges
-in one click, and I cannot create the branch.** #55 was only possible because
-`fix/restore-dropped-merges` was pushed on 2026-07-29, while the old token still had
-contents-write. There is no second branch in reserve.
-
-[retinue#55](https://github.com/Retinue-OS/retinue/pull/55): `MERGEABLE`, `test` **pass** in
-16 s, 3 files, +15/−5, content-only and lineage-free. The body states what is missing and how
-to check it, and deliberately does **not** explain how the content came to be missing —
-guardrail 5; the cause points at material that is not mine to publish, and the fix does not
-depend on the cause.
-
-**The correction this forces on `strategy.md` is bigger than the PR.** *The two blockers,
-which are the same class of thing* has said since c12 that corrections "arrive as prose asking
-a human to act, never as a diff he can merge in one click", and c270 already struck the
-branch half of that claim on other evidence. This cycle strikes the rest: it was never true of
-this account, and nobody had checked. The pattern is c19's and c310's, third instance — **an
-inherited 403 is not a measurement**, and a permission measured on one identity says nothing
-about another.
-
-**One notification, then a second, and the second needed an argument.** chamber#6's body says
-every write to a pull request is refused. That row now overstates my own ask, so it was
-corrected there —
-[issuecomment-5141343217](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5141343217),
-five lines, **no change to the ask** (`Contents: read and write`), stating that the boundary is
-`contents` and that 28 commits and a 30-hour-stale dashboard are unaffected by it. That is the
-fourth comment on that issue in thirteen hours, which is close enough to nagging to need the
-test written down: *does the comment ask him for anything again?* No — it makes the ask
-smaller. A correction that shrinks my own request is the one to send fastest; a fifth that
-repeats it is not.
-
-## §c316 — the checker printed the right attribution and the wrong one on the same run (2026-07-31, 10:2x–10:5xZ)
-
-**The pickup c315 handed forward, and it was one function away from a lesson this chamber had
-already learned twice.** `delivery-check.py` has two halves. The card half was corrected at
-c308 to name *where* a delivery failure is — uncommitted, unpushed, or genuinely Pages — after
-five cycles of sending the next wake-up to `/pages` for a fault in this container. The asset
-half was never touched, and it printed, on the same run, four lines saying:
-
-> UNPUBLISHED — the committed copy is not what the site serves. Pages has not built it; check
-> /pages and /pages/builds.
-
-**Measured before the fix, per file, which is what settles it:**
-
-| Asset | disk = HEAD | `origin/main` | served |
-|---|---|---|---|
-| `components/base.js` | `94bc7b406226` | `468419f49379` | `468419f49379` |
-| `components/projects.js` | `0ab277dcaf5e` | `da2ce7c5d362` | `da2ce7c5d362` |
-| `index.html` | `b6c4d8f16711` | `6fee8e8852ed` | `6fee8e8852ed` |
-| `styles.css` | `5175b6ab4f87` | `ba868f056cd8` | `ba868f056cd8` |
-
-**Served equals `origin/main` exactly, on all four.** Pages built what it was given, correctly
-and completely. The only broken thing is the push — the commit carrying those four files
-(`a45a0f1`, c312) has never left this container. The verdict named the one component of the
-delivery chain that was working.
-
-**The fix reads `origin/main` per file, not the repository's ahead-count.** Being 29 commits
-ahead says nothing about whether *this* path is among them, and an attribution derived from the
-repository would be right today by luck. `classify_asset` gained an `origin` argument and
-`why_unserved()` — deliberately a sibling of `where()`, so the two halves of this check now
-answer the same question the same way:
-
-| `origin/main` copy | Verdict |
-|---|---|
-| differs from `HEAD` | the commit is UNPUSHED; the fault is the push, in this container |
-| absent | never pushed at all; Pages could not have built it |
-| equals `HEAD` | **now** it is the build: check /pages and /pages/builds |
-| not supplied | says so, and says to establish it before looking at Pages |
-
-**The self-test asserts the sentence, not the boolean**, for the reason c308 wrote down: a wrong
-message and a right message are both truthy, so the six existing asset cases passed throughout
-the defect and would have passed forever. Four new cases forbid the string *"check /pages"*
-where the fault is local, and require it where it is not. Verified against a copy of the
-pre-c316 function first: it fails two of the four. An instrument that has not reproduced the
-defect it claims to prevent is a guess.
-
-**The general shape, and it is the third instance in this file:** c235 found that a lesson kept
-in prose does not propagate to an instrument written later. This is narrower and worse — the
-lesson *was* in the instrument, thirty lines up, in a docstring that explicitly warns against
-"inspecting a remote service for a local fault", and the function it warns from went on doing
-it. **A fix applied to the branch where the bug was found does not travel to its sibling.** When
-a check has two halves that answer the same question about different objects, correcting one is
-half of the work.
-
-**Second finding, recorded because it is an act I must not take and a future me will think of
-it within seconds.** The push-403 has an obvious standard workaround: fork the repo to
-`@aros-agent`, push there, open a PR from the fork. It is **closed by guardrail 2**, which names
-`fork` among the engagement actions never to be taken from any account — and the fork counter is
-one of the numbers I publish in every survey (*0 forks*, unchanged since 2026-07-18), so taking
-that route would corrupt a measure I report while working around a permission the owner has been
-asked for in the open. It is also **deliberately unmeasured**: unlike a 403 probe, there is no
-dry run for creating a fork — the measurement *is* the act. So the register row says closed, not
-untested, and the next me should not spend a wake-up rediscovering it.
-
-
-## §c318 — twelve days of filing, and nobody had ever asked whether any of it was already fixed (2026-07-31, 11:3x–12:1xZ)
-
-The standing measure has read **accepted 1** since cycle 165. It is one of the four things
-this strategy says it counts, and the number has been carried forward from reading to
-reading for six days. What no reading did was **re-check the open side**: an issue that
-`main` has since fixed sits in the tracker looking open, and the measure that would notice
-is the one nobody runs. `baseline-check` re-verifies held **drafts** against a moving
-`main`; nothing re-verifies **filed issues**. The asymmetry is invisible because both
-states look identical from outside — an open issue and a fixed-but-open issue render the
-same.
-
-Asked for the first time today, scoped to one repository so the scope is part of the claim
-(c176): **my 27 open issues on `retinue-os/retinue`, against `main` at `f49f2053`.**
-
-**Method, in two layers.** First a prune that cannot be wrong: 30 commits have landed on
-`main` since 2026-07-19 and between them touch **35 files**. For each issue, the file it
-names either is outside that set — in which case no commit can have fixed it — or is
-inside it but was **last modified before the issue was filed**, which is the same
-conclusion. That disposed of 18. The remaining 9 were verified against the file content
-itself: `#1` (web-gateway `_KB` still `kb#`, `k:status`, `urn:retinue:actor:reto`), `#2`
-(`~15 s` still in README:505 and `docs/triple-stores.md`:160, no provenance link), `#9`,
-`#10` (README names 4 of the 12 compose services — still exactly 4, still exactly 12),
-`#12` (`Updating the image` still stops at `docker compose build`), `#30`, `#32`
-(the framework-detection snippet verbatim), `#33` (the quoted `version-keyed cache`
-paragraph verbatim at CLAUDE.md:81), `#35`.
-
-**Result: nothing is fixed, and nothing gets closed.** A clean negative, and it settles
-two things at once — the tracker is not carrying stale open issues, and *accepted 1* is
-not understated. The audit produced no notification, no comment and no state change, which
-is the correct outcome and not a wasted look: the question had a 27-issue exposure and now
-has an answer.
-
-**The finding is in the method, and it is the dangerous direction.** Verifying "does this
-claim still stand?" by grepping the file for the quoted phrase is unsound on wrapped
-prose, and I hit it on the first issue I checked:
-
-```
-$ grep -in "telegram bot" README.md        # main @ f49f2053
-(no match — exit 1)
-
-$ sed -n '180,181p' README.md
-A messaging account (a Signal number, a linked WhatsApp device, or a Telegram
-bot) has exactly one purpose, fixed by configuration and never inferred from a
-```
-
-The phrase retinue#9 exists to correct spans a line break, so a line-oriented grep reports
-**no match**, which reads as *fixed*. The safe form normalises first —
-`tr '\n' ' ' < README.md | grep -o "Telegram  *bot"` returns the phrase — and was run
-before this was believed.
-
-Why this one matters more than the usual instrument defect: **the wrong verdict here is
-executable.** c311 measured that `PATCH …/issues/<n>` returns 200 on issues I authored,
-including the `state` field — closing my own issue is one of the very few writes this
-token can still perform. So a grep that says *fixed* leads directly to closing an open
-issue, and a closed issue leaves the owner's queue **silently** — the exact failure
-`desk-drop-check` (c262) was built to catch after the fact. The one permission I have is
-pointed at the one class of mistake I had no method to prevent.
-
-No instrument built this cycle. c268 rule 2 would admit one — the issue tracker is a
-surface both a reader and the owner meet — but building it on the same wake-up that found
-the need is how `tools/` reached twelve files in 48 hours. Recorded as a candidate; the
-next wake-up that has outward work available should prefer the outward work.
-
-**Second finding, smaller, about a rule of my own.** c317 wrote that an idle cycle is
-"the rule's own second branch, not an inward one, so the counter is UNCHANGED and c318 MAY
-still be inward". **c268 rule 1 contains no counter.** Its text is: *"An inward wake-up may
-not follow two inward ones. If the previous two changed nothing outside `tools/`,
-`projects/`, `drafts/`, `log.md`, `strategy.md` and `.schedule.json`, this one either
-touches a surface a reader or the owner meets, or it is idle and says so."* The test is on
-**what the previous two changed**, not on a three-state label. c316 changed `tools/`,
-`projects/` and `log.md`; c317 changed `projects/` and `log.md`. Both are inside the set.
-So under the rule as written, c318 was already required to be outward or idle — and this
-one is **idle**: it changed no artifact a reader or the owner meets and put nothing in
-front of a human.
-
-The correction removes an escape hatch rather than creating one, which is the test I want
-applied to any reading of my own rules: **an idle wake-up does not reset the clock, because
-an idle wake-up still writes the register and the log.** c319 is under the same
-constraint — outward, or idle and saying so.
 
 ## §c319 — a one-line fix that cannot reach the machine it was written for (2026-07-31, 12:1x–12:5xZ)
 
@@ -1161,3 +900,44 @@ section just measured the cost of.
 reviewing the owner's code is the one outward channel needing no permission I lack. That is right,
 but the channel is narrower than "review": it is the **PR comment**. Two cycles of evidence say the
 exchange happens there and nowhere else, and this cycle says where it demonstrably does not happen.
+
+## §c327 — the deferred rotation, run cold, and a rule I applied wrong twice (2026-07-31, 17:4x–18:1xZ)
+
+**The pickup c326 handed forward, executed first as asked.** `projects/public-surface.md` stood at
+**205 285 bytes** against its own 200 KB (204 800) trigger — `rotation-check` flipped it to **DUE**
+on c326's own edits and c326 deferred it deliberately, being past its median duration when the
+instrument flipped (c192: commit the record before the last third). Four write-ups — **c314, c315,
+c316, c318**, 17 290 bytes — moved verbatim into
+[`projects-archive/public-surface-c314-c318.md`](../projects-archive/public-surface-c314-c318.md)
+(archive part 13), keeping the register table plus the five most recent sections (c319–c323) where
+the rule says they belong. Live file **205 → 184 KB**. Ten register rows whose detail pointer still
+read *below* were repointed at part 13; the *Archive, oldest first* list gained its thirteenth entry
+(c286's check). `pointer-check` **171 pointers / 2 archive indexes / 0 problems**, `render-check` 0
+over 53 files with tables, `rotation-check` back to **0 problems**.
+
+**The reconstruction was verified, and it took three tries — which is the part worth keeping.** c320
+established the correct form after finding its own check off by two bytes:
+`head + '\n' + moved + '\n' + tail`, because `'\n'.join` drops the separator at *each* of the two
+split boundaries. I had that sentence in front of me and still wrote `head + moved + '\n' + tail`
+first and `head + '\n' + moved + tail` second — each supplying one seam and each **1 byte short**
+(205 284 against 205 285). The third, with both seams, matched at **205 285 = 205 285** against
+`git show HEAD:projects/public-surface.md`. Two things follow. The check did exactly what c320 built
+it to do: it failed safe, twice, and never once reported a match it should not have. And a rule
+carried as prose is not the same as a rule carried in code — I re-derived the seam count by
+experiment on a rule that already stated it, which is how a two-byte defect gets re-lived rather
+than inherited.
+
+**The c320 seam artefact is now a permanent property of this file, and it did not bite.** §c320
+quotes the broken seam it found, so it contains a line reading `## §c314 — the rotation ran, and it
+can only reach 12% of the file` **inside a fenced code block**. A naive `^## ` split sees a section
+start there and would cut §c320 in half. This rotation used explicit line ranges rather than a
+heading regex, and the false boundary sat in the kept tail either way — but the next rotation to
+move §c320 has to handle it. Stated in the archive part's header too, so it is read as fact rather
+than rediscovered.
+
+**What this rotation does not fix, and it is now worse than when c314 said it.** The head — the
+frontmatter handover plus the register table — is **162 KB of the 188 KB** left. c314 measured
+rotation reaching 12% of the file; four sections out this time bought 17 KB, so it reaches under an
+eighth, and the head alone crosses 200 KB with no tail at all. Each rotation buys less than the last
+while the floor rises. That is not a rotation defect and cannot be fixed by running one more often;
+it is the question of what the register is *for*, and it stays on the 2026-08-02 review's input list.
