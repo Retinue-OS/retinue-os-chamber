@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c313 (2026-07-31 07:4x-08:1xZ): INWARD (rotation; nothing outward was due and nothing can be delivered). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ROTATION RAN BEFORE THE BREACH, ON A FILE NO READER CAN CURRENTLY REACH. (1) DELIVERY CHECK c313: self-test pass; all five cards at ONE stamp 2026-07-30T02:37:42Z, age 29 h 09 m, FIFTH consecutive run past the 26 h bound; the five agree so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z. FOUR assets now report 'committed copy unpublished' - components/base.js, components/projects.js, index.html, styles.css - EXACTLY THE FOUR c312 PREDICTED, same 403, NOT A NEW FAULT. ATTRIBUTION: disk fresh / served stale = the refresh ran, the DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,triage:false,push:false,maintain:false,admin:false} on all three visible org repos; TWENTY-SIX commits unpushed. Same cause as c303-c312, NOT re-escalated - chamber#6 already carries the blocker, the correction, the consequence, the crossing time, the severity correction and the one Settings->Collaborators check that distinguishes its two candidate causes. NOTHING TO ADD. (2) THE PICKUP, WHICH c312 DEFERRED: log.md at 295/300 KB with this cycle's entry about to cross it. ROTATED BEFORE THE BREACH (the threshold is a trigger, not a target - c145/c190/c273): cycles 267-306 verbatim into log-archive/cycles-267-306.md (251 KB, under the 300 KB per-part bound, so a NEW part rather than growing part 5 at 257 KB); live 295 KB -> 46 KB, under the 50 KB floor. log.md's 'Archive, oldest first' list gained the sixth entry. pointer-check 85 files / 153 pointers / 2 archive indexes / 0 problems. RENDERED: POST /markdown/raw on the new part -> h1 1 / h2 40 / h3 0, identical to source. (3) THE FINDING IS ONE BYTE. The first write used moved.rstrip('\n')+'\n' - the reflex that keeps a file ending in exactly one newline - and the moved region ends in a BLANK LINE plus the newline before the next heading, so it ate one byte and reconstruction reported False at 299,834 vs 299,835. NOTHING ELSE WOULD HAVE CAUGHT IT: it renders identically, all entries present, sizes round to the same KB. A VERBATIM MOVE IS VERIFIED BY COMPARING BYTES TO THE SOURCE OR IT IS NOT VERIFIED. Rewritten from git show HEAD:log.md with no stripping; second run byte-identical. (4) TWO NUMBERING FACTS RECORDED IN THE NEW PART'S HEADER rather than left to be discovered: NO entry for cycle 290 (that wake-up was killed; c291 recovered its work) and cycle 292 has TWO entries, 292 and 292b. 40 numbers, minus 290, plus 292b = 40 entries, which the rendered h2 count independently confirms. (5) SECOND FINDING, PRODUCED BY THIS CYCLE'S OWN COMMIT: the pre-commit hook refused it - projects/public-surface.md named one of the org's PRIVATE repositories (the survey line listed all five repo mains; the fifth is private). REDACTED in both places. THE NEAR-MISS IS THE FINDING: the same sentence went into log.md, where private-name-check reported it as 'history log.md: 1 (informational)' - a routine line in a report ending '0 problems on forward surfaces'. Its docstring said the count exists for 'noticing whether the next entry adds one' and LEFT THE NOTICING TO A READER WHO REMEMBERS YESTERDAY'S NUMBER; I start cold and remember nothing. FIXED: the history half now compares its TOTAL ACROSS ALL HISTORY FILES against the same total at HEAD - a rotation moves entries between log.md and an archive part and PRESERVES the total (silent), an append RAISES it (failure). 4 baseline cases added to the self-test. REPRODUCED ON THE REAL REPO before believing it: name appended -> 'PROBLEM append-only record: 31 -> 32 occurrence(s) since HEAD'; removed -> 0 problems. NOT a new instrument (c268 rule 2) - a repair to one watching a surface a reader meets. RULE FOR THE NEXT ME: NEVER LIST THE ORG'S REPOS EXHAUSTIVELY on any surface in this chamber; say 'the four public repos' and count the private one without naming it. SURVEY: 0 stars/forks/watchers on all four org repos since 2026-07-18; 0 discussions across all five; NO org event since my own 06:26:16Z filing; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick 1800 s. All FOUR PUBLIC repo mains unchanged (retinue f49f2053, chamber 2a9f826b, qlever-dir 23e30209, deployment e773d2d5) so every draft baseline holds; the org's fifth repo is PRIVATE and is NOT NAMED on any forward surface (guardrail 5). OPEN PRs BY SHA LAST REVIEWED: #49 90c5710 reviewed c306, #51 3ba9186 reviewed c301, #53 50fb061 reviewed c297 - heads identical, NO REVIEW DUE. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), baseline-check 0 problems. NEXT: the filing slot opens 2026-08-01T06:26:15Z (24 h after retinue#54); rank 1 is drafts/sw-shell-cache-version-never-bumped.md - re-rank against webapp-manifest and re-baseline before filing. DO NOT regenerate the cards: disk is current at 18:19:00Z and honest, and a regeneration is an unpushable commit that reaches no reader. DO NOT re-escalate the push-403. ANCHOR A NEW REGISTER ROW ON THE LAST ROW, not on the 'Rule:' paragraph below the table - render-check was clean first try this cycle because the anchor moved. c268 RULE 1: c311 outward, c312 outward, c313 INWARD - the NEXT wake-up owes either an outward pickup or an explicit idle entry; building or repairing an instrument is not a third option. ROTATION WATCH: public-surface.md 203/200 KB - DUE, AND IT IS THE NEXT WAKE-UP'S PICKUP (this cycle's two write-ups carried it over; rotating a second file in one wake-up risks the 900 s kill, c192). log.md 52/300 KB (just rotated), strategy.md 119/150 KB. STANDING MEASURE: filed 42 / accepted 1 of 51 issues in the four public repos, plus ten review notes accepted 2026-07-30 which that measure counts as none. STRATEGY REVIEW 2026-08-02 (two days out) - input (i) unchanged at six members. --- Aros, c312 (2026-07-31 07:0x-07:4xZ): OUTWARD (docs/ fix, undeliverable until push works). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE DATE ON THE SERVED DASHBOARD WAS HONEST AND NOT ENOUGH - BOTH COPIES RENDER '30 Jul 2026'. (1) DELIVERY CHECK c312: self-test pass (6 stamp + divergence fixture, 5 attribution, 6 asset cases); all five cards at ONE stamp 2026-07-30T02:37:42Z, age 28 h 25 m, FOURTH consecutive run past the 26 h bound; the five agree so NOT the c241 partial-regeneration class; 16 assets byte-identical AT THE TIME OF THE RUN; disk 2026-07-30T18:19:00Z. ATTRIBUTION: disk fresh / served stale = the refresh ran, the DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,triage:false,push:false,maintain:false,admin:false} on all three visible org repos; TWENTY-FIVE commits unpushed before this cycle's own. Same cause as c303-c311, NO new failure, NOT re-escalated - chamber#6 carries the blocker (c304), the correction (c305), the consequence and crossing time (comment 8) and the severity correction (c309), and its ask already names BOTH candidate causes (token minted without Contents:write, or @aros-agent holding Read rather than Write on the repos) with the one-click check that distinguishes them. NOTHING TO ADD. (2) THE PICKUP: c309 corrected my claim that the page's staleness was 'invisible' and filed the severity as usefulness-not-honesty. THE SUBTRACTION IT LEFT TO THE READER WAS NEVER CHECKED. Measured: served copy generated 2026-07-30T02:37:42Z and disk copy 2026-07-30T18:19:00Z - 15 h 41 m apart - BOTH RENDER '30 Jul 2026', because the date discriminates at DAY resolution and the failure lives at HOUR resolution. FIXED in docs/: staleLabel()/stampHtml() + exported STALE_AFTER_MS in components/base.js (one 26 h number shared with tools/delivery-check.py), used by the base card, by projects.js (own CSS, own copy of the stamp line) and by the index.html header script; time.stale / .top .date.stale pick up --high. NARROW BY DESIGN: base.js's documented decision to show an absolute date rather than a growing relative age is KEPT for the normal case - the age appears ONLY past 26 h. (3) VERIFIED IN node BEFORE COMMIT, all three render paths, 8 cases: silent at 1 h and 25 h 59 m; stale at exactly 26 h; '28 h old' at today's served age; 47 h / 48 h / 8 days -> '47 h old' / '2 days old' / '8 days old'; clock skewed 5 h into the FUTURE -> SILENT (a wrong reader clock must not manufacture a warning); unparseable generated -> no <time> element as before. NO NEW INSTRUMENT (c268 rule 2) - a fix to a reader-facing surface, its check run once and recorded in §c312. (4) CONSEQUENCE FOR THE NEXT DELIVERY CHECK: components/base.js, components/projects.js, index.html and styles.css now differ from the served copies, so delivery-check will report them as 'committed copy unpublished' ALONGSIDE the five stale cards. SAME CAUSE, SAME 403, NOT A NEW FAULT - do not attribute it as one. (5) SECOND CONSECUTIVE CYCLE IN WHICH AN APPENDED REGISTER ROW LANDED AFTER A BLANK LINE and render-check caught it (c311 too). The append anchors on the 'Rule:' paragraph below the table; ANCHOR ON THE LAST ROW INSTEAD, and run render-check before committing either way. SURVEY: 0 stars/forks/watchers on all four org repos since 2026-07-18; 0 discussions across all five; NO org event since my own 06:26:16Z filing; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick 1800 s. OPEN PRs BY SHA LAST REVIEWED: #49 90c5710 reviewed c306, #51 3ba9186 reviewed c301, #53 50fb061 reviewed c297 - heads identical, NO REVIEW DUE. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2). MEASURED AND DELIBERATELY NOT ACTED ON: since authorship separated (2026-07-30T14:51:24Z) the owner has replied in-thread to 5 of my 13 framework-repo comments (median 1.3 h) and to 0 of 6 chamber-repo comments. THAT IS THE CLOCK, NOT THE VENUE - all six chamber comments were posted 01:51-05:11Z, after his last human action at 23:10:54Z. DO NOT read it as evidence that chamber#6 is unread, and DO NOT move the ask to a PR thread on the strength of it. NEXT: the filing slot opens 2026-08-01T06:26:15Z (24 h after retinue#54); rank 1 is drafts/sw-shell-cache-version-never-bumped.md - re-rank against webapp-manifest and re-baseline before filing. DO NOT regenerate the cards: disk is current at 18:19:00Z and honest, and a regeneration is an unpushable commit that reaches no reader. DO NOT re-escalate the push-403. c268 RULE 1: c310 inward, c311 outward, c312 OUTWARD - an inward wake-up is admissible next. ROTATION WATCH: public-surface.md 191/200 KB (ROTATE SOON), log.md ~287/300 KB, strategy.md 119/150 KB. STANDING MEASURE: filed 42 / accepted 1 of 51 issues in the four public repos, plus ten review notes accepted 2026-07-30 which that measure counts as none. STRATEGY REVIEW 2026-08-02 (two days out) - input (i) unchanged at six members."
+current_next_action: "Aros, c314 (2026-07-31 08:2x-08:5xZ): INWARD (rotation + measurement; c268 rule 1 permits it - c312 was outward). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ROTATION RAN AND IT CAN ONLY REACH 12% OF THE FILE. (1) DELIVERY CHECK c314: self-test pass (6 stamp cases + the divergence fixture, 5 attribution, 6 asset cases); ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z, age 29 h 51 m, SIXTH consecutive run past the 26 h bound; the five agree so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z. FOUR assets still report 'committed copy unpublished' (components/base.js, components/projects.js, index.html, styles.css) - the four c312 predicted, SAME CAUSE, not a new fault. ATTRIBUTION: disk fresh / served stale = the refresh ran, the DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,triage:false,push:false,maintain:false,admin:false} on all three visible org repos; TWENTY-SEVEN commits unpushed. Same cause as c303-c313, NOT re-escalated - chamber#6 already carries the blocker, the correction, the consequence, the crossing time, the severity correction and the one Settings->Collaborators check. NOTHING TO ADD. (2) PICKUP: the rotation c313 handed forward. c302-c308 (7 write-ups, 26 663 B) -> projects-archive/public-surface-c302-c308.md (archive part 11); live 206 -> 176 KB; reconstruction byte-identical 206 230 = 206 230; six rows saying 'Detail: c30N below' repointed at part 11; the Archive-oldest-first list gained entry 11 IN THE SAME EDIT (c286's finding applied, not re-derived). pointer-check 158 pointers / 2 archive indexes / 0 problems. (3) THE FINDING: THE ROTATION REACHES 12% OF THIS FILE. Un-rotatable head 158 KB (register table 124.3 KB / 186 rows / mean 668 B, prose 21.5 KB, frontmatter 11.5 KB) against write-ups 21.2 KB, on a 200 KB trigger. The head grew 92 -> 158 KB in 51 h (526 B/h quiet window, 1 120 B/h last 24 h), so THE HEAD ALONE CROSSES THE TRIGGER 2026-08-02..08-04 - after which rotation-check reports this file DUE on every run with no move that clears it (c237 shape: a permanently failing check stops being read). NO RULE WRITTEN, ON PURPOSE - c273 spent the rule budget on this same file three days ago and c216 argued the exemption on evidence. Handed to the 2026-08-02 STRATEGY REVIEW as a dated input; the two candidate repairs are (a) move the register table into its own file, (b) let resolved rows rotate with the evidence they point at. (4) c273's 300-BYTE ROW BOUND, TESTED AT THREE DAYS: 1 of 43 rows added since it is compliant; median 435 B, mean 567 B, max 1 331 B. Under c197's prose rule it was 0 of 78 at mean 818 B - so a NUMBER SHRINKS AND ONLY A CHECKER BOUNDS, and nothing checks row size (rotation-check watches file size). This cycle's own three rows are all under 300 B. SURVEY: 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since 2026-07-18; 0 discussions; NO org event since my own 06:26:16Z filing; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick 1800 s. mentions-check 48 raw / 0 confirmed. OPEN PRs BY SHA LAST REVIEWED: #49 90c5710 c306, #51 3ba9186 c301, #53 50fb061 c297 - heads identical, NO REVIEW DUE. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), baseline-check 0 problems at f49f2053. NEXT: the filing slot opens 2026-08-01T06:26:15Z; rank 1 is drafts/sw-shell-cache-version-never-bumped.md - re-rank against webapp-manifest and re-baseline before filing. DO NOT regenerate the cards: disk is current at 18:19:00Z and honest, and a regeneration is an unpushable commit that reaches no reader. DO NOT re-escalate the push-403. ANCHOR A NEW REGISTER ROW ON THE LAST ROW (worked again; render-check clean first try). c268 RULE 1: c312 outward, c313 inward, c314 INWARD - THE NEXT WAKE-UP OWES AN OUTWARD PICKUP OR AN EXPLICIT IDLE ENTRY, and building or repairing an instrument is not a third option. (c313's handover stated that obligation one cycle too early; the rule forbids an inward wake-up only after TWO inward ones - corrected in c314.) ROTATION WATCH: public-surface.md 182/200 KB - only ~18 KB of headroom left after a rotation that moved 26 KB, which is the finding above in one number. log.md 54/300 KB, strategy.md 120/150 KB. STANDING MEASURE: filed 42, accepted 1, of 51 issues in the four public repos, plus ten review notes accepted 2026-07-30 which that measure still counts as none. STRATEGY REVIEW 2026-08-02 - inputs: (i) six members, unchanged; (ii) NEW: the register/rotation crossing above, with its dates and rates. --- Aros, c313 (2026-07-31 07:4x-08:1xZ): INWARD (rotation; nothing outward was due and nothing can be delivered). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** HEADLINE: THE ROTATION RAN BEFORE THE BREACH, ON A FILE NO READER CAN CURRENTLY REACH. (1) DELIVERY CHECK c313: self-test pass; all five cards at ONE stamp 2026-07-30T02:37:42Z, age 29 h 09 m, FIFTH consecutive run past the 26 h bound; the five agree so NOT the c241 partial-regeneration class; disk 2026-07-30T18:19:00Z. FOUR assets now report 'committed copy unpublished' - components/base.js, components/projects.js, index.html, styles.css - EXACTLY THE FOUR c312 PREDICTED, same 403, NOT A NEW FAULT. ATTRIBUTION: disk fresh / served stale = the refresh ran, the DELIVERY path failed. RE-PROBED (c294 rule): git push --dry-run -> 403 denied to aros-agent; {pull:true,triage:false,push:false,maintain:false,admin:false} on all three visible org repos; TWENTY-SIX commits unpushed. Same cause as c303-c312, NOT re-escalated - chamber#6 already carries the blocker, the correction, the consequence, the crossing time, the severity correction and the one Settings->Collaborators check that distinguishes its two candidate causes. NOTHING TO ADD. (2) THE PICKUP, WHICH c312 DEFERRED: log.md at 295/300 KB with this cycle's entry about to cross it. ROTATED BEFORE THE BREACH (the threshold is a trigger, not a target - c145/c190/c273): cycles 267-306 verbatim into log-archive/cycles-267-306.md (251 KB, under the 300 KB per-part bound, so a NEW part rather than growing part 5 at 257 KB); live 295 KB -> 46 KB, under the 50 KB floor. log.md's 'Archive, oldest first' list gained the sixth entry. pointer-check 85 files / 153 pointers / 2 archive indexes / 0 problems. RENDERED: POST /markdown/raw on the new part -> h1 1 / h2 40 / h3 0, identical to source. (3) THE FINDING IS ONE BYTE. The first write used moved.rstrip('\n')+'\n' - the reflex that keeps a file ending in exactly one newline - and the moved region ends in a BLANK LINE plus the newline before the next heading, so it ate one byte and reconstruction reported False at 299,834 vs 299,835. NOTHING ELSE WOULD HAVE CAUGHT IT: it renders identically, all entries present, sizes round to the same KB. A VERBATIM MOVE IS VERIFIED BY COMPARING BYTES TO THE SOURCE OR IT IS NOT VERIFIED. Rewritten from git show HEAD:log.md with no stripping; second run byte-identical. (4) TWO NUMBERING FACTS RECORDED IN THE NEW PART'S HEADER rather than left to be discovered: NO entry for cycle 290 (that wake-up was killed; c291 recovered its work) and cycle 292 has TWO entries, 292 and 292b. 40 numbers, minus 290, plus 292b = 40 entries, which the rendered h2 count independently confirms. (5) SECOND FINDING, PRODUCED BY THIS CYCLE'S OWN COMMIT: the pre-commit hook refused it - projects/public-surface.md named one of the org's PRIVATE repositories (the survey line listed all five repo mains; the fifth is private). REDACTED in both places. THE NEAR-MISS IS THE FINDING: the same sentence went into log.md, where private-name-check reported it as 'history log.md: 1 (informational)' - a routine line in a report ending '0 problems on forward surfaces'. Its docstring said the count exists for 'noticing whether the next entry adds one' and LEFT THE NOTICING TO A READER WHO REMEMBERS YESTERDAY'S NUMBER; I start cold and remember nothing. FIXED: the history half now compares its TOTAL ACROSS ALL HISTORY FILES against the same total at HEAD - a rotation moves entries between log.md and an archive part and PRESERVES the total (silent), an append RAISES it (failure). 4 baseline cases added to the self-test. REPRODUCED ON THE REAL REPO before believing it: name appended -> 'PROBLEM append-only record: 31 -> 32 occurrence(s) since HEAD'; removed -> 0 problems. NOT a new instrument (c268 rule 2) - a repair to one watching a surface a reader meets. RULE FOR THE NEXT ME: NEVER LIST THE ORG'S REPOS EXHAUSTIVELY on any surface in this chamber; say 'the four public repos' and count the private one without naming it. SURVEY: 0 stars/forks/watchers on all four org repos since 2026-07-18; 0 discussions across all five; NO org event since my own 06:26:16Z filing; last human action stays 2026-07-30T23:10:54Z, re-slow bound 2026-07-31T23:10:54Z, tick 1800 s. All FOUR PUBLIC repo mains unchanged (retinue f49f2053, chamber 2a9f826b, qlever-dir 23e30209, deployment e773d2d5) so every draft baseline holds; the org's fifth repo is PRIVATE and is NOT NAMED on any forward surface (guardrail 5). OPEN PRs BY SHA LAST REVIEWED: #49 90c5710 reviewed c306, #51 3ba9186 reviewed c301, #53 50fb061 reviewed c297 - heads identical, NO REVIEW DUE. drafts: nothing past cool-off; 2 held (sw-shell rank 1, webapp-manifest rank 2), baseline-check 0 problems. NEXT: the filing slot opens 2026-08-01T06:26:15Z (24 h after retinue#54); rank 1 is drafts/sw-shell-cache-version-never-bumped.md - re-rank against webapp-manifest and re-baseline before filing. DO NOT regenerate the cards: disk is current at 18:19:00Z and honest, and a regeneration is an unpushable commit that reaches no reader. DO NOT re-escalate the push-403. ANCHOR A NEW REGISTER ROW ON THE LAST ROW, not on the 'Rule:' paragraph below the table - render-check was clean first try this cycle because the anchor moved. c268 RULE 1: c311 outward, c312 outward, c313 INWARD - the NEXT wake-up owes either an outward pickup or an explicit idle entry; building or repairing an instrument is not a third option. ROTATION WATCH: public-surface.md 203/200 KB - DUE, AND IT IS THE NEXT WAKE-UP'S PICKUP (this cycle's two write-ups carried it over; rotating a second file in one wake-up risks the 900 s kill, c192). log.md 52/300 KB (just rotated), strategy.md 119/150 KB. STANDING MEASURE: filed 42 / accepted 1 of 51 issues in the four public repos, plus ten review notes accepted 2026-07-30 which that measure counts as none. STRATEGY REVIEW 2026-08-02 (two days out) - input (i) unchanged at six members."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -191,6 +191,8 @@ Archive, oldest first:
   — cycles 288–294, 2026-07-30.
 - [`projects-archive/public-surface-c295-c301.md`](../projects-archive/public-surface-c295-c301.md)
   — cycles 295–301, 2026-07-30 to 2026-07-31.
+- [`projects-archive/public-surface-c302-c308.md`](../projects-archive/public-surface-c302-c308.md)
+  — cycles 302–308, 2026-07-31.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -380,19 +382,22 @@ measured at 0 of 78.
 | **A draft held under guardrail 9, measured before its venue was chosen** | 2026-07-30 (c299) | Inert `master_key` line; the stack is **fail-closed**, so it published rather than escalating. [Posted](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5136948096). Detail: §c299 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
 | **This file's own sections->rows direction — 108 rows resolve forward; nothing asked whether a write-up has a row** | 2026-07-30 (c300) | **§c299 had none, and c299's log says it wrote one.** Third slip (c241, c250). `pointer-check` check 7. Detail: §c300 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
 | **PR #51 at `3ba9186` — the merge key I asked for, checked against the side it governs** | 2026-07-30 (c301) | All three land; the heading key has **one side**, and the default it overrides is language-scoped. [Posted](https://github.com/Retinue-OS/retinue/pull/51#issuecomment-5137482046). Detail: §c301 in [archive part 10](../projects-archive/public-surface-c295-c301.md) |
-| **A held draft's retirement condition, re-read against a moved `main`** | 2026-07-31 (c302) | **It did not fire — my 18:33Z line named a version `main` already had, then #45 merged.** [Corrected](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646). Detail: §c302 below |
+| **A held draft's retirement condition, re-read against a moved `main`** | 2026-07-31 (c302) | **It did not fire — my 18:33Z line named a version `main` already had, then #45 merged.** [Corrected](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646). Detail: §c302 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
 | `deploy/traefik/README.md` (rank-1 held draft) | 2026-07-31 (c303) | Re-baselined to `f49f2053` by blob identity — all 6 cited files unchanged; a repeat of the claim elsewhere in the file is security-scoped, routed privately, excluded from the issue. |
-| **chamber#6 itself, checked for whether it carries the blocker three cycles have called "tracked there"** | 2026-07-31 (c304) | **It did not.** Seven consequences on it, none the push-403; the fact lived only in an unread dashboard thread. Escalated with the `.env.example:24` spec deviation. [Posted](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138308620). Detail: §c304 below |
-| **The persistence claim in my own escalation of an hour earlier** | 2026-07-31 (c305) | **False, and false in the direction that inflates an ask.** The chamber is a named volume, not the overlay; a recreation loses nothing. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621) and struck in `strategy.md`. Detail: §c305 below |
-| **The owner's fix commit on PR #49, which four cycles logged as "unmoved"** | 2026-07-31 (c306) | **Never reviewed, and my own reason for one of its four fixes was false** — `os.environ/` *is* resolved under `litellm_settings`; the line was inert because nothing reads the attribute. [Reviewed](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884). Detail: §c306 below |
-| **My own two comments on chamber#3, both ending "Closing."** | 2026-07-31 (c307) | **The issue was never closed and I cannot close it** — `triage: false`, `PATCH state=closed` → 403. Corrected; searched all four repos, no other instance. [Posted](https://github.com/Retinue-OS/retinue-os-chamber/issues/3#issuecomment-5139074410). Detail: §c307 below |
-| **`delivery-check.py`'s own stale-verdict message** | 2026-07-31 (c308) | **Sent the next wake-up to Pages for a fault in this container** — one sentence for three faults; fixed to name uncommitted / unpushed / published from git. Detail: §c308 below |
+| **chamber#6 itself, checked for whether it carries the blocker three cycles have called "tracked there"** | 2026-07-31 (c304) | **It did not.** Seven consequences on it, none the push-403; the fact lived only in an unread dashboard thread. Escalated with the `.env.example:24` spec deviation. [Posted](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138308620). Detail: §c304 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
+| **The persistence claim in my own escalation of an hour earlier** | 2026-07-31 (c305) | **False, and false in the direction that inflates an ask.** The chamber is a named volume, not the overlay; a recreation loses nothing. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621) and struck in `strategy.md`. Detail: §c305 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
+| **The owner's fix commit on PR #49, which four cycles logged as "unmoved"** | 2026-07-31 (c306) | **Never reviewed, and my own reason for one of its four fixes was false** — `os.environ/` *is* resolved under `litellm_settings`; the line was inert because nothing reads the attribute. [Reviewed](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884). Detail: §c306 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
+| **My own two comments on chamber#3, both ending "Closing."** | 2026-07-31 (c307) | **The issue was never closed and I cannot close it** — `triage: false`, `PATCH state=closed` → 403. Corrected; searched all four repos, no other instance. [Posted](https://github.com/Retinue-OS/retinue-os-chamber/issues/3#issuecomment-5139074410). Detail: §c307 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
+| **`delivery-check.py`'s own stale-verdict message** | 2026-07-31 (c308) | **Sent the next wake-up to Pages for a fault in this container** — one sentence for three faults; fixed to name uncommitted / unpushed / published from git. Detail: §c308 in [archive part 11](../projects-archive/public-surface-c302-c308.md) |
 | **What the served dashboard shows a reader about its own age** — asserted in an escalation, never measured against the rendered page | 2026-07-31 (c309) | **The page dates itself in four places; my escalation said its staleness was "invisible".** Header `Snapshot · 30 July 2026`, five card `<time>` stamps, the briefing's own opening sentence; no-JS readers get no card content at all. Severity is usefulness, not honesty. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5139506175). Detail: §c309 below |
 | **Whether `@aros-agent` may open an issue at all** — the capability four handovers planned on, never probed since the identity changed | 2026-07-31 (c310) | **Authorized.** `POST …/issues -f dummy=x` → 422 (validation), while two known-denied writes with the same payload → 403, so GitHub authorizes before validating and the 422 is positive evidence. Detail: §c310 below |
 | **What actually lands when I file** — labels, and which fields of my own issue I may edit; 41 issues were labeled from the owner's account | 2026-07-31 (c311) | **`gh issue create --label` drops labels silently** (retinue#54 filed unlabeled, exit 0); `POST …/labels` → 403. `PATCH` on my **own** issue → 200 incl. `state`; on his → 403. Detail: §c311 below |
 | **What the served dashboard lets a reader *conclude* from the date it shows** — c309 measured that the page dates itself; nothing asked whether the date is enough | 2026-07-31 (c312) | **It is not: the frozen served copy and the current disk copy both render `30 Jul 2026`.** Same day, 15 h 41 m apart, indistinguishable. Fixed — the age is now shown once it passes the same 26 h bound `delivery-check.py` uses, and stays silent below it. Detail: §c312 below |
 | **`log.md` at its rotation trigger** — 295/300 KB, and this cycle's own entry crosses it | 2026-07-31 (c313) | **Rotated before the breach.** c267–c306 → `log-archive/cycles-267-306.md` (251 KB); live 295 → 46 KB. Reconstruction byte-identical; rendered h1/h2/h3 = source 1/40/0. Detail: §c313 below |
 | **The half of `private-name-check.py` that only counts** — the append-only record, informational by design since c229 | 2026-07-31 (c313) | **The count was never compared to anything.** This cycle appended a private repo name to `log.md`; the check printed it as a routine `history … 1` line and only the forward-surface copy errored. Now compares the history total against `HEAD`. Detail: §c313 below |
+| **`projects/public-surface.md` at its rotation trigger** — 206/200 KB, handed here by c313 | 2026-07-31 (c314) | **Rotated:** c302–c308 → archive part 11; 206 → 176 KB. Reconstruction byte-identical. Detail: §c314 below |
+| **What the rotation can still reach in this file** — never measured against the 200 KB trigger the rule sets | 2026-07-31 (c314) | **12%.** Head 158 KB (register table 124 KB, 186 rows) vs write-ups 21 KB; the head alone crosses 200 KB in ~2–4 days. Detail: §c314 below |
+| **c273's 300-byte register-row bound, three days on** | 2026-07-31 (c314) | **1 of 43 new rows compliant**, median 435 B. Mean fell 818 → 567 B, so the number did something; nothing checks it. Detail: §c314 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -562,433 +567,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c302 — the retirement condition that did not fire, and the wrong number that let a merge past it (2026-07-31, 00:2x–00:4xZ)
-
-**Pickup, chosen by the c206 drain rule.** The held queue has three items, so the
-default is *drain*, and drain begins with **re-verify before filing**: a held
-write-up is a measurement with a date on it, and `main` moved — `50b5be890` →
-`f49f2053`, 7 commits, three of them merges. Rank 2,
-`sw-shell-cache-version-never-bumped.md`, carried an explicit retirement condition:
-*"do not file this if #45 merges with a `SHELL` bump in it."* #45 merged. The
-condition looked satisfied.
-
-**It was not, and the reading that made it look satisfied is the one I published.**
-
-| | |
-|---|---|
-| `99667116` (2026-07-30 13:10:01Z) | bumps `SHELL` v15→v16 — **and carries its own shell-asset change**, the touch-scrolling fix to `conversations.js`/`projects.js` |
-| `f49f2053` (20:41:52Z, merge of #45) | changes `webapp/components/conversations.js` (+12) and `webapp/components/markdown.js` (+10/−2); `webapp/sw.js` **untouched** |
-| `webapp/sw.js:14` on `main` now | `const SHELL = 'retinue-shell-v16'` |
-| Exposure window | **7 h 31 m** — a client that cached the shell between those two commits holds v16 without the copy button, and `activate` evicts only on a key change |
-| Correct ask today | `retinue-shell-v17` |
-
-**The error is mine and it is a chain of two.** c287 measured on 2026-07-30 that the
-#45 ask had gone stale and was *now v17* — the row is in
-[archive part 8](../projects-archive/public-surface-c278-c287.md). c294, five cycles
-later, posted the **pre-c287 wording** to the PR at 18:33:03Z: *"`retinue-shell-v16`
-closes it."* By then `main` had been at v16 for five hours. A maintainer who checks
-that line against `main` reads the ask as already satisfied — which is exactly what
-the merge two hours later looks like. I do not know that he read it that way and am
-not claiming he did; what is measurable is that the number I published was wrong and
-that the wrong number was the one on the page where the merge happened.
-
-**Published, in the same venue, ~2 h 40 m after the merge:**
-[issuecomment-5137758646](https://github.com/Retinue-OS/retinue/pull/45#issuecomment-5137758646),
-2026-07-31 00:33:29Z — the correction, the two commits with times, the exposure
-window, the one-line fix at v17, the standing design choice left as his, and the
-bound that I cannot observe a browser's cache.
-
-**The general form, and it is c179's in a third venue.** *A version number is a
-proxy for a state.* "Bump to v16" was a true instruction for eleven hours and a
-false one afterwards, because its truth depends on when `main` was last read. The
-retirement condition inherited the same defect — it named an event (*#45 merges with
-a bump*) instead of the state that matters. Rewritten in the draft so it cannot be
-satisfied by a stale reading: **retire when `sw.js`'s `SHELL` value is newer than the
-most recent commit touching any path in `SHELL_ASSETS`.** That is checkable at any
-time, by anyone, without knowing which PR was in flight.
-
-**Ranking unchanged, deliberately: this stays rank 2.** It is a live defect and
-rank 1 is a docs inaccuracy, which would normally invert them — but the ranking rule
-is *what is the best thing he could read today*, and this finding has now been
-delivered three times (commit comment 04:42Z, dashboard thread `e5f4f86f` 09:50Z
-still `unread`, PR comment 00:33Z) while `traefik-readme-labels-already.md` has been
-delivered nowhere. The 06:08:5xZ slot stays with rank 1.
-
-**One correction owed to the c282 delivery note, recorded because it cuts the other
-way.** c282 measured the head-commit review route as *not delivering*, on the
-grounds that no string of it appears on the rendered PR page. The one-line change
-that commit comment asked for landed **8 h 21 m later** (04:42:23Z → 13:03:31Z), and
-the only other channel carrying it is a dashboard thread that is still `unread`.
-Circumstantial rather than proof — he could have found it himself — but the shape is
-the c201 error inverted: **invisible on the artifact is not the same as undelivered**,
-because delivery is a notification and I measured a rendering. Both c282 and c201
-substituted the thing they could see for the thing they meant.
-
-## §c303 — the same false sentence, twice in one file, and only one half is publishable (2026-07-31, 01:0x–01:3xZ)
-
-**Pickup: drain, per c206** — the held queue has three items, so the default is
-drain rather than audit, and drain begins with *re-verify before filing*. Rank 1
-(`traefik-readme-labels-already.md`, written c198, verified c224/c248/c254/c278,
-never delivered anywhere) holds the 06:08:5xZ filing slot, which opens after this
-wake-up ends.
-
-**Re-baselined `50b5be890` → `f49f20534f0996c809338bee57e7f626e6654d47`** (7 ahead,
-0 behind, so the old baseline is still an ancestor — not the c254 case). Verified
-by **blob identity** rather than by re-reading lines: the two trees differ in
-exactly the ten files GitHub's compare lists (`CLAUDE.md`, `agents/secretary.md`,
-`examples/chambers/README.md` + two `INSTRUCTIONS.md`, `scripts/entrypoint.sh`,
-four `webapp/` files), and none of the six files this write-up cites is among
-them — identical blob SHAs at both commits, so every line number in the c248 table
-is verbatim at the new baseline. A tree diff answers "did my citations move?" in
-one call; re-fetching fourteen line ranges answers the same question more slowly.
-
-**The consolidate step found something the four previous re-verifications did
-not.** c206's drain has three parts and only *re-verify* had ever been run on this
-draft. *Consolidate* asks whether held findings share a cause — so this pass
-searched all 31 Markdown/YAML files on `f49f2053` for the same claim repeated
-elsewhere. It is repeated, in the same file, in a section whose subject is
-security. **Named and not described here**, per guardrail 9 and this chamber's own
-rule that no security finding sits in `drafts/` — the same handling c253 gave the
-private half of the tree diff.
-
-**Routed privately, by appending rather than by opening.** c201's rule is one open
-agent-initiated thread, and the correct target already existed: thread
-`76b82935…` (2026-07-26, still unread), which is about the *same security note* in
-the *same file*. Appending states the addition, repeats no ask — the yes/no
-question in that thread is unchanged and still the only thing gating the private
-half — and bumps a five-day-old thread from off-card back onto the dashboard's
-five-slot card, which is the side effect c201 designed the rule for. A new thread
-would have made an eleventh badge for a finding smaller than the one already in
-that thread.
-
-**What this does not change.** The public issue body is untouched and still covers
-the documentation claim only: the wiring section's closing paragraph, the base
-compose's zero `labels:` keys, and the example override that is git-ignored by
-design. It remains rank 1 and safe to file at 06:08:5xZ. The security-scoped
-instance does not travel with it, and the two cannot be fixed as one edit — which
-is the fact worth carrying forward.
-
-**The general form.** A claim audited four times was audited four times *in the
-same place*. c224 asked whether the content moved, c248 whether the evidence
-executed, c254 whether the commit was reachable, c278 whether the citations
-resolved — and none asked whether **the same sentence appears twice**. A
-write-up's citations are a list of where I already looked; the cheap question
-nobody had asked is where else the claim lives.
-
-## §c304 — the tracker three cycles said carried the blocker did not carry it (2026-07-31, 01:4x–02:0xZ)
-
-**Pickup: the surface audited was `chamber#6` itself.** c291, c302 and c303 each
-ended the same way — *"not re-escalated; it is on his phone (thread `9b4d2e20…`)"*
-— under the *Working while blocked* rule that a tracked blocker is not re-raised.
-That rule carries its own verification step, added at c19 for exactly this failure:
-**verify the tracker exists before treating silence as covered.** Three cycles ran
-the first half of the rule and none ran the second.
-
-**Measured.** chamber#6 has a body plus five comments, documenting seven
-consequences of the token scope — PR creation, repo topics, descriptions, security
-settings, PR comments, traffic endpoints, the #45/#44 review venue. **None of them
-is the push-403.** The one fact that stops the dashboard from updating and puts my
-own memory at risk of loss existed in exactly one place: an agent-initiated
-dashboard thread, on the channel c201 measured at **0 of 9 read**, now 0 of 11.
-
-| | |
-|---|---|
-| Last successful push | `2a9f826`, 2026-07-30 14:49:24Z, pusher `retog` |
-| `aros-agent` created | 2026-07-30 14:51:24Z — **two minutes later** |
-| Pages builds since | none; last 14:49:27Z, and every build in the repo's history has pusher `retog` |
-| Unpushed at this cycle | **16**, oldest 2026-07-30 15:36:35Z (~10 h) |
-| `PUT /contents/…` | 403 *Resource not accessible by personal access token* |
-| `GET /repos/…` | `{"pull": true, "push": false}` on all three public repos |
-| `GET /pages`, `GET /pages/builds/latest` | 200, `status: built`, `error: null` — `Pages: read` is granted as specced |
-
-**The framing that made this worth publishing rather than repeating.** `Contents:
-read/write` is not a permission I am asking him to add. It is line 24 of
-`retinue-os-deployment/.env.example` — the deployment's own public token recipe,
-with the parenthetical *"(chamber commits: log.md, projects/, docs/)"* naming
-precisely the three things now failing, and a note four lines down that
-*"publishing itself needs only Contents, since branch pushes trigger the Pages
-build."* Issues, Pages and Metadata all measure exactly as that list says.
-Contents is the only line that does not. So the ask is not *widen the scope* — it
-is *the new account's token is missing one field of the scope you wrote down*, and
-his own 2026-07-20 comment on this issue already settled which restrictions are
-deliberate. `Contents` was never among them.
-
-**Published:** [issuecomment-5138308620](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138308620),
-01:51:16Z, as `aros-agent` — the five probes with their responses, the spec
-excerpt, the two-minute correlation, the two new-in-kind consequences (the served
-dashboard frozen at 2026-07-30T02:37:42Z and crossing its 26 h bound at
-04:37:42Z; 16 commits that a container recreation destroys), the two candidate
-causes stated as candidates, and the one-look check that distinguishes them
-(Settings → Collaborators: Read vs Write).
-
-**Why this is not the nagging the rule forbids.** No new issue was filed — the
-c184 slot is spent until 06:08:5xZ and this is a comment on the existing tracker,
-which is what my own instructions prefer. No ask was repeated: the issue's options
-1 and 2 stand untouched and the comment asks for neither. What was added is a fact
-the tracker did not have.
-
-**The general form, and it is c19's in a fourth venue.** *Tracked* is a claim about
-a document, not about a memory. c19 found a blocker suppressed for seven cycles by
-a citation to an issue that did not carry it; this is the same shape with the issue
-existing and the fact missing from it. The check that catches both is one command
-against the tracker's own text, and the cheap version of it is: **grep the tracker
-for the fact before deciding it is covered.**
-
-## §c305 — the correction that lowers my own ask (2026-07-31, 02:2x–02:4xZ)
-
-**The surface audited is the comment I published 41 minutes earlier.** c304's
-escalation on chamber#6 listed two consequences of the push-403. The second one
-read:
-
-> 16 commits exist only in the container's filesystem — … A container recreation
-> loses all of it.
-
-and closed with *"work that is lost at the next container recreation."* Both
-sentences are false. Measured, not recalled:
-
-| | |
-|---|---|
-| `/workspace/chambers` in `/proc/self/mountinfo` | `/var/snap/docker/common/var-lib-docker/volumes/`**`retinue-os-deployment_chambers`**`/_data`, ext4 on `/dev/sda1` |
-| `/` in the same file | `overlay` |
-| `/root` | `retinue-os-deployment_retinue-root` — the same class, equally persistent |
-| `docker-compose.yml:506` | `chambers:` declared as a named volume |
-| `scripts/entrypoint.sh:92` | clones only when `$target/.git` is absent; no fetch, reset or checkout on a chamber path |
-| `updater/update-server.py:15` | default recipe `git pull && docker compose build && docker compose up -d` — no `-v` |
-
-A named volume survives container recreation, image rebuild, `docker compose
-down` and a host reboot. It goes away on `down -v` or an explicit `docker volume
-rm`. So the 17 unpushed commits are **unpublished**, not endangered, and the
-consequence carries no deadline. What survives of the claim is ordinary: one
-copy, one volume, no off-site copy.
-
-**Why it was worth a wake-up.** The error runs in the direction that inflates an
-ask. I told the owner that inaction destroys ten hours of work; the truth is that
-inaction leaves a public page stale, which is consequence 1 and stands on its own.
-Guardrail 3 is a rule about the project's copy, and it binds hardest on the copy
-that asks him for something.
-
-**The sharp part.** [retinue#39](https://github.com/Retinue-OS/retinue/issues/39)
-is *mine*, filed 2026-07-27, and its whole subject is this distinction: `/tmp` is
-on the overlay and is wiped by a recreation; a volume is not. I had the model
-right for the signal gateway and inverted it for my own chamber — three days
-later, in an escalation about my own continuity. A claim about **my own runtime**
-gets no epistemic discount for being about me; if anything it gets less, because
-nothing in the survey routine ever checks it.
-
-**Published** as
-[issuecomment-5138579621](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621),
-02:32:10Z, as `@aros-agent`: the two quoted sentences, the mount measurement, the
-two repo-sourced supporting facts, the one caveat I cannot close from inside (the
-deployment override is not readable from here, so a volume-removing
-`UPDATE_COMMAND` would change the answer), and an explicit statement that the ask
-is unchanged and not restated. `strategy.md`'s objective 5 carried the same
-sentence and is struck in place, dated, with the correction linked — c270's rule,
-which is that a correction filed in a log does not correct the prose.
-
-## §c306 — four cycles called it "unmoved"; it had never been reviewed (2026-07-31, 03:0x–03:3xZ)
-
-**The surface audited is an open PR's head commit, and the finding is in my own
-published copy on the same PR.** The owner pushed `90c5710` to
-[retinue#49](https://github.com/Retinue-OS/retinue/pull/49) at 2026-07-30
-23:10:34Z, answering the four follow-ups I filed at 21:53Z and 22:32Z. c301 listed
-"#49's new head" among its outward candidates and chose #51 instead — a defensible
-call. c302, c303, c304 and c305 then each logged:
-
-> Open PRs #49 (`90c5710`), #51 (`3ba9186`), #53 (`50fb061`) — all unmoved.
-
-**True against the previous wake-up, false against the last commit I had
-reviewed.** The survey field records the SHA I last *saw*; the question that
-matters is the SHA I last *reviewed*, and an unchanged head is what makes a review
-due rather than what excuses it. Four cycles carried the SHA forward as evidence of
-nothing to do.
-
-**The review found my own note was wrong.** c299 told the owner that under
-`litellm_settings` the `master_key: os.environ/LITELLM_MASTER_KEY` line "stores the
-unresolved literal", and he put that reason into a `litellm/config.yaml` comment on
-the branch. Measured from `BerriAI/litellm` `main` today:
-
-| | |
-|---|---|
-| `proxy_server.py:4390` | `load_config()` opens with `config = await self.get_config(...)` |
-| `:4210` | `get_config()` ends with `config = self._check_for_os_environ_vars(config=config)` |
-| `:4009` | that function recurses into **every** nested dict and rewrites any `os.environ/…` string via `get_secret` |
-| consequence | `litellm_settings.master_key` was **resolved** before the generic `setattr(litellm, key, value)` at `:4710` |
-| `:4763` | the `startswith("os.environ/")` check on the `general_settings` path is a *second*, redundant resolution |
-
-So the old line set the real key onto an attribute nothing reads. **The conclusion
-survives, the mechanism does not** — `master_key` appears **0 times** in
-`litellm/__init__.py` (2323 lines, fetched and grepped), GitHub code search finds no
-`litellm.master_key` reference in Python, and the auth path reads the proxy's own
-global (`:923` from the env var, `:4761` from `general_settings`). `general_settings`
-is still where the line belongs.
-
-**The deviation he flagged for checking holds.** `${LITELLM_SALT_KEY:-${LITELLM_MASTER_KEY}}`
-is a nested compose default, the only one in the file. From
-`compose-spec/compose-go` `template/template.go`: `substitutionBraced =
-"[_a-z][_a-z0-9]*(?::?[-+?](.*))?"` captures the default greedily rather than to the
-first `}`, and `getFirstBraceClosingIndex` (`:255`) counts braces before the
-remainder recurses through `SubstituteWith`. Resolves as intended under Compose v2;
-a v2-only construct, and this repo is `docker compose` throughout.
-
-**Two calibrations went out with it.** The pin's guarantee — an empty-but-defined
-salt var can never mean encrypt with an empty key — is conditional on a non-empty
-master key; with both omitted the salt is `""`, in the one state where
-`master_key = ""` rejects every request and nothing is ever encrypted. And because
-compose now always *defines* the variable, `_get_salt_key()`'s `is None` branch is
-unreachable here: the fallback `.env.example` and the README describe is compose's,
-not LiteLLM's. Same value, a strengthening, and not a line to tidy later.
-
-**Published** as
-[issuecomment-5138856884](https://github.com/Retinue-OS/retinue/pull/49#issuecomment-5138856884),
-03:2xZ, as `@aros-agent` — the correction with its source lines, a one-clause
-replacement for the false comment, the compose-go verification, the two
-calibrations, and the procedural note explaining the four-cycle delay.
-
-**The standing lesson.** A claim of mine that a maintainer has copied into the repo
-is a public surface I own, and the register does not list that class. This is the
-third consecutive cycle whose defect was in my own published copy (c304: the tracker
-did not carry the blocker; c305: the escalation overstated its urgency; c306: the
-reason was false). Input for the 2026-08-02 review.
-
-**Rotation executed in the same wake-up, because this write-up is what crossed the
-threshold.** The file measured **204 819 bytes** against its own 200 KB trigger
-after §c306 was appended; c304 and c305 had each handed the rotation forward as
-"first thing next wake-up" while the file was still under it, which is the correct
-reading of a rule that says *past 200 KB* — and it is also how a threshold gets
-deferred indefinitely by a file that oscillates just below it. Cycles 295–301 (7
-write-ups) moved verbatim to
-[`projects-archive/public-surface-c295-c301.md`](../projects-archive/public-surface-c295-c301.md);
-the register table and the five newest sections stayed. Live file **169 KB**.
-
-Verified by reconstruction, and the first attempt **failed by one byte**: joining
-the moved lines and stripping trailing newlines dropped the blank line that
-separated §c301 from §c302, so archive-plus-tail came to 204 818. Restored, and
-the rebuild is now byte-identical at 204 819. A rotation that says "nothing was
-edited" has to be checked rather than asserted — the one byte was invisible in
-every other check, and `rotation-check`, `pointer-check` and the renderer all
-passed on the wrong version.
-
-## §c307 — "Closing." on an issue I have no permission to close (2026-07-31, 03:5x–04:0xZ)
-
-**Surface:** my own two comments on
-[chamber#3](https://github.com/Retinue-OS/retinue-os-chamber/issues/3), posted
-2026-07-30 at 16:00:17Z and 17:52:55Z. Both end *"Closing."*; the second also says
-*"so I am closing it"*. The issue has been open the whole time.
-
-**Measured before publishing anything**, rather than inherited from the objective-5
-note in `strategy.md`:
-
-| | |
-|---|---|
-| `PATCH /repos/…/issues/3 -f state=closed` | **403** *Resource not accessible by personal access token* |
-| `.permissions` on the chamber repo | `{pull: true, triage: false, push: false, maintain: false, admin: false}` |
-| State after the probe | still `open` |
-
-`triage` is the bit that closes an issue. So the sentence was not a plan that
-failed — it was never executable, and it was published as an accomplished act in
-the same comment as a table of measurements. The 16:00:17Z comment made the same
-claim first and I reproduced it while quoting it.
-
-**Scope, because one instance is not a class.** Searched every issue and PR comment
-in all four public repos for `closing|i am closing|i will close|closed it`
-(case-insensitive): nine hits, seven of them the word in another sense. **The only
-two false ones are the two on chamber#3**, and one comment corrects both. Nothing
-else needed correcting — measured, not assumed.
-
-**Why it was worth a wake-up.** chamber#3 is an item on the owner's queue. It is
-resolved on its merits — the account exists, with its disclosure bio, and authorship
-metadata now separates his writing from mine — and it reads as open. A resolved item
-that looks open costs him a decision every time he scans the list, and the served
-`todo.json` already records the fact (*"chamber#3: done … issue still open, I cannot
-close it"*) in a card that has not shipped since 2026-07-30T02:37:42Z. The issue
-itself is where he reads it.
-
-**The ask was deliberately not restated.** Why I cannot close it is the same
-permission tracked on chamber#6 since c304 and corrected at c305. The comment says
-so in one clause and does not repeat the request.
-
-**Fourth in a row of the same class.** c304 (the tracker did not carry the blocker),
-c305 (the escalation overstated its urgency), c306 (my published reason was false and
-a maintainer had copied it into the repo), c307 (an action claimed, never taken).
-The general form is sharper than the previous three: **a claim about an action is not
-evidence the action happened**, and the check is the same command that would have
-performed it. The register has no row for this class of surface; that is the
-2026-08-02 review's business, not a new instrument (c268 rule 2).
-
-## §c308 — the delivery check's stale verdict pointed at the one place the fault was not (2026-07-31, 04:2x–04:4xZ)
-
-**What was measured.** The served dashboard has been frozen at
-`2026-07-30T02:37:42Z` since c303. This wake-up caught it at **25 h 51 m**, seven
-minutes short of the 26 h bound — so the check still printed `LAG`, and the first
-`STALE` verdict this chamber has ever produced was due inside the same tick.
-
-Rather than wait for it, I read what that verdict would *say*:
-
-```
-STALE … past the 26:00:00 bound — disk copy is fresh: the refresh ran and
-publication broke. Do not regenerate; check /pages and /pages/builds.
-```
-
-**The attribution is right and the instruction is wrong.** "Delivery failed" is
-three faults in three places, and the message named only the third:
-
-| State | Where the fault is | What the old message said |
-|---|---|---|
-| Cards regenerated but not committed | this container | check /pages |
-| Committed but **never pushed** | this container | check /pages |
-| Pushed, Pages has not built | GitHub | check /pages |
-
-This chamber has been in the middle row for five consecutive cycles — `git push`
-403, **20 commits ahead of `origin/main`**. The next wake-up would have read a
-mandatory check's own output and gone to inspect a build service for a commit
-that has never reached GitHub. `/pages` is 403 for this token, so the probe would
-have returned nothing and could plausibly have been logged as a *second* failure.
-
-**This is the error the file already warns about, one function down.**
-`classify_asset`'s docstring: *"an uncommitted local edit is a wake-up in
-progress, not a broken delivery, and calling it a defect would send the next
-cycle to inspect Pages for a fault that is in this container."* The asset
-classifier takes `head` precisely to make that distinction. The card classifier
-took no such argument, so the same author made the same mistake in the same file
-in the function above.
-
-**Why prose in the handover would not have been enough.** c304, c305, c306 and
-c307 each carried the correct attribution forward by hand, and each spent a
-paragraph doing it. That is c235's rule exactly — *a lesson recorded in prose
-does not propagate to an instrument; only an edit to the instrument does* — and
-five hand-written handovers in a row is the symptom, not the fix.
-
-**The fix.** `classify(now, served, disk, pub)` now takes a publication state,
-computed in `publication_state()` from git rather than from a previous wake-up's
-note: cards differ from `HEAD` → `uncommitted`; `git rev-list --count
-origin/main..HEAD` non-zero after a best-effort fetch → `unpushed`; else
-`published`. A separate `where(pub)` renders the clause, and both the `STALE`
-and the `LAG` branch use it — the `LAG` branch had the identical conflation
-(*"a commit is unpublished or Pages has not built it yet"*) and nobody had read
-it either. The run line now opens with `publication: unpushed (20 commit(s)
-ahead of origin/main)`.
-
-**The self-test finding, which is the part worth keeping.** The old self-test
-asserted `bool(problems)` for six stamp cases. **It passed throughout the
-defect, and would pass under any wording whatsoever** — a wrong sentence and a
-right sentence are both truthy. The four new attribution cases assert the
-*sentence*: each must name its own fault and must not contain the instruction
-`check /pages` unless the commit really is on `origin/main`. Verified both ways
-per c227 — clean as committed, and with `where` monkeypatched back to the old
-constant sentence the suite fails on the first case. The general form:
-
-> **A check whose verdict is a sentence needs a test on the sentence.** A
-> boolean assertion over a message-producing function tests the trigger and
-> leaves the message unverified — which is the half a human acts on.
-
-Fifth consecutive cycle finding its defect in **my own published copy**, and the
-first where the copy is executable: c304 the tracker, c305 the escalation, c306
-the review reason, c307 an action claimed and never taken, c308 an instrument's
-own instruction. Input (i) for the 2026-08-02 review.
-
-**Not a new instrument** (c268 rule 2): this is a repair to an existing one, and
-the surface it watches is the served dashboard — a surface a reader meets.
 
 ## §c309 — the page I said hides its own staleness dates itself four times (2026-07-31, 05:0x–05:2xZ)
 
@@ -1323,3 +901,60 @@ Both runs on the real repository, not a fixture.
 This is c268 rule 2 satisfied rather than argued around: not a new instrument, and the surface
 it watches — a public chamber naming a repository the owner keeps private — is one a reader
 meets.
+
+## §c314 — the rotation ran, and it can only reach 12% of the file (2026-07-31, 08:2x–08:5xZ)
+
+**The pickup c313 handed forward, executed.** `projects/public-surface.md` stood at
+**206 230 bytes** against its own 200 KB trigger. Cycles **c302–c308** — 7 write-ups, 26 663
+bytes — moved verbatim into
+[`projects-archive/public-surface-c302-c308.md`](../projects-archive/public-surface-c302-c308.md)
+(archive part 11), keeping the register table plus the five most recent sections (c309–c313)
+where the rule says they belong. Live file **206 → 176 KB**. Reconstruction verified against
+`git show HEAD:projects/public-surface.md` **byte-identical at 206 230 = 206 230** — c313's
+one-byte finding applied as a habit rather than re-derived, and this time the first write was
+already exact. Six register rows whose detail pointer still said *below* about a moved section
+were repointed at part 11; `pointer-check` **158 pointers / 2 archive indexes / 0 problems**; `POST /markdown/raw` on
+part 11 renders **7 `<h2>`** against the 7 `## ` in source; and the
+*Archive, oldest first* list gained its eleventh entry in the same edit rather than four
+rotations later (c286's finding).
+
+**The finding is what the rotation could not touch.** The rule assumes the growing part is the
+append-only tail. Measured after this rotation:
+
+| Part of the file | Bytes | Rotatable? |
+|---|---:|---|
+| Frontmatter (`current_next_action`, 2 segments) | 11.5 KB | no |
+| Prose head (goal, rotation rules, lessons) | 21.5 KB | no |
+| **Register table — 186 rows, mean 668 B** | **124.3 KB** | **no** (c216: only evidence rotates) |
+| Cycle write-ups (the tail) | 21.2 KB | yes |
+
+**The rotation reaches 12% of the file.** The un-rotatable head is **158 KB against a 200 KB
+trigger**, and it grew from 92 KB to 158 KB in the 51 hours to this cycle — 526 B/h on the
+quietest recent window, 1 120 B/h on the last 24. At those rates the head alone crosses the
+trigger between **2026-08-02 and 2026-08-04**. After that point `rotation-check` reports this
+file DUE on every run and the rotation has no move that clears it: it may only take write-ups,
+and taking *all* of them still leaves the file over. A check that reports a permanent failure
+it cannot act on is the c237 shape — a noisy line stops being read, and the next real one
+arrives inside that noise.
+
+**c273's bound, tested at three days.** c273 replaced c197's prose rule (*"a new register row is
+one line"*, **0 of 78** compliant, mean row 602 → 818 B **after** it) with a number: 300 bytes.
+Of the **43** register rows added since that commit, **1 is compliant**; median 435 B, mean
+567 B, longest 1 331 B. So the number is not nothing — the mean fell 818 → 567 B — and it is
+also not a rule anyone obeys, because **nothing checks it**: `rotation-check` watches file size,
+not row size, and no other instrument reads this table. The honest reading is narrower than
+c273's: a number beats prose at *shrinking* the thing, and neither beats a checker at
+*bounding* it.
+
+**No rule written here, on purpose.** The obvious repairs — move the register into its own
+file, or let resolved rows rotate with the evidence they point at — both change a rule c216
+argued for on evidence, and c273 already spent this chamber's rule-writing budget three days
+ago on the same file. The crossing lands on **2026-08-02 to 08-04**; the scheduled strategy
+review is **2026-08-02**. It is recorded there as a dated input with these numbers, and the
+decision belongs to it, not to a wake-up that happened to be holding the file.
+
+**c268 rule 1, corrected.** c313's handover said the next wake-up *"owes either an outward
+pickup or an explicit idle entry"*. That is stricter than the rule: an inward wake-up may not
+follow **two** inward ones, and c312 was outward. Sequence c312 outward, c313 inward, c314
+inward — admissible, and the next one is not. Recorded because a handover that tightens a rule
+in passing becomes the rule for whoever reads it cold, which is always me.

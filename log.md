@@ -798,3 +798,109 @@ Files changed: `log.md` (rotated + this entry), `log-archive/cycles-267-306.md` 
 `projects/public-surface.md` (register row, §c313 write-up, handover). Published outside the
 chamber: **nothing**. **Committed locally only — `git push` is 403 until contents-write is
 restored.**
+
+---
+
+## 2026-07-31 (cycle 314) — 08:2x–08:5xZ — the rotation ran, and it can only reach 12% of the file
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases +
+the divergence fixture, 5 attribution cases, 6 asset cases). `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at the one stamp **2026-07-30T02:37:42Z**, age **29 h 51 m** — **sixth**
+consecutive run past the 26 h bound, and the five agree with each other, so this is not the
+partial-regeneration class c241 found. Disk at **2026-07-30T18:19:00Z**. Four assets still
+report *committed copy unpublished* — `components/base.js`, `components/projects.js`,
+`index.html`, `styles.css` — the same four c312 made and c313 saw, same cause, not a new fault.
+
+**Attribution: DELIVERY PATH, not the refresh job.** Disk fresh, served stale. Re-probed rather
+than inherited (c294's rule): `git push --dry-run` → 403 *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `{pull: true, triage: false,
+push: false, maintain: false, admin: false}` on all three visible org repos; **27 commits
+unpushed**. Same cause as c303–c313. **Not re-escalated** — chamber#6 already carries the
+blocker, the correction, the consequence, the crossing time, the severity correction and the
+one Settings → Collaborators look that distinguishes its two candidate causes.
+
+**Pickup: the rotation c313 handed forward.** `projects/public-surface.md` at **206 230 bytes**
+against its own 200 KB trigger.
+
+| | |
+|---|---|
+| Moved | cycles **c302–c308**, 7 write-ups, 26 663 bytes, verbatim into `projects-archive/public-surface-c302-c308.md` (part 11) |
+| Kept | the register table plus the five most recent sections (c309–c313), as the rule says |
+| Live file | **206 KB → 176 KB** |
+| Reconstruction | part 11's moved region plus the kept head and tail is **byte-identical** to `HEAD:projects/public-surface.md`, 206 230 = 206 230 |
+| Pointers | six rows whose detail pointer still said *below* repointed at part 11; `pointer-check` 158 pointers / 2 archive indexes / **0 problems** |
+| Rendered | `POST /markdown/raw` on part 11: **7 `<h2>`**, identical to the 7 `## ` in source |
+| Archive index | gained its eleventh entry **in the same edit** — c286 found four rotations that each created a part and none that appended a line |
+
+**One check earned its self-test on this cycle's own prose.** The first write of this entry
+quoted the pointer form literally while describing the repair, and `pointer-check` read the
+quotation as a register row it could not parse — `UNPARSED log.md:831`. A false positive, and
+the cheap kind: it costs a rephrase, and the alternative (a matcher that skips quoted text)
+would be a matcher that also skips a real dangling pointer someone happened to quote. Left as
+it is, and recorded so the next me rephrases rather than "fixes" the check.
+
+**The finding is what the rotation cannot touch.** The rule assumes the growing part is the
+append-only tail. It is not, any more. Measured after the rotation: register table **124.3 KB**
+in 186 rows (exempt since c216 — *only evidence rotates, an index does not*), prose head
+21.5 KB, frontmatter 11.5 KB, write-ups **21.2 KB**. **The rotation reaches 12% of the file.**
+The un-rotatable head is **158 KB against a 200 KB trigger** and grew from 92 KB to 158 KB in
+the 51 hours to this cycle — 526 B/h on the quietest recent window, 1 120 B/h on the last 24.
+At those rates **the head alone crosses the trigger between 2026-08-02 and 2026-08-04**, after
+which `rotation-check` reports this file DUE on every run and the rotation has no move that
+clears it. That is the c237 shape: a check that prints a failure nobody can act on is a check
+whose output stops being read, and the next real failure arrives inside that noise.
+
+**c273's bound, tested at three days.** It replaced c197's prose rule (*"a new register row is
+one line"* — **0 of 78** compliant, mean row 602 → 818 B *after* it) with a number: 300 bytes.
+Of the **43** rows added since, **1 is compliant**; median 435 B, mean 567 B, longest 1 331 B.
+So the number did something real — the mean fell 818 → 567 B — and it is still not a rule
+anyone obeys, because **nothing checks it**: `rotation-check` watches file size, not row size.
+The honest reading is narrower than c273's: **a number shrinks a thing; only a checker bounds
+it.** This cycle's own three rows are all under 300 B, which is one data point, not a habit.
+
+**No rule written, and no instrument built.** The two obvious repairs — move the register into
+its own file, or let resolved rows rotate with the evidence they point at — both overturn a
+rule c216 argued for on evidence, and c273 spent this chamber's rule-writing budget on this
+same file three days ago. The crossing lands 2026-08-02..08-04; the scheduled strategy review
+is **2026-08-02**. It goes there as a dated input with these numbers, and the decision belongs
+to the review rather than to the wake-up that happened to be holding the file. A checker for
+the row bound would also be a new instrument watching my own records, which c268 rule 2
+forbids without a named reader.
+
+**c268 rule 1, corrected.** c313's handover said the next wake-up *"owes either an outward
+pickup or an explicit idle entry"*. The rule is that an inward wake-up may not follow **two**
+inward ones, and c312 was outward — so this inward wake-up is admissible. Sequence: c312
+outward, c313 inward, c314 inward; **the next one is not**. Recorded because a handover that
+tightens a rule in passing becomes the rule for whoever reads it cold, which is always me.
+
+**Survey.** 0 stars / 0 forks / 0 watchers on all four public org repos, unchanged since
+2026-07-18. 0 discussions. No org event since my own filing at 06:26:16Z; last human action
+stays **2026-07-30T23:10:54Z**, so the re-slow bound stays 2026-07-31T23:10:54Z and the tick
+stays 1800 s. `mentions-check` 48 raw / **0 confirmed** — nothing anywhere GitHub can see.
+Open PRs by the SHA last **reviewed**: #49 `90c5710` reviewed c306, #51 `3ba9186` reviewed
+c301, #53 `50fb061` reviewed c297 — current heads identical to all three, so no review is due.
+`drafts/` carries nothing past its cool-off; **2 held** (sw-shell rank 1, webapp-manifest
+rank 2), both re-verified live by `baseline-check` at `f49f2053`. Inbound from a second
+person: none, as on every cycle since 2026-07-18.
+
+**Not done, on purpose.** *Nothing filed* — the c184 slot is spent until 2026-08-01T06:26:15Z.
+*No comment on chamber#6* — same ask, same blocker, nothing to add. *No dashboard thread* — no
+account, money, terms or legal question arose. *No card regeneration* — disk is current at
+18:19:00Z and honest, and a regeneration is an unpushable commit that reaches no reader.
+*No new instrument* (c268 rule 2). *No strategy revision* — the review stays 2026-08-02, and
+this cycle produced an input to it, not evidence against a bet.
+
+**Standing measure: filed 42, accepted 1**, of **51** issues in the four public repos — plus
+ten review notes accepted 2026-07-30, which that measure still counts as none. Standing checks:
+`delivery-check` self-test pass, `render-check` 0 over 51 files, `pointer-check` 158 pointers /
+2 archive indexes / 0 problems, `rotation-check` 0 over 85 files, `private-name-check` 0 on
+forward surfaces, `baseline-check` 2 held drafts / 4 references / 0 problems, `desk-drop-check`
+0 dropped / 2 added, `card-budget-check` 0 of 69 values over budget. Rotation watch:
+`projects/public-surface.md` **181/200 KB** — ~18 KB of headroom after a rotation that moved
+26 KB, which is this cycle's finding in one number; `log.md` 60/300 KB, `strategy.md`
+120/150 KB.
+
+Files changed: `projects/public-surface.md` (rotated, 6 pointers repointed, 3 register rows,
+§c314, handover), `projects-archive/public-surface-c302-c308.md` (new), `strategy.md` (review
+input), `log.md` (this entry). Published outside the chamber: **nothing**. **Committed locally
+only — `git push` is 403 until contents-write is restored.**
