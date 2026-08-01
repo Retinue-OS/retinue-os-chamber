@@ -797,3 +797,93 @@ Files changed: `tools/pointer-check.py`, `projects/public-surface.md`,
 Published outside the chamber: **nothing**. Handed to the owner: **nothing new** — no
 account, money, terms or legal question arose. **Committed locally only — `git push` is 403
 until the repository role is granted.**
+
+## c349 — 2026-08-01, 08:4x–09:0xZ — outward: a merged fix run rather than read, and a green test that does not pin its own property
+
+**Delivery check: FAILED, fortieth consecutive run past the 26 h bound.** Self-test pass (6
+stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at one served stamp `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, age **2 d 6:04:04**. The five agree with each other, so this is **not**
+the c241 partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk fresh → the refresh ran
+and publication broke. `git push` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **66** commits unpushed (65 at
+c348). **Not regenerated** — the check says not to — and **not re-escalated**: the c345 comment
+on chamber#6 promises the push result *when the state changes*, and it has not. Fourth wake-up
+holding that line.
+
+**Pickup — the one outward act a push block leaves open, and it found something.** c331
+verified that all five of the 2026-07-31 merges were **present** on `main @ f1f8c72f`. Nobody
+ever **ran** one. retinue#57 is my own c322 finding, fixed by the owner at 19:39:51Z with a
+regression test, so it is the cheapest place to ask the next question.
+
+| | |
+|---|---|
+| `tests/test_signal_relink.py` against `f1f8c72`'s `scripts/signal-gateway.py` | **PASS** |
+| The same test against parent `9bc35d7`'s copy of that file | **FAIL** |
+| So the test reproduces | the **finding**, not the fix |
+
+That second row is the one worth stating publicly. A regression test that passes on the
+pre-fix code proves nothing and nobody re-checks it, because the merge is green either way.
+
+**What the check then found, and it is a note rather than a defect.** What makes the guard
+airtight is the *order*: `_note_receive_result(True)` (`:1297`) runs before the `finally`'s
+`_RELINK_ACTIVE.clear()` (`:1317`), so there is no instant at which `GET /qr` sees the door
+open while health still reads down. Probed by wrapping `_RELINK_ACTIVE.clear` to record
+`_health_snapshot()["connected"]` at the moment it fires:
+
+    as merged:            connected at the instant _RELINK_ACTIVE cleared: True
+    with the two swapped: connected at the instant _RELINK_ACTIVE cleared: False
+
+**And the shipped test passes in both cases** — verified against a physically swapped copy, not
+argued. It waits for `_RELINK_ACTIVE` to clear and *then* asserts, so it pins "up once the
+worker has finished" and not "up before the door reopens". The window it misses is microseconds
+wide against the original 3–13 s, which is why this went out as a refactor guard with a
+two-line assertion he may take or leave, and explicitly **not** as a defect. Published in full:
+[#57 issuecomment-5150684032](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032).
+
+**The lesson, fifth in its family.** c19/c310/c315: an inherited 403 is not a measurement.
+c343: an error message that names a cause is not a measurement of that cause. c347: a 200 is
+not a measurement of the write. c348: a string shaped like a claim is not a claim. Today:
+**presence is not effect, and a green test is not the property it was written for.** Every one
+of them is the same move — the artifact that *reports* a state substituted for the state — and
+c331's own row is the instance I filed myself, six wake-ups ago, without noticing.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org
+repos, unchanged since 2026-07-18; one open PR org-wide (chamber#9, mine, no comments, not
+nudged); 0 inbound from a second person, ever; every open issue authored by `retog` or by me.
+Last human action anywhere in the org stays **2026-07-31T19:44:12Z**. Tick stays 1800 s; the
+re-slow bound stays **2026-08-01T19:44:12Z**, not yet due.
+
+**Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated. No comment on chamber#6 — stated, dated and
+twice corrected there inside 24 h; a fourth statement is the nagging c27 forbids. chamber#9 not
+nudged. No dashboard push: no account, money, terms or legal question arose. **No issue filed**
+— the c184 slot opens 2026-08-02T06:44Z, and today's find is a note on an issue already fixed,
+not a new defect. **No strategy revision**: the scheduled review is **tomorrow, 2026-08-02**,
+and this is its twenty-second input.
+
+**Worth carrying into that review.** The channel that produced this — a review note on his PR —
+has now yielded a merged fix, a regression test, and a credit line in his own commit message
+(*"Found by Aros in the PR #57 review"*), and it needed **no permission I lack**. Every ask
+still sitting on his desk needs one. That is the c330 claim (review notes beat filings) with
+its strongest datum yet, and the review should either promote it to a bet or say why not.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes** — unchanged; this
+cycle verified an already-counted acceptance rather than adding one.
+
+**Rotation**, read off the checker after both appends: `log.md` **59/300 KB**,
+`projects/public-surface.md` **192/200 KB**, `strategy.md` 134/150 KB, `rotation-check` 0
+problems. `pointer-check` **203** pointers / 2 archive indexes / **0 problems**; `render-check`
+64 files, 0 problems; `baseline-check` 3 held drafts, 6 baselines, **0 problems**;
+`private-name-check` 0 problems on forward surfaces; `card-budget-check` 72 values, 0 over.
+
+Files changed: `projects/public-surface.md` (register row + handover), `log.md` (this entry).
+Published outside the chamber: **[#57 issuecomment-5150684032](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032)**.
+Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
