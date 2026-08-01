@@ -3253,3 +3253,134 @@ Files changed: `log.md` (this entry), `projects/public-surface.md` (handover fie
 section, per the rotation head room above). Published outside the chamber: **nothing** — no outward
 slot was open and none was manufactured. Handed to the owner: **nothing** — nothing arose needing an
 account, money, terms of service or a legal call.
+
+---
+
+## 2026-08-01 (cycle 339) — 02:0x–02:3xZ — outward: c318's check re-run against a moved `main`, and my own PR left the calibration in four other files
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). All five at one stamp —
+served `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age **1 d 23:25:28** — the
+**thirty-first** consecutive run past the 26 h bound. The five agree with each other, so this is not
+the c241 partial-regeneration class. Same four assets unpublished: `components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk fresh, served stale.
+`git push origin main` → **403, "Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"**; **53 commits unpushed**, one more than c338. Nothing regenerated — the check forbids
+it when disk is fresh. Pages not re-probed this cycle: c337's tree-hash method settled it twice, and
+the push is 403 in this container, which is upstream of anything Pages could do. Not re-escalated —
+chamber#6 carries the complete two-cause ask and the owner was in the repos 6 h 20 m ago.
+
+**The pickup: c318's own check, re-run against a `main` that has moved 21 files.** c318 asked *which
+of my 27 open `retinue` issues are already fixed?* against `f49f2053`, and answered **none**. That
+answer had a shelf life nobody wrote down: five merges landed on 2026-07-31 between 19:0x and
+19:44Z, and `main` is now `f1f8c72f` — **21 files different**, including `README.md` (+64/−7),
+`CLAUDE.md` (+36/−15), `.env.example`, `litellm/config.yaml` and four gateway scripts. Re-run this
+cycle: **1 of 27 is fixed.**
+
+**retinue#2 — reindex latency — is fixed in both files it names**, by commit `97d6e66b`
+(*"docs: reindex latency is tens of seconds, not a two-second range"*), merged 19:33:40Z as **PR #55,
+which was mine**:
+
+| | |
+|---|---|
+| `README.md:551-562` | "tens of seconds (measured 15–25 s across six rebuilds of a small chamber)", converter extensions named, RDF-only trigger stated with the `qlever-dir#3` link |
+| `docs/triple-stores.md:160` | `~15 s` → "tens of seconds" |
+
+**And the same claim survives in four other files, two of which are the ones this framework's own
+agents read at session start.** That is the finding, and it is larger than the issue that produced
+it:
+
+| File | Line | What it still says | Which of #2's three problems |
+|---|---|---|---|
+| `CLAUDE.md` | 154 | "rebuilds automatically within ~15 s of any filesystem change" | the rounded figure **and** "any filesystem change" — which `README.md` now explicitly denies |
+| `.claude/agents/archivist.md` | 22–23 | "rebuilds its index automatically (within ~15 s of any change)" | the same two |
+| `webapp/components/projects.js` | 10 | comment: "on the ~15 s rebuild" | the figure only |
+| `scripts/web-gateway.py` | 2846 | comment: "the triples fall out of the ~15 s qlever-dir rebuild" | the figure only |
+
+**Excluded after checking rather than assumed:** `scripts/entrypoint.sh:411` also matches `~15 s` and
+is a credential-poll debounce (5 × 3 s) with nothing to do with qlever-dir. Counting it would have
+made the finding 5 of 6 and wrong — a count's scope is part of the claim (c176). `CLAUDE.md:188`
+documents the converter mechanism separately, so problem 2 does not apply there; only the figure and
+the trigger do.
+
+**Published**, as a comment on the issue that already owns the subject rather than as a new filing —
+[retinue#2, issuecomment-5149034118](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5149034118),
+02:08:37Z, verified authored by `aros-agent`. It states what is fixed, the four places that are not,
+the exclusion, and suggested replacement wording for `CLAUDE.md:154` copied from what `README.md` now
+says, so the remaining work is a paste rather than a decision. **Not closed, and I cannot close it:**
+#2 was filed 2026-07-19 from the owner's account, before mine existed, and `PATCH` on an issue I do
+not author is 403 (c311). Said so in the comment rather than leaving him to wonder why I left it open.
+
+**The rule this is the third instance of, and this time it was mine.** c30 corrected
+`positioning.md` and stopped; c31 found the same claim live in the paste-ready org profile. The
+register calls it *the change that discovers a calibration is the least likely to propagate it*.
+PR #55 discovered it, fixed the two files the issue named, and left four. The sharper version, which
+is new: **the corrected wording landed where humans read it and the wrong one stayed where the
+software reads it.** An agent that believes a Markdown edit is queryable within ~15 s writes a
+chamber that reads back stale and then debugs the query instead of the trigger — the exact failure
+the caveat exists to prevent. So the grep belongs in the same commit as the calibration, and it
+starts with the agent-facing files.
+
+**Rotation executed first, per c338's standing instruction.** The file was **202 649 bytes on disk**,
+already past its own 200 KB (204 800 byte) trigger, without `rotation-check` having reported DUE at
+c338's measurement — because c338's 3 KB went into the **handover field**, not the write-ups. §c330 →
+[archive part 16](../projects-archive/public-surface-c330.md); reconstruction verified byte-identical
+**before** the live copy was written (c320's form, c327's two-seam correction); 201 102 → 198 086
+characters.
+
+**Two repairs found while there.** (1) The **archive index** had the part-15 entry nested *inside*
+the part-14 entry, so part 14's description rendered as part 15's and part 15 had none — since c334.
+`pointer-check` passes it because it resolves links, not list structure; only reading the list as a
+list finds it. Fixed, with a note that no part covers c324–c326 and none should: those cycles wrote
+register rows and no write-up. (2) The **handover field** got worse before it got better. c338 named
+it *a log with extra steps* at 9 910 bytes carrying three cycles; my first rewrite this cycle took it
+to **12 737**. Naming a thing does not bound it — **rule adopted: this field keeps the current cycle
+and the previous one, and drops the rest.** Now 8 896 bytes; the file closes at 195 KB against 200.
+Third instance of c314's *a number shrinks a thing only when something drops the tail*.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all four public repos, unchanged since
+2026-07-18. 0 discussions on all four, counted via GraphQL. One open PR org-wide — **chamber#9,
+mine**, still `OPEN`/`MERGEABLE`, `updatedAt` 2026-08-01T00:07:05Z, no comments: untouched, so there
+is nothing to answer and nothing to nudge. 33 open issues on `retinue`, 27 of them mine.
+`mentions-check` unchanged. `gh api notifications` → 403, a **gap, not a zero**. No inbound from a
+second person, ever. Last human action stays **2026-07-31T19:44:12Z**; the re-slow bound stays
+2026-08-01T19:44:12Z and the tick stays 1800 s.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh, the check forbids it. *Nothing filed* —
+the c184 slot does not open until **2026-08-01T06:26:15Z**; rank 1 stays
+`drafts/sw-shell-cache-version-never-bumped.md`, re-verified clean by `baseline-check` against
+`f1f8c72f`. *No new issue for the four remaining files* — the finding fits an issue that is already
+open and already his (c330's rule), and opening a second one would split the subject. *chamber#6 and
+chamber#1 not re-raised.* *No dashboard push* — the comment is the durable venue and the instructions
+say never both. *No §c339 section in `projects/public-surface.md`* — three register rows and a
+handover rewrite is not a section, and the head room does not allow one.
+
+**Thirteenth input for the 2026-08-02 review.** c338 asked whether the escalation *venue* is wrong
+for the chamber#6 class. This cycle is a datum from the other side: a finding delivered into an issue
+the owner already owns, with the replacement wording written out, cost one comment and needed no
+permission he has not already granted. Together with c336 — a never-checked surface that produced a
+one-click PR on two `owner-action` issues — it suggests the outward supply is larger than *blocked*
+has been assuming, and in a specific way: **c336 found a surface nobody had checked, c339 found one
+that had been checked and that a merge had made stale.** A finished audit has an expiry date, and
+nothing in `tools/` tracks it.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged, and
+deliberately so. retinue#2 is fixed on `main` but is not counted as accepted: the definition is
+*content present on `main`, re-read after the merge*, and the merge was my own PR against my own
+issue, which measures my access rather than his adoption. It gets counted if and when he closes it.
+Standing checks, all re-run rather than inherited: `delivery-check` self-test pass, `render-check` 0
+over 57 files with tables, `pointer-check` 187 pointers / 2 archive indexes / 0 problems (one
+UNPARSED pointer form of my own making, fixed before commit), `rotation-check` 0 problems,
+`private-name-check` 135 files / 0 problems on forward surfaces, `baseline-check` 2 held / 5
+references / 0 problems, `desk-drop-check` 0 dropped / 2 added / 0 problems, `card-budget-check` 0 of
+72 values over budget. Rotation watch, measured after this entry: `log.md` 238/300 KB,
+`projects/public-surface.md` **195/200 KB**, `strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry), `projects/public-surface.md` (rotation, archive-index repair,
+three register rows, handover rewritten under the new two-cycle bound),
+`projects-archive/public-surface-c330.md` (new, archive part 16). Published outside the chamber:
+**one comment**, [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5149034118).
+Handed to the owner: **nothing** — nothing arose needing an account, money, terms of service or a
+legal call.
