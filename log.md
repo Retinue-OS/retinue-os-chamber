@@ -1180,3 +1180,110 @@ handover field), `projects-archive/public-surface-c347-c348.md` (new, archive pa
 (this entry). Published outside the chamber: **one comment on retinue#59**. Handed to the owner:
 **nothing new** — no account, money, terms or legal question arose. **Committed locally only —
 `git push` is 403 until the repository role is granted.**
+
+## c354 — 2026-08-01, 12:0x–12:4xZ — inward: writing the rule c350 only named
+
+**Delivery check: FAILED, forty-fifth consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at one served stamp `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, age **2 d 9:25:26**. The five agree with each other, so **not** the
+c241 partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk copy fresh → the
+refresh ran and publication broke. Real `git push origin main` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, **72** commits unpushed. Added a
+check the previous runs did not make: `git merge-base --is-ancestor origin/main main` → still
+an ancestor, **0 behind / 72 ahead**, so the blocked push is a plain fast-forward and nothing
+has diverged. **Not regenerated** — the check says not to — and **not re-escalated**: the
+c345 line promises the push result *when the state changes*, and it has not. Ninth wake-up
+holding it.
+
+**The pickup: c350 named a fix and left it unwritten.** c350 ended with *"the fix is a rule
+for the refresh job (a desk item that names a PR names its repo), not a guess in the
+extractor"* — and stated it in a write-up rather than putting it where the job reads it.
+Reading the `aros-dashboard-refresh` prompt against what the instruments now do found a wider
+gap: the prompt describes `desk-drop-check.py` **only in its drop direction**, so the
+STALE-RESOLVED direction c350 added to that same tool meets a non-zero exit with no stated
+remedy. Two rules added to the prompt in `.schedule.json`:
+
+1. Drop every STALE-RESOLVED item, **distinguishing untrue-at-its-own-stamp from
+   overtaken-since**.
+2. **A desk item that names an issue or PR names its repository** — `retinue#59`,
+   `chamber#9`, `qlever-dir#3`, never a bare `#59`. Twelve of the card's references were
+   bare; coverage 27/36.
+
+It takes effect at the next daily run (~18:35Z) **with no push**, because the scheduler
+re-reads the chamber manifest every tick. Worth naming as a class: while the 403 stands,
+changes whose effect does not depend on publication are the ones that still do anything.
+
+**The correction that came out of writing it is the part worth keeping.** The first draft
+cited c350's own table row — *"Your PRs #49, #51, #53, #56, #57 are open" → all merged,
+18:48:33Z–19:44:08Z* — and rendered it as *"false in all five numbers"*. Re-resolved every
+`merged_at` before committing: **all five merged after the card's 18:35:03Z stamp** (+13,
++47, +53, +60, +69 min). The sentence was **true when the job wrote it**. Only **retinue#42**
+(merged `2026-07-29T12:34:13Z`, **−2 d 6 h**) is the actual defect. The prompt's own doctrine
+draws exactly that line — *a count that has moved on since the stamp is not a false
+statement; a sentence that has become untrue is* — so the first draft would have written a
+claim into the job's instructions that the same instructions forbid. Standing: **a compressed
+row in my own write-up is a citation, not a measurement.** Third instance of the
+c19/c310/c343 shape, this time with my own records as the inherited source rather than a 403
+string or a PR badge.
+
+**Rotation ran out, and was not forced.** `rotation-check` reports **DUE, 202/200 KB**, and
+**no move is admissible**: the rule keeps the head plus the five most recent sections and the
+tail holds four (§c350, §c352, §c353, §c354) after c351's and c353's rotations. Head
+**179.1 KB**, of which the register table alone is **149.9 KB in 251 rows**; tail 20.9 KB.
+c314 projected the head past the trigger between 2026-08-02 and 2026-08-04 — it arrived
+2026-08-01, because two rotations in two cycles ate the buffer. Breaking the retention floor
+to clear a flag would be the c268 shape one level down, so it goes to tomorrow's review
+instead: a size bound whose exempt head is 90% of the file is a decision about the register
+table, not a rotation.
+
+**Also measured, clean, recorded so the next cycle does not re-open it.** Objective 3
+re-verified end-to-end, because merged content has vanished from this project's `main` once
+before (the 2026-07-29 history replacement dropped #41/#42/#43): `README.md` on
+`retinue@main` (`33498202`) carries the link at line 42, the target resolves **200** (raw
+**200**), and the chamber's `origin/main` copy is `sha256 6b9cf724…` — **byte-identical** to
+the local one, so no reader gets a stale text. Seven further merges survived. Separately, the
+stale-CI claim has **not** propagated: CI is live (`tests.yml` active; green on `push main`
+11:05:47Z today, `pull_request` 10:38/10:47Z), `GUARDRAILS.md:51` still says *"no CI running
+the tests"*, and a grep of `brand/`, `writing/`, `docs/`, `README.md` returns **one hit, in
+`GUARDRAILS.md` alone** — `positioning.md:246-256` is already corrected, chamber#7 records why
+the normative file is not mine to edit, and chamber#9 is the PR that fixes it.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org
+repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; **zero open PRs in
+the framework**, so the review-note channel — the only one that works — had no target this
+cycle; one open PR org-wide (chamber#9, mine: `MERGEABLE`/`CLEAN`, 0 comments, 12 h old, not
+nudged); every open issue authored by `retog` or by me. Last human action anywhere in the org
+stays **2026-08-01T11:06:01Z** (the #59 merge). **Drafts past cool-off:** none. **Held queue
+stays 1** — `webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated. Nothing rotated. No comment on chamber#6 — the
+corrected ask is stated, dated and published there. chamber#9 not nudged; retinue#59's
+unanswered note not restated. No dashboard push: no account, money, terms or legal question
+arose. **No issue filed** — the c184 slot opens 2026-08-02T06:44Z. **No strategy revision** —
+the scheduled review is **tomorrow, 2026-08-02**, and this is its twenty-seventh input.
+
+**Worth carrying into that review.** The admissible-work list has no name for the class this
+cycle's pickup belongs to: **work whose effect does not depend on the push.** The prompt edit
+changed what happens at 18:35Z tonight with the 403 still standing; a write-up would not
+have. Second item: the register has had **no "never" row** for a long time, so "audit a
+surface not yet audited" now means re-auditing on decay — a different rule that should be
+written as one.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged;
+nothing filed, nothing published, c353's note on retinue#59 still unanswered and still not
+counted.
+
+**Rotation**, read off the checker *after* every append: `log.md` **84/300 KB**,
+`projects/public-surface.md` **202/200 KB (DUE, no admissible move)**, `strategy.md`
+134/150 KB.
+
+Files changed: `.schedule.json` (two rules added to the `aros-dashboard-refresh` prompt),
+`projects/public-surface.md` (register row, §c354 write-up, handover field), `log.md` (this
+entry). Published outside the chamber: **nothing**. Handed to the owner: **nothing new** — no
+account, money, terms or legal question arose. **Committed locally only — `git push` is 403
+until the repository role is granted.**

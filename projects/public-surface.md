@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c353 (2026-08-01 11:2x-11:5xZ): OUTWARD - the THIRD consecutive outward cycle. c268 rule 1 forbids a third INWARD, not a third outward, but the next cycle should prefer inward unless the survey again offers something live. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c353: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 8:45:05, FORTY-FOURTH consecutive run past the 26 h bound. The five AGREE with each other, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-ONE commits unpushed. DO NOT regenerate. NOT re-escalated - eighth wake-up holding the c345 line: report the push result only when the state CHANGES, and it has not. (2) PICKUP: retinue#59 MERGED at 11:05:45Z as fa18239, 17 minutes after my c352 note and with no reply. Did NOT tick it off - re-drove the MERGED code, and the design had changed from DROP to FORWARD-tagged-as-status_update (new _forward_status_to_inbox + a Status updates section in .claude/skills/triage/SKILL.md). Half the note landed: the merged comment carries my recent-senders argument verbatim. The newsletter row SURVIVED - re-driven end-to-end, ...@newsletter still takes record + forward as mail. NEW and larger finding: the forwarded prompt carries NO message id and NO timestamp, while SKILL.md fixes the messaging stable id as channel:chat:timestamp and the new status policy step 1 says do not re-file a status already seen. Two DISTINCT media-only Story posts by one contact produce BYTE-IDENTICAL prompts (sha256 4f7f257715de9e7a twice) - and the status path raises no conversation and no push BY DESIGN, so a swallowed post is unobservable. MessageInfo.ID and .Timestamp exist in neonize 0.4.3.post0 (read from the wheel Neonize_pb2.pyi; the Dockerfile pip install is unpinned) beside the Pushname the code already reads via _attr. signal-gateway.py omits the same fields, so it is a class. Published as ONE comment with both findings and an explicit synthetic-probe calibration: #59 issuecomment-5151218915. (3) ROTATION EXECUTED: projects/public-surface.md hit 203/200 KB, so §c347 and §c348 moved verbatim into projects-archive/public-surface-c347-c348.md (archive part 20) - fence-aware split, reconstruction asserted byte-identical BEFORE writing, 2 register rows + 1 index line repointed, archive list appended. 203 -> 193 KB after every append this cycle. Second execution in two cycles; 164 KB of the file is the register table which does not rotate, so each run buys about one wake-up - that is the 2026-08-02 review question, not a rotation question. (4) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); every open issue authored by retog or me; mentions-check 49 raw / 0 confirmed. Last human action anywhere in the org moves to 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (5) NOT DONE ON PURPOSE: nothing regenerated (disk fresh, delivery at fault); no comment on chamber#6; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and the finding went to the PR instead, per c294; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-sixth input. (6) FOR THAT REVIEW: a MERGE IS NOT A MEASUREMENT. The review-note channel is still the only one that works (8 notes vs 2 of 43 filings), but this cycle shows the merged code can be a different design from the reviewed one, and the parts of a note that were silently declined are the parts nobody mentions. Counting a note as landed because its PR merged would have been wrong here. Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes LANDED, with this cycle's published and unanswered - counting it as landed because its PR merged is the exact error this cycle named. c352's counts as landed on the HALF that reached the merged code; its newsletter half did not."
+current_next_action: "Aros, c354 (2026-08-01 12:0x-12:4xZ): INWARD, and permitted - c352 and c353 were both outward, so c268 rule 1 (no inward after two inward) does not bind. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c354: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 9:25:26, FORTY-FIFTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-TWO commits unpushed. git merge-base --is-ancestor origin/main main -> still ANCESTOR, 0 behind / 72 ahead, so the blocked push is a plain fast-forward and nothing has diverged - re-check this if the owner merges chamber#9, which would make origin/main advance and require a rebase before any push. DO NOT regenerate. NOT re-escalated - NINTH wake-up holding the c345 line: report the push result only when the state CHANGES. (2) PICKUP: wrote the rule c350 only NAMED. c350 ended with 'the fix is a rule for the refresh job (a desk item that names a PR names its repo)' and never put it where the job reads it. Read the aros-dashboard-refresh prompt against the instruments: it describes desk-drop-check.py in its DROP direction only, so the STALE-RESOLVED direction c350 added to the same tool had no stated remedy. TWO rules added to the prompt in .schedule.json: (a) drop every STALE-RESOLVED item, DISTINGUISHING untrue-at-its-own-stamp from overtaken-since; (b) a desk item naming an issue or PR names its repo (retinue#59, chamber#9, qlever-dir#3, never a bare #59). Takes effect at the next daily run (~18:35Z) with NO push - the scheduler re-reads the chamber manifest every tick. This is one of the few changes that still has an effect while publication is blocked; PREFER THAT CLASS while the 403 stands. (3) THE CORRECTION THAT CAME OUT OF WRITING IT: the first draft cited c350's own table row and said the five PRs #49/#51/#53/#56/#57 were 'false in all five numbers'. Re-resolved every merged_at before committing: ALL FIVE merged AFTER the 18:35:03Z stamp (+13 to +69 min), so the sentence was TRUE when the job wrote it. Only retinue#42 (merged 2026-07-29T12:34:13Z, MINUS 2 d 6 h) is the defect. The prompt's own doctrine draws that line, so the first draft would have put a claim into the job's instructions that the same instructions forbid. STANDING RULE: a compressed row in my own write-up is a CITATION, not a measurement - re-resolve timestamps before a claim rests on them. Third instance of the c19/c310/c343 shape, this time with my own records as the inherited source. (4) ALSO MEASURED, CLEAN, do not re-open: objective 3 re-verified end-to-end (README.md on retinue@main 33498202 line 42 carries the link; target 200 and raw 200; chamber origin/main copy sha256 6b9cf724... byte-identical to local; survived seven further merges) - re-run this after any framework history rewrite, since 2026-07-29 dropped three merged PRs. Stale-CI claim has NOT propagated: CI is live (tests.yml active, green on push main 11:05:47Z), GUARDRAILS.md:51 still says 'no CI running the tests', grep of brand/ writing/ docs/ README.md = ONE hit, in GUARDRAILS.md alone; positioning.md:246-256 already corrected, chamber#7 explains why the normative file is not mine to edit, chamber#9 is the PR that fixes it. chamber#9 re-read: MERGEABLE/CLEAN, 0 comments, 2 files, open 12 h. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, EVER; one open PR org-wide (chamber#9, mine); ZERO open PRs in the framework, so the review-note channel had no target this cycle; every open issue authored by retog or me. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (6) NOT DONE ON PURPOSE: nothing regenerated; no comment on chamber#6; chamber#9 not nudged; retinue#59's unanswered note not restated; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its TWENTY-SEVENTH input. (6b) ROTATION RAN OUT, and it is NOT a defect to fix by rotating: rotation-check says DUE 202/200 KB and NO move is admissible - the rule keeps the head plus the FIVE most recent sections and the tail holds FOUR (c350, c352, c353, c354) after c351's and c353's rotations. Head 179.1 KB of which the register table alone is 149.9 KB in 251 rows; tail 20.9 KB. c314 projected the head past the trigger between 2026-08-02 and 2026-08-04 and it arrived 08-01 because two rotations in two cycles ate the buffer. DO NOT break the retention floor to clear the flag; expect DUE on every run until the review decides what to do with the register table. (7) FOR THAT REVIEW: the admissible-work list should carry a class it does not name - work whose effect does NOT depend on the push. The prompt edit landed a behaviour change with 403 still standing; a write-up did not. Also carry: the register has had no 'never' row for a long time, so 'audit a surface not yet audited' now means re-auditing on decay, which is a different rule and should be written as one."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -477,6 +477,7 @@ measured at 0 of 78.
 | **The owner's queue as *he* meets it — whether an item is still owed** | 2026-08-01 (c350) | **The queue decays toward instructions to redo finished work, within the hour.** Disk card @ `2026-07-31T18:35:03Z`: item 18 asks him to merge-or-reject PR #55, item 20 says #49/#51/#53/#56/#57 are open — **all six merged 18:48:33Z–19:44:08Z, the first thirteen minutes after the card's own stamp.** Served card @ `2026-07-30T02:37:42Z`: 4 of 19 items done (#44/#45 merged 07-30; branch `fix/restore-dropped-merges` merged as #55 and **404**; a filing slot two days past; a held count of 3 that is 1). `desk-drop-check` asked only the *milder* half — what left while open — for 88 cycles. Reverse question added; the served card's four are **all** outside a reference check (2 bare numbers, 1 branch, 1 date, 1 count), so its `0 problems` now prints coverage beside it. Detail: §c350 below. |
 | **Whether a protocol-level guard covers its own class** — asked of a PR **8 minutes after it opened**, the first time a review reached one before the owner moved on | 2026-08-01 (c352) | **It covers two of three reserved servers.** retinue#59 drops WhatsApp Status/broadcast posts on the chat JID's server part — correct, and sourced: whatsmeow `types/jid.go` declares `BroadcastServer = "broadcast"` and `StatusBroadcastJID`. Driven through `_handle_message_event` with a synthetic `MessageEv`: `status@broadcast` and `120363000@broadcast` **DROPPED**, `…@s.whatsapp.net` forwarded — and **`…@newsletter` forwarded too**, though `NewsletterServer` sits in the same `const` block and `events.Message` carries `NewsletterMeta` precisely because Channel posts arrive as message events. Two consequences: a dashboard conversation per Channel post, and an entry in the recent-senders store with `is_group: false` — the list `whatsapp-contacts.py --query` consults **first**. Published as a non-blocking note with a 4-line diff: [#59 issuecomment-5151093215](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151093215). Standing: **a guard keyed on a protocol enum should be checked against the whole enum, not the one member that prompted it** |
 | **Whether a merged change still does what the pre-merge review measured** — asked 17 minutes after the merge | 2026-08-01 (c353) | **It changed shape, and one half of the note landed while the other did not.** retinue#59 merged as `fa18239` **forwarding** status/broadcast posts to triage tagged `status_update` rather than dropping them — and the merged code adopts the recent-senders argument from my pre-merge note verbatim in its own comment. Re-driven end-to-end against merged `main`: `…@newsletter` **still** takes `record + forward as mail`, so the gap survived. New and worse: the forwarded prompt carries **no message id and no timestamp**, while `SKILL.md` fixes the messaging stable id as `channel:chat:timestamp` and the new status policy's step 1 is "don't re-file a status already seen". Two *distinct* media-only Story posts by one contact produce **byte-identical** prompts (`sha256 4f7f257715de9e7a` twice) — and the status path raises no conversation and no push **by design**, so a swallowed post is unobservable. `MessageInfo.ID`/`.Timestamp` exist in neonize 0.4.3.post0 (what the unpinned `pip install neonize` resolves to) next to the `Pushname` the code already reads. Published as [#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915). Standing: **a merge is not a measurement — re-drive the merged code, because the fix that lands may not be the fix that was reviewed** |
+| **The refresh job's prompt, read against what its own instruments now check** — c350 named the fix ("a rule for the refresh job") and did not write it | 2026-08-01 (c354) | **Half the instrument was undescribed.** The prompt tells the job to run `desk-drop-check.py` and reads only its *drop* direction; the STALE-RESOLVED direction c350 added went unmentioned, so a non-zero exit had no stated remedy. Two rules added to the prompt, effective at the next daily run with no push: (1) drop every STALE-RESOLVED item, **distinguishing untrue-at-its-own-stamp from overtaken-since** — retinue#42 merged `2026-07-29T12:34:13Z`, two days *before* the card's `18:35:03Z` stamp, so that item was a defect the job wrote; retinue#55 merged 58 min *after* it, which is the clock moving on and the prompt's own doctrine says is not a false statement; (2) **a desk item that names an issue or PR names its repo** — 12 of the card's references were bare, coverage 27/36. Caught while writing it: c350's table row `"#49, #51, #53, #56, #57 are open" → all merged, 18:48:33Z–19:44:08Z` omits that all five merged **after** the stamp, and I nearly published "false in all five numbers" off it. Standing: **a compressed row in my own write-up is a citation, not a measurement — re-resolve the timestamps before a claim rests on them** |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -902,3 +903,118 @@ hold a week later.
 that the reviewed behaviour shipped. Re-drive the merged code: what lands may be a different
 design, and the parts of the note it silently declined are exactly the parts no one will
 mention.
+
+
+## §c354 — writing the rule c350 only named (2026-08-01, 12:0x–12:4xZ)
+
+**Delivery check: FAILED, forty-fifth consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read**, all at one served stamp `2026-07-30T02:37:42Z`
+against disk `2026-07-31T18:35:03Z`, age **2 d 9:25:26** — the five agree with each other,
+so not the c241 partial-regeneration class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk copy fresh → the
+refresh ran and publication broke. Real `git push origin main` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, **72** commits unpushed.
+`git merge-base --is-ancestor origin/main main` → still an ancestor, `0 behind / 72 ahead`,
+so the blocked push is a plain fast-forward and nothing has diverged. **Not regenerated** —
+the check says not to — and **not re-escalated**: the c345 line promises the push result
+*when the state changes*, and it has not. Ninth wake-up holding it.
+
+### The pickup: c350 named the fix and left it unwritten
+
+c350 ended with *"the fix is a rule for the refresh job (**a desk item that names a PR names
+its repo**), not a guess in the extractor"*. It stated the rule in a write-up and did not put
+it where the job would read it. Read the prompt of `aros-dashboard-refresh` against what the
+instruments now do, and the gap is wider than that one sentence: the prompt describes
+`desk-drop-check.py` **only in its drop direction** — "it prints every reference the last
+generation carried that this one does not". The reverse question c350 added to the same tool
+is undescribed, so the job meets a non-zero exit with no stated remedy.
+
+Two rules added to the prompt. This is one of the few changes that takes effect while the
+push is blocked: the scheduler re-reads the chamber's `.schedule.json` every tick, so the
+next daily run (~18:35Z) reads the new text with nothing published.
+
+### The correction that came out of writing it, which is the part worth keeping
+
+The first draft of the rule cited c350's own table row —
+`todo (disk) | "Your PRs #49, #51, #53, #56, #57 are open" | all merged, 18:48:33Z–19:44:08Z`
+— and turned it into *"false in all five numbers"*. Re-resolved the five before committing:
+
+| PR | merged | vs. card stamp `18:35:03Z` |
+|---|---|---|
+| #51 | 2026-07-31T18:48:33Z | **+13 min** |
+| #53 | 19:21:58Z | +47 min |
+| #49 | 19:28:25Z | +53 min |
+| #56 | 19:35:32Z | +60 min |
+| #57 | 19:44:08Z | +69 min |
+| #55 | 19:33:40Z | +58 min |
+| **#42** | **2026-07-29T12:34:13Z** | **−2 d 6 h** |
+
+Every one of them merged **after** the stamp except #42. So the sentence was **true when the
+job wrote it**, and the prompt's own doctrine — *"a count that has moved on since the stamp
+is not a false statement; a sentence that has become untrue is"* — draws exactly this line.
+Publishing "false in all five numbers" would have put a claim into the job's instructions
+that the same instructions forbid.
+
+Only **retinue#42** is the defect: merged two days *before* the card that lists it as
+pending. That is the shape the rule has to name, and the rule now names both — drop the
+untrue-at-its-own-stamp kind, leave the overtaken-since kind alone, because a daily cadence
+costs the second one and no rewrite recovers it.
+
+c350's row is not wrong; it omits the comparison the claim needed. Which is the standing
+rule: **a compressed row in my own write-up is a citation, not a measurement.** Third
+instance of the c19/c310/c343 shape, this time with my own records as the inherited source
+rather than a 403 string or a PR badge.
+
+### Also measured, and clean
+
+- **Objective 3 re-verified end-to-end**, because merged content has vanished from this
+  project's `main` once before (the 2026-07-29 history replacement dropped #41/#42/#43).
+  `README.md` on `retinue@main` (`33498202`) still carries the link at line 42; the target
+  `retinue-os-chamber/blob/main/writing/provenance-by-path.md` → **200** and raw → **200**;
+  the chamber's `origin/main` copy is `sha256 6b9cf724…`, **byte-identical** to the local
+  one, so no reader gets a stale text. It has now survived seven further merges.
+- **The stale-CI claim has not propagated.** `GUARDRAILS.md:51` still reads *"no CI running
+  the tests"*, and CI is live — `.github/workflows/tests.yml` **active**, `tests` green on
+  `push main` at 11:05:47Z today and on `pull_request` twice at 10:38/10:47Z. Grepped
+  `brand/`, `writing/`, `docs/` and `README.md`: **one hit, in `GUARDRAILS.md` alone.**
+  `positioning.md:246-256` already carries the corrected version and says why the normative
+  file is not mine to edit (chamber#7); chamber#9 is the PR that fixes it. Nothing to do —
+  recorded so the next cycle does not re-open it.
+- **chamber#9** re-read rather than nudged: `MERGEABLE` / `CLEAN`, 0 comments, two files
+  (`GUARDRAILS.md`, `SECURITY.md`), open 12 h. Left alone.
+
+### Not done, on purpose
+
+Nothing regenerated. No comment on chamber#6 — the corrected ask is stated, dated and
+published there; a further statement is the nagging c27 forbids. chamber#9 not nudged.
+retinue#59's unanswered note not restated. No dashboard push: no account, money, terms or
+legal question arose. **No issue filed** — the c184 slot opens 2026-08-02T06:44Z. **No
+strategy revision** — the scheduled review is **tomorrow, 2026-08-02**, and this is its
+twenty-seventh input.
+
+### The rotation ran out, one day before c314 said it would
+
+`rotation-check` reports **DUE, 200 KB / 200 KB** after this cycle's appends — and **no move
+is admissible**. The rule keeps "the head plus the five most recent sections", and after
+c351's and c353's rotations the tail holds **four**: §c350, §c352, §c353, §c354. Rotating
+anything now breaks the retention floor rather than the size bound.
+
+| | |
+|---|---|
+| Total | **200.2 KB** (over the 200 KB trigger) |
+| Head — frontmatter, prose, register table | **179.1 KB** |
+| Of that, the register table alone | **149.9 KB** in 251 rows |
+| Tail — everything rotation can reach | **20.9 KB** in 4 sections |
+
+c314 measured the un-rotatable head at 158 KB and projected it past the trigger **between
+2026-08-02 and 2026-08-04**. It is 179.1 KB on 2026-08-01: the projection was right and the
+state arrived a day early, because two rotations in two cycles removed the tail that was
+absorbing the growth. **Not rotated.** The honest response to an instrument reporting DUE
+with no legal move is to record that its rule has run out, not to break the floor to clear
+the flag — this is the c268 shape one level down, an instrument's maintenance becoming the
+work it was built to prevent. It goes to tomorrow's review as a question the rotation cannot
+answer: **a size bound whose exempt head is 90% of the file is not a rotation problem, it is
+a decision about the register table.**
