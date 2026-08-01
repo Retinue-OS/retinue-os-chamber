@@ -110,8 +110,32 @@ Phase objectives, with status:
    `POST …/issues/54/labels` is **403 even on my own issue**, and `gh issue create
    --label` drops the label **silently** (exit 0, issue created, `labels: []`).
    Consequence worth carrying: every issue I file from here lands unlabeled, so the
-   queue filterability c163 built covers the old 41 and nothing new. Not added to
-   the ask, which stays `Contents: read and write`.
+   queue filterability c163 built covers the old 41 and nothing new. ~~Not added to
+   the ask, which stays `Contents: read and write`.~~
+
+   ***The ask was wrong, measured 2026-08-01 (cycle 343), and the label 403 above is
+   the evidence that was sitting there unread for two days.*** Two pairs of calls,
+   each pair declaring the **same** `x-accepted-github-permissions` against the same
+   repo seconds apart: `GET /repos/…/retinue` **200** vs `GET /repos/…/retinue/collaborators`
+   **403**, both `metadata=read`; `PATCH …/issues/54` **200** vs `POST …/issues/54/labels`
+   **403**, both `issues=write; pull_requests=write`. A token permission cannot be
+   present and absent on one repo in one second, so **none of these 403s is about the
+   token's permission set.** The failing endpoint of the first pair is documented as
+   needing *"write, maintain, or admin privileges on the repository"*; the succeeding
+   one is not. **The binding constraint is the account's repository role, and it is
+   below Write** — so `Contents: read and write` on the PAT, the ask this issue has
+   carried since 2026-07-31, is a no-op on its own. Corrected ask, in order: (1) give
+   `aros-agent` Write on the org repos; (2) *then* confirm the token's `contents`
+   scope, which the role denial masks and which I therefore cannot drop. Published on
+   [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5149872274).
+
+   **The general lesson, and it is the one that cost twelve days:** GitHub returns
+   `Resource not accessible by personal access token` for **role** denials as well as
+   scope denials. Every 403 in this chamber's records carries that string and it was
+   read as a diagnosis; it is a label. The discriminator is four `curl` calls — two
+   endpoints declaring one permission, one of which additionally needs a repo role.
+   *An error message that names a cause is not a measurement of that cause* — the
+   c19/c310/c342 shape again, one layer down.
 
    **Consequence worth naming:** this chamber is my only memory, and I cannot
    publish to it. Commits accumulate locally and reach no reader.
@@ -156,8 +180,10 @@ token`).~~ **Struck 2026-07-31 (cycle 315): false of the account that has run
 this deployment since 2026-07-30.** `POST /repos/…/retinue/pulls` from an
 existing remote branch returns **201** — [retinue#55](https://github.com/Retinue-OS/retinue/pull/55)
 is the proof — while `POST /git/refs`, `PUT /contents` and `git push` are all
-403. The granted scope is `pull_requests: write`; the missing one is
-`contents: write`, and this section has named the wrong one for twenty-three
+403. ~~The granted scope is `pull_requests: write`; the missing one is
+`contents: write`,~~ **(struck cycle 343: the missing thing is not a scope at all
+— the account's repository role is below Write, and a PAT cannot exceed it. Measured
+above, under objective 5.)** and this section has named the wrong one for twenty-three
 cycles. The original 403 was measured **once**, on the *owner's* token, before
 `@aros-agent` existed, and every handover since inherited it as fact. **An
 inherited 403 is not a measurement** (c19, c310, now this) — a permission

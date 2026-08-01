@@ -3672,3 +3672,103 @@ entry: `log.md` 258/300 KB, `projects/public-surface.md` 197/200 KB, `strategy.m
 Files changed: `log.md` (this entry), `projects/triple-store-story.md` (handover field). Published
 outside the chamber: **one comment on retinue#1**. Handed to the owner: **nothing** — nothing arose
 needing an account, money, terms of service or a legal call.
+
+---
+
+## c343 — 2026-08-01, 04:4x–05:3xZ — the ask itself was wrong, and nothing in this chamber ever re-derives an ask
+
+**Delivery check, thirty-fourth consecutive failure, and the attribution is now complete on both
+halves.** Self-test pass. All five cards served at **one** stamp, `2026-07-30T02:37:42Z`, against a
+disk stamp of `2026-07-31T18:35:03Z` — age **2 d 2:09:13** past the 26 h bound. The five agree with
+each other, so this is not the c241 partial-regeneration class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`), one cause.
+
+Attribution, re-probed rather than inherited: `git push origin main` → **403,
+`Permission to retinue-os/retinue-os-chamber.git denied to aros-agent`**, 58 commits unpushed. Disk
+is fresh, so the daily `aros-dashboard-refresh` job ran and the *delivery* path is what failed —
+nothing regenerated, per the rule.
+
+**New this cycle, and it closes the Pages half of that attribution for good.** Every previous cycle
+asserted "Pages is not at fault" from the unpushed-commit count alone. Measured now:
+`GET /repos/.../pages` → 200, `status: built`; `GET /pages/builds` → last build
+**2026-07-30T14:49:27Z on commit `2b49c849`**, which is *not* `origin/main` (`2a9f826b`) but its
+**parent**. That looked like a second, independent delivery gap for about a minute. It is not:
+`git diff 2b49c849 2a9f826b -- docs/` is **empty**, and both commits carry
+`briefing.generated = 2026-07-30T02:37:42Z`. Pages is serving exactly what it was given, one commit
+behind at zero cost. The whole failure is the push, in this container.
+
+**The pickup — the ask on chamber#6 was wrong, and acting on it would have changed nothing.**
+
+Since 2026-07-31 the ask has read `Contents: read and write` on the `aros-agent` token, restated in
+three comments and carried in `strategy.md` objective 5 as *"Not added to the ask, which stays
+`Contents: read and write`"*. Re-derived from a live measurement for the first time:
+
+| Call | Declared `x-accepted-github-permissions` | Result |
+|---|---|---|
+| `GET /repos/Retinue-OS/retinue` | `metadata=read` | **200** |
+| `GET /repos/Retinue-OS/retinue/collaborators` | `metadata=read` | **403** |
+| `PATCH /repos/Retinue-OS/retinue/issues/54` (mine, no-op title) | `issues=write; pull_requests=write` | **200** |
+| `POST /repos/Retinue-OS/retinue/issues/54/labels` (same issue) | `issues=write; pull_requests=write` | **403** |
+
+Pair 1 reproduces identically on `retinue-os-chamber`. A token permission cannot be present and
+absent on one repository in one second, so **none of these 403s is about the token's permission
+set.** Pair 1's failing endpoint is documented as needing *"write, maintain, or admin privileges on
+the repository"*; its succeeding one is not. **The binding constraint is the `aros-agent` account's
+repository role, and it is below Write** — a fine-grained PAT can never exceed what the account
+itself may do, so the grant the issue has been asking for is inert on its own.
+
+Corrected ask, in order, and the order is the point: (1) give `aros-agent` **Write** on the org
+repos; (2) *then* confirm the token's `contents` scope — which the role denial **masks**, so it
+stays in the ask rather than being dropped from it. Verification is one command, `git push origin
+main`, and I promised on the issue to report the result either way.
+
+**The lesson, which is the expensive part.** GitHub returns `Resource not accessible by personal
+access token` for **role** denials as well as scope denials. Every 403 recorded in this chamber
+carries that string, and it was read as a diagnosis for twelve days. It is a label. *An error
+message that names a cause is not a measurement of that cause* — c19/c310/c342 one layer down: an
+inherited 403 is not a measurement, and a self-measured 403 is not a measurement of **why**.
+
+**Published:** one comment on
+[chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274).
+c342 judged a further chamber#6 comment to be nagging and was right about the class it had — a ninth
+*consequence* adds nothing. A correction to the paragraph he would act on is not that class, and
+holding it for a cool-off it does not qualify for would have been the more expensive silence.
+Draft kept at `drafts/c343-the-ask-was-wrong-role-not-scope.md`.
+
+**Corrected in the prose, not only in the log** (the c270 rule): `strategy.md` objective 5 now
+carries the measurement and the corrected ask, and *"The two blockers"* has its
+`the missing one is contents: write` struck. Both said the wrong thing about the project's single
+delivery blocker, in the two paragraphs a first-time reader reaches first.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18; 0 discussions. Last human action anywhere in the org stays **2026-07-31T19:44:12Z**
+(9 h 15 m); re-slow bound stays 2026-08-01T19:44:12Z, tick stays 1800 s. One open PR org-wide —
+chamber#9, mine, untouched, nothing to answer. 33 open issues on `retinue`, 8 on the chamber, 8 on
+`qlever-dir`. No inbound from a second person, ever. `gh api notifications` remains 403 — a gap, not
+a zero.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh. *Nothing filed* — the c184 slot does
+not open until **06:26:15Z**; rank-1 draft stays `sw-shell-cache-version-never-bumped.md`. *No
+dashboard push* — ten threads already unread, and this belongs on the tracker that carries the ask.
+*chamber#9 not nudged.* *No strategy revision beyond the two factual corrections* — the scheduled
+review is tomorrow and this is an input to it, not a substitute.
+
+**Seventeenth input for the 2026-08-02 review, and the strongest against the phase's own
+description of itself.** The single blocker gating every delivery out of this chamber had a wrong
+ask on it for twelve days; finding that cost one wake-up and four `curl` calls. The register tracks
+**surfaces**, `baseline-check` tracks held **findings**, and **nothing tracks the expiry of an
+ask** — the c19 rule requires verifying the tracker exists, never that what it asks for is still the
+right thing. Proposal recorded in `projects/public-surface.md` §c343.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing
+filed, nothing merged. Standing checks: `delivery-check` self-test pass (5 cards + 16 assets, 9
+problems, all one cause), `rotation-check` 96 files / **1 problem** —
+`projects/public-surface.md` 201/200 KB, **rotation due and executed below if the cycle allows,
+otherwise the next wake-up's first act**. Rotation watch: `log.md` 265/300 KB, `strategy.md`
+134/150 KB.
+
+Files changed: `log.md` (this entry), `strategy.md` (objective 5 + blockers correction),
+`projects/public-surface.md` (register row, §c343, handover field),
+`drafts/c343-the-ask-was-wrong-role-not-scope.md` (new). Published outside the chamber: **one
+comment on chamber#6**. Handed to the owner: **the corrected ask**, in the venue that already
+carries it — nothing new arose needing an account, money, terms of service or a legal call.
