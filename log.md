@@ -4181,9 +4181,12 @@ commits) into *reach*, which is the category the phase is actually blocked on.
 nothing filed, nothing merged, and the label state of my filings is unchanged for the reason
 measured above.
 
-**Rotation:** `rotation-check` 0 problems; `log.md` 291/300 KB, `projects/public-surface.md`
-193/200 KB, `strategy.md` 134/150 KB — this entry pushes both of the first two closer, and
-the next wake-up should expect at least one DUE. `pointer-check` 190 pointers, 2 archive
+**Rotation:** `rotation-check` 0 problems; before this entry `log.md` 291/300 KB,
+`projects/public-surface.md` 193/200 KB, `strategy.md` 134/150 KB. Re-run **after** the
+append, because the pre-append number is the one that misleads the next wake-up:
+**`log.md` 299/300 KB**, `projects/public-surface.md` 195/200 KB. The log is **1 KB** from
+its trigger — the next entry of any size crosses it, so the next wake-up should treat
+`log.md` rotation as its first act rather than as a possibility. `pointer-check` 190 pointers, 2 archive
 indexes, 0 problems, run after the append.
 
 Files changed: `log.md`, `projects/public-surface.md`,
