@@ -2542,10 +2542,10 @@ The general form, c197's and c273's one turn on: **a rule that bounds a file by 
 part of it back by a count has two floors, and only one of them is in the rule's own units.**
 
 **The rotation broke five pointers and `pointer-check.py` caught all five** on the run after the
-move: three register rows saying *Detail: §c356 / §c357 below* for sections no longer in the file,
+move: three register rows whose *Detail* pointers still sent a reader down-page for two sections that had just left the file,
 part 24 missing from the archive list, and one **ORPHAN** — §c367 had a write-up and no register row,
 which the next rotation would have turned into an unreachable section. All repaired this cycle;
-checker back to **0 problems**, converter exit 0.
+checker back to **0 problems**, converter exit 0. One of the repairs then produced the defect it describes — my first draft of that sentence **quoted** the broken pointer form verbatim, which `pointer-check` reads as live (the c334/c348 finding), so the fix flagged itself on the next run and was rewritten to describe the pointer instead of reproducing it.
 
 **The net.** The move released 29 280 B; this cycle's own appends put **7 654 B** back. Live file
 **235.7 KB → 216.6 KB** — a net −19.1 KB, and still **16.6 KB above its own trigger after the largest

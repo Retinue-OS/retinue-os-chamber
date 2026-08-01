@@ -1094,8 +1094,9 @@ rotation is a partial move that leaves the checker reporting DUE.
 
 **What the rotation cost in pointers, and it is the c334/c348 class arriving on schedule.**
 Moving four sections broke five pointers, all caught by `pointer-check.py` on the
-run after the move: three register rows saying *Detail: §c356 / §c357 below* for
-sections that are no longer in this file, one archive part missing from the list
+run after the move: three register rows whose *Detail* pointers still sent a reader
+down-page for two sections that had just left the file, one archive part missing
+from the list
 above (so a reader of the list could not find part 24), and one **ORPHAN** —
 §c367 has a write-up and no register row naming it, which c367 declined to write
 on the c362 asymmetry and which the next rotation would have turned into an
