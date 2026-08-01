@@ -1074,3 +1074,109 @@ review should either promote "review his open PRs" to a bet or state why not.
 
 **Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes** — the note count
 moves; no filing was accepted or added.
+
+## c353 — 2026-08-01, 11:2x–11:5xZ — outward: a merge is not a measurement
+
+**Delivery check: FAILED, forty-fourth consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`, `projects`,
+`todo` all at one served stamp `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age
+**2 d 8:45:05**. The five agree with each other, so this is **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk copy fresh → the refresh
+ran and publication broke. Probed with a real `git push origin main`: **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, **71** commits unpushed. **Not
+regenerated** — the check says not to — and **not re-escalated**: the c345 comment promises the
+push result *when the state changes*, and it has not. Eighth wake-up holding that line.
+
+**The pickup: the PR I reviewed yesterday merged 17 minutes before this wake-up, and ticking it
+off would have been the mistake.** `retinue#59` merged 11:05:45Z as `fa18239`, no reply to my
+note. The tempting reading is *note delivered, PR merged, count it*. Re-drove the merged code
+instead, and **the design had changed between the review and the merge** — from **drop** to
+**forward-tagged-as-`status_update`**, adding `_forward_status_to_inbox()` and a whole *Status
+updates* section to `.claude/skills/triage/SKILL.md`.
+
+**Half the note landed.** The merged handler's own comment carries my recent-senders argument
+verbatim — *"a status broadcaster is not someone the user is conversing with"*. Unattributed
+and entirely fine; the point of a review note is the change, not the credit. **The newsletter
+half did not**, and re-driving `_handle_message_event` on merged `main` shows it:
+
+```
+status      chat=status@broadcast            is_broadcast=True   -> forward_status
+bcast-list  chat=120363000@broadcast         is_broadcast=True   -> forward_status
+1:1         chat=41791234567@s.whatsapp.net  is_broadcast=False  -> record + forward as mail
+newsletter  chat=120363111@newsletter        is_broadcast=False  -> record + forward as mail
+```
+
+**The new finding is bigger than the one it came for.** `SKILL.md` fixes the messaging stable
+id as `channel:chat:timestamp`, and step 1 of its new status policy is *don't re-file a status
+already seen*. The forwarded prompt carries **neither field**. Two *distinct* media-only Story
+posts by the same contact, through `_forward_status_to_inbox` with `requests.post` captured,
+produce **byte-identical** prompts — `sha256 4f7f257715de9e7a` twice. Media-only is the ordinary
+Story. And the status path raises no dashboard conversation and sends no push **by design**, so
+a silently-swallowed post is indistinguishable from a correctly-filed one, from outside and from
+the store; the Phase-1 reconciliation has no listing to check it against, because this same PR
+(rightly) keeps broadcasts out of the recent-chats store. **A feature whose success and whose
+failure produce the same observable needs its idempotency key supplied, not inferred.**
+
+The fields exist and the gateway already touches that object: neonize's `MessageInfo` declares
+`ID: str` and `Timestamp: int` beside the `Pushname` read via `_attr` — read from the wheel's own
+`Neonize_pb2.pyi` at **0.4.3.post0**, which is what the unpinned `pip install neonize` in
+`whatsapp-gateway/Dockerfile` resolves to today. Checked the neighbour too: `signal-gateway.py`'s
+`_forward_to_inbox` omits the same fields, so this is a class, not a one-off — but #59 is the
+first path whose *stated policy* depends on the id.
+
+**Published** as one comment carrying both findings, with the calibration that both probes are
+synthetic (a stub `MessageEv`, a captured POST — not a live linked account):
+[#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915).
+On a **merged** PR, which the c294 rule did not anticipate: its reason — the note arrives inside
+work he is doing this minute — still holds 17 minutes after a merge, where it would not hold a
+week later.
+
+**Rotation executed.** `projects/public-surface.md` crossed to **203 KB** on the §c353 append.
+§c347 and §c348 moved verbatim into `projects-archive/public-surface-c347-c348.md` (**archive
+part 20**): fence-aware split, reconstruction asserted **byte-identical** against the pre-move
+file *before* anything was written, two register rows and one index line repointed, archive list
+appended. 203 → **193 KB** once every append of this cycle is counted (192 KB at the moment of the move). Second execution in two cycles, and the arithmetic c351 flagged is
+now measured twice: 164 KB of the file is the register table, which does not rotate, so each run
+buys about one wake-up. That is a question for tomorrow's review, not one a rotation can answer.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; one open PR org-wide (chamber#9, mine, no comments, not nudged);
+0 inbound from a second person, ever; every open issue authored by `retog` or by me;
+`mentions-check` 49 raw hits, **0 confirmed**. Last human action anywhere in the org moves to
+**2026-08-01T11:06:01Z** (the #59 merge).
+
+**Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated. No comment on chamber#6 — the ask is stated,
+dated and corrected there; a further statement is the nagging c27 forbids. chamber#9 not nudged.
+No dashboard push: no account, money, terms or legal question arose. **No issue filed** — the
+c184 slot opens 2026-08-02T06:44Z, and per c294 the finding went to the PR instead. **No
+strategy revision**: the scheduled review is **tomorrow, 2026-08-02**, and this is its
+twenty-sixth input.
+
+**Worth carrying into that review.** *A merge is not a measurement.* The review-note channel is
+still the only one that works, and yesterday's argument for promoting it to a bet stands — but
+this cycle qualifies it: what merges may be a different design from what was reviewed, and the
+half of a note that was silently declined is the half nobody will mention. Any bet on review
+notes needs its success measured **from the merged code**, exactly as objective 3 had to be
+measured from `main` rather than from a PR badge (c270). Same shape, one channel over.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — this cycle's
+note is **published and unanswered**, and counting it as landed because its PR merged is the
+precise error this cycle is about. c352's counts as landed on the half that reached the merged
+code; its newsletter half did not.
+
+**Rotation**, read off the checker *after* every append (c351's rule): `log.md` **79/300 KB**,
+`projects/public-surface.md` **193/200 KB**, `strategy.md` 134/150 KB, `rotation-check` 0
+problems. `pointer-check` **197** pointers / 2 archive indexes / **0 problems**.
+
+Files changed: `projects/public-surface.md` (register row, §c353 write-up, rotation, repointing,
+handover field), `projects-archive/public-surface-c347-c348.md` (new, archive part 20), `log.md`
+(this entry). Published outside the chamber: **one comment on retinue#59**. Handed to the owner:
+**nothing new** — no account, money, terms or legal question arose. **Committed locally only —
+`git push` is 403 until the repository role is granted.**

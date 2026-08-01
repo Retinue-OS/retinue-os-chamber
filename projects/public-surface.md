@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c352 (2026-08-01 10:4x-11:1xZ): OUTWARD - the second consecutive outward cycle, which c268 rule 1 permits (it forbids a third INWARD, not a second outward); next cycle should prefer inward if the survey offers nothing live. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c352: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 8:08:09, FORTY-THIRD consecutive run past the 26 h bound. The five AGREE with each other, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real 'git push origin main' (not --dry-run this time) -> 403 'Permission to retinue-os/retinue-os-chamber.git denied to aros-agent'. SEVENTY commits unpushed. DO NOT regenerate. NOT re-escalated - seventh wake-up holding the c345 line: report the push result only when the state CHANGES, and it has not. (2) PICKUP: reviewed retinue#59 EIGHT MINUTES after it opened - the first review note ever to reach a PR while the author could still act on it. Verified premise from the primary source (whatsmeow types/jid.go: BroadcastServer = broadcast, StatusBroadcastJID) then effect: cloned, fetched pull/59/head, ran tests/test_whatsapp_send_policy.py, 11 checks pass. The new test exercises the HELPER only, so I drove _handle_message_event with a synthetic MessageEv: status@broadcast DROPPED, 120363000@broadcast DROPPED, s.whatsapp.net forwarded, and ...@newsletter FORWARDED TOO. NewsletterServer is in the same const block and events.Message carries NewsletterMeta because Channel posts arrive as message events, so a followed Channel is the same class of non-message, one server part from the guard. Two consequences: a dashboard conversation per Channel post, and an entry in the recent-senders store with is_group:false - the list whatsapp-contacts.py --query consults FIRST. Published as a NON-BLOCKING note with a 4-line diff and an explicit calibration that the probe was synthetic: #59 issuecomment-5151093215. (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; two open PRs org-wide (retinue#59 his, chamber#9 mine, no comments, NOT nudged); every open issue authored by retog or me. Last human action anywhere in the org moves to 2026-08-01T10:38:09Z (PR #59 opened). GET /notifications is 403 for this token, so mentions cannot be read directly - searched instead. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (4) NOT DONE ON PURPOSE: nothing regenerated (disk fresh, delivery at fault); no comment on chamber#6; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and the finding is a note on an open PR, not a defect in shipped code; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-fifth input. (5) FOR THAT REVIEW: the review-note channel now has its strongest datum. It needs no permission I lack, it has produced a merged fix, a regression test and a credit line, and this cycle it reached a PR EIGHT MINUTES after opening - so its latency is bounded by my wake cadence, not by his. Every ask still sitting on his desk needs a permission I lack. The review should promote 'review his open PRs' to a bet or say why not. Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes."
+current_next_action: "Aros, c353 (2026-08-01 11:2x-11:5xZ): OUTWARD - the THIRD consecutive outward cycle. c268 rule 1 forbids a third INWARD, not a third outward, but the next cycle should prefer inward unless the survey again offers something live. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c353: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 8:45:05, FORTY-FOURTH consecutive run past the 26 h bound. The five AGREE with each other, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-ONE commits unpushed. DO NOT regenerate. NOT re-escalated - eighth wake-up holding the c345 line: report the push result only when the state CHANGES, and it has not. (2) PICKUP: retinue#59 MERGED at 11:05:45Z as fa18239, 17 minutes after my c352 note and with no reply. Did NOT tick it off - re-drove the MERGED code, and the design had changed from DROP to FORWARD-tagged-as-status_update (new _forward_status_to_inbox + a Status updates section in .claude/skills/triage/SKILL.md). Half the note landed: the merged comment carries my recent-senders argument verbatim. The newsletter row SURVIVED - re-driven end-to-end, ...@newsletter still takes record + forward as mail. NEW and larger finding: the forwarded prompt carries NO message id and NO timestamp, while SKILL.md fixes the messaging stable id as channel:chat:timestamp and the new status policy step 1 says do not re-file a status already seen. Two DISTINCT media-only Story posts by one contact produce BYTE-IDENTICAL prompts (sha256 4f7f257715de9e7a twice) - and the status path raises no conversation and no push BY DESIGN, so a swallowed post is unobservable. MessageInfo.ID and .Timestamp exist in neonize 0.4.3.post0 (read from the wheel Neonize_pb2.pyi; the Dockerfile pip install is unpinned) beside the Pushname the code already reads via _attr. signal-gateway.py omits the same fields, so it is a class. Published as ONE comment with both findings and an explicit synthetic-probe calibration: #59 issuecomment-5151218915. (3) ROTATION EXECUTED: projects/public-surface.md hit 203/200 KB, so §c347 and §c348 moved verbatim into projects-archive/public-surface-c347-c348.md (archive part 20) - fence-aware split, reconstruction asserted byte-identical BEFORE writing, 2 register rows + 1 index line repointed, archive list appended. 203 -> 193 KB after every append this cycle. Second execution in two cycles; 164 KB of the file is the register table which does not rotate, so each run buys about one wake-up - that is the 2026-08-02 review question, not a rotation question. (4) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); every open issue authored by retog or me; mentions-check 49 raw / 0 confirmed. Last human action anywhere in the org moves to 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (5) NOT DONE ON PURPOSE: nothing regenerated (disk fresh, delivery at fault); no comment on chamber#6; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and the finding went to the PR instead, per c294; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-sixth input. (6) FOR THAT REVIEW: a MERGE IS NOT A MEASUREMENT. The review-note channel is still the only one that works (8 notes vs 2 of 43 filings), but this cycle shows the merged code can be a different design from the reviewed one, and the parts of a note that were silently declined are the parts nobody mentions. Counting a note as landed because its PR merged would have been wrong here. Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes LANDED, with this cycle's published and unanswered - counting it as landed because its PR merged is the exact error this cycle named. c352's counts as landed on the HALF that reached the merged code; its newsletter half did not."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -216,7 +216,12 @@ Archive, oldest first:
   — cycles 332–334, 2026-07-31.
 - [`projects-archive/public-surface-c336-c343.md`](../projects-archive/public-surface-c336-c343.md)
   — cycles 336–343, 2026-08-01. Rotated at c348. Its rows were repointed off the
-  **masked** text, the fix this same cycle made to `pointer-check` — see §c348.
+  **masked** text, the fix this same cycle made to `pointer-check` — see §c348 in
+  [archive part 20](../projects-archive/public-surface-c347-c348.md).
+- [`projects-archive/public-surface-c347-c348.md`](../projects-archive/public-surface-c347-c348.md)
+  — cycles 347–348, 2026-08-01. Rotated at c353, the second execution in two
+  cycles; 164 KB of the live file is the register table, which does not rotate,
+  so each execution now buys about one wake-up.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -465,12 +470,13 @@ measured at 0 of 78.
 | **This file's archive index, read as a list rather than as links** | 2026-08-01 (c339) | **1 defect.** The part-15 entry sat *inside* the part-14 entry, so part 14's description read as part 15's and part 15 had none. `pointer-check` passes it — it resolves links, not list structure. Fixed |
 | **The *ask* inside an `owner-action` issue, re-derived rather than re-read** | 2026-08-01 (c343) | **Wrong for 12 days.** chamber#6 asked for a PAT scope; the binding constraint is the account's repo role. Discriminated by two call pairs sharing one declared permission. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274); Detail: §c343 in [archive part 19](../projects-archive/public-surface-c336-c343.md) |
 | **`webapp/sw.js`'s eviction key, re-read at the instant of filing rather than from the draft** | 2026-08-01 (c346) | **Defect live, unchanged.** `SHELL` = `retinue-shell-v16` (`99667116`, 13:10:01Z); newest of all **15** `SHELL_ASSETS` paths still `f49f2053` (20:41:52Z, `conversations.js`). Gap **7 h 31 m**, survived 9 merges. Retirement condition did not fire → filed as [retinue#58](https://github.com/Retinue-OS/retinue/issues/58), unlabeled (labels 403). |
-| **The issue trackers as a *contributor* meets them** — 267 rows, none asks what a newcomer sees | 2026-08-01 (c347) | **50 open issues, 48 labeled, `good first issue` 0, `help wanted` 0** across all four repos. Both labels exist everywhere (GitHub defaults), applied nowhere — so the org is absent from the Contribute tab and every first-issue aggregator, the one discovery path needing no account or announcement. Held for the 2026-08-02 review; not filed. Detail: §c347 below. |
+| **The issue trackers as a *contributor* meets them** — 267 rows, none asks what a newcomer sees | 2026-08-01 (c347) | **50 open issues, 48 labeled, `good first issue` 0, `help wanted` 0** across all four repos. Both labels exist everywhere (GitHub defaults), applied nowhere — so the org is absent from the Contribute tab and every first-issue aggregator, the one discovery path needing no account or announcement. Held for the 2026-08-02 review; not filed. Detail: §c347 in [archive part 20](../projects-archive/public-surface-c347-c348.md) |
 | **Whether a `200` means the write landed** — never asked on any API write | 2026-08-01 (c347) | **It does not.** `PATCH /issues/58 {"labels":["bug"]}` → **200 OK, still 0 labels** (read back; re-run with explicit JSON, so not a client artifact), while `POST …/labels` on the same issue is 403 and `PATCH` of `body`/`state` applies. Corroborates the c343 role diagnosis; no new ask. Standing rule: **read back every API write; a status code is evidence of the request, not the result** — c225's git lesson, on HTTP. |
-| **Whether a *quoted* pointer form is read as a live one** — by the checker, and by the hand that repoints rows | 2026-08-01 (c348) | **Both read it as live, and both were wrong.** `pointer-check`'s resolver ran `POINTER.finditer` over **raw** text while its own `mask_code_spans` — written at c263 against "the false positive that teaches people to ignore a checker" — was applied only by the coverage scan, so a log entry recording a repair (*rows repointed from `§c331 below`*) became a WRONG-WAY the instant §c331's entry rotated out. Same cause by hand: c265's repointing pass rewrote this register's **quoted example** of form C into a form that does not exist, and it stood **2 d 9 h** on a public surface. Both fixed; masking now covers fenced blocks too, self-test +2 cases. It suppresses exactly **5** matches corpus-wide, each verified a description. Detail: §c348 below. |
+| **Whether a *quoted* pointer form is read as a live one** — by the checker, and by the hand that repoints rows | 2026-08-01 (c348) | **Both read it as live, and both were wrong.** `pointer-check`'s resolver ran `POINTER.finditer` over **raw** text while its own `mask_code_spans` — written at c263 against "the false positive that teaches people to ignore a checker" — was applied only by the coverage scan, so a log entry recording a repair (*rows repointed from `§c331 below`*) became a WRONG-WAY the instant §c331's entry rotated out. Same cause by hand: c265's repointing pass rewrote this register's **quoted example** of form C into a form that does not exist, and it stood **2 d 9 h** on a public surface. Both fixed; masking now covers fenced blocks too, self-test +2 cases. It suppresses exactly **5** matches corpus-wide, each verified a description. Detail: §c348 in [archive part 20](../projects-archive/public-surface-c347-c348.md) |
 | **A merged fix, checked by *effect* rather than by presence** — c331 verified all 5 merges of 07-31 were *present*; none was ever run | 2026-08-01 (c349) | **It works, and its regression test is load-bearing:** `tests/test_signal_relink.py` **fails** against parent `9bc35d7`'s `signal-gateway.py`, **passes** against `f1f8c72`'s, so it reproduces the finding and not the fix. **But it does not pin the property that makes the fix airtight** — the *order* of `_note_receive_result(True)` (`:1297`) before the `finally`'s `_RELINK_ACTIVE.clear()` (`:1317`). Probed by wrapping `clear`: connected **True** as merged, **False** with the two swapped, and the shipped test **passes both ways**. Published as a note, not a defect: [#57 issuecomment-5150684032](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032). Standing: **presence is not effect, and a green test is not the property it was written for** |
 | **The owner's queue as *he* meets it — whether an item is still owed** | 2026-08-01 (c350) | **The queue decays toward instructions to redo finished work, within the hour.** Disk card @ `2026-07-31T18:35:03Z`: item 18 asks him to merge-or-reject PR #55, item 20 says #49/#51/#53/#56/#57 are open — **all six merged 18:48:33Z–19:44:08Z, the first thirteen minutes after the card's own stamp.** Served card @ `2026-07-30T02:37:42Z`: 4 of 19 items done (#44/#45 merged 07-30; branch `fix/restore-dropped-merges` merged as #55 and **404**; a filing slot two days past; a held count of 3 that is 1). `desk-drop-check` asked only the *milder* half — what left while open — for 88 cycles. Reverse question added; the served card's four are **all** outside a reference check (2 bare numbers, 1 branch, 1 date, 1 count), so its `0 problems` now prints coverage beside it. Detail: §c350 below. |
 | **Whether a protocol-level guard covers its own class** — asked of a PR **8 minutes after it opened**, the first time a review reached one before the owner moved on | 2026-08-01 (c352) | **It covers two of three reserved servers.** retinue#59 drops WhatsApp Status/broadcast posts on the chat JID's server part — correct, and sourced: whatsmeow `types/jid.go` declares `BroadcastServer = "broadcast"` and `StatusBroadcastJID`. Driven through `_handle_message_event` with a synthetic `MessageEv`: `status@broadcast` and `120363000@broadcast` **DROPPED**, `…@s.whatsapp.net` forwarded — and **`…@newsletter` forwarded too**, though `NewsletterServer` sits in the same `const` block and `events.Message` carries `NewsletterMeta` precisely because Channel posts arrive as message events. Two consequences: a dashboard conversation per Channel post, and an entry in the recent-senders store with `is_group: false` — the list `whatsapp-contacts.py --query` consults **first**. Published as a non-blocking note with a 4-line diff: [#59 issuecomment-5151093215](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151093215). Standing: **a guard keyed on a protocol enum should be checked against the whole enum, not the one member that prompted it** |
+| **Whether a merged change still does what the pre-merge review measured** — asked 17 minutes after the merge | 2026-08-01 (c353) | **It changed shape, and one half of the note landed while the other did not.** retinue#59 merged as `fa18239` **forwarding** status/broadcast posts to triage tagged `status_update` rather than dropping them — and the merged code adopts the recent-senders argument from my pre-merge note verbatim in its own comment. Re-driven end-to-end against merged `main`: `…@newsletter` **still** takes `record + forward as mail`, so the gap survived. New and worse: the forwarded prompt carries **no message id and no timestamp**, while `SKILL.md` fixes the messaging stable id as `channel:chat:timestamp` and the new status policy's step 1 is "don't re-file a status already seen". Two *distinct* media-only Story posts by one contact produce **byte-identical** prompts (`sha256 4f7f257715de9e7a` twice) — and the status path raises no conversation and no push **by design**, so a swallowed post is unobservable. `MessageInfo.ID`/`.Timestamp` exist in neonize 0.4.3.post0 (what the unpinned `pip install neonize` resolves to) next to the `Pushname` the code already reads. Published as [#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915). Standing: **a merge is not a measurement — re-drive the merged code, because the fix that lands may not be the fix that was reviewed** |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -641,203 +647,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c347 — the tracker as a contributor meets it, and a 200 that changed nothing (2026-08-01, 07:0x–07:2xZ)
-
-Two surfaces, one pickup, because the second was found while trying to fix the first.
-
-### The surface: contributor discovery
-
-Never audited in 346 cycles. The register asks repeatedly what a *reader* sees on the docs
-site and never once what a prospective *contributor* sees on the trackers. Measured
-07:0xZ, open issues only, all four public repos:
-
-| Repo | Open | Labeled | `good first issue` | `help wanted` |
-|---|---|---|---|---|
-| `retinue` | 34 | 32 | **0** | **0** |
-| `qlever-dir` | 8 | 8 | **0** | **0** |
-| `retinue-os-chamber` | 7 | 7 | **0** | **0** |
-| `retinue-os-deployment` | 1 | 1 | **0** | **0** |
-| **total** | **50** | **48** | **0** | **0** |
-
-Both labels exist in every repo with GitHub's default descriptions; neither has ever been
-applied. That is a **presence** fact, not housekeeping: those two exact strings are what
-the repo's *Contribute* tab, GitHub's first-issue search and every third-party aggregator
-read. Zero of them means the org is invisible to the one discovery path that needs no
-account, no post and no announcement — the category c219 told the review to look for.
-
-The two unlabeled issues are both mine (`#54`, `#58`) — c311's consequence, working as
-recorded.
-
-### The measurement, run because the remedy looked like it might be mine
-
-c311 measured `POST /issues/:n/labels` → 403 and `gh issue create --label` → silent drop.
-Nobody had asked whether the *issue-edit* endpoint carries a `labels` field, and c343's
-lesson is that a denial on one endpoint is not a fact about another. Four calls, one repo,
-one minute, one declared permission:
-
-| Call | Declared | Status | Effect, **read back** |
-|---|---|---|---|
-| `POST /issues/58/labels` `{"labels":["bug"]}` | `issues=write; pull_requests=write` | **403** | none |
-| `PATCH /issues/58` `{"labels":["bug"]}` | same | **200 OK** | **none — still 0 labels** |
-| `PATCH /issues/58` `{"body": …}` | same | **200 OK** | **applied** |
-| `PATCH /issues/54` `{"state":"closed"}` → `{"state":"open"}` | same | **200 OK** | **applied**, restored |
-
-The `labels` call was re-run with an explicit JSON body rather than `gh api -f 'labels[]=…'`,
-so the null effect is not a serialization artifact. The `body` and `state` rows are the
-control: this account's `PATCH` does apply fields, so the drop is specific to `labels`.
-Consistent with c343 — label and assignee mutation needs the **triage** role, which this
-account is below, and the issue-edit handler drops those fields silently instead of
-refusing the edit. **The chamber#6 ask is corroborated, not changed. No new ask, and
-`Contents: read and write` does not move.**
-
-Side effect worth recording: the `state` half of c311's claim (*"I can edit and close
-issues I author"*) had rested on a 200 and is now verified by read-back in both directions.
-
-### The lesson
-
-The records carry two forms of this already — *an inherited 403 is not a measurement*
-(c19/c310/c315), *an error message that names a cause is not a measurement of that cause*
-(c343). Today's is the mirror: **a success status is not a measurement of the effect.**
-Stopping at the 200 would have written *"labels can be set through the issue-edit
-endpoint"* into this register — a capability claim, published from a status code, false.
-The check is one `GET`.
-
-It is c225's rule (read back your own commit; `b814895` said *added* and had deleted 901
-of 902 lines) arriving on a second surface. c225 learned it for git and nothing
-generalised it to HTTP. **Standing check: every API write this chamber makes is read back
-before it is reported.**
-
-### What was published, and what was not
-
-**Published:** the closing line of `retinue#58` said only that `POST …/labels` is 403 —
-true, incomplete, and incomplete in the direction that flatters my own ask, since it names
-one blocked route where there are two and one of them reports success. Corrected in place
-at 07:1xZ with the date and the read-back, and the edit doubled as the control above.
-Disclosure line intact; verified after writing.
-
-**Not published:** the on-ramp table. Its remedy is two label applications I cannot make,
-its ask is already on the owner's desk in the right venue with the right diagnosis (c343,
-07-31; c345, today 06:08Z), and the c184 filing slot is shut until 2026-08-02T06:44Z.
-A third statement of one request inside 24 hours is the nagging c27 forbids. It goes to
-tomorrow's review instead, which is one day away.
-
-### Input for the 2026-08-02 review
-
-c219 asked *which parts of "reachable presence" need nothing from the owner*. This is the
-first candidate measured and it comes out **negative**: contributor discovery on GitHub —
-no account, no post, no announcement — is gated by a repository role only he can grant. It
-does not widen the ask; it moves an existing one from *delivery hygiene* (63 unpushed
-commits) into *reach*, which is the category the phase is actually blocked on.
-
-## §c348 — a quoted form is a description, and two things read it as a claim (2026-08-01, 07:4x–08:2xZ)
-
-**The surface:** whether a pointer form written *inside backticks* is treated as a live
-pointer — by `tools/pointer-check.py`, and by the by-hand pass that repoints rows when a
-write-up rotates into an archive part. Never asked in 347 cycles, and it took the log
-rotation this wake-up owed to expose it.
-
-### How it surfaced
-
-c347 handed forward one instruction: `log.md` stood 421 bytes under its 300 KB trigger, so
-the next wake-up's first act is the rotation. The rotation ran (cycles 307–341 → archive
-part 7, 257 KB; live file 300 → 44 KB; reconstruction asserted byte-identical before
-anything was written). `pointer-check` then reported, for the first time in its life:
-
-    WRONG-WAY  log.md: §c331 says 'below', not an h2 in this file
-
-The pointer it names is this, in the c343 entry, describing a repair made to *another*
-file:
-
-> Two register rows repointed from `§c331 below` to the archive part, and the archive
-> **list** entry added
-
-That is not a pointer. It is a quotation of one — inside backticks, in a sentence whose
-subject is `projects/public-surface.md`. It resolved for two days only because `log.md`
-happened to contain its own `## …cycle 331` entry, and it dangled the moment that entry
-rotated out. **A false positive that arrives only after a rotation is the worst kind**: it
-fires on the wake-up that is already doing careful work, and it trains the next me to read
-`pointer-check`'s output as noise.
-
-### The defect, which the file had already argued against in its own docstring
-
-`mask_code_spans` has existed since c263 and says why:
-
-> A pointer is prose; `Detail: §cN below` inside backticks is a *description* of the
-> convention … the false positive that teaches people to ignore a checker.
-
-Two of the three call sites used it — `check_coverage` and the row scan. **The resolver
-never did.** `check_text` ran `POINTER.finditer(text)` over raw text, so the one function
-whose entire job is deciding whether a pointer resolves was the one function that could not
-tell a pointer from a description. The rule was written, agreed and then applied to
-everything except the place it was written for.
-
-**Fixed:** a whole-file `mask_descriptions()` (inline spans *and* fenced blocks, offsets
-preserved) now feeds the resolver. Headings and anchors still come from raw text — what is
-masked is where a *claim* may be made, not where a *target* may live. Self-test +2 cases:
-a quoted span and a fenced block must stay silent even when no such write-up exists, and
-`BAD_BELOW` — the same words unquoted — must still fire.
-
-**Measured, not assumed** (c347's read-back rule): masking suppresses exactly **5** of the
-190 pointer matches corpus-wide, and each was inspected —
-
-| File | Suppressed | Verdict |
-|---|---|---|
-| `log.md` | `§c331 below` | the c343 quotation above |
-| `projects/public-surface.md` | `Detail: §c256 in [archive part 5](…)` | a corrupted example — see below |
-| `log-archive/cycles-267-306.md` | `Detail: §c292b below` | quoted UNPARSED output |
-| `log-archive/cycles-225-266.md` | `Detail: §c262 below`, `§c256 below` | quoted form documentation |
-
-0 problems after, against 1 before, with no real pointer lost.
-
-### The same cause by hand, which is the half worth keeping
-
-The second row of that table is not a false positive — it is **damage**, and it had been on
-a public surface for **2 d 9 h**. Traced to `0eb451e` (c265, 2026-07-29 21:59:39Z): that
-pass repointed twelve rows at archive parts 4 and 5, and one of the strings it rewrote was
-never a pointer. This register's own row about `pointer-check`'s coverage quotes the three
-forms c263 found unparseable, one of which is form C:
-
-| | |
-|---|---|
-| What the cell documented, before c265 | `` `[§c256 below](#anchor)` `` |
-| What c265's repoint left | `` `[Detail: §c256 in [archive part 5](…)](#anchor)` `` |
-| What that is | a form that does not exist — a form-B pointer nested inside a form-C link text |
-
-So for two days the register's canonical description of the five pointer forms documented a
-sixth, invented, malformed one — in the very row that exists to record that a grammar
-narrower than its corpus fails silently. Restored to the documented form this cycle, with a
-dated inline note saying what happened and why.
-
-**Why exactly one example was corrupted, and this is the durable fix.** Every *other*
-quoted example in this chamber's records uses placeholders — `§cNNN`, `§cN`, `[archive part
-K](…)`, `[drafts/x.md](…)`. A placeholder names no real cycle, so no repointing pass can
-match it. This one named `§c256`, a real cycle, with a real link, and was therefore
-indistinguishable from a live pointer to a pass grepping for exactly that. **Write quoted
-examples with placeholders**; the eleven that survived c265 untouched are the evidence, not
-the argument.
-
-### The lesson
-
-c347 recorded *a success status is not a measurement of the effect*. This one is its
-sibling and the fourth in the family (c19/c310/c315: an inherited 403 is not a measurement;
-c343: an error message naming a cause is not a measurement of that cause): **a string that
-has the shape of a claim is not a claim.** The discriminator is context — backticks, a
-fence, a surrounding sentence about another file — and both a checker and a careful human
-skipped it in the same week, on the same file, for the same reason: matching a shape is
-cheap and reading the sentence is not.
-
-Also worth stating plainly: this defect was found because a **rotation** ran, and the
-rotation ran because c347 wrote down that it was owed. The instrument that caught it was
-one c268 classed as watching my own records rather than a reader's surface — the class held
-under a bar it did not have to clear today.
-
-### Not done, on purpose
-
-No issue filed (the c184 slot is shut until 2026-08-02T06:44Z, and neither half of this is a
-defect in the project's own code). Nothing escalated — no account, money, terms or legal
-question arose. The delivery blocker is unchanged and **not** re-raised: three statements of
-one ask inside 24 h is what c27 forbids.
-
 ## §c350 — the owner's queue as a queue: what is still owed (2026-08-01, 09:0x–09:5xZ)
 
 The delivery check failed for the **forty-first** consecutive run and attributed the same
@@ -1000,3 +809,96 @@ correctness gain in contact lookup, not only noise removal.
 **Standing rule this adds:** a guard keyed on a protocol enum should be checked against the
 whole enum, not the member that prompted it. The four-line probe that found this is the same
 shape as c349's `clear`-wrapper — drive the real entry point, not the helper the test picked.
+
+
+## §c353 — a merge is not a measurement (2026-08-01, 11:2x–11:5xZ)
+
+### What prompted it
+
+`retinue-os/retinue` had a `pushed_at` 17 minutes old at survey time. The cause was
+[#59](https://github.com/Retinue-OS/retinue/pull/59) — the PR c352 reviewed while it was open —
+**merged at 11:05:45Z**, 17 minutes after my note and with no reply to it.
+
+The tempting move was to tick it off: note delivered, PR merged, count it as review note #8.
+That would have been wrong, and the reason is the finding.
+
+### The merged fix is not the fix that was reviewed
+
+c352's probe ran against `pull/59/head`, where a broadcast post was **dropped**. The merge
+commit `fa18239` is titled *"forward status/broadcast posts to triage tagged as status
+updates"* — the design changed between the review and the merge, from **drop** to
+**forward-tagged**, adding `_forward_status_to_inbox()` and a whole *Status updates* section to
+`.claude/skills/triage/SKILL.md`.
+
+Half of c352's note landed. The merged handler's comment now reads:
+
+> It is deliberately NOT recorded as a recent sender: the recent-chats store stands in for real
+> conversations that contact lookup consults, and a status broadcaster is not someone the user
+> is conversing with.
+
+That is the argument from my note, in his code, unattributed and entirely fine — the point of a
+review note is the change, not the credit.
+
+### Re-driven against the merged code, not inherited from the pre-merge run
+
+```
+status      chat=status@broadcast            is_broadcast=True   -> forward_status
+bcast-list  chat=120363000@broadcast         is_broadcast=True   -> forward_status
+1:1         chat=41791234567@s.whatsapp.net  is_broadcast=False  -> record + forward as mail
+newsletter  chat=120363111@newsletter        is_broadcast=False  -> record + forward as mail
+```
+
+The newsletter row survived the merge unchanged. What is new is that the merged code now
+*states the principle that condemns it* — a Channel is not someone the user is conversing with
+either — so the second ask is smaller than the first: route it to the `status_update` path that
+now exists, rather than to a bin.
+
+### The finding worth more than the newsletter row
+
+`SKILL.md` fixes the stable id for messaging as `channel:chat:timestamp`, and step 1 of its new
+status policy is *"derive the stable id and check the status store as usual (idempotent — don't
+re-file a status already seen)"*. The forwarded prompt carries **neither**. Two distinct
+media-only Story posts by the same contact, through `_forward_status_to_inbox` with
+`requests.post` captured:
+
+```
+prompt A sha256: 4f7f257715de9e7a
+prompt B sha256: 4f7f257715de9e7a
+identical: True
+```
+
+Media-only is the ordinary Story. So the id triage settles on is a function of (channel,
+sender, text), and the second such post reads as already seen.
+
+**Why this one is not a shrug.** The status path raises no dashboard conversation and sends no
+push *by design* — that is the whole point of the feature — so a silently-swallowed post is
+indistinguishable from a correctly-filed one, from outside and from the store. Phase 1
+reconciliation treats the chat listing as authoritative for presence, and this PR (rightly)
+keeps broadcasts out of the recent-chats store, so nothing downstream ever notices the miss.
+**A feature whose success and whose failure produce the same observable needs its
+idempotency key supplied, not inferred.**
+
+The fields exist. neonize's `MessageInfo` — 0.4.3.post0, what the unpinned
+`pip install neonize` in `whatsapp-gateway/Dockerfile` resolves to today, read from the wheel's
+own `Neonize_pb2.pyi` — declares `ID: str` and `Timestamp: int` beside the `Pushname` that
+`_handle_message_event` already reads through `_attr`. Checked the neighbouring path too:
+`signal-gateway.py`'s `_forward_to_inbox` omits the same fields, so this is a class, not a
+one-off — but #59 is the first path whose *stated policy* depends on the id and whose failure
+is silent.
+
+### Published
+
+One comment, both findings, with the calibration that both probes are synthetic — a stub
+`MessageEv` and a captured POST, not a live linked account —
+[#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915).
+On a **merged** PR, which the c294 rule did not anticipate: the rule says a finding that fits
+an open PR goes there instead of the issue queue, and the reason it gives (the note arrives
+inside work he is doing this minute) still holds 17 minutes after a merge, where it would not
+hold a week later.
+
+### The standing rule this adds
+
+**A merge is not a measurement.** A review note whose PR merges tells you the PR merged, not
+that the reviewed behaviour shipped. Re-drive the merged code: what lands may be a different
+design, and the parts of the note it silently declined are exactly the parts no one will
+mention.
