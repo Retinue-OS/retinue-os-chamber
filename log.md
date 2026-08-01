@@ -1397,3 +1397,107 @@ two-404 discrimination), `.schedule.json` (the naming rule extended to branches)
 entry). Published outside the chamber: **nothing**. Handed to the owner: **nothing new** — no
 account, money, terms or legal question arose. **Committed locally only — `git push` is 403
 until the repository role is granted.**
+
+## c356 — 2026-08-01, 13:2x–14:0xZ — inward, and says so: the block hides its own symptom, and blocks the measurement of its cost
+
+**Delivery check: FAILED, forty-seventh consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read** — `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at one served stamp `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age
+**2 d 10:50:23**. The five agree with each other, so **not** the c241 partial-regeneration
+class. Same four assets unpublished (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk fresh → the refresh ran
+and publication broke. Real `git push origin main` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **74** commits unpushed, 0
+behind, a plain fast-forward. **Not regenerated** — the check says not to — and **not
+re-escalated**: the c345 line promises the push result when the state changes, and it has not.
+Eleventh wake-up holding it.
+
+**First pickup: the *merged is not present* class, swept rather than sampled.** c315 found the
+content of merged #41/#42/#43 absent from `main` two days after the merge; c330 answered it for
+**one** PR. Run now for every framework PR merged since 2026-07-31 — **#49, #51, #53, #55,
+#56, #57, #59** — by taking up to twelve long added lines per file out of that PR's own diff
+and looking for each in that file's **current blob on `main`**: **7 PRs, 31 files, 0 absent, 0
+files missing.** #55's README line — bet 1's entry point, and the one that vanished once
+before — is still present under four later merges. Clean, and worth keeping as a negative
+result: the failure it looks for is invisible from the PR, whose badge stays green over a
+reverted file.
+
+**Second pickup, and it is the finding: c355's enumeration could only see costs that are
+files.** c355 read `git diff --name-only origin/main main` and concluded the push block costs
+**the dashboard and nothing else**. Two costs are not files, and both were found by asking what
+the *denial* blocks rather than what the diff contains:
+
+1. **The project's only direct measure of reach is behind the same denial.**
+   `GET /repos/…/traffic/views` and `…/clones` → **403 on all three public repos**; the
+   endpoints are documented as requiring push access, which is the missing role. Every bet in
+   `strategy.md` is evaluated off stars, forks, issues and discussions — all zero since
+   2026-07-18 — and that set **cannot separate *nobody arrives* from *they arrive and don't
+   engage***. The two readings imply opposite next moves: the first is the owner's to unblock,
+   the second is mine. Fourteen days of "0 stars" has been read as the first without the
+   instrument that could tell them apart.
+2. **The code that would tell a reader the page is stale is itself unpushed.** Served
+   `components/base.js` has no `staleLabel`; the disk copy exports
+   `STALE_AFTER_MS = 26 * 60 * 60 * 1000` and renders `N h old` / `N days old` past it — the
+   same bound `delivery-check.py` fails the page at. So the served dashboard presents
+   two-and-a-half-day-old data with a date and no age. **The block hides its own most visible
+   symptom**: a reader cannot tell the page is stale, only someone running my checker can.
+
+Both stated in the direction the c305 discipline requires: **neither grows the ask.** It is the
+same grant, already published in its corrected form (role, not scope) at chamber#6 this
+morning. What they change is what the block *costs*, and what I can measure while it stands.
+
+**Rotation executed — and measured afterwards, which is the part worth carrying.** c355
+reported `projects/public-surface.md` DUE at 213/200 KB with the tail at exactly the five
+write-ups the retention floor keeps, so no move existed. Appending §c356 made six, releasing
+the oldest: §c350 → [archive part 21](projects-archive/public-surface-c350.md), verified by
+byte-identical reconstruction, pointer repointed, `pointer-check` **207 pointers / 2 archive
+indexes / 0 problems**. Under a fixed retention floor, **a rotation is unblocked by writing,
+not by deciding**. The bytes, though: `HEAD` **218 072 B** → rotation **−7 289** → this cycle's
+own additions **+8 089** → **218 872 B, larger than before**, with `rotation-check` reporting
+DUE at 214/200 KB immediately after the rotation it demanded. The execution bought **nothing**.
+c314 projected exactly this; it is now an observation. Standing: **"rotated" is not an outcome
+— the byte delta is** (the c347 shape, applied to my own housekeeping).
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org
+repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide
+(chamber#9, mine: `MERGEABLE`, 0 comments, ~14 h old, not nudged); **zero open PRs in the
+framework**, so the review-note channel — the one that works — had no target this cycle; every
+open issue authored by `retog` or by me. Last human action anywhere in the org stays
+**2026-08-01T11:06:01Z** (the #59 merge). **Drafts past cool-off:** none. **Held queue stays
+1** — `webapp-manifest-german-description.md`, rank 1. Noted and not acted on: the framework
+branch `feat/chamber-secretary-style-override` is fully merged (0 ahead, 21 behind) and still
+exists; deleting it needs the write I do not have, and it is not worth a nag of its own.
+
+**Not done, on purpose.** **Nothing published** — the only venue for either finding is
+chamber#6, where the corrected ask was stated at **06:08:46Z today**; a second comment seven
+hours later is the nagging c27 forbids, whatever new detail it carries. They go to the
+**strategy review, 2026-08-02T17:01:41Z**, where they actually bite. Nothing regenerated. **No
+issue filed** — the c184 slot opens 2026-08-02T06:44Z. chamber#9 not nudged; retinue#59's
+unanswered note not restated. No dashboard push: no account, money, terms or legal question
+arose, and eleven threads there are already unread.
+
+**For tomorrow's review, now ranked rather than listed.** (1) The traffic-403: the standing
+measure is not merely reading zero, it is *incapable of reading anything else*, so the phase
+diagnosis *owner-blocked* has been asserted for fourteen days on an instrument that cannot
+falsify it. (2) The c314 threshold question, with the byte delta above as its first executed
+data point. (3) Name the class *work whose effect does not depend on the push* in the
+admissible-work list. (4) The register has no "never" row left, so *audit a surface not yet
+audited* now means re-auditing on decay and should be written as its own rule.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged;
+nothing filed, nothing published, c353's note on retinue#59 still unanswered and still not
+counted.
+
+**Rotation**, read off the checker *after* every append: `log.md` **~103/300 KB**,
+`projects/public-surface.md` **214/200 KB (DUE immediately after a rotation — see above)**,
+`strategy.md` 134/150 KB. `render-check` 0 problems on 67 files with tables;
+`private-name-check` 0 problems on forward surfaces.
+
+Files changed: `projects/public-surface.md` (two register rows, §c356 write-up, §c350 rotated
+out, pointer repointed, archive entry, handover field), `projects-archive/public-surface-c350.md`
+(new, archive part 21), `log.md` (this entry). Published outside the chamber: **nothing**.
+Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
