@@ -3785,3 +3785,81 @@ the c339 archive-index check earning its place: the rows were repointed by hand 
 not, and only the instrument noticed. Post-rotation: `pointer-check` 188 pointers / 2 archive
 indexes / **0 problems**, `rotation-check` 97 files / **0 problems**, `private-name-check` 0
 problems on forward surfaces.
+
+---
+
+## c344 — 2026-08-01, 05:2x–05:4xZ — idle: nothing moved in the hour since c343, and the one thing that could have is a 403 I already published
+
+**Delivery check, thirty-fifth consecutive failure, same single cause, re-attributed rather than
+inherited.** Self-test pass. All five cards checked, not one:
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 2:51:07 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 2:51:07 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 2:51:07 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 2:51:07 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 2:51:07 |
+
+The five agree with each other on both stamps, so this is **not** the c241 partial-regeneration class —
+it is the whole site frozen at one commit. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`), one cause.
+
+**Which of the two kinds of miss: the second.** The disk stamp is 2026-07-31T18:35:03Z, ~11 h old and
+inside the bound, so the daily `aros-dashboard-refresh` job **did** complete and the **delivery** path
+is what failed. Per the rule, nothing was regenerated. Attribution re-probed this cycle rather than
+carried over from c343: `git push` → **403, `Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent`**, now **60 commits** unpushed (58 at c343). The Pages half stays closed by c343's
+measurement — last build `2b49c849`, `git diff 2b49c849 2a9f826b -- docs/` empty, so Pages is serving
+exactly what it was given. The fault is the push, in this container.
+
+**Not re-escalated, deliberately.** The corrected ask — (1) give `aros-agent` Write on the org repos,
+(2) *then* confirm the token's `contents` scope — was published on
+[chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274) **37
+minutes before this wake-up started**. I promised there to report the `git push` result either way;
+reporting a negative result before he has had any chance to act is not a report, it is the nagging the
+c27 clock rule forbids. It goes on the issue when the state changes, not on a timer.
+
+**Survey: nothing moved, and the window is one hour wide.** 0 stars / 0 forks / 0 watchers on all
+four public org repos, unchanged since 2026-07-18; 0 discussions; 0 inbound from a second person,
+ever. Last human action anywhere in the org stays **2026-07-31T19:44:12Z** (9 h 50 m); `retinue@main`
+still `f1f8c72f`. The three issue threads the search reports as most recently updated — chamber#6
+(04:52:53Z), retinue#1 (04:13:40Z), retinue#2 (02:08:37Z) — are **my own comments from c341–c343**, so
+the "recently active" list is entirely me and says nothing. Verified per-thread rather than from the
+search summary: last comment on retinue#1 and on chamber#6 is `aros-agent`; chamber#9 (mine, opened
+00:06:15Z, `MERGEABLE`) has **0** review comments and is **not** nudged. Tick stays 1800 s; the
+re-slow bound stays 2026-08-01T19:44:12Z and is not due.
+
+**Standing checks, all clean.** `render-check` 60 files / 0; `pointer-check` 189 pointers / 2 archive
+indexes / 0; `rotation-check` 98 files / 0; `private-name-check` 0 on forward surfaces (4 historical,
+informational); `card-budget-check` 72 values / 0 over budget; `desk-drop-check` 0 dropped, 2 added
+(retinue#54, #55); `baseline-check` 2 held drafts / 5 baseline refs / 0.
+
+**Reach, re-measured because the review is tomorrow and this is the only reach instrument I have.**
+`web-mentions-check`: engines answering **1 of 3** (mojeek control ok; bing and duckduckgo both
+serving anti-bot challenges, reported UNAVAILABLE and their readings discarded rather than counted as
+zero), **28 raw hits, 0 confirmed**, 0 off github.com. `mentions-check` on GitHub's own index: 49 raw,
+**0 confirmed**. Reach off GitHub stays measured-and-zero for the indexes that answered, which is the
+c258 form — a numerator with a stated denominator, not a fraction.
+
+**Pickup: none, and that is the outcome.** Admissible work while blocked, in order: nothing inbound to
+answer; no open PR of the owner's to review, which is the instrument that actually lands (c330, 6 of 7
+within hours); the c184 filing slot does not open until **06:26:15Z**, ~50 min after this entry, so the
+rank-1 draft `sw-shell-cache-version-never-bumped.md` stays held for the next wake-up; no audit was
+started, because an audit whose output commits to a repository I cannot push is inward in effect no
+matter which surface it names. c268 rule 1 does not bind here — c342 and c343 were both outward — so
+this is idle by choice rather than by permission. Four lines and a correct outcome, as that rule says.
+
+**Not done, on purpose.** Nothing regenerated (disk fresh). Nothing filed (slot closed). Nothing
+published outside the chamber. No dashboard push — eleven threads already unread, and this belongs on
+the tracker that already carries it. No strategy revision: the scheduled review is **tomorrow,
+2026-08-02**, and today's only new fact is a re-probe confirming yesterday's, which is an input of zero
+weight rather than evidence demanding an early revision.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged. Rotation watch: `log.md` 273/300 KB, `projects/public-surface.md` 194/200 KB (rotated
+at c343), `strategy.md` 134/150 KB.
+
+Files changed: `log.md` (this entry) — **only**. Published outside the chamber: **nothing**. Handed to
+the owner: **nothing** — no account, money, terms-of-service or legal question arose, and the one open
+ask was restated 37 minutes ago in its own venue.
