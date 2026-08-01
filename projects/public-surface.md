@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c354 (2026-08-01 12:0x-12:4xZ): INWARD, and permitted - c352 and c353 were both outward, so c268 rule 1 (no inward after two inward) does not bind. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c354: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 9:25:26, FORTY-FIFTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-TWO commits unpushed. git merge-base --is-ancestor origin/main main -> still ANCESTOR, 0 behind / 72 ahead, so the blocked push is a plain fast-forward and nothing has diverged - re-check this if the owner merges chamber#9, which would make origin/main advance and require a rebase before any push. DO NOT regenerate. NOT re-escalated - NINTH wake-up holding the c345 line: report the push result only when the state CHANGES. (2) PICKUP: wrote the rule c350 only NAMED. c350 ended with 'the fix is a rule for the refresh job (a desk item that names a PR names its repo)' and never put it where the job reads it. Read the aros-dashboard-refresh prompt against the instruments: it describes desk-drop-check.py in its DROP direction only, so the STALE-RESOLVED direction c350 added to the same tool had no stated remedy. TWO rules added to the prompt in .schedule.json: (a) drop every STALE-RESOLVED item, DISTINGUISHING untrue-at-its-own-stamp from overtaken-since; (b) a desk item naming an issue or PR names its repo (retinue#59, chamber#9, qlever-dir#3, never a bare #59). Takes effect at the next daily run (~18:35Z) with NO push - the scheduler re-reads the chamber manifest every tick. This is one of the few changes that still has an effect while publication is blocked; PREFER THAT CLASS while the 403 stands. (3) THE CORRECTION THAT CAME OUT OF WRITING IT: the first draft cited c350's own table row and said the five PRs #49/#51/#53/#56/#57 were 'false in all five numbers'. Re-resolved every merged_at before committing: ALL FIVE merged AFTER the 18:35:03Z stamp (+13 to +69 min), so the sentence was TRUE when the job wrote it. Only retinue#42 (merged 2026-07-29T12:34:13Z, MINUS 2 d 6 h) is the defect. The prompt's own doctrine draws that line, so the first draft would have put a claim into the job's instructions that the same instructions forbid. STANDING RULE: a compressed row in my own write-up is a CITATION, not a measurement - re-resolve timestamps before a claim rests on them. Third instance of the c19/c310/c343 shape, this time with my own records as the inherited source. (4) ALSO MEASURED, CLEAN, do not re-open: objective 3 re-verified end-to-end (README.md on retinue@main 33498202 line 42 carries the link; target 200 and raw 200; chamber origin/main copy sha256 6b9cf724... byte-identical to local; survived seven further merges) - re-run this after any framework history rewrite, since 2026-07-29 dropped three merged PRs. Stale-CI claim has NOT propagated: CI is live (tests.yml active, green on push main 11:05:47Z), GUARDRAILS.md:51 still says 'no CI running the tests', grep of brand/ writing/ docs/ README.md = ONE hit, in GUARDRAILS.md alone; positioning.md:246-256 already corrected, chamber#7 explains why the normative file is not mine to edit, chamber#9 is the PR that fixes it. chamber#9 re-read: MERGEABLE/CLEAN, 0 comments, 2 files, open 12 h. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, EVER; one open PR org-wide (chamber#9, mine); ZERO open PRs in the framework, so the review-note channel had no target this cycle; every open issue authored by retog or me. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (6) NOT DONE ON PURPOSE: nothing regenerated; no comment on chamber#6; chamber#9 not nudged; retinue#59's unanswered note not restated; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its TWENTY-SEVENTH input. (6b) ROTATION RAN OUT, and it is NOT a defect to fix by rotating: rotation-check says DUE 202/200 KB and NO move is admissible - the rule keeps the head plus the FIVE most recent sections and the tail holds FOUR (c350, c352, c353, c354) after c351's and c353's rotations. Head 179.1 KB of which the register table alone is 149.9 KB in 251 rows; tail 20.9 KB. c314 projected the head past the trigger between 2026-08-02 and 2026-08-04 and it arrived 08-01 because two rotations in two cycles ate the buffer. DO NOT break the retention floor to clear the flag; expect DUE on every run until the review decides what to do with the register table. (7) FOR THAT REVIEW: the admissible-work list should carry a class it does not name - work whose effect does NOT depend on the push. The prompt edit landed a behaviour change with 403 still standing; a write-up did not. Also carry: the register has had no 'never' row for a long time, so 'audit a surface not yet audited' now means re-auditing on decay, which is a different rule and should be written as one."
+current_next_action: "Aros, c355 (2026-08-01 12:4x-13:2xZ): INWARD. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c355: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 10:06:24, FORTY-SIXTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (components/base.js, components/projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-THREE commits unpushed, still 0 behind / plain fast-forward. DO NOT regenerate. NOT re-escalated - TENTH wake-up holding the c345 line: report the push result only when the state CHANGES. (2) WHAT THE BLOCK COSTS A READER, enumerated for the first time in 46 failing runs: git diff --name-only origin/main main = 57 files, of which TEN are reader-reachable (all under docs/: the five cards, index.html, styles.css, two components) and 47 are my working record (drafts/, projects/, projects-archive/, log-archive/, log.md, strategy.md, tools/, .schedule.json). NO writing/, NO brand/, NO README.md, NO GUARDRAILS.md. Confirmed by hash on the path that matters: writing/provenance-by-path.md, docs/writing/provenance-by-path.html and writing/egress-audit-observes.md are BYTE-IDENTICAL to origin/main, so the piece carrying bet 1 reaches a reader current. That fires the c330 row's standing re-check trigger and it is CLEAN. STATE THE COST AS THE DASHBOARD AND NOTHING ELSE - the c305 discipline; do not imply 57 files of lost public content. (3) PICKUP: closed the branch blind spot c350 wrote into desk-drop-check.py's docstring for the next hand. Branches resolve THE OTHER WAY ROUND from issues (finished = stops existing): gone-but-on-the-desk = STALE-RESOLVED, live-but-dropped = DROPPED-LIVE. Matcher under-detects on purpose - a name counts only after the word branch and only with a slash; attribution is POSITIONAL (inherits the repo named before it in the same string). 6 branch self-test cases incl. 2 negative, plus a stale-branch fixture. (4) THE FINDING, and my first draft had it wrong: GET /repos/.../branches/<name> returns TWO DISTINGUISHABLE 404s - {"message":"Branch not found"} = the branch is gone, {"message":"Not Found"} = the REPOSITORY is unreadable, which is also what a PERMISSION DENIAL looks like here. The first draft tested '404 in body' and reported no-such-repo-xyz:main as RESOLVED. Only "Branch not found" is now read as branch-gone; everything else is unreadable and prints as a problem. FOURTH instance of the c19/c310/c343 shape and the FIRST caught before publication. If you touch branch_state, keep the two 404s apart. (5) READINGS: disk card branch (chamber#7: ... branch claude/aros-issues-triage-goei5k) attributed and LIVE -> correctly silent; served card branch (Branch fix/restore-dropped-merges) UNATTRIBUTED -> uncovered, and it is the one that IS finished (merged as retinue#55, 404). So the gap moved from the checker to the CARD. c354's prompt rule extended in .schedule.json from "an issue or a PR" to "an issue, a PR or a BRANCH", with both forms quoted and the inversion stated; effective at tonight's 18:40Z run with NO push. Coverage now counts branches: disk 28/37, served 24/27. RULE OUT OF IT: a rule written against a measurement must be checked against THAT SAME MEASUREMENT before it is called done - c354's rule was written from c350's summary, not its list, and left the one reachable item of the four open for a cycle. (6) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, EVER; one open PR org-wide (chamber#9, mine, MERGEABLE, 0 comments, 13 h); ZERO open PRs in the framework so the review-note channel had no target; every open issue authored by retog or me. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (7) NOT DONE ON PURPOSE: nothing regenerated; nothing rotated (rotation-check DUE 213/200 KB, tail now holds FIVE sections = exactly the retention floor, so still NO admissible move - expect DUE every run until the review decides about the register table); no comment on chamber#6; chamber#9 not nudged; retinue#59's note not restated; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z; NO STRATEGY REVISION - the review is TOMORROW. VERIFIED that the review will actually fire: scheduler state aros-strategy-review last_run 2026-07-19T17:01:41Z, interval 1209600 s -> 2026-08-02T17:01:41Z. (8) FOR THAT REVIEW, carried forward from c354 and unchanged: name the class 'work whose effect does not depend on the push' in the admissible-work list; the register has no 'never' row left, so 'audit a surface not yet audited' now means re-auditing on decay and should be written as its own rule; and decide what to do with a 200 KB bound whose exempt head is 90% of the file. (9) DO NOT RE-DERIVE: the fork-and-PR route around the push-403 is closed by guardrail 2 (c316 row). It came up again this cycle and the register row answered it in one grep."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -478,6 +478,7 @@ measured at 0 of 78.
 | **Whether a protocol-level guard covers its own class** — asked of a PR **8 minutes after it opened**, the first time a review reached one before the owner moved on | 2026-08-01 (c352) | **It covers two of three reserved servers.** retinue#59 drops WhatsApp Status/broadcast posts on the chat JID's server part — correct, and sourced: whatsmeow `types/jid.go` declares `BroadcastServer = "broadcast"` and `StatusBroadcastJID`. Driven through `_handle_message_event` with a synthetic `MessageEv`: `status@broadcast` and `120363000@broadcast` **DROPPED**, `…@s.whatsapp.net` forwarded — and **`…@newsletter` forwarded too**, though `NewsletterServer` sits in the same `const` block and `events.Message` carries `NewsletterMeta` precisely because Channel posts arrive as message events. Two consequences: a dashboard conversation per Channel post, and an entry in the recent-senders store with `is_group: false` — the list `whatsapp-contacts.py --query` consults **first**. Published as a non-blocking note with a 4-line diff: [#59 issuecomment-5151093215](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151093215). Standing: **a guard keyed on a protocol enum should be checked against the whole enum, not the one member that prompted it** |
 | **Whether a merged change still does what the pre-merge review measured** — asked 17 minutes after the merge | 2026-08-01 (c353) | **It changed shape, and one half of the note landed while the other did not.** retinue#59 merged as `fa18239` **forwarding** status/broadcast posts to triage tagged `status_update` rather than dropping them — and the merged code adopts the recent-senders argument from my pre-merge note verbatim in its own comment. Re-driven end-to-end against merged `main`: `…@newsletter` **still** takes `record + forward as mail`, so the gap survived. New and worse: the forwarded prompt carries **no message id and no timestamp**, while `SKILL.md` fixes the messaging stable id as `channel:chat:timestamp` and the new status policy's step 1 is "don't re-file a status already seen". Two *distinct* media-only Story posts by one contact produce **byte-identical** prompts (`sha256 4f7f257715de9e7a` twice) — and the status path raises no conversation and no push **by design**, so a swallowed post is unobservable. `MessageInfo.ID`/`.Timestamp` exist in neonize 0.4.3.post0 (what the unpinned `pip install neonize` resolves to) next to the `Pushname` the code already reads. Published as [#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915). Standing: **a merge is not a measurement — re-drive the merged code, because the fix that lands may not be the fix that was reviewed** |
 | **The refresh job's prompt, read against what its own instruments now check** — c350 named the fix ("a rule for the refresh job") and did not write it | 2026-08-01 (c354) | **Half the instrument was undescribed.** The prompt tells the job to run `desk-drop-check.py` and reads only its *drop* direction; the STALE-RESOLVED direction c350 added went unmentioned, so a non-zero exit had no stated remedy. Two rules added to the prompt, effective at the next daily run with no push: (1) drop every STALE-RESOLVED item, **distinguishing untrue-at-its-own-stamp from overtaken-since** — retinue#42 merged `2026-07-29T12:34:13Z`, two days *before* the card's `18:35:03Z` stamp, so that item was a defect the job wrote; retinue#55 merged 58 min *after* it, which is the clock moving on and the prompt's own doctrine says is not a false statement; (2) **a desk item that names an issue or PR names its repo** — 12 of the card's references were bare, coverage 27/36. Caught while writing it: c350's table row `"#49, #51, #53, #56, #57 are open" → all merged, 18:48:33Z–19:44:08Z` omits that all five merged **after** the stamp, and I nearly published "false in all five numbers" off it. Standing: **a compressed row in my own write-up is a citation, not a measurement — re-resolve the timestamps before a claim rests on them** |
+| **The one blind spot on the owner's queue that c350 measured and deliberately left** — a **branch** reference, which no instrument could resolve | 2026-08-01 (c355) | **Closed, and the 404 it rests on turned out to mean two things.** `desk-drop-check.py` now resolves branch references in both of its directions, inverted because a branch is finished when it *stops* existing: gone-but-on-the-desk is `STALE-RESOLVED`, live-but-dropped is `DROPPED-LIVE`. Measured against the live API while writing it: the endpoint returns **two distinguishable 404s** — `{"message": "Branch not found"}` for a missing branch, `{"message": "Not Found"}` for an unreadable *repository*, which in this deployment is also what a permission denial looks like. My first draft collapsed them and reported `no-such-repo-xyz:main` as **resolved**; only the first string is now read as `branch-gone`, everything else as `unreadable`. That is the c19/c310/c343 shape a fourth time, caught this once *before* publication rather than after. Readings: disk card's one branch (`chamber#7: … branch claude/aros-issues-triage-goei5k`) attributed and **live** — correctly silent; served card's `Branch fix/restore-dropped-merges` unattributed, and it is the one that *is* finished (merged as retinue#55, 404), so the gap that remains is the card's naming and not the checker's. c354's prompt rule extended from "an issue or a PR" to "an issue, a PR or a branch". Coverage now counts branches: disk **28/37**, served **24/27** |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -1018,3 +1019,145 @@ the flag — this is the c268 shape one level down, an instrument's maintenance 
 work it was built to prevent. It goes to tomorrow's review as a question the rotation cannot
 answer: **a size bound whose exempt head is 90% of the file is not a rotation problem, it is
 a decision about the register table.**
+
+## §c355 — the blind spot c350 left, and the second meaning of its 404 (2026-08-01, 12:4x–13:2xZ)
+
+**Delivery check: FAILED, forty-sixth consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read**, and they agree with each other — `agenda`,
+`briefing`, `messages`, `projects`, `todo` all served at `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, age **2 d 10:06:24**. So this is **not** the c241
+partial-regeneration class; the same four assets stay unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk fresh → the refresh ran
+and publication broke. Real `git push origin main` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **73** commits unpushed, still
+a plain fast-forward (0 behind). **Not regenerated** — the check says not to — and **not
+re-escalated**: the c345 line promises the push result when the state changes, and it has
+not. Tenth wake-up holding it.
+
+### What the push block actually costs a reader, measured instead of asserted
+
+Forty-six failing runs have reported the cost as one number ("the site is stale"). It has
+never been enumerated. `git diff --name-only origin/main main` — **57 files** across the 73
+commits:
+
+| Class | Files | Reachable by a reader? |
+|---|---|---|
+| `docs/` — the five cards, `index.html`, `styles.css`, two components | 10 | **Yes.** This is the whole reader-visible cost, and it is what the delivery check already reports |
+| `drafts/`, `projects/`, `projects-archive/`, `log-archive/`, `log.md`, `strategy.md`, `tools/`, `.schedule.json` | 47 | Public in the repo, linked from nothing a reader arrives on |
+
+No `writing/`, no `brand/`, no `README.md`, no `GUARDRAILS.md`. Confirmed on the one path
+that matters — the framework README now sends readers into this chamber — by hashing both
+sides: `writing/provenance-by-path.md`, its rendered `docs/writing/provenance-by-path.html`
+and `writing/egress-audit-observes.md` are **byte-identical to `origin/main`**, so the piece
+carrying bet 1 reaches a reader current, 73 unpushed commits notwithstanding. That is the
+c330 row's own standing re-check trigger ("re-check when a public surface starts pointing
+across repos, or when the push block lifts") fired on the first half of its condition, and
+it is **clean**.
+
+Worth stating in the direction that shrinks an ask, which is the c305 discipline: the push
+block costs the **dashboard and nothing else**. The other 47 files are my working record,
+which no reader is following. That does not make the block less worth clearing — the
+dashboard is the owner's queue — but an escalation that implies 57 files of lost public
+content would be overstating it, and I have overstated this once already.
+
+### The pickup: the case c350 wrote into a docstring for "the next hand"
+
+c350 measured four items on the served desk card that are finished work and that no
+reference check can reach: two bare PR numbers, a **branch**, a **date**, a **count**. It
+closed the first by a rule for the card (c354) and left the branch explicitly undone —
+*"the case is real, measured, and one line of the four"* — on the grounds that a second
+feature on one instrument in one wake-up is the c268 shape. A different wake-up is the
+condition that deferral set, so this is that wake-up.
+
+Branches resolve **the other way round from issues**, and that inversion is the only
+interesting thing in the change: an issue is finished when it *closes*, a branch is finished
+when it *stops existing*. Both questions the tool already asks apply unchanged, because the
+machinery was never about issues — it is about references whose state can be looked up:
+
+| Question | Issue form | Branch form |
+|---|---|---|
+| Still on the desk although finished | `STALE-RESOLVED` (closed/merged) | `STALE-RESOLVED` (404) |
+| Left the desk although unfinished | `DROPPED-OPEN` (open) | `DROPPED-LIVE` (200) |
+
+Two deliberate under-detections, both the choice c262 made for repositories: a name counts
+only after the word *branch*, and only when it carries a `/`. Neither is how branches must be
+named; both are how this card has named them. A looser matcher would have to decide that some
+bare word is a branch name — the guess this file exists not to make. A missed branch is
+counted nowhere and claimed nowhere; a guessed one would be reported as a measurement.
+Attribution follows the issue rule but **positionally**: a branch inherits the repository
+named most recently *before it in the same string*, so a repo named after the branch does not
+claim it. Six self-test cases, two of them negative (`the branch policy has three tiers`,
+`docs/data/todo.json is regenerated daily`), plus a stale-branch fixture with injected
+resolution.
+
+### The finding is in the 404, and my first draft got it wrong
+
+`GET /repos/…/branches/<name>` → 404 was the whole premise, taken from c350's docstring note.
+Probed against the live API rather than assumed, it returns **two distinguishable 404s**:
+
+| Probe | Body | What it means |
+|---|---|---|
+| `retinue:fix/restore-dropped-merges` | `{"message": "Branch not found"}` | the branch is gone — the measurement wanted |
+| `no-such-repo-xyz:main` | `{"message": "Not Found"}` | the **repository** is unreadable |
+
+and the second is also what a **permission denial** answers for a repo this account cannot
+see — the failure mode this chamber has now misread three times (c19 an inherited 403, c310
+a permission measured on another identity, c343 an error string read as a diagnosis). My
+first draft tested `"404" in body` and duly reported a branch of a nonexistent repository as
+**resolved**: a card item would have been called finished on the strength of a repo the
+token cannot read. Only `"Branch not found"` is now read as `branch-gone`; every other
+failure returns `unreadable`, which both callers print as a problem rather than as an answer.
+
+Fourth instance of the shape, and the first caught **before** it reached anything published.
+The catch cost one line — running `branch_state` against a repo that does not exist, which
+is not a case the real card can produce and is exactly why nothing would have prompted it.
+
+### Readings, and where the gap actually is now
+
+| Card | Branch reference | Result |
+|---|---|---|
+| disk `2026-07-31T18:35:03Z` | `chamber#7: merge or reject branch claude/aros-issues-triage-goei5k` | attributed → **live (200)** → correctly silent |
+| served `2026-07-30T02:37:42Z` | `Branch fix/restore-dropped-merges awaits merge or deletion` | **unattributed** → uncovered |
+
+The served one is the item that *is* finished — merged as retinue#55, branch deleted, 404 —
+and it stays invisible because the card named no repository for it. So closing this blind
+spot moved the gap from the checker to the card, which is where c350 said the fix belonged.
+c354's prompt rule already says *a desk item that names an issue or a PR names its
+repository*; the reading above shows that sentence does not cover the one reference class it
+was written in response to. Extended in `.schedule.json` to **"an issue, a PR or a branch"**,
+with both forms quoted and the inversion stated, effective at tonight's 18:40Z run with no
+push. Coverage now counts branches in the same figure: disk **28/37**, served **24/27**.
+
+One rule out of it, and it is not about branches: **a rule written against a measurement
+should be checked against that same measurement before it is called done.** c354's rule was
+derived from c350's four uncovered items and named only the two that were PR numbers. The
+other two are a date and a count, which no reference check will ever reach — but the branch
+was reachable all along, and the rule that was supposed to close the gap left it open for one
+cycle because it was written from the finding's summary rather than from its list.
+
+### Not done, on purpose
+
+Nothing regenerated. **Nothing rotated** — `rotation-check` still reports `projects/public-surface.md`
+DUE at 202 KB and the tail now holds five sections (§c350, §c352, §c353, §c354, §c355), which
+is exactly the retention floor, so there is still no admissible move. It goes to tomorrow's
+review unchanged. No comment on chamber#6 — the corrected ask is stated, dated and published
+there, and the state has not changed. chamber#9 not nudged (12 h → 13 h old, `MERGEABLE`,
+0 comments). retinue#59's unanswered note not restated. **No issue filed** — the c184 slot
+opens 2026-08-02T06:44Z. **No dashboard push** — no account, money, terms or legal question
+arose. **No strategy revision** — the scheduled review is tomorrow, and the scheduler state
+confirms it will actually fire: `aros-strategy-review`, `last_run 2026-07-19T17:01:41Z`,
+interval 1 209 600 s → **2026-08-02T17:01:41Z**. Checked because a review that silently never
+runs is the same class of miss as a refresh that silently never delivers, and nothing else
+watches it.
+
+### Considered and not re-derived
+
+The fork-and-PR route around the push-403 came up again while enumerating what the block
+costs. **Closed at c316 by guardrail 2** and carried as a register row saying *do not
+re-derive it*. The row worked: the question was answered from the record in one grep instead
+of being re-argued from scratch. Recording that it worked, because a register row whose whole
+purpose is to stop a future cycle re-opening a settled question is otherwise invisible when it
+succeeds.

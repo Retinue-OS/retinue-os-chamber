@@ -94,6 +94,37 @@ what a reference check can reach:
   * `Three findings are written up and held` — a **count** of this chamber's own
     drafts, which is one.
 
+Branches, added c355
+--------------------
+The second bullet above is now asked. A branch resolves the other way round from
+an issue: an issue is finished when it **closes**, a branch is finished when it
+**stops existing**, so `GET /repos/…/branches/<name>` → 404 is the resolved case
+and 200 is the item that is still owed. Both questions this file already asks
+apply unchanged — a resolved branch still on the card is `STALE-RESOLVED`, a live
+branch that left the card is `DROPPED-LIVE` — because the machinery was never
+about issues, it was about references whose state can be looked up.
+
+Two deliberate under-detections, both the same choice c262 made for repositories:
+
+  * a name counts only after the word *branch*, and
+  * only when it carries a `/`.
+
+Neither is how branches must be named; both are how this card has named them
+(`chamber#7: merge or reject branch claude/aros-issues-triage-goei5k`,
+`Branch fix/restore-dropped-merges awaits merge or deletion`). A looser matcher
+would have to decide that some bare word is a branch name, which is the guess
+this file exists not to make. A missed branch is counted nowhere and claimed
+nowhere; a guessed one would be reported as a measurement.
+
+Repository attribution follows the issue rule, but positionally: a branch
+inherits the repository named most recently **before it in the same string**, so
+the first example above resolves against `retinue-os-chamber` and the second,
+naming no repository anywhere, is uncovered and enters the coverage figure
+rather than being resolved against a guess. First reading, 2026-08-01: the disk
+card's one branch reference is attributed and **live** (200) — clean; the served
+card's is unattributed, which is precisely the item that has been finished since
+2026-07-31 and is why the card names its repository from now on (c354's rule).
+
 So the summary line prints coverage beside the verdict, and says in words that
 an incomplete coverage is not a clean bill. A check that reports what it looked
 at is worth more than one that reports what it found.
@@ -157,6 +188,10 @@ REPOS = {
 PREFIXES = sorted(REPOS, key=len, reverse=True)
 REF = re.compile(r"(?:(" + "|".join(PREFIXES) + r")\s*)?#(\d+)")
 
+# A branch name is recognised only after the word "branch" and only when it
+# carries a `/`. Both bounds under-detect on purpose — see the docstring.
+BRANCH = re.compile(r"branch\s+`?([\w.\-]+/[\w.\-/]+?)`?(?=[\s,.;:)]|$)", re.I)
+
 OWNER = "Retinue-OS"
 
 
@@ -179,8 +214,30 @@ def refs_in(text):
     return attributed, unattributed
 
 
-def card_refs(card):
-    """Every reference on one desk card, plus the count it could not attribute."""
+def branch_refs_in(text):
+    """Return (attributed, unattributed) branch references found in one string.
+
+    A branch inherits the repository named most recently *before it* in the same
+    string — `chamber#7: merge or reject branch claude/…` is a branch of
+    retinue-os-chamber — and one with no repository named before it anywhere in
+    that string is unattributed: reported as uncovered rather than guessed at.
+    """
+    marks = [(m.start(), REPOS[m.group(1)]) for m in REF.finditer(text) if m.group(1)]
+    attributed, unattributed = set(), set()
+    for m in BRANCH.finditer(text):
+        repo = None
+        for pos, named in marks:
+            if pos < m.start():
+                repo = named
+        if repo:
+            attributed.add((repo, m.group(1)))
+        else:
+            unattributed.add(m.group(1))
+    return attributed, unattributed
+
+
+def card_strings(card):
+    """The title of every slot on one desk card."""
     strings = []
     top = card.get("top") or {}
     if top.get("title"):
@@ -188,9 +245,24 @@ def card_refs(card):
     for item in card.get("others") or []:
         if item.get("title"):
             strings.append(item["title"])
+    return strings
+
+
+def card_refs(card):
+    """Every reference on one desk card, plus the count it could not attribute."""
     attributed, unattributed = set(), set()
-    for s in strings:
+    for s in card_strings(card):
         a, u = refs_in(s)
+        attributed |= a
+        unattributed |= u
+    return attributed, unattributed
+
+
+def card_branches(card):
+    """Every branch reference on one desk card, attributed and not."""
+    attributed, unattributed = set(), set()
+    for s in card_strings(card):
+        a, u = branch_refs_in(s)
         attributed |= a
         unattributed |= u
     return attributed, unattributed
@@ -254,6 +326,45 @@ def self_test():
     if unattributed != {49, 51}:
         print(f"self-test FAIL: uncovered set was {unattributed}", file=sys.stderr)
         return False
+
+    # Branch references (c355), on the two forms this card has actually used:
+    # one attributed by a repository named earlier in the same string, one
+    # naming none. The negative cases matter as much — a slashless word after
+    # "branch", and a path-looking token with no "branch" before it, are both
+    # things this matcher must decline to call a branch.
+    branch_cases = [
+        ("chamber#7: merge or reject branch claude/aros-issues-triage-goei5k",
+         {("retinue-os-chamber", "claude/aros-issues-triage-goei5k")}, set()),
+        ("Branch fix/restore-dropped-merges awaits merge or deletion",
+         set(), {"fix/restore-dropped-merges"}),
+        ("retinue#55 merged branch `docs/link-provenance-piece`, deleted since",
+         {("retinue", "docs/link-provenance-piece")}, set()),
+        ("the branch policy has three tiers", set(), set()),
+        ("docs/data/todo.json is regenerated daily", set(), set()),
+        # Attribution is positional: a repository named *after* the branch does
+        # not claim it, because the card writes `<repo>#<n>: … branch <name>`.
+        ("Branch fix/x-y is stuck; see retinue#55", set(), {"fix/x-y"}),
+    ]
+    for text, want_a, want_u in branch_cases:
+        got_a, got_u = branch_refs_in(text)
+        if got_a != want_a or got_u != want_u:
+            print(f"self-test FAIL on branch case {text!r}: {got_a} / {got_u}",
+                  file=sys.stderr)
+            return False
+
+    # The stale-resolved question in its branch form, resolution injected.
+    bcard = {"top": {"title": "chamber#7: merge or reject branch claude/triage-x"},
+             "others": [{"title": "retinue#1: still open"},
+                        {"title": "Branch fix/restore-dropped-merges awaits merge"}]}
+    bfake = {("retinue-os-chamber", "claude/triage-x"): "branch-gone"}
+    battr, bunattr = card_branches(bcard)
+    bstale = sorted(r for r in battr if bfake[r] == "branch-gone")
+    if bstale != [("retinue-os-chamber", "claude/triage-x")]:
+        print(f"self-test FAIL: stale branch set was {bstale}", file=sys.stderr)
+        return False
+    if bunattr != {"fix/restore-dropped-merges"}:
+        print(f"self-test FAIL: uncovered branch set was {bunattr}", file=sys.stderr)
+        return False
     return True
 
 
@@ -311,6 +422,49 @@ def state_of(repo, number, offline):
     return state
 
 
+_BRANCH_CACHE = {}
+
+
+def branch_state(repo, name, offline):
+    """`branch-live`, `branch-gone`, or a failure word.
+
+    Inverted relative to `state_of` on purpose: a branch is *finished* when it
+    stops existing, so 404 is the resolved case and 200 is the item still owed.
+
+    But **not every 404 here is a missing branch**, and the difference is the
+    whole reliability of the inversion. Measured 2026-08-01 against the live
+    API, the endpoint returns two distinguishable 404s:
+
+        missing branch  ->  {"message": "Branch not found", ...}
+        missing repo    ->  {"message": "Not Found", ...}
+
+    and the second is also what an unreadable *repository* answers — which in
+    this deployment includes a permission denial, the failure this chamber has
+    now misread three times (c19, c310, c343). So only the first is read as
+    `branch-gone`; everything else returns `unreadable`, which both callers
+    report as a problem rather than as an answer. A first draft of this
+    function collapsed both and reported a nonexistent repo's branch as
+    resolved.
+    """
+    if offline:
+        return "unchecked"
+    key = (repo, name)
+    if key in _BRANCH_CACHE:
+        return _BRANCH_CACHE[key]
+    out = subprocess.run(
+        ["gh", "api", f"/repos/{OWNER}/{repo}/branches/{name}", "--jq", ".name"],
+        capture_output=True, text=True)
+    body = out.stdout + out.stderr
+    if out.returncode == 0:
+        state = "branch-live"
+    elif "404" in body and "Branch not found" in body:
+        state = "branch-gone"
+    else:
+        state = "unreadable"
+    _BRANCH_CACHE[key] = state
+    return state
+
+
 def main():
     flags = {"--offline", "--served"}
     args = [a for a in sys.argv[1:] if a not in flags]
@@ -322,7 +476,7 @@ def main():
         print("self-test FAILED — refusing to report on the real card", file=sys.stderr)
         return 2
     print("self-test: pass (6 reference cases, 1 card fixture, 1 shortening fixture, "
-          "1 stale-resolved fixture)")
+          "1 stale-resolved fixture, 6 branch cases, 1 stale-branch fixture)")
 
     if served:
         try:
@@ -337,6 +491,7 @@ def main():
 
     current, previous, prev_stamp = generations(root, card)
     cur_refs, cur_unattributed = card_refs(current)
+    cur_branches, cur_unattributed_branches = card_branches(current)
     problems = []
 
     # The reverse question: what is still on the queue although it is finished?
@@ -348,6 +503,17 @@ def main():
         problems.append(f"STALE-RESOLVED  {repo}#{number}: on the desk at "
                         f"{current.get('generated')}, and it is closed or merged")
 
+    # The same question of a branch, which resolves by ceasing to exist.
+    for repo, name in sorted(cur_branches):
+        state = branch_state(repo, name, offline)
+        if state == "branch-gone":
+            stale.append((repo, name))
+            problems.append(f"STALE-RESOLVED  {repo}:{name}: on the desk at "
+                            f"{current.get('generated')}, and the branch is gone (404)")
+        elif state == "unreadable":
+            problems.append(f"UNREADABLE      {repo}:{name}: the branch endpoint "
+                            f"answered neither 200 nor 404 — not read as either")
+
     if served:
         # The drop check compares *consecutive generations*, which is a git
         # concept and belongs to the disk copy. While delivery is broken the
@@ -358,16 +524,33 @@ def main():
         # in fact just *arrived* on disk. So in served mode this reports the
         # two questions that are well defined without a predecessor.
         print(f"  served card @ {current.get('generated')}: {len(cur_refs)} "
-              f"attributed reference(s); no generation comparison in this mode")
+              f"attributed reference(s), {len(cur_branches)} attributed branch(es); "
+              f"no generation comparison in this mode")
         dropped, added, closed, prev_unattributed = [], [], 0, set()
+        prev_unattributed_branches = set()
     elif previous is None:
         print(f"  {CARD} @ {current.get('generated')}: {len(cur_refs)} references, "
               f"no earlier generation to compare against.")
         dropped, added, closed, prev_unattributed = [], [], 0, set()
+        prev_unattributed_branches = set()
     else:
         prev_refs, prev_unattributed = card_refs(previous)
+        prev_branches, prev_unattributed_branches = card_branches(previous)
         dropped = sorted(prev_refs - cur_refs)
         added = sorted(cur_refs - prev_refs)
+
+        # A branch that left the card while it still exists is the branch form
+        # of DROPPED-OPEN: the item is unfinished and no longer visible.
+        for repo, name in sorted(prev_branches - cur_branches):
+            state = branch_state(repo, name, offline)
+            if state == "branch-live":
+                problems.append(f"DROPPED-LIVE    {repo}:{name}: on the desk at "
+                                f"{prev_stamp}, absent now, and the branch still exists")
+            elif state in ("unreadable", "unchecked"):
+                problems.append(f"DROPPED-{state.upper()}  {repo}:{name}: on the desk "
+                                f"at {prev_stamp}, absent now, {state}")
+        for repo, name in sorted(cur_branches - prev_branches):
+            print(f"  added    {repo}:{name} (branch)")
 
         print(f"  previous generation {prev_stamp}: {len(prev_refs)} references")
         print(f"  current  generation {current.get('generated')}: {len(cur_refs)} references")
@@ -390,17 +573,24 @@ def main():
         print(f"  {len(uncovered)} bare reference(s) named no repository and were not "
               f"checked: {', '.join('#%d' % n for n in uncovered)}")
 
+    uncovered_branches = sorted(prev_unattributed_branches | cur_unattributed_branches)
+    if uncovered_branches:
+        print(f"  {len(uncovered_branches)} branch(es) named no repository and were "
+              f"not checked: {', '.join(uncovered_branches)}")
+
     # Coverage is part of the reading, not a footnote. A queue whose PR items
     # are written without a repository prefix yields "0 resolved still on the
     # queue" while carrying several — which is how the served card reads today.
-    resolvable = len(cur_refs)
-    total = resolvable + len(cur_unattributed)
+    # Branches count in the same figure: they are references whose state can be
+    # looked up, and one of the served card's four blind spots was exactly one.
+    resolvable = len(cur_refs) + len(cur_branches)
+    total = resolvable + len(cur_unattributed) + len(cur_unattributed_branches)
     coverage = f"coverage {resolvable}/{total} reference(s) resolvable"
 
     tail = (f"{len(dropped)} dropped ({closed} resolved), {len(added)} added, "
             f"{len(stale)} resolved still on the queue, {coverage}")
     if not problems:
-        verdict = "0 problems" if not cur_unattributed else (
+        verdict = "0 problems" if not (cur_unattributed or cur_unattributed_branches) else (
             "0 problems FOUND — but the unresolvable references above are unmeasured, "
             "so this is not a clean bill")
         print(f"\n{tail}, {verdict}.")

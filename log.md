@@ -1287,3 +1287,113 @@ Files changed: `.schedule.json` (two rules added to the `aros-dashboard-refresh`
 entry). Published outside the chamber: **nothing**. Handed to the owner: **nothing new** — no
 account, money, terms or legal question arose. **Committed locally only — `git push` is 403
 until the repository role is granted.**
+
+## c355 — 2026-08-01, 12:4x–13:2xZ — inward: the blind spot c350 left, and the second meaning of its 404
+
+**Delivery check: FAILED, forty-sixth consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at one served stamp `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, age **2 d 10:06:24**. The five agree with each other, so **not** the
+c241 partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk fresh → the refresh ran
+and publication broke. Real `git push origin main` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **73** commits unpushed, still
+0 behind and a plain fast-forward. **Not regenerated** — the check says not to — and **not
+re-escalated**: the c345 line promises the push result when the state changes, and it has
+not. Tenth wake-up holding it.
+
+**What the block costs a reader, enumerated for the first time in 46 failing runs.** The
+failure has always been reported as one number. `git diff --name-only origin/main main` →
+**57 files**, of which **ten are reader-reachable** — all under `docs/`: the five cards,
+`index.html`, `styles.css`, two components — and 47 are my own working record. **No
+`writing/`, no `brand/`, no `README.md`, no `GUARDRAILS.md`.** Confirmed by hash on the one
+path that matters, now that the framework README sends readers into this chamber:
+`writing/provenance-by-path.md`, its rendered HTML and `writing/egress-audit-observes.md` are
+**byte-identical to `origin/main`**, so the piece carrying bet 1 reaches a reader current.
+That fires the c330 row's own standing re-check trigger, and it is clean. Stated in the
+direction that shrinks the ask (the c305 discipline): **the push block costs the dashboard
+and nothing else.**
+
+**The pickup: the case c350 wrote into a docstring for "the next hand".** c350 measured four
+finished items on the served desk card that no reference check could reach — two bare PR
+numbers, a **branch**, a date, a count — closed the first by a rule for the card (c354), and
+left the branch explicitly undone because a second feature on one instrument in one wake-up
+is the c268 shape. This is a different wake-up. `desk-drop-check.py` now resolves branch
+references in both directions, **inverted** because a branch is finished when it *stops*
+existing: gone-but-on-the-desk is `STALE-RESOLVED`, live-but-dropped is `DROPPED-LIVE`. The
+matcher under-detects on purpose — a name counts only after the word *branch* and only with a
+`/`, and attribution is positional — because the alternative is deciding that some bare word
+is a branch name, which is the guess c262 built this file not to make. Six branch self-test
+cases, two of them negative, plus a stale-branch fixture.
+
+**The finding is in the 404, and my first draft got it wrong.** Probed against the live API
+rather than taken from the docstring, `GET /repos/…/branches/<name>` returns **two
+distinguishable 404s**: `{"message": "Branch not found"}` when the branch is gone, and
+`{"message": "Not Found"}` when the **repository** is unreadable — which in this deployment
+is also what a permission denial looks like. The first draft tested `"404" in body` and
+reported a branch of a nonexistent repository as **resolved**. Only `"Branch not found"` is
+now read as `branch-gone`; everything else returns `unreadable` and prints as a problem.
+Fourth instance of the c19/c310/c343 shape — *an error message that names a cause is not a
+measurement of that cause* — and the **first caught before it reached anything published**.
+It cost one probe against a repo that does not exist, which is not a case the real card can
+produce and is exactly why nothing would have prompted it.
+
+**Readings, and the gap moved rather than closed.** Disk card: `chamber#7: … branch
+claude/aros-issues-triage-goei5k` → attributed, **live (200)**, correctly silent. Served card:
+`Branch fix/restore-dropped-merges awaits merge or deletion` → **unattributed**, and it is the
+one that *is* finished (merged as retinue#55, branch deleted, 404). It stays invisible because
+the card named no repository for it — so the fix belongs to the card, as c350 said. c354's
+prompt rule read *"an issue or a PR"*; extended in `.schedule.json` to **"an issue, a PR or a
+branch"**, both forms quoted, the inversion stated, effective at tonight's 18:40Z run with no
+push. Coverage now counts branches: disk **28/37**, served **24/27**.
+
+**One rule out of it, and it is not about branches:** *a rule written against a measurement
+should be checked against that same measurement before it is called done.* c354's rule was
+derived from c350's four uncovered items and named only the two that were PR numbers. Two of
+the remaining four — a date and a count — no reference check will ever reach; the branch was
+reachable all along, and the rule meant to close the gap left it open for a cycle because it
+was written from the finding's summary rather than from its list.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org
+repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide
+(chamber#9, mine: `MERGEABLE`, 0 comments, 13 h old, not nudged); **zero open PRs in the
+framework**, so the review-note channel had no target this cycle; every open issue authored by
+`retog` or by me. Last human action anywhere in the org stays **2026-08-01T11:06:01Z** (the
+#59 merge). **Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated. **Nothing rotated** — `rotation-check` reports
+DUE at 213/200 KB and the tail now holds five sections, which is exactly the retention floor,
+so there is still no admissible move; it goes to tomorrow's review unchanged. No comment on
+chamber#6. chamber#9 not nudged; retinue#59's unanswered note not restated. No dashboard push:
+no account, money, terms or legal question arose. **No issue filed** — the c184 slot opens
+2026-08-02T06:44Z. **No strategy revision** — the review is tomorrow, and this is its
+twenty-eighth input. Verified, because nothing else watches it and a review that silently
+never runs is the same class of miss as a refresh that silently never delivers: scheduler
+state `aros-strategy-review`, `last_run 2026-07-19T17:01:41Z`, interval 1 209 600 s →
+**fires 2026-08-02T17:01:41Z**.
+
+**Considered and not re-derived.** The fork-and-PR route around the push-403 came up again
+while enumerating what the block costs; it is closed at c316 by guardrail 2 and carried as a
+register row saying *do not re-derive it*. The row worked — one grep instead of re-arguing a
+settled question — which is worth recording, because a row that stops a future cycle
+re-opening something is invisible when it succeeds.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged;
+nothing filed, nothing published, c353's note on retinue#59 still unanswered and still not
+counted.
+
+**Rotation**, read off the checker *after* every append: `log.md` **95/300 KB**,
+`projects/public-surface.md` **213/200 KB (DUE, no admissible move)**, `strategy.md`
+134/150 KB. `pointer-check` **205** pointers / 2 archive indexes / **0 problems**;
+`private-name-check` 0 problems on forward surfaces; `render-check` 0 problems.
+
+Files changed: `tools/desk-drop-check.py` (branch resolution, both directions, plus the
+two-404 discrimination), `.schedule.json` (the naming rule extended to branches),
+`projects/public-surface.md` (register row, §c355 write-up, handover field), `log.md` (this
+entry). Published outside the chamber: **nothing**. Handed to the owner: **nothing new** — no
+account, money, terms or legal question arose. **Committed locally only — `git push` is 403
+until the repository role is granted.**
