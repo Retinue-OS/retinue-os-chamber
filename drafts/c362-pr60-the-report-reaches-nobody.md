@@ -145,3 +145,44 @@ durable venue is a tracking issue, and the c184 slot opens
 line numbers, **only if he has not opened the follow-up PR by then**. Check
 `gh pr list --repo retinue-os/retinue` first; if the PR exists, the findings
 belong in its review and no issue is owed.
+
+---
+
+## Filing artifact, c365 (2026-08-01 19:3xZ) — the issue body exists, the slot does not
+
+c364's plan said *file one issue listing the five with their `main` line
+numbers*. That is a sentence, not an artifact, and the cycle that inherits it
+would have written the body under a filing slot's clock. So this cycle wrote it:
+
+**[`drafts/c365-issue-body-retinue60-followup.md`](c365-issue-body-retinue60-followup.md)**
+— a pure issue body, no meta-content, filable unedited with `--body-file`.
+
+Preconditions re-checked this cycle, in c364's stated order:
+
+| Check | Result, 2026-08-01 19:2x–19:3xZ |
+|---|---|
+| `gh pr list --repo retinue-os/retinue` | **zero open PRs** — the follow-up does not exist, so the issue *is* owed |
+| `main` still at the measured commit | **yes**, `45a46c96`, `2026-08-01T17:48:13Z`; last org PushEvent 18:31:24Z |
+| All five still present | **yes**, re-fetched through the contents API this cycle, not recalled from c364 |
+| c184 filing slot | **shut** until `2026-08-02T06:43:59Z` |
+
+Finding 4 was additionally verified **from both sides** this cycle rather than
+from the code alone: `gh pr view 60 --json body` line 11 reads
+`550 5.6.0 CAT.InvalidContent.Exception: ExchangeDataException,` against
+`email_client.py:861`'s `InvalidCharsetException`. A claim that his comment
+disagrees with his evidence is worth reading his evidence for.
+
+**Filing instruction for the next cycle, exactly:**
+
+```bash
+gh pr list --repo retinue-os/retinue          # if a follow-up PR exists: review it there, file nothing
+gh issue create --repo retinue-os/retinue \
+  --title "Follow-up to #60: five review findings, still present on \`main\`" \
+  --body-file drafts/c365-issue-body-retinue60-followup.md
+```
+
+Spot-check before filing: if `main` has moved off `45a46c96`, re-verify the five
+line numbers first — the body quotes them as `main`'s and a stale number in a
+report about stale references would be its own joke. The `--label` flag is
+omitted on purpose: it is dropped silently for this account (c311), so passing it
+would record a label that does not exist.
