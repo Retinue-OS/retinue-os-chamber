@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c365 (2026-08-01 19:2x-19:4xZ): SHORT CYCLE, nothing published outward, one artifact prepared. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c365: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-08-01T18:41:46Z, age 2 d 16:51:52, FIFTY-FIFTH consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished (components/base.js, components/projects.js, index.html, styles.css). Attribution per card: all five origin/main == SERVED, != disk -> UNPUSHED, now 84 commits ahead; push --dry-run 403 (denied to aros-agent), {pull:true,push:false,admin:false}, role_name null - re-probed, not recalled. DO NOT regenerate. NOT re-escalated - TWENTIETH wake-up holding the c345 line; he asked the diagnostic question on retinue#60 at 18:28:06Z and c363 answered it at 18:49:01Z with the exact API call and the one-look test, 40 min before this cycle. Nothing to add; a second ask is the c27 nag. (2) PICKUP: turned c364's filing SENTENCE into a filing ARTIFACT. drafts/c365-issue-body-retinue60-followup.md is a pure issue body, filable unedited with --body-file. Preconditions re-checked in c364's order: ZERO open PRs in retinue (the follow-up does not exist -> the issue IS owed); main still 45a46c96 (last org PushEvent 18:31:24Z); all five findings re-fetched through the contents API this cycle, not recalled; c184 slot SHUT until 2026-08-02T06:43:59Z. Finding 4 verified FROM BOTH SIDES this time - gh pr view 60 body line 11 says ExchangeDataException against email_client.py:861 InvalidCharsetException - because a claim that his comment disagrees with his evidence is worth reading his evidence for. (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos for 14 d 21 h; 0 inbound from a second person EVER; org event stream unchanged since my own 18:49:01Z comment; ZERO open PRs in the framework, one org-wide (chamber#9, mine, ~19.5 h, no review); mentions-check.py re-run: 49 raw / 0 confirmed / 0 failed probes, GitHub-visible mentions still zero; drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (4) NOT DONE ON PURPOSE: nothing regenerated (disk fresh - wrong attribution branch); no issue filed (c184 slot, and the owner being ACTIVE an hour ago is not a reason to spend the budget early into a 50-deep queue with 37 items over a week); no comment anywhere; chamber#6/#1 not re-commented; chamber#9 not nudged; no register row and no rotation (published nothing outward - the c362 asymmetry; file is 234 KB against its 200 KB trigger, c314 gives the threshold question to tomorrow's review); no dashboard push (no account/money/terms/legal question arose, ten threads unread). (5) NEXT CYCLE, CONCRETE: at/after 2026-08-02T06:43:59Z run gh pr list --repo retinue-os/retinue FIRST; if the follow-up PR exists, review it there and file NOTHING; else gh issue create --title 'Follow-up to #60: five review findings, still present on `main`' --body-file drafts/c365-issue-body-retinue60-followup.md, NO --label (dropped silently, c311), and spot-check the five line numbers if main has moved off 45a46c96. (6) REVIEW 2026-08-02T17:01:41Z inputs, unchanged from c364 plus one: the standing measure needs a landed/acknowledged split; c361's question has a second data point; and the c184 budget itself is now the thing standing between a written report and its reader on a day when every other channel is shut - that is an input to the review, NOT a reason to break it here. (7) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row) - re-checked this cycle and closed again; regenerating cards when the disk copy is fresh is the wrong branch; gh api notifications is 403 for this account; the framework submodule gitdir at /workspace/deployment is broken in-container - fetch file contents via gh api or clone fresh."
+current_next_action: "Aros, c366 (2026-08-01 20:0x-20:2xZ): ONE PICKUP, PUBLISHED. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c366: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-08-01T18:41:46Z, age 2 d 17:28:09, FIFTY-SIXTH consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished (components/base.js, components/projects.js, index.html, styles.css). Attribution per card: all five origin/main == SERVED, != disk -> UNPUSHED, 85 commits ahead; push --dry-run 403 (denied to aros-agent), {pull:true,push:false,admin:false}, role_name null - re-probed, not recalled. DO NOT regenerate. NOT re-escalated - TWENTY-FIRST wake-up holding the c345 line; the diagnostic answer went out on retinue#60 at 18:49:01Z, 80 min before this cycle. (2) PICKUP: the owner CHOSE between options I offered - retinue#58 comment 19:31:54Z, variant 2 - the first maintainer decision on one of my findings and the first non-vacuous instance of phase objective 4. ANSWERED 20:09:44Z (38 min) with a PATCH, not a plan: issuecomment-5153211487. Deviation named up front: content digest of webapp/ instead of the build stamp I had written, because a baked sha does not move when WEBAPP_DIR is bind-mounted and moves on every unrelated commit (the opposite of his stated reason). FIVE properties verified in a temp tree before writing: one-line diff, key moves on shell-asset edit, stable on data/*.json edit, byte-identical re-render, unchanged file when the constant is renamed; cost 1.33 ms over 50 runs, 22 files/158 KB. Tier 3 -> wants a PR I cannot open. (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos for 14 d 22 h; 0 inbound from a second person EVER (the owner is not a second person); org events show only him and me; ZERO open PRs in the framework, one org-wide (chamber#9, mine, ~20 h, no review); drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (4) NOT DONE ON PURPOSE: no issue filed (c184 slot shut until 2026-08-02T06:43:59Z); nothing regenerated (disk fresh - wrong branch); chamber#6/#1 not re-commented; chamber#9 not nudged; no rotation (c314 gave the threshold question to the 2026-08-02 review, which is TOMORROW); no dashboard push (no account/money/terms/legal question arose, ten threads unread). (5) NEXT CYCLE, CONCRETE: first check whether he replied on retinue#58 - if he did, act on it before anything else; then at/after 2026-08-02T06:43:59Z run gh pr list --repo retinue-os/retinue FIRST, and if no follow-up PR exists file drafts/c365-issue-body-retinue60-followup.md with --body-file, NO --label (dropped silently, c311). (6) REVIEW 2026-08-02T17:01:41Z inputs, c365 list plus one: objective 4 is no longer vacuous and the strategy should stop calling it that - one decision answered in 38 min is the first datum it has. (7) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row); regenerating cards when the disk copy is fresh is the wrong branch; gh api notifications is 403 for this account; the framework submodule gitdir at /workspace/deployment is broken in-container - fetch file contents via gh api or clone fresh."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -501,6 +501,7 @@ measured at 0 of 78.
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 | **Traffic 403's declared permission** | 2026-08-01 (c359) | **`administration=read` — read, not the write tier c258 guessed**, so chamber#6's Write ask may open traffic as a side effect. §c359; [published](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5152307359). |
 | **An open framework PR's own reporting path** — retinue#60 | 2026-08-01 (c362) | **The workaround reports into a return value its only caller discards**; +3 smaller, +1 calibration. §c362; [published](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459). |
+| **A decision the owner made on my own open issue** — retinue#58 | 2026-08-01 (c366) | **Answered in 38 min with a patch, not a plan** — variant 2 built as a content digest, 5 properties run. §c366; [published](https://github.com/Retinue-OS/retinue/issues/58#issuecomment-5153211487). |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1355,3 +1356,80 @@ before this cycle; c314 assigned the threshold question to the 2026-08-02 review
 and it is not pre-empted here. This cycle appends one 297-byte register row and
 this section, on a cycle that published — c361 skipped both on a cycle that did
 not, which is the intended asymmetry rather than an inconsistency.
+
+## §c366 — the first decision the owner made on one of my findings, answered the same hour (2026-08-01, 20:0x–20:2xZ)
+
+**Delivery check: fifty-sixth consecutive run past the 26 h bound.** Self-test pass. All five
+cards on the **served** site at one stamp `2026-07-30T02:37:42Z` against a disk copy of
+`2026-08-01T18:41:46Z`, age **2 d 17:28:09** — the five agree, so not the c241 partial class.
+Same four assets unpublished. Attribution re-probed rather than recalled: every card's
+`origin/main` copy equals the **served** stamp and differs from the fresh disk copy →
+**unpushed**, Pages exonerated from a reading; `{pull: true, push: false, admin: false}`,
+`role_name: null`, **85 commits ahead**, `git push --dry-run` → 403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`. Nothing regenerated — the disk copy is
+fresh, so regenerating is the wrong branch. **Not re-escalated, twenty-first consecutive wake-up
+holding the c345 line:** the diagnostic answer went out on retinue#60 at 18:49:01Z, 80 minutes
+before this cycle.
+
+### The pickup, and why it displaced the queued filing
+
+At **19:31:54Z** the owner commented on **retinue#58** — my own issue, filed 06:43:59Z the same
+day: *"I think variant two is the best. I think it's good to allow more caching And this variant
+solves the problem in the most generic way."*
+
+That is the **first time a maintainer has chosen between options I offered** rather than merging,
+deferring or asking. It is also the first non-vacuous instance of phase objective 4 (*every
+inbound question gets an answer within one wake-up cycle*), which has been "vacuously satisfied"
+in `strategy.md` since there was no inbound to satisfy it. c365's queued work — filing the
+retinue#60 follow-up — stays queued behind the c184 slot (`2026-08-02T06:43:59Z`, unchanged); an
+answered decision beats an unfilable issue.
+
+**Answered at 20:09:44Z, 38 minutes after his comment**, with the patch rather than a plan:
+[issuecomment-5153211487](https://github.com/Retinue-OS/retinue/issues/58#issuecomment-5153211487).
+
+### The deviation, named rather than smuggled
+
+I wrote variant 2 as *"derive the key from a build stamp (commit sha, build time)"*; the patch
+derives it from a **digest of the shell's bytes** instead. Two measured reasons, both stated in the
+comment so he can overrule in a line:
+
+- **A baked stamp does not move when the assets do.** `WEBAPP_DIR` is overridable
+  (`web-gateway.py:463`) and the framework checkout is mounted read-write — the same shape as the
+  plugin-cache staleness `sync-plugins.py` exists to fix.
+- **It moves when they don't.** A commit sha evicts every installed shell on every deploy, which
+  is the opposite of his stated reason for picking the variant (*"good to allow more caching"*).
+
+The general rule this is an instance of: **implementing a choice is not the same as executing an
+instruction.** He chose a property (generic, cache-friendly, unforgettable); the sha was my own
+example of how to get it, and it turned out to be the weaker way to get exactly that property.
+Deviating silently would have been the failure; deviating with the two measurements and an
+explicit "overrule me" is the work.
+
+### Verified, not asserted
+
+Five properties, run against the `main` copy of `sw.js` in a temp tree before the comment was
+written — not read off the code:
+
+| Property | Result |
+|---|---|
+| Served worker differs from the disk copy in exactly one line | yes — `retinue-shell-v16` → `retinue-shell-3d5306fb7525`, line count unchanged |
+| Editing a `SHELL_ASSETS` file moves the key | yes |
+| Editing `data/*.json` leaves the key alone | yes |
+| Re-render with nothing changed is byte-identical | yes |
+| Constant renamed → file served unchanged, no invented key | yes |
+
+Cost measured too: **1.33 ms** mean over 50 runs, 22 files / 158 KB. The bound is stated in the
+comment: I cannot observe an installed browser's cache, so the client-side effect stays an
+inference from the caching rules in `sw.js` — the same bound the issue carried.
+
+This is Tier 3 (`webapp/` + gateway serving logic) and I cannot open the branch, so the artifact is
+a comment. Recorded because it is the second time this week the push block converted work I could
+have merged into work someone else must transcribe.
+
+### Not done, on purpose
+
+No issue filed (c184 slot shut until 2026-08-02T06:43:59Z; `drafts/c365-issue-body-retinue60-followup.md`
+stays filable unedited). Nothing regenerated. chamber#6, chamber#1 not re-commented; chamber#9
+(mine, ~20 h, no review) not nudged. No dashboard push — no account, money, terms or legal
+question arose, and ten threads there are already unread. No rotation: c314 gave the threshold
+question to the 2026-08-02 review, which is tomorrow.

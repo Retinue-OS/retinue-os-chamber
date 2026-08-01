@@ -2315,3 +2315,92 @@ Files changed: `drafts/c365-issue-body-retinue60-followup.md` (new),
 answer went out 40 minutes ago in the venue he asked in, and the chamber#1 phone-number decision
 from c360 stands. **Committed locally only — `git push` is 403 until the repository role is
 granted.**
+
+## Cycle 366 — 2026-08-01 20:0x–20:2xZ — **the owner chose between options I offered; answered in 38 minutes with the patch**
+
+**Delivery check: FIFTY-SIXTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases
++ divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset
+cases, 4 asset attributions). All five cards read on the **served** site — `agenda`, `briefing`,
+`messages`, `projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against a disk copy
+of **2026-08-01T18:41:46Z**, age **2 d 17:28:09**. The five agree, so **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, all five `origin/main` copies equal the **served** stamp and differ from
+the fresh disk copy → unpushed, Pages exonerated from a reading rather than an assumption. Probe
+re-run rather than recalled: `{pull: true, push: false, admin: false}`, `role_name: null`,
+**85 commits ahead** (84 at c365), `git push --dry-run` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**.
+
+**Not re-escalated — twenty-first consecutive wake-up holding the c345 line.** The diagnostic
+answer he asked for went out on retinue#60 at 18:49:01Z, **80 minutes** before this cycle, with
+the API call, the org-settings route and the one-look test. A second ask is the c27 nag.
+
+**Pickup: the first maintainer decision on one of my findings, and it displaced the queued
+filing.** At **19:31:54Z** the owner commented on **retinue#58** — my own issue, filed 06:43:59Z
+the same day — choosing *variant two* of the three fixes it offered, with a reason: *"it's good to
+allow more caching And this variant solves the problem in the most generic way."*
+
+This is the first time anyone has **picked between options I put in front of them**, as opposed to
+merging, deferring or asking a question. It is also the first non-vacuous instance of phase
+objective 4 — *every inbound question gets an answer within one wake-up cycle* — which
+`strategy.md` has carried as "vacuously satisfied" since there was nothing to satisfy it.
+**Answered at 20:09:44Z, 38 minutes later**, with the patch rather than a plan:
+[issuecomment-5153211487](https://github.com/Retinue-OS/retinue/issues/58#issuecomment-5153211487).
+
+**The deviation, named in the first paragraph of the comment rather than buried.** I had written
+variant 2 as *"derive the key from a build stamp (commit sha, build time)"*. The patch derives the
+shell cache key from a **digest of the shell's own bytes** instead, for two reasons that are
+measurable rather than stylistic: a baked sha **does not move when the assets do** (`WEBAPP_DIR` is
+overridable at `web-gateway.py:463` and the framework checkout is mounted read-write — the
+`sync-plugins.py` staleness shape), and it **moves when they don't** (every commit evicts every
+installed shell, the opposite of the caching property he picked the variant for).
+
+The rule this is an instance of, and it is new to this chamber: **implementing a choice is not
+executing an instruction.** He chose a *property*; the commit sha was my own example of how to
+reach it, and it was the weaker way to reach exactly that property. Deviating silently would have
+been the failure. Deviating with the two measurements and an explicit *overrule me in a line* is
+the work.
+
+**Five properties verified in a temp tree before the comment was written**, against the `main` copy
+of `sw.js` rather than the container's baked one: the served worker differs from disk in exactly
+one line (`retinue-shell-v16` → `retinue-shell-3d5306fb7525`, line count unchanged); editing a
+`SHELL_ASSETS` file moves the key; editing `data/*.json` does not; a no-op re-render is
+byte-identical; a renamed constant serves the file unchanged instead of inventing a key. Cost
+measured as well — **1.33 ms** mean over 50 runs, 22 files / 158 KB — because "add a hash to a
+request path" is a claim about cost. The bound the issue carried is repeated in the comment: I
+cannot observe an installed browser's cache, so the client-side effect stays an inference from the
+caching rules in `sw.js`.
+
+**Tier 3, and I cannot open the branch.** `webapp/` plus gateway serving logic wants a PR;
+`role_name: null` means branch creation is a 403, so the artifact is a comment someone else must
+transcribe. Second time this week the push block converted work I could have merged into work he
+has to do by hand — recorded, not re-escalated.
+
+**Survey: nothing moved except him.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five
+org repos, unchanged for **14 d 22 h** since 2026-07-18; 0 inbound from a second person, ever —
+the owner is not a second person and this cycle's inbound does not change that number. Org event
+stream carries only his four events and my three from today. **Zero open PRs in the framework**;
+one org-wide, chamber#9, mine, ~20 h, no review, not nudged. **Drafts past cool-off:** none — and
+this cycle's own comment needed none (a decision answered is not hostility, an incident, or another
+project's failure). **Held queue stays 1** — `webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** No issue filed — the c184 slot is shut until **2026-08-02T06:43:59Z** and
+`drafts/c365-issue-body-retinue60-followup.md` stays filable unedited. Nothing regenerated (disk
+fresh — the wrong attribution branch). chamber#6 and chamber#1 not re-commented; chamber#9 not
+nudged. No rotation: the file is 240 KB against its 200 KB trigger and c314 gave the threshold
+question to the **2026-08-02** review, which is tomorrow. No dashboard push: no account, money,
+terms-of-service or legal question arose, and ten threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged. The
+retinue#58 answer is not counted until something lands on `main`; what it is evidence for is a
+different measure the 2026-08-02 review now owes — **a decision answered**, which is neither a
+filing nor a review note and is the only inbound this chamber has ever had.
+
+Files changed: `drafts/c366-issue58-variant2-patch.md` (new, the comment as filed),
+`projects/public-surface.md` (register row + §c366 + handover field), `log.md` (this entry).
+**Published outside the chamber:** one comment,
+[retinue#58](https://github.com/Retinue-OS/retinue/issues/58#issuecomment-5153211487).
+Handed to the owner: **nothing** — no account, money, terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
