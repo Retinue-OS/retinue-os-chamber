@@ -3495,3 +3495,94 @@ Files changed: `log.md` (this entry), `projects/claim-verification.md` (open-fin
 register row). Published outside the chamber: **nothing public** — one private message to the owner
 on dashboard thread `a9eba696…`. Handed to the owner: **one ruling** — fix, accept, or reject the
 finding routed there; nothing needing an account, money, terms of service or a legal call.
+
+---
+
+## 2026-08-01 (cycle 341) — 03:2x–04:0xZ — inward, and it says so: a project record still naming a blocker a merge had cleared
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). All five cards at one
+stamp — served `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age **2 d 0:51:16** — the
+**thirty-third** consecutive run past the 26 h bound. The five agree with each other, so this is not
+the c241 partial-regeneration class. Same four assets unpublished: `components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk fresh, served stale.
+`git push origin main` → **403, "Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"**; **55 commits unpushed**, one more than c340. Also re-probed rather than carried:
+`GET /repos/…` on both public repos returns `{admin:false, maintain:false, pull:true, push:false,
+triage:false}` — the grant has not moved since c292. Nothing regenerated; the check forbids it when
+the disk copy is fresh. Not re-escalated — chamber#6 carries the complete ask.
+
+**The pickup — c339 and c340's expiry rule, pointed inward at the record it costs most.** Those two
+cycles found a calibration and then a claim made stale by the 2026-07-31 merges. The same question
+asked of `projects/triple-store-story.md`, the bet-1 project record, produces a third instance and a
+worse one: **success criterion 3 has been half met since 2026-07-31T19:33:40Z, and the file said the
+opposite for eight hours.** Its handover field read *"framework README link still pushed as branch
+`docs/link-provenance-piece`, unmergeable without PR scope (chamber#6)"*. Measured from content on
+`main` rather than from the PR's badge (c270): `README.md:42` at `f1f8c72f` carries the link, the
+target returns **200**, and the branch the field named **no longer exists** on the remote, which
+holds only `main` and `feat/chamber-secretary-style-override`. False twice over. Corrected, with a
+`§c341` write-up in that file.
+
+**The check that mattered, and it came back clean.** The merge did something new: the framework
+README now sends readers **into a repository I cannot push to**, 55 commits deep. A correction made
+to the linked piece after the merge would sit behind the same 403 that has held the dashboard stale
+for 33 consecutive checks, while the project's front door claimed to link the current text.
+Measured: `writing/provenance-by-path.md` is blob `1fded9a9` on **both** `main` and `origin/main`,
+and `git diff origin/main..main -- writing/` is empty. So the reader gets what I have. A negative
+result, recorded for what it excludes rather than for what it found.
+
+**The instrument gap, which is the transferable part.** c252 found this same field 36 cycles stale
+and gave `tools/pointer-check.py` an assertion for it. That assertion checks the field **names** the
+newest write-up section. The field named c222; c222 *is* still the newest section; the check ran
+green. Meanwhile `strategy.md` (objective 3, *satisfied 2026-07-31T19:33:40Z*) and
+`triple-store-story.md` (*unmergeable without PR scope*) asserted opposite things about the same
+merge, in the same chamber, for eight hours. **A handover field can be structurally current and
+factually wrong, and nothing in `tools/` can tell the difference.** No instrument written (c268 rule
+2): the general form — *when a merge lands, grep the chamber for the blocker it cleared, not only for
+the wording it changed* — is c339's rule turned inward, and a checker for it is a review decision.
+
+**Still unmet, and not mine.** Criterion 3's other half is the org profile:
+`GET /repos/Retinue-OS/.github` → **404** and the org description is still empty, both unchanged
+since c251. `writing/org-profile-README.md` stays `status: ready-for-owner` under chamber#4.
+Criterion 1 — the full walkthrough — still waits on retinue#1.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. 0 discussions. One open PR org-wide — **chamber#9, mine**, `OPEN`, `updatedAt`
+2026-08-01T00:07:05Z, no comments: untouched, so nothing to answer and nothing to nudge. 33 open
+issues on `retinue`, 8 on the chamber, 8 on `qlever-dir`. `gh api notifications` → 403, a **gap, not
+a zero**. No inbound from a second person, ever. Last human action stays **2026-07-31T19:44:12Z**;
+the re-slow bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh, the check forbids it. *Nothing filed* —
+the c184 slot does not open until **06:26:15Z**; rank 1 stays
+`drafts/sw-shell-cache-version-never-bumped.md`, rank 2 `webapp-manifest-german-description.md`, both
+clean under `baseline-check` against `f1f8c72f`. *Nothing published* — no inbound, no open thread
+needing an answer, and the one PR in flight is mine and untouched. *No dashboard push* — the c340
+finding is delivered and awaiting his ruling; a second message would only push it down. *No strategy
+revision* — the review is tomorrow.
+
+**Fifteenth input for the 2026-08-02 review, and it cuts against the four before it.** c336, c339
+and c340 each found outward work on demand and fed the review the claim that *"owner-blocked" is
+describing the audience, not the workload*. This cycle looked for outward work and found **none**:
+the channels that function are issue comments (nothing pending) and a filing slot shut for three more
+hours. So the pickup was inward, and is labelled inward under c268 rule 1 rather than dressed up. The
+review should read the run as **outward work is usually available, not always** — four cycles is a
+short series, and one of them is a counterexample.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed
+and nothing merged. Standing checks, all re-run rather than inherited: `delivery-check` self-test
+pass, `render-check` 0 over 58 files with tables, `pointer-check` 188 pointers / 2 archive indexes /
+0 problems (one MISSING pointer of my own making — a cross-file `§c341` written with a `#anchor`,
+which `resolve()` folds into the path; the B/D form takes a bare file link, and the checker caught it
+before the commit), `rotation-check` 0 problems, `private-name-check` 136 files / 0 problems on
+forward surfaces, `baseline-check` 2 held / 5 references / 0 problems, `desk-drop-check` 0 dropped /
+2 added / 0 problems, `card-budget-check` 0 of 72 over budget. Rotation watch, measured before this
+entry: `log.md` 251/300 KB, `projects/public-surface.md` 197/200 KB, `strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry), `projects/triple-store-story.md` (handover field corrected,
+`§c341` write-up), `projects/public-surface.md` (one register row, handover field rewritten under the
+two-cycle bound). Published outside the chamber: **nothing**. Handed to the owner: **nothing** —
+nothing arose needing an account, money, terms of service or a legal call, and c340's ruling is still
+outstanding.

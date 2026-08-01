@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "c222 (2026-07-28) is the newest evidence in this thread and the first time this chamber's store answered a design question for somebody other than this chamber: writing/queries/newsfeed-keyframe-sample.rq, posted as a comment on retinue#25, samples a time-relevance curve @now in 64 ms on the live qlever-life endpoint and ranks three curve shapes exactly as the owner's proposal describes — so read-time sampling, not materialization, is the answer, on evidence. The negative result is the part worth keeping for the walkthrough, because advocacy for this layer usually omits it: QLever can subtract two xsd:dateTimes but cannot cast the result to a number, xsd:double(?t - ?now) returns unbound, the interpolation BIND never assigns and the row disappears with no error — so a keyframe needs epoch seconds as xsd:decimal beside its xsd:dateTime and the sample instant has to be substituted by the caller. SPARQL 1.1 defines no dateTime→number cast either, so it is the language rather than the engine. This is bet 1 working at the scale of one reader; it is not evidence that the framework's own store-reading features work, which retinue#1 still blocks. Two of the three pieces have now had their evidence executed rather than re-read (c249 the walkthrough's SPARQL, c250 the egress essay's probes). Standing and unchanged: framework README link still pushed as branch docs/link-provenance-piece, unmergeable without PR scope (chamber#6); the full walkthrough waits on retinue#1; distribution waits on accounts existing (chamber#1/#3). Earlier — c186 re-ran the walkthrough's own headline query before quoting it and found its output had been stale since 2026-07-19 20:26Z — 1 h 42 m after the piece was committed, and six days before c184 made it publicly linked. The query returns eight rows now, not six: two project files were added and appeared with their own provenance, query unchanged, which is the piece's thesis demonstrating itself, so the correction is now part of the argument. Same cycle found the root of a false claim carried by three files — 'this powers a dashboard card and archivist ingestion', asserting as delivered exactly what retinue#1 says returns no rows — in brand/positioning.md, the file every public draft must read first. Fixed at the source and in both downstream copies. Earlier (cycle 174): store diffed against the files for the first time — converter clean on all six project files, one graph 5 h 46 m stale via qlever-dir#3, and the rebuild re-timed at 20-25 s against the 15-20 s I had published — corrected on retinue#2 and in my own copy. Maintainer's call still pending on qlever-dir#8 (skolemize vs per-file blank-node scope). Framework README link still pushed as branch docs/link-provenance-piece. Full walkthrough still waits on the retinue#1 gateway fix; distribution waits on accounts existing. First actual distribution step taken c184, after 165 cycles of treating it as blocked: the walkthrough is now linked from docs/index.html, the one public page I can edit without a merge or a token scope — it had linked GUARDRAILS.md and log.md and neither finished piece."
+current_next_action: "Aros, c341 (2026-08-01 03:3xZ): SUCCESS CRITERION 3 IS HALF MET, AND THIS FIELD SAID THE OPPOSITE FOR EIGHT HOURS. The framework README link is ON main - README.md:42 at f1f8c72f carries [Provenance by path] pointing at this chamber's writing/provenance-by-path.md, merged as PR retinue#55 on 2026-07-31T19:33:40Z, and the target returns 200. Verified FROM CONTENT ON main (c270), not from the PR badge. The branch this field named, docs/link-provenance-piece, NO LONGER EXISTS on the remote (branches: main, feat/chamber-secretary-style-override), so 'still pushed as branch docs/link-provenance-piece, unmergeable without PR scope (chamber#6)' was false twice over. CHECKED AND CLEAN, and it is the check that mattered: writing/provenance-by-path.md is blob 1fded9a9 on BOTH main and origin/main, so the 55 unpushed chamber commits do NOT sit between the framework README and its link target - the reader gets the current piece. That was the worst interaction between the merge and the push blockage and it does not exist. STILL UNMET, the other half of criterion 3: the ORG PROFILE. GET /repos/Retinue-OS/.github -> 404 and the org description is still empty, both unchanged since c251; writing/org-profile-README.md stays status: ready-for-owner and is chamber#4's ask, not mine to do. CRITERION 1 (the full walkthrough) still waits on retinue#1. THE INSTRUMENT GAP THIS FOUND: pointer-check asserts that a handover field NAMES the newest write-up section (c252) and nothing asserts that what it SAYS is still true - this field named c222, c222 IS still the newest section, so every check ran green while two files in this chamber disagreed about the same fact for eight hours. Input for the 2026-08-02 review alongside c340's baseline-commit proposal. EARLIER AND UNCHANGED: c222 (2026-07-28) is still the newest write-up - writing/queries/newsfeed-keyframe-sample.rq, posted on retinue#25, samples a time-relevance curve @now in 64 ms on the live qlever-life endpoint and ranks three curve shapes as the owner's proposal describes; the keeper is the negative result, that QLever can subtract two xsd:dateTimes but cannot cast the difference to a number and SPARQL 1.1 defines no such cast either, so a keyframe needs epoch seconds as xsd:decimal beside its xsd:dateTime and the sample instant must be substituted by the caller. c186: the walkthrough's headline query returns EIGHT rows now, not six - two project files added, query unchanged, the piece's thesis demonstrating itself. c174: the rebuild re-timed at 20-25 s against the 15-20 s I had published, corrected on retinue#2 and in brand/positioning.md. qlever-dir#8 (skolemize vs per-file blank-node scope) still awaits the maintainer's call. DISTRIBUTION still waits on accounts existing (chamber#1)."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -249,3 +249,47 @@ is **not** evidence about the section above — retinue#1 and the actor-join mis
 are unchanged, and the framework's two store-reading features still return nothing.
 A query I ran by hand is not a delivered feature, and the walkthrough keeps saying
 so.
+
+## c341 (2026-08-01) — the first half of criterion 3, met by a merge, in a project record that said otherwise
+
+Success criterion 3 reads *"Both linked from the org profile and the framework
+README."* Since 2026-07-19 this file has carried the framework half as **written
+and pushed as branch `docs/link-provenance-piece`, unmergeable without PR scope
+(chamber#6)**. That stopped being true at **2026-07-31T19:33:40Z**, when the
+owner merged [retinue#55](https://github.com/Retinue-OS/retinue/pull/55).
+
+Measured this cycle, from content rather than from the PR's badge (c270):
+
+| | |
+|---|---|
+| `README.md` on `main @ f1f8c72f` | line 42 links `writing/provenance-by-path.md` |
+| The branch this file named | **gone** — the remote holds `main` and `feat/chamber-secretary-style-override`, nothing else |
+| Link target | **200** |
+| The piece the framework now points at | blob `1fded9a9` on **both** `main` and `origin/main` |
+
+The last row is the one worth having taken. The framework README now sends
+readers *into a repository I cannot push to* — 55 commits deep at the time of
+writing — so a correction made here after the merge would sit invisible behind
+the same 403 that has held the dashboard stale for 33 consecutive delivery
+checks, while the front door claimed to link the current text. It does not: the
+blob is identical on both sides, `git diff origin/main..main -- writing/` is
+empty, and the reader gets what I have. This is a negative result, and it is
+worth exactly what it excludes.
+
+**Still unmet, and not mine:** the org-profile half. `GET /repos/Retinue-OS/.github`
+→ **404** and the org description is still empty, both unchanged since c251.
+`writing/org-profile-README.md` stays `status: ready-for-owner`; it is chamber#4's
+ask. Criterion 1 — the *full* walkthrough — still waits on retinue#1.
+
+**The instrument gap, which is the transferable part.** c252 found this file's
+handover field 36 cycles stale and gave `tools/pointer-check.py` an assertion for
+it. That assertion checks the field **names** the newest write-up section. This
+field named c222, and c222 *was* still the newest section — so the check ran
+green for eight hours while `strategy.md` (objective 3, *satisfied 19:33:40Z*)
+and this file (*unmergeable without PR scope*) asserted opposite things about the
+same merge. **A handover field can be structurally current and factually wrong,
+and nothing in `tools/` can tell the difference.** No instrument written for it
+here (c268 rule 2): the general form — *when a merge lands, grep the chamber for
+the blocker it cleared, not only for the wording it changed* — is c339's rule
+pointed inward, and whether it deserves a checker is a question for the
+2026-08-02 review, alongside c340's baseline-commit proposal.
