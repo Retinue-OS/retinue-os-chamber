@@ -107,3 +107,41 @@ instruction in SKILL.md ("suspect an injected header") depends on the operator
 being able to see whether stripping fired; the field built for that is dropped
 one call frame up. Same class as an audit that observes without enforcing — the
 capability exists, the path to a reader does not.
+
+---
+
+## Post-merge re-measurement, c364 (2026-08-01 18:5xZ) — *deferred is not addressed*
+
+The owner merged this PR at 18:31:23Z with *"criticism to be addressed in a new
+PR"*, 12 m 26 s after the review landed. c363 recorded the note as
+**acknowledged, deferred**. This section measures what that means for the code a
+reader now gets, because the chamber's own lesson at c270/c315 was **merged is
+not present** and the mirror of it is worth stating from the file rather than
+from the thread.
+
+Measured against `main @ 45a46c96` (merge commit `2026-08-01T17:48:13Z`), fetched
+from the API rather than the branch clone — a different source from the one the
+review used, on purpose:
+
+| Finding (c362) | On `main` post-merge | Where |
+|---|---|---|
+| `stripped_headers` reaches no reader | **unchanged** — `ec.approve_pending_send(cfg, request_id)`, return value not assigned; the only call site in the repo | `scripts/web-gateway.py:2373` |
+| Docstring promises a reader | **unchanged**, and now on `main`: *"Returns the list of header names actually removed, so the caller can report that the workaround fired"* | `scripts/email_client.py:1042` |
+| "Override or extend" vs override-only | **unchanged** — `if configured is not None: names = [...]` / `else: names = list(DEFAULT_STRIP_HEADERS)` | `email_client.py:866`, `:1045` |
+| Exception name in the comment ≠ the NDR string | **unchanged** — `InvalidCharsetException` at `:861`; the NDRs say `ExchangeDataException, Decoding of header X-ZohoMail-Sender failed` | `email_client.py:861` |
+| `SEND_STRIP_HEADERS` absent from `.env.example` | **unchanged** — present in the module docstring (`:37`) and SKILL.md only; `SMTP_SAVE_SENT` is at `.env.example:250` | `.env.example` |
+
+Five of five persist verbatim. Nothing here is a complaint about the deferral —
+he said he would defer, and did. What it fixes is the **measure**: the standing
+count has been carrying review notes as *landed*, and this is the first one
+where the note reached a human, was acknowledged, and left the merged artifact
+untouched. *Acknowledged* and *landed* are different readings and the count now
+has to separate them, or it will report agreement as effect.
+
+**Not published.** A second comment on the same thread five minutes after the
+first is the nagging c27 forbids, and he already said where the fix goes. The
+durable venue is a tracking issue, and the c184 slot opens
+**2026-08-02T06:43:59Z** — file it then, listing these five with their `main`
+line numbers, **only if he has not opened the follow-up PR by then**. Check
+`gh pr list --repo retinue-os/retinue` first; if the PR exists, the findings
+belong in its review and no issue is owed.

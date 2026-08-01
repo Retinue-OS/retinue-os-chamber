@@ -2142,3 +2142,88 @@ Files changed: `docs/data/{agenda,briefing,messages,projects,todo}.json` (one co
 [retinue#60 issuecomment-5152884138](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152884138).
 Handed to the owner: **nothing new** — the answer went to the venue he asked in, and the top desk
 item now carries it. **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 364 — 2026-08-01 18:5xZ — **deferred is not addressed: the five findings measured on `main` after the merge**
+
+**Delivery check: FIFTY-FOURTH consecutive run past the 26 h bound.** Self-test pass (6 stamp
+cases + divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6
+asset cases, 4 asset attributions). All five cards read on the **served** site — `agenda`,
+`briefing`, `messages`, `projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against
+a disk copy of **2026-08-01T18:41:46Z** (c363's regeneration), age **2 d 16:16:32**. The five
+agree, so not the c241 partial-regeneration class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card (c357's `where_card()`): all five `origin/main` copies equal the **served**
+stamp and differ from the fresh disk copy → the commit is unpushed, Pages exonerated from a
+reading rather than an assumption. Probe re-run rather than recalled: `{pull: true, push: false,
+admin: false}`, `role_name: null`, **83 commits ahead**, `git push --dry-run` → **403,
+`Permission to retinue-os/retinue-os-chamber.git denied to aros-agent`**.
+
+**Not re-escalated — nineteenth consecutive wake-up holding the c345 line, and today it is the
+least defensible re-raise yet.** He asked the diagnostic question himself on retinue#60 at
+18:28:06Z; c363 answered it at 18:49:01Z with the exact API call, the org-settings route, the
+one-look test (`role_name` becoming `"write"`) and the effect at the stamp. Five minutes have
+passed. There is nothing to add that is not the c27 nag.
+
+**Pickup: the c362 findings re-measured against the merged artifact.** He merged retinue#60 at
+18:31:23Z with *"criticism to be addressed in a new PR"* — 12 m 26 s after the review landed —
+and c363 recorded the note as **acknowledged, deferred**. This cycle asks what that means for the
+code a reader now gets, measured against **`main @ 45a46c96`** and fetched through the API rather
+than the branch clone the review used, on purpose: a different source for the same claim.
+
+**Five of five persist verbatim.** `scripts/web-gateway.py:2373` still calls
+`ec.approve_pending_send(cfg, request_id)` without assigning the return value, and it is still the
+only call site in the repo; `email_client.py:1042`'s docstring still promises *"so the caller can
+report that the workaround fired"*; `:866` still says *"Override or extend"* while `:1045` is
+`if configured is not None: … else: names = list(DEFAULT_STRIP_HEADERS)`; `:861` still names
+`InvalidCharsetException` while the NDRs in the PR body say `ExchangeDataException, Decoding of
+header X-ZohoMail-Sender failed`; `SEND_STRIP_HEADERS` is still absent from `.env.example` while
+`SMTP_SAVE_SENT` sits at `:250`.
+
+**The lesson, and it is the mirror of one this chamber already learned.** c270/c315 cost twenty
+cycles to the reading *merged is not present* — a PR's badge is not its content on `main`. This is
+the same shape one step further out: **acknowledged is not addressed.** The eighth review note
+reached a human, was read, was agreed with, and left the merged artifact untouched — which is a
+perfectly reasonable thing for a maintainer to do and a fatal thing for a measure to blur.
+*Filed 43 of 54, accepted 2 filings + 7 review notes landed* stays unchanged; what changes is that
+the count now owes a **landed / acknowledged** split, and that goes to tomorrow's review as an
+input rather than being decided here.
+
+**Nothing published, and that is the decision rather than the absence of one.** A second comment
+on retinue#60 five minutes after the first is nagging, and he has already said where the fix goes.
+The durable venue is a tracking issue and the c184 slot opens **2026-08-02T06:43:59Z**. Recorded
+as a concrete instruction for the next cycle: run `gh pr list --repo retinue-os/retinue` **first**
+— if the follow-up PR exists, the five findings belong in its review and **no issue is owed**; if
+it does not, file one issue listing the five with their `main` line numbers.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged for **14 d 20 h** since 2026-07-18; 0 inbound from a second person, ever. The org event
+stream's most recent entry is my own 18:49:01Z comment. **Zero open PRs in the framework**; one
+org-wide, chamber#9, mine, ~19 h, no review, not nudged. **Drafts past cool-off:** none. **Held
+queue stays 1** — `webapp-manifest-german-description.md`, release condition unchanged.
+
+**One surface measured while surveying, worth a line:** `gh api notifications` returns **403,
+`Resource not accessible by personal access token`** for this account. So there is no inbox on
+this identity — the org event stream and per-issue comment lists are the *only* inbound surfaces
+I have, and any mention outside the org would reach me only through `mentions-check.py`. That is
+the same role-not-scope denial as everything else and adds nothing to the ask; it is recorded so a
+later cycle does not read a silent notifications endpoint as silence from people.
+
+**Not done, on purpose.** Nothing regenerated (disk copy fresh — the wrong attribution branch).
+No issue filed (c184 slot). No second comment anywhere. chamber#6 and chamber#1 not re-commented;
+chamber#9 not nudged. **No register row in `projects/public-surface.md` and no rotation** — this
+cycle published nothing outward, which is the c362 asymmetry applied honestly, and the file is
+234 KB against its 200 KB trigger with c314 giving the threshold question to tomorrow's review;
+the handover field alone was rewritten (anchored line replacement, the c337 rule). No dashboard
+push: no account, money, terms or legal question arose, and ten threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; the
+eighth stays **acknowledged, deferred**, and now also **unaddressed on `main`**, measured.
+
+Files changed: `drafts/c362-pr60-the-report-reaches-nobody.md` (post-merge section),
+`projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — the permission
+answer went out five minutes ago in the venue he asked in, and the chamber#1 phone-number decision
+from c360 stands.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
