@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c349 (2026-08-01 08:4x-09:0xZ): OUTWARD, and it is the c268 rule 1 outcome - c347 and c348 were inward, so this one had to touch a surface a reader or the owner meets, or be idle. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c349: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read, not one - all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 6:04:04, FORTIETH consecutive run past the 26 h bound. The five AGREE with each other, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed; git push -> 403 'Permission to retinue-os/retinue-os-chamber.git denied to aros-agent', now SIXTY-SIX commits unpushed. DO NOT regenerate. Nothing posted about it: the c345 promise on chamber#6 reports the push result only when the state CHANGES, and it has not - this is the fourth wake-up holding that line. (2) PICKUP - the only outward act available under a push block, and it found something: VERIFY A MERGED FIX BY EFFECT. c331 verified all five 07-31 merges were PRESENT on main @ f1f8c72f; nobody ever RAN one. retinue#57 (my c322 finding, fixed by the owner at 19:39:51Z with tests/test_signal_relink.py): the test FAILS against parent 9bc35d7's scripts/signal-gateway.py and PASSES against f1f8c72's, so it reproduces the FINDING and not the fix - the property of a regression test nobody re-checks. (3) WHAT THE VERIFICATION FOUND, and it is a note not a defect: what makes the guard airtight is the ORDER - _note_receive_result(True) at :1297 runs before the finally's _RELINK_ACTIVE.clear() at :1317, so there is no instant at which GET /qr sees the door open while health still reads down. Probed by wrapping _RELINK_ACTIVE.clear to record _health_snapshot()['connected'] at the moment it fires: TRUE as merged, FALSE with the two statements swapped - and THE SHIPPED TEST PASSES BOTH WAYS. The missed window is microseconds wide against the original 3-13 s, so it is a refactor guard, not a bug, and it was published as exactly that with a two-line assertion he may take or leave: https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032 (4) STANDING RULE ADDED: presence is not effect (c331 checked presence), and a green test is not the property it was written for. Family: c19/c310/c315 an inherited 403 is not a measurement; c343 an error message naming a cause is not a measurement of it; c347 a 200 is not a measurement of the write; c348 a string shaped like a claim is not a claim. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); every open issue authored by retog or me; last human action anywhere still 2026-07-31T19:44:12Z. Tick stays 1800 s; re-slow bound 2026-08-01T19:44:12Z, not yet due. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (6) NOT DONE ON PURPOSE: nothing regenerated (disk fresh, delivery at fault); no comment on chamber#6; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and this find is a note on a fixed issue, not a new defect; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-second input. (7) NEXT: the review is due 2026-08-02 and now carries, at minimum - c314's un-rotatable-head crossing (the head alone passes 200 KB between 08-02 and 08-04); c347's negative answer to c219 (contributor discovery needs nothing from the owner EXCEPT a repository role, moving that ask out of delivery hygiene and into REACH); the phase-end condition now single-term on chamber#1; the c330 claim that review notes beat filings, falsifiable and still uncontradicted - and c349 is its strongest datum yet, since the ONE channel that produced a merged fix, a test, and a public credit line ('Found by Aros in the PR #57 review') needed no permission I lack. Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes - UNCHANGED (c349 verified an already-counted acceptance rather than adding one)."
+current_next_action: "Aros, c350 (2026-08-01 09:0x-09:5xZ): INWARD, admissible because c349 was outward (c268 rule 1 forbids a third, not a first). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c350: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 6:42:42, FORTY-FIRST consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed; git push -> 403 "Permission to retinue-os/retinue-os-chamber.git denied to aros-agent", SIXTY-SEVEN commits unpushed. DO NOT regenerate. Not re-escalated - the c345 promise reports the push result only when the state CHANGES; fifth wake-up holding that line. (2) PICKUP - the question the failure invites and nobody asked: WHAT DOES THE STALE DASHBOARD SAY THAT IS FALSE? "Stale" is an age; the cost is a count of untrue sentences. The served page splits in two: the standing prose in index.html has ZERO decay (14/14 assets 200, 9/9 outbound links 200, retinue#15 and retinue#1 both still open, scope sentence "four public repositories" still right - the fifth org repo is private and is not named here), while ALL the decay is in the five cards, 12 untrue statements, CONCENTRATED IN THE OWNER QUEUE. (3) THE FINDING: the queue decays toward INSTRUCTIONS TO REDO FINISHED WORK, within the HOUR. Disk card item 18 asks him to merge-or-reject PR #55 and item 20 says #49/#51/#53/#56/#57 are open - ALL SIX merged 18:48:33Z-19:44:08Z, the first THIRTEEN MINUTES after the card's own stamp. Served card: 4 of 19 items done (#44/#45 merged 07-30; branch fix/restore-dropped-merges merged as #55 and 404; a filing slot 2 d past; a held count of 3 that is 1). WORST ROW, and it is not a delivery problem: the DISK card's TOP item still asks for "restore contents:write on the aros-agent PAT" - c343 measured that ask WRONG the day before (the binding constraint is the repository ROLE; the scope grant is a no-op alone). The correction reached chamber#6, strategy.md, this file and log.md - every venue except the one surface built to tell him what to do. (4) BUILT: tools/desk-drop-check.py gained the REVERSE question it had never asked in 88 cycles - a reference that STAYS on the queue while its subject resolves (STALE-RESOLVED). Reading on disk: retinue#42 and retinue#55, exit 1. TWO defects in my own first draft, both caught by RUNNING it: (a) --served ran the generation comparison BACKWARDS (generations() picks the newest COMMITTED card as "previous", which while delivery is broken is NEWER than the served one) and confidently reported DROPPED-OPEN for two items that had just ARRIVED on disk - served mode now runs only the questions well defined without a predecessor; (b) its clean line was a lie by omission - against the served card it reports 0 resolved still on the queue while FOUR of that card's items are finished work, all four outside a reference check (2 bare PR numbers, a branch, a date, a count). The summary now prints "coverage 23/25 reference(s) resolvable" beside the verdict and says in words that partial coverage is NOT a clean bill. (5) STANDING RULE, c347 family one turn on: a check's ZERO is not a measurement of the card. Family: c19/c310/c315 an inherited 403 is not a measurement; c343 an error message naming a cause is not a measurement of it; c347 a 200 is not a measurement of the write; c348 a string shaped like a claim is not a claim; c349 presence is not effect and a green test is not the property it was written for. (6) THE COVERAGE GAP BELONGS TO THE CARD: both stale disk items are written WITHOUT a repo prefix ("PR #55 (mine)", "Your PRs #49, #51, #53, #56, #57 are open"), so the two items the check most needed to see are the two it cannot. FIX IS A RULE FOR THE REFRESH JOB - a desk item that names a PR names its repo - not a guess in the extractor. NEXT HAND: add BRANCH resolution (GET /repos/.../branches/<name> -> 404), one of the four served cases, deliberately left as a second feature on one instrument. (7) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all four public repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, not nudged); every open issue authored by retog or me; last human action anywhere still 2026-07-31T19:44:12Z (the 08:46Z update on #57 is my OWN comment). web-mentions-check: 1 of 3 engines answering, 0 confirmed hits off github.com. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (8) NOT DONE ON PURPOSE: nothing regenerated; the disk card's wrong top item NOT hand-edited (correcting one card off-cycle either diverges the five stamps - the c241 defect - or leaves a sentence untrue at its own stamp; the daily job reads the corrected ask from projects/, log.md and gh); no comment on chamber#6 (a fifth statement of an ask restated 3 h ago is the nagging c27 forbids); chamber#9 not nudged; no dashboard push; NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and this is a defect in MY surface, not the project's code; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-third input. (9) FOR THAT REVIEW, added by this cycle: the 26 h bound is measured in AGE and age is the wrong unit - the shell is 2 d stale and 0% wrong, the queue is 1 d stale and ~14% wrong. Either the bound belongs per-card, or the cards stop making unanchored claims. Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes - UNCHANGED."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -467,6 +467,7 @@ measured at 0 of 78.
 | **Whether a `200` means the write landed** — never asked on any API write | 2026-08-01 (c347) | **It does not.** `PATCH /issues/58 {"labels":["bug"]}` → **200 OK, still 0 labels** (read back; re-run with explicit JSON, so not a client artifact), while `POST …/labels` on the same issue is 403 and `PATCH` of `body`/`state` applies. Corroborates the c343 role diagnosis; no new ask. Standing rule: **read back every API write; a status code is evidence of the request, not the result** — c225's git lesson, on HTTP. |
 | **Whether a *quoted* pointer form is read as a live one** — by the checker, and by the hand that repoints rows | 2026-08-01 (c348) | **Both read it as live, and both were wrong.** `pointer-check`'s resolver ran `POINTER.finditer` over **raw** text while its own `mask_code_spans` — written at c263 against "the false positive that teaches people to ignore a checker" — was applied only by the coverage scan, so a log entry recording a repair (*rows repointed from `§c331 below`*) became a WRONG-WAY the instant §c331's entry rotated out. Same cause by hand: c265's repointing pass rewrote this register's **quoted example** of form C into a form that does not exist, and it stood **2 d 9 h** on a public surface. Both fixed; masking now covers fenced blocks too, self-test +2 cases. It suppresses exactly **5** matches corpus-wide, each verified a description. Detail: §c348 below. |
 | **A merged fix, checked by *effect* rather than by presence** — c331 verified all 5 merges of 07-31 were *present*; none was ever run | 2026-08-01 (c349) | **It works, and its regression test is load-bearing:** `tests/test_signal_relink.py` **fails** against parent `9bc35d7`'s `signal-gateway.py`, **passes** against `f1f8c72`'s, so it reproduces the finding and not the fix. **But it does not pin the property that makes the fix airtight** — the *order* of `_note_receive_result(True)` (`:1297`) before the `finally`'s `_RELINK_ACTIVE.clear()` (`:1317`). Probed by wrapping `clear`: connected **True** as merged, **False** with the two swapped, and the shipped test **passes both ways**. Published as a note, not a defect: [#57 issuecomment-5150684032](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032). Standing: **presence is not effect, and a green test is not the property it was written for** |
+| **The owner's queue as *he* meets it — whether an item is still owed** | 2026-08-01 (c350) | **The queue decays toward instructions to redo finished work, within the hour.** Disk card @ `2026-07-31T18:35:03Z`: item 18 asks him to merge-or-reject PR #55, item 20 says #49/#51/#53/#56/#57 are open — **all six merged 18:48:33Z–19:44:08Z, the first thirteen minutes after the card's own stamp.** Served card @ `2026-07-30T02:37:42Z`: 4 of 19 items done (#44/#45 merged 07-30; branch `fix/restore-dropped-merges` merged as #55 and **404**; a filing slot two days past; a held count of 3 that is 1). `desk-drop-check` asked only the *milder* half — what left while open — for 88 cycles. Reverse question added; the served card's four are **all** outside a reference check (2 bare numbers, 1 branch, 1 date, 1 count), so its `0 problems` now prints coverage beside it. Detail: §c350 below. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -954,3 +955,108 @@ No issue filed (the c184 slot is shut until 2026-08-02T06:44Z, and neither half 
 defect in the project's own code). Nothing escalated — no account, money, terms or legal
 question arose. The delivery blocker is unchanged and **not** re-raised: three statements of
 one ask inside 24 h is what c27 forbids.
+
+## §c350 — the owner's queue as a queue: what is still owed (2026-08-01, 09:0x–09:5xZ)
+
+The delivery check failed for the **forty-first** consecutive run and attributed the same
+way it has for four days: disk fresh (`2026-07-31T18:35:03Z`), served two days behind
+(`2026-07-30T02:37:42Z`), `git push` re-probed → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **67** commits unpushed. Not
+regenerated, not re-escalated.
+
+What was new was asking a question the failure invites and nobody had asked: **what does a
+two-day-stale dashboard actually say that is false?** "Stale" is an age. The cost is a
+count of untrue sentences, and the two are not the same thing.
+
+### The served page splits cleanly into two layers, and only one of them decayed
+
+| Layer | Measured | Result |
+|---|---|---|
+| The standing prose in `index.html` | 14/14 internal assets **200**; 9/9 outbound links **200**; both defect issues it cites (`retinue#15`, `retinue#1`) still **open**; `retinue#1`'s numbers re-verified on `main @ f1f8c72f` at c342 | **0 decay.** Two days stale, nothing wrong |
+| Its scope sentence — *"the four public repositories; the private one is out of scope, not named"* | `GET /orgs/retinue-os/repos`: four `private=false`, one `private=true` | Still exactly right, and the guardrail-5 silence holds |
+| The five cards | 12 statements now untrue, across all five | The whole of the decay |
+
+Most of the card decay is benign by design: the refresh job's own prompt requires every
+clock-dependent sentence to name its anchor, and the briefing does (*"at this stamp"*,
+*"before this stamp"*). A count that has moved on is not a false statement. The prompt says
+so itself, and then says the thing that matters: **a sentence that has become untrue is, and
+that one is corrected on sight.** Nothing checks for that sentence after the stamp.
+
+### Where the untrue sentences concentrate, which is the finding
+
+Not evenly. The **owner's queue** — the one card whose entire purpose is to save him time —
+is where a stale sentence turns into an instruction to redo finished work.
+
+| Card | Sentence | State on 2026-08-01 |
+|---|---|---|
+| todo (served) | "Your own PRs #44 and #45 are open and unmerged" | merged 2026-07-30 18:42:01Z / 20:41:52Z |
+| todo (served) | "Branch `fix/restore-dropped-merges` awaits merge or deletion" | merged as retinue#55; `GET /branches/…` → **404** |
+| todo (served) | "Next issue may be filed 2026-07-30 06:08 UTC" | two days past |
+| todo (served) | "Three findings are written up and held" | one |
+| todo (**disk**) | item 18: "PR #55 (mine) … Merge or reject" | merged 2026-07-31T19:33:40Z |
+| todo (**disk**) | item 20: "Your PRs #49, #51, #53, #56, #57 are open" | all merged, 18:48:33Z–19:44:08Z |
+| todo (**disk**) | top item: "chamber#6: restore `contents:write` on the aros-agent PAT" | **c343 measured this ask wrong the day before** — the binding constraint is the repository role, and the scope grant is a no-op on its own |
+
+The last row is the expensive one and it is not a delivery problem: the card on **disk** is
+one day old and its number-one item asks the owner for a thing that would not fix anything.
+The correction was published on chamber#6 at 06:08:46Z and carried into `strategy.md`, this
+file and `log.md` — every venue except the one surface built to tell him what to do.
+
+**And the decay is fast.** `#51` merged at 18:48:33Z, **thirteen minutes** after the card's
+own stamp. A daily regeneration is not a wrong cadence for a queue that turns over in
+minutes; it is a cadence with no check between runs.
+
+### What was built, and the two things it got wrong first
+
+`tools/desk-drop-check.py` has asked, since c262, *what left the desk while still open* —
+the milder of the two ways this card wastes his time, because a dropped item is work that
+stays undone. The reverse — an item that **stays while its subject resolves** — went unasked
+for 88 cycles. It is the same machinery: the reference extractor and `state_of` already
+existed, so the question cost about twenty lines.
+
+Reading on the disk card: **STALE-RESOLVED `retinue#42`, `retinue#55`**, exit 1.
+
+Two defects in my own first draft, both caught by running it rather than by reading it:
+
+1. **`--served` ran the generation comparison backwards.** `generations()` picks the newest
+   *committed* card with a different stamp as "previous" — which, while delivery is broken,
+   is **newer** than the served one. The first run confidently reported `DROPPED-OPEN
+   retinue#46, #54` for two items that had just *arrived* on disk. A drop is defined between
+   consecutive generations, which is a git concept; served mode now runs only the two
+   questions that are well defined without a predecessor, and says so on the line.
+2. **Its clean line was a lie by omission.** Against the served card it reports **0 resolved
+   still on the queue** — and four of that card's items are finished work. All four are
+   outside what a reference check can reach: two bare PR numbers (`#44`, `#45`, unattributed
+   because the extractor refuses to guess a repo), a **branch** name, a **date**, and a
+   **count**. So the summary now prints `coverage 23/25 reference(s) resolvable` beside the
+   verdict, and when anything is unresolvable it says in words that this is *not a clean
+   bill*.
+
+That second one is the c347 family again — a `200` is not a measurement of the write; here,
+**a check's zero is not a measurement of the card**. The instrument that reports what it
+looked at is worth more than the one that reports what it found.
+
+### The coverage gap belongs to the card, not to the checker
+
+Both stale items on the disk card are written without a repository prefix — `PR #55 (mine)`,
+`Your PRs #49, #51, #53, #56, #57 are open` — so the two items the check most needed to see
+are the two it cannot. The fix is a rule for the refresh job (**a desk item that names a PR
+names its repo**), not a guess in the extractor; guessing is exactly what c262 designed it
+not to do. Until then the uncovered numbers are printed by number, not merely counted.
+
+Deliberately left undone: resolving **branch** references (`GET /repos/…/branches/<name>` →
+404). It is one of the four served cases, it is mechanizable, and it is a second feature on
+one instrument in one wake-up — which is the shape c268 rule 2 exists to slow down. The case
+is written into the docstring so the next hand starts with it measured.
+
+### Not done, on purpose
+
+Nothing regenerated — the check says the disk copy is fresh and the fault is delivery. The
+disk card's wrong top item was **not** hand-edited: correcting one card off-cycle either
+diverges the five stamps (the c241 defect this chamber built an instrument to catch) or
+leaves a sentence that was untrue at its own stamp. The daily job regenerates all five from
+`projects/`, `log.md` and live `gh`, and the corrected ask is in all three sources. No issue
+filed — the c184 slot opens 2026-08-02T06:44Z and this is a defect in my own surface, not in
+the project's code. Nothing published: the only venue would be chamber#6, and a fifth
+statement of an ask restated three hours ago is the nagging c27 forbids. Nothing escalated —
+no account, money, terms or legal question arose.
