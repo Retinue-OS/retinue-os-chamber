@@ -2081,3 +2081,64 @@ Files changed: `drafts/c362-pr60-the-report-reaches-nobody.md` (new),
 [retinue#60 issuecomment-5152758459](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459).
 Handed to the owner: **nothing new** — the chamber#1 phone-number decision from c360 stands and is
 not re-raised. **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 363 — 2026-08-01 18:4x–19:0xZ — **the daily card regeneration, and the owner asked me a question**
+
+**Dispatched job: `aros-dashboard-refresh`.** All five cards regenerated together from **one
+stamp, `2026-08-01T18:41:46Z`**, measured live via `gh` before a line was written. Disk copy at
+dispatch was `2026-07-31T18:35:03Z` — **24 h 07 m old**, so the daily cadence was due. Note the
+tension recorded honestly: `delivery-check.py` prints *"do not regenerate"* on a fresh-disk
+attribution, and that advice is aimed at a wake-up **diagnosing staleness**, not at the scheduled
+daily refresh. The refresh ran; the diagnosis is unchanged.
+
+**What moved in the 24 h since the previous generation — the largest single-day movement yet.**
+All **six** retinue PRs open at the last stamp merged between `18:48:33Z` and `19:44:08Z` on
+07-31 (#51, #53, #49, #55, #56, #57), and #59 (`11:05:45Z`) and #60 (`18:31:23Z`) opened and
+merged today. **Zero open PRs in the framework at this stamp**; one org-wide, chamber#9, mine,
+18 h 35 m, no review. **retinue#55 merged 2026-07-31T19:33:40Z — the first PR merged in this org
+from any account other than the owner's**, and it is mine. retinue#52 closed `19:21:59Z` (second
+issue ever closed here). I filed retinue#58 at `2026-08-01T06:43:59Z`. Issues: **52 total, 50
+open, 2 closed**; **37 of the 50 over a week**, up from 34 — retinue#31 crossed at `18:36:44Z`,
+**five minutes before the stamp**. Survey unchanged: 0 stars / forks / watchers on all four public
+repos since 2026-07-18 (14 d 20 h), 49 raw mention hits / **0 confirmed**, 0 inbound from a second
+person ever. Dashboard: 11 threads, **10 unread**, oldest `2026-07-19T20:25:47Z`.
+
+**Both instruments clean, and that is the report.** `card-budget-check.py`: self-test pass,
+**75 budgeted values, 0 over budget** — five were over on the first write (briefing 997/900,
+two previews, two project `next` fields) and were shortened, not argued down.
+`desk-drop-check.py`: self-test pass, **2 dropped (both resolved), 3 added, 0 resolved still on
+the queue, coverage 29/29, 0 problems**. The two departures are retinue#55 and the
+#49/#51/#53/#56/#57 group — all merged 07-31, so both are the correct case. **No open reference
+left the desk.** Every reference on the card carries its repository prefix; the 9 bare ones the
+tool lists are the *previous* generation's and are gone.
+
+**The pickup that was not on the dispatch, and it was worth the minutes.** Measuring the PR
+history surfaced that the owner had replied to my c362 review on retinue#60 **twice**: at
+`18:28:06Z` — *"Your token should have read write access to content. Can you narrow down what
+right you are missing?"*, addressed to @aros-agent — and at `18:33:38Z`, merging with *"criticism
+to be addressed in a new PR"*. **The first direct question he has ever put to my account**, and it
+was 13 minutes old at the stamp. Answered:
+[retinue#60 issuecomment-5152884138](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152884138).
+The answer is the c343/c359 finding stated to the person who can act on it: `role_name: null` with
+`pull: true` means the missing right is the **repository role, not a PAT scope** — a token grants
+only a subset of what the account already holds, which is why re-minting it never moved the probe.
+Gave the exact action (`collaborators/aros-agent -f permission=push`) and the one-look test
+(`role_name` becoming `"write"`). No new issue opened; chamber#6 is the standing one.
+
+**Also note, and it is the review-note channel's eighth data point:** my c362 note landed
+`18:18:57Z`, he merged `18:31:23Z` — **12 m 26 s later**, deferring the criticism to a new PR
+rather than addressing it in-branch. So the note reached a human and did **not** change the merged
+artifact. That is a distinction the standing measure has not been making, and it goes to the
+2026-08-02T17:01:41Z review: *filed 43 of 54, accepted 2 filings + 7 review notes landed* stays
+unchanged, with the eighth recorded as **acknowledged, deferred**.
+
+**Publication: still blocked.** `git push` → **403, denied to aros-agent**; **82 commits ahead**
+after this cycle's two commits. **Not re-escalated — eighteenth consecutive wake-up holding the
+c345 line**, and it is now less defensible to re-raise than ever: he asked the diagnostic question
+himself, and the answer is in his repo with his name on the thread.
+
+Files changed: `docs/data/{agenda,briefing,messages,projects,todo}.json` (one commit, one stamp),
+`log.md` (this entry). **Published outside the chamber:** one comment,
+[retinue#60 issuecomment-5152884138](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152884138).
+Handed to the owner: **nothing new** — the answer went to the venue he asked in, and the top desk
+item now carries it. **Committed locally only — `git push` is 403 until the repository role is granted.**
