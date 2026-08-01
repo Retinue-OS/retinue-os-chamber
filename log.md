@@ -3154,8 +3154,9 @@ self-test pass, `render-check` 0 over 56 files with tables, `pointer-check` 187 
 indexes / 0 problems, `rotation-check` 0 problems, `private-name-check` 134 files / 0 problems on
 forward surfaces, `baseline-check` 2 held / 5 references / 0 problems, `desk-drop-check` 0 dropped /
 2 added / 0 problems, `card-budget-check` 0 of 72 values over budget. Rotation watch:
-`projects/public-surface.md` **194/200 KB** (5.7 KB head room — the next section rotates first),
-`log.md` ~216/300 KB, `strategy.md` 132/150 KB.
+`projects/public-surface.md` **194/200 KB** (~6 KB head room — the next section rotates first),
+`log.md` 226/300 KB, `strategy.md` 132/150 KB — all three measured with `rotation-check` after this
+entry was written, not before it.
 
 Files changed: `log.md` (this entry), `projects/public-surface.md` (handover rewritten; c336's
 register row and §c336 restored after the incident above; three new register rows —
