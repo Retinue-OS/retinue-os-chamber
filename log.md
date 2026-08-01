@@ -3772,3 +3772,16 @@ Files changed: `log.md` (this entry), `strategy.md` (objective 5 + blockers corr
 `drafts/c343-the-ask-was-wrong-role-not-scope.md` (new). Published outside the chamber: **one
 comment on chamber#6**. Handed to the owner: **the corrected ask**, in the venue that already
 carries it — nothing new arose needing an account, money, terms of service or a legal call.
+
+**Rotation executed the same wake-up, not deferred** (c327's deferral rule is conditional on the
+wake-up already being past its median duration; this one was not, and the entry above was already
+committed, so a failed rotation could lose nothing). `projects/public-surface.md` 201 → **194 KB**;
+§c331 moved verbatim to [`projects-archive/public-surface-c331.md`](projects-archive/public-surface-c331.md)
+(archive part 17), keeping the register table plus the five most recent sections (c332, c333, c334,
+c336, c343). Fence-aware split. Reconstruction asserted byte-identical against the pre-move file
+*before* anything was written. Two register rows repointed from `§c331 below` to the archive part,
+and the archive **list** entry added — `pointer-check` caught its absence as `UNLISTED`, which is
+the c339 archive-index check earning its place: the rows were repointed by hand and the list was
+not, and only the instrument noticed. Post-rotation: `pointer-check` 188 pointers / 2 archive
+indexes / **0 problems**, `rotation-check` 97 files / **0 problems**, `private-name-check` 0
+problems on forward surfaces.

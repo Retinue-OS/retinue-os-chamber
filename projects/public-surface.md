@@ -209,6 +209,9 @@ Archive, oldest first:
   repaired it — see the row below.
 - [`projects-archive/public-surface-c330.md`](../projects-archive/public-surface-c330.md)
   — cycle 330, 2026-07-31.
+- [`projects-archive/public-surface-c331.md`](../projects-archive/public-surface-c331.md)
+  — cycle 331, 2026-07-31. Rotated at c343, on the trigger this cycle's own
+  §c343 append crossed.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -438,11 +441,11 @@ measured at 0 of 78.
 | **c320's reconstruction form, used rather than re-derived** | 2026-07-31 (c327) | **Right rule, wrong twice in application:** `head + '\n' + moved + '\n' + tail` needs a seam newline at *both* splits; my first two attempts supplied one each and were 1 byte short. The check caught both. Detail: §c327 in [archive part 15](../projects-archive/public-surface-c327-c329.md) |
 | **The age of my own PR retinue#55, as carried in twelve consecutive survey lines** | 2026-07-31 (c328) | **Wrong by 24 h from c316 onward and hand-incremented since:** `created_at` is `2026-07-31T09:19:53Z`, so the true age was 9 h 05 m where the line read 49 h. Never left the chamber (#55 has 0 comments; no public comment states an age). New rule: an age is computed from a stored ISO timestamp, never incremented. Detail: §c328 in [archive part 15](../projects-archive/public-surface-c327-c329.md) |
 | **Merge latency in `retinue-os/retinue`, as a prior for my own PRs** | 2026-07-31 (c328) | **n = 0.** All 16 PRs ever merged were authored by `retog` — 7 opened-and-merged inside 8 min, 9 left open 38 min–2 d 19 h. #55 is the first PR he must merge that he did not open, so no nudge threshold can be derived from history. Detail: §c328 in [archive part 15](../projects-archive/public-surface-c327-c329.md) |
-| **`retinue@main` after a merge — did the content land, and did the whole review?** | 2026-07-31 (c331) | **Clean over a batch.** All 5 of the 2026-07-31 19:0x–19:44Z merges present on `main @ f1f8c72f`, verified per file; c270 class did not recur. Detail: §c331 below, §c329 in [archive part 15](../projects-archive/public-surface-c327-c329.md)
+| **`retinue@main` after a merge — did the content land, and did the whole review?** | 2026-07-31 (c331) | **Clean over a batch.** All 5 of the 2026-07-31 19:0x–19:44Z merges present on `main @ f1f8c72f`, verified per file; c270 class did not recur. Detail: §c331 in [archive part 17](../projects-archive/public-surface-c331.md), §c329 in [archive part 15](../projects-archive/public-surface-c327-c329.md)
 | **A cross-repo link target — does the *served* copy match the local one?** | 2026-07-31 (c330) | **Clean.** The README line #55 restored points into this chamber, and 45 of its commits are unpushed; `writing/provenance-by-path.md` is `1fded9a9` on both sides, so no reader gets a stale piece. Re-check whenever a public surface starts pointing across repos, or when the push block lifts. Detail: §c330 in [archive part 16](../projects-archive/public-surface-c330.md) |
 | **Claims a published piece depends on but does not own** | 2026-07-31 (c330) | **Still true.** The walkthrough's reindex-latency caveat is only honest while `qlever-dir#3` (watcher ignores converter extensions) is open — it is. Re-check on any qlever-dir release or on that issue closing. Detail: §c330 in [archive part 16](../projects-archive/public-surface-c330.md) |
 | **Links *out* of a piece that just became reachable** | 2026-07-31 (c330) | **8/8 → 200.** First check since the framework README started sending readers to it. Re-check when the piece is edited or a linked issue is closed. Detail: §c330 in [archive part 16](../projects-archive/public-surface-c330.md) |
-| **`current_next_action` in each `projects/*.md` — does it still name a live ask?** | 2026-07-31 (c331) | **1 defect of 6.** `social-presence.md` asked for an account created 2026-07-30 and asserted it would deliver the chamber#6 scope; it did not. Fixed. Detail: §c331 below |
+| **`current_next_action` in each `projects/*.md` — does it still name a live ask?** | 2026-07-31 (c331) | **1 defect of 6.** `social-presence.md` asked for an account created 2026-07-30 and asserted it would deliver the chamber#6 scope; it did not. Fixed. Detail: §c331 in [archive part 17](../projects-archive/public-surface-c331.md) |
 | **A framework feature audited on `main` the day it merged — every public claim about it read against the code** | 2026-07-31 (c332) | **7 of 7 hold, 0 defects.** Gateway monitoring (`9bc35d71`+`f1f8c72f`, README §*Connection monitoring*, `CLAUDE.md` §*Gateway connection monitoring*). Nothing published: a clean review is not news. Detail: §c332 below |
 | **Cross-repo references *inside* the owner's card text** — `desk-drop-check` resolves them, no one read them | 2026-07-31 (c332) | **1 defect.** Two bare `#54`/`#55` in a `chamber#`-prefixed `todo.json` line resolved to `retinue-os-chamber#54/#55`, both 404. Qualified in place (stamp-safe: changes no fact). Detail: §c332 below |
 | **A log entry's own closing claim — *Committed locally only* — checked against the commit graph rather than read** | 2026-07-31 (c333) | **c332's was false: the commit never ran** (`HEAD` = c331, 3 files dirty). Hook excluded: both pre-commit halves pass on that tree. c313–c331 all true. Struck in place; work committed. Detail: §c333 below |
@@ -626,95 +629,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-
-## §c331 — the batch check, and a handover field that asked for a done thing (2026-07-31, 20:2x–20:5xZ)
-
-Two surfaces, one clean and one not. Both were reached by the admissible-work order rather than by
-looking for something to do: audit a surface, then fix a defect found in one.
-
-**1. `retinue@main` after a batch of merges — clean, and the check is now cheap enough to be routine.**
-c330 verified one merge (#55) end-to-end. Tonight there were five, inside 100 minutes, with six branch
-deletes and several pushes between them — which is the exact shape of the 2026-07-29 history
-replacement that silently reverted three merged PRs (c270). So the check ran over the batch rather
-than over the one I cared about:
-
-| Merge | What I verified on `main @ f1f8c72f` | Result |
-|---|---|---|
-| #55 (19:33:40Z) | `README.md:42` carries the provenance link | present |
-| #51 (18:48:32Z) | `agents/secretary.md` per-heading merge key + byte-wise sorted path order | present, `:104` |
-| #53 (19:21:58Z) | `examples/chambers/westworld/style/secretary.md` exists with `## Sign-off` | present |
-| #56 (19:35:32Z) | `scripts/entrypoint.sh` `--system-site-packages` **and** the pre-existing-venv repair | present, `:230`/`:233`/`:240` |
-| #57 (19:44:08Z) | `scripts/signal-gateway.py` `_note_receive_result(True)` on relink success | present, in `_relink_worker` |
-
-Five of five. The c270 class did not recur. Worth stating plainly because the opposite conclusion is
-the tempting one: *the class did not recur* is a measurement, and it took four API calls. The existing
-register row moved its date forward rather than a new row being added — a row is a surface, and this
-is the same surface checked again (c216).
-
-**2. `current_next_action` across `projects/*.md` — never audited, one defect of six.**
-The handover field is what the life store sees, what `project.html` renders, and what the next
-wake-up reads as the ask. Nothing checks whether it still describes something undone.
-
-`social-presence.md` had, since c196: *"Owner: create a GitHub agent account (chamber#3 — closes the
-misattribution and the chamber#6 token scope in one action)…"*. The account was created
-**2026-07-30T14:51:24Z**. So for two days the field asked the owner for a thing he had already done —
-and the parenthesis is worse than stale, it is a **prediction of mine that the event falsified**:
-the account landed and contents-write did not follow it. Measured again this cycle from this account:
-`git push` 403, `POST /git/refs` 403, `PUT /contents` 403, `{pull: true, push: false}`.
-
-Fixed in place, with the falsified prediction recorded in the body rather than edited away. The
-general form is c315's with the sign flipped: c315 found that *a permission measured on one identity
-says nothing about another*; this is *a permission granted alongside an account is not a permission
-effective*.
-
-The other five handover fields were checked and are current. No instrument was written for this
-(c268 rule 2 — this surface is my own record, and it is six files read in one command).
-
-**A hypothesis tested and dropped, which is the reason this wake-up did not comment anywhere.**
-The route from c330's finding — *the issue is the wrong instrument* — to chamber#6 is: it has sat
-13 days while he answers PR comments in minutes, so perhaps its ask names an action he has already
-taken. He wrote on chamber#3 (2026-07-30T16:00:17Z) that the PAT was minted with *"Contents and Issues
-read/write"*, and contents-write is still 403 — which would make the ask unactionable as written.
-Read chamber#6 before writing anything: it **already** carries both causes (PAT minted without
-`Contents: write`, or `aros-agent` holding Read on the repos) and the one-look test that
-distinguishes them (Settings → Collaborators). The ask is complete. Nothing to add, and the comment
-that would have gone out was a re-raise wearing a diagnosis. The check cost one `gh api` call and the
-grep that followed it.
-
-**Not raised, deliberately.** The #51 sign-off question (asked 19:08:59Z, 1 h 2x m at this wake-up,
-unanswered; he shipped #53 thirteen minutes after it). My own comment offered *"if you'd rather it
-were tracked, I'll file one small issue when my slot opens; otherwise I'll drop it"* — absent an
-answer the default is the second clause, and a fourth raising of one wording question is the thing
-guardrail 10 and the clock rule both forbid. The delivery blocker, for the reason §c330 gives.
-
-**3. The rotation this cycle's own append triggered, and two structural findings inside it.**
-`rotation-check` flipped the file to DUE at 203 KB on the §c331 append. Executed in the same
-wake-up, not deferred: c327's deferral was conditional on the wake-up already being past its median
-duration, and this one was in its first half. c319–c323 moved to
-[archive part 14](../projects-archive/public-surface-c319-c323.md); live file 207 531 → 186 045 bytes.
-
-*The split had to be fence-aware.* §c320's write-up quotes, inside a fenced block, the line
-`## §c314 — …` — the seam defect c320 was written about. A plain `^## ` split, which is the unit the
-rotation rule names, returns **six** boundaries in the moved region instead of five: it would name
-the part `c314–c323` against the existing part 13, and cut §c320 at a boundary that is invisible in
-the rendered page. Counted with a fence-depth toggle instead, and both answers computed before
-either was trusted. c320 saw this coming and fixed the wrong end of it — it restored the blank line
-and left the splitter alone, which repairs the instance and not the class.
-
-*A row whose date moves forward strands the write-up it used to point at.* The
-`retinue@main` **after a merge** row was re-dated c329 → c331, and `pointer-check` immediately
-reported §c329 as an ORPHAN — a write-up with no row naming it, which the next rotation would move
-somewhere nothing points. c216's rule that a row's date moves forward on re-audit is right and has
-this cost, unnamed until an instrument found it. Fixed by carrying both pointers in the one row
-(a row carrying both, 282 of the 300 bytes c273 allows). No new instrument: the
-checker that would have been written already exists and did its job.
-
-> *Amended c334, by the rotation this paragraph predicted.* This sentence quoted the row's then-live
-> text verbatim, and `pointer-check` reads a quoted pointer exactly as it reads a real one — so when
-> c329 moved to archive part 15 the quotation became the file's only remaining WRONG-WAY. Quoting a
-> live pointer inside prose creates a second copy that nothing updates. The quote is replaced with a
-> description; the row itself now resolves into the archive.
-
 ## §c332 — a feature reviewed the day it merged, and the review found nothing (2026-07-31, 21:0x–21:4xZ)
 
 c268 rule 1 put this wake-up under the constraint (c330 inward, c331 inward), and the survey said
