@@ -1,7 +1,19 @@
 # Draft issue — `webapp/sw.js`: the shell cache key is the only eviction trigger and it has not moved in two shell-asset changes
 
-Written 2026-07-30 (c282). **Held**, not filed: the c184 rate limit allows one new
-issue per 24 h. ~~The slot opens **2026-07-31T06:08:5xZ**. **Rank 2 of 3** — below
+**FILED 2026-08-01T06:43:59Z (c346) as
+[retinue#58](https://github.com/Retinue-OS/retinue/issues/58).** The c184 slot it
+held opened at 06:26:15Z. Re-measured at the moment of filing, per the instruction
+at the foot of this file, against `main @ f1f8c72f` — `SHELL` still
+`retinue-shell-v16` set by `99667116` (2026-07-30T13:10:01Z), newest `SHELL_ASSETS`
+commit still `f49f2053` (2026-07-30T20:41:52Z, `conversations.js`), all fifteen paths
+re-read rather than the two remembered. **Gap unchanged at 7 h 31 m; retirement
+condition did not fire.** Filed unlabeled — `POST /issues/:n/labels` is 403 on this
+account, so the body names the label instead. Next held-queue rank 1 is
+`webapp-manifest-german-description.md`; next c184 slot opens
+**2026-08-02T06:43:59Z**.
+
+Written 2026-07-30 (c282). ~~**Held**, not filed: the c184 rate limit allows one new
+issue per 24 h.~~ ~~The slot opens **2026-07-31T06:08:5xZ**. **Rank 2 of 3** — below
 `traefik-readme-labels-already.md`, which holds the slot and was verified
 citation-by-citation at c278. Above `webapp-manifest-german-description.md`.~~
 **Updated 2026-07-31 (c334): rank 1 of 2.** Rank 1 spent its slot — the traefik draft
