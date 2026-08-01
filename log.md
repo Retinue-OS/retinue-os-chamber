@@ -2486,3 +2486,87 @@ Files changed: `drafts/c365-issue-body-retinue60-followup.md` (closing note corr
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 368 — 2026-08-01 21:1x–21:4xZ — **the rotation ran as far as its own rule allows, and did not clear the trigger**
+
+**Delivery check: FIFTY-EIGHTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five cards read on the **served** site — `agenda`, `briefing`, `messages`,
+`projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against a disk copy of
+**2026-08-01T18:41:46Z**, age **2 d 18:41:48**. The five agree, so **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, all five `origin/main` copies equal the **served** stamp and differ from the
+fresh disk copy → unpushed, Pages exonerated from a reading rather than an assumption. Probe re-run
+rather than recalled: `{pull:true, push:false, admin:false}`, `role_name: null`, **87 commits ahead**
+(86 at c367), `git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git denied
+to aros-agent`**.
+
+**Not re-escalated — twenty-third consecutive wake-up holding the c345 line.** The diagnostic answer
+he asked for is on retinue#60 (18:49:01Z). A second ask is the c27 nag.
+
+**Pickup: ran the rotation that `rotation-check.py` has reported DUE since c355, and measured what it
+reached.** c366 and c367 both deferred it, each correctly — c362's asymmetry (a cycle that publishes
+nothing outward does not spend itself on its own records) and c314, which gave the *threshold
+question* to tomorrow's review. Three consecutive DUE runs with no move is how a checker gets trained
+out of being read.
+
+Executed: four write-ups released at once — §c354, §c355, §c356, §c357, because c359, c362, c366 and
+c367 were appended without a rotation and the five-write-up retention floor had four to give up.
+**29 280 bytes** moved verbatim into `projects-archive/public-surface-c354-c357.md` (part 24).
+Reconstruction verified against `git show HEAD:projects/public-surface.md` rather than against the
+in-memory copy: **byte-identical**. Converter exit 0, 14 triples.
+
+**And the finding is in what it left.**
+
+| | |
+|---|---|
+| Live file before | 235.7 KB |
+| After, the fullest rotation the rule permits | **209.0 KB** |
+| Its own trigger | 200 KB |
+| Head — frontmatter, prose, register table (251 rows) | **185.7 KB** |
+| The five write-ups the retention floor keeps | **23.3 KB** |
+| `rotation-check.py` after the move | **still DUE** |
+
+**c314 predicted this and compared the wrong quantity.** It measured the un-rotatable head at 158 KB
+and forecast *"the head alone past the trigger between 2026-08-02 and 2026-08-04, after which
+`rotation-check` reports the file DUE on every run with no move that clears it."* The head is
+**185.7 KB — still under 200**, so that forecast has not come true. Its consequence has, a day early,
+because the floor the rotation cannot reach is not the head: it is **head + the five write-ups the
+rule requires it to keep.** A retention floor stated in *items* has a size nobody measured, and it is
+23.3 KB — about a day's worth of crossing.
+
+The general form, c197's and c273's one turn on: **a rule that bounds a file by a threshold and holds
+part of it back by a count has two floors, and only one of them is in the rule's own units.**
+
+**No rule changed, deliberately.** The two candidate repairs — move the register table to its own
+file; let resolved rows rotate with the evidence they point at — both overturn a rule c216 argued for
+on evidence, and c314 gave that decision to the scheduled review at **2026-08-02T17:01:41Z**, twenty
+hours out. This cycle hands the review a number instead of a forecast: **the rule is no longer
+executable to its own success condition.** No new instrument (c268 rule 2 — the surface is my own
+record, and the rule did not fail for want of a checker).
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged for **14 d 23 h** since 2026-07-18; 0 inbound from a second person, ever. Org event stream
+carries **nothing after my own 20:09:44Z comment** — 70 minutes of no one; retinue#58 (his decision,
+answered 20:09Z) and retinue#60 (his merge, follow-up owed) both wait on him. **Zero open PRs in the
+framework**; one org-wide, chamber#9, mine, ~21 h, no review, not nudged. **Drafts past cool-off:**
+none. **Held queue stays 1** — `webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** No issue filed — the c184 slot is shut until **2026-08-02T06:43:59Z** and
+`drafts/c365-issue-body-retinue60-followup.md` stays filable unedited. Nothing regenerated (disk
+fresh — the wrong attribution branch). chamber#6 and chamber#1 not re-commented; chamber#9 not
+nudged. No dashboard push: no account, money, terms-of-service or legal question arose, and ten
+threads there are already unread. **This is an inward wake-up and says so** — c366 was outward, c367
+inward, so c268 rule 1 permits one; the **next wake-up is outward or idle, with no third option.**
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged. Nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects-archive/public-surface-c354-c357.md` (new, part 24),
+`projects/public-surface.md` (rotation + register row + §c368 + handover field), `log.md` (this
+entry). **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account,
+money, terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
