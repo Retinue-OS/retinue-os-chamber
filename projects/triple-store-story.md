@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Aros, c341 (2026-08-01 03:3xZ): SUCCESS CRITERION 3 IS HALF MET, AND THIS FIELD SAID THE OPPOSITE FOR EIGHT HOURS. The framework README link is ON main - README.md:42 at f1f8c72f carries [Provenance by path] pointing at this chamber's writing/provenance-by-path.md, merged as PR retinue#55 on 2026-07-31T19:33:40Z, and the target returns 200. Verified FROM CONTENT ON main (c270), not from the PR badge. The branch this field named, docs/link-provenance-piece, NO LONGER EXISTS on the remote (branches: main, feat/chamber-secretary-style-override), so 'still pushed as branch docs/link-provenance-piece, unmergeable without PR scope (chamber#6)' was false twice over. CHECKED AND CLEAN, and it is the check that mattered: writing/provenance-by-path.md is blob 1fded9a9 on BOTH main and origin/main, so the 55 unpushed chamber commits do NOT sit between the framework README and its link target - the reader gets the current piece. That was the worst interaction between the merge and the push blockage and it does not exist. STILL UNMET, the other half of criterion 3: the ORG PROFILE. GET /repos/Retinue-OS/.github -> 404 and the org description is still empty, both unchanged since c251; writing/org-profile-README.md stays status: ready-for-owner and is chamber#4's ask, not mine to do. CRITERION 1 (the full walkthrough) still waits on retinue#1. THE INSTRUMENT GAP THIS FOUND: pointer-check asserts that a handover field NAMES the newest write-up section (c252) and nothing asserts that what it SAYS is still true - this field named c222, c222 IS still the newest section, so every check ran green while two files in this chamber disagreed about the same fact for eight hours. Input for the 2026-08-02 review alongside c340's baseline-commit proposal. EARLIER AND UNCHANGED: c222 (2026-07-28) is still the newest write-up - writing/queries/newsfeed-keyframe-sample.rq, posted on retinue#25, samples a time-relevance curve @now in 64 ms on the live qlever-life endpoint and ranks three curve shapes as the owner's proposal describes; the keeper is the negative result, that QLever can subtract two xsd:dateTimes but cannot cast the difference to a number and SPARQL 1.1 defines no such cast either, so a keyframe needs epoch seconds as xsd:decimal beside its xsd:dateTime and the sample instant must be substituted by the caller. c186: the walkthrough's headline query returns EIGHT rows now, not six - two project files added, query unchanged, the piece's thesis demonstrating itself. c174: the rebuild re-timed at 20-25 s against the 15-20 s I had published, corrected on retinue#2 and in brand/positioning.md. qlever-dir#8 (skolemize vs per-file blank-node scope) still awaits the maintainer's call. DISTRIBUTION still waits on accounts existing (chamber#1)."
+current_next_action: "Aros, c342 (2026-08-01 04:2xZ): CRITERION 1'S BLOCKER RE-VERIFIED AND ITS OPEN QUESTION ANSWERED BY THE FRAMEWORK ITSELF. retinue#1 still reproduces on main @ f1f8c72f - web-gateway.py:1929-1930 still kb# / urn:retinue:actor:reto, query at :1940 still k:Project - unchanged by the 2026-07-29..31 merge wave that edited web-gateway.py and webapp/components/projects.js. I filed #1 saying I had no standing to pick the canonical namespace; HALF OF THAT IS RETRACTED. Three framework-shipped files already agree on kb# and the colon-actor form (web-gateway.py:1929-1930, agent-self-review.py:31,43-50, and the PRODUCER discover-agents.py:46,139-140 which runs at every boot and whose agents.nt every deployment indexes); the only dissenter is chamber content, and NOTHING the framework ships emits project# (find -name md2ttl* at f1f8c72f returns nothing; sole reference docs/triple-stores.md:73). MEASURED ON THE LIVE STORE, not argued: the agent-self-review gate query returns 0, the same count over project#Project returns 6 - so this is not only the dashboard card, the proactivity sweep has the same zero and its "empty result spawns nothing" cost model makes an unmatched gate indistinguishable from an empty backlog, silently and for free. Posted as issuecomment-5149744968 on retinue#1 with the cost of each option in files; NOT closed and NOT patched framework-side, the choice is his and web-gateway.py:1927-1928 is a factual error under either answer. NEXT ACTION IF HE PICKS "align the converter": criterion 1 stops being owner-blocked - projects/.qlever/md2ttl.py is THIS CHAMBER'S file and the diff is mine to land; note that this file's own current_actor: actor-aros is the losing shape and changes with it. EARLIER, c341 (2026-08-01 03:3xZ): criterion 3 is HALF MET - README.md:42 at f1f8c72f carries the link to writing/provenance-by-path.md, merged as retinue#55 on 2026-07-31T19:33:40Z, target returns 200, verified from content on main and not from the PR badge (c270); the branch this field used to name, docs/link-provenance-piece, no longer exists. CHECKED AND CLEAN: writing/provenance-by-path.md is blob 1fded9a9 on BOTH main and origin/main, so the 56 unpushed chamber commits do not sit between the framework README and its link target. STILL UNMET, criterion 3's other half: the ORG PROFILE - GET /repos/Retinue-OS/.github -> 404, org description empty, unchanged since c251; writing/org-profile-README.md stays status: ready-for-owner under chamber#4. DISTRIBUTION still waits on accounts existing (chamber#1)."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-15
@@ -293,3 +293,39 @@ here (c268 rule 2): the general form — *when a merge lands, grep the chamber f
 the blocker it cleared, not only for the wording it changed* — is c339's rule
 pointed inward, and whether it deserves a checker is a question for the
 2026-08-02 review, alongside c340's baseline-commit proposal.
+
+## c342 (2026-08-01) — criterion 1's blocker re-verified, and the framework had already answered its open question
+
+Criterion 1 (the full walkthrough) has waited on
+[retinue#1](https://github.com/Retinue-OS/retinue/issues/1) since 2026-07-19,
+because the projects card that `docs/triple-stores.md` presents as the payoff of
+the whole converter mechanism returns no rows. Re-verified on `main @ f1f8c72f`
+this cycle: **still reproduces**, unchanged by the 2026-07-29→31 merge wave that
+edited both `scripts/web-gateway.py` and `webapp/components/projects.js`.
+
+What changed is the shape of the question. I filed #1 saying I had no standing to
+decide which namespace is canonical, and that framing was half wrong:
+
+| Component | Ships with | Namespace | Actor URI |
+|---|---|---|---|
+| `web-gateway.py:1929-1930` — consumer | framework | `kb#` | `urn:retinue:actor:reto` |
+| `agent-self-review.py:31,43-50` — consumer | framework | `kb#` | joins `?actor a kb:AiAgent` |
+| `discover-agents.py:46,139-140` — **producer**, every boot | framework | `kb#` | `urn:retinue:actor:<name>` |
+| `<chamber>/projects/.qlever/md2ttl.py:21,114` — producer | a chamber | `project#` | `urn:retinue:` + raw value |
+
+Three framework files already agree; the dissenter is deployment content, and
+nothing the framework ships emits `project#` at all. Measured on the live store
+rather than argued: the self-review gate returns **0**, the same count over
+`project#Project` returns **6**.
+
+Two consequences for this project. First, the decision is now cheap enough to be
+made — posted as
+[issuecomment-5149744968](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5149744968),
+with the cost of each option in files. Second, if the answer is *align the
+converter*, criterion 1 stops being owner-blocked: `projects/.qlever/md2ttl.py`
+is this chamber's own file and the diff is mine to land. That is the first time
+any part of criterion 1 has been on my side of the line.
+
+Note against this file's own frontmatter: `current_actor: actor-aros` is the
+`urn:retinue:` + raw-value form, i.e. the losing shape. Whatever #1 resolves to,
+this chamber's project files are one of the things that has to change with it.
