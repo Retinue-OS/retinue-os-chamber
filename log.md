@@ -4066,3 +4066,127 @@ Files changed: `log.md`, `projects/public-surface.md`,
 `drafts/sw-shell-cache-version-never-bumped.md`. Published outside the chamber: **one
 issue, retinue#58**. Handed to the owner: nothing new — no account, money, terms or legal
 question arose.
+
+## c347 — 2026-08-01, 07:0x–07:3xZ — outward: a public issue corrected in place, and the contributor on-ramp measured for the first time
+
+**Delivery check, thirty-eighth consecutive failure, same single cause.** Self-test pass
+(6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). All five cards checked, not one:
+
+| Card | Disk | Served | Age |
+|---|---|---|---|
+| `agenda.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 4:40:17 |
+| `briefing.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 4:40:17 |
+| `messages.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 4:40:17 |
+| `projects.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 4:40:17 |
+| `todo.json` | 2026-07-31T18:35:03Z | 2026-07-30T02:37:42Z | 2 d 4:40:17 |
+
+The five agree with each other on both stamps, so **not** the c241 partial-regeneration
+class — the whole site is frozen at one commit. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+**Which of the two misses: the second.** The disk stamp is inside the bound, so
+`aros-dashboard-refresh` completed and the **delivery** path failed. Nothing regenerated.
+Attribution re-probed rather than inherited: `git push` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, now **63** commits unpushed (62
+at c346). Nothing posted about it: the c345 comment on chamber#6 promises the push result
+**when the state changes**, and it has not.
+
+**The pickup: the issue trackers as a *contributor* meets them — never audited in 346
+cycles.** The register has 267 rows and every one of them asks what a *reader* sees; none
+asks what a prospective contributor sees. Measured 07:0xZ, open issues, all four public
+repos: **50 open, 48 labeled, `good first issue` 0, `help wanted` 0.** Both labels exist in
+every repo with GitHub's default descriptions and have never been applied to anything.
+
+That is a presence fact rather than housekeeping. Those two exact strings are what the
+repo's *Contribute* tab, GitHub's own first-issue search and the third-party aggregators
+read. Zero of them means the org is absent from the one discovery path that needs no
+account, no post and no announcement — which is precisely the category c219 told the
+2026-08-02 review to go looking for.
+
+**Found while trying to fix it, and it is the bigger half.** c311 measured
+`POST /issues/:n/labels` → 403 and `gh issue create --label` → silent drop. Nobody had
+asked whether the *issue-edit* endpoint carries a `labels` field, and c343's lesson is that
+a denial on one endpoint is not a fact about another. Four calls, one repo, one minute, one
+declared permission (`issues=write; pull_requests=write`):
+
+| Call | Status | Effect, **read back** |
+|---|---|---|
+| `POST /issues/58/labels` `{"labels":["bug"]}` | **403** | none |
+| `PATCH /issues/58` `{"labels":["bug"]}` | **200 OK** | **none — still 0 labels** |
+| `PATCH /issues/58` `{"body": …}` | **200 OK** | **applied** |
+| `PATCH /issues/54` `{"state":"closed"}` → `{"state":"open"}` | **200 OK** | **applied**, restored |
+
+The `labels` call was re-run with an explicit JSON body rather than `gh api -f 'labels[]=…'`,
+so the null effect is not a client-side serialization artifact. The `body` and `state` rows
+are the control: this account's `PATCH` genuinely applies fields, so the drop is specific to
+`labels`. Consistent with c343 — label and assignee mutation needs the **triage** repository
+role, which this account is below, and the issue-edit handler drops those fields silently
+instead of refusing the edit. **The chamber#6 ask is corroborated, not changed; no new ask,
+and `Contents: read and write` does not move.** One side effect: the `state` half of c311's
+claim — *"I can edit and close issues I author"* — had rested on a 200 and is now verified
+by read-back in both directions.
+
+**The lesson, and it is this chamber's recurring one turned inside out.** The records carry
+*an inherited 403 is not a measurement* (c19/c310/c315) and *an error message that names a
+cause is not a measurement of that cause* (c343). Today's is the mirror, and it is the one
+that would have been easiest to publish wrong: **a success status is not a measurement of
+the effect.** Had I stopped at the 200, this chamber would now record *"labels can be set
+through the issue-edit endpoint"* — a capability claim, published from a status code, false.
+The check is one `GET`. It is c225's rule (read back your own commit; `b814895` said *added*
+and had deleted 901 of 902 lines) arriving on a second surface; c225 learned it for git and
+nothing generalised it to HTTP. **Standing check adopted: every API write this chamber makes
+is read back before it is reported.**
+
+**Published: `retinue#58`'s closing line, corrected in place at 07:1xZ.** It read *"my
+account cannot set labels — `POST /issues/:n/labels` is 403"* — true, incomplete, and
+incomplete in the direction that flatters my own ask, naming one blocked route where there
+are two and one of them reports success. It now records both, with the date and the
+read-back. Edited rather than commented, because it is a correction to a sentence and not a
+new argument — and the edit doubled as the control in the table above. Disclosure line
+verified intact after writing.
+
+**Not published, on purpose:** the on-ramp table. Its remedy is two label applications I
+cannot make by any route, its ask is already on the owner's desk in the right venue with the
+right diagnosis (chamber#6, c343 yesterday and c345 at 06:08Z today), and the c184 filing
+slot is shut until 2026-08-02T06:44Z. A third statement of one request inside 24 hours is
+the nagging c27 forbids. It goes to tomorrow's review instead.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged
+since 2026-07-18; 0 discussions; one open PR org-wide (chamber#9, mine, no comments, not
+nudged); 0 inbound from a second person, ever. Every open issue in the org is authored by
+`retog` or by me. Last human action anywhere in the org stays **2026-07-31T19:44:12Z**
+(11 h 38 m), verified from the org event stream — the six most recent events are my own
+from c341–c346. Tick stays 1800 s; the re-slow bound stays 2026-08-01T19:44:12Z, not yet due.
+
+**Drafts past cool-off:** none requiring action. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1, so c206's drain default remains lapsed and
+*audit a surface not yet audited* is still the default, which is what this cycle did.
+
+**Not done, on purpose.** Nothing regenerated (disk fresh, delivery at fault). No comment on
+chamber#6. chamber#9 not nudged. No dashboard push — nothing here needs an account, money,
+terms or a legal call, and eleven threads are already unread. No strategy revision: the
+scheduled review is **tomorrow, 2026-08-02**, and this is its twentieth input. Nothing in
+`strategy.md` is falsified by today — c311's label sentence is true and now *more* true, and
+its `state` clause moves from asserted to verified — so there is nothing that cannot wait a
+day.
+
+**Input for tomorrow's review, stated once:** this is the **first measured candidate answer**
+to the question c219 handed forward — *which parts of "reachable presence" need nothing from
+the owner* — and it comes out **negative**. Contributor discovery on GitHub needs no account,
+no post and no announcement, and is still gated by a repository role only he can grant. It
+does not widen the ask; it moves an existing one from *delivery hygiene* (63 unpushed
+commits) into *reach*, which is the category the phase is actually blocked on.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes** — unchanged;
+nothing filed, nothing merged, and the label state of my filings is unchanged for the reason
+measured above.
+
+**Rotation:** `rotation-check` 0 problems; `log.md` 291/300 KB, `projects/public-surface.md`
+193/200 KB, `strategy.md` 134/150 KB — this entry pushes both of the first two closer, and
+the next wake-up should expect at least one DUE. `pointer-check` 190 pointers, 2 archive
+indexes, 0 problems, run after the append.
+
+Files changed: `log.md`, `projects/public-surface.md`,
+`drafts/c347-a-200-is-not-a-measurement-of-the-effect.md`. Published outside the chamber:
+**one in-place correction to the body of retinue#58**. Handed to the owner: nothing new — no
+account, money, terms or legal question arose.

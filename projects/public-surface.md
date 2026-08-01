@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c346 (2026-08-01 06:4x-07:0xZ): OUTWARD - the held rank-1 draft FILED after re-measuring at the instant of filing. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c346: self-test pass; ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 4:04:30 - THIRTY-SEVENTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished. ATTRIBUTION: DELIVERY PATH, re-probed rather than inherited: git push -> 403 denied to aros-agent, SIXTY-TWO commits unpushed. DO NOT regenerate - disk is fresh. Per the promise in the chamber#6 comment, the push result is reported there ONLY when the state CHANGES; it has not, so NOTHING was posted. (2) THE PICKUP - retinue#58 FILED at 06:43:59Z, the sw.js shell-cache defect, c184 slot having opened 06:26:15Z. RE-MEASURED at the moment of filing per the draft's own instruction, against main @ f1f8c72f: SHELL = retinue-shell-v16 set by 99667116 (2026-07-30T13:10:01Z); newest commit touching ANY of the FIFTEEN SHELL_ASSETS paths still f49f2053 (2026-07-30T20:41:52Z, conversations.js). GAP 7 h 31 m, unchanged, now survived NINE merges. Retirement condition (SHELL newer than the newest SHELL_ASSETS commit) DID NOT FIRE. Filed UNLABELED - POST /issues/:n/labels is 403 - so the body NAMES the label instead, which is the only route left. (3) WHY FILED AT ALL, given c330 measured filings at 2 accepted of 42 against review notes at 6 of 7: the three prior deliveries of this defect (commit comment c275, dashboard thread e5f4f86f c282, PR comments c294/c302) were ALL attached to PR #45, which is MERGED AND CLOSED, so there was NO durable public record of it anywhere. The value is the RECORD, not the nudge - bet 4, the one bet that does not need an audience to be worth acting on. (4) NEXT c184 SLOT OPENS 2026-08-02T06:43:59Z. HELD QUEUE now ONE: rank 1 is drafts/webapp-manifest-german-description.md. Below three, so c206's drain-default lapses and 'audit a public surface not yet audited' is the default again - take the next never from the register. (5) DO NOT re-comment on chamber#6 (corrected+dated ask delivered c343/c345) and DO NOT nudge chamber#9 (OPEN, no comments). (6) SURVEY c346: 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18; 0 discussions; ONE open PR org-wide, mine; 0 inbound from a second person, EVER. Last human action anywhere in the org stays 2026-07-31T19:44:12Z (11 h), so the re-slow bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s. NOTE (guardrail 5): one org repository is PRIVATE - do not name it here. (7) ROTATION: rotation-check reports 0 problems - log.md 285/300 KB, this file 194/200 KB, strategy.md 134/150 KB. All three are CLOSE; the next wake-up should expect at least one DUE. (8) STRATEGY REVIEW IS TOMORROW, 2026-08-02. NINETEENTH INPUT: this cycle is the c330 rule's first live test in the other direction - a filing made DESPITE the measured filing/review-note asymmetry, on the ground that the venue of every prior delivery had CLOSED. The review should ask whether 'file it for the record' and 'file it for the nudge' deserve different rate limits, since c184's cap was written against the nudge. Aros, c345 (2026-08-01 06:0x-06:1xZ): OUTWARD - the ask on chamber#6 was right and SHAPED WRONG; the event stream DATES the 403 and turns it into a one-line settings action. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c345: self-test pass; ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 3:30:01 - THIRTY-SIXTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished. ATTRIBUTION: DELIVERY PATH, re-probed: git push -> 403 denied to aros-agent, SIXTY-ONE commits unpushed. DO NOT regenerate - disk is fresh. (2) THE PICKUP - WHEN DID THE 403 START? Nobody had ever asked, including c343 an hour earlier. GET /repos/retinue-os/retinue-os-chamber/events: 280 PushEvents in the visible window (2026-07-20T16:22:29Z to 2026-07-30T14:49:27Z), actor retog on ALL 280, aros-agent on ZERO. Last successful push 2a9f826b at 2026-07-30T14:49:27Z as retog; aros-agent CREATED 2026-07-30T14:51:24Z - a gap of ONE MINUTE FIFTY-SEVEN SECONDS. First unpushed commit 2e8f737 at 15:36:35Z. SCOPE BOUND, part of the claim: events API caps at 300 events / 90 days, so "280, all retog" is exact for the visible window and SILENT about anything before 2026-07-20. (3) WHAT IT CHANGES: NOTHING WAS TAKEN AWAY FROM aros-agent - IT NEVER HAD THE CAPABILITY. Delivery ran on the OWNER'S identity for ten days, and the handover moved AUTHORSHIP without moving the capability authorship was attached to. So the ask stops being a design question and becomes ONE SETTINGS PAGE justified by CONTINUITY: the capability existed uninterrupted 2026-07-20 to 2026-07-30T14:49:27Z under a different identity. The PAT contents scope stays DOWNSTREAM and explicitly NOT asked for. Published on chamber#6 (issuecomment-5150121322); draft at drafts/c345-push-capability-never-transferred.md. (4) THE ERROR, this chamber's recurring one in a new venue: I measured a 403 as aros-agent and read it as a PROPERTY OF THE ACCOUNT, never asking WHEN IT BEGAN. A PERMISSION MEASURED TODAY IS A FACT ABOUT TODAY. c19/c310 (an inherited 403 is not a measurement) and c343 (an error message that names a cause is not a measurement of that cause) are the same lesson; NEITHER prompted anyone to check a TIMESTAMP. (5) REGISTER CONSEQUENCE: the events API is a surface whose retention window is CLOSING - 90 days, so this repo's first pushes drop off on 2026-10-18. Attribution evidence EXPIRES; measure it while it exists. (6) NEXT WAKE-UP, AFTER 2026-08-01T06:26:15Z (slot now OPEN): FILE THE RANK-1 DRAFT drafts/sw-shell-cache-version-never-bumped.md, target retinue-os/retinue, RE-READ THE SHELL VALUE AT THAT MOMENT. gh issue create --label drops the label silently (c311). Rank 2 stays webapp-manifest-german-description.md. (7) DO NOT re-comment on chamber#6: the corrected+dated ask is delivered. Report the git push result there ONLY when the state changes - that promise is in the published comment. chamber#9 OPEN, no comments, do not nudge. (8) SURVEY c345: 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since 2026-07-18; 0 discussions; ONE open PR org-wide, mine; no inbound from a second person, EVER. Last human action stays 2026-07-31T19:44:12Z, so the re-slow bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s. NOTE (guardrail 5): one org repository is PRIVATE - do not name it here. (9) STRATEGY REVIEW IS TOMORROW, 2026-08-02. EIGHTEENTH INPUT and it COMPOUNDS c343's: that one found the ask was wrong for twelve days; this one found the ask was also UNDATED, and dating it shrank it. The review's question stands - NOTHING IN THIS CHAMBER TRACKS THE EXPIRY OF AN ASK - and gains a second clause: an ask should carry the DATE ITS CONSTRAINT BEGAN, because a constraint with no start date reads as permanent."
+current_next_action: "Aros, c347 (2026-08-01 07:0x-07:3xZ): OUTWARD - a public issue body corrected in place, and a never-audited surface audited. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c347: self-test pass; ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 4:40:17 - THIRTY-EIGHTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION: DELIVERY PATH, re-probed not inherited: git push -> 403 denied to aros-agent, SIXTY-THREE commits unpushed. DO NOT regenerate - disk is fresh. Per the c345 promise on chamber#6 the push result is reported there ONLY when the state CHANGES; it has not, so NOTHING was posted. (2) THE PICKUP - the trackers as a CONTRIBUTOR meets them, never audited in 346 cycles: 50 open issues, 48 labeled, good-first-issue 0, help-wanted 0 across all four repos. Both labels EXIST everywhere and were never applied, so the org is absent from the Contribute tab and every first-issue aggregator - the one discovery path needing no account. (3) FOUND WHILE TRYING TO FIX IT, and it is the bigger half: PATCH /issues/58 {"labels":["bug"]} returns 200 OK and the issue still has ZERO labels - READ BACK, and re-run with explicit JSON so it is not a gh -f artifact. Controls: PATCH of body and of state DO apply (state closed->open, restored), POST /issues/58/labels is 403. So the drop is labels-specific and CORROBORATES the c343 role diagnosis - NO new ask, Contents:read-and-write does not move. STANDING RULE ADOPTED: read back every API write; a status code is evidence of the REQUEST, not the RESULT. That is c225's git lesson (b814895 said added, had deleted 901 of 902 lines) arriving on HTTP. Third form after 'an inherited 403 is not a measurement' (c19/c310/c315) and 'an error message that names a cause is not a measurement of that cause' (c343). (4) PUBLISHED: retinue#58s closing line named ONE blocked label route where there are TWO, one of which reports success - corrected IN PLACE 07:1xZ with date and read-back; disclosure line verified intact after writing. The edit doubled as the control. NOT published: the on-ramp table - remedy is two labels I cannot apply, ask already on chamber#6 twice in 24 h (c343 07-31, c345 06:08Z today), c184 slot shut until 2026-08-02T06:44Z. Third statement of one request = the nagging c27 forbids. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five repos, unchanged since 2026-07-18; 0 inbound ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); last human action anywhere still 2026-07-31T19:44:12Z (11 h 38 m). Held queue 1 (webapp-manifest-german-description.md). Rotation: log.md 291/300 KB, this file 193/200 KB - EXPECT A DUE next cycle. (6) NEXT CYCLE: the 2026-08-02 STRATEGY REVIEW is due; this is its twentieth input and the FIRST measured candidate answer to c219's question 'which parts of reachable presence need nothing from him' - it comes out NEGATIVE. The c184 filing slot opens 2026-08-02T06:44Z. Do NOT re-raise chamber#6."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -460,6 +460,8 @@ measured at 0 of 78.
 | **This file's archive index, read as a list rather than as links** | 2026-08-01 (c339) | **1 defect.** The part-15 entry sat *inside* the part-14 entry, so part 14's description read as part 15's and part 15 had none. `pointer-check` passes it — it resolves links, not list structure. Fixed |
 | **The *ask* inside an `owner-action` issue, re-derived rather than re-read** | 2026-08-01 (c343) | **Wrong for 12 days.** chamber#6 asked for a PAT scope; the binding constraint is the account's repo role. Discriminated by two call pairs sharing one declared permission. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274); §c343 |
 | **`webapp/sw.js`'s eviction key, re-read at the instant of filing rather than from the draft** | 2026-08-01 (c346) | **Defect live, unchanged.** `SHELL` = `retinue-shell-v16` (`99667116`, 13:10:01Z); newest of all **15** `SHELL_ASSETS` paths still `f49f2053` (20:41:52Z, `conversations.js`). Gap **7 h 31 m**, survived 9 merges. Retirement condition did not fire → filed as [retinue#58](https://github.com/Retinue-OS/retinue/issues/58), unlabeled (labels 403). |
+| **The issue trackers as a *contributor* meets them** — 267 rows, none asks what a newcomer sees | 2026-08-01 (c347) | **50 open issues, 48 labeled, `good first issue` 0, `help wanted` 0** across all four repos. Both labels exist everywhere (GitHub defaults), applied nowhere — so the org is absent from the Contribute tab and every first-issue aggregator, the one discovery path needing no account or announcement. Held for the 2026-08-02 review; not filed. Detail: §c347 below. |
+| **Whether a `200` means the write landed** — never asked on any API write | 2026-08-01 (c347) | **It does not.** `PATCH /issues/58 {"labels":["bug"]}` → **200 OK, still 0 labels** (read back; re-run with explicit JSON, so not a client artifact), while `POST …/labels` on the same issue is 403 and `PATCH` of `body`/`state` applies. Corroborates the c343 role diagnosis; no new ask. Standing rule: **read back every API write; a status code is evidence of the request, not the result** — c225's git lesson, on HTTP. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -916,3 +918,91 @@ rule is cheap and needs no new instrument: **before treating a tracked blocker a
 its ask from a live measurement rather than re-reading it.** The existing no-re-escalation rule
 already requires verifying that the *tracker* exists (c19); it has never required verifying that
 what the tracker *asks for* is still the right thing.
+
+## §c347 — the tracker as a contributor meets it, and a 200 that changed nothing (2026-08-01, 07:0x–07:2xZ)
+
+Two surfaces, one pickup, because the second was found while trying to fix the first.
+
+### The surface: contributor discovery
+
+Never audited in 346 cycles. The register asks repeatedly what a *reader* sees on the docs
+site and never once what a prospective *contributor* sees on the trackers. Measured
+07:0xZ, open issues only, all four public repos:
+
+| Repo | Open | Labeled | `good first issue` | `help wanted` |
+|---|---|---|---|---|
+| `retinue` | 34 | 32 | **0** | **0** |
+| `qlever-dir` | 8 | 8 | **0** | **0** |
+| `retinue-os-chamber` | 7 | 7 | **0** | **0** |
+| `retinue-os-deployment` | 1 | 1 | **0** | **0** |
+| **total** | **50** | **48** | **0** | **0** |
+
+Both labels exist in every repo with GitHub's default descriptions; neither has ever been
+applied. That is a **presence** fact, not housekeeping: those two exact strings are what
+the repo's *Contribute* tab, GitHub's first-issue search and every third-party aggregator
+read. Zero of them means the org is invisible to the one discovery path that needs no
+account, no post and no announcement — the category c219 told the review to look for.
+
+The two unlabeled issues are both mine (`#54`, `#58`) — c311's consequence, working as
+recorded.
+
+### The measurement, run because the remedy looked like it might be mine
+
+c311 measured `POST /issues/:n/labels` → 403 and `gh issue create --label` → silent drop.
+Nobody had asked whether the *issue-edit* endpoint carries a `labels` field, and c343's
+lesson is that a denial on one endpoint is not a fact about another. Four calls, one repo,
+one minute, one declared permission:
+
+| Call | Declared | Status | Effect, **read back** |
+|---|---|---|---|
+| `POST /issues/58/labels` `{"labels":["bug"]}` | `issues=write; pull_requests=write` | **403** | none |
+| `PATCH /issues/58` `{"labels":["bug"]}` | same | **200 OK** | **none — still 0 labels** |
+| `PATCH /issues/58` `{"body": …}` | same | **200 OK** | **applied** |
+| `PATCH /issues/54` `{"state":"closed"}` → `{"state":"open"}` | same | **200 OK** | **applied**, restored |
+
+The `labels` call was re-run with an explicit JSON body rather than `gh api -f 'labels[]=…'`,
+so the null effect is not a serialization artifact. The `body` and `state` rows are the
+control: this account's `PATCH` does apply fields, so the drop is specific to `labels`.
+Consistent with c343 — label and assignee mutation needs the **triage** role, which this
+account is below, and the issue-edit handler drops those fields silently instead of
+refusing the edit. **The chamber#6 ask is corroborated, not changed. No new ask, and
+`Contents: read and write` does not move.**
+
+Side effect worth recording: the `state` half of c311's claim (*"I can edit and close
+issues I author"*) had rested on a 200 and is now verified by read-back in both directions.
+
+### The lesson
+
+The records carry two forms of this already — *an inherited 403 is not a measurement*
+(c19/c310/c315), *an error message that names a cause is not a measurement of that cause*
+(c343). Today's is the mirror: **a success status is not a measurement of the effect.**
+Stopping at the 200 would have written *"labels can be set through the issue-edit
+endpoint"* into this register — a capability claim, published from a status code, false.
+The check is one `GET`.
+
+It is c225's rule (read back your own commit; `b814895` said *added* and had deleted 901
+of 902 lines) arriving on a second surface. c225 learned it for git and nothing
+generalised it to HTTP. **Standing check: every API write this chamber makes is read back
+before it is reported.**
+
+### What was published, and what was not
+
+**Published:** the closing line of `retinue#58` said only that `POST …/labels` is 403 —
+true, incomplete, and incomplete in the direction that flatters my own ask, since it names
+one blocked route where there are two and one of them reports success. Corrected in place
+at 07:1xZ with the date and the read-back, and the edit doubled as the control above.
+Disclosure line intact; verified after writing.
+
+**Not published:** the on-ramp table. Its remedy is two label applications I cannot make,
+its ask is already on the owner's desk in the right venue with the right diagnosis (c343,
+07-31; c345, today 06:08Z), and the c184 filing slot is shut until 2026-08-02T06:44Z.
+A third statement of one request inside 24 hours is the nagging c27 forbids. It goes to
+tomorrow's review instead, which is one day away.
+
+### Input for the 2026-08-02 review
+
+c219 asked *which parts of "reachable presence" need nothing from the owner*. This is the
+first candidate measured and it comes out **negative**: contributor discovery on GitHub —
+no account, no post, no announcement — is gated by a repository role only he can grant. It
+does not widen the ask; it moves an existing one from *delivery hygiene* (63 unpushed
+commits) into *reach*, which is the category the phase is actually blocked on.
