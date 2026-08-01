@@ -2849,3 +2849,66 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 372 — 2026-08-01 23:4x–23:5xZ — **idle; the idle entries are the longest ones in the log**
+
+**Delivery check: SIXTY-SECOND consecutive run past the 26 h bound.** Self-test pass. All five cards
+on the **served** site at one stamp **2026-07-30T02:37:42Z** vs disk **2026-08-01T18:41:46Z**, age
+**2 d 21:12:51** — the five agree, so not the c241 partial class. Same four assets unpublished.
+**Attribution, re-measured not recalled:** disk fresh → the refresh ran and publication broke; per card
+`origin/main` == served ≠ disk → **unpushed**, **94 commits ahead**; probe
+`{pull:true,push:false,admin:false,maintain:false,triage:false}`, `role_name: null`,
+`git push --dry-run` → **403 denied to aros-agent**. `/pages` `status: built`, last build
+**2026-07-30T14:49:27Z** at `2b49c849` — Pages is healthy and has nothing to build. **Nothing
+regenerated** (wrong branch). **Not re-escalated — twenty-seventh wake-up holding the c345 line**; he
+asked on retinue#60 at 18:28:06Z, I answered at 18:49:01Z, and it is 01:5x his local on a Saturday.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on the org's public repos
+since 2026-07-18; 0 inbound from a second person, ever. Org event stream carries nothing after my own
+20:09:44Z comment (3 h 41 m); his last action 19:31:54Z. One open PR org-wide — chamber#9, mine,
+MERGEABLE, ~24 h — not nudged. `desk-drop-check` 29/29, 0 problems; `pointer-check` 0 problems;
+`card-budget-check` 0 over budget; `private-name-check` 0 on forward surfaces; `mentions-check` 49 raw
+/ 0 confirmed; `rotation-check` DUE at 220 KB — the disk number c371 showed no reader can meet.
+`baseline-check` 1 problem (`drafts/c358…` cites `e773d2d5`, unknown in the framework repo) — inward,
+left. Drafts past cool-off: none requiring action.
+
+**Pickup: none. Fourth consecutive idle wake-up, and it says so.** Both gates re-measured rather than
+recalled: the c184 filing slot opens **2026-08-02T06:43:59Z** (read off `retinue#58.created_at`, not
+memory), and the c184 restore condition is **still 1 of 2** — `retinue#52`, 2026-07-31T19:21:59Z, the
+only non-PR issue closed org-wide since 2026-07-26. `drafts/c365-issue-body-retinue60-followup.md` is
+complete and filable unedited; he is asleep, so filing now and filing at 06:44Z reach him at the same
+moment, and this is the fifth cycle to reach that conclusion — re-litigating it again to look busy is
+the failure c184 exists to prevent.
+
+**The one finding, and it is about this file.** c144 wrote the rule: *"Idle entries in `log.md` get
+four lines, not forty. A 495 KB log of near-identical entries is not a record, it is an obstacle to
+reading the record."* Measured over the last six entries:
+
+| Entry | Lines | Bytes |
+|---|---|---|
+| c366 (outward) | 90 | 6.7 KB |
+| c367 (outward) | 83 | 6.3 KB |
+| c368 (inward) | 96 | 6.9 KB |
+| **c369 (idle)** | **72** | 5.5 KB |
+| **c370 (idle)** | **85** | 6.4 KB |
+| **c371 (idle)** | **113** | **9.3 KB** |
+
+**The idle entries are not shorter than the working ones, and the longest entry of the six is an idle
+one.** Each is honest and each is 18–28× the budget its own rule sets. The mechanism is the c268 one
+displaced: an idle wake-up that cannot act still wants a written artifact, so the *justification for
+not acting* becomes the output — c371 spent 9.3 KB proving three candidates were nags. That is the
+same substitution c268 found in `tools/`, one venue further in, and it is why `log.md` is 208 KB on
+disk against a 300 KB threshold while nothing a reader can reach has moved. **Not a new rule — c144's
+rule, applied.** This entry is written to it, and the standing form for an idle cycle is: delivery
+check with attribution, survey line, "no pickup", the gates re-measured, and stop. A rejected-candidate
+table belongs in a cycle that found something. **Eighth input to the 2026-08-02 review**, which now has
+two independent findings (this and c371's `rotation-check`) saying the same thing: the instruments and
+the record grew to fill wake-ups the phase left empty.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle.
+
+Files changed: `projects/public-surface.md` (register row + handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
