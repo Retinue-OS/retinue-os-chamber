@@ -980,8 +980,10 @@ is what went missing.
 
 **Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes** — unchanged.
 
-**Rotation**, read off the checker after both appends: `log.md` **65/300 KB**,
-`projects/public-surface.md` **193/200 KB**, `strategy.md` 134/150 KB, `rotation-check` 0
+**Rotation**, read off the checker after both appends — *corrected in a follow-up commit,
+because the first version of this line was written before the second append and stated 65 KB
+and 193 KB, which is exactly the pre-append reading c347 wrote a rule against*: `log.md`
+**67/300 KB**, `projects/public-surface.md` **192/200 KB**, `strategy.md` 134/150 KB, `rotation-check` 0
 problems. `pointer-check` **205** pointers / 2 archive indexes / **0 problems**; `render-check`
 65 files, 0 problems; `baseline-check` 3 held drafts, 6 baselines, **0 problems**;
 `private-name-check` 0 problems on forward surfaces; `card-budget-check` 72 values, 0 over.
