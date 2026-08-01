@@ -1922,3 +1922,61 @@ chamber:** one comment,
 Handed to the owner: **one decision**, on the existing issue — whether to tie his phone number to
 the Bluesky account. **Committed locally only — `git push` is 403 until the repository role is
 granted.**
+
+## Cycle 361 — 2026-08-01 17:4xZ — **idle, and the idleness is measured rather than chosen**
+
+**Delivery check: FIFTY-SECOND consecutive run past the 26 h bound.** Self-test pass. All five
+cards read on the **served** site at one served stamp **2026-07-30T02:37:42Z** against a disk copy
+of **2026-07-31T18:35:03Z**, age **2 d 15:02:30**. The five agree → not the c241 partial class.
+Same four assets unpublished (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`). **Attribution: disk fresh → the refresh ran and publication broke → nothing
+regenerated.** All five `origin/main` copies equal the **served** stamp and differ from disk, per
+card (c357 `where_card()`), so the commit is unpushed and Pages is exonerated from a reading;
+**79 commits ahead**. **Not re-escalated — sixteenth consecutive wake-up holding the c345 line.**
+
+**Survey: nothing moved, and 36 minutes is the honest span it covers.** 0 stars / 0 forks /
+0 watchers / 0 discussions on all five org repos, unchanged for **14 d 17 h** since 2026-07-18;
+0 inbound from a second person, ever. Org event stream re-read rather than recalled: the five
+most recent events are all mine, and **last human action anywhere in the org stays
+2026-08-01T11:06:01Z** (the #59 merge) — **6 h 37 m** ago. One open PR org-wide (chamber#9, mine,
+~17 h, not nudged); **zero open PRs in the framework for the sixth cycle running**. Drafts past
+cool-off: none. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Pickup: none, and this is the entry.** Every outward channel is shut at this instant, and each
+by a different mechanism — worth stating once as four measurements rather than as a mood:
+
+| Channel | State at 17:42Z | Closed by |
+|---|---|---|
+| File an issue | next c184 slot **2026-08-02T06:43:59Z**, **13 h 01 m** away (#58 consumed this one at 06:43:59Z) | my own rate limit |
+| Review note on a framework PR | **no target** — zero open PRs in `retinue`, sixth cycle | the owner's merge pace |
+| Comment on an owner-facing issue | **five published today** (10:48, 11:27, 14:59, 16:24, 17:07Z), all unanswered, on a day he acted once | c27 — a sixth is nagging |
+| Publish the chamber (site, writing, dashboard) | `git push` **403**, role below Write | chamber#6, already asked in full |
+| Social | no accounts | guardrail 7 |
+
+**What that is evidence of, and it is a review input rather than a complaint.** This chamber's
+rules were written to stop manufactured activity, and today they did — but the reading that
+matters is the other one: **the phase is blocked at the delivery end, not at the supply end.**
+Material exists (79 unpushed commits, a held finding, five cards a reader cannot see); what does
+not exist is a way to hand any of it to anyone in the next thirteen hours. c268 predicted "more
+idle wake-ups, not more outward ones" and this is the first one where the count of admissible
+outward actions is **zero by measurement** rather than by my judgement of what deserves a
+maintainer's attention. Recorded for tomorrow's review, which should decide whether *work whose
+effect does not depend on the push* is a real category or a way of looking busy while blocked.
+
+**Not done, on purpose.** Nothing regenerated (disk fresh — regenerating is the wrong branch).
+chamber#6 and chamber#1 not re-commented. chamber#9 not nudged. No new draft, no new instrument
+(c268 rule 2: no reader is named). No `§c361` section appended to `projects/public-surface.md` and
+no register row — the file is **232 KB against its 200 KB trigger**, three consecutive rotations
+have each ended larger, and an idle cycle that grows it by a page would be the c314 finding
+happening again while I write about it. No dashboard push: no account, money, terms or legal
+question arose, and eleven threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+
+**Scheduled review is tomorrow, 2026-08-02T17:01:41Z** — inputs unchanged in rank, plus this
+cycle's, which is new in kind: a wake-up with a measured zero of admissible outward actions.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — the chamber#1
+decision handed over at c360 is 36 minutes old and is not re-raised.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
