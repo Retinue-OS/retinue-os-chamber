@@ -283,12 +283,23 @@ def check_next_action(path, text):
 
 
 def check_text(path, text, load):
-    """Yield problems for one file. `load(relpath) -> text or None` resolves links."""
+    """Yield problems for one file. `load(relpath) -> text or None` resolves links.
+
+    Pointers are read from the **masked** text (c348): a pointer form inside
+    backticks or a fenced block is a *description* of the convention, not a
+    claim about where anything is. `check_coverage` and the row scan have masked
+    since c263; this resolver never did, so a log entry recording a repair —
+    *two register rows repointed from `§c331 below` to the archive part* — was
+    read as a live pointer into the file quoting it, and became a WRONG-WAY the
+    moment §c331's own entry rotated out. Headings and anchors are still taken
+    from the raw text: what is masked is where a *claim* may be made, not where
+    a target may live.
+    """
 
     def resolve(link):
         return load(os.path.normpath(os.path.join(os.path.dirname(path), link)))
 
-    for m in POINTER.finditer(text):
+    for m in POINTER.finditer(mask_descriptions(text)):
         # A / C: the claim is "in this file", with C also claiming an anchor.
         if m.group("a_below"):
             cycle = m.group("a_cycle")
@@ -332,6 +343,25 @@ def mask_code_spans(line):
     pointers — the false positive that teaches people to ignore a checker.
     """
     return re.sub(r"`[^`]*`", lambda m: " " * len(m.group(0)), line)
+
+
+def mask_descriptions(text):
+    """Blank out inline code spans and fenced blocks, preserving offsets.
+
+    The whole-file counterpart of `mask_code_spans`, for the resolver, which
+    reads the file rather than one row. Both kinds of fence carry the same
+    meaning here: text a reader is meant to look *at* rather than follow.
+    """
+    out, fenced = [], False
+    for line in text.split("\n"):
+        if line.lstrip().startswith("```"):
+            fenced = not fenced
+            out.append(" " * len(line))
+        elif fenced:
+            out.append(" " * len(line))
+        else:
+            out.append(mask_code_spans(line))
+    return "\n".join(out)
 
 
 def check_coverage(path, text):
@@ -518,6 +548,13 @@ ORPH_CODE_ONLY = "| `Detail: §c7 below` | 14 | yes |\n\n## §c7 — a write-up\
 # unreachable, so silence would be wrong. Reported, not skipped.
 ORPH_NO_TABLE = "## §c7 — a write-up\n\n## §c8 — another\n"
 
+# c348: the resolver's own masking. A pointer form *quoted* — in backticks or in
+# a fenced block — describes the convention and points nowhere, so it must stay
+# silent even when no such write-up exists. The known-bad twin is BAD_BELOW,
+# which is the same words unquoted and must still fire.
+QUOTED_SPAN = "Two rows repointed from `§c331 below` to the archive part.\n"
+QUOTED_FENCE = "The form is:\n\n```\nDetail: §c331 below.\n```\n\nand nothing else.\n"
+
 # Frontmatter fixtures for check 3.
 NA_FRESH = '---\ncurrent_next_action: "Aros, c251: did a thing."\n---\n\n## §c251 — x\n'
 NA_STALE = '---\ncurrent_next_action: "Aros, c250: did a thing."\n---\n\n## §c251 — x\n'
@@ -595,8 +632,13 @@ def self_test():
     orph_date = not list(check_orphan_writeups("f.md", ORPH_DATE_COL))
     orph_code = len(list(check_orphan_writeups("f.md", ORPH_CODE_ONLY))) == 1
     orph_none = len(list(check_orphan_writeups("f.md", ORPH_NO_TABLE))) == 2
+    # c348: quoted pointer forms are descriptions; the resolver must not follow
+    # them, and must still follow the same words unquoted (bad1, above).
+    mask_span = not list(check_text("f.md", QUOTED_SPAN, lambda p: None))
+    mask_fence = not list(check_text("f.md", QUOTED_FENCE, lambda p: None))
     return all(
         [
+            mask_span, mask_fence,
             ok, ok2, bad1, bad2, fresh, stale, unnamed, prose,
             c_ok, c_bad, d_ok, d_bad, e_ok, e_bad, date_ok, date_bad,
             cov_bad, cov_prose, cov_header, cov_ok, cov_code,
@@ -622,9 +664,10 @@ def main():
         print("self-test FAILED — refusing to report on real files", file=sys.stderr)
         return 2
     print(
-        "self-test: pass (4 pointer cases + 12 form/heading cases "
-        "+ 5 coverage cases + 7 label cases + 4 handover-field cases "
-        "+ 5 archive-index cases + 5 orphan-write-up cases)"
+        "self-test: pass (4 pointer cases + 2 quoted-form cases "
+        "+ 12 form/heading cases + 5 coverage cases + 7 label cases "
+        "+ 4 handover-field cases + 5 archive-index cases "
+        "+ 5 orphan-write-up cases)"
     )
 
     cache = {}

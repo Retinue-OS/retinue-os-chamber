@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c347 (2026-08-01 07:0x-07:3xZ): OUTWARD - a public issue body corrected in place, and a never-audited surface audited. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c347: self-test pass; ALL FIVE cards at ONE stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 4:40:17 - THIRTY-EIGHTH consecutive run past the 26 h bound; the five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION: DELIVERY PATH, re-probed not inherited: git push -> 403 denied to aros-agent, SIXTY-THREE commits unpushed. DO NOT regenerate - disk is fresh. Per the c345 promise on chamber#6 the push result is reported there ONLY when the state CHANGES; it has not, so NOTHING was posted. (2) THE PICKUP - the trackers as a CONTRIBUTOR meets them, never audited in 346 cycles: 50 open issues, 48 labeled, good-first-issue 0, help-wanted 0 across all four repos. Both labels EXIST everywhere and were never applied, so the org is absent from the Contribute tab and every first-issue aggregator - the one discovery path needing no account. (3) FOUND WHILE TRYING TO FIX IT, and it is the bigger half: PATCH /issues/58 {"labels":["bug"]} returns 200 OK and the issue still has ZERO labels - READ BACK, and re-run with explicit JSON so it is not a gh -f artifact. Controls: PATCH of body and of state DO apply (state closed->open, restored), POST /issues/58/labels is 403. So the drop is labels-specific and CORROBORATES the c343 role diagnosis - NO new ask, Contents:read-and-write does not move. STANDING RULE ADOPTED: read back every API write; a status code is evidence of the REQUEST, not the RESULT. That is c225's git lesson (b814895 said added, had deleted 901 of 902 lines) arriving on HTTP. Third form after 'an inherited 403 is not a measurement' (c19/c310/c315) and 'an error message that names a cause is not a measurement of that cause' (c343). (4) PUBLISHED: retinue#58s closing line named ONE blocked label route where there are TWO, one of which reports success - corrected IN PLACE 07:1xZ with date and read-back; disclosure line verified intact after writing. The edit doubled as the control. NOT published: the on-ramp table - remedy is two labels I cannot apply, ask already on chamber#6 twice in 24 h (c343 07-31, c345 06:08Z today), c184 slot shut until 2026-08-02T06:44Z. Third statement of one request = the nagging c27 forbids. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five repos, unchanged since 2026-07-18; 0 inbound ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); last human action anywhere still 2026-07-31T19:44:12Z (11 h 38 m). Held queue 1 (webapp-manifest-german-description.md). Rotation, re-run AFTER this cycle's appends: log.md 299/300 KB - ONE KB from its trigger, so ROTATE log.md FIRST next wake-up; this file 193/200 KB - EXPECT A DUE next cycle. (6) NEXT CYCLE: the 2026-08-02 STRATEGY REVIEW is due; this is its twentieth input and the FIRST measured candidate answer to c219's question 'which parts of reachable presence need nothing from him' - it comes out NEGATIVE. The c184 filing slot opens 2026-08-02T06:44Z. Do NOT re-raise chamber#6."
+current_next_action: "Aros, c348 (2026-08-01 07:4x-08:3xZ): INWARD and it says so - the two rotations owed, and a defect found by running them. c268 rule 1 permits it: c346 and c347 were both outward. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c348: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read, not one - all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 5:19:35, THIRTY-NINTH consecutive run past the 26 h bound. The five AGREE with each other, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed; git push -> 403 'Permission to retinue-os/retinue-os-chamber.git denied to aros-agent', now SIXTY-FIVE commits unpushed. DO NOT regenerate. Nothing posted: the c345 promise on chamber#6 reports the push result only when the state CHANGES, and it has not. (2) PICKUP 1, the act c347 handed forward: log.md ROTATED at 421 bytes under its 300 KB trigger - cycles 307-341 into log-archive/cycles-307-341.md (archive part 7, 257 KB), live file 300 -> 44 KB, reconstruction asserted byte-identical BEFORE writing, archive list entry added. (3) PICKUP 2, which the rotation exposed: pointer-check reported its first-ever WRONG-WAY on log.md (SS c331 says below). It was a FALSE POSITIVE - the string is a QUOTED pointer inside backticks in the c343 entry, describing a repair to another file, and it resolved for two days only because log.md happened to contain its own cycle-331 entry. CAUSE: mask_code_spans has existed since c263 with a docstring naming exactly this false positive, and TWO of its three call sites used it - the RESOLVER never did. FIXED: whole-file mask_descriptions() (inline spans AND fenced blocks, offsets preserved) now feeds check_text; headings/anchors still read raw text. Self-test +2 cases. MEASURED not assumed: masking suppresses exactly 5 of 190 matches corpus-wide, each inspected and each a description. 0 problems after, 1 before, no real pointer lost. (4) THE SAME CAUSE BY HAND, and it was DAMAGE not a false positive: c265 (0eb451e, 2026-07-29 21:59:39Z) repointed twelve rows and rewrote this register's QUOTED EXAMPLE of form C from `[SS c256 below](#anchor)` into `[Detail: SS c256 in [archive part 5](...)](#anchor)` - a form that does not exist, standing 2 d 9 h on a public surface, in the very row recording that a grammar narrower than its corpus fails silently. RESTORED with a dated inline note. DURABLE FIX: write quoted examples with PLACEHOLDERS (SS cNNN, [archive part K](...)); all eleven other quoted examples used them and survived c265 untouched. LESSON, fourth in the family (c19/c310/c315 an inherited 403 is not a measurement; c343 an error message naming a cause is not a measurement of it; c347 a success status is not a measurement of the effect): A STRING THAT HAS THE SHAPE OF A CLAIM IS NOT A CLAIM - the discriminator is context, and both a checker and a careful human skipped it in the same week on the same file. (5) PICKUP 3, forced by the SS c348 append: projects/public-surface.md crossed 200 KB -> ROTATED same wake-up (c327 deferral rule not triggered), SS c332-SS c334 into projects-archive/public-surface-c332-c334.md (archive part 18), 203 -> 190 KB, fence-aware split, reconstruction asserted byte-identical, FIVE rows repointed OFF THE MASKED TEXT - the fix above applied to the pass that caused the damage - and the archive list entry added. (6) ALSO REPAIRED: baseline-check's NO-BASELINE on drafts/c347-*.md. Baseline added as main @ f1f8c72f (tip since 2026-07-31T19:44:08Z, so the tip at the measurement instant) WITH the honest caveat that both halves measure GitHub API and tracker state, not tree content, so the commit pins the WHEN not the WHAT. (7) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); every open issue authored by retog or me; last human action anywhere still 2026-07-31T19:44:12Z. Tick stays 1800 s; re-slow bound 2026-08-01T19:44:12Z, not yet due. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (8) NOT DONE ON PURPOSE: nothing regenerated (disk fresh, delivery at fault); no comment on chamber#6 - the ask is stated, dated and corrected there twice in 24 h and a third is the nagging c27 forbids; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); no issue filed (c184 slot opens 2026-08-02T06:44Z, and neither half of this is a defect in the project's own code); NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-first input. (9) NEXT: the review is due 2026-08-02 and now carries, at minimum - c314's un-rotatable-head crossing (the head alone passes 200 KB between 08-02 and 08-04, after which rotation-check reports DUE with no move that clears it; the two candidate repairs both overturn c216, so the decision is the review's); c347's negative answer to c219 (contributor discovery needs nothing from the owner EXCEPT a repository role, moving an ask from delivery hygiene into REACH); the phase-end condition now single-term on chamber#1; and the c330 claim that review notes beat filings, falsifiable and still uncontradicted. Standing measure UNCHANGED: filed 43 of 54, accepted 2 filings + 6 review notes."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -212,6 +212,9 @@ Archive, oldest first:
 - [`projects-archive/public-surface-c331.md`](../projects-archive/public-surface-c331.md)
   — cycle 331, 2026-07-31. Rotated at c343, on the trigger this cycle's own
   §c343 append crossed.
+- [`projects-archive/public-surface-c332-c334.md`](../projects-archive/public-surface-c332-c334.md)
+  — cycles 332–334, 2026-07-31. Rotated at c348. Its rows were repointed off the
+  **masked** text, the fix this same cycle made to `pointer-check` — see §c348.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -371,7 +374,7 @@ measured at 0 of 78.
 | **Every pointer from GitHub to the served docs site** — 258 cycles of checking whether the site is *fresh*, none asking whether anything on GitHub *points at it* | 2026-07-29 (c259) | **No README in the org contains the served URL, and the `homepage` field is empty on every repo.** The sidebar link a visitor expects comes from `homepage`; `PATCH /repos/retinue-os/retinue-os-chamber -f homepage=…` → `403 Resource not accessible by personal access token` — the **same** endpoint already counted under repo descriptions at chamber#6, not a new consequence class. Fixed where I own the surface: the chamber README's *public dashboard* section now spells the URL out, with the 403 as the reason it has to. The framework `README.md` — the repo a visitor actually lands on — still contains no link to the site and needs a branch; **held, not pushed**, see §c259. Detail: §c259 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
 | **The content of my own recovery branch** — c255 verified `fix/restore-dropped-merges` for fidelity (blob-identity, tree diff, no reference to the replaced history) and nothing asked whether the restored content was still true | 2026-07-29 (c260) | **It restored a number I had publicly retracted four days earlier.** The branch carried PR#42's *"15–20 s for a small file"* into `README.md` and *"the usual 15–20 s"* into `docs/triple-stores.md`; `brand/positioning.md` (c174) and [retinue#2's 2026-07-25 comment](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657) both say that range is too narrow — three re-measured rebuilds all landed *above* its upper bound, six over two dates give 15–25 s. Fixed as a **separate second commit** ([`2d99186`](https://github.com/Retinue-OS/retinue/commit/2d991868d4d49fd956e487f5b32e4e238e21201e)), so the restore beneath it stays blob-verifiable against #41/#42/#43 and the correction is droppable; branch now `ahead 2, behind 0`. Wording is verbatim the one published on retinue#2. Standing check added: **before restoring content, re-read it against what has been published since** — fidelity is machine-checkable and correctness is not, so a diff-verified restore re-ships whatever was wrong when it was written. Also clean: none of #41/#42/#43/#22 carries a closing keyword and retinue#2 is open, so no issue sits closed against a change no longer on `main`. Detail: §c260 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
 | **The desk card's *contents*, diffed against the previous generation** — c261 cut all five cards to length budgets and verified them with a length instrument and a freshness instrument; nothing asked whether the queue still named what it named yesterday | 2026-07-29 (c262) | **Seven open issues left the owner's desk in one regeneration and no record mentions it.** 23 issue references on the 2026-07-28 card, 16 on the 2026-07-29 one; dropped `retinue#22/#28/#36/#37/#38/#39/#40` and `qlever-dir#10`, of which only #22 (a merged PR) was resolved. c261's write-up calls the change a *rendering* fix, which it was for the items that stayed. **c260 one day later in a different costume**: there a restore was verified for fidelity and never for truth, here a regeneration for length and never for content — both times the machine-checkable property had an instrument and the one that mattered did not. Fixed as an instrument plus the prompt that writes the card: `tools/desk-drop-check.py` (diffs the two committed generations, asks GitHub the state of everything that left, closed is the correct case) and a new clause in `.schedule.json` — *the desk card is a queue, not a digest*: keep an open item or say in the commit message why it left. Not in the pre-commit hook, and the seven are **not** re-added by hand — that would put content under a stamp that did not measure it. They return at the 2026-07-30 ~18:0xZ regeneration. **Resolved 2026-07-30 02:37:42Z (c272), sixteen hours early**: all seven are back on the desk card, grouped two to a line so they fit the 110-char slot whose enforcement dropped them; `desk-drop-check` now reads 0 dropped, 7 added, 0 problems. Also resolved here: c256's served budget reading (**59 values, 0 over, served**) and c252's duration reading (**875 s → 364 s**, n=1, two confounded changes, volume closed at both ends by c223/c226/c227 — the 900 s question stays open). Detail: §c262 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
-| **`tools/pointer-check.py`'s own coverage** — eight cycles of *0 problems* over a grammar narrower than the corpus it reports on | 2026-07-29 (c263) | **It parsed 55 of the register's 91 pointers and reported on all of them.** Three of the five pointer forms in use (`[c39 write-up](part.md)`, `[Detail: §c256 in [archive part 5](../projects-archive/public-surface-c250-c257.md)](#anchor)`, `[draft.md](…) §c257`) matched no pattern and were skipped in silence; ten of those 35 rows were dangling, because the heading form `## 2026-07-25 (cycle 166)` read as cycle **2026**. Both grammars widened, cycle numbers bounded to a plausible range, and an **UNPARSED** problem now fires for any table-row `Detail:` no form matches — so the sixth form invented is loud on first use. Anchor resolution added and validated against GitHub's own 43 rendered anchors for this file (duplicate `-1` suffixing and code-fence exclusion included), which found one live **dead link** — §c256's anchor kept a hyphen where GitHub drops an en dash — repaired here. Detail: §c263 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
+| **`tools/pointer-check.py`'s own coverage** — eight cycles of *0 problems* over a grammar narrower than the corpus it reports on | 2026-07-29 (c263) | **It parsed 55 of the register's 91 pointers and reported on all of them.** Three of the five pointer forms in use (`[c39 write-up](part.md)`, `[§c256 below](#anchor)`, `[draft.md](…) §c257`) matched no pattern and were skipped in silence; ten of those 35 rows were dangling, because the heading form `## 2026-07-25 (cycle 166)` read as cycle **2026**. Both grammars widened, cycle numbers bounded to a plausible range, and an **UNPARSED** problem now fires for any table-row `Detail:` no form matches — so the sixth form invented is loud on first use. Anchor resolution added and validated against GitHub's own 43 rendered anchors for this file (duplicate `-1` suffixing and code-fence exclusion included), which found one live **dead link** — §c256's anchor kept a hyphen where GitHub drops an en dash — repaired here. *Second form restored 2026-08-01 (c348): c265's repointing pass rewrote this cell's **quoted example** as though it were a live pointer, so the row spent 2 d 9 h documenting a form that does not exist. Same cause as the checker defect c348 fixed — a form in backticks is a description, not a claim — and it is the by-hand instance of it.* Detail: §c263 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
 | **My own wake-up dispatches** — `scheduler.log`'s `aros-tick` outcomes, last measured at c192 (192 dispatches) and never since, while the per-cycle duration drifted upward all day | 2026-07-29 (c264) | **Two consecutive wake-ups died and left no trace in any chamber file.** 20:08:55Z killed at the 900 s timeout, 20:42:19Z `rc=1` after 204 s — the first back-to-back pair in 264 dispatches (255 ok, 5 timeout, 4 fail). The rate is not the finding; the **drift** is: lifetime median 262 s, but today's last eight completed runs are **526–812 s**, so the pair is the predicted consequence of a rule I already wrote (c192, *a long wake-up is a defect*) and stopped applying. Also rotated this cycle: live file **191 KB → 145 KB**, c250–c257 into archive part 5, reconstruction byte-identical to `HEAD`, converter exit 0, eight rows repointed (two of them bare `§cNNN below` forms the checker skips). Detail: §c264 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
 | **`tools/pointer-check.py`'s label assumption** — c263 keyed both the grammar and its own coverage check on the string `Detail:`, so a row omitting the label was invisible to both | 2026-07-29 (c265) | **12 live register rows ended in a bare `§cNNN below` whose write-up rotated into an archive part up to three rotations ago**; every rotation since c239 repointed only the labelled rows, because only those were ever reported. Grammar now parses A/B with or without the label; C/D/E prefixless are reported, not guessed. Twelve rows repointed; 108 pointers, 0 problems. Detail: §c265 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
 | **`tools/mentions-check.py`'s closing sentence** — the one line every clean run prints, stating a limit as a property of the network and never probed in 266 cycles | 2026-07-29 (c266) | **The wider web is reachable and the project is indexed.** The tool ended every zero with *"no forum, social platform, blog, aggregator or search engine is reachable from this deployment"*; measured through the `HTTP_PROXY` egress audit, `duckduckgo.com`, `html.duckduckgo.com`, `bing.com`, `lobste.rs` and `news.ycombinator.com` all answer **200**, and DDG's HTML endpoint returns real results for `retinue-os` (org page, `retinue-os-deployment`) and `retinue-os-chamber` (repo + README). Every project hit is on `github.com` — no forum, blog or aggregator mention exists, **measured** for the first time rather than assumed. c258's shape one turn further in: a second, larger reach measurement retired by a false premise, inside the tool written to keep that number honest. Sentence and docstring corrected; a search probe deliberately **not** bolted on — 2 of 4 queries returned 202, and a scraper that reads rate limiting as zero is the exact failure c242 exists to prevent. Detail: §c266 in [archive part 6](../projects-archive/public-surface-c258-c266.md). |
@@ -446,11 +449,11 @@ measured at 0 of 78.
 | **Claims a published piece depends on but does not own** | 2026-07-31 (c330) | **Still true.** The walkthrough's reindex-latency caveat is only honest while `qlever-dir#3` (watcher ignores converter extensions) is open — it is. Re-check on any qlever-dir release or on that issue closing. Detail: §c330 in [archive part 16](../projects-archive/public-surface-c330.md) |
 | **Links *out* of a piece that just became reachable** | 2026-07-31 (c330) | **8/8 → 200.** First check since the framework README started sending readers to it. Re-check when the piece is edited or a linked issue is closed. Detail: §c330 in [archive part 16](../projects-archive/public-surface-c330.md) |
 | **`current_next_action` in each `projects/*.md` — does it still name a live ask?** | 2026-07-31 (c331) | **1 defect of 6.** `social-presence.md` asked for an account created 2026-07-30 and asserted it would deliver the chamber#6 scope; it did not. Fixed. Detail: §c331 in [archive part 17](../projects-archive/public-surface-c331.md) |
-| **A framework feature audited on `main` the day it merged — every public claim about it read against the code** | 2026-07-31 (c332) | **7 of 7 hold, 0 defects.** Gateway monitoring (`9bc35d71`+`f1f8c72f`, README §*Connection monitoring*, `CLAUDE.md` §*Gateway connection monitoring*). Nothing published: a clean review is not news. Detail: §c332 below |
-| **Cross-repo references *inside* the owner's card text** — `desk-drop-check` resolves them, no one read them | 2026-07-31 (c332) | **1 defect.** Two bare `#54`/`#55` in a `chamber#`-prefixed `todo.json` line resolved to `retinue-os-chamber#54/#55`, both 404. Qualified in place (stamp-safe: changes no fact). Detail: §c332 below |
-| **A log entry's own closing claim — *Committed locally only* — checked against the commit graph rather than read** | 2026-07-31 (c333) | **c332's was false: the commit never ran** (`HEAD` = c331, 3 files dirty). Hook excluded: both pre-commit halves pass on that tree. c313–c331 all true. Struck in place; work committed. Detail: §c333 below |
-| **A held draft's retirement condition, re-measured against tonight's head** | 2026-07-31 (c334) | **Not fired — live on `main`, unchanged.** `SHELL` = v16 (`99667116`, 13:10:01Z) is **7 h 31 m older** than the newest `SHELL_ASSETS` commit (`f49f2053`, 20:41:52Z, `conversations.js`); all 15 assets checked, 9 merges survived. Files 2026-08-01T06:26:15Z. Detail: §c334 below |
-| **A pointer *quoted* in prose rather than described** | 2026-07-31 (c334) | **One WRONG-WAY the rotation produced, in §c331's own repair note — and my first draft of §c334 reproduced it.** `pointer-check` cannot distinguish a quoted pointer from a live one; a quoted copy is one nothing updates. Rule: describe a pointer, never quote it. Detail: §c334 below |
+| **A framework feature audited on `main` the day it merged — every public claim about it read against the code** | 2026-07-31 (c332) | **7 of 7 hold, 0 defects.** Gateway monitoring (`9bc35d71`+`f1f8c72f`, README §*Connection monitoring*, `CLAUDE.md` §*Gateway connection monitoring*). Nothing published: a clean review is not news. Detail: §c332 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
+| **Cross-repo references *inside* the owner's card text** — `desk-drop-check` resolves them, no one read them | 2026-07-31 (c332) | **1 defect.** Two bare `#54`/`#55` in a `chamber#`-prefixed `todo.json` line resolved to `retinue-os-chamber#54/#55`, both 404. Qualified in place (stamp-safe: changes no fact). Detail: §c332 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
+| **A log entry's own closing claim — *Committed locally only* — checked against the commit graph rather than read** | 2026-07-31 (c333) | **c332's was false: the commit never ran** (`HEAD` = c331, 3 files dirty). Hook excluded: both pre-commit halves pass on that tree. c313–c331 all true. Struck in place; work committed. Detail: §c333 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
+| **A held draft's retirement condition, re-measured against tonight's head** | 2026-07-31 (c334) | **Not fired — live on `main`, unchanged.** `SHELL` = v16 (`99667116`, 13:10:01Z) is **7 h 31 m older** than the newest `SHELL_ASSETS` commit (`f49f2053`, 20:41:52Z, `conversations.js`); all 15 assets checked, 9 merges survived. Files 2026-08-01T06:26:15Z. Detail: §c334 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
+| **A pointer *quoted* in prose rather than described** | 2026-07-31 (c334) | **One WRONG-WAY the rotation produced, in §c331's own repair note — and my first draft of §c334 reproduced it.** `pointer-check` cannot distinguish a quoted pointer from a live one; a quoted copy is one nothing updates. Rule: describe a pointer, never quote it. Detail: §c334 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
 | **Branches other than `main` in the org's public repos** | 2026-08-01 (c336) | **Never checked before, and it held six days of finished work.** 4 public repos: 2 have `main` only; the framework's one extra branch is 0 ahead (merged, cosmetic); this chamber's `claude/aros-issues-triage-goei5k` was **2 ahead / 170 behind**, pushed by the owner 2026-07-25T16:34:31Z, carrying the `GUARDRAILS.md` §3 CI fix and a new `SECURITY.md`, with **no PR ever opened on this repo**. Opened as PR #9, MERGEABLE/CLEAN. Re-check on any wake-up that surveys the org. Detail: §c336 below |
 | **A wake-up's own record, checked against the org event stream rather than against itself** | 2026-08-01 (c337) | **c336 shipped PR #9 at 00:06:15Z and committed nothing** — `HEAD` was still c335, four files dirty, no `log.md` entry. The outward act survived because GitHub holds it; every word about it would have been lost. Rule: *an outward act is its own backup; an inward one has none* — commit before writing the essay. Recorded in the c337 log entry; no section here, because the file has 5 KB of head room and a section rotates first |
 | **The Pages build commit, read as an identity rather than compared** | 2026-08-01 (c337) | **c336's `2b49c849 = origin/main` is false** — it is the *parent* of `2a9f826b`. The conclusion (Pages healthy, the push the only fault) survives only because `2a9f826b` touches no `docs/` path, so both trees are `93b78e55`. Compare the `docs/` tree hash, never the commit id, when attributing a delivery miss |
@@ -462,6 +465,7 @@ measured at 0 of 78.
 | **`webapp/sw.js`'s eviction key, re-read at the instant of filing rather than from the draft** | 2026-08-01 (c346) | **Defect live, unchanged.** `SHELL` = `retinue-shell-v16` (`99667116`, 13:10:01Z); newest of all **15** `SHELL_ASSETS` paths still `f49f2053` (20:41:52Z, `conversations.js`). Gap **7 h 31 m**, survived 9 merges. Retirement condition did not fire → filed as [retinue#58](https://github.com/Retinue-OS/retinue/issues/58), unlabeled (labels 403). |
 | **The issue trackers as a *contributor* meets them** — 267 rows, none asks what a newcomer sees | 2026-08-01 (c347) | **50 open issues, 48 labeled, `good first issue` 0, `help wanted` 0** across all four repos. Both labels exist everywhere (GitHub defaults), applied nowhere — so the org is absent from the Contribute tab and every first-issue aggregator, the one discovery path needing no account or announcement. Held for the 2026-08-02 review; not filed. Detail: §c347 below. |
 | **Whether a `200` means the write landed** — never asked on any API write | 2026-08-01 (c347) | **It does not.** `PATCH /issues/58 {"labels":["bug"]}` → **200 OK, still 0 labels** (read back; re-run with explicit JSON, so not a client artifact), while `POST …/labels` on the same issue is 403 and `PATCH` of `body`/`state` applies. Corroborates the c343 role diagnosis; no new ask. Standing rule: **read back every API write; a status code is evidence of the request, not the result** — c225's git lesson, on HTTP. |
+| **Whether a *quoted* pointer form is read as a live one** — by the checker, and by the hand that repoints rows | 2026-08-01 (c348) | **Both read it as live, and both were wrong.** `pointer-check`'s resolver ran `POINTER.finditer` over **raw** text while its own `mask_code_spans` — written at c263 against "the false positive that teaches people to ignore a checker" — was applied only by the coverage scan, so a log entry recording a repair (*rows repointed from `§c331 below`*) became a WRONG-WAY the instant §c331's entry rotated out. Same cause by hand: c265's repointing pass rewrote this register's **quoted example** of form C into a form that does not exist, and it stood **2 d 9 h** on a public surface. Both fixed; masking now covers fenced blocks too, self-test +2 cases. It suppresses exactly **5** matches corpus-wide, each verified a description. Detail: §c348 below. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -632,172 +636,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c332 — a feature reviewed the day it merged, and the review found nothing (2026-07-31, 21:0x–21:4xZ)
-
-c268 rule 1 put this wake-up under the constraint (c330 inward, c331 inward), and the survey said
-there was nothing outward to take: zero open PRs anywhere in the org, the c184 filing slot shut
-until 2026-08-01T06:26:15Z, no inbound, no accounts, `git push` 403. So the pickup was the one
-surface that *had* changed — the newest code on `retinue@main` — read the way I read a PR.
-
-**The audit: gateway connection monitoring, merged today.** `9bc35d71` (13 files) plus `f1f8c72f`
-(#57's relink fix). It ships a daemon, a dashboard page, a health contract in three gateways, and —
-the part that makes it a public surface — **two new blocks of prose that promise specific
-behaviour**: `README.md` §*Connection monitoring & re-pairing (`/gateways`)* and `CLAUDE.md`
-§*Gateway connection monitoring*. Seven checkable claims, each read against the code rather than
-against the other document:
-
-| Claim | Where it is made | Verdict |
-|---|---|---|
-| polls `/health` "once a minute", notifies "after two consecutive failures", reminds "every 6 h" | README, CLAUDE.md | **holds** — `INTERVAL` 60, `FAIL_THRESHOLD` 2, `REMIND_SECONDS` 6×3600 |
-| "watches the same registry `/sends` uses — the three built-ins plus any `MESSENGER_GATEWAYS` extras" | README | **holds** — both call `messenger_gateways.channel_gateways()` (`web-gateway.py:520`) |
-| "forked by the entrypoint in the `retinue` container" | README, CLAUDE.md | **holds** — `entrypoint.sh:384`, after `CONVERSATION_BACKEND_TOKEN` is exported |
-| notifies "through the existing inbound-message mechanism … Web-Pushes the user's devices" | README, CLAUDE.md | **holds** — same `/internal/conversations` endpoint and default URL as `conversation-push.py` |
-| the `/gateways` anchor the README links to | `README.md` | **resolves** — heading slugifies to `connection-monitoring--re-pairing-gateways`, double hyphen and all |
-| Signal "derives it from the receive poll loop" without false alarms | README | **holds** — `SIGNAL_HEALTH_MAX_AGE` 120 s against a worst-case round trip of ~33 s (poll 3 s + `SIGNAL_CLI_TIMEOUT` 30 s) |
-| the QR image "refreshes automatically" | the page's own copy | **holds** — the router matches on `conv_path`, query already split, so the `?ts=` cache-buster does not break the route |
-
-Two things I went looking for and did not find, recorded because a negative result is only worth
-something if it names what it excluded: `/health` is **not** token-gated on the Signal gateway
-(`signal-gateway.py:1376`, before any `_authorized()` call), so a deployment that leaves
-`SIGNAL_GATEWAY_TOKEN` unset does not get a permanent false outage; and the monitor's conversation
-backend defaults to `localhost` **correctly**, because the web gateway runs inside the `retinue`
-container rather than as its own compose service.
-
-**Nothing was published, and that is the finding about the instrument.** c330 adopted *a finding
-that fits an open PR goes to that PR*; c288 established that this token can post commit comments.
-Both venues existed tonight. What did not exist was anything to say — and a commit comment reading
-"I reviewed your merge and found nothing" is the same notification-carrying-no-information I
-declined to send as a thank-you on #55 two cycles ago. **A clean review is a result for my records,
-not a message for his.** The register row is the right home for it; his inbox is not.
-
-**The one defect, and it is on his card.** `desk-drop-check` reported two *added* references,
-`retinue-os-chamber#54` and `retinue-os-chamber#55` — both **404**. They come from one line of
-`docs/data/todo.json`: *"chamber#3: substance done - #54 and PR #55 are mine…"*. The numbers are
-`retinue#54` and `retinue#55`; the bare form inherits the repo from the `chamber#3` that opens the
-line, so the card sends its only reader looking for two issues that do not exist.
-
-Fixed in place rather than by regeneration, and the distinction is the whole justification: the
-delivery check forbids regenerating while the disk copy is fresh, and the card's own contract says
-every sentence is true *at its stamp*. **Qualifying a reference changes no fact**, so the 18:35:03Z
-stamp stays honest; correcting the two lines that his 19:33–19:44Z merges made untrue (*"PR #55 …
-Merge or reject"*, *"Your PRs #49, #51, #53, #56, #57 are open"*) would **not** be stamp-safe, so
-they stay for the next full regeneration. That is the rule this cycle adds: *on a stale card, repair
-what was already false at the stamp; leave what the clock made false.*
-
-The general form is c179's, in a venue that had never been checked for it: **a reference is a claim,
-and a bare `#N` is a claim about which repository you are standing in.** `desk-drop-check` has been
-resolving these silently since c262 — it reports 12 more bare references it could not check at all.
-No instrument was written for that (c268 rule 2); it goes in the handover so the next regeneration
-writes cross-repo references qualified.
-
-## §c333 — the closing line that reports an act the entry has not yet performed (2026-07-31, 21:5x–22:1xZ)
-
-The delivery check ran first, as it does, and its card half said what it has said for
-twenty-five consecutive runs: all five cards served at one stamp, `2026-07-30T02:37:42Z`, 1 d 19 h
-20 m past the 26 h bound, disk fresh at `2026-07-31T18:35:03Z`, attribution **delivery path** —
-`git push` 403, 47 commits unpushed, `{pull: true, push: false}` re-read on all five org repos rather
-than inherited (c294). Nothing regenerated, nothing re-escalated.
-
-**The finding is in the line above the table.** `publication: uncommitted (todo.json on disk differs
-from HEAD)`. `HEAD` was `8aeaee4` — **c331** — and `docs/data/todo.json`,
-`projects/public-surface.md` and `log.md` were all modified in the working tree. **c332 never
-committed**, and its own closing line says *Committed locally only — `git push` is 403 until
-contents-write is restored*.
-
-**Attribution, because "the session ended" is a guess until the alternative is excluded.** The
-pre-commit hook is the other candidate — it rejects a commit on a broken Markdown table
-(`render-check`) or on a private repository name reaching a public forward surface
-(`private-name-check`). Both run clean on that exact tree: 55 files with tables / 0 problems, 133
-tracked files / 0 problems. **Nothing rejected the commit; it was never issued.**
-
-**What makes it a surface and not a slip.** The sentence is a *prediction in the grammar of a
-measurement* — written before the act it reports, and identical in wording whether or not the act
-follows. That is the pattern this register exists to catch, and it has caught it four times in other
-people's copy and in my own: c270 *merged is not present*, c315 *an inherited 403 is not a
-measurement*, c328 *an age incremented is not an age measured*, c331 *a handover field that asks for
-a done thing*. The novelty here is the venue: `log.md` is the one public file whose only auditor is
-the next me, so a false closing line has no reader to bounce off. Checked backwards against the
-commit graph rather than against the entries themselves — **c313 through c331 each have a commit
-naming them**, so the nineteen prior instances of the sentence are all true and this is the first
-miss.
-
-**No instrument (c268 rule 2).** The condition is already detected: `delivery-check`'s publication
-line names it precisely. What it lacks is *framing* — the verdict continues *"the cards are NOT
-COMMITTED … Pages builds from `main`, so there is nothing to publish yet — commit them"*, which reads
-as a fact about the cards when the fact is about the previous wake-up. c308 rewrote that same message
-once already for a different misdirection, which is an argument for leaving it alone until a second
-instance shows the wording actually misleads someone. The rule costs nothing and covers it:
-
-> **`delivery-check`'s `publication: uncommitted` line is a claim about the previous wake-up.** A
-> dirty tree at wake-up means the previous entry's closing line is false; committing it is the first
-> pickup, ahead of the survey.
-
-**Repair.** c332's work is committed unchanged — the `todo.json` reference qualification, its two
-register rows, its §c332. Its closing line is **struck where it stands**, with the correction under
-it, per the archive convention that the record is not rewritten. The alternative — editing the
-sentence to match what happened — would have made the entry true and the log less honest.
-
-## §c334 — a held draft's retirement condition, re-measured seven hours before its slot opens (2026-07-31, 22:3x–23:0xZ)
-
-The survey found nothing new: `retinue@main` still `f1f8c72f`, last human action still
-2026-07-31T19:44:12Z, zero open PRs org-wide, 0 stars / 0 forks / 0 watchers on all five repos,
-`mentions-check` 49 raw / 0 confirmed, no inbound from a second person. The wake-up was twenty
-minutes after c333's and nothing external had moved in it. That is a correct idle survey, and the
-work had to come from somewhere else or not at all.
-
-**Delivery check, twenty-sixth consecutive failure, same attribution.** All five cards served at one
-stamp `2026-07-30T02:37:42Z`, age 1 d 19 h 56 m against the 26 h bound; the five agree, so not the
-c241 partial-regeneration class. Disk `2026-07-31T18:35:03Z`, fresh. Re-probed rather than inherited
-(c294): `git push origin main` → **403, "Permission to retinue-os/retinue-os-chamber.git denied to
-aros-agent"**, now **48 commits unpushed**. Delivery path, not refresh. Nothing regenerated; chamber#6
-not re-raised.
-
-**Pickup: the rank-1 held draft, re-verified against the head the owner left tonight.** c206 requires
-a re-verification before filing and the c184 slot opens 2026-08-01T06:26:15Z — about seven and a half
-hours out, roughly fifteen wake-ups at the current tick. Doing the measurement now rather than at the
-moment of filing means the filing wake-up spends its budget on the filing.
-
-| | |
-|---|---|
-| Retirement condition (c302's form) | `SHELL` on `main` newer than the newest commit touching any `SHELL_ASSETS` path |
-| `SHELL` | `retinue-shell-v16`, set by `99667116` at **2026-07-30T13:10:01Z**, still the newest commit touching `webapp/sw.js` |
-| Newest `SHELL_ASSETS` commit | `f49f2053`, **2026-07-30T20:41:52Z** — `webapp/components/conversations.js` |
-| Gap | **7 h 31 m**, unchanged from c302 |
-| Verdict | **not fired — live on `main`, and it has now survived nine merges** |
-
-Measured over all fifteen `SHELL_ASSETS` entries rather than the two I remembered; the other thirteen
-last moved on 2026-07-29 or earlier, so `conversations.js` is the single path that decides it. Tonight's
-five merges (#55, #56, #57 and their pushes) touched `README.md`, `docs/triple-stores.md`,
-`signal-gateway/`, and no `webapp/` path.
-
-**The ranking question, answered instead of inherited.** c330 measured filings at 2 accepted of 42
-against review notes at 6 of 7, which is a general argument against filing — and this particular
-finding has already reached the owner three times (commit comment c275, dashboard thread c282, PR
-comment c294 corrected at c302). Filing it anyway, and the reason is not that a fourth delivery might
-work: **all three venues hung off PR #45, which is merged and closed, so no durable public record of
-this defect exists anywhere.** The issue's value is the record. A project whose pitch is that the gap
-between what it claims and what it does is zero should be able to point at the open defect in its own
-shipped PWA — that is bet 4, and bet 4 is the only one that does not need an audience to be worth
-acting on.
-
-**Rotation, run before the append rather than after.** The live file stood at 195 896 bytes against
-its own 204 800-byte trigger, and `rotation-check` was **not** reporting DUE. Rotated anyway, on
-c333's handover rule and on the arithmetic: a write-up plus two register rows plus a rewritten
-handover field is within a kilobyte or two of 8 904 bytes of head room, and c327 already had to run
-one cold after c326 deferred it. c327–c329 → [archive part 15](../projects-archive/public-surface-c327-c329.md);
-194 364 → 186 378 characters, reconstruction verified byte-identical **before** the live copy was
-written.
-
-**What the rotation exposed, which is the part worth keeping.** `pointer-check` came back with one
-WRONG-WAY that no rotation had produced before: §c331's prose *quotes* the register row it repaired,
-verbatim — including a below-pointer to §c329, which had just moved. The checker cannot tell a quoted pointer
-from a live one, and it is right not to try — the quotation is a second copy of a pointer, and nothing
-updates it when the target moves. Amended in place with the reason. **Standing rule: describe a
-pointer in prose, never quote it.** The general shape is the one this register keeps meeting from a
-new angle — c328's *an age incremented is not an age measured*, c333's *a closing line written before
-the act it reports* — a fact copied out of the place that maintains it stops being maintained the
-moment it is copied.
-
 ## §c336 — the surface that was never in the register: branches other than `main` (2026-08-01, 00:0x–00:4xZ)
 
 **The audit, in full, because it is small enough to state completely.** Four public repos in the
@@ -1006,3 +844,112 @@ first candidate measured and it comes out **negative**: contributor discovery on
 no account, no post, no announcement — is gated by a repository role only he can grant. It
 does not widen the ask; it moves an existing one from *delivery hygiene* (63 unpushed
 commits) into *reach*, which is the category the phase is actually blocked on.
+
+## §c348 — a quoted form is a description, and two things read it as a claim (2026-08-01, 07:4x–08:2xZ)
+
+**The surface:** whether a pointer form written *inside backticks* is treated as a live
+pointer — by `tools/pointer-check.py`, and by the by-hand pass that repoints rows when a
+write-up rotates into an archive part. Never asked in 347 cycles, and it took the log
+rotation this wake-up owed to expose it.
+
+### How it surfaced
+
+c347 handed forward one instruction: `log.md` stood 421 bytes under its 300 KB trigger, so
+the next wake-up's first act is the rotation. The rotation ran (cycles 307–341 → archive
+part 7, 257 KB; live file 300 → 44 KB; reconstruction asserted byte-identical before
+anything was written). `pointer-check` then reported, for the first time in its life:
+
+    WRONG-WAY  log.md: §c331 says 'below', not an h2 in this file
+
+The pointer it names is this, in the c343 entry, describing a repair made to *another*
+file:
+
+> Two register rows repointed from `§c331 below` to the archive part, and the archive
+> **list** entry added
+
+That is not a pointer. It is a quotation of one — inside backticks, in a sentence whose
+subject is `projects/public-surface.md`. It resolved for two days only because `log.md`
+happened to contain its own `## …cycle 331` entry, and it dangled the moment that entry
+rotated out. **A false positive that arrives only after a rotation is the worst kind**: it
+fires on the wake-up that is already doing careful work, and it trains the next me to read
+`pointer-check`'s output as noise.
+
+### The defect, which the file had already argued against in its own docstring
+
+`mask_code_spans` has existed since c263 and says why:
+
+> A pointer is prose; `Detail: §cN below` inside backticks is a *description* of the
+> convention … the false positive that teaches people to ignore a checker.
+
+Two of the three call sites used it — `check_coverage` and the row scan. **The resolver
+never did.** `check_text` ran `POINTER.finditer(text)` over raw text, so the one function
+whose entire job is deciding whether a pointer resolves was the one function that could not
+tell a pointer from a description. The rule was written, agreed and then applied to
+everything except the place it was written for.
+
+**Fixed:** a whole-file `mask_descriptions()` (inline spans *and* fenced blocks, offsets
+preserved) now feeds the resolver. Headings and anchors still come from raw text — what is
+masked is where a *claim* may be made, not where a *target* may live. Self-test +2 cases:
+a quoted span and a fenced block must stay silent even when no such write-up exists, and
+`BAD_BELOW` — the same words unquoted — must still fire.
+
+**Measured, not assumed** (c347's read-back rule): masking suppresses exactly **5** of the
+190 pointer matches corpus-wide, and each was inspected —
+
+| File | Suppressed | Verdict |
+|---|---|---|
+| `log.md` | `§c331 below` | the c343 quotation above |
+| `projects/public-surface.md` | `Detail: §c256 in [archive part 5](…)` | a corrupted example — see below |
+| `log-archive/cycles-267-306.md` | `Detail: §c292b below` | quoted UNPARSED output |
+| `log-archive/cycles-225-266.md` | `Detail: §c262 below`, `§c256 below` | quoted form documentation |
+
+0 problems after, against 1 before, with no real pointer lost.
+
+### The same cause by hand, which is the half worth keeping
+
+The second row of that table is not a false positive — it is **damage**, and it had been on
+a public surface for **2 d 9 h**. Traced to `0eb451e` (c265, 2026-07-29 21:59:39Z): that
+pass repointed twelve rows at archive parts 4 and 5, and one of the strings it rewrote was
+never a pointer. This register's own row about `pointer-check`'s coverage quotes the three
+forms c263 found unparseable, one of which is form C:
+
+| | |
+|---|---|
+| What the cell documented, before c265 | `` `[§c256 below](#anchor)` `` |
+| What c265's repoint left | `` `[Detail: §c256 in [archive part 5](…)](#anchor)` `` |
+| What that is | a form that does not exist — a form-B pointer nested inside a form-C link text |
+
+So for two days the register's canonical description of the five pointer forms documented a
+sixth, invented, malformed one — in the very row that exists to record that a grammar
+narrower than its corpus fails silently. Restored to the documented form this cycle, with a
+dated inline note saying what happened and why.
+
+**Why exactly one example was corrupted, and this is the durable fix.** Every *other*
+quoted example in this chamber's records uses placeholders — `§cNNN`, `§cN`, `[archive part
+K](…)`, `[drafts/x.md](…)`. A placeholder names no real cycle, so no repointing pass can
+match it. This one named `§c256`, a real cycle, with a real link, and was therefore
+indistinguishable from a live pointer to a pass grepping for exactly that. **Write quoted
+examples with placeholders**; the eleven that survived c265 untouched are the evidence, not
+the argument.
+
+### The lesson
+
+c347 recorded *a success status is not a measurement of the effect*. This one is its
+sibling and the fourth in the family (c19/c310/c315: an inherited 403 is not a measurement;
+c343: an error message naming a cause is not a measurement of that cause): **a string that
+has the shape of a claim is not a claim.** The discriminator is context — backticks, a
+fence, a surrounding sentence about another file — and both a checker and a careful human
+skipped it in the same week, on the same file, for the same reason: matching a shape is
+cheap and reading the sentence is not.
+
+Also worth stating plainly: this defect was found because a **rotation** ran, and the
+rotation ran because c347 wrote down that it was owed. The instrument that caught it was
+one c268 classed as watching my own records rather than a reader's surface — the class held
+under a bar it did not have to clear today.
+
+### Not done, on purpose
+
+No issue filed (the c184 slot is shut until 2026-08-02T06:44Z, and neither half of this is a
+defect in the project's own code). Nothing escalated — no account, money, terms or legal
+question arose. The delivery blocker is unchanged and **not** re-raised: three statements of
+one ask inside 24 h is what c27 forbids.

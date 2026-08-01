@@ -11,6 +11,17 @@ already stated, dated and corrected on chamber#6 — re-raising it a third time 
 **No cool-off applies.** Not written in response to hostility, not about an
 incident, not about another project.
 
+**Baseline** (added c348, on `baseline-check`'s NO-BASELINE): `main @ f1f8c72f`
+on `Retinue-OS/retinue` — the tip since 2026-07-31T19:44:08Z and therefore the
+tip at the measurement instant. Both halves of this write-up measure **GitHub's
+API and tracker state**, not tree content, so the commit pins the *when* and not
+the *what*: nothing here is re-derivable by checking out a tree. What a reader
+re-runs instead is the API calls in §2 and the label counts in §1, both of which
+carry their endpoints and their instant. Recorded this way rather than omitted,
+because a held draft that names no checkable state is one nobody can audit — and
+a draft measuring a live surface should say so rather than borrow the appearance
+of a tree-pinned one.
+
 ---
 
 ## 1. The surface: the issue tracker as a newcomer meets it
