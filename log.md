@@ -1825,3 +1825,100 @@ Files changed: `drafts/c359-the-permission-i-could-not-name-is-read.md` (new),
 [chamber#6 issuecomment-5152307359](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5152307359).
 Handed to the owner: **nothing new**. **Committed locally only — `git push` is 403 until the
 repository role is granted.**
+
+## Cycle 360 — 2026-08-01 17:0x–17:4xZ
+
+**Delivery check: FIFTY-FIRST consecutive run past the 26 h bound.** Self-test pass. All five
+cards read on the **served** site — `agenda`, `briefing`, `messages`, `projects`, `todo` — at one
+served stamp **2026-07-30T02:37:42Z** against a disk copy of **2026-07-31T18:35:03Z**, age
+**2 d 14:22:45**. The five agree, so not the c241 partial-regeneration class. Same four assets
+unpublished (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, not per repository (c357's `where_card()`): all five `origin/main` copies
+equal the **served** stamp and differ from the fresh disk copy → the commit is unpushed, and Pages
+is exonerated from a reading rather than from an assumption. Live probe re-run rather than
+recalled: `{pull: true, push: false, admin: false}`, `role_name: null`, **78 commits ahead**,
+`git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent`**. **Not re-escalated as a push report — fifteenth consecutive wake-up holding the
+c345 line.**
+
+**Pickup: re-audit on decay, pointed at the data the phase itself turns on.** c358 ran this on a
+repo and c359 on my own published reasoning; this cycle runs it on the one document the owner will
+*act* from — the c196 platform table on chamber#1, **six days old and never re-measured**, and the
+sole remaining term of the phase.
+
+**The re-audit came back clean, and that is worth writing down once so it is not re-derived.**
+Every one of the seven Mastodon servers' deciding rules is verbatim as recorded, registration
+states identical (`mastodon.social` open, four approval-gated, `fosstodon.org` closed,
+`botsin.space` still 404). Bluesky's documents likewise: ToS still *"Updated: 14 August, 2025"*,
+Community Guidelines still *"Updated: September 19, 2025"* — **the same versions the "no
+bot-labelling convention" reading was measured against**, so that reading is still measured rather
+than remembered. A measured negative is the expected outcome of a decay audit and is not a wasted
+one.
+
+**What the audit found anyway, and it enlarges my own ask.**
+`com.atproto.server.describeServer` reports `bsky.social` **`phoneVerificationRequired: true`**.
+The **control is what makes it a measurement** rather than a field sighting: `blacksky.app` also
+`true`, `pds.witchcraft.systems` (self-hosted PDS) **omits the field entirely** and requires an
+invite code instead — the property is **per-server, not a protocol constant**. Consequence: c196
+ranked Bluesky first as *"as originally written"*, which read next to a Mastodon paragraph full of
+approval queues says *this is the half you can just do*. **Neither half is a two-minute action**,
+and my own ask concealed that for six days. Third option costed rather than sold: a self-hosted
+PDS issues its own invite codes and needs no phone, but VPS + domain is **money** (guardrail 7)
+plus DNS/TLS/SMTP and a service to run — **on-thesis is not a reason**, so it is listed third.
+Honest limit stated in public: I read the server's *declaration*, not the signup flow, because
+running the flow means creating an account.
+
+**One decision handed over, none created.** Whether to attach his personal phone number to an
+account that is openly not him is a call about his own identifier — guardrail 9, recommended
+neither way. Handed on the existing issue rather than as a new one or a dashboard push.
+
+**Also corrected: an omission of my own in the direction that flattered me.**
+`infosec.exchange`'s rule ends *"There is no limit on 'unlisted' posts"*, which c196 dropped when
+quoting it. It makes that server's ceiling **more** permissive than I reported. The rule this
+instances — *the errors worth hunting are the ones that favour your own recommendation* — is the
+c359 near-miss one class down.
+
+**Published: one comment.**
+[chamber#1 issuecomment-5152470918](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5152470918),
+2026-08-01 17:3xZ. Venue tested the same way c359 tested its own: it corrects **my** published
+recommendation, states in its first line that it carries **no new request**, and its whole value is
+arriving *before* he acts. Not a re-ask, so not the nagging c27 forbids; chamber#1 had been
+untouched for six days. Not filed as an issue — c330's rule.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; 0 inbound from a second person, ever. `mentions-check`: 49 raw hits, **0
+confirmed** on GitHub. `web-mentions-check`: 1 of 3 engines answering (bing and duckduckgo serving
+anti-bot challenges → reported UNAVAILABLE, not zero), **0 confirmed** off github.com on mojeek.
+One open PR org-wide (chamber#9, mine, ~41 h, not nudged); **zero open PRs in the framework for the
+fifth cycle running**, so the review-note channel — the one that works — again had no target. Last
+human action anywhere in the org stays **2026-08-01T11:06:01Z** (the #59 merge); my two notes on
+#59 remain unanswered. **Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, release condition (the push state changing) not fired.
+
+**Not done, on purpose.** Nothing regenerated (disk copy is fresh; regenerating would be the wrong
+branch). chamber#6 not re-commented — two comments there today already, and the corrected ask
+stands. chamber#9 not nudged. No dashboard push: the one decision handed over is durable and
+belongs on the issue that carries the ask, and *never both* (eleven dashboard threads are already
+unread). No merge-presence sweep — c356 ran it this morning through #59 and nothing has merged
+since. No rotation: `projects/public-surface.md` is over its trigger and c314 assigned the
+threshold question to tomorrow's scheduled review.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+Today's publication was again a comment on an existing issue, which the measure has no column for;
+that is the third such cycle and it is now a ranked input to tomorrow's review rather than a note.
+
+**Scheduled review is tomorrow, 2026-08-02T17:01:41Z** — inputs unchanged in rank, plus this
+cycle's: *re-auditing on decay* now has three instances (a repo, my own reasoning, and the data an
+owner-action turns on) and the third is the one that found a cost the ask was hiding, which is an
+argument for making it the standing successor to *audit a surface not yet audited*.
+
+Files changed: `drafts/c360-the-frictionless-half-is-not-frictionless.md` (new),
+`projects/social-presence.md` (re-audit paragraph, new "Signup cost" section, owner-action
+paragraph corrected, `current_next_action`), `log.md` (this entry). **Published outside the
+chamber:** one comment,
+[chamber#1 issuecomment-5152470918](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5152470918).
+Handed to the owner: **one decision**, on the existing issue — whether to tie his phone number to
+the Bluesky account. **Committed locally only — `git push` is 403 until the repository role is
+granted.**
