@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c357 (2026-08-01 14:0x-14:5xZ): OUTWARD in the only sense available while the push is blocked - an instrument I run every wake-up was measuring one of its three branches and asserting the other two. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c357: self-test pass; ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 11:36, FORTY-EIGHTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION: disk fresh -> the refresh ran, the DELIVERY path failed; repo permissions re-probed live = {pull:true, push:false}, 75 commits unpushed. DO NOT regenerate. NOT re-escalated - TWELFTH wake-up holding the c345 line (report the push result only when the state CHANGES). (2) PICKUP, and it is the checker itself: the prompt says check /pages when disk is fresh, so I did - /pages status built, /pages/builds/latest status built with error.message null, origin/main HEAD 2a9f826b committed 23 s before that build, and origin/main generated == SERVED generated on ALL FIVE cards. Pages is innocent. THE FINDING IS THAT delivery-check.py COULD NOT HAVE SAID ANYTHING ELSE: classify_asset takes three revisions PER PATH since c316, but classify (the CARD half, the half the file exists for) took two plus a REPOSITORY-WIDE ahead-count, and publication_state returns unpushed while even one later commit is unpushed. HEAD has been ahead continuously since 2026-07-30, so all five cards printed 'Pages is not at fault' as a STANDING CONSTANT and where()'s published branch - the only one that sends a wake-up to /pages - was UNREACHABLE FOR CARDS whatever Pages did. Masking case is ordinary, not exotic: regeneration committed AND pushed, later commits pile up unpushed, Pages then fails to build -> old clause blames the push and exonerates the build. FIXED: card_origin_stamp() (one local git show per card, no network) + where_card(); self-test +5 SENTENCE-asserting cases (booleans cannot catch this - a wrong message and a right one are both truthy, which is how c308 and c316 both survived) run with the repo 75 ahead, the third being the known-bad fixture the old code fails; +1 case pinning that an uncommitted tree is still answered by the repo state. Verified: the live run now names both stamps instead of asserting. GENERAL FORM, third venue after c19/c343: A VERDICT DERIVED FROM A REPOSITORY-WIDE FACT IS NOT A MEASUREMENT OF A PER-FILE ONE, and where the repo-wide fact is a constant the verdict is a constant too. (3) ITS EFFECT DOES NOT DEPEND ON THE PUSH - tools/ runs from disk, so this is corrected from the next wake-up whatever the role denial does. That is the class the c356 handover asked the review to name, and this is its first worked instance. (4) ROTATION, byte delta not the word: HEAD 219 354 B, -3 857 B (SS c352 -> archive part 22), +6 799 B this cycle, after = 222 296 B, +2 942 NET, second consecutive positive. Mechanism now visible: the floor releases the OLDEST and the oldest was also the SMALLEST (3 857 vs 4 861 / 7 050 / 9 620 / 6 866 / 5 638), while every cycle also adds a register row that NEVER rotates. Third input for the c314 threshold question. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person EVER; one open PR org-wide (chamber#9, mine, not nudged); ZERO open PRs in the framework, so the review-note channel - the one that works - had no target again. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (#59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md). (6) NOT DONE ON PURPOSE: nothing regenerated; NOTHING PUBLISHED outside the chamber - chamber#6 carries the corrected ask from 06:08:46Z today and a second comment the same day is the nagging c27 forbids; no issue filed, the c184 slot opens 2026-08-02T06:44Z; no dashboard push (no account, money, terms or legal question arose; eleven threads already unread). (7) FOR THE REVIEW 2026-08-02T17:01:41Z, ranked, now four: FIRST the traffic-403 (the standing measure cannot read anything but zero, so the phase diagnosis has been asserted for 14 days on an instrument that cannot falsify it); the c314 threshold question with TWO executed data points; NAME THE CLASS work-whose-effect-does-not-depend-on-the-push, which c357 has now instantiated; and the register has no never row left, so audit-a-surface-not-yet-audited means re-auditing on decay - INCLUDING MY OWN INSTRUMENTS, which is where c357 and c348 both came from. (8) DO NOT RE-DERIVE: the fork-and-PR route around the push-403 is closed by guardrail 2 (c316 row)."
+current_next_action: "Aros, c358 (2026-08-01 14:5x-15:3xZ): OUTWARD - c268 rule 1 bound this wake-up (c356 and c357 were both inward), and the target came from the c357 handover item 4: RE-AUDIT ON DECAY. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c358: self-test pass incl. the four card attributions c357 added; ALL FIVE cards read - agenda, briefing, messages, projects, todo at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 12:12:47, FORTY-NINTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION IS NOW A READING, NOT A CONSTANT - c357's where_card() fetched each card's own origin/main copy: all five == the SERVED stamp and != the fresh disk copy, so unpushed, PER CARD. Live probe: {pull:true, push:false, admin:false}, role_name NULL on all three repos, 76 commits ahead, git push --dry-run -> 403 by name. DO NOT regenerate. NOT re-escalated - THIRTEENTH wake-up holding the c345 line. (2) PICKUP: re-audited retinue-os-deployment as PUBLISHED (contents API at e773d2d5, 10 blobs) - one audit ever (c33, 2026-07-20) and TWO commits since, so the audited version has not been the published version for eleven days. CLEAN on credentials/PII (same scan as c33: 1 placeholder token, 1 placeholder e-mail, 0 phones, 0 host paths, 0 private names) - recorded because an unwritten negative reads later like an audit that never ran. TWO DEFECTS + ONE CORRECTION, all in the token recipe .env.example:22-30: (a) it specifies the PAT exactly and NEVER MENTIONS THE ACCOUNT'S REPOSITORY ROLE - a fine-grained PAT grants at most the intersection of its permissions and what the ACCOUNT may do, GUARDRAILS SS8 requires a DEDICATED agent account, a fresh account has no role, so an operator following the published recipe reproduces this deployment's own twelve-day failure and reads a role denial as a scope problem; (b) Pull requests: read cannot support the framework's own Tier 3 - PR required; (c) MINE: the issue body's reassurance 'this deployment's own token cannot open pull requests' is FALSE - retinue#55 and chamber#9 were both opened by aros-agent, POST /pulls needs Pull requests: write, and the 403 it rests on was measured on the OWNER'S identity before this account existed (c315's lesson, reached three cycles before c315 named it, left standing on a public surface for twelve days). (3) PUBLISHED: ONE comment on deployment#1 - issuecomment-5151967776 - not a new filing. Two reasons: c330 (a finding that fits an open item goes to that item) and the c184 slot, shut until 2026-08-02T06:44Z. Led with the correction to my own body; closed on the calibration that neither defect is exploitable or urgent. (4) HELD AND NOT PUBLISHED: .env.example:32 says DO NOT GRANT ADMINISTRATION, and the owner's own chamber#3 comment (2026-07-30T16:00:17Z) states the granted token HAS Administration read/write. INERT (admin endpoints need the ADMIN role; account has admin:false, and the Write role I asked for does NOT confer admin - inert before and after he acts), guardrail 9 keeps a live deployment's config weakness out of public comment, and its venue is chamber#6 where I committed at 06:08:46Z today to say nothing until the push state changes. RELEASE CONDITION: that same comment, as 'while you are in the token settings, this line and .env.example:32 disagree.' Full write-up in drafts/c358-the-recipe-documents-the-token-and-not-the-account.md. (5) BOUND THE ASK DOES NOT ASSERT: /orgs/retinue-os/members/aros-agent AND /public_members/aros-agent both 404, which does not separate not-a-member from requester-cannot-see. role_name null looks identical for membership-with-base-permission-None and for non-membership. Remedy is the same either way; do not claim which. (6) ROTATION, byte delta not the word: HEAD 222 775 B, -4 861 B (SS c353 -> archive part 23), +8 901 B this cycle, after 226 815 B, +4 040 NET - third consecutive execution, third positive delta, LARGEST of the three. Released section was again the SMALLEST of the six. Fourth data point for the c314 threshold question. (7) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person EVER; one open PR org-wide (chamber#9, mine, not nudged); ZERO open PRs in the framework for the third cycle. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (#59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md). (8) MEASURED AND NOT ACTED ON: the c184 restore condition (two issues closed inside a week) was TECHNICALLY MET at the survey instant by a 23-minute margin (qlever-dir#9 closed 2026-07-25T15:14:15Z, retinue#52 2026-07-31T19:21:59Z) and falls out of the window within the hour. Held the limit rather than file on a clock accident; the CONDITION ITSELF is a fifth review input - it counts the owner closing his own issue as drain. (9) FOR THE REVIEW 2026-08-02T17:01:41Z, ranked, now five: FIRST the traffic-403 (the standing measure cannot read anything but zero); the c314 threshold question with FOUR data points; NAME THE CLASS work-whose-effect-does-not-depend-on-the-push; re-auditing on decay as the successor to audit-a-surface-not-yet-audited (c358 is its first dated instance); and c184's restore condition, which no wake-up had ever measured. (10) DO NOT RE-DERIVE: the fork-and-PR route around the push-403 is closed by guardrail 2 (c316 row)."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -232,6 +232,11 @@ Archive, oldest first:
   second positive net delta: **−3 857 B** moved against **+6 799 B** appended.
   The released section was the smallest of the six, because the floor releases
   the oldest — see the byte table in §c357.
+- [`projects-archive/public-surface-c353.md`](../projects-archive/public-surface-c353.md)
+  — cycle 353, 2026-08-01. Rotated at c358, third consecutive execution and third
+  positive net delta: **−4 861 B** moved against **+8 901 B** appended. Same
+  mechanism a third time, and the first rotation executed as a by-product of
+  outward work rather than as the work.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -492,6 +497,7 @@ measured at 0 of 78.
 | **The framework's `main`, re-read against the content of every PR merged into it since 2026-07-31** — the c270/c315 *merged is not present* class, run as a sweep rather than on the one PR that prompted it | 2026-08-01 (c356) | **Clean.** 7 merged PRs (#49, #51, #53, #55, #56, #57, #59), 31 changed files; up to 12 long added lines sampled from each file's own diff and looked for in that file's current blob on `main` — **0 absent, 0 files missing**. #55's README line, the one that carries bet 1 and that vanished once before, is still there under four later merges. The class did not recur. Detail: §c356 below. |
 | **What the repository-role denial costs *beyond* the dashboard** — asked because c355 enumerated the cost as *the dashboard and nothing else* and enumerated it from the diff only | 2026-08-01 (c356) | **Two costs a diff cannot show, and both make the block self-masking.** (1) `GET /repos/…/traffic/views` and `…/clones` → **403 on all three public repos**; the endpoint is documented as needing push access, so the project's only direct measure of *reach* is unavailable and every bet is being read off stars/forks/issues, which cannot separate *nobody arrives* from *they arrive and don't engage*. (2) The served `components/base.js` has **no `staleLabel`**; the disk copy exports `STALE_AFTER_MS = 26 h` — so the code that would tell a reader the page is old is itself in the unpushed set, and the served dashboard shows 2-day-old data with a date and no age. Neither grows the ask; both change what it costs. Detail: §c356 below. |
 | **`delivery-check.py`'s own card attribution — whether *"Pages is not at fault"* is a measurement or an inference** — asked because c357 had to fetch `origin/main`'s five cards **by hand** to establish what the checker had already asserted | 2026-08-01 (c357) | **An inference, and one that could not have come out any other way.** The asset half takes three revisions **per path** (served, disk, `HEAD`, `origin/main`) since c316; the card half — the half the file exists for — took two plus a **repository-wide** ahead-count, and `publication_state` returns `unpushed` while even one later commit is unpushed. This chamber has been ahead continuously since 2026-07-30, so all five cards printed *"Pages is not at fault"* as a **standing constant** and `where()`'s `published` branch — the only one that sends a wake-up to /pages — was **unreachable for cards** whatever Pages did. The masking case is ordinary: a regeneration is committed **and pushed**, later commits pile up unpushed on top, Pages then fails to build — HEAD is ahead, so the old clause blames the push and exonerates the build. Fixed: `card_origin_stamp()` (one `git show` per card) + `where_card()`, self-test +5 sentence-asserting cases, of which the third reproduces the defect (the old code returns the forbidden string for it). Measured today, so the verdict is now earned rather than assumed: served == `origin/main` on **all five**, `/pages` `status: built`, `error.message: null` — Pages is innocent, and this is the first cycle that can say so from a reading. Detail: §c357 below. |
+| **`retinue-os-deployment` as published, re-audited on decay** — the c33 row is its only audit, and the published tree has moved twice since (`54bd2f89` split `start.sh` into two new files, `e773d2d5` bumped the submodule) | 2026-08-01 (c358) | **Clean on credentials and personal data; two defects and one correction in the token recipe.** The scan c33 ran finds the same two placeholder hits and nothing else across the 10 published blobs. The defects are both in `.env.example:22-30`, which specifies a fine-grained PAT exactly and **never mentions the account's repository role** — a PAT grants at most the intersection of its permissions and what the account may do, and a *dedicated agent account* (which GUARDRAILS §8 requires) starts with none, so an operator following the published recipe reproduces this deployment's own twelve-day failure and reads a role denial as a scope problem. Second: `Pull requests: read` cannot support the framework's own Tier 3 — PR required. Third, and it is mine: the issue's body claims *"this deployment's own token … cannot open pull requests"*, which retinue#55 and chamber#9 (both opened by `aros-agent`) falsify — an inherited 403, measured on the owner's identity, left standing in a public issue for twelve days. All three published as one comment on the open issue they belong to: [deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776). Detail: §c358 below. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -662,99 +668,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c353 — a merge is not a measurement (2026-08-01, 11:2x–11:5xZ)
-
-### What prompted it
-
-`retinue-os/retinue` had a `pushed_at` 17 minutes old at survey time. The cause was
-[#59](https://github.com/Retinue-OS/retinue/pull/59) — the PR c352 reviewed while it was open —
-**merged at 11:05:45Z**, 17 minutes after my note and with no reply to it.
-
-The tempting move was to tick it off: note delivered, PR merged, count it as review note #8.
-That would have been wrong, and the reason is the finding.
-
-### The merged fix is not the fix that was reviewed
-
-c352's probe ran against `pull/59/head`, where a broadcast post was **dropped**. The merge
-commit `fa18239` is titled *"forward status/broadcast posts to triage tagged as status
-updates"* — the design changed between the review and the merge, from **drop** to
-**forward-tagged**, adding `_forward_status_to_inbox()` and a whole *Status updates* section to
-`.claude/skills/triage/SKILL.md`.
-
-Half of c352's note landed. The merged handler's comment now reads:
-
-> It is deliberately NOT recorded as a recent sender: the recent-chats store stands in for real
-> conversations that contact lookup consults, and a status broadcaster is not someone the user
-> is conversing with.
-
-That is the argument from my note, in his code, unattributed and entirely fine — the point of a
-review note is the change, not the credit.
-
-### Re-driven against the merged code, not inherited from the pre-merge run
-
-```
-status      chat=status@broadcast            is_broadcast=True   -> forward_status
-bcast-list  chat=120363000@broadcast         is_broadcast=True   -> forward_status
-1:1         chat=41791234567@s.whatsapp.net  is_broadcast=False  -> record + forward as mail
-newsletter  chat=120363111@newsletter        is_broadcast=False  -> record + forward as mail
-```
-
-The newsletter row survived the merge unchanged. What is new is that the merged code now
-*states the principle that condemns it* — a Channel is not someone the user is conversing with
-either — so the second ask is smaller than the first: route it to the `status_update` path that
-now exists, rather than to a bin.
-
-### The finding worth more than the newsletter row
-
-`SKILL.md` fixes the stable id for messaging as `channel:chat:timestamp`, and step 1 of its new
-status policy is *"derive the stable id and check the status store as usual (idempotent — don't
-re-file a status already seen)"*. The forwarded prompt carries **neither**. Two distinct
-media-only Story posts by the same contact, through `_forward_status_to_inbox` with
-`requests.post` captured:
-
-```
-prompt A sha256: 4f7f257715de9e7a
-prompt B sha256: 4f7f257715de9e7a
-identical: True
-```
-
-Media-only is the ordinary Story. So the id triage settles on is a function of (channel,
-sender, text), and the second such post reads as already seen.
-
-**Why this one is not a shrug.** The status path raises no dashboard conversation and sends no
-push *by design* — that is the whole point of the feature — so a silently-swallowed post is
-indistinguishable from a correctly-filed one, from outside and from the store. Phase 1
-reconciliation treats the chat listing as authoritative for presence, and this PR (rightly)
-keeps broadcasts out of the recent-chats store, so nothing downstream ever notices the miss.
-**A feature whose success and whose failure produce the same observable needs its
-idempotency key supplied, not inferred.**
-
-The fields exist. neonize's `MessageInfo` — 0.4.3.post0, what the unpinned
-`pip install neonize` in `whatsapp-gateway/Dockerfile` resolves to today, read from the wheel's
-own `Neonize_pb2.pyi` — declares `ID: str` and `Timestamp: int` beside the `Pushname` that
-`_handle_message_event` already reads through `_attr`. Checked the neighbouring path too:
-`signal-gateway.py`'s `_forward_to_inbox` omits the same fields, so this is a class, not a
-one-off — but #59 is the first path whose *stated policy* depends on the id and whose failure
-is silent.
-
-### Published
-
-One comment, both findings, with the calibration that both probes are synthetic — a stub
-`MessageEv` and a captured POST, not a live linked account —
-[#59 issuecomment-5151218915](https://github.com/Retinue-OS/retinue/pull/59#issuecomment-5151218915).
-On a **merged** PR, which the c294 rule did not anticipate: the rule says a finding that fits
-an open PR goes there instead of the issue queue, and the reason it gives (the note arrives
-inside work he is doing this minute) still holds 17 minutes after a merge, where it would not
-hold a week later.
-
-### The standing rule this adds
-
-**A merge is not a measurement.** A review note whose PR merges tells you the PR merged, not
-that the reviewed behaviour shipped. Re-drive the merged code: what lands may be a different
-design, and the parts of the note it silently declined are exactly the parts no one will
-mention.
-
-
 ## §c354 — writing the rule c350 only named (2026-08-01, 12:0x–12:4xZ)
 
 **Delivery check: FAILED, forty-fifth consecutive run past the 26 h bound.** Self-test pass
@@ -1207,3 +1120,107 @@ sections' own sizes — §c352 **3 857 B** (released), then 4 861, 7 050, 9 620,
 cycle appends both a section *and* a permanent register row that never rotates. A rotation whose
 released item is smaller than the cycle that released it is not a bound on the file. Third input
 for the c314 threshold question the 2026-08-02 review inherits.
+
+## §c358 — the recipe documents the token and not the account (2026-08-01, 14:5x–15:3xZ)
+
+**Delivery check: FAILED, forty-ninth consecutive run past the 26 h bound.** Self-test pass,
+now including the four card attributions c357 added. **All five cards read** — `agenda`,
+`briefing`, `messages`, `projects`, `todo` at one served stamp `2026-07-30T02:37:42Z` against
+disk `2026-07-31T18:35:03Z`, age **2 d 12:12:47**. The five agree, so not the c241 partial class.
+Same four assets unpublished (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`).
+
+**Attribution, and this is the first run where it is a reading rather than a constant.** c357's
+`where_card()` fetched each card's own copy on `origin/main`: all five are
+`2026-07-30T02:37:42Z`, i.e. **equal to the served copy and different from the fresh disk copy**
+→ the commit is unpushed, Pages is not at fault, *per card*. Re-probed live: `{pull: true,
+push: false, admin: false}`, `role_name: null`, **76 commits ahead**, `git push --dry-run` → 403
+by name. Not regenerated. **Not re-escalated — thirteenth wake-up holding the c345 line.**
+
+### The surface, and why this one
+
+c268 rule 1 binds this wake-up: c356 and c357 were both inward, so this one is outward or idle.
+The c357 handover's item 4 said where to look — the register has no "never" rows left, so
+*audit a surface not yet audited* now means **re-auditing on decay**. The decay here is dated
+rather than guessed: `retinue-os-deployment` has exactly one audit (c33, 2026-07-20) and two
+commits since, one of which published two new files. The audited version has not been the
+published version for eleven days.
+
+### What the audit found
+
+**Clean where c33 was clean.** Over the 10 published blobs at `e773d2d5`, read through the
+contents API rather than a checkout (the repo is not mounted here, and the subject is what it
+*publishes*): the credential patterns return one hit, `github_pat_replace_me`; the address
+patterns return one, `you@example.com`. No phone numbers, no host paths, no private names.
+Recorded because a negative result nobody wrote down reads later like an audit that never ran.
+
+**Two defects, both in the token recipe, and they share one cause.** `.env.example:22-30`
+specifies the fine-grained PAT precisely — `Contents: read/write`, `Issues: read/write`,
+`Pull requests: read`, `Pages: read`, `Metadata: read` — and says nothing about the account
+holding it. A fine-grained PAT grants at most the intersection of its own permissions and what
+the account may already do on the repository. GUARDRAILS §8 requires a *dedicated* agent
+account; a fresh account has no role on the org's repositories; so an operator who follows the
+published recipe exactly gets an agent whose every write returns *"Resource not accessible by
+personal access token"* — a string naming the token, for a denial caused by the role. That is
+this deployment's own state since 2026-07-30T14:51Z, and the recipe is how the next operator
+reaches it. Second defect, same file: `Pull requests: read` cannot support the framework's own
+branch policy, which puts every change to how the system works behind a PR.
+
+**And one correction, which is mine.** deployment#1's body reassures the reader with *"Not a
+live exposure. This deployment's own token is demonstrably narrower — it cannot open pull
+requests."* Falsified by retinue#55 (opened by `aros-agent` 2026-07-31T09:19:53Z, merged) and
+chamber#9 (2026-08-01T00:06:15Z, open); `POST …/pulls` needs `Pull requests: write`. The 403 it
+rests on was measured on the **owner's** identity before this account existed. That is c315's
+lesson — *an inherited 403 is not a measurement, and one measured on his identity says nothing
+about mine* — reached three cycles before c315 named it, and left standing on a public surface
+for twelve days after. The register now has three separate rows whose finding is a variant of
+*an error message that names a cause is not a measurement of that cause*; this is the first
+where the unmeasured error was one I had published as reassurance.
+
+### Published, and where
+
+One comment, on the open issue the findings belong to rather than as a new filing:
+[deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776).
+Two reasons in this order — the c330 rule (a finding that fits an open item goes to that item,
+because it arrives inside work the maintainer already has rather than asking him to
+context-switch), and the c184 slot, shut until 2026-08-02T06:44Z, which would have held a new
+issue anyway. The comment leads with the correction to my own body and closes on the
+calibration that neither defect is exploitable or urgent.
+
+### Held, and it is the more interesting half
+
+`.env.example:32` says *"Do NOT grant Administration, Members, or org-level write"* and spends a
+paragraph on why, in prompt-injection terms. The owner's own public comment on chamber#3
+(2026-07-30T16:00:17Z) states the granted token is *"Pull requests and Administration
+read/write, plus Contents and Issues read/write"*. So the running token diverges from the
+published guidance in the dimension the file cares most about — and **not published**, in this
+order: it is inert (repository Administration endpoints need the *admin* role; the account has
+`admin: false`, and the Write role I have asked for does not confer admin, so it is inert before
+and after he acts); guardrail 9 keeps a live deployment's configuration weakness out of public
+comment whatever its severity, and *he published the fact himself* is a reason it is not a
+disclosure rather than a licence to amplify it; and its venue is chamber#6, where I committed at
+06:08:46Z today to say nothing further until the push state changes. Release condition is that
+same comment: *while you are in the token settings, this line and `.env.example:32` disagree.*
+Written up in full at
+[`drafts/c358-the-recipe-documents-the-token-and-not-the-account.md`](../drafts/c358-the-recipe-documents-the-token-and-not-the-account.md).
+
+### The bound the ask does not assert
+
+`GET /orgs/retinue-os/members/aros-agent` and `…/public_members/aros-agent` both return **404**,
+and that endpoint's 404 does not separate *not a member* from *requester cannot see*. His
+chamber#3 comment says the account is a member; `role_name: null` on all three repos is what
+membership with base permission **None** looks like, and equally what non-membership looks like.
+The remedy is the same either way, so this blocks nothing — but the ask should not claim which
+one it is, and it does not.
+
+**Bytes, per the c356 rule — the delta, not the word.** File at `HEAD` before this cycle
+**222 775 B**; rotation moves §c353 out to
+[archive part 23](../projects-archive/public-surface-c353.md) (**−4 861 B**); this cycle appends
+one register row + this section (**+8 901 B**); file after **226 815 B**, **+4 040 B net** —
+third consecutive execution, third positive delta, and the largest of the three. The released
+section was again the
+**smallest** of the six (4 861 against 7 050 / 9 620 / 6 866 / 5 638 / this one), which is the
+mechanism c357 identified: a fixed retention floor releases the oldest, the oldest is the
+smallest, and the register row that unblocks the release never rotates at all. Fourth data point
+for the c314 threshold question standing for the 2026-08-02 review — and the first where the
+rotation was executed as a by-product of outward work rather than as the work.

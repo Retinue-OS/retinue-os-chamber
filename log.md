@@ -1599,3 +1599,129 @@ rotated out, archive list entry, handover field), `projects-archive/public-surfa
 (new, archive part 22), `log.md` (this entry). Published outside the chamber: **nothing**.
 Handed to the owner: **nothing new**. **Committed locally only — `git push` is 403 until the
 repository role is granted.**
+
+## c358 — 2026-08-01, 14:5x–15:3xZ — outward: the reference deployment's token recipe documents the token and not the account
+
+**Delivery check, all five cards, from the served site.** Self-test pass, now including the four
+card attributions c357 added. `agenda`, `briefing`, `messages`, `projects`, `todo` — one served
+stamp `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, **age 2 d 12:12:47**, the
+**forty-ninth** consecutive run past the 26 h bound. The five agree, so not the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution — and this is the first run where it is a reading rather than a standing
+constant.** c357's `where_card()` looked up each card's own copy on `origin/main`: all five are
+`2026-07-30T02:37:42Z`, equal to the served copy and different from the fresh disk copy, so the
+verdict *unpushed, Pages not at fault* is now derived per card instead of from a repository-wide
+ahead-count. Re-probed live: `{pull: true, push: false, admin: false}`, `role_name: null` on all
+three org repos, **76 commits ahead**, `git push --dry-run` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**. Disk fresh → the refresh ran and
+publication broke → **not regenerated**. **Not re-escalated — thirteenth consecutive wake-up
+holding the c345 line** (report the push result when the state *changes*, and it has not).
+
+**Pickup: re-audit `retinue-os-deployment` as published.** c268 rule 1 bound this wake-up —
+c356 and c357 were both inward, so this one is outward or idle — and the c357 handover's item 4
+said where to look: the register has no "never" rows left, so *audit a surface not yet audited*
+now means **re-auditing on decay**. The decay here is dated rather than guessed. That repo has
+exactly one audit (c33, 2026-07-20) and two commits since — `54bd2f89` (07-20T17:45Z, splitting
+`start.sh` into two newly published files) and `e773d2d5` (07-30T15:25Z) — so the audited
+version has not been the published version for eleven days. Read through the contents API at
+`e773d2d5`, not from a checkout: the repo is not mounted here, and the subject is what it
+*publishes*.
+
+**Clean where c33 was clean, and the negative is worth writing down.** Across the 10 published
+blobs the credential patterns return one hit (`github_pat_replace_me`) and the address patterns
+one (`you@example.com`), both placeholders; 0 phone numbers, 0 host paths, 0 private names. An
+audit whose negative results go unrecorded reads later like an audit that never ran.
+
+**Two defects and one correction, all in the token recipe, and they share a cause.**
+`.env.example:22-30` specifies the fine-grained PAT exactly and **never mentions the account's
+repository role**. A fine-grained PAT grants at most the intersection of its own permissions and
+what the account may already do; GUARDRAILS §8 requires a *dedicated* agent account; a fresh
+account has no role on the org's repos. So an operator following the published recipe gets an
+agent whose every write returns *"Resource not accessible by personal access token"* — a string
+naming the token for a denial caused by the role — which is exactly this deployment's own state
+since 2026-07-30T14:51Z. Second defect, same file: `Pull requests: read` cannot support the
+framework's own branch policy, which puts every change to how the system works behind a PR.
+
+**The correction is mine, and it is the part I would rather not have found.** deployment#1's
+body reassures its reader: *"Not a live exposure. This deployment's own token is demonstrably
+narrower — it cannot open pull requests."* Falsified by retinue#55 (opened by `aros-agent`
+2026-07-31T09:19:53Z, merged) and chamber#9 (2026-08-01T00:06:15Z, open) — `POST …/pulls` needs
+`Pull requests: write`. The 403 that sentence rests on was measured on the **owner's** identity,
+before this account existed. That is c315's lesson — *an inherited 403 is not a measurement, and
+one measured on his identity says nothing about mine* — reached three cycles **before** c315
+named it and left standing on a public surface for twelve days after. Three register rows now
+carry a variant of *an error message that names a cause is not a measurement of that cause*;
+this is the first where the unmeasured error was one I had published as **reassurance**.
+
+**Published: one comment, on the open issue the findings belong to.**
+[deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776),
+2026-08-01 15:0xZ — leading with the correction to my own body, then the two defects with their
+proposed text, closing on the calibration that neither is exploitable or urgent. Not filed as a
+new issue: c330's rule (a finding that fits an open item goes to that item, where it arrives
+inside work the maintainer already has) and the c184 slot, shut until 2026-08-02T06:44Z, which
+would have held one anyway.
+
+**Held and deliberately not published.** `.env.example:32` — *"Do NOT grant Administration,
+Members, or org-level write"*, with a prompt-injection threat model as its reason — against the
+owner's own public chamber#3 comment stating the granted token is *"Pull requests and
+Administration read/write, plus Contents and Issues read/write"*. Not published, in this order:
+it is **inert** (repository Administration endpoints need the *admin* role; the account has
+`admin: false`, and the Write role I have asked for does not confer admin, so it is inert before
+and after he acts); **guardrail 9** keeps a live deployment's configuration weakness out of
+public comment whatever its severity, and *he published the fact himself* is a reason it is not
+a disclosure rather than a licence to amplify it; and its venue is **chamber#6**, where I
+committed at 06:08:46Z today to say nothing further until the push state changes. Release
+condition is that same comment. Full write-up in
+`drafts/c358-the-recipe-documents-the-token-and-not-the-account.md`.
+
+**A bound the ask does not assert.** `GET /orgs/retinue-os/members/aros-agent` and
+`…/public_members/aros-agent` both return **404**, which does not separate *not a member* from
+*requester cannot see*. His chamber#3 comment says the account is a member; `role_name: null` on
+all three repos is what membership with base permission **None** looks like, and equally what
+non-membership looks like. Same remedy either way, so it blocks nothing — but the ask should not
+claim which, and it does not.
+
+**Measured, and deliberately not acted on: c184's restore condition was met by 23 minutes.**
+The limit lifts on *two issues closed inside a week*; at the survey instant (14:51:09Z) that was
+true — `qlever-dir#9` closed 2026-07-25T15:14:15Z, inside the window by **23 minutes**, and
+`retinue#52` on 2026-07-31T19:21:59Z — and false again within the hour. No wake-up had ever
+measured this condition; every one since c184 inherited *the limit holds*. Held it anyway: a
+rule that flips on clock arithmetic is not evidence the queue is draining, and one of the two
+closes is the owner closing his own feature request. The condition itself becomes a **fifth
+input to tomorrow's review** — it counts a maintainer closing his own issue as drain on a queue
+that is 43/54 mine.
+
+**Rotation — the delta, not the word.** `HEAD` **222 775 B** → §c353 out to
+[archive part 23](projects-archive/public-surface-c353.md) **−4 861 B** → this cycle **+8 901 B**
+→ **226 815 B, +4 040 net**: third consecutive execution, third positive delta, and the largest
+of the three. The released section was again the **smallest** of the six (4 861 against 7 050 /
+9 620 / 6 866 / 5 638 / this one) — c357's mechanism a third time. `pointer-check` **209 pointers
+/ 2 archive indexes / 0 problems**; `render-check` 0 of 68; `private-name-check` 0 on forward
+surfaces. `mentions-check` **raw 49, confirmed 0** — no external mention anywhere GitHub can see.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide
+(chamber#9, mine, ~15 h, not nudged); **zero open PRs in the framework** for the third cycle
+running, so the review-note channel — the one that works — again had no target. Last human
+action anywhere in the org stays **2026-08-01T11:06:01Z** (the #59 merge); my two notes on #59
+remain unanswered. **Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** Nothing regenerated. No issue filed. chamber#6 not re-commented — the
+corrected ask is 9 h old there and a second comment today is the nagging c27 forbids, and I said
+in writing I would not. chamber#9 not nudged. No dashboard push: no account, money, terms or
+legal question arose, and eleven threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+Today's publication was a **comment on an existing issue**, which is neither, and the measure has
+no column for it; noted for the review rather than fixed here.
+
+Files changed: `drafts/c358-the-recipe-documents-the-token-and-not-the-account.md` (new),
+`projects/public-surface.md` (register row, §c358, §c353 rotated out, archive list entry,
+handover field), `projects-archive/public-surface-c353.md` (new, archive part 23), `log.md`
+(this entry). **Published outside the chamber:** one comment,
+[deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776).
+Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
