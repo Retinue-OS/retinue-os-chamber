@@ -3586,3 +3586,89 @@ Files changed: `log.md` (this entry), `projects/triple-store-story.md` (handover
 two-cycle bound). Published outside the chamber: **nothing**. Handed to the owner: **nothing** —
 nothing arose needing an account, money, terms of service or a legal call, and c340's ruling is still
 outstanding.
+
+## c342 — 2026-08-01 04:0x–04:2xZ — retinue#1 re-verified, and the framework turns out to have already answered it
+
+**Delivery check: STALE, and the attribution is unchanged — the DELIVERY path, not the refresh.** All
+five cards read the same served stamp `2026-07-30T02:37:42Z`, **2 d 1 h 31 m past the 26 h bound**,
+against a disk stamp of `2026-07-31T18:35:03Z`. Disk fresh ⇒ the daily regeneration ran and
+publication broke; the check forbids regenerating and I regenerated nothing. Re-probed rather than
+inherited: `git push origin main` → **403, "Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent"**, **56 commits unpushed** (one more than c341). Four assets are also unpublished —
+`index.html`, `styles.css`, `components/base.js`, `components/projects.js` — same cause. Not
+re-escalated: chamber#6 carries the complete ask. 34th consecutive check with this attribution.
+
+**Served content re-read, not just its stamp.** Because the stamp is two days old the served copies now
+carry statements that are false rather than merely old: `todo.json` still asks him to deal with
+`fix/restore-dropped-merges` (merged as retinue#55 on 07-31) and with "your own PRs #44 and #45"
+(both closed), and `briefing.json` still says "two open pull requests, both the owner's" (there is one,
+and it is mine). The delivery blocker has stopped costing staleness and started costing accuracy — the
+owner's own desk lists work he has already done. Recorded here rather than sent anywhere: it is a new
+consequence of a blocker he has read six consequences of, and a seventh comment is nagging.
+
+**The pickup — a merge-wave sweep of my own open issues, which found the opposite of what it looked for.**
+26 framework files changed between 2026-07-29 and 07-31 across ~13 merges. Hypothesis: some of my 27
+open `retinue` issues were fixed as a side effect and nobody closed them, i.e. the queue overstates the
+backlog. Tested on the two best candidates, both of whose files moved in that window:
+
+- **retinue#28** (model slug not injective) — **still reproduces.** `scripts/emit-conversation-models.py:126`
+  is still `base = model_id or "default"`, so `''` and `'default'` still collide. File untouched since 07-25.
+- **retinue#1** (projects card returns no rows) — **still reproduces.** `web-gateway.py:1929-1930` still
+  `kb#` / `urn:retinue:actor:reto`, query at `:1940` still `k:Project`, although `web-gateway.py` and
+  `webapp/components/projects.js` were both edited in the window.
+
+So the queue is accurate and nothing could be closed. A negative result, and it is the one worth having:
+the alternative — a desk listing fixed issues — is what `todo.json` is doing two days stale, above.
+
+**What the sweep found instead, and it is a retraction of my own filing.** I filed retinue#1 saying I had
+no standing to decide which namespace is canonical. Half of that is wrong: **the framework has already
+decided, in three of its own files, and the only dissenter is chamber content.**
+
+| Component | Ships with | Namespace | Actor URI |
+|---|---|---|---|
+| `web-gateway.py:1929-1930` — consumer | framework | `kb#` | `urn:retinue:actor:reto` |
+| `agent-self-review.py:31,43-50` — consumer | framework | `kb#` | joins `?actor a kb:AiAgent` |
+| `discover-agents.py:46,139-140` — **producer**, every boot | framework | `kb#` | `urn:retinue:actor:<name>` |
+| `<chamber>/projects/.qlever/md2ttl.py:21,114` — producer | a chamber | `project#` | `urn:retinue:` + raw value |
+
+Nothing the framework ships emits `project#`: `find . -name 'md2ttl*'` at `f1f8c72f` returns nothing, and
+the sole reference is `{ "md": "md2ttl.py" }` at `docs/triple-stores.md:73`. Measured against the live
+store rather than argued: the self-review gate query returns **0**, the same count over `project#Project`
+returns **6**. The projects are in the store and both framework consumers look for them in the wrong
+namespace. That also makes this not only a dashboard defect — `agent-self-review.py`'s gate has the same
+zero, and its cost model ("an empty result spawns nothing") makes an unmatched gate and an empty backlog
+indistinguishable from outside, with no error either way.
+
+Posted as a comment on retinue#1
+([issuecomment-5149744968](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5149744968)) — the
+instrument the c330 measurement says works (6 of 7 review notes landed within hours; 2 of 42 filings).
+Not closed, not patched framework-side: the choice is his, and `web-gateway.py:1927-1928`'s comment is a
+factual error under either answer. Stated in the comment: if he picks the first option the converter is
+chamber content and I can land the diff for the one I own with nothing from him.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18; 0 discussions. Last human action anywhere in the org stays **2026-07-31T19:44:12Z** (8 h
+20 m); the re-slow bound stays 2026-08-01T19:44:12Z and the tick stays 1800 s. One open PR org-wide —
+**chamber#9, mine**, untouched since 00:07:05Z, nothing to answer. No inbound from a second person, ever.
+`gh api notifications` remains 403 — a gap, not a zero.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh. *Nothing filed* — the c184 slot does not
+open until **06:26:15Z**, and nothing found today would have outranked the held drafts anyway. *No
+dashboard push* — c340's finding is delivered and awaiting his ruling; the served-desk inaccuracy above
+would push it down for a blocker he already has six write-ups of. *No strategy revision* — the scheduled
+review is tomorrow, and the retraction above is an input to it, not a substitute.
+
+**Sixteenth input for the 2026-08-02 review.** c341 read as "outward work is usually available, not
+always". This cycle found outward work by re-verifying a filing rather than by auditing a new surface —
+which is c206's *drain* default finally beating *audit*, and it produced a retraction of my own report.
+The review should note that **re-reading what I already filed outranked looking at something new**, and
+that the sweep's null result (nothing closable) is itself the evidence that the queue is honest.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged. Standing checks re-run: `delivery-check` self-test pass (5 cards + 16 assets, 9
+problems, all one cause), `rotation-check` 96 files / 0 problems. Rotation watch, measured before this
+entry: `log.md` 258/300 KB, `projects/public-surface.md` 197/200 KB, `strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry), `projects/triple-store-story.md` (handover field). Published
+outside the chamber: **one comment on retinue#1**. Handed to the owner: **nothing** — nothing arose
+needing an account, money, terms of service or a legal call.
