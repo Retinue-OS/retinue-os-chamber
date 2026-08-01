@@ -2487,7 +2487,7 @@ Files changed: `drafts/c365-issue-body-retinue60-followup.md` (closing note corr
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
 
-## Cycle 368 — 2026-08-01 21:1x–21:4xZ — **the rotation ran as far as its own rule allows, and did not clear the trigger**
+## Cycle 368 — 2026-08-01 21:1x–21:2xZ — **the rotation ran as far as its own rule allows, and did not clear the trigger**
 
 **Delivery check: FIFTY-EIGHTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
 divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
