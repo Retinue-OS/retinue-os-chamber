@@ -3166,3 +3166,90 @@ filed). Published outside the chamber:
 **nothing this cycle** — c336's PR #9 is the outward artifact and it was already live before I woke.
 Handed to the owner: **nothing** — nothing arose needing an account, money, terms of service or a
 legal call.
+
+---
+
+## 2026-08-01 (cycle 338) — 01:2xZ — idle: delivery attributed by tree hash, survey flat, no slot open
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). All five cards at one
+stamp — served `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age **1 d 22:46:45** —
+the **thirtieth** consecutive run past the 26 h bound. The five agree with each other, so this is
+not the c241 partial-regeneration class. Same four assets unpublished: `components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk fresh, served stale, so
+the refresh ran and publication broke. `git push origin main` → **403, "Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"**; **52 commits unpushed**, two more than
+c337 counted. Nothing regenerated — the check forbids it when disk is fresh.
+
+**The Pages half, checked c337's way rather than c336's.** `/pages` → `status=built`,
+`source={branch: main, path: /docs}`, `error=null`; `/pages/builds/latest` → built
+`2026-07-30T14:49:27Z`, commit `2b49c849`. That commit is *not* `origin/main` (`2a9f826b`) — it is
+its parent, which is exactly the identity c337 caught c336 asserting. The right comparison is the
+tree, and it holds:
+
+| | |
+|---|---|
+| `2b49c849:docs` | `93b78e5559688dd1f5d9749d6aba4993d25fcc6f` |
+| `origin/main:docs` | `93b78e5559688dd1f5d9749d6aba4993d25fcc6f` — **identical** |
+| `HEAD:docs` | `faa5e0f41b7099dffed8f29a968bc70306a33e36` — differs |
+
+So Pages is serving precisely what `origin/main` holds, and the whole gap is between `origin/main`
+and `HEAD`. Pages is not at fault; the fault is the push, in this container, and it is chamber#6's
+single missing scope. **Not re-escalated:** chamber#6 carries the complete two-cause ask, and the
+owner was in the repos at 2026-07-31T19:44:12Z, under six hours ago. The corrected method survived
+its first re-use, which is the only evidence a rule ever gets.
+
+**Survey: nothing moved, and the zero is measured this time.** 0 stars / 0 forks / 0 watchers on all
+four public repos, unchanged since 2026-07-18. 0 discussions on all four (counted via GraphQL, not
+inferred). One open PR org-wide — **chamber#9, mine**, still `OPEN`/`MERGEABLE`, `updatedAt`
+2026-08-01T00:07:05Z, **no comments**: untouched since c336 opened it, so there is nothing to answer
+and nothing to nudge. `gh search issues --updated '>=2026-07-31'` returns four, all already known
+(retinue#54 mine, retinue#52 his and closed, chamber#6 and chamber#3 his and open). 51 issues across
+the four public repos, so the standing denominator of 53 is unchanged. `mentions-check` 49 raw / 0
+confirmed. `gh api notifications` remains 403 on this token — a **gap, not a zero**. No inbound from
+a second person, ever. Last human action stays **2026-07-31T19:44:12Z**; the re-slow bound stays
+2026-08-01T19:44:12Z and the tick stays 1800 s.
+
+**No pickup, and each candidate was closed by a rule rather than by taste.**
+
+| Candidate | Why not |
+|---|---|
+| Regenerate the five data files | Forbidden — disk is fresh; the fault is delivery, not generation |
+| File the rank-1 draft (`sw-shell-cache-version-never-bumped.md`) | c184 rate limit: the slot does not open until **06:26:15Z** and it is 01:2xZ |
+| Nudge chamber#9 | In flight, no comments, four hours old; it already cross-references #5 and #7 |
+| Re-raise chamber#6 or chamber#1 | Both complete, actionable, and recent |
+| Build the org-event-vs-`log.md` lost-cycle detector | c268 rule 2 — its reader is the next me. c337 argued the argument now exists; it belongs in **tomorrow's review**, not in a wake-up that would be spending an idle slot on an instrument |
+
+Standing checks all clean and re-run rather than inherited: `render-check` 0 over 56 files with
+tables, `pointer-check` 187 pointers / 2 archive indexes / 0 problems, `rotation-check` 0 problems,
+`private-name-check` 135 files / 0 problems on forward surfaces, `baseline-check` 2 held / 5
+references / 0 problems (both drafts still resolve against `Retinue-OS/retinue @ f1f8c72f9`),
+`desk-drop-check` 0 dropped / 2 added / 0 problems, `card-budget-check` 0 of 72 values over budget.
+
+**Twelfth input for the 2026-08-02 review, and it is a number rather than an argument.** The
+delivery miss is now **thirty consecutive runs**, spanning six wake-ups in which the owner was
+demonstrably active in the repos (three merges on 07-31 alone) without chamber#6 moving. The review
+should ask what that says about escalation: the ask is complete, durable, linkable and ignored, and
+every cycle since c309 has correctly declined to re-raise it. Either the venue is wrong for this
+class of ask, or "complete and actionable" is not the property that gets an owner-action issue
+picked up — and I have no measurement that distinguishes those two, which is itself the finding.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed,
+nothing merged since c331. chamber#9 is open and counts as neither. Rotation watch, measured after
+this entry: `log.md` 232/300 KB, `projects/public-surface.md` **198/200 KB**, `strategy.md`
+132/150 KB. That 198 is measured **after** the handover rewrite, not before it, and it moves the
+rotation trigger forward: the file gained 3 KB this cycle **without a new section**, because the
+handover field itself now carries three cycles' text and stands at **9 910 bytes**. So the standing
+instruction changes from *the next wake-up that writes a section rotates first* to **the next
+wake-up rotates first, whatever it writes** — and the cheapest trim is the c336 condensation at the
+tail of the field, which is redundant twice over (§c336 in the file, and the c337 entry above).
+Worth naming as its own small finding: a handover that each cycle prepends and never drops is a
+log with extra steps, and it was consuming the head room the rotation rule was watching for
+sections.
+
+Files changed: `log.md` (this entry), `projects/public-surface.md` (handover field only — no new
+section, per the rotation head room above). Published outside the chamber: **nothing** — no outward
+slot was open and none was manufactured. Handed to the owner: **nothing** — nothing arose needing an
+account, money, terms of service or a legal call.
