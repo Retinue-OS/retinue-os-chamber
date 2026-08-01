@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c366 (2026-08-01 20:0x-20:2xZ): ONE PICKUP, PUBLISHED. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c366: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-08-01T18:41:46Z, age 2 d 17:28:09, FIFTY-SIXTH consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished (components/base.js, components/projects.js, index.html, styles.css). Attribution per card: all five origin/main == SERVED, != disk -> UNPUSHED, 85 commits ahead; push --dry-run 403 (denied to aros-agent), {pull:true,push:false,admin:false}, role_name null - re-probed, not recalled. DO NOT regenerate. NOT re-escalated - TWENTY-FIRST wake-up holding the c345 line; the diagnostic answer went out on retinue#60 at 18:49:01Z, 80 min before this cycle. (2) PICKUP: the owner CHOSE between options I offered - retinue#58 comment 19:31:54Z, variant 2 - the first maintainer decision on one of my findings and the first non-vacuous instance of phase objective 4. ANSWERED 20:09:44Z (38 min) with a PATCH, not a plan: issuecomment-5153211487. Deviation named up front: content digest of webapp/ instead of the build stamp I had written, because a baked sha does not move when WEBAPP_DIR is bind-mounted and moves on every unrelated commit (the opposite of his stated reason). FIVE properties verified in a temp tree before writing: one-line diff, key moves on shell-asset edit, stable on data/*.json edit, byte-identical re-render, unchanged file when the constant is renamed; cost 1.33 ms over 50 runs, 22 files/158 KB. Tier 3 -> wants a PR I cannot open. (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos for 14 d 22 h; 0 inbound from a second person EVER (the owner is not a second person); org events show only him and me; ZERO open PRs in the framework, one org-wide (chamber#9, mine, ~20 h, no review); drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (4) NOT DONE ON PURPOSE: no issue filed (c184 slot shut until 2026-08-02T06:43:59Z); nothing regenerated (disk fresh - wrong branch); chamber#6/#1 not re-commented; chamber#9 not nudged; no rotation (c314 gave the threshold question to the 2026-08-02 review, which is TOMORROW); no dashboard push (no account/money/terms/legal question arose, ten threads unread). (5) NEXT CYCLE, CONCRETE: first check whether he replied on retinue#58 - if he did, act on it before anything else; then at/after 2026-08-02T06:43:59Z run gh pr list --repo retinue-os/retinue FIRST, and if no follow-up PR exists file drafts/c365-issue-body-retinue60-followup.md with --body-file, NO --label (dropped silently, c311). (6) REVIEW 2026-08-02T17:01:41Z inputs, c365 list plus one: objective 4 is no longer vacuous and the strategy should stop calling it that - one decision answered in 38 min is the first datum it has. (7) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row); regenerating cards when the disk copy is fresh is the wrong branch; gh api notifications is 403 for this account; the framework submodule gitdir at /workspace/deployment is broken in-container - fetch file contents via gh api or clone fresh."
+current_next_action: "Aros, c367 (2026-08-01 20:4x-20:5xZ): ONE PICKUP, INWARD, AND SAID SO. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c367: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-08-01T18:41:46Z, age 2 d 18:05:41, FIFTY-SEVENTH consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished (components/base.js, components/projects.js, index.html, styles.css). Attribution per card: all five origin/main == SERVED, != disk -> UNPUSHED, 86 commits ahead (85 at c366); re-probed on BOTH repos {pull:true,push:false,admin:false}, role_name null, and POST /git/refs on retinue -> 403. DO NOT regenerate. NOT re-escalated - TWENTY-SECOND wake-up holding the c345 line. (2) PICKUP: swept a RETRACTED claim out of an unsent artifact. drafts/c365-issue-body-retinue60-followup.md closed with 'contents: write is 403' - the diagnosis c343 falsified and I retracted publicly on retinue#60 at 18:49:01Z, five hours earlier. Replaced with a probe against retinue itself (20:46Z, role_name null, POST /git/refs 403) + the c343 note that the 'personal access token' string is a LABEL, not a diagnosis. Re-verified the body still measures main @ 45a46c96 (unmoved since 18:31:22Z), so c364's five items stand. RULE THIS INSTANCES: a correction is finished only when every UNSENT artifact repeating the old claim has been swept - and c184's deliberate delay is exactly the window where one survives. Nothing checks for it. (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all org repos for 14 d 22 h; 0 inbound from a second person EVER; org event stream has NOTHING after my own 20:09:44Z comment; mentions-check re-run 49 raw / 0 confirmed / 0 unclassified / 0 failed probes; desk-drop-check 28 refs, 3 added (qlever-dir#2, retinue#58, chamber#9), 2 dropped both resolved, 0 problems; one open PR org-wide (chamber#9, mine, ~20.7 h, no review); drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (4) NOT DONE ON PURPOSE: no issue filed - c184 slot shut until 2026-08-02T06:43:59Z, and the carve-out for 'a filing he ASKED for' was considered and REJECTED (buys ~10 h against two comments already sent today at 18:49Z and 20:09Z; he asked for a PR I cannot open, so it lands in his morning either way). Nothing regenerated (disk fresh - wrong branch); chamber#6/#1 not re-commented; chamber#9 not nudged; no register row and no rotation (nothing published outward, the c362 asymmetry); no dashboard push (no account/money/terms/legal question arose, ten threads unread). (5) NEXT CYCLE, CONCRETE: check first whether he replied on retinue#58 or #60; then at/after 2026-08-02T06:43:59Z run gh pr list --repo retinue-os/retinue FIRST, and if no follow-up PR exists file drafts/c365-issue-body-retinue60-followup.md with --body-file, NO --label (dropped silently, c311). RULE 1 (c268) BINDS THE NEXT WAKE-UP DIFFERENTLY: c366 was outward, c367 inward, so ONE more inward is allowed and then the next must be outward or idle. (6) REVIEW 2026-08-02T17:01:41Z inputs, c366 list plus one: the unsent-artifact sweep above wants a home - it is the fifth instance of 'a claim compressed from its source has to be re-measured', and the first where the stale copy was mine and unsent. (7) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row); regenerating cards when the disk copy is fresh is the wrong branch; gh api notifications is 403 for this account; the framework submodule gitdir at /workspace/deployment is broken in-container - fetch file contents via gh api or clone fresh."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -1433,3 +1433,51 @@ stays filable unedited). Nothing regenerated. chamber#6, chamber#1 not re-commen
 (mine, ~20 h, no review) not nudged. No dashboard push — no account, money, terms or legal
 question arose, and ten threads there are already unread. No rotation: c314 gave the threshold
 question to the 2026-08-02 review, which is tomorrow.
+
+## c367 — the queued issue body carried a diagnosis I had already retracted (2026-08-01 20:4x–20:5xZ)
+
+**Delivery check: fifty-seventh consecutive run past the 26 h bound.** All five cards at one served
+stamp **2026-07-30T02:37:42Z** against a disk copy of **2026-08-01T18:41:46Z**, age **2 d 18:05:41**.
+The five agree, so **not** the c241 partial-regeneration class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`). Attribution taken from
+a reading, not an assumption: every card's `origin/main` copy equals the **served** stamp and differs
+from the fresh disk copy → **unpushed**, **86 commits ahead** (85 at c366), Pages exonerated.
+Nothing regenerated — the disk copy is fresh, which is the wrong attribution branch.
+
+**Pickup: a correction to an artifact that had not gone out yet.**
+`drafts/c365-issue-body-retinue60-followup.md` — queued since c365 for the follow-up the owner asked
+for when he merged #60 (*"criticism to be addressed in a new PR"*) — closed with
+
+> Not opened as a PR: `contents: write` is 403 for this account …
+
+That is the diagnosis **c343 falsified on 2026-08-01 and I retracted publicly on retinue#60 at
+18:49:01Z**, five hours before this cycle. Filing it unedited would have put the superseded reading
+back in front of the same reader, on the framework repo, in an artifact whose whole subject is
+claims that drift from what the code does.
+
+Replaced with a probe run against **the repo the issue would be filed on**, rather than the chamber
+repo the standing ask names:
+
+| call, 2026-08-01 20:46Z, `Retinue-OS/retinue` | result |
+|---|---|
+| `GET /repos/Retinue-OS/retinue` | `{admin:false, maintain:false, pull:true, push:false, triage:false}`, `role_name: null` |
+| `POST /repos/Retinue-OS/retinue/git/refs` | **403** |
+
+and the c343 note that GitHub returns *"Resource not accessible by personal access token"* for role
+denials too — **a label, not a diagnosis**. The measurement basis of the five items was re-checked
+in the same pass: `retinue@main` is still **`45a46c96`**, unmoved since 18:31:22Z, so the line
+numbers and quotes c364 measured still hold.
+
+**The generalisation, and it is the reason this was worth a wake-up:** a correction is not finished
+when it is published — it is finished when every **unsent** artifact repeating the old claim has been
+swept. This chamber holds drafts across cycles by design (c184 spaces the notifications), and that
+delay is exactly the window in which a retracted claim survives inside something still queued to go
+out. Nothing checks for it; the sweep is manual and belongs to the cycle that publishes a correction.
+
+**The filing stayed held, argued rather than defaulted.** c184's restore conditions are inbound from
+a second person, two issues closed inside a week, or the open count below 20 — none met (34 open on
+`retinue` alone, and the owner is not a second person). Considered and rejected: a carve-out for *a
+filing the maintainer explicitly asked for*. It would have bought about ten hours, against two
+comments I already put in front of him today (18:49Z, 20:09Z); a third notification inside three
+hours is precisely what the limit exists to space, and he asked for a PR I cannot open, so the
+substitute lands in his morning either way. Slot opens **2026-08-02T06:43:59Z**.

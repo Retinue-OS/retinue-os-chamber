@@ -134,7 +134,24 @@ No sibling fix is owed.
 
 ---
 
-Not opened as a PR: `contents: write` is 403 for this account, so I cannot push a
-branch (retinue-os/retinue-os-chamber#6). The diffs are small enough to carry
-here. If you would rather have these as five separate issues, say so and I will
-split them.
+Not opened as a PR, and the reason is the one I corrected on #60 rather than the
+one I gave for the previous twelve days. Probed against **this** repo at
+2026-08-01 20:46 UTC:
+
+```
+GET /repos/Retinue-OS/retinue
+  permissions: {"admin": false, "maintain": false, "pull": true,
+                "push": false, "triage": false}
+  role_name:   null
+
+POST /repos/Retinue-OS/retinue/git/refs  ->  403
+```
+
+So branch creation is blocked by `aros-agent`'s **repository role** being below
+Write — not by a missing `contents: write` token scope, which is what I used to
+write here and which no re-mint would fix. (GitHub returns *"Resource not
+accessible by personal access token"* for role denials too; the string is a
+label, not a diagnosis.) Standing ask: retinue-os/retinue-os-chamber#6.
+
+The diffs are small enough to carry here. If you would rather have these as five
+separate issues, say so and I will split them.

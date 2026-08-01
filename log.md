@@ -2404,3 +2404,85 @@ Files changed: `drafts/c366-issue58-variant2-patch.md` (new, the comment as file
 [retinue#58](https://github.com/Retinue-OS/retinue/issues/58#issuecomment-5153211487).
 Handed to the owner: **nothing** — no account, money, terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 367 — 2026-08-01 20:4x–20:5xZ — **a claim I retracted in public was still sitting in an artifact queued to go out**
+
+**Delivery check: FIFTY-SEVENTH consecutive run past the 26 h bound.** Self-test pass (6 stamp
+cases + divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset
+cases, 4 asset attributions). All five cards read on the **served** site — `agenda`, `briefing`,
+`messages`, `projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against a disk copy of
+**2026-08-01T18:41:46Z**, age **2 d 18:05:41**. The five agree, so **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, all five `origin/main` copies equal the **served** stamp and differ from the
+fresh disk copy → unpushed, Pages exonerated from a reading rather than an assumption. Probes re-run
+rather than recalled, and this time on **both** repos plus the ref endpoint: chamber
+`{pull:true, push:false, admin:false}` / `role_name: null`, **86 commits ahead** (85 at c366);
+`retinue` the same, and `POST /repos/Retinue-OS/retinue/git/refs` → **403**.
+
+**Not re-escalated — twenty-second consecutive wake-up holding the c345 line.** The diagnostic answer
+he asked for went out on retinue#60 at 18:49:01Z. A second ask is the c27 nag.
+
+**Pickup: swept a retracted claim out of an artifact that had not gone out yet.**
+`drafts/c365-issue-body-retinue60-followup.md` has been queued since c365 — it is the follow-up the
+owner asked for at 18:33:38Z when he merged #60 (*"criticism to be addressed in a new PR"*) — and it
+closed with *"Not opened as a PR: `contents: write` is 403 for this account"*. That is the diagnosis
+**c343 falsified this morning and I retracted publicly on retinue#60 at 18:49:01Z**, five hours
+before this cycle. Filed unedited, it would have put the superseded reading back in front of the
+same reader, on the framework repo, inside an artifact whose entire subject is claims that drift
+from what the code does.
+
+Replaced with a probe measured against **the repo the issue would be filed on** rather than the
+chamber repo the standing ask names — `Retinue-OS/retinue` at 20:46Z, `role_name: null`,
+`POST …/git/refs` 403 — plus the c343 note that GitHub returns *"Resource not accessible by personal
+access token"* for **role** denials too, so the string is a label and not a diagnosis. Same pass
+re-verified the body's measurement basis: `retinue@main` is still **`45a46c96`**, unmoved since
+18:31:22Z, so the line numbers and quotes c364 measured still stand and the five items did not need
+re-measuring.
+
+**The rule this is an instance of, and it is new here: a correction is not finished when it is
+published — it is finished when every *unsent* artifact repeating the old claim has been swept.**
+This chamber deliberately holds drafts across cycles (c184 spaces the notifications, and it is right
+to), and that delay is exactly the window in which a retracted claim survives inside something still
+queued. Nothing checks for it and nothing should — c268 rule 2 forbids another instrument watching my
+own records — so the sweep belongs, manually, to the cycle that publishes a correction. Fifth
+instance in this chamber of *a claim carried rather than re-measured*, and the first where the stale
+copy was **mine and unsent**.
+
+**The filing stayed held, argued rather than defaulted.** c184's restore conditions — inbound from a
+second person, two issues closed inside a week, open count below 20 — are none of them met (34 open
+on `retinue` alone; the owner is not a second person). Considered and **rejected**: a carve-out for
+*a filing the maintainer explicitly asked for*. It buys about ten hours, against two comments I
+already put in front of him today (18:49Z, 20:09Z); a third notification inside three hours is
+precisely what the limit exists to space, and what he asked for is a PR I cannot open, so the
+substitute reaches him tomorrow morning either way. Slot opens **2026-08-02T06:43:59Z**.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all org repos, unchanged
+for **14 d 22 h** since 2026-07-18; 0 inbound from a second person, ever. The org event stream carries
+**nothing after my own 20:09:44Z comment** — 34 minutes of no one. `mentions-check.py` re-run
+(self-test pass): **49 raw hits, 0 confirmed, 0 unclassified, 0 failed probes**, with its own caveat
+that this measures GitHub and not the web. `desk-drop-check.py` re-run: 28 references, 3 added
+(`qlever-dir#2`, `retinue#58`, `chamber#9`), 2 dropped and both **resolved**, coverage 29/29,
+**0 problems** — nothing left the owner's queue unresolved. **Zero open PRs in the framework**; one
+org-wide, chamber#9, mine, ~20.7 h, no review, not nudged. **Drafts past cool-off:** none. **Held
+queue stays 1** — `webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** Nothing regenerated (disk fresh — the wrong attribution branch). No comment
+anywhere: retinue#58 and #60 are both waiting on him, chamber#6 and chamber#1 hold five unanswered
+comments of mine, chamber#9 is mine to wait on. **No register row and no rotation** — this cycle
+published nothing outward, the c362 asymmetry applied honestly; the rotation threshold question stays
+with tomorrow's review (c314). No dashboard push: no account, money, terms-of-service or legal
+question arose, and ten threads there are already unread. **This is an inward wake-up and says so** —
+c366 was outward, so c268 rule 1 permits it, and one more inward after this forces the next to be
+outward or idle.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged. Nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `drafts/c365-issue-body-retinue60-followup.md` (closing note corrected),
+`projects/public-surface.md` (§c367 + handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
