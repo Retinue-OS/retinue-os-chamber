@@ -1501,3 +1501,101 @@ out, pointer repointed, archive entry, handover field), `projects-archive/public
 (new, archive part 21), `log.md` (this entry). Published outside the chamber: **nothing**.
 Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## c357 — 2026-08-01, 14:0x–14:5xZ — inward, and the surface was my own checker: the branch that could not fire
+
+**Delivery check, all five cards, from the served site.** Self-test pass. `agenda`, `briefing`,
+`messages`, `projects`, `todo` — one served stamp `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, **age 2 d 11:36**, the **forty-eighth** consecutive run past the 26 h
+bound. The five agree, so this is not the c241 partial-regeneration class. Same four assets
+unpublished: `components/base.js`, `components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution, re-probed rather than inherited.** Disk fresh → the refresh ran and the delivery
+path failed → **do not regenerate**. `GET /repos/retinue-os/retinue-os-chamber` reports
+`{pull: true, push: false}`, `role_name: null`; **75 commits unpushed**. Not re-escalated —
+twelfth consecutive wake-up holding the c345 line: report the push result only when the state
+*changes*, and it has not.
+
+**Then the prompt's own instruction, followed for once to its end — and it turned into the
+pickup.** When the disk copy is fresh the prompt says: do not regenerate, check `/pages` and
+`/pages/builds`. Doing that by hand meant fetching the five cards' copies **on `origin/main`**,
+and that is a revision `delivery-check.py` prints a verdict *about* and never *reads*:
+
+| Read this cycle | |
+|---|---|
+| `/pages` | `status: built`, source `main:/docs` |
+| `/pages/builds/latest` | `status: built`, `error.message: null`, 2026-07-30T14:49:47Z |
+| `origin/main` HEAD | `2a9f826b`, committed 23 s before that build |
+| `generated` on `origin/main`, five cards | `2026-07-30T02:37:42Z` |
+| `generated` served, five cards | `2026-07-30T02:37:42Z` — **identical** |
+
+Pages is innocent, exactly as the checker has been saying. **The finding is that the checker
+could not have said anything else.** `classify_asset` takes three revisions *per path* since
+c316; `classify` — the card half, the half the file exists for — took two plus a
+**repository-wide** ahead-count, and `publication_state()` returns `unpushed` while even one
+later commit is unpushed. HEAD has been ahead continuously since 2026-07-30. So all five cards
+printed *"Pages is not at fault"* as a **standing constant**, and `where()`'s `published` branch
+— the only branch that sends a wake-up to `/pages` — was **unreachable for cards** whatever
+Pages did. The masking case is ordinary rather than exotic: a regeneration committed **and
+pushed**, later commits piling up unpushed on top, Pages then failing to build — HEAD is ahead,
+so the old clause blames the push and exonerates the build. The push blocker would have hidden a
+Pages outage for as long as it lasted.
+
+**Fixed.** `card_origin_stamp()` (one local `git show` per card, no network) and `where_card()`,
+which attributes from that card's own copy: absent → unpushed; present but ≠ the fresh disk copy
+→ unpushed, **naming both stamps**; present *and equal* to the fresh disk copy with an older
+served copy → *"this really is the build: check /pages"*; not looked up → the old wording,
+unchanged, because an unchecked revision is reported as unchecked (c316's rule). Self-test **+5
+sentence-asserting cases**, every one run with the repository *75 commits ahead* — this
+chamber's standing state — the third being the known-bad fixture the old code fails; plus one
+pinning that an uncommitted working tree is still answered by the repo state. Sentences and not
+booleans, for the reason c308 and c316 each paid for: a wrong message and a right message are
+both truthy, so boolean-only tests passed straight through both defects.
+
+**The general form, third venue after c19 and c343:** *a verdict derived from a repository-wide
+fact is not a measurement of a per-file one* — and where the repository-wide fact is a constant,
+the verdict is a constant too. c316 fixed this exact conflation two functions down, in the same
+file, printed on the same run, and did not carry it up; the module docstring has argued the
+three-revision case since then and applied it only to the assets.
+
+**And it is the class the c356 handover asked the review to name.** `tools/` runs from disk, so
+this correction takes effect at the next wake-up whatever the role denial does — *work whose
+effect does not depend on the push*, with a worked instance instead of a label.
+
+**Rotation — the delta, not the word.** `HEAD` **219 354 B** → §c352 out to
+[archive part 22](projects-archive/public-surface-c352.md) **−3 857 B** → this cycle **+6 799 B**
+→ **222 296 B, +2 942 net**, second consecutive positive. The mechanism is now visible in the
+sections' own sizes: the floor releases the **oldest**, and the oldest was also the **smallest**
+(3 857 against 4 861 / 7 050 / 9 620 / 6 866 / 5 638), while every cycle also appends a register
+row that never rotates. `pointer-check` **208 pointers / 2 archive indexes / 0 problems**;
+`render-check` 0 of 67; `private-name-check` 0 on forward surfaces.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide
+(chamber#9, mine, not nudged); **zero open PRs in the framework**, so the review-note channel —
+the one that works — had no target for the second cycle running. Last human action anywhere in
+the org stays **2026-08-01T11:06:01Z** (the #59 merge). **Drafts past cool-off:** none. **Held
+queue stays 1** — `webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** Nothing regenerated. **Nothing published outside the chamber** —
+chamber#6 carries the corrected ask from 06:08:46Z today and a second comment the same day is the
+nagging c27 forbids. No issue filed; the c184 slot opens 2026-08-02T06:44Z, and this finding is
+in my own tooling, which has no issue tracker but this file. No dashboard push: no account,
+money, terms or legal question arose, and eleven threads there are already unread.
+
+**For the review, 2026-08-02T17:01:41Z — now four, ranked.** (1) The traffic-403: the standing
+measure cannot read anything but zero, so *owner-blocked* has been asserted for fourteen days on
+an instrument that cannot falsify it. (2) The c314 threshold question, with two executed data
+points and the smallest-released mechanism above. (3) Name the class *work whose effect does not
+depend on the push* — c357 is its first instance. (4) The register has no "never" row left, so
+*audit a surface not yet audited* now means **re-auditing on decay, including my own
+instruments** — which is where both c348 and c357 came from.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+
+Files changed: `tools/delivery-check.py` (per-card `origin/main` lookup, `where_card`, 6 new
+self-test cases, docstring), `projects/public-surface.md` (one register row, §c357, §c352
+rotated out, archive list entry, handover field), `projects-archive/public-surface-c352.md`
+(new, archive part 22), `log.md` (this entry). Published outside the chamber: **nothing**.
+Handed to the owner: **nothing new**. **Committed locally only — `git push` is 403 until the
+repository role is granted.**

@@ -58,6 +58,13 @@ site still disagrees* — only now is /pages the right place to look. Collapsing
 the middle case into the last one is what this check did on four real files for
 five cycles (c316).
 
+The cards get those same three revisions as of c357, and did not before. They
+were attributed from a repository-wide ahead-count, which reports `unpushed`
+while even one later commit is unpushed — so on a chamber that is permanently
+ahead, every stale card printed "Pages is not at fault" as a constant and the
+one branch that sends a wake-up to /pages could never fire for a card. The
+answer is per file, and it is one `git show` per card.
+
 Usage
 -----
     python3 tools/delivery-check.py [chamber-root]
@@ -92,6 +99,9 @@ BOUND = timedelta(hours=26)
 TIMEOUT = 30
 
 
+UNKNOWN = object()  # `origin` not supplied — distinct from "absent on origin".
+
+
 def parse(stamp):
     """`2026-07-28T17:54:59Z` -> aware datetime. None when unparseable."""
     try:
@@ -102,7 +112,7 @@ def parse(stamp):
         return None
 
 
-def classify(now, served, disk, pub=None):
+def classify(now, served, disk, pub=None, origin=UNKNOWN):
     """Verdicts for one card. `served`/`disk` are `generated` strings or None.
 
     Attribution follows the rule the wake-up prompt states: a stale served copy
@@ -149,12 +159,13 @@ def classify(now, served, disk, pub=None):
             problems.append(
                 f"STALE {age} past the {BOUND} bound — disk copy is fresh: "
                 "the refresh ran and publication broke. Do not regenerate; "
-                + where(pub)
+                + where_card(pub, origin, disk, served)
             )
     elif s is not None and d is not None and s != d:
         problems.append(
             f"LAG served {served} behind disk {disk} — both are inside the "
-            "bound, but publication is behind: " + where(pub)
+            "bound, but publication is behind: "
+            + where_card(pub, origin, disk, served)
         )
     return problems
 
@@ -185,7 +196,45 @@ def where(pub):
             "before looking at Pages.")
 
 
-UNKNOWN = object()  # `origin` not supplied — distinct from "absent on origin".
+def where_card(pub, origin=UNKNOWN, disk=None, served=None):
+    """`where()`, refined by *this card's* copy on `origin/main`.
+
+    c357. The asset half of this file takes three revisions per path and the
+    card half — the half the file was written for — took two plus a
+    repository-wide flag. That is the wrong granularity, and in this chamber it
+    is worse than wrong: `publication_state` reports `unpushed` whenever HEAD is
+    ahead by even one commit, and HEAD has been ahead continuously since
+    2026-07-30. So every stale card printed *"Pages is not at fault"* as a
+    standing constant, and the `published` branch of `where()` — the only branch
+    that sends a wake-up to /pages — was **unreachable for cards** no matter what
+    Pages did. A check with an unreachable failure branch is not checking that
+    failure.
+
+    The masking case is ordinary, not exotic: a regeneration is committed and
+    pushed, later commits accumulate unpushed on top, and Pages then fails to
+    build. HEAD is ahead, so the old clause blames the push and exonerates the
+    build — while the card's own copy sits on `origin/main`, published, unbuilt.
+
+    `origin` is that card's `generated` stamp on `origin/main`, `None` when the
+    card is not there at all, `UNKNOWN` when it was not looked up (in which case
+    the old, repository-wide wording is returned unchanged rather than guessed
+    at — the c316 rule that an unchecked revision is reported as unchecked).
+    """
+    state = (pub or {}).get("state", "unknown")
+    if state == "uncommitted" or origin is UNKNOWN:
+        return where(pub)
+    if origin is None:
+        return ("this card is not on `origin/main` at all — the commit is "
+                "UNPUSHED. It does not exist on GitHub; Pages is not at fault "
+                "and /pages will show nothing. The fault is the push, in this "
+                "container.")
+    if origin != disk:
+        return (f"the fresh disk copy ({disk}) is not the one on `origin/main` "
+                f"({origin}) — the commit is UNPUSHED. Pages is not at fault; "
+                "the fault is the push, in this container.")
+    return (f"this card's fresh copy IS on `origin/main` ({origin}) and the "
+            f"site still serves {served} — so this really is the build: check "
+            "/pages and /pages/builds.")
 
 
 def classify_asset(served, disk, head, origin=UNKNOWN):
@@ -312,6 +361,33 @@ def self_test():
                      {"state": "unpushed", "detail": "1"})):
         return "LAG verdict does not name the publication state"
 
+    # c357. The card attribution takes three revisions, as the asset half has
+    # since c316. Every case below runs with the repository 75 commits ahead —
+    # this chamber's standing state — so the old code returns the identical
+    # "Pages is not at fault" sentence for all four. The third case is the one
+    # that matters: a card whose fresh copy IS published, served stale. Its
+    # branch was unreachable for cards, and no boolean-only test could have
+    # noticed, because a wrong sentence and a right one are both truthy.
+    ahead = {"state": "unpushed", "detail": "75 commit(s)"}
+    card_cases = [
+        # served stale, disk fresh, repo ahead; `origin/main` holds …
+        (None, "UNPUSHED", "check /pages"),            # … no such card
+        (stale, "UNPUSHED", "check /pages"),           # … an older card
+        (fresh, "check /pages", "Pages is not at fault"),  # … the fresh one
+        (UNKNOWN, "UNPUSHED", "check /pages"),         # … not looked up
+    ]
+    for origin, must, must_not in card_cases:
+        msg = " ".join(classify(now, stale, fresh, ahead, origin))
+        if must not in msg:
+            return f"card verdict for origin={origin!r} omits {must!r}"
+        if must_not in msg:
+            return f"card verdict for origin={origin!r} wrongly names {must_not!r}"
+    # An uncommitted working tree is answered by the repo state, not by origin:
+    # there is no commit whose publication could be in question.
+    if "NOT COMMITTED" not in " ".join(classify(
+            now, stale, fresh, {"state": "uncommitted", "detail": "x"}, fresh)):
+        return "uncommitted card verdict was overridden by the origin lookup"
+
     # The asset half, both directions. `a`/`b`/`c` stand for three digests.
     a, b, c = "aaa", "bbb", "ccc"
     asset_cases = [
@@ -382,6 +458,22 @@ def origin_bytes(root, path):
     asset that has never been pushed cannot have been built.
     """
     return rev_bytes(root, "origin/main", path)
+
+
+def card_origin_stamp(root, name):
+    """This card's `generated` stamp on `origin/main` — what Pages builds from.
+
+    The third revision the card half never had. Read from git, not the network:
+    it costs one `git show` per card and it is what separates *the push failed*
+    from *the build failed* on a repository that is permanently ahead.
+    """
+    data = rev_bytes(root, "origin/main", f"data/{name}")
+    if data is None:
+        return None
+    try:
+        return json.loads(data).get("generated")
+    except Exception:
+        return None
 
 
 def rev_bytes(root, rev, path):
@@ -467,7 +559,8 @@ def main():
         print("Refusing to report on real files.")
         return 2
     print("self-test: pass (6 stamp cases + the divergence fixture, "
-          "5 attribution cases, 6 asset cases, 4 asset attributions)")
+          "5 attribution cases, 4 card attributions + the uncommitted "
+          "override, 6 asset cases, 4 asset attributions)")
 
     data_dir = os.path.join(root, DATA_DIR)
     names = sorted(f for f in os.listdir(data_dir) if f.endswith(".json"))
@@ -488,15 +581,17 @@ def main():
             disk = None
         served = None if offline else fetch(name)
         disk_stamps[name] = disk
+        origin = card_origin_stamp(root, name)
 
         age = ""
         ref = parse(served if not offline else disk)
         if ref:
             age = f"  age {str(now - ref).split('.')[0]}"
         print(f"  {name:16} disk {disk}  served "
-              f"{'(skipped)' if offline else served}{age}")
+              f"{'(skipped)' if offline else served}"
+              f"  origin/main {origin}{age}")
 
-        for p in classify(now, disk if offline else served, disk, pub):
+        for p in classify(now, disk if offline else served, disk, pub, origin):
             problems.append(f"{name}: {p}")
 
     # The cross-card check, which is the whole reason this file exists: five

@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c356 (2026-08-01 13:2x-14:0xZ): INWARD, and it says so - the third consecutive one, under c268 rule 1 which permits exactly two outcomes and this is the second (idle-and-says-so); no instrument was built. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c356: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 10:50:23, FORTY-SEVENTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished. ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed. Real git push origin main -> 403, Permission to retinue-os/retinue-os-chamber.git denied to aros-agent. SEVENTY-FOUR commits unpushed, 0 behind, plain fast-forward. DO NOT regenerate. NOT re-escalated - ELEVENTH wake-up holding the c345 line: report the push result only when the state CHANGES. (2) PICKUP A, the c270/c315 merged-is-not-present class run as a SWEEP for the first time (c330 answered it for one PR): for each framework PR merged since 2026-07-31 - 49, 51, 53, 55, 56, 57, 59 - up to 12 long added lines per file taken from that PR own diff and looked for in that file CURRENT blob on main. 7 PRs, 31 files, ZERO absent, ZERO files missing. #55 README line (bet 1 entry point, vanished once before) still present under four later merges. CLEAN - keep the negative result, the failure it looks for is invisible from the PR badge. (3) PICKUP B, the finding: c355 enumerated the push-block cost from git diff and concluded THE DASHBOARD AND NOTHING ELSE. That method can only find costs that are FILES. Two are not. (i) GET /repos/.../traffic/views and /clones = 403 on all three public repos - documented as needing PUSH access, i.e. the same missing role - so the project only direct measure of REACH is unavailable, and every bet is read off stars/forks/issues (all zero since 2026-07-18), a set that CANNOT separate nobody-arrives from they-arrive-and-do-not-engage. Those two readings imply opposite next moves. (ii) Served components/base.js has NO staleLabel; disk copy exports STALE_AFTER_MS = 26 h and renders N h old / N days old - so the code that tells a reader the page is stale is ITSELF in the unpushed set. The served dashboard shows 2.5-day-old data with a date and no age: THE BLOCK HIDES ITS OWN MOST VISIBLE SYMPTOM. Neither finding GROWS the ask (same grant, corrected form already at chamber#6); they change what it COSTS and what I can measure. (4) ROTATION EXECUTED AND MEASURED AFTERWARDS, which is the part to carry: c355 said DUE with no admissible move (tail at the five-write-up retention floor); appending a sixth released the oldest, so under a fixed floor a rotation is unblocked by WRITING, not by deciding. But the bytes: HEAD 218 072 B, rotation -7 289 B (SS c350 -> archive part 21), this cycle +8 089 B (two register rows + SS c356), file after = 218 872 B, LARGER than before, and rotation-check reports DUE 214/200 KB immediately after the rotation it demanded. DO NOT RECORD rotated AS AN OUTCOME - RECORD THE BYTE DELTA (c347 shape). c314 question inherited by the review with this as its first executed data point. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person EVER; one open PR org-wide (chamber#9, mine, MERGEABLE, 0 comments, ~14 h); ZERO open PRs in the framework so the review-note channel had no target; every open issue authored by retog or me. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (the #59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). Framework branch feat/chamber-secretary-style-override is fully merged (0 ahead, 21 behind) and still exists - deleting it needs the write I do not have; not worth a nag on its own. (6) NOT DONE ON PURPOSE: nothing regenerated; NOTHING PUBLISHED - the only venue for both findings is chamber#6 where the corrected ask was stated 06:08:46Z TODAY, and a second comment 7 h later is the nagging c27 forbids, whatever new detail it carries; they go to the REVIEW instead. No issue filed - the c184 slot opens 2026-08-02T06:44Z. chamber#9 not nudged; retinue#59 note not restated; no dashboard push (no account, money, terms or legal question arose; eleven threads already unread). (7) FOR THE REVIEW, 2026-08-02T17:01:41Z, carried and now ranked: FIRST the traffic-403 - the standing measure is not merely reading zero, it is INCAPABLE of reading anything else, so the phase diagnosis owner-blocked has been asserted for 14 days on an instrument that cannot falsify it; then the c314 threshold question with the byte delta above; then name the class work-whose-effect-does-not-depend-on-the-push in the admissible-work list; then the register has no never row left, so audit-a-surface-not-yet-audited now means re-auditing on decay and should be written as its own rule. (8) DO NOT RE-DERIVE: the fork-and-PR route around the push-403 is closed by guardrail 2 (c316 row)."
+current_next_action: "Aros, c357 (2026-08-01 14:0x-14:5xZ): OUTWARD in the only sense available while the push is blocked - an instrument I run every wake-up was measuring one of its three branches and asserting the other two. IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c357: self-test pass; ALL FIVE cards read - agenda, briefing, messages, projects, todo all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 11:36, FORTY-EIGHTH consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION: disk fresh -> the refresh ran, the DELIVERY path failed; repo permissions re-probed live = {pull:true, push:false}, 75 commits unpushed. DO NOT regenerate. NOT re-escalated - TWELFTH wake-up holding the c345 line (report the push result only when the state CHANGES). (2) PICKUP, and it is the checker itself: the prompt says check /pages when disk is fresh, so I did - /pages status built, /pages/builds/latest status built with error.message null, origin/main HEAD 2a9f826b committed 23 s before that build, and origin/main generated == SERVED generated on ALL FIVE cards. Pages is innocent. THE FINDING IS THAT delivery-check.py COULD NOT HAVE SAID ANYTHING ELSE: classify_asset takes three revisions PER PATH since c316, but classify (the CARD half, the half the file exists for) took two plus a REPOSITORY-WIDE ahead-count, and publication_state returns unpushed while even one later commit is unpushed. HEAD has been ahead continuously since 2026-07-30, so all five cards printed 'Pages is not at fault' as a STANDING CONSTANT and where()'s published branch - the only one that sends a wake-up to /pages - was UNREACHABLE FOR CARDS whatever Pages did. Masking case is ordinary, not exotic: regeneration committed AND pushed, later commits pile up unpushed, Pages then fails to build -> old clause blames the push and exonerates the build. FIXED: card_origin_stamp() (one local git show per card, no network) + where_card(); self-test +5 SENTENCE-asserting cases (booleans cannot catch this - a wrong message and a right one are both truthy, which is how c308 and c316 both survived) run with the repo 75 ahead, the third being the known-bad fixture the old code fails; +1 case pinning that an uncommitted tree is still answered by the repo state. Verified: the live run now names both stamps instead of asserting. GENERAL FORM, third venue after c19/c343: A VERDICT DERIVED FROM A REPOSITORY-WIDE FACT IS NOT A MEASUREMENT OF A PER-FILE ONE, and where the repo-wide fact is a constant the verdict is a constant too. (3) ITS EFFECT DOES NOT DEPEND ON THE PUSH - tools/ runs from disk, so this is corrected from the next wake-up whatever the role denial does. That is the class the c356 handover asked the review to name, and this is its first worked instance. (4) ROTATION, byte delta not the word: HEAD 219 354 B, -3 857 B (SS c352 -> archive part 22), +6 799 B this cycle, after = 222 296 B, +2 942 NET, second consecutive positive. Mechanism now visible: the floor releases the OLDEST and the oldest was also the SMALLEST (3 857 vs 4 861 / 7 050 / 9 620 / 6 866 / 5 638), while every cycle also adds a register row that NEVER rotates. Third input for the c314 threshold question. (5) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person EVER; one open PR org-wide (chamber#9, mine, not nudged); ZERO open PRs in the framework, so the review-note channel - the one that works - had no target again. Last human action anywhere in the org stays 2026-08-01T11:06:01Z (#59 merge). drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md). (6) NOT DONE ON PURPOSE: nothing regenerated; NOTHING PUBLISHED outside the chamber - chamber#6 carries the corrected ask from 06:08:46Z today and a second comment the same day is the nagging c27 forbids; no issue filed, the c184 slot opens 2026-08-02T06:44Z; no dashboard push (no account, money, terms or legal question arose; eleven threads already unread). (7) FOR THE REVIEW 2026-08-02T17:01:41Z, ranked, now four: FIRST the traffic-403 (the standing measure cannot read anything but zero, so the phase diagnosis has been asserted for 14 days on an instrument that cannot falsify it); the c314 threshold question with TWO executed data points; NAME THE CLASS work-whose-effect-does-not-depend-on-the-push, which c357 has now instantiated; and the register has no never row left, so audit-a-surface-not-yet-audited means re-auditing on decay - INCLUDING MY OWN INSTRUMENTS, which is where c357 and c348 both came from. (8) DO NOT RE-DERIVE: the fork-and-PR route around the push-403 is closed by guardrail 2 (c316 row)."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -227,6 +227,11 @@ Archive, oldest first:
   with five write-ups in the tail; appending §c356 made six, so the retention
   floor released the oldest. A rotation under a fixed floor is unblocked by
   writing, not by deciding.
+- [`projects-archive/public-surface-c352.md`](../projects-archive/public-surface-c352.md)
+  — cycle 352, 2026-08-01. Rotated at c357, second consecutive execution and
+  second positive net delta: **−3 857 B** moved against **+6 799 B** appended.
+  The released section was the smallest of the six, because the floor releases
+  the oldest — see the byte table in §c357.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
 stopped at part 2 when c216 wrote it, and the four rotations after it — c239
@@ -486,6 +491,7 @@ measured at 0 of 78.
 | **The one blind spot on the owner's queue that c350 measured and deliberately left** — a **branch** reference, which no instrument could resolve | 2026-08-01 (c355) | **Closed, and the 404 it rests on turned out to mean two things.** `desk-drop-check.py` now resolves branch references in both of its directions, inverted because a branch is finished when it *stops* existing: gone-but-on-the-desk is `STALE-RESOLVED`, live-but-dropped is `DROPPED-LIVE`. Measured against the live API while writing it: the endpoint returns **two distinguishable 404s** — `{"message": "Branch not found"}` for a missing branch, `{"message": "Not Found"}` for an unreadable *repository*, which in this deployment is also what a permission denial looks like. My first draft collapsed them and reported `no-such-repo-xyz:main` as **resolved**; only the first string is now read as `branch-gone`, everything else as `unreadable`. That is the c19/c310/c343 shape a fourth time, caught this once *before* publication rather than after. Readings: disk card's one branch (`chamber#7: … branch claude/aros-issues-triage-goei5k`) attributed and **live** — correctly silent; served card's `Branch fix/restore-dropped-merges` unattributed, and it is the one that *is* finished (merged as retinue#55, 404), so the gap that remains is the card's naming and not the checker's. c354's prompt rule extended from "an issue or a PR" to "an issue, a PR or a branch". Coverage now counts branches: disk **28/37**, served **24/27** |
 | **The framework's `main`, re-read against the content of every PR merged into it since 2026-07-31** — the c270/c315 *merged is not present* class, run as a sweep rather than on the one PR that prompted it | 2026-08-01 (c356) | **Clean.** 7 merged PRs (#49, #51, #53, #55, #56, #57, #59), 31 changed files; up to 12 long added lines sampled from each file's own diff and looked for in that file's current blob on `main` — **0 absent, 0 files missing**. #55's README line, the one that carries bet 1 and that vanished once before, is still there under four later merges. The class did not recur. Detail: §c356 below. |
 | **What the repository-role denial costs *beyond* the dashboard** — asked because c355 enumerated the cost as *the dashboard and nothing else* and enumerated it from the diff only | 2026-08-01 (c356) | **Two costs a diff cannot show, and both make the block self-masking.** (1) `GET /repos/…/traffic/views` and `…/clones` → **403 on all three public repos**; the endpoint is documented as needing push access, so the project's only direct measure of *reach* is unavailable and every bet is being read off stars/forks/issues, which cannot separate *nobody arrives* from *they arrive and don't engage*. (2) The served `components/base.js` has **no `staleLabel`**; the disk copy exports `STALE_AFTER_MS = 26 h` — so the code that would tell a reader the page is old is itself in the unpushed set, and the served dashboard shows 2-day-old data with a date and no age. Neither grows the ask; both change what it costs. Detail: §c356 below. |
+| **`delivery-check.py`'s own card attribution — whether *"Pages is not at fault"* is a measurement or an inference** — asked because c357 had to fetch `origin/main`'s five cards **by hand** to establish what the checker had already asserted | 2026-08-01 (c357) | **An inference, and one that could not have come out any other way.** The asset half takes three revisions **per path** (served, disk, `HEAD`, `origin/main`) since c316; the card half — the half the file exists for — took two plus a **repository-wide** ahead-count, and `publication_state` returns `unpushed` while even one later commit is unpushed. This chamber has been ahead continuously since 2026-07-30, so all five cards printed *"Pages is not at fault"* as a **standing constant** and `where()`'s `published` branch — the only one that sends a wake-up to /pages — was **unreachable for cards** whatever Pages did. The masking case is ordinary: a regeneration is committed **and pushed**, later commits pile up unpushed on top, Pages then fails to build — HEAD is ahead, so the old clause blames the push and exonerates the build. Fixed: `card_origin_stamp()` (one `git show` per card) + `where_card()`, self-test +5 sentence-asserting cases, of which the third reproduces the defect (the old code returns the forbidden string for it). Measured today, so the verdict is now earned rather than assumed: served == `origin/main` on **all five**, `/pages` `status: built`, `error.message: null` — Pages is innocent, and this is the first cycle that can say so from a reading. Detail: §c357 below. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
@@ -656,64 +662,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c352 — reviewing a PR while it is still open (2026-08-01, 10:4x–11:1xZ)
-
-The survey caught `retinue-os/retinue` with a `pushed_at` **eight minutes old** and one open PR
-behind it: [#59](https://github.com/Retinue-OS/retinue/pull/59), `fix(whatsapp): drop
-status/broadcast posts instead of surfacing them as inbox mail`, opened 10:38:09Z. Every review
-note before this one arrived after the merge. This is the first that reached a PR while the
-author could still act on it, and it cost nothing extra — the same survey step found it.
-
-**Verified in the order the c349 rule sets: source, then effect.** The premise first, from the
-primary source rather than the PR description: whatsmeow's `types/jid.go` declares
-`BroadcastServer = "broadcast"` and `StatusBroadcastJID = NewJID("status", BroadcastServer)`,
-so the PR's claim that it keys on a protocol address rather than a content heuristic is exactly
-right. Then the effect: cloned the repo, fetched `pull/59/head`, ran
-`tests/test_whatsapp_send_policy.py` — 11 checks pass, including the new
-`test_broadcast_jid_detected`.
-
-**The test's green is not the property, again.** The new test exercises `_jid_is_broadcast()`
-in isolation; it never drives `_handle_message_event()`, which is where the drop has to happen
-and where the ordering — before transcription, before `_record_recent_sender`, before
-`_forward_to_inbox` — is what makes the fix worth having. So I drove the handler with a
-synthetic `MessageEv` (forward/control/record stubbed, text forced non-empty so nothing is
-dropped for being contentless):
-
-```
-status     chat=status@broadcast            is_broadcast=True   -> DROPPED
-bcast      chat=120363000@broadcast         is_broadcast=True   -> DROPPED
-1:1        chat=41791234567@s.whatsapp.net  is_broadcast=False  -> record + forward
-newsletter chat=120363111@newsletter        is_broadcast=False  -> record + forward
-```
-
-The first three are the fix working, including the broadcast-list case beyond `status@` that
-the helper claims and the shipped test does not reach.
-
-**The fourth is the finding.** `NewsletterServer = "newsletter"` sits in the same `const` block
-as `BroadcastServer`, and `events.Message` carries a `NewsletterMeta` field precisely because
-WhatsApp Channel posts are delivered as message events. A followed Channel is therefore the
-same class of non-message as a Status post, one server part away from the guard, and it still
-reaches triage. Two consequences, in the order they bite: a dashboard conversation per Channel
-post (the noise the PR set out to remove), and an entry in the recent-senders store with
-`is_group: false` — indistinguishable from a contact in the list `whatsapp-contacts.py --query`
-consults **first**, so a name lookup can resolve to a JID that cannot receive a reply.
-
-Published as a **non-blocking note**, with the four-line diff that covers it and an explicit
-calibration: the routing was verified with a synthetic event, not against a live linked
-account, and whether the deployment receives any newsletter traffic depends on whether it
-follows a Channel. If it does not, this is latent rather than live — said in the comment,
-because a note that hides its own conditionality is the c3 failure in miniature.
-
-Also worth recording, since the PR description undersells it: dropping *before*
-`_record_recent_sender` means a contact who merely posted a Story no longer jumps to the top of
-the recent-conversations list and displaces someone the user actually talked to. That is a
-correctness gain in contact lookup, not only noise removal.
-
-**Standing rule this adds:** a guard keyed on a protocol enum should be checked against the
-whole enum, not the member that prompted it. The four-line probe that found this is the same
-shape as c349's `clear`-wrapper — drive the real entry point, not the helper the test picked.
-
-
 ## §c353 — a merge is not a measurement (2026-08-01, 11:2x–11:5xZ)
 
 ### What prompted it
@@ -1172,3 +1120,90 @@ that rises by the rows, forever. **Do not record "rotated" as an outcome; record
 delta**, which is the c347 shape (*a 200 is not a measurement of the effect*) applied to my own
 housekeeping. The review on 2026-08-02 inherits the c314 question with this as its first
 executed data point.
+
+## §c357 — the check that could not fail in one of its three branches (2026-08-01, 14:0x–14:5xZ)
+
+The wake-up prompt makes the delivery check the first survey step, and it is explicit about
+what to do when the served copy is stale and the disk copy is fresh: *do not regenerate; check
+`/pages` and `/pages/builds`.* I did that this cycle for the first time in a while — and while
+doing it by hand I fetched the five cards' copies **on `origin/main`**, which is a revision the
+checker prints a verdict about and never reads.
+
+| Read by hand, 2026-08-01 14:1xZ | |
+|---|---|
+| `/pages` | `status: built`, `source: main:/docs`, `build_type: legacy` |
+| `/pages/builds/latest` | `status: built`, `error.message: null`, updated `2026-07-30T14:49:47Z` |
+| `origin/main` HEAD | `2a9f826b`, committed `2026-07-30T14:49:24Z` — 23 s before that build |
+| `generated` on `origin/main`, all five cards | `2026-07-30T02:37:42Z` |
+| `generated` served, all five cards | `2026-07-30T02:37:42Z` — **identical** |
+
+So Pages is innocent, exactly as the checker said. The finding is that **the checker could not
+have said anything else.**
+
+### The defect
+
+`classify_asset` takes three revisions **per path** — served, disk, `HEAD`, `origin/main` — and
+has done since c316, when it was caught telling five consecutive cycles to inspect Pages for a
+fault sitting in this container. `classify`, the card half, is the half this file was written
+for, and it takes **two** revisions plus one repository-wide flag: `publication_state()`, which
+returns `unpushed` whenever `origin/main..HEAD` is non-empty.
+
+Those are not the same granularity, and on this chamber the difference is total. HEAD has been
+ahead continuously since 2026-07-30 and will stay ahead until the repository role lands. So:
+
+- every stale card printed *"the commit is UNPUSHED … Pages is not at fault"*, on all 48
+  consecutive failing runs, **without ever reading that card's copy on `origin/main`**;
+- `where()`'s `published` branch — the one and only branch that sends a wake-up to
+  `/pages` — was **unreachable for cards**, whatever Pages did.
+
+A check with an unreachable failure branch is not checking that failure. And the masking case
+is ordinary rather than exotic: a regeneration is committed **and pushed**, later commits
+accumulate unpushed on top of it, and Pages then fails to build. HEAD is ahead, so the old
+clause blames the push and exonerates the build, while the card's own copy sits on
+`origin/main`, published and unbuilt. The push blocker would have hidden a Pages outage for as
+long as it lasted.
+
+### The fix, and why the self-test is the load-bearing part
+
+`card_origin_stamp(root, name)` reads `origin/main:docs/data/<name>` — one local `git show` per
+card, no network — and `where_card(pub, origin, disk, served)` attributes from it:
+
+| That card on `origin/main` | Verdict |
+|---|---|
+| absent | UNPUSHED — Pages never saw it |
+| present, ≠ the fresh disk copy | UNPUSHED, **naming both stamps** — today's case |
+| present **and** equal to the fresh disk copy, served older | *"this really is the build: check /pages and /pages/builds"* |
+| not looked up (`UNKNOWN`) | the old repository-wide wording, unchanged — an unchecked revision is reported as unchecked (c316's rule) |
+
+Five self-test cases, and they assert the **sentence**, not the boolean, for the reason c308 and
+c316 both learned the hard way: a wrong message and a right message are both truthy, so every
+boolean-only test passed throughout both defects. Every card case runs with the repository *75
+commits ahead* — this chamber's standing state — and the third one is the known-bad fixture: a
+card whose fresh copy **is** on `origin/main`, served stale, which the old code answers with the
+forbidden string. A sixth case pins the ordering: an uncommitted working tree is still answered
+by the repo state, because there is no commit whose publication could be in question.
+
+### What this is an instance of
+
+c316 fixed this exact conflation in `classify_asset` and did not carry it two functions up, in
+the same file, printed on the same run — the file's own module docstring has argued the
+three-revision case since c316 and applied it only to the assets. The general form, which is
+the third venue for it after c19 and c343: **a verdict derived from a repository-wide fact is
+not a measurement of a per-file one**, and where the repository-wide fact is a constant, the
+verdict is a constant too. The tell was available and free — I was hand-fetching the revision
+the tool was reasoning about without reading.
+
+Its effect does not depend on the push: `tools/` runs from disk, so this is corrected for every
+wake-up from the next one, whatever the role denial does. That is the class the c356 handover
+asked the review to name, and this is its first worked instance.
+
+**Bytes, per c356's standing rule — record the delta, not the word "rotated".** File at `HEAD`
+before this cycle **219 354 B**; rotation moves §c352 out to
+[archive part 22](../projects-archive/public-surface-c352.md) (**−3 857 B**); this cycle appends
+one register row + this section (**+6 799 B**); file after **222 296 B**, **+2 942 B net**.
+Second consecutive execution, second positive delta. The mechanism is visible in the six
+sections' own sizes — §c352 **3 857 B** (released), then 4 861, 7 050, 9 620, 6 866, and this one
+5 638: the floor releases the **oldest**, and the oldest here was also the **smallest**, while a
+cycle appends both a section *and* a permanent register row that never rotates. A rotation whose
+released item is smaller than the cycle that released it is not a bound on the file. Third input
+for the c314 threshold question the 2026-08-02 review inherits.
