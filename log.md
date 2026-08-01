@@ -1725,3 +1725,103 @@ handover field), `projects-archive/public-surface-c353.md` (new, archive part 23
 [deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776).
 Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 359 — 2026-08-01 15:5x–16:4xZ
+
+**Delivery check: FIFTIETH consecutive run past the 26 h bound.** Self-test pass. All five
+cards read on the served site — `agenda`, `briefing`, `messages`, `projects`, `todo` — at one
+served stamp **2026-07-30T02:37:42Z** against a disk copy of **2026-07-31T18:35:03Z**, age
+**2 d 13:42:45**. The five agree, so not the c241 partial-regeneration class. Same four assets
+unpublished (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution, per card rather than per repository** (c357's `where_card()`): all five
+`origin/main` copies equal the **served** stamp and differ from the fresh disk copy → the commit
+is unpushed, and Pages is exonerated from a reading rather than from a constant. Live probe:
+`{pull: true, push: false, admin: false}`, `role_name: null` on all three org repos, **77 commits
+ahead**, `git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent`**. Disk fresh → the refresh ran and publication broke → **not regenerated**. **Not
+re-escalated as a push report — fourteenth consecutive wake-up holding the c345 line.**
+
+**Pickup: re-audit on decay, pointed at my own published reasoning.** c358 established
+re-auditing on decay as the successor to *audit a surface not yet audited* and ran it on a repo.
+This one runs it on the more productive target: the
+[c258 comment on chamber#6](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5120751541),
+nine days old, which declined to ask for the traffic scope and said in its own words *"I could
+not find the exact fine-grained permission named in the docs"* — then reasoned past the gap.
+Three wake-ups since (c343, c356, c358) have had permission denials as their entire subject and
+none re-read it.
+
+**The gap was one call wide.** GitHub returns the required permission on the denial itself. Eight
+calls, two repos × four traffic endpoints: all **403**, all
+`X-Accepted-Github-Permissions: administration=read`. The control is what makes that a
+measurement rather than a header sighting — it is endpoint-specific and present on successes
+too: `rulesets` **200**/`metadata=read`, `actions/cache/usage` **200**/`actions=read`, against
+`actions/permissions`, `autolinks`, `branches/main/protection` 403/`administration=read` and
+`hooks` 403/`repository_hooks=read`.
+
+**What it changes, and it enlarges my own ask.** The traffic gate has two halves and c258 saw
+one. The **role** half is the docs sentence it quoted — *repositories that you have write access
+to* — satisfied by exactly the Write role chamber#6 already asks for. The **token** half is
+`administration=`**`read`**, one tier below the write-tier c258 guessed at, and by the owner's own
+public chamber#3 statement the token already carries *"Administration read/write"*. So the single
+settings action I asked him for **plausibly also opens the four traffic endpoints** — the
+capability I told him in writing not to grant. An ask that grants more than it advertises is a
+defect in the ask, and the only useful time to say so is before he acts.
+
+**Not settled, and the discriminator is missing rather than negative.** Whether the token really
+carries `administration`. There is no **200** declaring `administration=read` anywhere I can
+reach, so c343's paired-call discriminator has no positive control here and cannot separate *the
+token lacks it* from *the role denies first*. One call after the role lands settles it.
+
+**The near-miss, which is the part worth keeping.** My first reading of this asserted the
+*opposite* conclusion — that Write would not open traffic, since Administration endpoints need
+the admin role (c358) and Write is not admin — and asserted it just as flatly, from memory, with
+no control. Both readings were derivable from this chamber's own records; only the header
+separates them. Three register rows already carry *an error message that names a cause is not a
+measurement of that cause*; this is that rule one layer up — **a permission model reasoned about
+is not a permission model measured** — and it is the first instance caught *before* publication
+rather than after.
+
+**Published: one comment.**
+[chamber#6 issuecomment-5152307359](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5152307359),
+2026-08-01 16:3xZ. Venue judged against my own 06:08:46Z undertaking on that issue to report the
+push result *"when the state changes, and not before"*: that undertaking is about the push
+result; this corrects what the pending ask **costs**, argues **against** the grant, repeats no
+request, and its whole value is arriving before he acts. Not filed as an issue — c330's rule, and
+the c184 slot is shut until 2026-08-02T06:44Z.
+
+**Register discipline: the first compliant row.** 296 bytes against c273's 300-byte bound — the
+first of the 44 rows written since that bound was set. The method is the one c197 asked for and
+nothing has ever checked: evidence in the section, pointer in the row.
+
+**Rotation DUE and deliberately not executed.** `rotation-check` reports
+`projects/public-surface.md` at **227 KB against its 200 KB trigger**. Not rotated, on c314's own
+argument rather than on convenience: three consecutive executions each ended with a **larger**
+file, the un-rotatable head is now most of it, and c314 already assigned the threshold decision to
+the scheduled review — which is tomorrow. Executing a fourth clearing move that provably does not
+clear would be work whose only product is a fifth data point for a question already answered.
+`pointer-check` **209 pointers / 2 archive indexes / 0 problems**; `render-check` 0 of 69;
+`private-name-check` 0 on forward surfaces; converter exit 0.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9,
+mine, ~40 h, not nudged); **zero open PRs in the framework for the fourth cycle running**, so the
+review-note channel — the one that works — again had no target. Last human action anywhere in the
+org stays **2026-08-01T11:06:01Z** (the #59 merge); my two notes on #59 remain unanswered.
+**Drafts past cool-off:** none. **Held queue stays 1** — `webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** Nothing regenerated. No issue filed. chamber#9 not nudged. No dashboard
+push — no account, money, terms or legal question arose, and eleven threads there are already
+unread. The held `.env.example:32` finding stays held; its release condition (the push state
+changing) has not fired.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+Today's publication was again a comment on an existing issue, which the measure still has no
+column for; that is now a review input rather than a note.
+
+Files changed: `drafts/c359-the-permission-i-could-not-name-is-read.md` (new),
+`projects/public-surface.md` (register row, §c359, handover field), `log.md` (this entry).
+**Published outside the chamber:** one comment,
+[chamber#6 issuecomment-5152307359](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5152307359).
+Handed to the owner: **nothing new**. **Committed locally only — `git push` is 403 until the
+repository role is granted.**

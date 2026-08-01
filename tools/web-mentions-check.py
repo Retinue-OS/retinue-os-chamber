@@ -122,6 +122,30 @@ PROJECT_QUERIES = [
     "retinue agent chamber sparql",
 ]
 
+# ---------------------------------------------------------------------------
+# The second question, added c359: not "does anyone mention us" but "is our own
+# surface in the index at all". They have been conflated since this file was
+# written, and they have different answers and different remedies. A mention
+# needs a reader; being indexed needs only a crawler, so a zero here is an
+# explanation for the mention zero that owes nothing to the missing accounts.
+#
+# These carry a search operator, which the paragraph above says to avoid. The
+# reason it gives is real but narrower than it reads: the 403 on 2026-07-30 was
+# for `-site:` (negation), and `site:` on its own was verified working on
+# 2026-08-01 — `site:w3.org sparql` returned 10 results. So the operator is
+# admissible **only behind its own control**, below: an engine that answers the
+# bare control may still reject or ignore an operator, and an ignored operator
+# returns a plausible page about nothing.
+#
+# Kept out of PROJECT_QUERIES and counted separately, because a hit here is our
+# own page and counting it as a mention would report reach that is really just
+# our own crawler footprint — the c258 error in a new place.
+OPERATOR_CONTROL = "site:w3.org sparql"
+INDEX_QUERIES = [
+    "site:retinue-os.github.io",
+    "site:github.com retinue-os",
+]
+
 # The discriminator, deliberately identical in spirit to the one in
 # mentions-check.py: a hit counts only if it carries a token that cannot be
 # produced by an engine matching unrelated words. "retinue" alone is a common
@@ -196,7 +220,18 @@ ENGINES = {
             r"<!--rs-->(.*?)<!--re-->",
             r'<a class="title"[^>]*href="(https?://[^"]+)"',
         ),
-        "challenge": re.compile(r"mojeek\.com/challenge|are you a robot", re.I),
+        "challenge": re.compile(
+            r"mojeek\.com/challenge|are you a robot"
+            # Added c359 from a live body: the throttle page says this and
+            # matches neither marker above. Diagnosis only — `results_page`
+            # is what decides.
+            r"|Verification required|<title>\s*Captcha",
+            re.I,
+        ),
+        # Verified against two live bodies on 2026-08-01: a genuine no-result
+        # page for a nonsense term carries `<title>… - Mojeek Search`, and the
+        # throttle page carries `<title>Captcha`.
+        "results_page": re.compile(r"<title>[^<]*-\s*Mojeek Search\s*</title>", re.I),
     },
     # Fixture-verified only: served an anti-bot challenge (202) on 2026-07-30.
     "duckduckgo": {
@@ -207,6 +242,11 @@ ENGINES = {
             r'|href="(https?://[^"]+)"[^>]*?class="result-link"',
         ),
         "challenge": re.compile(r"duckduckgo\.com/anomaly\.js|challenge-form", re.I),
+        # No verified marker: this deployment has never been served a real
+        # result page by this engine, so there is nothing to take one from.
+        # `None` means "a zero from this engine is not reportable" — see
+        # read_page(). Fail-safe, and a no-op while its control fails anyway.
+        "results_page": None,
     },
     # Fixture-verified only: served a JS shell with no result items on 2026-07-30.
     "bing": {
@@ -216,6 +256,7 @@ ENGINES = {
             r'<h2>\s*<a[^>]*href="(https?://[^"]+)"',
         ),
         "challenge": re.compile(r"bing\.com/challenge/verify|captchaSuccess", re.I),
+        "results_page": None,  # same reason as duckduckgo
     },
 }
 
@@ -332,6 +373,30 @@ FIXTURE_UNKNOWN_BLOCK = (
     "<html><head><title>Just a moment…</title></head><body>"
     "<p>Verifying your request.</p></body></html>"
 )
+# The two bodies c359 was written for, both captured live on 2026-08-01.
+#
+# A **genuine** no-result page: a nonsense term, 11 010 B, no `<!--rs-->` item
+# and no results container, but the ordinary title and chrome. A zero here is a
+# reading and must stay one.
+FIXTURE_MOJEEK_EMPTY = (
+    "<html><head><title>zxqwvfjklmnopqrs - Mojeek Search</title></head><body>"
+    '<nav><a href="/">Web</a><a href="/images">Images</a>'
+    '<a href="/news">News</a><a href="/search?q=&amp;arc=none">Advanced Search</a>'
+    "</nav><ul></ul></body></html>"
+)
+# The **throttle** page, 5 777 B, served for a query issued a few seconds after
+# several others — while the single-word control kept returning 10 results
+# immediately before and after it. Reconstructed from the stripped text of the
+# live body (the raw HTML was not retained), which is why the assertion that
+# matters is the *absence* of the `results_page` marker rather than the presence
+# of any string quoted here.
+FIXTURE_MOJEEK_CAPTCHA = (
+    "<html><head><title>Captcha</title></head><body>"
+    '<nav><a href="/">Web</a><a href="/images">Images</a></nav>'
+    "<h1>Verification required</h1>"
+    "<p>Please complete the challenge below to continue.</p>"
+    "</body></html>"
+)
 
 
 def self_test():
@@ -410,6 +475,43 @@ def self_test():
         failures.append("bing: challenge marker missed its own fixture")
     if ENGINES["mojeek"]["challenge"].search(FIXTURE_MOJEEK_OK):
         failures.append("mojeek: challenge marker fired on a good page")
+    if ENGINES["mojeek"]["challenge"].search(FIXTURE_MOJEEK_EMPTY):
+        failures.append("mojeek: challenge marker fired on a genuine empty page")
+    if not ENGINES["mojeek"]["challenge"].search(FIXTURE_MOJEEK_CAPTCHA):
+        failures.append("mojeek: challenge marker missed the throttle page")
+
+    # c359: the zero/unmeasured boundary, run through `read_page` — the same
+    # function the live path calls. Asserted on the **note**, not only on the
+    # verdict: a wrong reason and a right reason are both falsy, so a
+    # verdict-only test passes straight through a message that misattributes.
+    read_cases = [
+        # engine, fixture, expected hit count or None, substring the note must carry
+        ("mojeek", FIXTURE_MOJEEK_OK, 2, None),
+        ("mojeek", FIXTURE_MOJEEK_EMPTY, 0, None),
+        ("mojeek", FIXTURE_MOJEEK_CAPTCHA, None, "challenge body"),
+        ("mojeek", FIXTURE_UNKNOWN_BLOCK, None, "no results-page marker"),
+        ("duckduckgo", FIXTURE_DDG_RESULTS, 2, None),
+        ("duckduckgo", FIXTURE_DDG_CHALLENGE, None, "challenge body"),
+        ("bing", FIXTURE_BING_SHELL, None, "challenge body"),
+        # An engine with no verified marker may not report a zero even from a
+        # page carrying no challenge at all.
+        ("bing", "<html><body>nothing here</body></html>", None,
+         "no verified results-page marker"),
+    ]
+    for name, body, want_n, want_note in read_cases:
+        hits, note = read_page(name, body)
+        got_n = None if hits is None else len(hits)
+        if got_n != want_n:
+            failures.append(
+                f"read_page {name}: {got_n} hits, expected {want_n}"
+            )
+        if want_note is None:
+            if note is not None:
+                failures.append(f"read_page {name}: unexpected note {note!r}")
+        elif note is None or want_note not in note:
+            failures.append(
+                f"read_page {name}: note {note!r} does not carry {want_note!r}"
+            )
 
     return failures
 
@@ -435,6 +537,46 @@ def fetch(url):
     return code, body, None
 
 
+def read_page(engine, body):
+    """Turn a 200 body into (hits, note) — or (None, why) if it measured nothing.
+
+    Split out of `query()` at c359 so the self-test exercises the path the live
+    run takes instead of a parallel reimplementation of it.
+
+    The rule this encodes, and the defect it closes
+    ----------------------------------------------
+    Before c359 a 200 carrying zero extractable results was a **zero** unless a
+    known challenge marker fired — a negative test, so any block page nobody had
+    seen yet became a measured zero. On 2026-08-01 that happened live: Mojeek
+    answered a query issued seconds after several others with a 5 777 B
+    *Verification required* page, matching neither marker, while the single-word
+    control returned 10 results immediately before and after. Under the old code
+    that query would have printed `0 raw 0 confirmed`.
+
+    So the test is now **positive**: a zero counts only if the page identifies
+    itself as a results page. An engine with no verified `results_page` marker
+    cannot report a zero at all — fail-safe, and free today because both such
+    engines fail their control anyway.
+
+    The engine-level control does not cover this. It ran, it passed, and the
+    engine was genuinely available; what failed was one later request. Same
+    class as c357: *a verdict derived from a run-wide fact is not a measurement
+    of a per-request one.*
+    """
+    spec = ENGINES[engine]
+    hits = spec["extract"](body)
+    if hits:
+        return hits, None
+    if spec["challenge"].search(body):
+        return None, "challenge body — unmeasured, not a zero"
+    marker = spec.get("results_page")
+    if marker is None:
+        return None, "no verified results-page marker for this engine — zero not reportable"
+    if not marker.search(body):
+        return None, "200 with no results and no results-page marker — unmeasured, not a zero"
+    return [], None
+
+
 def query(engine, q):
     spec = ENGINES[engine]
     url = spec["url"].format(q=urllib.parse.quote_plus(q))
@@ -445,17 +587,14 @@ def query(engine, q):
         # 403 is real: Mojeek returned it for a query carrying `-site:`.
         note = " (anti-bot challenge)" if spec["challenge"].search(body) else ""
         return None, f"HTTP {code}{note}"
-    hits = spec["extract"](body)
-    if not hits and spec["challenge"].search(body):
-        return [], "challenge body"
-    return hits, None
+    return read_page(engine, body)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--engine", action="append", choices=sorted(ENGINES),
                     help="restrict to one engine (repeatable)")
-    ap.add_argument("--sleep", type=float, default=2.0,
+    ap.add_argument("--sleep", type=float, default=8.0,
                     help="seconds between queries (be a polite client)")
     args = ap.parse_args()
 
@@ -468,7 +607,7 @@ def main():
     print(
         f"self-test: pass ({len(KNOWN_GOOD_URLS) + len(KNOWN_BAD_URLS)} classifier "
         "cases, 3 host-split, 5 availability, 3 snippet, 2 good-page parser, "
-        "3 marker)"
+        "5 marker, 8 read_page)"
     )
 
     engines = args.engine or sorted(ENGINES)
