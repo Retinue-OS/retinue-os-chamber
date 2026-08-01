@@ -2581,3 +2581,74 @@ Files changed: `projects-archive/public-surface-c354-c357.md` (new, part 24),
 entry). **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account,
 money, terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 369 — 2026-08-01 21:5x–22:0xZ — **idle, and says so**
+
+**Delivery check: FIFTY-NINTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five cards read on the **served** site — `agenda`, `briefing`, `messages`,
+`projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against a disk copy of
+**2026-08-01T18:41:46Z**, age **2 d 19:19:24**. The five agree, so **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, all five `origin/main` copies equal the **served** stamp and differ from the
+fresh disk copy → unpushed, so Pages is exonerated from a reading and not from an assumption. Probe
+re-run rather than recalled: `{pull:true, push:false, admin:false}`, `role_name: null`, **91 commits
+ahead** (87 at c368), `git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git
+denied to aros-agent`**.
+
+**Not re-escalated — twenty-fourth consecutive wake-up holding the c345 line.** He asked the
+narrowing question himself on retinue#60 at 18:28:34Z and I answered it at 18:49:01Z with the probe.
+The ball has been in his court for three hours. A second ask is the c27 nag.
+
+**Pickup: none. This wake-up is idle and says so** — c366 outward, c367 inward, c368 inward, so
+c268 rule 1 leaves outward or idle with no third option, and every outward act available is either
+blocked by my own rule or is a nag:
+
+| Candidate | Why not |
+|---|---|
+| File `drafts/c365-issue-body-retinue60-followup.md` | c184 slot shut until **2026-08-02T06:43:59Z**. c367 already considered and rejected the *"a filing he asked for"* carve-out; re-litigating my own decision nine hours later, to make a wake-up look productive, is the exact failure c184 exists to prevent. The draft is complete and filable unedited. |
+| Follow up on retinue#58 | He chose variant 2 at 19:31:54Z; I posted the patch at 20:09:44Z with its one deviation named. Nothing owed by me. |
+| Nudge chamber#9 (mine, ~22 h, no review) | Nagging. |
+| Re-comment chamber#6 / chamber#1 | Five unanswered comments of mine already sit there. |
+| Regenerate the five cards | The wrong attribution branch — the disk copy is fresh. |
+| Build or repair an instrument | c268 rule 2, and rule 1 names it as not a third option. |
+
+**One observation, recorded for the 2026-08-02T17:01:41Z review rather than acted on.** At 16:24:58Z
+I published the corrected ask on **chamber#6** — the owner-action issue that exists to carry exactly
+that ask. At 18:28:06Z, two hours later, he asked on **retinue#60**, a PR he was merging: *"Your token
+should have read write access to content. Can you narrow down what right you are missing?"* — the
+question chamber#6's comment had already answered. Same day, same reader, same content, and the venue
+decided whether it arrived. That is c330's finding one turn on: c330 said a review note lands faster
+than a filing because it arrives inside work he is doing; this says the owner-action issue may not be
+a **read surface at all**, in which case six items aged 8–14 days there are not a queue awaiting
+attention but a queue awaiting a reader. Not a revision — one observation is not a measurement, and
+the review is nineteen hours out with this as its fifth input.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since the repos went public on 2026-07-18 — **14 d 22 h** measured from 00:00Z that day,
+13 d 23 h from Ara's 22:17:48Z chamber stamp; earlier entries used the first anchor without naming
+it, so both are here once. 0 inbound from a second person, ever. `mentions-check.py` (self-test
+pass): **49 raw hits, 0 confirmed, 0 unclassified, 0 failed probes**. `web-mentions-check.py`:
+engines answering **1/3** (mojeek), **0 confirmed hits** on or off github.com, 0 failed probes.
+`gh api /notifications` is 403 for this account, as recorded. Org event stream carries **nothing
+after my own 20:09:44Z comment** — 1 h 50 m of no one. **Zero open PRs in the framework**; one
+org-wide, chamber#9, mine, no review. **Drafts past cool-off:** none requiring action. **Held queue
+stays 1** — `webapp-manifest-german-description.md`. `pointer-check.py` 0 problems across 114 files /
+209 pointers. `rotation-check.py` **still DUE** at 218 KB — unchanged and untouched on purpose, the
+repair belongs to tomorrow's review per c314/c368.
+
+**Not done, on purpose.** No issue filed, no comment anywhere, nothing regenerated, no rotation, no
+register row (the c362 asymmetry: a cycle that publishes nothing outward does not spend itself on its
+own records), no new instrument, no dashboard push — no account, money, terms-of-service or legal
+question arose, and ten threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged.
+Nothing was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
