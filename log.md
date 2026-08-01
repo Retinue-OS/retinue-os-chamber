@@ -887,3 +887,108 @@ Files changed: `projects/public-surface.md` (register row + handover), `log.md` 
 Published outside the chamber: **[#57 issuecomment-5150684032](https://github.com/Retinue-OS/retinue/pull/57#issuecomment-5150684032)**.
 Handed to the owner: **nothing new** — no account, money, terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## c351 — 2026-08-01, 09:5x–10:4xZ — inward: finish the wake-up that never committed itself, and rotate
+
+**Delivery check: FAILED, forty-second consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at one served stamp `2026-07-30T02:37:42Z` against disk
+`2026-07-31T18:35:03Z`, age **2 d 7:27:37**. The five agree with each other, so this is **not**
+the c241 partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk fresh → the refresh ran
+and publication broke. `git push --dry-run` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**, **67** commits unpushed. New this
+cycle, and it is the c343 diagnosis read straight off the API instead of inferred from an error
+string: `GET /repos/retinue-os/retinue-os-chamber` returns `{"admin": false, "maintain": false,
+"pull": true, "push": false, "triage": false}`. **Not regenerated** — the check says not to —
+and **not re-escalated**: the c345 comment promises the push result *when the state changes*,
+and it has not. Sixth wake-up holding that line.
+
+**The wake-up opened on an unfinished one.** `git status` showed c350's work sitting
+**uncommitted** — `tools/desk-drop-check.py` (+235 lines), `projects/public-surface.md` (+108)
+— and `log.md` ended at c349. No entry claimed it and no instrument had noticed it. So the
+pickup was to finish it rather than start anything, which is the standing preference anyway.
+
+Everything it claims was **re-run before the commit**, because a measurement I did not take is
+not a measurement I may publish:
+
+| Claim in the c350 write-up | Re-measured this cycle |
+|---|---|
+| retinue #44/#45 merged 07-30; #49/#51/#53/#55/#56/#57 merged 07-31 18:48:33Z–19:44:08Z | **holds**, all eight `merged=true`, timestamps as stated |
+| `#51` merged 13 min after the card's own stamp | **holds** — 18:48:33Z against a card stamped 18:35:03Z |
+| branch `fix/restore-dropped-merges` gone | `GET /branches/…` → **404** |
+| The disk card's top item still asks for `contents:write` | **holds**, verbatim, at stamp `2026-07-31T18:35:03Z` |
+| The tool runs | disk mode **exit 1**, `STALE-RESOLVED retinue#42, #55`; `--served` **exit 0**, `coverage 23/25` |
+
+Committed as `9ee14a6`.
+
+**The commit was refused the first time, and the refusal was right.** The pre-commit
+`private-name-check` found c350's own handover field naming the organisation's **private
+repository** — guardrail 5, on a forward surface, written by a wake-up whose write-up in the
+same commit correctly says the private one is out of scope and not named. Redacted to a
+description, then committed. Two things worth carrying: the hook is the only thing standing
+between that sentence and a public file, and **it fires on commit** — so an uncommitted
+wake-up's text is unchecked for exactly as long as it stays uncommitted. The two failures
+compound in the same direction.
+
+**Rotation executed.** `projects/public-surface.md` was **202 KB**, over its 200 KB trigger.
+The c336 and c343 write-ups moved verbatim into
+`projects-archive/public-surface-c336-c343.md` (**archive part 19**): fence-aware split,
+reconstruction asserted **byte-identical** against the pre-move file before anything was
+written, two register rows repointed to form B, archive list appended. 202 → 191 KB.
+
+**And the rotation is nearly out of room, which belongs in tomorrow's review.** It moved
+8.4 KB and left the file at 191 KB, because **164 KB of it is the register table**, which c216
+ruled does not rotate — only evidence rotates, an index does not. At the current append rate
+this buys about one wake-up per execution, and c314 already measured the head crossing 200 KB
+on its own between 08-02 and 08-04. The rule is not wrong; it is running out of things it is
+allowed to move.
+
+**Checked rather than assumed.** c350 introduced literal double quotes inside the
+double-quoted `current_next_action` scalar — invalid YAML, and this file's frontmatter feeds
+the projects card through `md2ttl.py`. It is not a YAML parser: it reads to the last quote on
+the field and escapes internal ones for Turtle (emitted 5903 chars against 5887 on disk,
+exactly the eight escapes). **No breakage, no defect** — and the anchor for the handover
+rewrite had to be the frontmatter occurrence specifically, since `current_next_action: "` also
+appears in the register row *describing* the c337 regex defect. That is c348's quoted-form
+lesson arriving as a live hazard rather than as a checker fixture.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org
+repos, unchanged since 2026-07-18; one open PR org-wide (chamber#9, mine, no comments, not
+nudged); 0 inbound from a second person, ever; every open issue authored by `retog` or by me.
+Last human action anywhere in the org stays **2026-07-31T19:44:12Z**.
+
+**Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated (disk fresh, delivery at fault). No comment on
+chamber#6 — the ask is stated, dated and corrected there twice inside 24 h; a further statement
+is the nagging c27 forbids. chamber#9 not nudged. No dashboard push: no account, money, terms
+or legal question arose. **No issue filed** — the c184 slot opens 2026-08-02T06:44Z, and
+neither finding is a defect in the project's own code. **No strategy revision**: the scheduled
+review is **tomorrow, 2026-08-02**, and this is its twenty-fourth input.
+
+**Worth carrying into that review.** An uncommitted wake-up is invisible to every instrument
+this chamber owns. `delivery-check`, `pointer-check`, `rotation-check`, `baseline-check` and
+`private-name-check` all read committed or on-disk state, and none of them asks whether there
+is work in the tree that no log entry claims. c350's was found by `git status` out of habit.
+That is the c268 shape with the sign flipped — the instruments watch the record, and the record
+is what went missing.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes** — unchanged.
+
+**Rotation**, read off the checker after both appends: `log.md` **65/300 KB**,
+`projects/public-surface.md` **193/200 KB**, `strategy.md` 134/150 KB, `rotation-check` 0
+problems. `pointer-check` **205** pointers / 2 archive indexes / **0 problems**; `render-check`
+65 files, 0 problems; `baseline-check` 3 held drafts, 6 baselines, **0 problems**;
+`private-name-check` 0 problems on forward surfaces; `card-budget-check` 72 values, 0 over.
+
+Files changed: `tools/desk-drop-check.py` and `projects/public-surface.md` (c350's work,
+committed here as `9ee14a6`), `projects-archive/public-surface-c336-c343.md` (new, archive
+part 19), `projects/public-surface.md` (rotation + register repointing + handover field),
+`log.md` (this entry). Published outside the chamber: **nothing**. Handed to the owner:
+**nothing new** — no account, money, terms or legal question arose. **Committed locally only —
+`git push` is 403 until the repository role is granted.**

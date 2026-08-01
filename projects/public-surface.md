@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c350 (2026-08-01 09:0x-09:5xZ): INWARD, admissible because c349 was outward (c268 rule 1 forbids a third, not a first). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c350: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 6:42:42, FORTY-FIRST consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed; git push -> 403 "Permission to retinue-os/retinue-os-chamber.git denied to aros-agent", SIXTY-SEVEN commits unpushed. DO NOT regenerate. Not re-escalated - the c345 promise reports the push result only when the state CHANGES; fifth wake-up holding that line. (2) PICKUP - the question the failure invites and nobody asked: WHAT DOES THE STALE DASHBOARD SAY THAT IS FALSE? "Stale" is an age; the cost is a count of untrue sentences. The served page splits in two: the standing prose in index.html has ZERO decay (14/14 assets 200, 9/9 outbound links 200, retinue#15 and retinue#1 both still open, scope sentence "four public repositories" still right - the fifth org repo is private and is not named here), while ALL the decay is in the five cards, 12 untrue statements, CONCENTRATED IN THE OWNER QUEUE. (3) THE FINDING: the queue decays toward INSTRUCTIONS TO REDO FINISHED WORK, within the HOUR. Disk card item 18 asks him to merge-or-reject PR #55 and item 20 says #49/#51/#53/#56/#57 are open - ALL SIX merged 18:48:33Z-19:44:08Z, the first THIRTEEN MINUTES after the card's own stamp. Served card: 4 of 19 items done (#44/#45 merged 07-30; branch fix/restore-dropped-merges merged as #55 and 404; a filing slot 2 d past; a held count of 3 that is 1). WORST ROW, and it is not a delivery problem: the DISK card's TOP item still asks for "restore contents:write on the aros-agent PAT" - c343 measured that ask WRONG the day before (the binding constraint is the repository ROLE; the scope grant is a no-op alone). The correction reached chamber#6, strategy.md, this file and log.md - every venue except the one surface built to tell him what to do. (4) BUILT: tools/desk-drop-check.py gained the REVERSE question it had never asked in 88 cycles - a reference that STAYS on the queue while its subject resolves (STALE-RESOLVED). Reading on disk: retinue#42 and retinue#55, exit 1. TWO defects in my own first draft, both caught by RUNNING it: (a) --served ran the generation comparison BACKWARDS (generations() picks the newest COMMITTED card as "previous", which while delivery is broken is NEWER than the served one) and confidently reported DROPPED-OPEN for two items that had just ARRIVED on disk - served mode now runs only the questions well defined without a predecessor; (b) its clean line was a lie by omission - against the served card it reports 0 resolved still on the queue while FOUR of that card's items are finished work, all four outside a reference check (2 bare PR numbers, a branch, a date, a count). The summary now prints "coverage 23/25 reference(s) resolvable" beside the verdict and says in words that partial coverage is NOT a clean bill. (5) STANDING RULE, c347 family one turn on: a check's ZERO is not a measurement of the card. Family: c19/c310/c315 an inherited 403 is not a measurement; c343 an error message naming a cause is not a measurement of it; c347 a 200 is not a measurement of the write; c348 a string shaped like a claim is not a claim; c349 presence is not effect and a green test is not the property it was written for. (6) THE COVERAGE GAP BELONGS TO THE CARD: both stale disk items are written WITHOUT a repo prefix ("PR #55 (mine)", "Your PRs #49, #51, #53, #56, #57 are open"), so the two items the check most needed to see are the two it cannot. FIX IS A RULE FOR THE REFRESH JOB - a desk item that names a PR names its repo - not a guess in the extractor. NEXT HAND: add BRANCH resolution (GET /repos/.../branches/<name> -> 404), one of the four served cases, deliberately left as a second feature on one instrument. (7) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all four public repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, not nudged); every open issue authored by retog or me; last human action anywhere still 2026-07-31T19:44:12Z (the 08:46Z update on #57 is my OWN comment). web-mentions-check: 1 of 3 engines answering, 0 confirmed hits off github.com. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (8) NOT DONE ON PURPOSE: nothing regenerated; the disk card's wrong top item NOT hand-edited (correcting one card off-cycle either diverges the five stamps - the c241 defect - or leaves a sentence untrue at its own stamp; the daily job reads the corrected ask from projects/, log.md and gh); no comment on chamber#6 (a fifth statement of an ask restated 3 h ago is the nagging c27 forbids); chamber#9 not nudged; no dashboard push; NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z and this is a defect in MY surface, not the project's code; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-third input. (9) FOR THAT REVIEW, added by this cycle: the 26 h bound is measured in AGE and age is the wrong unit - the shell is 2 d stale and 0% wrong, the queue is 1 d stale and ~14% wrong. Either the bound belongs per-card, or the cards stop making unanchored claims. Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes - UNCHANGED."
+current_next_action: "Aros, c351 (2026-08-01 09:5x-10:4xZ): INWARD, admissible because c349 was outward (c268 rule 1 forbids a third inward, not a second). IDENTITY: I post as @aros-agent. Standard disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c351: self-test pass (6 stamp cases + divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions); ALL FIVE cards read - all at ONE served stamp 2026-07-30T02:37:42Z against disk 2026-07-31T18:35:03Z, age 2 d 7:27:37, FORTY-SECOND consecutive run past the 26 h bound. The five AGREE, so NOT the c241 partial-regeneration class. Same FOUR assets unpublished (base.js, projects.js, index.html, styles.css). ATTRIBUTION, re-probed not inherited: disk fresh -> the refresh ran and the DELIVERY path failed; 'git push --dry-run' -> 403 'Permission to retinue-os/retinue-os-chamber.git denied to aros-agent', and 'GET /repos/.../retinue-os-chamber' reports permissions {admin:false, maintain:false, pull:true, push:false, triage:false} - the ROLE reading of c343, straight from the API this time. SIXTY-SEVEN commits unpushed. DO NOT regenerate. Not re-escalated - sixth wake-up holding the c345 line (report the push result only when the state CHANGES). (2) THE WAKE-UP OPENED ON AN UNFINISHED ONE. c350's work sat UNCOMMITTED in the working tree (tools/desk-drop-check.py +235 lines, projects/public-surface.md +108) and UNLOGGED - log.md ended at c349. So this cycle's pickup was to finish it rather than start anything: every measurement it claims was re-run before the commit (six PR merge timestamps 44/45/49/51/53/55/56/57, all merged; 'GET /branches/fix/restore-dropped-merges' -> 404; the disk card's top item still asking for contents:write; both modes of the tool run, exit 1 on disk with STALE-RESOLVED retinue#42 and #55, exit 0 on --served with coverage 23/25). All held. Committed as 9ee14a6. (3) THE COMMIT WAS REFUSED THE FIRST TIME, and the refusal was right: the pre-commit private-name-check found c350's own handover field naming the org's PRIVATE repository - guardrail 5, on a forward surface, written by a wake-up whose write-up in the same commit says the private one is out of scope and not named. Redacted to a description, then committed. The hook is the only thing between that sentence and a public file; note that it fires on COMMIT, so an uncommitted wake-up's text is unchecked for as long as it stays uncommitted. (4) ROTATION EXECUTED: projects/public-surface.md was 202 KB, over its 200 KB trigger. Sections the c336 and c343 write-ups moved verbatim to projects-archive/public-surface-c336-c343.md (ARCHIVE PART 19), fence-aware split, reconstruction asserted byte-identical BEFORE anything was written, two register rows repointed to form B, archive list appended. 202 -> 191 KB (193 after this cycle's appends). WORTH CARRYING TO THE REVIEW: it moved 8.4 KB and the file is still 191 KB, because 164 KB of it is the REGISTER TABLE, which c216 says does not rotate. This rule now buys about one wake-up per execution, and c314 measured the head crossing 200 KB alone between 08-02 and 08-04. (5) CHECKED, NOT ASSUMED: c350 introduced literal double quotes inside the double-quoted current_next_action scalar, which would be invalid YAML. md2ttl.py is not a YAML parser - it reads to the LAST quote on the field and escapes internal ones for Turtle (emitted 5903 chars vs 5887 source, exactly the 8 escapes). No store breakage, no defect; single quotes used here anyway. (6) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; one open PR org-wide (chamber#9, mine, no comments, NOT nudged); every open issue authored by retog or me; last human action anywhere in the org still 2026-07-31T19:44:12Z. drafts/ nothing past a cool-off; held queue stays 1 (webapp-manifest-german-description.md, rank 1). (7) NOT DONE ON PURPOSE: nothing regenerated; no comment on chamber#6; chamber#9 not nudged; no dashboard push (no account, money, terms or legal question arose); NO ISSUE FILED - the c184 slot opens 2026-08-02T06:44Z; NO STRATEGY REVISION - the scheduled review is TOMORROW 2026-08-02 and this is its twenty-fourth input. (8) FOR THAT REVIEW, added here: an uncommitted wake-up is invisible to every instrument this chamber owns. delivery-check, pointer-check, rotation-check and private-name-check all read committed or on-disk state and none of them asks whether there is work in the tree that no log entry claims. c350's was found by 'git status' out of habit, not by a check. Standing measure: filed 43 of 54, accepted 2 filings + 6 review notes - UNCHANGED."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -213,7 +213,9 @@ Archive, oldest first:
   — cycle 331, 2026-07-31. Rotated at c343, on the trigger this cycle's own
   §c343 append crossed.
 - [`projects-archive/public-surface-c332-c334.md`](../projects-archive/public-surface-c332-c334.md)
-  — cycles 332–334, 2026-07-31. Rotated at c348. Its rows were repointed off the
+  — cycles 332–334, 2026-07-31.
+- [`projects-archive/public-surface-c336-c343.md`](../projects-archive/public-surface-c336-c343.md)
+  — cycles 336–343, 2026-08-01. Rotated at c348. Its rows were repointed off the
   **masked** text, the fix this same cycle made to `pointer-check` — see §c348.
 
 **Four of those seven entries were missing until 2026-07-30 (c286).** The list
@@ -454,14 +456,14 @@ measured at 0 of 78.
 | **A log entry's own closing claim — *Committed locally only* — checked against the commit graph rather than read** | 2026-07-31 (c333) | **c332's was false: the commit never ran** (`HEAD` = c331, 3 files dirty). Hook excluded: both pre-commit halves pass on that tree. c313–c331 all true. Struck in place; work committed. Detail: §c333 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
 | **A held draft's retirement condition, re-measured against tonight's head** | 2026-07-31 (c334) | **Not fired — live on `main`, unchanged.** `SHELL` = v16 (`99667116`, 13:10:01Z) is **7 h 31 m older** than the newest `SHELL_ASSETS` commit (`f49f2053`, 20:41:52Z, `conversations.js`); all 15 assets checked, 9 merges survived. Files 2026-08-01T06:26:15Z. Detail: §c334 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
 | **A pointer *quoted* in prose rather than described** | 2026-07-31 (c334) | **One WRONG-WAY the rotation produced, in §c331's own repair note — and my first draft of §c334 reproduced it.** `pointer-check` cannot distinguish a quoted pointer from a live one; a quoted copy is one nothing updates. Rule: describe a pointer, never quote it. Detail: §c334 in [archive part 18](../projects-archive/public-surface-c332-c334.md) |
-| **Branches other than `main` in the org's public repos** | 2026-08-01 (c336) | **Never checked before, and it held six days of finished work.** 4 public repos: 2 have `main` only; the framework's one extra branch is 0 ahead (merged, cosmetic); this chamber's `claude/aros-issues-triage-goei5k` was **2 ahead / 170 behind**, pushed by the owner 2026-07-25T16:34:31Z, carrying the `GUARDRAILS.md` §3 CI fix and a new `SECURITY.md`, with **no PR ever opened on this repo**. Opened as PR #9, MERGEABLE/CLEAN. Re-check on any wake-up that surveys the org. Detail: §c336 below |
+| **Branches other than `main` in the org's public repos** | 2026-08-01 (c336) | **Never checked before, and it held six days of finished work.** 4 public repos: 2 have `main` only; the framework's one extra branch is 0 ahead (merged, cosmetic); this chamber's `claude/aros-issues-triage-goei5k` was **2 ahead / 170 behind**, pushed by the owner 2026-07-25T16:34:31Z, carrying the `GUARDRAILS.md` §3 CI fix and a new `SECURITY.md`, with **no PR ever opened on this repo**. Opened as PR #9, MERGEABLE/CLEAN. Re-check on any wake-up that surveys the org. Detail: §c336 in [archive part 19](../projects-archive/public-surface-c336-c343.md) |
 | **A wake-up's own record, checked against the org event stream rather than against itself** | 2026-08-01 (c337) | **c336 shipped PR #9 at 00:06:15Z and committed nothing** — `HEAD` was still c335, four files dirty, no `log.md` entry. The outward act survived because GitHub holds it; every word about it would have been lost. Rule: *an outward act is its own backup; an inward one has none* — commit before writing the essay. Recorded in the c337 log entry; no section here, because the file has 5 KB of head room and a section rotates first |
 | **The Pages build commit, read as an identity rather than compared** | 2026-08-01 (c337) | **c336's `2b49c849 = origin/main` is false** — it is the *parent* of `2a9f826b`. The conclusion (Pages healthy, the push the only fault) survives only because `2a9f826b` touches no `docs/` path, so both trees are `93b78e55`. Compare the `docs/` tree hash, never the commit id, when attributing a delivery miss |
 | **My 27 open `retinue` issues, re-checked against `main` after the 5 merges of 2026-07-31 evening** | 2026-08-01 (c339) | **1 fixed of 27** — retinue#2, by my own PR #55 (`97d6e66b`). c318 ran the same check at `f49f2053` and found 0; 21 files moved since. Written up in `log.md`, cycle 339 |
 | **A project record's own blocker, re-read after the merge that cleared it** | 2026-08-01 (c341) | **Criterion 3 half met since 2026-07-31T19:33:40Z; `triple-store-story.md` said *unmergeable* for 8 h.** `pointer-check` checks a handover field *names* the newest write-up, not that it is *true*. Detail: §c341 in [the bet-1 project record](triple-store-story.md) |
 | **Where else a calibration lives, checked *after* the calibration merges** | 2026-08-01 (c339) | **4 of 6 places still wrong**, incl. `CLAUDE.md:154` and `.claude/agents/archivist.md:22` — the two files the framework's own agents read at session start. Posted on [#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5149034118) |
 | **This file's archive index, read as a list rather than as links** | 2026-08-01 (c339) | **1 defect.** The part-15 entry sat *inside* the part-14 entry, so part 14's description read as part 15's and part 15 had none. `pointer-check` passes it — it resolves links, not list structure. Fixed |
-| **The *ask* inside an `owner-action` issue, re-derived rather than re-read** | 2026-08-01 (c343) | **Wrong for 12 days.** chamber#6 asked for a PAT scope; the binding constraint is the account's repo role. Discriminated by two call pairs sharing one declared permission. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274); §c343 |
+| **The *ask* inside an `owner-action` issue, re-derived rather than re-read** | 2026-08-01 (c343) | **Wrong for 12 days.** chamber#6 asked for a PAT scope; the binding constraint is the account's repo role. Discriminated by two call pairs sharing one declared permission. [Corrected](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5149872274); Detail: §c343 in [archive part 19](../projects-archive/public-surface-c336-c343.md) |
 | **`webapp/sw.js`'s eviction key, re-read at the instant of filing rather than from the draft** | 2026-08-01 (c346) | **Defect live, unchanged.** `SHELL` = `retinue-shell-v16` (`99667116`, 13:10:01Z); newest of all **15** `SHELL_ASSETS` paths still `f49f2053` (20:41:52Z, `conversations.js`). Gap **7 h 31 m**, survived 9 merges. Retirement condition did not fire → filed as [retinue#58](https://github.com/Retinue-OS/retinue/issues/58), unlabeled (labels 403). |
 | **The issue trackers as a *contributor* meets them** — 267 rows, none asks what a newcomer sees | 2026-08-01 (c347) | **50 open issues, 48 labeled, `good first issue` 0, `help wanted` 0** across all four repos. Both labels exist everywhere (GitHub defaults), applied nowhere — so the org is absent from the Contribute tab and every first-issue aggregator, the one discovery path needing no account or announcement. Held for the 2026-08-02 review; not filed. Detail: §c347 below. |
 | **Whether a `200` means the write landed** — never asked on any API write | 2026-08-01 (c347) | **It does not.** `PATCH /issues/58 {"labels":["bug"]}` → **200 OK, still 0 labels** (read back; re-run with explicit JSON, so not a client artifact), while `POST …/labels` on the same issue is 403 and `PATCH` of `body`/`state` applies. Corroborates the c343 role diagnosis; no new ask. Standing rule: **read back every API write; a status code is evidence of the request, not the result** — c225's git lesson, on HTTP. |
@@ -638,127 +640,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c336 — the surface that was never in the register: branches other than `main` (2026-08-01, 00:0x–00:4xZ)
-
-**The audit, in full, because it is small enough to state completely.** Four public repos in the
-org (the fifth is private, so its branches are not a public surface and are out of scope here):
-
-| Repo | Branches besides `main` | Compare against `main` |
-|---|---|---|
-| `qlever-dir` | none | — |
-| `retinue-os-deployment` | none | — |
-| `retinue` | `feat/chamber-secretary-style-override` | **0 ahead / 20 behind** — fully merged, an undeleted leftover of the #53 merge. Cosmetic |
-| `retinue-os-chamber` | `claude/aros-issues-triage-goei5k` | **2 ahead / 170 behind, diverged** — `GUARDRAILS.md` and `SECURITY.md` |
-
-**What was on it.** Two commits, both made by the owner's own Claude session on 2026-07-25 and
-pushed at 16:34:31Z: `492793b` corrects `GUARDRAILS.md` §3 row 2, which currently instructs me to
-say the project has **no CI running the tests** — false since 2026-07-19; and `6fb2bdd` adds a
-`SECURITY.md` to this repository, which has none (`/community/profile` → `files.security: null`,
-health 25%). Both issues they answer, #7 and #5, are **still open and still labelled
-`owner-action`** — six and twelve days respectively — while the work sat finished on a branch.
-**No pull request had ever been opened on this repository at all**; the one I opened is its first.
-
-**Why this surface generated no signal, which is the reusable part.** Every survey I run asks the
-same five questions of a repo — stars, forks, watchers, issues, PRs — and a branch is none of them.
-`gh pr list` returns nothing for a branch with no PR, which is exactly the state that hides work.
-The register's own premise is that an unchecked surface emits nothing to prompt checking it; this
-one had the additional property that **the instrument I do run reports it as empty rather than as
-unmeasured** — zero open PRs reads as "nothing pending", when what it meant was "nothing pending
-*that anyone opened*."
-
-**Verified before putting it in front of him, rather than after.** `GUARDRAILS.md` has not moved on
-`main` since 2026-07-19 (`24cf883`) and `SECURITY.md` does not exist there, so both apply cleanly —
-confirmed by the PR reporting `MERGEABLE` / `mergeStateStatus: CLEAN`, +16/−1 over 2 files. The CI
-fact the row turns on still holds: `tests.yml` runs on push to `main` and on every PR, five most
-recent runs green, latest 2026-07-31T19:44:10Z. The `SECURITY.md` text is robust to a setting I
-cannot read — it branches on whether the Security tab offers private vulnerability reporting rather
-than asserting which — and its deferral of framework reports matches `retinue/SECURITY.md`, which
-exists and describes the same process.
-
-**The part that is against my own interest, stated because leaving it out would be the violation.**
-The `GUARDRAILS.md` row this branch lands is *still* imprecise, and I am the one who found that:
-six minutes after the branch was pushed I commented on #7 that "security-critical paths are
-untested" is broader than the evidence and "on every push and PR" is broader than the trigger, and
-proposed a better row. **That comment is why nothing merged for six days.** It gave him a reason to
-wait and no reason to act, and the thing it left standing on `main` is a flatly false sentence
-rather than a merely imprecise one. Recommending the merge *and* saying the row is imperfect is not
-a hedge — it is the ranking: an imprecise claim in the safe direction beats a false one, and the
-better row is a one-line follow-up either way.
-
-**Rule this adds, and it is not about branches.** *A checker that reports zero should say whether it
-measured zero or measured nothing.* `gh pr list → 0` and `gh api notifications → 403` are both
-reported in my survey lines, and only the second is honestly labelled as a gap. The first meant
-"unmeasured" for thirteen days and read as "clean". Same family as c335's note that a 403 on
-notifications is a gap and not a zero — but that one I had already learned on the instrument that
-errors, and missed on the instrument that succeeds.
-
-**Reference discipline, caught in my own PR body before it shipped.** The body first wrote the
-framework's `#57` bare, inside a pull request that lives in *this* repository — where a bare `#N`
-resolves here. That is c332's defect with the repos swapped: c332 found bare `#54`/`#55` in a
-`chamber#`-prefixed card line resolving to this repo and 404ing. Qualified as
-`retinue-os/retinue#57`, with one sentence in the body stating the convention it uses. In the other
-direction the same edit was a gain: writing #7 and #5 bare rather than as `chamber#7`/`chamber#5`
-is what put PR #9 into both issues' timelines, which is how he finds it from his desk.
-
-## §c343 — the ask, which nothing in this chamber ever re-derives (2026-08-01, 04:4x–05:2xZ)
-
-The register tracks **surfaces** and `baseline-check` tracks **held findings**. Nothing tracks the
-**ask** inside an `owner-action` issue — the one paragraph the owner would act on. chamber#6 has
-carried the same ask since 2026-07-31, restated in three comments: `Contents: read and write` on the
-`aros-agent` token. Re-derived from a measurement for the first time this cycle, it is wrong, and
-acting on it as written would have changed nothing.
-
-### The discriminator, and it costs four calls
-
-Two pairs. Within each pair, both endpoints declare the **same** required token permission in
-GitHub's own `x-accepted-github-permissions` header, against the same repository, seconds apart:
-
-| Call | Declared | Result |
-|---|---|---|
-| `GET /repos/Retinue-OS/retinue` | `metadata=read` | **200** |
-| `GET /repos/Retinue-OS/retinue/collaborators` | `metadata=read` | **403** |
-| `PATCH /repos/Retinue-OS/retinue/issues/54` (mine, no-op title) | `issues=write; pull_requests=write` | **200** |
-| `POST /repos/Retinue-OS/retinue/issues/54/labels` (same issue) | `issues=write; pull_requests=write` | **403** |
-
-Pair 1 reproduces identically on `retinue-os-chamber`. A token permission cannot be present and
-absent on one repository in one second, so **none of these 403s is about the token's permission
-set.** What pair 1's failing endpoint requires and its succeeding one does not is documented:
-*"The authenticated user must have write, maintain, or admin privileges on the repository"*. Pair 2
-is corroboration rather than a second citation — the labels page states no role requirement — and
-shows the same shape observed: the call with an author path succeeds, the call without one does not.
-
-**The binding constraint is the `aros-agent` account's repository role, and it is below Write.** A
-fine-grained PAT can never exceed what the account itself may do.
-
-### The lesson, which is the expensive part
-
-GitHub returns `Resource not accessible by personal access token` for **role** denials as well as
-scope denials. Every 403 recorded in this chamber carries that string, and every cycle since
-2026-07-19 read it as a diagnosis. It is a label. *An error message that names a cause is not a
-measurement of that cause* — the c19/c310/c342 shape, one layer down: an **inherited** 403 is not a
-measurement, and now, a **self-measured** 403 is not a measurement of *why* either.
-
-### What was published, and what was deliberately not
-
-Published: one comment on [chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6#issuecomment-5149872274),
-carrying the corrected two-step ask (role first, then scope — the role denial *masks* the scope, so
-the scope stays in the ask rather than being dropped from it) and a one-command verification I
-promised to report either way. c342 judged a further chamber#6 comment to be nagging and was right
-about the class it had: a ninth *consequence* adds nothing. A correction that changes what he would
-do is not that class, and holding it would have been the more expensive silence.
-
-Not published: no new issue (the c184 slot is shut until 06:26:15Z, and this belongs on the existing
-tracker regardless), no dashboard push (ten threads unread; one venue per thing), nothing about the
-private finding routed at c340.
-
-### Proposal for the 2026-08-02 review
-
-Give `owner-action` asks an expiry, the way `baseline-check` gives held drafts one. The candidate
-rule is cheap and needs no new instrument: **before treating a tracked blocker as covered, re-derive
-its ask from a live measurement rather than re-reading it.** The existing no-re-escalation rule
-already requires verifying that the *tracker* exists (c19); it has never required verifying that
-what the tracker *asks for* is still the right thing.
-
 ## §c347 — the tracker as a contributor meets it, and a 200 that changed nothing (2026-08-01, 07:0x–07:2xZ)
 
 Two surfaces, one pickup, because the second was found while trying to fix the first.
