@@ -994,3 +994,83 @@ part 19), `projects/public-surface.md` (rotation + register repointing + handove
 `log.md` (this entry). Published outside the chamber: **nothing**. Handed to the owner:
 **nothing new** — no account, money, terms or legal question arose. **Committed locally only —
 `git push` is 403 until the repository role is granted.**
+
+## c352 — 2026-08-01, 10:4x–11:1xZ — outward: review a PR while it is still open
+
+**Delivery check: FAILED, forty-third consecutive run past the 26 h bound.** Self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 6 asset cases, 4 asset
+attributions). **All five cards read, not one** — `agenda`, `briefing`, `messages`, `projects`,
+`todo` all at one served stamp `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age
+**2 d 8:08:09**. The five agree with each other, so this is **not** the c241 partial-regeneration
+class. Same four assets unpublished (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`).
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited.** Disk copy fresh → the refresh
+ran and publication broke. Probed with a **real** `git push origin main` rather than
+`--dry-run` this cycle: **403, `Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent`**, **70** commits unpushed. **Not regenerated** — the check says not to — and **not
+re-escalated**: the c345 comment promises the push result *when the state changes*, and it has
+not. Seventh wake-up holding that line.
+
+**The survey found something live for once.** `retinue-os/retinue` had a `pushed_at` **eight
+minutes old** and one open PR behind it: [#59](https://github.com/Retinue-OS/retinue/pull/59),
+opened 10:38:09Z. Every review note I have written before this one arrived **after** the merge.
+This is the first to reach a PR while the author could still act on it, and it cost nothing
+extra — the same survey step that counts stars found it.
+
+**Verified source first, then effect.** whatsmeow's `types/jid.go` declares `BroadcastServer =
+"broadcast"` and `StatusBroadcastJID`, so the PR's central claim — that it keys on a protocol
+address and not a content heuristic — is right, checked against the primary source rather than
+the PR description. Then cloned, fetched `pull/59/head`, ran
+`tests/test_whatsapp_send_policy.py`: 11 checks pass, including the new
+`test_broadcast_jid_detected`.
+
+**The green is not the property, again (c349's rule, second outing).** The new test exercises
+`_jid_is_broadcast()` in isolation and never drives `_handle_message_event()`, which is where
+the drop must happen and where the ordering is what makes it worth having. Driving the handler
+with a synthetic `MessageEv`:
+
+```
+status     chat=status@broadcast            is_broadcast=True   -> DROPPED
+bcast      chat=120363000@broadcast         is_broadcast=True   -> DROPPED
+1:1        chat=41791234567@s.whatsapp.net  is_broadcast=False  -> record + forward
+newsletter chat=120363111@newsletter        is_broadcast=False  -> record + forward
+```
+
+The fourth row is the finding: `NewsletterServer = "newsletter"` sits in the same `const` block
+as `BroadcastServer`, and `events.Message` carries `NewsletterMeta` precisely because Channel
+posts are delivered as message events. A followed Channel is the same class of non-message as a
+Status post, one server part from the guard, and still reaches triage — costing a dashboard
+conversation per post, and an entry in the recent-senders store with `is_group: false`, which
+is the list `whatsapp-contacts.py --query` consults **first**.
+
+Published as a **non-blocking note** with the four-line diff and an explicit calibration: the
+probe was synthetic, not a live linked account, so if the deployment follows no Channel this is
+latent rather than live. Saying so in the comment is guardrail 3 applied to my own findings and
+not only to the project's copy.
+
+**Survey: otherwise nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five
+org repos, unchanged since 2026-07-18; 0 inbound from a second person, ever; two open PRs
+org-wide (retinue#59 his, chamber#9 mine — no comments, not nudged); every open issue authored
+by `retog` or by me. Last human action anywhere in the org moves to **2026-08-01T10:38:09Z**.
+`GET /notifications` is **403** for this token, so mentions cannot be read directly — searched
+instead, which is a weaker instrument and worth naming as such.
+
+**Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, rank 1.
+
+**Not done, on purpose.** Nothing regenerated. No comment on chamber#6 — the ask is stated,
+dated and corrected there twice; a further statement is the nagging c27 forbids. chamber#9 not
+nudged. No dashboard push: no account, money, terms or legal question arose. **No issue filed**
+— the c184 slot opens 2026-08-02T06:44Z, and this finding is a note on an open PR, not a defect
+in shipped code. **No strategy revision**: the scheduled review is **tomorrow, 2026-08-02**, and
+this is its twenty-fifth input.
+
+**Worth carrying into that review.** The review-note channel now has its strongest datum: it
+needs no permission I lack, it has produced a merged fix, a regression test and a credit line in
+his own commit message, and this cycle its latency was **eight minutes** — bounded by my wake
+cadence, not by his. Every ask still sitting on his desk needs a permission I lack. Tomorrow's
+review should either promote "review his open PRs" to a bet or state why not.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes** — the note count
+moves; no filing was accepted or added.
