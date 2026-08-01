@@ -2652,3 +2652,87 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 370 — 2026-08-01 22:3x–22:4xZ — **idle; the one rule-condition everyone recalled is measured, and it stands at 1 of 2**
+
+**Delivery check: SIXTIETH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five cards read on the **served** site — `agenda`, `briefing`, `messages`,
+`projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against a disk copy of
+**2026-08-01T18:41:46Z**, age **2 d 19:56:55**. The five agree, so **not** the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, all five `origin/main` copies equal the **served** stamp and differ from the
+fresh disk copy → unpushed, so Pages is exonerated from a reading and not from an assumption. Probe
+re-run rather than recalled: `{pull:true, push:false, admin:false, maintain:false, triage:false}`,
+`role_name: null`, **92 commits ahead** (91 at c369), `git push --dry-run` → **403, `Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent`**.
+
+**Not re-escalated — twenty-fifth consecutive wake-up holding the c345 line.** He asked the
+narrowing question on retinue#60 at 18:28:06Z and I answered it at 18:49:01Z with the probe, the
+org-settings route and the one-look test. Four hours, a Saturday evening, and the c27 clock rule
+says that is not a verdict. A second ask is the nag.
+
+**Pickup: none. This wake-up is idle and says so** — c368 inward, c369 idle, so c268 rule 1 leaves
+outward or idle with no third option, and every outward candidate is blocked by my own rule, waiting
+on him, or a nag. What this cycle did instead of picking one up was **measure the condition three
+consecutive cycles had asserted from memory.**
+
+| c184 restore condition | Measured 2026-08-01 22:3xZ | Met? |
+|---|---|---|
+| Inbound from a second person | 0, ever | no |
+| **Two issues closed inside a week** | **1** — `retinue#52`, closed 2026-07-31T19:21:59Z; org-wide, all four public repos, `state=closed&since=2026-07-25T22:00Z`, pull requests excluded | **no — but 1 of 2** |
+| Open count below 20 | 51 org-wide (34 `retinue`, 8 chamber, 8 `qlever-dir`, 1 deployment) | no |
+
+c367 and c369 both wrote *"none of them met"* and were right, and neither had a number for the
+middle row. **A condition recalled as false is not a condition measured as false**, and this one is
+one issue away from opening — which changes what the next cycle should check first, and would have
+been invisible for as long as the recall held. Same shape as c19/c310/c343, applied to my own
+operating rules rather than to a 403.
+
+**The filing therefore stays held, and this is the third cycle to decide it rather than the third to
+inherit it.** `drafts/c365-issue-body-retinue60-followup.md` is complete and filable unedited; the
+c184 slot opens **2026-08-02T06:43:59Z**.
+
+**One observation for tomorrow's review, recorded and not acted on — its sixth input.** c219 gave the
+review the question *which parts of "reachable presence" need nothing from him?* Reading the
+*Working while blocked* admissible-work list against that question, every item on it — answer inbound,
+audit a public surface, fix a defect in the project's own surface, verify a claim, improve a finished
+piece — is **confined to surfaces this org owns**. That boundary is nowhere stated; it was inherited.
+The category it excludes is the obvious one: **technical contribution in venues the target audience
+already reads** — upstream QLever and the RDF/SPARQL tooling around it, under my own disclosed
+identity. Guardrail 6 forbids *self-promotion* in others' venues; it does not forbid *contribution*,
+and contribution needs no account, no push, and nothing from the owner. Stated with its costs, since
+a channel with only benefits is a channel I have not thought about: it spends a stranger's attention
+(the same cost c184 rate-limits in our own queue), and an obviously project-affiliated account
+contributing upstream reads as marketing unless the contribution stands alone and links nothing
+unless asked. **Not acted on, deliberately** — I hold no measured upstream finding, and inventing one
+tonight to make an idle wake-up look productive is precisely the c268 failure. The review decides
+whether the channel opens; a wake-up should not.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos,
+unchanged since 2026-07-18; 0 inbound from a second person, ever. Org event stream carries **nothing
+after my own 20:09:44Z comment** — 2 h 30 m of no one; his last action is 19:31:54Z on retinue#58.
+`mentions-check.py` (self-test pass): **49 raw hits, 0 confirmed**. `desk-drop-check.py`: 29/29
+coverage, **0 problems**, nothing left the owner's queue unresolved. `pointer-check.py`: 0 problems
+across 114 files / 209 pointers. `rotation-check.py`: **still DUE** at 218 KB — untouched on purpose,
+the repair is tomorrow's review's per c314/c368. **Zero open PRs in the framework**; one org-wide,
+chamber#9, mine, `mergeable_state: clean`, ~22.5 h, no review — checked for conflicts rather than
+nudged. **Drafts past cool-off:** none requiring action. **Held queue stays 1** —
+`webapp-manifest-german-description.md`.
+
+**Not done, on purpose.** No issue filed (slot shut), no comment anywhere (retinue#58 and #60 both
+wait on him; chamber#6 and chamber#1 hold five unanswered comments of mine; chamber#9 is mine to wait
+on), nothing regenerated (disk fresh — the wrong attribution branch), no rotation, no new instrument
+(c268 rule 2), no dashboard push — no account, money, terms-of-service or legal question arose, and
+ten threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged. Nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
