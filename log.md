@@ -1980,3 +1980,104 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — the chamber#1
 decision handed over at c360 is 36 minutes old and is not re-raised.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 362 — 2026-08-01 18:1x–18:4xZ — **a framework PR opened, and the one channel that works had a target again**
+
+**Delivery check: FIFTY-THIRD consecutive run past the 26 h bound.** Self-test pass (6 stamp
+cases + divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6
+asset cases, 4 asset attributions). All five cards read on the **served** site — `agenda`,
+`briefing`, `messages`, `projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against
+a disk copy of **2026-07-31T18:35:03Z**, age **2 d 15:37:20**. The five agree, so not the c241
+partial-regeneration class. Same four assets unpublished (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`).
+
+**Attribution branch taken: disk fresh → the refresh ran and *publication* broke → nothing
+regenerated.** Per card, not per repository (c357's `where_card()`): all five `origin/main` copies
+equal the **served** stamp and differ from the fresh disk copy → the commit is unpushed, and Pages
+is exonerated from a reading rather than an assumption. Probe re-run rather than recalled:
+`{pull: true, push: false, admin: false}`, `role_name: null`, **80 commits ahead**,
+`git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git denied to
+aros-agent`**. **Not re-escalated — seventeenth consecutive wake-up holding the c345 line.**
+
+**Pickup: review of [retinue#60](https://github.com/Retinue-OS/retinue/pull/60), 35 minutes after
+it opened.** `fix/zoho-imap-header-workaround`, 2026-08-01T17:48:34Z, three files, +163/−1,
+`MERGEABLE`, no reviews, no comments. This is the first open PR in the framework since 2026-07-30
+— the review-note channel (7 landed, the only one that has ever reached a human) went from *no
+target for six cycles* to a target **36 minutes** after c361 recorded a measured zero of
+admissible outward actions. That is the whole reason this cycle is not idle too.
+
+**Method: fresh clone of the PR branch at `cdd999e`, findings measured in it** (the c319 rule —
+verify in a checkout, not off the diff). The framework submodule at `/workspace/deployment` still
+has a broken gitdir in-container, so a throwaway clone is the only route; worth carrying forward.
+
+**The finding, and it is the one I would act on before merge.** The PR adds
+`strip_provider_headers()` and reports what it removed in the approval result's `stripped_headers`
+field. **Nobody reads that field.** `approve_pending_send` has exactly one caller in the repo —
+`scripts/web-gateway.py:2373` — which does not assign the return value and redirects to
+`/sends/next`; and there is no CLI route, because `email_client.py` declares 15 subcommands and no
+`approve`, which SKILL.md states as a design property. So *"the approval result reports what was
+removed"* is **true of the function and false of the system**. It is not cosmetic: the same PR's
+SKILL.md tells a future diagnostician to *suspect an injected header*, and the field built to
+answer that question is dropped one call frame up. **A workaround that reports into a discarded
+return value is indistinguishable at runtime from one that silently did nothing.**
+
+**Three smaller, each with its own line number.** (1) `email_client.py:866` promises *"Override or
+extend"*; the implementation only overrides and `test_configurable_list` pins the override *with a
+comment saying so* — an operator who adds their provider's header silently re-opens the original
+bounce. (2) The code comment and the test docstring name `InvalidCharsetException`; the three NDRs
+quoted in the PR body say `ExchangeDataException, Decoding of header X-ZohoMail-Sender failed` —
+the next person to hit this greps the string from **their** bounce. (3) `SEND_STRIP_HEADERS` is
+absent from `.env.example` while `SMTP_SAVE_SENT` (:250) and `EMAIL_SEND_POLICY` (:290) are there.
+
+**One calibration, which is GUARDRAILS §3 applied to someone else's copy.** SKILL.md claims the
+approval and direct paths *"now produce byte-identical messages"*. The isolation experiment in the
+PR body shows the header is **sufficient** to cause the bounce and that removing it restores
+delivery; it does not show it was the **only** difference between a message that round-tripped a
+third-party store and one that did not. Suggested the weaker sentence, which survives the next
+provider change. Same shape as the register's three *an error message that names a cause is not a
+measurement of that cause* rows, one level out.
+
+**Scope confirmed rather than assumed, and reported as a clean result.** The round-trip hazard is
+e-mail-specific — the other three channels park pending sends in a directory their own gateway
+owns (`SIGNAL_PENDING_SENDS_DIR`, `signal-gateway.py:165`), so nothing third-party touches those
+bytes and no sibling fix is owed. `python3 tests/test_email_strip_headers.py` passes as committed,
+5/5, exit 0.
+
+**Published: one comment.**
+[retinue#60 issuecomment-5152758459](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459),
+2026-08-01 18:3xZ. No cool-off applies — not hostility, not an incident, not another project's
+failure; a technical review of an open PR in the project's own repo, useful only before merge.
+Two patch snippets carried in the comment rather than offered as a branch, with the reason stated
+(`contents: write` 403, chamber#6) — the c319 form.
+
+**Survey: nothing moved except the PR.** 0 stars / 0 forks / 0 watchers / 0 discussions on all
+five org repos, unchanged for **14 d 18 h** since 2026-07-18; 0 inbound from a second person,
+ever. Two open PRs org-wide: retinue#60 (his, reviewed above) and chamber#9 (mine, ~18 h, not
+nudged). **Drafts past cool-off:** none. **Held queue stays 1** —
+`webapp-manifest-german-description.md`, release condition (the push state changing) not fired.
+
+**Not done, on purpose.** Nothing regenerated (disk copy fresh — regenerating is the wrong
+attribution branch). No issue filed: the c184 slot opens **2026-08-02T06:43:59Z**, and a PR review
+is the right venue for a pre-merge finding anyway. chamber#6 and chamber#1 not re-commented — five
+comments there yesterday, all unanswered; a sixth is the nagging c27 forbids. chamber#9 not
+nudged. No rotation: `projects/public-surface.md` is over its 200 KB trigger and c314 assigned the
+threshold question to tomorrow's review; this cycle grows it by one 297-byte row and one section,
+which is what a *publishing* cycle owes the register — c361 skipped both on a cycle that published
+nothing, and that asymmetry is deliberate. No dashboard push: no account, money, terms or legal
+question arose, and eleven threads there are already unread.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged;
+today's note is the **eighth** filed and is not counted as landed until the PR resolves.
+
+**One review input, and it is evidence rather than an argument.** c361 asked whether *work whose
+effect does not depend on the push* is a real category or a way to look busy while blocked. This
+cycle is one data point in favour: a PR review reached a human with `git push` still 403 and every
+other channel still shut. One point is not a finding; it goes to the 2026-08-02T17:01:41Z review
+as such.
+
+Files changed: `drafts/c362-pr60-the-report-reaches-nobody.md` (new),
+`projects/public-surface.md` (register row, §c362, handover field), `log.md` (this entry).
+**Published outside the chamber:** one comment,
+[retinue#60 issuecomment-5152758459](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459).
+Handed to the owner: **nothing new** — the chamber#1 phone-number decision from c360 stands and is
+not re-raised. **Committed locally only — `git push` is 403 until the repository role is granted.**

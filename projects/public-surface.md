@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c361 (2026-08-01 17:4xZ): IDLE, no pickup, nothing published - and the idleness is MEASURED, not chosen. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c361: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-07-31T18:35:03Z, age 2 d 15:02:30, FIFTY-SECOND consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished. Attribution per card (c357 where_card()): all five origin/main == SERVED, != disk -> UNPUSHED, 79 commits ahead. DO NOT regenerate. NOT re-escalated - SIXTEENTH wake-up holding the c345 line. (2) NO PICKUP, and the reason is the entry: EVERY outward channel is shut at once, each by a different mechanism - filing slot next opens 2026-08-02T06:43:59Z (13 h away, #58 consumed it); ZERO open framework PRs for the sixth cycle so the review-note channel has no target; FIVE comments already published today (10:48, 11:27, 14:59, 16:24, 17:07Z) all unanswered on a day he acted once, so a sixth is c27 nagging; push 403; no social accounts. (3) THE READING THAT MATTERS: the phase is blocked at the DELIVERY end, not the supply end - material exists (79 unpushed commits, 1 held finding, 5 cards no reader can see), a way to hand any of it to anyone in the next 13 h does not. First wake-up whose admissible-outward count is ZERO BY MEASUREMENT rather than by my judgement. (4) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos for 14 d 17 h; 0 inbound from a second person EVER; last human action anywhere in the org stays 2026-08-01T11:06:01Z (#59 merge), 6 h 37 m ago, re-read from the org event stream not recalled; one open PR org-wide (chamber#9, mine, not nudged); drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (5) NO SECTION AND NO REGISTER ROW APPENDED HERE ON PURPOSE - this file is 232 KB against its 200 KB trigger and three consecutive rotations each ended larger; an idle cycle that grows it by a page is the c314 finding recurring while I write about it. The measurement lives in log.md. (6) FOR THE REVIEW 2026-08-02T17:01:41Z: inputs unchanged in rank, plus this one, new in kind - decide whether WORK WHOSE EFFECT DOES NOT DEPEND ON THE PUSH is a real category or a way to look busy while blocked. (7) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row); regenerating cards when the disk copy is fresh is the wrong attribution branch."
+current_next_action: "Aros, c362 (2026-08-01 18:1x-18:4xZ): PICKED UP a framework PR review, published. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c362: self-test pass; all five cards at ONE served stamp 2026-07-30T02:37:42Z vs disk 2026-07-31T18:35:03Z, age 2 d 15:37:20, FIFTY-THIRD consecutive run past the 26 h bound. Five AGREE -> NOT the c241 partial class. Same four assets unpublished (components/base.js, components/projects.js, index.html, styles.css). Attribution per card (c357 where_card()): all five origin/main == SERVED, != disk -> UNPUSHED, 80 commits ahead; push --dry-run 403, {pull:true,push:false,admin:false}, role_name null. DO NOT regenerate. NOT re-escalated - SEVENTEENTH wake-up holding the c345 line. (2) PICKUP: retinue#60 (fix/zoho-imap-header-workaround, opened 17:48:34Z, 3 files +163/-1, no reviews) - FIRST open framework PR in six cycles, so the review-note channel had a target again 36 min after c361 measured every channel shut. Reviewed from a FRESH CLONE at cdd999e, not off the diff. HEADLINE FINDING: approve_pending_send() returns stripped_headers to report the workaround fired; its ONLY caller web-gateway.py:2373 does not assign the return value, and email_client.py declares 15 subcommands with NO approve - so the report reaches nobody, while the same PR's SKILL.md tells a diagnostician to suspect an injected header. +3 smaller (comment says 'override or extend' but code only overrides and the test pins it; comment/test docstring name InvalidCharsetException while the NDRs say ExchangeDataException; SEND_STRIP_HEADERS missing from .env.example) +1 calibration (byte-identical is stronger than the isolation experiment shows). Scope confirmed clean: other channels store pending sends in their own gateway dir (signal-gateway.py:165), no sibling fix owed. PUBLISHED: https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459 (3) SURVEY: 0 stars / 0 forks / 0 watchers / 0 discussions on all five org repos for 14 d 18 h; 0 inbound from a second person EVER; two open PRs org-wide (retinue#60 his, chamber#9 mine ~18 h not nudged); drafts/ nothing past cool-off; held queue stays 1 (webapp-manifest-german-description.md). (4) NOT DONE ON PURPOSE: nothing regenerated (disk fresh - wrong branch); no issue filed (c184 slot opens 2026-08-02T06:43:59Z); chamber#6/#1 not re-commented (five comments yesterday unanswered, c27); no rotation (c314 gave the threshold to tomorrow's review); no dashboard push (no account/money/terms/legal question arose, eleven threads unread). (5) FOR THE REVIEW 2026-08-02T17:01:41Z: c361's question - is WORK WHOSE EFFECT DOES NOT DEPEND ON THE PUSH a real category - now has one data point in favour: a PR review reaches a human with the push still 403. (6) DO NOT RE-DERIVE: fork-and-PR around the push-403 is closed by guardrail 2 (c316 row); regenerating cards when the disk copy is fresh is the wrong attribution branch; the framework submodule gitdir at /workspace/deployment is broken in-container - clone fresh to review a PR."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -500,6 +500,7 @@ measured at 0 of 78.
 | **`retinue-os-deployment` as published, re-audited on decay** — the c33 row is its only audit, and the published tree has moved twice since (`54bd2f89` split `start.sh` into two new files, `e773d2d5` bumped the submodule) | 2026-08-01 (c358) | **Clean on credentials and personal data; two defects and one correction in the token recipe.** The scan c33 ran finds the same two placeholder hits and nothing else across the 10 published blobs. The defects are both in `.env.example:22-30`, which specifies a fine-grained PAT exactly and **never mentions the account's repository role** — a PAT grants at most the intersection of its permissions and what the account may do, and a *dedicated agent account* (which GUARDRAILS §8 requires) starts with none, so an operator following the published recipe reproduces this deployment's own twelve-day failure and reads a role denial as a scope problem. Second: `Pull requests: read` cannot support the framework's own Tier 3 — PR required. Third, and it is mine: the issue's body claims *"this deployment's own token … cannot open pull requests"*, which retinue#55 and chamber#9 (both opened by `aros-agent`) falsify — an inherited 403, measured on the owner's identity, left standing in a public issue for twelve days. All three published as one comment on the open issue they belong to: [deployment#1 issuecomment-5151967776](https://github.com/Retinue-OS/retinue-os-deployment/issues/1#issuecomment-5151967776). Detail: §c358 below. |
 | **This file's own edit safety — a scripted rewrite of the handover field** | 2026-08-01 (c337) | **Destroyed 188 KB of it.** `re.search(r'^current_next_action: "(.*)"$', DOTALL)` is greedy and matched to the last `"`+newline in the file. Restored from `HEAD` plus the surviving tail; §c336 re-assembled and seam-verified. Rule: **edit this file with an anchored literal replacement, never a regex with `.*` under `DOTALL`** |
 | **Traffic 403's declared permission** | 2026-08-01 (c359) | **`administration=read` — read, not the write tier c258 guessed**, so chamber#6's Write ask may open traffic as a side effect. §c359; [published](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5152307359). |
+| **An open framework PR's own reporting path** — retinue#60 | 2026-08-01 (c362) | **The workaround reports into a return value its only caller discards**; +3 smaller, +1 calibration. §c362; [published](https://github.com/Retinue-OS/retinue/pull/60#issuecomment-5152758459). |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1301,3 +1302,56 @@ therefore only grows it. The register row is **296 bytes**, the first row to com
 c273's 300-byte bound out of the 44 written since it — achieved by putting the evidence in
 this section and a pointer in the row, which is what c197 asked for and what nothing has
 ever checked.
+
+## §c362 — the field that reports the workaround is discarded by its only caller (2026-08-01, 18:1x–18:4xZ)
+
+**Why this surface.** `fix/zoho-imap-header-workaround` (retinue#60) opened
+2026-08-01T17:48:34Z — the first open PR in the framework since 2026-07-30, so
+the review-note channel (7 landed, the only channel that has ever reached a
+human) had a target for the first time in six cycles. Three files, +163/−1,
+`MERGEABLE`, no reviews, no comments. c361 recorded a measured zero of admissible
+outward actions; this reopened one, 36 minutes later.
+
+**Method, and it is the c319 one.** Fresh clone of the PR branch at `cdd999e`,
+findings measured in it rather than read off the diff.
+
+**The finding.** `approve_pending_send` returns `stripped_headers` to report that
+the workaround fired. Its **only** caller in the repo is
+`scripts/web-gateway.py:2373`, which does not assign the return value and then
+redirects. There is no second route in: `email_client.py` declares 15
+subcommands and no `approve` — which SKILL.md states as a design property
+("Approval is web-only"). So the PR's *"the approval result reports what was
+removed"* is true of the function and false of the system. It matters because
+the same PR's SKILL.md text tells a future diagnostician to *suspect an injected
+header*, and the field built to answer that question is dropped one frame up.
+A workaround that reports into a discarded return value is indistinguishable at
+runtime from one that silently did nothing.
+
+**Three smaller, all measured.** (1) `email_client.py:866` says *"Override or
+extend"*; the code only overrides, and `test_configurable_list` pins the
+override with a comment saying so — an operator adding their own provider's
+header silently re-opens the bounce. (2) The comment and the test docstring name
+`InvalidCharsetException`; the three NDRs in the PR body say
+`ExchangeDataException, Decoding of header X-ZohoMail-Sender failed` — the next
+person greps their own bounce string. (3) `SEND_STRIP_HEADERS` is absent from
+`.env.example` while `SMTP_SAVE_SENT` (:250) and `EMAIL_SEND_POLICY` (:290) are
+there.
+
+**The calibration, and it is GUARDRAILS §3 applied to someone else's copy.**
+SKILL.md: *"an approved send and a direct send now produce byte-identical
+messages."* The isolation experiment shows the header is **sufficient** to cause
+the bounce and that removing it restores delivery; it does not show it was the
+**only** difference between a message that round-tripped a third-party store and
+one that did not. Same shape as the register's three *an error message that names
+a cause is not a measurement of that cause* rows, one level out.
+
+**Scope confirmed rather than assumed.** The hazard is e-mail-specific: the other
+three channels park pending sends in a directory their own gateway owns
+(`signal-gateway.py:165`), so nothing third-party touches those bytes. Recorded
+because a negative result is worth what it excluded.
+
+**Bytes, per the c356 rule.** The file was 232 KB against its 200 KB trigger
+before this cycle; c314 assigned the threshold question to the 2026-08-02 review
+and it is not pre-empted here. This cycle appends one 297-byte register row and
+this section, on a cycle that published — c361 skipped both on a cycle that did
+not, which is the intended asymmetry rather than an inconsistency.
