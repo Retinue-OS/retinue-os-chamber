@@ -4,7 +4,7 @@ id: proj-claim-verification
 title: "Verify the claims before publishing them"
 goal: "Every load-bearing claim in brand/positioning.md has been run, not just read."
 goal_status: in_progress
-current_next_action: "Owner: rule on the two open findings routed privately 2026-07-19; Aros holds a patch and test cases ready to write. Meanwhile the affected claim is withdrawn from positioning.md, so nothing false is published while it waits. Every other claim in the table has now been run."
+current_next_action: "Owner: rule on the THREE open findings routed privately — two from 2026-07-19, one added 2026-08-01 (c340) on dashboard thread a9eba696. Aros holds a patch and test cases ready to write for the first two, and a suggested fix plus a cheaper interim for the third. Meanwhile the affected claims keep their previous status here and nothing false is published while they wait. NEW, and it is a method change rather than a claim: a verified row has an EXPIRY. The 2026-07-31 merges moved 21 files / 2 123 insertions under rows verified in cycles 6-11, and re-running two of them against Retinue-OS/retinue @ f1f8c72f produced the third finding. This table has no baseline field; baseline-check tracks commit baselines for held DRAFTS and nothing tracks them for VERIFIED CLAIMS, which is the stronger artifact. Proposed to the 2026-08-02 review, not built in an idle slot."
 current_actor: actor-owner
 waiting_since: 2026-07-19
 expected_by: 2026-08-16
@@ -47,6 +47,38 @@ the difference is exactly what an outsider would publish.
 | Blue-green reindex catches up in ~15s | **verified 2026-07-19 as 15–20s; re-measured 2026-07-25 at 20–25s — restate as "tens of seconds"** | Polled at 5s intervals across three separate rebuilds: old value at t+15s, new value at t+20s, every time. So "~15s" is not wrong but rounds the wrong way; I state 15–20s for a small file. **The load-bearing caveat is what starts the clock:** only a native RDF file event does. A new Markdown file sat unindexed for 32 minutes (`projects/claim-verification.md`, committed 22:07, absent at 22:39) and a probe `.md` stayed at zero triples for a full 60s poll — then appeared within 20s the moment an unrelated `.nt` write triggered a rebuild. That is qlever-dir#3 observed from the other side, and it means the latency figure only holds for RDF. **Re-run 2026-07-25 (cycle 174), same deployment, same host, same two-line trigger file: (20, 25] s, (20.1, 22.1] s, (20.1, 22.1] s — every rebuild above the 2026-07-19 upper bound.** The chamber grew 340 KB / 38 files → 1.4 MB / 64 files in between while the indexed triple count barely moved (49 → 59), so it is not index size and the cause is not isolated. Six rebuilds over two dates span 15–25 s, which is a spread, not a scaling law: the claim is now stated as *tens of seconds, growing with the chamber*. Posted on [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657) as a correction to my own unmerged branch, which would have replaced one unsupportable number with another. |
 
 ## Open findings — deliberately not detailed here
+
+**2026-08-01 (cycle 340).** Two rows of the table above were **re-run** — not
+re-read — against `Retinue-OS/retinue @ f1f8c72f`, because the code they were
+originally executed against had moved by 21 files and 2 123 insertions in the
+five merges of 2026-07-31. One of them produced a result that is **unfixed**, so
+neither the finding nor *which row produced it* is recorded here, on the same
+reasoning as the 2026-07-19 entry below: naming the row would narrow it enough to
+be a disclosure on its own, and this repo is public. **Both rows keep their
+previous status** rather than recording a pass or a fail the public record cannot
+support; the affected one is corrected once the owner has ruled and fixed.
+
+Routed privately, appended to the existing send-control dashboard thread
+(`a9eba696…`) rather than opening an eleventh unread tab. The
+`SECURITY.md` route was tried first and refused:
+`POST /repos/Retinue-OS/retinue/security-advisories` → 403, *"Resource not
+accessible by personal access token"* — the same 403 the owner's token returned
+on 2026-07-19, and the first permission that has turned out **identical** across
+the two identities rather than different (cf. c310, c311, c315). Reading
+advisories works.
+
+**The transferable part, which is not a disclosure.** A verified row is a
+measurement with a date, and this file records the date but not the **commit**
+the measurement was taken against. `tools/baseline-check.py` does exactly that
+for held drafts, and nothing does it for claims — the stronger artifact of the
+two, since `brand/positioning.md`, `writing/org-profile-README.md` and every
+public surface derive from this table rather than from `drafts/`. Rows whose
+subject is **code** expire fastest: prose ages when someone edits that prose, a
+mechanism ages when anyone touches any file that implements it. Handed to the
+2026-08-02 review as a proposal rather than built in an idle slot (c268 rule 2
+admits it — the surface it watches is one a reader meets — but a build is not an
+idle-slot decision).
+
 **2026-07-19 (second).** A further claim was run this cycle and the result is
 **unfixed**, so neither the finding nor *which claim produced it* is recorded
 here — naming the claim would narrow it enough to be a disclosure on its own.

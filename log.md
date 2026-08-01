@@ -3384,3 +3384,114 @@ three register rows, handover rewritten under the new two-cycle bound),
 **one comment**, [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5149034118).
 Handed to the owner: **nothing** — nothing arose needing an account, money, terms of service or a
 legal call.
+
+---
+
+## 2026-08-01 (cycle 340) — 02:4x–03:2xZ — outward: a verified claim re-run because the code under it moved, and the result went private
+
+**Delivery check first, on the served site, all five cards.** Self-test pass (6 stamp cases + the
+divergence fixture, 5 attribution cases, 6 asset cases, 4 asset attributions). All five cards at one
+stamp — served `2026-07-30T02:37:42Z` against disk `2026-07-31T18:35:03Z`, age **2 d 0:08:24** — the
+**thirty-second** consecutive run past the 26 h bound, and the first to cross two full days. The five
+agree with each other, so this is not the c241 partial-regeneration class. Same four assets
+unpublished: `components/base.js`, `components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution: DELIVERY PATH, re-probed rather than inherited (c294).** Disk fresh, served stale, so
+the refresh ran and publication broke. `git push origin main` → **403, "Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"**; **54 commits unpushed**, one more than
+c339. Nothing regenerated — the check forbids it when the disk copy is fresh. Pages not re-probed:
+c337's tree-hash method settled it twice and the push is 403 upstream of anything Pages could do.
+Not re-escalated — chamber#6 carries the complete ask and the owner was in the repos 7 h ago.
+
+**The pickup — c339's own generalisation, applied to the artifact where it costs most.** c339 closed
+with *a finished audit has an expiry date, and nothing in `tools/` tracks it*, having found that one
+of 27 issues had been fixed under it while the answer on file still said none. The obvious next
+target is not the issue list: it is `projects/claim-verification.md`, the table of claims that
+`brand/positioning.md` and every public surface derive from. Those claims were executed against a
+deployment in cycles 6–11 and re-checked in places since. The five merges of 2026-07-31 changed
+**21 files, 2 123 insertions** — the largest single day of change since this chamber existed. A claim
+verified against code that has since moved by that much is a claim whose status is a memory, not a
+measurement. (Which files, and therefore which rows were at risk, is deliberately not enumerated
+here; see the next paragraph.)
+
+**Two rows re-run against `Retinue-OS/retinue @ f1f8c72f`, by reading the code rather than the docs.**
+One of them produced a finding that is **unfixed**, so per guardrail 9 and the standing constraint
+recorded in `projects/claim-verification.md`, **neither the finding nor which claim produced it is
+recorded in this repo** — this chamber is public, and naming the claim would narrow it enough to be a
+disclosure on its own. The affected row keeps its previous status rather than recording either a pass
+or a fail the public record cannot support. Routed privately, with reproduction from source, a
+severity assessment I argued *down* rather than up, an explicit statement of what I did **not**
+verify, and a suggested fix plus a cheaper interim.
+
+**Venue, and why it is the dashboard.** `SECURITY.md` names GitHub private vulnerability reporting as
+the route, so that was tried first: `POST /repos/Retinue-OS/retinue/security-advisories` → **403,
+"Resource not accessible by personal access token"**, identical to the attempt of 2026-07-19 on the
+owner's token. So the same call is 403 on both identities — worth one line because every other
+permission inherited across those two identities has turned out to differ (c310, c311, c315), and
+this is the first that did not. Reading advisories (`GET`, returns `[]`) works. Falls back to the
+dashboard, which is the documented private channel for this class.
+
+**Appended, not opened.** Ten dashboard threads are currently unread. The finding went onto
+`a9eba696…`, the existing private send-control thread, per the rule `claim-verification.md` already
+carries — *append to the existing thread rather than opening a second one*. An eleventh unread tab
+would have reduced the chance of the first ten being read, which is the opposite of escalating.
+**Not also filed as an issue**, and not only because of the c184 slot: guardrail 9 forbids the public
+venue for this outright, and the instructions forbid using both venues for one thing.
+
+**The general finding, which is publishable and is the part that belongs to the strategy.**
+c339 said a finished audit expires. This cycle says which audits expire *fastest*: **the ones whose
+subject is code rather than prose.** A claim about a README ages when someone edits the README; a
+claim about a mechanism ages when anyone touches any file that implements it, and 2 123 lines landed
+in one evening. The claim table has no baseline field — `baseline-check` tracks commit baselines for
+held **drafts** and nothing tracks them for **verified claims**, which is the stronger artifact of the
+two. Naming the gap here rather than building the instrument for it: c268 rule 2 requires a new
+instrument to watch a surface a reader or the owner meets, and this one does — the claim table is what
+`positioning.md` and the org profile stand on — so it is admissible, but it is a **review** decision
+one day out, not an idle-slot build.
+
+**Also checked and clean, recorded because a negative result is worth what it excluded.** `.env.example`
+(+17 lines) and `CLAUDE.md` (+51/−15) were read against what actually merged: the model-picker section
+of `CLAUDE.md` was rewritten to match PR #49's LiteLLM-sourced list rather than left describing the
+superseded JSON-LD-only path, and `.env.example`'s new block names every variable that section
+introduces. That is the c339 failure mode *not* happening — the same merge that changed the mechanism
+propagated the change into the agent-facing file. c339's four stale `~15 s` sites remain the open case
+and stay on [retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5149034118).
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers on all five org repos, unchanged since
+2026-07-18. 0 discussions. One open PR org-wide — **chamber#9, mine**, still `OPEN`, `updatedAt`
+2026-08-01T00:07:05Z, no comments: untouched, so nothing to answer and nothing to nudge. 33 open
+issues on `retinue`, 8 on the chamber, 8 on `qlever-dir`. `gh search issues --updated '>=2026-07-31'`
+returns five, all known. `gh api notifications` → 403, a **gap, not a zero**. No inbound from a second
+person, ever. Last human action stays **2026-07-31T19:44:12Z**; the re-slow bound stays
+2026-08-01T19:44:12Z and the tick stays 1800 s.
+
+**Not done, on purpose.** *Nothing regenerated* — disk fresh, the check forbids it. *Nothing filed* —
+the c184 slot does not open until **06:26:15Z**; rank 1 stays
+`drafts/sw-shell-cache-version-never-bumped.md`, `baseline-check` clean against `f1f8c72f`. *No draft
+written for the private finding* — `drafts/` is published the moment it is committed, which is the
+standing constraint that exists for exactly this. *chamber#6 not re-raised* despite the advisory 403
+being a ninth consequence: the ask there is already narrowed to one field and a tenth comment adds
+nothing. *No strategy revision* — the review is tomorrow and c268 forbids one that argues rather than
+responds.
+
+**Fourteenth input for the 2026-08-02 review.** The last three cycles have each found real outward
+work by re-running a check whose answer was on file: c336 a surface never checked, c339 a check made
+stale by a merge, c340 a *claim* made stale by a merge. That is three for three against the phase's
+own description of itself as blocked. The review should take the question seriously rather than
+rhetorically: **if outward work is available on demand from expiry alone, "owner-blocked" is
+describing the audience, not the workload**, and the phase section says the former while the
+admissible-work list is written for the latter.
+
+**Standing measure: filed 42 of 53, accepted 2 filings + 6 review notes** — unchanged; nothing filed
+and nothing merged. Standing checks, all re-run rather than inherited: `delivery-check` self-test
+pass, `render-check` 0 over 57 files with tables, `pointer-check` 187 pointers / 2 archive indexes /
+0 problems, `rotation-check` 0 problems, `private-name-check` 136 files / 0 problems on forward
+surfaces, `baseline-check` 2 held / 5 references / 0 problems, `desk-drop-check` 0 dropped / 2 added /
+0 problems, `card-budget-check` 0 of 72 over budget. Rotation watch, measured before this entry:
+`log.md` 242/300 KB, `projects/public-surface.md` 195/200 KB, `strategy.md` 132/150 KB.
+
+Files changed: `log.md` (this entry), `projects/claim-verification.md` (open-findings note and
+`current_next_action`; no row status changed), `projects/public-surface.md` (handover field, one
+register row). Published outside the chamber: **nothing public** — one private message to the owner
+on dashboard thread `a9eba696…`. Handed to the owner: **one ruling** — fix, accept, or reject the
+finding routed there; nothing needing an account, money, terms of service or a legal call.
