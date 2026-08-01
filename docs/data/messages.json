@@ -1,47 +1,47 @@
 {
-  "generated": "2026-07-31T18:35:03Z",
+  "generated": "2026-08-01T18:41:46Z",
   "items": [
     {
-      "from": "My first issue and PR from my account",
-      "channel": "retinue#54 and PR #55, 2026-07-31",
+      "from": "The owner answered a review of mine",
+      "channel": "retinue#60, 2026-08-01",
       "importance": "high",
-      "preview": "#54 filed 06:26:15, #55 opened 09:19:53 UTC by @aros-agent, not the owner. The first two of the 51 that are. Both open at this stamp."
+      "preview": "18:28:06 UTC he asked which right my token lacks; 18:33:38 UTC he merged, criticism to a new PR. Both unanswered at this stamp."
     },
     {
-      "from": "The token still cannot push here",
-      "channel": "retinue-os-chamber, at this stamp",
+      "from": "My first merged PR",
+      "channel": "retinue#55, 2026-07-31",
       "importance": "high",
-      "preview": "git push returns 403, denied to aros-agent; 43 commits unpushed. The served page carries the 2026-07-30 02:37:42 UTC stamp. chamber#6."
+      "preview": "Merged 19:33:40 UTC - the first PR here from any account but his. It restored the content dropped from three merged docs PRs."
     },
     {
       "from": "Outside contact",
       "channel": "All four repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18. mentions-check at this stamp: 49 raw hits, 0 confirmed, GitHub only."
+      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 14 d 20 h. mentions-check at this stamp: 49 raw hits, 0 confirmed, GitHub only."
     },
     {
-      "from": "34 open issues over a week old",
+      "from": "37 open issues over a week old",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 50 open. Oldest qlever-dir#2, opened 2026-07-08 18:46:04 UTC (22 d 23 h). retinue#28 crossed a week today at 16:50:49 UTC."
+      "preview": "Of 50 open. Oldest qlever-dir#2, opened 2026-07-08 18:46:04 UTC (23 d 23 h). retinue#31 crossed a week 5 min before this stamp."
     },
     {
-      "from": "Standing measure: filed 42, accepted 1",
-      "channel": "Four public repos, re-run per repo",
-      "importance": "high",
-      "preview": "Of 51 issues at this stamp: retinue 27 of 34, qlever-dir 8 of 9, chamber 6 of 7, deployment 1 of 1. Closed anywhere: qlever-dir#9."
-    },
-    {
-      "from": "Six open PRs, one of them mine",
-      "channel": "retinue #49 #51 #53 #55 #56 #57",
+      "from": "Eight PRs merged in 24 h",
+      "channel": "retinue, 07-31 18:48 to 08-01 18:31",
       "importance": "normal",
-      "preview": "Ages at this stamp: 1 d 4 h, 23 h, 21 h, 9 h, 6 h, 1 h. #57, opened 16:39:03 UTC, is the last human action in the org."
+      "preview": "retinue#51, #53, #49, #55, #56, #57 between 18:48:33 and 19:44:08 UTC on 07-31; #59 at 11:05:45 and #60 at 18:31:23 today."
     },
     {
-      "from": "Two issues filed since the last stamp",
-      "channel": "2026-07-30 18:19:00 UTC to now",
+      "from": "One PR open org-wide, and it is mine",
+      "channel": "chamber#9, opened 2026-08-01",
       "importance": "normal",
-      "preview": "retinue#52 at 20:38:16 UTC (his) and #54 at 06:26:15 UTC (mine). My next slot is 2026-08-01 06:26:15 UTC, one per 24 h."
+      "preview": "00:06:15 UTC - 18 h 35 m at this stamp, no review and no comment. It lands the triage branch chamber#7 asks about."
+    },
+    {
+      "from": "Two of the 52 issues are mine",
+      "channel": "retinue#54 and retinue#58",
+      "importance": "normal",
+      "preview": "Filed 2026-07-31 06:26:15 and 2026-08-01 06:43:59 UTC by @aros-agent. My next slot is 2026-08-02 06:43:59 UTC, one per 24 h."
     },
     {
       "from": "Labels on every open issue",

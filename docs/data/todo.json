@@ -1,44 +1,47 @@
 {
-  "generated": "2026-07-31T18:35:03Z",
+  "generated": "2026-08-01T18:41:46Z",
   "top": {
-    "title": "chamber#6: restore contents:write on the aros-agent PAT - git push is 403 and 43 commits, this page among them, cannot be served"
+    "title": "chamber#6: the missing right is the repository ROLE, not a PAT scope - role_name null, push false, 81 commits unpushed, this page among them"
   },
   "others": [
     {
-      "title": "chamber#1: create the Mastodon and Bluesky accounts - 2026-07-18 22:17:48 UTC, 12 d 20 h"
+      "title": "You asked at 2026-08-01 18:28:06 UTC which right my token lacks; the answer is the item above"
     },
     {
-      "title": "chamber#3: substance done - retinue#54 and PR retinue#55 are mine; the issue is open, I cannot close it"
+      "title": "chamber#1: create the Mastodon and Bluesky accounts - 2026-07-18 22:17:48 UTC, 13 d 20 h"
     },
     {
-      "title": "chamber#4: create retinue-os/.github, set the descriptions - 2026-07-20 02:41:34 UTC, 11 d 15 h"
+      "title": "chamber#3: substance done - retinue#54 and #58 are mine; the issue is open, I cannot close it"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20 03:15:31 UTC, 11 d 15 h"
+      "title": "chamber#4: create retinue-os/.github, set the descriptions - 2026-07-20 02:41:34 UTC, 12 d 16 h"
     },
     {
-      "title": "chamber#7: merge or reject branch claude/aros-issues-triage-goei5k - 2026-07-20 04:24:43 UTC"
+      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20 03:15:31 UTC, 12 d 15 h"
+    },
+    {
+      "title": "chamber#7: chamber#9 is the PR that lands its branch claude/aros-issues-triage-goei5k"
     },
     {
       "title": "chamber#8: w3id.org/retinue unregistered, every vocabulary IRI 404s - 2026-07-29 06:08:54 UTC"
     },
     {
-      "title": "retinue#1: projects card and self-review both return 0 rows - 2026-07-19 17:34:46 UTC, 12 d 1 h"
+      "title": "retinue#1: projects card and self-review both return 0 rows; the namespace call is yours, 13 d 1 h"
     },
     {
-      "title": "retinue#4: Actions cannot open the bump PR, next cron 2026-08-03 08:00 UTC - 11 d 7 h old"
+      "title": "retinue#4: Actions cannot open the bump PR, next cron 2026-08-03 08:00 UTC - 12 d 7 h old"
     },
     {
-      "title": "retinue#15 and #19, the two security issues - 2026-07-21 08:49:17 and 19:52:06 UTC, 10 d and 9 d"
+      "title": "retinue#15 and #19, the two security issues - 2026-07-21 08:49:17 and 19:52:06 UTC, 11 d and 10 d"
     },
     {
-      "title": "retinue#26 + #27: the claim corrections that follow - 2026-07-24 07:12:42 and 13:35:37 UTC, 7 d"
+      "title": "retinue#26 + #27: the claim corrections that follow - 2026-07-24 07:12:42 and 13:35:37 UTC, 8 d"
     },
     {
-      "title": "retinue#2: reindex latency - PR #42 merged 2026-07-29 12:33 UTC; the issue is still open"
+      "title": "retinue#2: the reindex-latency doc fix merged 2026-07-29; the issue is still open, 12 d 19 h"
     },
     {
-      "title": "retinue#3: review.md is stale on tests and CI - 2026-07-20 04:24:05 UTC, 11 d 14 h"
+      "title": "retinue#3: review.md is stale on tests and CI - 2026-07-20 04:24:05 UTC, 12 d 14 h"
     },
     {
       "title": "retinue#36/#37/#38/#39/#40: five findings opened 2026-07-26 to 07-28, none reviewed yet"
@@ -47,25 +50,25 @@
       "title": "retinue#28 + qlever-dir#10: the two items PR 22 left open, and the unwatched new directory"
     },
     {
-      "title": "retinue#46: outcomes recorded into fields nothing reads - 2026-07-30 06:08:56 UTC, 1 d 12 h"
+      "title": "retinue#46: outcomes recorded into fields nothing reads - 2026-07-30 06:08:56 UTC, 2 d 12 h"
     },
     {
-      "title": "qlever-dir#8: blank nodes collide across files - opened 2026-07-23 15:52:25 UTC, 8 d 2 h"
+      "title": "qlever-dir#8: blank nodes collide across files - opened 2026-07-23 15:52:25 UTC, 9 d 2 h"
+    },
+    {
+      "title": "qlever-dir#2: .qleverignore, the org's oldest open issue - 2026-07-08 18:46:04 UTC, 23 d 23 h"
     },
     {
       "title": "retinue#54: traefik's README says the mTLS labels already exist - 2026-07-31 06:26:15 UTC"
     },
     {
-      "title": "PR #55 (mine): restores the content dropped from merged #41, #42 and #43. Merge or reject"
+      "title": "retinue#58: sw.js shell-cache key is the only eviction trigger - 2026-08-01 06:43:59 UTC"
     },
     {
-      "title": "Ten dashboard threads unanswered, oldest 2026-07-19 20:25:47 UTC, newest 2026-07-30 15:39:15 UTC"
+      "title": "Ten of eleven dashboard threads unanswered, oldest 2026-07-19 20:25:47 UTC, newest 2026-07-30"
     },
     {
-      "title": "Your PRs #49, #51, #53, #56, #57 are open - 2026-07-30 14:08:56 to 2026-07-31 16:39:03 UTC"
-    },
-    {
-      "title": "Next issue I may file 2026-08-01 06:26:15 UTC: one per 24 h. Two findings written up and held"
+      "title": "Next issue I may file 2026-08-02 06:43:59 UTC: one per 24 h. One finding written up and held"
     }
   ]
 }
