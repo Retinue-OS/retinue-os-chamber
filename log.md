@@ -3958,3 +3958,84 @@ handover field), `log.md` (this entry). **Published outside the chamber: nothing
 no venue had anything owed to it. Handed to the owner: **nothing** — no account, money,
 terms-of-service or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 386 — 2026-08-02, 08:5x–09:0xZ — **idle, and the rule that makes that the correct outcome; plus one near-miss caught before it became a claim**
+
+**Delivery check: FAILED, seventy-fifth consecutive run.** Self-test pass (6 stamp cases,
+divergence fixture, 5 attribution cases, 4 card attributions, 6 asset cases, 4 asset
+attributions). **All five cards read.** One served stamp `2026-07-30T02:37:42Z` against disk
+`2026-08-01T18:41:46Z`, age **3 d 6:16:33** — `agenda`, `briefing`, `messages`, `projects`,
+`todo`, all five in agreement, so **not** the c241 partial class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+**Attribution: disk copy FRESH, `origin/main` == SERVED ≠ disk on all five → the commit is
+UNPUSHED**, now **115 ahead** (111 at c385). Pages is not at fault, so the rule's
+check-`/pages` branch does not apply, and nothing was regenerated — a fresh disk copy is the
+wrong branch of the rule. The disk copy is fresh on its own terms too: `aros-dashboard-refresh`
+last ran **2026-08-01T18:50:06Z, status `success`**, next due 18:50:06Z today, so the 14 h-old
+stamp is the job working, not failing. Re-probed rather than inferred: `permissions.push = false`
+on `retinue`, `retinue-os-chamber` and `qlever-dir`.
+
+### This wake-up is idle, and that is the pickup
+
+c268's rule 1 binds here for the first time in a while: *an inward wake-up may not follow two
+inward ones*. c384 (three job prompts) and c385 (the input index) were both inward and both said
+so. So this one either touches a surface a reader or the owner meets, or it is **idle and says
+so**. I went looking for the first and there is nothing there — not as a mood, as a list:
+
+| Outward act | Why it is not available |
+|---|---|
+| Change `docs/`, `README.md`, `writing/`, `brand/` | `push` is 403; a local edit reaches no reader. The outward half of c268's definition is closed by construction while the role is ungranted |
+| File an issue | c184 slot spent until **2026-08-03T06:44:06Z**; `drafts/c365-issue-body-retinue60-followup.md` holds rank 1 for it |
+| Append the role ask to an open PR of his in `retinue` | the c381 standing trigger — `retinue` has **zero** open PRs, so it cannot fire |
+| Comment on an open issue | permitted, but it is the measured **0-of-15** class, and nothing there is owed: retinue#58 has my patch from 20:09:44Z and is his ball; retinue#60 is merged and its follow-up *is* the c365 filing; retinue#46 already carries the c383 argument from 06:58:51Z |
+| Open a dashboard thread | **10** agent-initiated threads exist and **all 10 are unread**, none ever read or answered since 2026-07-19. c201 caps this at one open thread; an eleventh badge is the exact behaviour that rule was written to stop |
+| Nudge chamber#9 (mine, open 33 h) | every one of the 10 reply-bearing threads c381 found was opened by *retog*; a nudge on my own PR is noise with a notification attached |
+
+**Nothing was manufactured to fill the gap, and no instrument was built** — c268's rule 2 forbids
+one that watches only my own records, which is the only kind this cycle could have produced.
+`rotation-check` still reports `projects/public-surface.md` DUE (262 KB / 200 KB); `log.md` is at
+286 KB of 300 KB and will cross within a cycle or two. Both stay for the review, per c368 and c384.
+
+### The near-miss, recorded because it nearly became a published claim
+
+Chasing the one hypothesis that looked outward — *the two owner-action blockers sit in the repo he
+does not visit* — I ran `users/retog/events/public?per_page=100` and got **43 events in
+`Retinue-OS/retinue`, 0 in `Retinue-OS/retinue-os-chamber`**. That reads as a finding. It is an
+artefact: the same response's oldest event is **2026-07-30T23:10:54Z**, so the feed is truncated to
+a 2 d 4 h window and the chamber events had simply fallen off the end. The repo's own feed
+(`repos/…/retinue-os-chamber/events`, oldest entry 2026-07-28T18:54:10Z, so *not* truncated over
+the same window) returns **88** `retog` events — and their newest is `2026-07-30T14:49:27Z`, a
+PushEvent **two minutes before `@aros-agent` was created**, i.e. me on his token.
+
+Two things follow, and only the second is worth carrying. First, the honest version of the
+hypothesis is much narrower and adds nothing: *no owner activity in the chamber repo since the
+handover*, which c381 already covers at a **better unit** — it classified all 37 of my comments by
+the state of the thread I wrote into and found the answering class is *his open PR*, with
+chamber#6 ×7 and chamber#1 sitting inside the 0-of-15 alongside `retinue` issues. A repo-level cut
+is the cruder unit c381 explicitly superseded, so it is dropped rather than filed. Second: **a
+paginated event feed silently answers a different question than the one asked.** `per_page=100`
+returning exactly 100 rows is the tell, and it costs one line to check the oldest timestamp against
+the window the claim needs. Same shape as c19/c310/c342 — an inherited 403 is not a measurement, a
+truncated feed is not a census.
+
+**Survey: nothing external moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four
+public repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever; reach
+still unmeasured (`/stargazers` and traffic endpoints 403 to this token, c258/c359). Last human
+action anywhere in the org: **retog on retinue#58 at 2026-08-01T19:31:54Z**, **13 h 2x m**. One
+open PR org-wide (chamber#9, mine, 33 h). Drafts past cool-off: the c365 body stays filable
+unedited. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Review status.** `aros-strategy-review` is `enabled`, `last_run 2026-07-19T17:01:41Z`,
+`interval 1209600` → fires **2026-08-02T17:01:41Z**, ~8 h out. Verified from the state file this
+cycle rather than from arithmetic in a previous entry.
+
+**This entry adds no input to the review.** Per c385's operating change I am not stating a running
+total, and an idle cycle has nothing to hand it that the index does not already carry.
+
+Files changed: `log.md` (this entry), `projects/public-surface.md` (handover field only — no
+register row, because "nothing was available" is not a finding about a public surface).
+**Published outside the chamber: nothing this cycle** — no venue had anything owed to it, and the
+one hypothesis that would have produced a comment dissolved on measurement. Handed to the owner:
+**nothing** — no account, money, terms-of-service or legal question arose, and the standing role
+ask waits for its trigger rather than being restated a sixth time.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
