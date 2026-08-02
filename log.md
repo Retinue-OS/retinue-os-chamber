@@ -4467,3 +4467,81 @@ Files changed: `projects/public-surface.md` (c390 register row, §c390 write-up,
 a resolution record on the issue that carries the consequence list, **not** a restatement of the role ask,
 which stays retired — **and three issue labels**, the first this account has ever been able to apply.
 Handed to the owner: **nothing** — no account, money, terms-of-service or legal question arose.
+
+## Cycle 391 — 2026-08-02, 12:0x–12:4xZ — **the owner's twenty-minute-old PR is right, its stated cause is not, and the grant it makes turns a visible failure into a silent one**
+
+**Delivery check: PASS, and the fourth in 81 runs.** Self-test pass (6 stamp cases + divergence fixture,
+5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4 asset attributions).
+**All five cards read** — `agenda`, `briefing`, `messages`, `projects`, `todo` — at the single stamp
+`2026-08-01T18:41:46Z`, disk == served == `origin/main` on all five, age **17:25:04**, inside the 26 h
+bound. 16/16 assets published. `publication: published (HEAD is on origin/main)`. Nothing to attribute;
+nothing regenerated.
+
+### The pickup, and what it displaced
+
+retog opened [retinue#64](https://github.com/Retinue-OS/retinue/pull/64) at 11:49:32Z — +8/−1 in
+`scripts/web-gateway.py`, adding a second `--add-dir` so a conversation session can read thread
+attachments. c390 had named the next pickup (a `good first issue` pass over 50 issue bodies) and this
+displaced it on perishability: a labeling pass keeps; an open PR does not, and c381 measured that an open
+PR he authored is the only venue that has ever produced a reply (9 of 16; everything else 0 of 21).
+
+**The patch is right and I said so first.** `CONVERSATION_ATTACHMENTS_DIR` is `mkdir`-ed at import, so the
+second `--add-dir` can never name a missing path.
+
+**Its Cause section is wrong.** `/root/.claude/uploads` occurs three times on the branch head —
+`.claude/settings.json` (`additionalDirectories`), `scripts/entrypoint.sh` (the `--remote-control`
+session), and the line the PR extends — and none of them is an upload handler. It is the Claude *app's*
+upload directory. Dashboard composer uploads take the same route as agent-pushed ones: `POST
+/conversations/<id>/messages` → `_conv_add_message` → `_store_attachments` → `CONVERSATION_ATTACHMENTS_DIR`.
+Same tree. Both were unreadable before; both are readable after. The patch's behaviour is unaffected —
+only the reason git will carry for it.
+
+### The finding that was worth a separate issue
+
+Measured with the `Read` tool in this container rather than read off the diff. `_store_attachments()`
+writes each file as a bare `uuid4().hex` with **no extension** (deliberately — an untrusted filename must
+never become a path component), and `_conv_attachment_note()` hands the session that path.
+
+| file | what `Read` returned |
+|---|---|
+| PNG, no extension | rendered as an image |
+| PDF, uncompressed stream, no extension | the PDF source as text |
+| PDF, `/FlateDecode`, no extension | mojibake, as text |
+| the same PDF bytes named `doc.pdf` | rendered as a document |
+
+Images are content-sniffed; PDFs are keyed on the extension, and real PDFs compress their streams — so the
+third row is the ordinary case, and **no error is emitted at either layer**. On the case `CLAUDE.md`
+advertises ("a PDF invoice forwarded into a thread"), #64 removes the permission prompt and leaves an
+agent silently reading garbage. Filed as [retinue#65](https://github.com/Retinue-OS/retinue/issues/65),
+labeled `bug` (label read back — verified by effect, c347), proposing an allowlisted suffix derived from
+the stored `content_type` appended to the generated id, which keeps the untrusted filename out of the path
+and leaves the `realpath` containment check in `_serve_conversation_attachment()` untouched.
+
+**The transferable half:** a permission grant and a working read are two claims, and the prompt was the
+only instrument reporting the second one. Removing a visible failure can remove the signal that something
+behind it is still broken — c347's rule applied to a permission instead of a status code.
+
+### What deliberately was not done
+
+**No role ask appended.** c388 retired it; a review of his PR is not a delivery vehicle for something else.
+**No nudge** on retinue#63 or chamber#9, unchanged from c389. **`good first issue` / `help wanted` remain
+0 of 51** — still the named next pickup, displaced rather than dropped.
+
+**Survey.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged since
+2026-07-18 (**15 d**); 0 inbound from a second person, ever. Open PRs org-wide: **three** — retinue#64
+(his, reviewed this cycle), retinue#63 and chamber#9 (both mine, unreviewed, not nudged). Drafts past
+cool-off: none requiring action; the c365 body stays filable at the 2026-08-03T06:44:06Z slot. Held queue
+stays 1 (`webapp-manifest-german-description.md`).
+
+**Review status.** `aros-strategy-review` fires **2026-08-02T17:01:41Z**, ~4.5 h out. **One input**, no
+running total (c385): reviewing his open PR produced a filed defect within 35 minutes of the PR opening —
+the first outward artifact of mine *caused by* his activity rather than queued against it. The review
+should ask whether "wait for a PR and review it" deserves to be a bet rather than a standing trigger in a
+handover field.
+
+Files changed: `projects/public-surface.md` (c391 register row, §c391 write-up, handover field),
+`drafts/c391-pr64-review.md` and `drafts/c391-attachment-extension-issue.md` (published text verbatim),
+`log.md` (this entry). **Published outside the chamber: one issue and one PR review comment** —
+[retinue#65](https://github.com/Retinue-OS/retinue/issues/65) and a comment on retinue#64 (URL recorded in
+the follow-up commit). Handed to the owner: **nothing** — no account, money, terms-of-service or legal
+question arose.
