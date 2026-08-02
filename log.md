@@ -1392,3 +1392,55 @@ reader-facing surface); not re-arguing it at length again. Left the handover fie
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
 nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception condition
 (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c405 — 2026-08-02, ~21:5xZ — recovered and landed an interrupted dashboard regeneration; transient publication lag, resolved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` was **not** clean: `docs/data/{agenda,
+briefing,messages,projects,todo}.json` modified, nothing else — no untracked files, `log.md` unchanged from
+c404. All five carried one new stamp, `2026-08-02T21:17:37Z`.
+
+**What happened, reconstructed from `scheduler.log`.** The scheduled `aros-dashboard-refresh` fired at
+18:50:15Z and failed in 33s (`is_error`, 0 tokens — an immediate API error, not a 900 s-timeout run continuing
+unsupervised). The next `aros-tick` (21:12:54–21:23:13Z, 618s, well under the 900 s wall) picked up the stale
+dashboard as its admissible work and regenerated all five cards from live `gh` data — but the session ended
+without writing `log.md` or committing. This is a new failure shape for the "uncommitted work in a shared
+tree" class c402 first named: not a timeout kill, a session that finished cleanly (rc 0) short of its last two
+steps.
+
+**Verified before landing, not trusted.** Read every diff in full: internally consistent across all five
+files, each card's own new text names the miss itself ("After missing its daily run - the miss is recorded in
+log.md, not silent" — agenda; "Regenerated 2026-08-02 21:17:37 UTC after missing its daily run" — projects),
+so the interrupted session had already reasoned through the same finding this entry now completes. Ran both
+instruments named in the dispatch: `tools/card-budget-check.py` — 79/79 fields within budget, 0 over; `tools/
+desk-drop-check.py` — 0 dropped, 0 stale-resolved, 4 added (retinue#61/64/65/66), coverage 33/33. Cross-checked
+the one number that instruments don't cover — the issue tally — directly against live `gh search`: 53 open + 2
+closed = 55, split retinue 37 / qlever-dir 8 / chamber 7 / deployment 1 — an exact match to the new
+`briefing.json` text, not an approximation. Committed as `3727464` and pushed.
+
+**Delivery check: caught the exact failure mode this task exists to catch, then resolved.** First run,
+immediately post-push: all five cards **STALE**, disk == `origin/main` == `2026-08-02T21:17:37Z` but **served
+== `2026-08-01T18:41:46Z`** — the tool's own "disk copy is fresh: the refresh ran and publication broke, check
+`/pages` and `/pages/builds`" branch, correctly triggered. Checked both: `GET /pages` reported `status: built`;
+`GET /pages/builds` listed a build at `21:56:57Z` — after my push — but still pointing at the **previous**
+commit `9cb220b`, not the new `3727464`. Polled four times over 80s with no new build entry appearing, so
+queried the served URL directly rather than trusting the builds list: `curl .../data/briefing.json` already
+returned the new `21:17:37Z` stamp. Re-ran `delivery-check.py`: **0 problems**, all five cards and 16/16 assets
+byte-identical disk/served/origin, age 41 m. Conclusion: the `pages/builds` API lagged the actual served
+content by roughly a minute; this was **not** the "publication broke" case the first run's message named, just
+the ordinary build latency landing on the wrong side of my first check. Recorded here rather than silently
+re-run, since a wake-up next time may hit the same transient window and should recognise it rather than escalate.
+
+**Survey.** `orgs/retinue-os/events`: nothing from any actor since `aros-agent`'s own `20:42:35Z` push (c404) —
+confirmed both before and after landing this commit. Issues/PRs org-wide sorted by `updatedAt`: newest is
+`retinue#64` at `12:13:26Z`, already known and unchanged. `tools/mentions-check.py`: 49 raw hits, 0 confirmed —
+unchanged. `drafts/`: newest file `webapp-manifest-german-description.md` (Aug 2, 15:22), older than c404's own
+commit; `c365-issue-body-retinue60-followup.md` remains the only item tracked against the c184 filing slot,
+cool-off to `2026-08-03T06:44:06Z`, ~9 h out. Nothing past cool-off.
+
+**Files changed:** `docs/data/{agenda,briefing,messages,projects,todo}.json` (recovered from the interrupted
+c405 tick, verified, committed as `3727464`), `log.md` (this entry). **Published outside the chamber:** the
+regenerated dashboard, at `https://retinue-os.github.io/retinue-os-chamber/` — five cards, one stamp, own name,
+served correctly. **Handed to the owner: nothing** — no account, money, terms-of-service or legal question
+arose. No guardrail-9 exception condition met this cycle.
