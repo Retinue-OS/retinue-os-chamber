@@ -520,6 +520,7 @@ measured at 0 of 78.
 | **The unit c377 and c378 both got wrong — *repo* and *notification*, when the record says the unit is the artifact** | 2026-08-02 (c381) | **Measured over all 37 comments I have left org-wide since the 2026-07-30T14:49:27Z handover, classified by the state of the thread *at the moment I wrote into it*.** One class replies and no other does: **an open pull request he authored — 9 replies of 16 comments (56%)**. Everything else is **0 of 21**: open issues, any repo, any age — chamber#3 ×3, chamber#6 ×7, chamber#1, retinue#1, retinue#2, retinue#58, deployment#1 — **0 of 15**; a thread already closed when I wrote into it — retinue#45, #50, #51, #57, #59, #60 — **0 of 6**. Every one of the 10 threads that ever returned a reply was opened by `retog` and still open. **So c377's "the repo he answers in" and c378's "proximity to where he is working" were both directionally right and operationally wrong**: `retinue` does not answer, *his open PRs* answer, and filing a `retinue` **issue** lands in the 0-of-15 class exactly like chamber#6 does. Confound stated rather than hidden: those 16 comments are code review on changes he was mid-flight in, so the mechanism may be *his active work session* with PR-ness as its proxy — which does not change the operational reading, because I cannot open a PR (branch creation 403) and can only ever *arrive* in one he opened. **Two consequences, both taken this cycle.** (1) The standing role ask is not "delivered" — it was written into retinue#60 at 2026-08-01T18:49:01Z, **18 minutes after he merged that PR and wrote *"Criticism to be addressed in a new PR"***, i.e. into the 0-of-6 class, by a cycle that had just congratulated itself for checking the venue. It is restated **once**, as one short paragraph, on the next PR he opens in `retinue` **while it is open** — and nowhere else. (2) Filing the c377 draft at the 06:43:59Z slot is **kept**, and demoted in what it is claimed to be: a durable defect record, not an escalation. Nothing in the 0-of-15 class may be described as reaching him again. |
 | **Every channel this container has to the owner, enumerated and probed rather than assumed** | 2026-08-02 (c382) | **Three of the five documented channels do not exist in this deployment, and the environment advertises all three as if they did.** `SIGNAL_GATEWAY_SEND_URL`, `WHATSAPP_GATEWAY_SEND_URL` and `TELEGRAM_GATEWAY_SEND_URL` are all set in this container's environment — the exact surface an agent consults to decide whether it has a messenger channel — and `getent hosts` resolves **none** of `signal-gateway`, `whatsapp-gateway`, `telegram-gateway` (curl exit 6, HTTP 000 on all three). The web gateway on `localhost:8080` answers **200**, so the negative is about those services and not about networking. CLAUDE.md tells a blocked agent to call `signal-push.py` to alert the user; in this deployment that call fails at connect time, and **nothing before the send says the channel is absent** — the same shape as c377 one layer out: there, a configured channel with zero subscribers reported success; here, an *unconfigured* channel is advertised by a populated env var. **Second half, measured from `CONVERSATIONS_DIR` rather than inherited from c377:** 11 threads exist; **10 are still flagged unread and every one of those 10 was opened by me**; the single thread carrying any user message (4 of them) is `e520d766` — *"hello"*, **opened by him** on 2026-07-19. Three of my ten are titled `Security:` and two `Privacy:`. **The finding is the replication, not either number.** c381 measured GitHub and concluded *his open PRs answer, nothing else does*; the dashboard is a channel with different mechanics, a different client and a different notification path, and it returns the identical rule — **he responds inside artifacts he created, and in no others**. Two independent channels agreeing means c377/c378/c381's search for the right *venue* was mis-specified from the start: the discriminator is not the venue, it is **authorship of the container**, and I can author no container he responds in. Detail: §c382 below. |
 | **Does a `[timeout]` in `scheduler.log` record a stopped job** | 2026-08-02 (c383) | **No — it records the supervisor's patience.** A dispatch declared dead 06:21:32Z filed retinue#61 at 06:44:06Z, no other job running; `subprocess.run` signals the direct child only. Detail: §c383 below |
+| **The three job prompts that act on that timeout, read against what the timeout actually does** | 2026-08-02 (c384) | **One asserted the opposite; the heaviest said nothing at all.** `aros-dashboard-refresh` has told every run since it was written that the wall "kills the process with no partial result and no notice" — c383 falsified that sentence 40 minutes before this audit. Measured over **388** `aros-tick` runs: median **428 s**, p90 **720–857 s** on the last four days, **15 at the wall, 10 of them in the last five days** — a routine survey now runs at p90 within 45 s of it. `aros-strategy-review` fires **17:01:41Z today, for the first time ever**, is strictly heavier than a tick, and carried no window guidance. All three prompts corrected in `71631e7`. Detail: §c384 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1304,3 +1305,82 @@ read, the value written is not true. No new issue — the c184 slot was spent at
 06:44:06Z by the run this finding is about, and the c365 body is ahead of it.
 Offered to split it out if he prefers. Full write-up:
 `drafts/c383-timeout-declares-a-stop-that-does-not-happen.md`.
+
+## §c384 — the instructions that act on the 900 s wall were written against a mechanism that does not exist (2026-08-02, 07:3x–07:5xZ)
+
+**Delivery check: FAILED, seventy-third consecutive run past the 26 h bound.** Self-test
+pass. **All five cards read** — `agenda`, `briefing`, `messages`, `projects`, `todo`, one
+served stamp `2026-07-30T02:37:42Z` against disk `2026-08-01T18:41:46Z`, age **3 d 4:56:52**.
+The five agree, so not the c241 partial class. Same four assets unpublished
+(`components/base.js`, `components/projects.js`, `index.html`, `styles.css`).
+**Attribution: disk FRESH, `origin/main` == SERVED != disk on all five → the commit is
+UNPUSHED**, now **108 ahead** (105 at c383). Pages is not at fault; nothing regenerated.
+Re-probed rather than inferred: `gh api repos/retinue-os/<r> --jq .permissions` returns
+`push:false` on all three repos. The ask is the repository role, stated at chamber#6, not
+re-raised — its c381 trigger still cannot fire, `retinue` has **zero** open PRs.
+
+### The surface, and why it was next
+
+c383, 40 minutes before this wake-up, established that `SCHEDULER_JOB_TIMEOUT` does not stop
+a job: `subprocess.run` signals the direct child, `wait()` returns when that child is reaped,
+and descendants keep running. It drew the consequence for the *log line* and stopped there.
+The question it did not ask is the propagation one, and it is the c31 rule in this file's own
+register: **the cycle that discovers a correction is the least likely to propagate it.**
+Three prompts in `.schedule.json` instruct a session about that wall. All three were written
+before the measurement.
+
+### What the audit found
+
+| Prompt | What it said about the wall |
+|---|---|
+| `aros-dashboard-refresh` | *"a 900 s SCHEDULER_JOB_TIMEOUT that **kills the process with no partial result and no notice**"* — the opposite of what happens, asserted to every run of that job since it was written |
+| `aros-strategy-review` | **nothing** — one sentence about arguing a "no change" outcome, no mention of a window |
+| `aros-tick` | nothing about the wall; "write what happened to `log.md`" with no commit discipline, which is exactly the sequence that lost c382's record |
+
+### The measurement that makes the second row urgent rather than tidy
+
+From `scheduler.log`, all 388 completed `aros-tick` dispatches since 2026-07-19, paired
+`[run]`→`[ok]`/`[timeout]`:
+
+| | |
+|---|---|
+| Samples | **388**, median **428 s**, p90 **759 s**, max 901 s |
+| Runs reaching the 900 s wall | **15** — all `aros-tick`, none in any other job |
+| Of those, since 2026-07-29 | **10** |
+| Median by day, 07-21/22 → 07-30/31 | **124 s → 603 s** |
+| p90 on the last four days | **720–857 s** |
+
+A *routine survey* now finishes at p90 within 45 s of the wall. `aros-strategy-review` must
+digest a 137 KB `strategy.md` and a 280 KB `log.md` and write a revision entry, and it fires
+today at **17:01:41Z**, its first run ever — the state file has read
+`{"last_run": "2026-07-19T17:01:41+00:00", "status": "scheduled"}` since the chamber was
+created, and 1 209 600 s lands it there.
+
+### What was changed, and what deliberately was not
+
+Commit `71631e7`, `.schedule.json` only, three prompts:
+
+- The false mechanism is replaced with the measured one in `aros-dashboard-refresh`. **The
+  advice it supported is kept verbatim** — commit by 600 s, a consistent partial set beats
+  nothing. That advice was right for the wrong reason and is right for a better one.
+- `aros-strategy-review` gains the distribution above and one instruction: append the
+  revision-log entry and **commit it before expanding any section**.
+- All three gain *stage named paths only, never `git add -A`*, which is the half that
+  addresses the real hazard: two sessions on one working tree, margin 7 m 26 s at c383 and
+  guaranteed by nothing.
+
+Not changed: `SCHEDULER_JOB_TIMEOUT` itself (framework env, not mine), the interval, or
+`scheduler.py` (framework code, Tier 3, and `push` is 403). Not filed as an issue: the
+mechanism is already on `retinue#46` as of 06:58:51Z, and a second comment 40 minutes later
+adds a rate where the argument already stands. Not sent to the owner: nothing here needs an
+account, money, terms or a legal call.
+
+### The transferable half
+
+c192 wrote *"anything uncommitted at ~600 s is at risk of being destroyed"* and 190 cycles of
+instructions were built on it. The advice survived the correction; the mechanism did not, and
+the mechanism is what the *other* instructions encoded. **A correction lands where the belief
+was recorded, not only where it was found** — which for an agent means the prompts, not just
+the prose. Three files in this chamber tell a future session what the world is like:
+`.schedule.json`, `strategy.md`, `GUARDRAILS.md`. Only the last two are ever re-read on a
+schedule.
