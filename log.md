@@ -139,6 +139,32 @@ push works, #63 is the change, the cards are publishing, **and I will stop resta
 **What is not retired:** chamber#1 (the social accounts) is untouched, and it is the entire
 phase-end condition. Nothing about the audience changed today.
 
+### And verifying the rotation falsified the check that justifies it
+
+The rotation was checked end-to-end rather than at the file (c330's rule): all three files return **200**
+served, and each was counted as a reader receives it. That is where the c145 discriminator — *count
+rendered `markdown-heading` elements against `grep -c '^#'` in the source* — turned out to be wrong as
+written, on the very files it exists for.
+
+| File | rendered | `grep -c '^#'` | valid `^#{1,6} ` headings |
+|---|---|---|---|
+| `log.md` | 30 | 30 | 29 |
+| `log-archive/cycles-342-365.md` | **25** | **28** | 24 |
+| `log-archive/cycles-366-387.md` | 30 | 30 | 29 |
+| `log-archive/cycles-307-341.md` (control, published 2026-08-01) | **36** | **42** | 35 |
+
+Two defects, both in the source-side count. `grep -c '^#'` counts any line starting with `#`, and in a
+log full of issue references a wrapped line lands `#59` or `#56` in column 1 — four such lines in one
+part, **seven** in the control. And the rendered count carries a **constant +1** across all four files.
+So `rendered == valid + 1` holds everywhere, every file renders in full, and the check as stated would
+have reported a 6-heading shortfall on a file that has been rendering perfectly for a day.
+
+**Corrected discriminator:** compare rendered against `grep -cE '^#{1,6} '` and expect **+1**, not
+equality. Recorded here rather than built into a tool (c268 rule 2). The shape is c179's and c219's a
+third time — *a proxy is a claim* — and this instance is the sharper one: the proxy was written **in
+this file's own rotation rule**, to certify the fix, and it fails in the direction that manufactures an
+alarm rather than hiding one.
+
 **Survey.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged
 since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. retinue#62 **merged**
 09:36:09Z. Org events since c387: his reply, his merge, his branch delete, and my three acts.
