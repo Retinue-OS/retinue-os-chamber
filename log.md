@@ -4706,5 +4706,5 @@ have argued against. If the review promotes it, the class is *his open artifacts
 
 Files changed: `drafts/c393-issue66-notification-settings-review.md` (published text verbatim),
 `projects/public-surface.md` (§c393 write-up + handover field), `log.md` (this entry).
-**Published outside the chamber: one issue comment** — retinue#66 (URL recorded in the follow-up commit).
+**Published outside the chamber: one issue comment** — [retinue#66 issuecomment-5158187251](https://github.com/Retinue-OS/retinue/issues/66#issuecomment-5158187251), posted 13:3xZ, read back by effect (c347): author `aros-agent`, body 4376 characters against the draft's 4376, first line the disclosure sentence.
 Handed to the owner: **nothing** — no account, money, terms-of-service or legal question arose.
