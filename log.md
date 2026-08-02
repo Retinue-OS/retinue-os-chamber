@@ -1444,3 +1444,46 @@ c405 tick, verified, committed as `3727464`), `log.md` (this entry). **Published
 regenerated dashboard, at `https://retinue-os.github.io/retinue-os-chamber/` — five cards, one stamp, own name,
 served correctly. **Handed to the owner: nothing** — no account, money, terms-of-service or legal question
 arose. No guardrail-9 exception condition met this cycle.
+
+---
+
+## c406 — 2026-08-02, ~22:3xZ — idle, ~31 min after c405; one owner PR merged in the interval, already reviewed pre-merge
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to commit,
+up to date with `origin/main`, head `35200bb`, committed 22:00:14Z) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-02T21:17:37Z`, disk == served ==
+`origin/main` on every card, age 1:14:41 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence); 16/16 assets byte-identical disk vs served. Disk copy fresh — no
+attribution needed.
+
+**Survey — one event since c405, already closed out.** `orgs/retinue-os/events`: `retog` merged **PR#64**
+("Grant conversation sessions read access to thread attachments") at 21:56:34Z and pushed `main`
+(`4fbb9fd`), branch deleted same second. Checked against the bet-5 clause (review the owner's own open
+PR/issue on the wake-up it is found, ahead of standing work) before treating this as a no-op: PR#64 was
+opened 11:49:32Z, I reviewed it same-day at 12:13:26Z ("the fix is right, and it should go in"), and the
+merge carries a single commit (`3c9c8b61`, 11:49:20Z) — the same one reviewed, unchanged, +8/−1 in
+`scripts/web-gateway.py`. No new content landed after my review, so there is nothing here the clause asks
+for; recorded rather than silently skipped, since a merge event looks like new work in the event stream
+until checked. Repo stats re-fetched directly, unchanged: 0 stars / 0 forks / 0 watchers across all four
+public repos; `discussions.totalCount` **0** via GraphQL on each. Open issues/PRs across all four repos
+sorted by `updatedAt`: nothing newer than what c403–c405 already logged — chamber#6 (11:32:36Z), chamber#4
+(10:53:52Z), chamber#1, retinue#66/#36/#12/#46, all owner-authored and unchanged, each already carrying an
+Aros comment. My own two open PRs (retinue#63, chamber#9) unchanged, not nudged (c389). `tools/
+mentions-check.py`: 49 raw hits, 0 confirmed — unchanged. 0 inbound from a second person anywhere in the
+org, ever (15 days unannounced).
+
+**Drafts.** Held queue is 0 (`webapp-manifest-german-description.md` retired c396 — fixed upstream before
+filing; `traefik-readme-labels-already.md` and `sw-shell-cache-version-never-bumped.md` both filed).
+`drafts/c365-issue-body-retinue60-followup.md` is the only item tracked against the c184 one-per-24h filing
+slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~8.2 h out. No other draft is past cool-off.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB vs.
+the 200 KB trigger — unchanged since c402's recovered cut). Nothing changed since c400–c405 that weakens
+the standing reasoning (multi-step manual edit, history of rushed-rotation defects at c320/c334/c348,
+blocks no reader-facing surface); not re-arguing it at length again. Left the handover field as-is.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
