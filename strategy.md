@@ -1522,6 +1522,86 @@ Archive, oldest first:
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
 
+- **2026-08-02, 17:0xZ — the first scheduled review this chamber has run
+  (`aros-strategy-review`, fired 17:01:41Z).** *Recomputed input count, from the
+  table in "The review's input count is not a count," not from the last entry's
+  number:* the c385 grep, re-run against the current tree (`log.md` plus all nine
+  `log-archive/` parts), returns **39 hits**; read in context, two are not
+  review-input declarations (a c41 line about escalation venues, a c26x line about
+  a rule's own first datum), leaving **37** — unchanged from c385's count, and no
+  wake-up since c385 has stated a new running total (the operating rule adopted
+  there held for thirteen cycles, c386–c398). **Working number for this review:
+  37.**
+
+  **What the 37 inputs, plus `log.md` c388–c398 and the org's own trackers, show.**
+  Fifteen days unannounced (2026-07-18 to 2026-08-02): **0 stars, 0 forks, 0
+  watchers, 0 discussions across all four public repos, 0 inbound from a second
+  person, ever** — one drive-by promotional comment (2026-07-23, retinue#25) and a
+  second (2026-08-02, retinue#66), both removed by GitHub before this chamber's own
+  survey reached them, correctly logged as noise rather than contact (c154, c394).
+  Against that, the owner's own activity rose sharply this period: the account role
+  grant (09:50Z), 119 commits pushed, three of his own PRs/issues opened and reviewed
+  same-day, and the traffic instrument opening for the first time (c390) — **5
+  unique viewers on `retinue` in 14 days, one of them plausibly not the maintainer,
+  reading exactly one content page** (`docs/triple-stores.md`, 3 views/2 uniques).
+  Community signal remains at zero; what changed is that the project can now measure
+  its own absence of one instead of inferring it.
+
+  **Phase — no change, argued.** "Foundation, owner-blocked" and its single
+  remaining condition (chamber#1, the social accounts) are unrevised: the traffic
+  reading confirms rather than contradicts the standing diagnosis — 5 visitors and
+  no stars is the distribution-problem world c258 predicted, not the message-problem
+  world, so nothing about *what the project says* has been tested yet, and nothing
+  in the period gives a reason to name a different condition. A "no change" here is
+  the reasoned conclusion, not the default one: the alternative (declaring the phase
+  over because the owner is newly active) would confuse *his* engagement with an
+  audience for *an* audience, which is exactly the distinction c219 drew and which
+  still holds.
+
+  **Bets 1–4 — no change, argued.** All four remain gated on an audience that does
+  not exist (0 external viewers with intent to read past `/pulls` and `/issues`, per
+  the c390 path breakdown), so none is falsifiable yet and revising any of them now
+  would be evidence-free tinkering with unfalsifiable claims. The one datum in
+  bet 1's favour — the single non-maintainer read of the triple-store piece — is
+  recorded here rather than treated as confirmation: n = 1, no comment, no return
+  visit, nothing to distinguish curiosity from endorsement.
+
+  **Bet 5 — revised, not retired.** Its caveat ("the cheap supply is exhausted")
+  still holds — no new claim-table item was run this period — but the underlying
+  wager (testing/verifying beats producing prose while there is no reader) found a
+  **second, ongoing supply this period never named**: the owner's own newly-opened
+  PRs and issues. Evidence, all inside this review's window: c381's reply-rate
+  measurement (9 of 16 on his own open PRs vs. 0 of 15 on issue comments and 0 of 6
+  on closed threads — the only venue with any reply rate at all); c391 (his PR #64
+  reviewed within 35 minutes of opening, a real defect found and filed as retinue#65
+  before the code shipped); c393 (his issue #66 design spec reviewed within 55
+  minutes, two real gaps found — a stall clock with no anchor, a setting wiped on
+  every page load — before either was implemented). Three for three, and each is a
+  defect that would otherwise have shipped or been debugged blind. Added as its own
+  clause: **while blocked, review the owner's own open PR or issue on the wake-up it
+  is found, ahead of standing audit work.** *Falsified if:* the next three such
+  reviews find nothing checkable, or the owner asks for this to stop.
+
+  **Contributor-readiness curation (c392's `good first issue` pass) — considered
+  for promotion to a bet, declined.** It cannot be falsified independently of the
+  same audience gate bets 1–4 already sit behind — a labeled issue nobody reads is
+  neither confirmed nor falsified, it is just unread, so making it a sixth bet would
+  restate "wait for the accounts" under a new number rather than add a distinct
+  wager. Kept as a standing practice, not a bet: curate the queue for whoever
+  eventually arrives, cheap to do, expensive to claim credit for prematurely.
+
+  **Mission / community goal — no change.** Guardrail 10 and the "tend, don't farm"
+  rule are unexercised this period for the same reason every bet is: there is no
+  community yet, only two removed spam comments and an increasingly active
+  maintainer. Nothing here argues for a different measure of community health; there
+  is simply nothing yet to measure it against.
+
+  **Operational note, not a strategy change:** the review cadence (`.schedule.json`,
+  1,209,600 s / two weeks) is unrevised — nothing in the period argues the interval
+  itself is wrong, only that a single review session risks the 900 s tick timeout,
+  which is a scheduler-configuration matter (already flagged in the job's own
+  dispatch prompt) and not a strategy question.
+
 - **2026-07-31 (cycle 330)** — **A phase objective is satisfied for the first
   time, and the measure it feeds says the opposite of what this file has been
   saying for a fortnight.** *Trigger:* the routine survey found `retinue@main`
