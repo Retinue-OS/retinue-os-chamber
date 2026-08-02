@@ -3121,3 +3121,75 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 377 — 2026-08-02 02:5x–03:3xZ — **one pickup: my own escalation channels, and two of the three are measured dead**
+
+**Delivery check: SIXTY-SEVENTH consecutive run past the 26 h bound.** Self-test pass. All five served
+cards at one stamp **2026-07-30T02:37:42Z** vs disk **2026-08-01T18:41:46Z**, age **3 d 0:15:31** — the
+five agree, so not the c241 partial class; same four assets unpublished. **Attribution:** disk fresh →
+the refresh ran and publication broke; `origin/main` == served ≠ disk on all five → **unpushed, 99
+commits ahead** (98 at c376); `{pull:true, push:false}` on all four org repos. **Nothing regenerated.**
+
+**Pickup: the one surface 377 cycles never audited — my own outbox.** Every wake-up chooses between the
+dashboard and a GitHub issue on the persona doc's rule (half-life of the decision). Nobody had asked
+which channel *delivers*. Measured, three channels:
+
+| Channel | Sent | Came back |
+|---|---|---|
+| Dashboard conversations | 10 agent-initiated threads, 2026-07-19 → 2026-08-01 | **0** — all 10 still `unread` |
+| `retinue-os-chamber` issue comments | 8 since the 2026-07-30 handover | **0** |
+| `retinue` issue + PR comments | same window | **11**, latency in hours |
+
+**The dashboard failure is in the code, not in his attention.** `/root/.retinue/push/subscriptions/`
+holds **0 files**, while the live `GET http://localhost:8080/push/config` returns `enabled: true` —
+that field reports `pywebpush` + a loaded VAPID key, not whether any device subscribed. Control that I
+read the server's own store and not a stale one: `push_notify.init()` over that directory derives a
+`publicKey` **byte-identical** to the one the endpoint serves, and `subscription_count()` on it is 0.
+So ten escalations — two of them tagged Privacy, three Security — fanned out to zero devices, and
+nothing said so: `notify_async()` discards `notify()`'s count, `subscription_count()` has **no
+production caller** (only `tests/test_push_notify.py`), and `conversation-push.py` prints the same JSON
+whether three devices were reached or none. **Zero recipients is the one outcome that produces no
+output anywhere.** Control on the unread flag: the single user-initiated thread is `unread: false`, and
+the client clears the flag via `POST /conversations/<id>/read` on open — so the flag does clear, and
+these were not cleared.
+
+**The chamber-repo half is the same shape without any code.** Since the account handover
+(2026-07-30T14:49:27Z) the owner has **0** public events on `retinue-os-chamber` against **65** on
+`retinue`. Of the 14 comments his account has ever left on the chamber repo, **13 carry my own
+disclosure line** — mine, written from his account before the handover. His own words there total
+**one comment**: 2026-07-19T10:56:29Z, *"Nostr Should also be considered"*, 14 days ago.
+
+**What this costs me, and it is mine not his.** Thirty-one wake-ups declined to re-escalate the role
+ask on the reasoning *"the ask stands on chamber#6"*. That is a filing claim; it was read as a delivery
+claim. It is the c345/c347 class — *dispatch is not delivery* — turned on my own outbox, and it means
+part of what this chamber has called an owner-blocked phase is **channel selection**, which I control.
+Operating change, effective now: **no further dashboard pushes until a subscription exists** (they
+notify nobody), **no further comments on chamber#6** (0 of 8), and findings go to `retinue`-repo
+threads, where they are answered in hours.
+
+**Drafted, not filed:** `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md` — the
+framework half, with the four-part patch inline (`_push_conv_notification` returns and logs the
+subscriber count; both agent handlers return `push_subscribers`; `/push/config` reports `subscribers`;
+`conversation-push.py` warns at 0). Inline rather than a PR because branch creation is 403. It takes
+the **c184 slot at 06:43:59Z**, ahead of `drafts/c365-…` (which slides one slot): c377 explains
+fourteen days of unanswered handovers and its operator half is a single tap on the bell button. Not
+filed this cycle because the slot is 3 h 50 m out and he is asleep — the rule spaces his notifications,
+and nothing is gained by breaking it for a message that will be read at the same moment either way.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions since 2026-07-18 (15 d); 0
+inbound from a second person, ever; org events carry nothing after my own 20:09:44Z comment. One open
+PR org-wide (chamber#9, mine, `mergeable=true`) — checked, not nudged. Drafts past cool-off: none
+requiring action. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Eleventh input to the 2026-08-02T17:01:41Z review**, and the first that moves a cause from his side
+of the ledger to mine: every *"handed to the owner (dashboard)"* line in this log and in `strategy.md`
+is a dispatch record, and the review should re-read the phase description with that correction applied.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle.
+
+Files changed: `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md` (new),
+`projects/public-surface.md` (register row + handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — the one
+handover that matters is queued for the 06:43:59Z slot, in the venue that answers.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
