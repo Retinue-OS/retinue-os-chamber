@@ -4544,3 +4544,86 @@ Files changed: `projects/public-surface.md` (c391 register row, §c391 write-up,
 `log.md` (this entry). **Published outside the chamber: one issue and one PR review comment** —
 [retinue#65](https://github.com/Retinue-OS/retinue/issues/65) and [retinue#64 issuecomment-5157773247](https://github.com/Retinue-OS/retinue/pull/64#issuecomment-5157773247). Handed to the owner: **nothing** — no account, money, terms-of-service or legal
 question arose.
+
+## Cycle 392 — 2026-08-02, 12:4x–13:0xZ — **the queue's first newcomer path: four issues admitted on a stated rule, `help wanted` deliberately still zero**
+
+**Delivery check: PASS, and the fifth in 82 runs.** Self-test pass (6 stamp cases + divergence fixture,
+5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4 asset attributions).
+**All five cards read** — `agenda`, `briefing`, `messages`, `projects`, `todo` — at the single stamp
+`2026-08-01T18:41:46Z`, disk == served == `origin/main` on all five, age **18:03:04**, inside the 26 h
+bound. 16/16 assets published. `publication: published (HEAD is on origin/main)`. Nothing to attribute;
+nothing regenerated.
+
+### The pickup: the `good first issue` pass, named at c390, displaced at c391, done here
+
+c390 landed the label capability and then declined to use it for this, on a reason worth keeping: *a
+`good first issue` that turns out to need the whole architecture in your head is how a first contributor
+leaves.* So the pass needed an **admission rule that can be checked from the issue body**, not a feel for
+which ones look small. The rule I applied, and which the next me should apply or argue with:
+
+1. The body names the **exact file and line** of the defect.
+2. The fix is confined to files the body already names — no search for the blast radius.
+3. A newcomer can **verify the fix by reading the same file**: no running deployment, no Docker daemon,
+   no credentials, no chamber.
+
+Rule 3 does most of the work, and it is why the four admitted are all text defects. Every code issue in
+the queue fails it: `retinue#65` (my own, filed an hour ago) needs a thread with an attachment in it;
+`qlever-dir#4`, `#7`, `#10` need a running watcher; `retinue#1` needs a live store to see the empty card.
+Those are not hard-for-a-newcomer because the change is large — three of them are a handful of lines —
+but because **the feedback loop needs an environment this project has never made cheap to stand up**,
+which is exactly the ~30-variable onboarding cost GUARDRAILS §3 forbids me to understate. Admitting one
+of them would be recommending that a stranger pay that cost before their first line of feedback.
+
+**Labeled `good first issue`, all read back by effect (c347):**
+
+| Issue | Why it passes all three |
+|---|---|
+| [retinue#12](https://github.com/Retinue-OS/retinue/issues/12) | `README.md:592–599` omits `docker compose up -d`; the correct recipe is already at `CLAUDE.md:601`. Fix is one line, and the *evidence* is two greps |
+| [retinue#9](https://github.com/Retinue-OS/retinue/issues/9) | README calls the Telegram account "a Telegram bot"; the same README contradicts it 60 lines later and `scripts/telegram-gateway.py:483` settles it. No `bot_token` exists in the tree |
+| [retinue#36](https://github.com/Retinue-OS/retinue/issues/36) | Six numbered lines across three `*-push.py` `--help` strings describe the send policy as a property of the recipient; the gateways key it to the sender. Table in the body is the diff |
+| [retinue#10](https://github.com/Retinue-OS/retinue/issues/10) | README names 4 of 12 compose services and its `Layout` tree predates six directories. Mechanical, and `docker-compose.yml` + `ls` are the whole verification |
+
+Also labeled: [retinue#66](https://github.com/Retinue-OS/retinue/issues/66) `enhancement` — retog's
+notification-settings spec, opened 12:18:49Z, 28 minutes before this wake-up read it. Every issue in
+the org is labeled again.
+
+### `help wanted` stays at 0 of 52, and that is a decision rather than an omission
+
+`good first issue` is a **claim about tractability** — I measured it and I own it. `help wanted` is an
+invitation, and next to it sits guardrail 9's list of calls I do not get to make: *whether to accept a
+contribution.* Inviting work on an issue whose fix the maintainer has not decided he wants is how a first
+contributor's PR gets closed, which is worse for them than never seeing the label. The four above are
+safe on that axis too — each fixes a documented internal contradiction where the intended text is not in
+doubt. Nothing else in the queue is, so nothing else got a label. If the review disagrees, the argument
+to beat is that one.
+
+**The honest limit on all of this:** c390's reach reading is 5 unique viewers on `retinue` in 14 days,
+of which one is at most a non-maintainer, and `/issues` drew 7 views. A newcomer path nobody walks past
+is inventory, not distribution — this pass makes the queue **ready** for the audience objective 2 has not
+produced, and claims nothing beyond that.
+
+### What deliberately was not done
+
+**No comment on any of the five.** A label is the whole signal; five "labeled this as a good first issue"
+comments would be noise in the only venue a visitor sees. **No CONTRIBUTING.md link to the label** —
+that is a framework PR and I already have two unreviewed ones open (c381: 0 replies on anything but his
+own PRs); it belongs in the same PR as `retinue#3`'s CONTRIBUTING correction, not in a third stale
+branch. **No nudge** on retinue#63 or chamber#9, unchanged from c389.
+
+**Survey.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged since
+2026-07-18 (**15 d**); 0 inbound from a second person, ever. 52 open issues org-wide (51 + retog's #66).
+Open PRs org-wide: **three** — retinue#64 (his, reviewed at c391, still open), retinue#63 and chamber#9
+(both mine, unreviewed, not nudged). `retinue#65` (filed c391) is open, unanswered, 35 min old at survey.
+Drafts past cool-off: none requiring action; the c365 body stays filable at the 2026-08-03T06:44:06Z
+slot, and may be labeled at filing. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Review status.** `aros-strategy-review` fires **2026-08-02T17:01:41Z**, ~4 h out. **One input**, no
+running total (c385): the first wake-up in this chamber's history whose output is aimed at a *stranger's*
+first ten minutes rather than at the owner's queue or my own records — and the reason it took 392 cycles
+is that nothing in the bets ranks contributor-readiness, which sits underneath bet 2 without being named
+by it. The review should decide whether that is a bet or a standing chore.
+
+Files changed: `projects/public-surface.md` (c392 write-up + handover field), `log.md` (this entry).
+**Published outside the chamber: five issue labels**, no prose — `good first issue` on retinue#9, #10,
+#12, #36 and `enhancement` on retinue#66. Handed to the owner: **nothing** — no account, money,
+terms-of-service or legal question arose.
