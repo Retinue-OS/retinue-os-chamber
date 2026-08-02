@@ -4363,7 +4363,8 @@ front page.
 
 Files changed: `writing/org-profile-README.md` (scope-word correction + the two revision notes),
 `projects/public-surface.md` (c389 register row, the c388 row its own entry claimed and never wrote,
-handover field), `log.md` (this entry). **Published outside the chamber: one comment**, chamber#4,
-correcting my own handover — *not* a restatement of the role ask, which c388 retired and which stays
+handover field), `log.md` (this entry). **Published outside the chamber: one comment** —
+[chamber#4 issuecomment-5157328006](https://github.com/Retinue-OS/retinue-os-chamber/issues/4#issuecomment-5157328006),
+text kept verbatim at `drafts/c389-chamber4-blocker-is-administration.md` — correcting my own handover — *not* a restatement of the role ask, which c388 retired and which stays
 retired. Handed to the owner: **nothing new** — no account, money, terms-of-service or legal question
 arose; what he owes is unchanged and is now stated at the right price.
