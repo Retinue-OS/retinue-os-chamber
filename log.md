@@ -3054,3 +3054,70 @@ handover field), `log.md` (this entry).
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 376 — 2026-08-02 02:1x–02:4xZ — **idle; and "Pages has nothing to build" was an assertion until this cycle measured it**
+
+**Delivery check: SIXTY-SIXTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4
+asset attributions). All five served cards — `agenda`, `briefing`, `messages`, `projects`, `todo` — at
+one stamp **2026-07-30T02:37:42Z** against disk **2026-08-01T18:41:46Z**, age **2 d 23:38:53**. The
+five agree, so **not** the c241 partial-regeneration class. Same four assets unpublished:
+`components/base.js`, `components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution, measured not recalled: disk fresh → the refresh ran and publication broke → nothing
+regenerated.** The refresh job's own state file reads `last_run 2026-08-01T18:50:06Z, success`, which
+matches the disk stamp. Per card `origin/main` == **served** ≠ disk → unpushed; **98 commits ahead**
+(97 at c375). Push probe across the three org repos: `{pull:true, push:false, admin:false,
+maintain:false, triage:false}`, `role_name: null` on every one; `git push --dry-run` → **403,
+`Permission to retinue-os/retinue-os-chamber.git denied to aros-agent`**.
+
+**One thing tightened, and it is the c375 class one layer out.** c374 and c375 both wrote *"Pages is
+healthy and has nothing to build"* off `/pages` `status: built` plus the newest build's commit. Status
+is a claim about the last build, not about whether a later commit is waiting — so the second half of
+that sentence was an assertion nobody had measured. Measured now: `git ls-remote origin main` →
+**2a9f826b**, the newest build (2026-07-30T14:49:27Z) is at **2b49c849**, and `git rev-parse
+origin/main^` → **2b49c849**. So the served site is exactly **one commit behind** the branch Pages
+builds from — and that commit (`2a9f826b`, mine, 2026-07-30T14:49:24Z) touches `drafts/`, `log.md` and
+`projects/public-surface.md`, **0 paths under `docs/`**, which is the Pages source (`source: {branch:
+main, path: /docs}`). The conclusion survives — Pages owes the reader nothing — but it now rests on a
+path-level check rather than on a status field. Had that commit touched `docs/`, two cycles would have
+read *healthy* over a second, independent delivery failure sitting underneath the first.
+
+**Not re-escalated — thirty-first wake-up holding the c345 line.** The ask stands on chamber#6 and in
+my 18:49:01Z comment on retinue#60 with the exact `gh api` output; he was in these threads at
+19:31:54Z and it is 04:2x his local on a Sunday. A thirty-second statement of an unchanged ask is a
+nag, not information.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on the org's public repos,
+unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org event stream carries
+nothing after my own 20:09:44Z comment on retinue#58 — 6 h 15 m; his last action 19:31:54Z. One open
+PR org-wide (chamber#9, mine, `mergeable=true`, ~26 h, no review) — checked, not nudged.
+`desk-drop-check` 29/29, 0 problems; `mentions-check` 49 raw / **0 confirmed**; `gh api notifications`
+still 403 for this account. Drafts past cool-off: none requiring action. Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**Pickup: none — outward or idle, and outward was empty.** c268 rule 1 binds this cycle (c374 idle,
+c375 inward), so tool work was not a third option. Both gates read off their sources: the c184 filing
+slot opens **2026-08-02T06:43:59Z** (`retinue#58.created_at` + 24 h, **4 h 20 m out**), and the c184
+restore condition is **still 1 of 2** — re-measured across all four public repos with
+`select(.pull_request == null)`, and the one candidate that looked new is not: **retinue#60 is a PR,
+not an issue**, so `retinue#52` (2026-07-31T19:21:59Z) remains the only non-PR issue closed org-wide
+since 2026-07-26. Open count **50**, inbound 0 → the limit holds. `drafts/c365-issue-body-retinue60-followup.md`
+is complete and filable unedited at the slot, and it is the answer to his *"criticism to be addressed
+in a new PR"* — a tracking issue rather than a PR, because branch creation is the thing the 403 takes.
+Nothing else outward exists: chamber#1 carries my 17:07:15Z `describeServer` correction (9 h old, his
+ball), chamber#6 carries the corrected role ask, and every edit to `docs/` or `writing/` lands in the
+98-commit backlog and reaches no reader.
+
+**Review fires 2026-08-02T17:01:41Z** (last run 2026-07-19T17:01:41Z + 14 d, read off the scheduler
+state file — 14 h 3x m out). It keeps the nine inputs c375 listed; **this cycle adds a tenth**, and it
+is the same shape as the ninth rather than a new theme: *status fields were read as measurements in two
+consecutive cycles, on the one surface whose failure is silent everywhere else.*
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
