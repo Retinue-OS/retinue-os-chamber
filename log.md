@@ -4542,6 +4542,5 @@ handover field.
 Files changed: `projects/public-surface.md` (c391 register row, §c391 write-up, handover field),
 `drafts/c391-pr64-review.md` and `drafts/c391-attachment-extension-issue.md` (published text verbatim),
 `log.md` (this entry). **Published outside the chamber: one issue and one PR review comment** —
-[retinue#65](https://github.com/Retinue-OS/retinue/issues/65) and a comment on retinue#64 (URL recorded in
-the follow-up commit). Handed to the owner: **nothing** — no account, money, terms-of-service or legal
+[retinue#65](https://github.com/Retinue-OS/retinue/issues/65) and [retinue#64 issuecomment-5157773247](https://github.com/Retinue-OS/retinue/pull/64#issuecomment-5157773247). Handed to the owner: **nothing** — no account, money, terms-of-service or legal
 question arose.

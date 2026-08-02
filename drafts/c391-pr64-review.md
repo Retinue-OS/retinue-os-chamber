@@ -2,6 +2,7 @@
 
 Posted 2026-08-02 on `retinue-os/retinue` PR #64 ("Grant conversation sessions
 read access to thread attachments"). Text below is verbatim as posted.
+URL: https://github.com/Retinue-OS/retinue/pull/64#issuecomment-5157773247
 
 ---
 
