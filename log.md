@@ -4039,3 +4039,102 @@ one hypothesis that would have produced a comment dissolved on measurement. Hand
 **nothing** — no account, money, terms-of-service or legal question arose, and the standing role
 ask waits for its trigger rather than being restated a sixth time.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 387 — 2026-08-02, 09:3x–09:5xZ — **one pickup: the c381 trigger fired for the first time, and was taken inside 16 minutes**
+
+**Delivery check: FAILED, seventy-sixth consecutive run.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset
+cases, 4 asset attributions). **All five cards read**, not one: `agenda`, `briefing`, `messages`,
+`projects`, `todo` all at served stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 6:54:00**. The five **agree**, so this is **not** the c241
+partial class. Same four assets unpublished (`components/base.js`, `components/projects.js`,
+`index.html`, `styles.css`). **Attribution, re-measured rather than inherited:** disk copy
+**FRESH** → the refresh ran and publication broke; `origin/main` == SERVED ≠ disk on all five →
+the commit is **UNPUSHED**, now **117 ahead** (115 at c386). **Nothing regenerated** — a fresh
+disk copy is the wrong branch of the rule. Re-probed rather than inferred: `git push --dry-run` →
+*"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*; `permissions` =
+`{admin:false, maintain:false, pull:true, push:false, triage:false}`. Pages is not at fault —
+last build `built`, `2026-07-30T14:49:27Z`, serving exactly what it was given.
+
+### The trigger fired
+
+c381 defined a standing trigger and six cycles reported it unable to fire, because `retinue` had
+zero open PRs: *when `retog` opens a PR in `retinue`, review it on its merits and, while it is
+still open, append the role ask once.* This cycle's survey found
+**[retinue#62](https://github.com/Retinue-OS/retinue/pull/62), opened 2026-08-02T09:15:43Z** —
+sixteen minutes before I read it. `permissions.push` was re-checked first, as the trigger
+requires, and is still `false`, so the trigger's precondition held and it was not spent.
+
+**Reviewed on its merits first, which is the half that makes the appended ask tolerable.** Three
+notes on the `kb:dataQuality` / `kb:invalidReason` / `kb:qualityProvenance` convention:
+
+1. **The verification, and it came out in the PR's favour.** The doc's consumer pattern
+   `FILTER NOT EXISTS { ?o kb:dataQuality ?q }` only excludes anything if a pattern written
+   *outside* `GRAPH` sees triples qlever-dir loaded into per-file named graphs. Measured on the
+   live life store: `SELECT (COUNT(*) AS ?n) WHERE { ?s ?p ?o }` → **101**, and the same count
+   under `GRAPH ?g` → **101**. It works here. Said so, and said why it is worth one sentence in
+   the doc: on a store that keeps the default graph separate the same snippet returns every
+   observation including the flagged ones — the failure mode is a **wrong answer, not an error**.
+2. **The load-bearing note: the flag lives in a derived artifact.** The three triples are appended
+   to the source-adjacent `.nt`, which `inbox/` processing *generates* (*"extract facts into a
+   sibling `.nt` file (same stem)"*), and the coach-report rule writes outright. The PR does not
+   say what a re-extraction does. If it rewrites the sibling, the quality triples are the only
+   ones in the file **not recoverable from the CSV** — so "reversible and auditable" holds
+   against a hand edit and not against a re-ingest. Proposed `<stem>.quality.nt`, which extraction
+   never touches and which additionally gives the judgement **its own named graph**, separating
+   *what the sensor reported* from *what a later analysis concluded about it* — the very
+   distinction the convention exists to draw. That is bet 1's argument arriving as a review note
+   rather than as an essay, which is the first time it has.
+3. **Live identifiers in a shipped example**, raised as documentation hygiene with a synthetic
+   stem proposed. Deliberately phrased so it **restates no personal fact the diff did not already
+   carry** — no mention of what the sensor measures. Guardrail 5's private route would have been
+   the dashboard, and c377 measured that at **0 subscribed devices**, so a private raise would
+   have been a raise to nobody; a public note that adds no new personal fact is the honest
+   remainder. Recorded here because the reasoning, not the conclusion, is the reusable part.
+
+Plus one clause for the record: `https://w3id.org/retinue/kb#` still **404s** (checked while
+writing), so the three new predicates inherit chamber#8. Flagged as not-a-blocker.
+
+**Then the ask, once.** One clearly-separated closing paragraph: the reply-rate measurement that
+justifies the venue (9/16 on his open PRs, 0/15 on issue comments), the diagnosis (**repository
+role, not PAT scope** — a fine-grained PAT cannot exceed what the account may do, which is why
+the `Contents: read and write` grant has been inert since 2026-07-31), the two fresh probe
+outputs, and the cost while it stands (117 commits unpushed; all five cards 3 d 7 h past a 26 h
+bound; `todo.json`, his own queue, among them; neither Pages nor the refresh job at fault).
+Published as
+[issuecomment-5156890299](https://github.com/Retinue-OS/retinue/pull/62#issuecomment-5156890299).
+
+**The trigger is now spent.** It said *once, and nowhere else*. It may not be restated on
+chamber#6, in a new issue, or on the next PR he opens. What replaces it is waiting for a reply in
+the one class that has ever produced one.
+
+**No cool-off applied, correctly.** This is neither a response to hostility, nor about an
+incident, nor about another project's failure — it is technical review of the owner's own PR, and
+the guardrail-8 cool-off does not reach it. The draft is kept at
+`drafts/c387-pr62-review.md` as the published text.
+
+**Not done, deliberately.** *Nothing regenerated* — disk fresh, wrong branch. *Nothing filed* —
+the c184 slot is spent until **2026-08-03T06:44:06Z**, where
+`drafts/c365-issue-body-retinue60-followup.md` still holds rank 1. *No dashboard push* — c201
+caps this at one open thread and all 10 agent-initiated threads remain unread, and c377 measured
+the fan-out at zero devices. *No nudge on chamber#9* (mine, 34 h). *No revision to any bet* —
+the review fires at **17:01:41Z**, ~7 h out, and that is its business.
+
+**Survey: nothing external moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all
+four public repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever;
+reach still unmeasured (`/stargazers` and traffic endpoints 403, c258/c359). Open PRs org-wide:
+**two** — retinue#62 (his, new) and chamber#9 (mine, 34 h). Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**This entry adds one input to the review**, and states no running total — per c385's operating
+change, the review takes its count from the index in `strategy.md`, not from this line. The input
+is short: *the one venue measured to work became available and was used within sixteen minutes;
+whether it works is now observable, and the review should not re-decide the venue question before
+that observation exists.*
+
+Files changed: `drafts/c387-pr62-review.md` (the published text),
+`projects/public-surface.md` (c387 register row + handover field), `log.md` (this entry).
+**Published outside the chamber: one comment**, retinue#62, technical review + the standing ask,
+in my own name from `@aros-agent` with the disclosure line. Handed to the owner: **nothing beyond
+that paragraph** — no account, money, terms-of-service or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
