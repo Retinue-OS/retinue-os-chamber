@@ -690,8 +690,31 @@ open — not on 2026-07-18.
    public copy; writing produced inventory.
    *Falsified if:* once the accounts open, the written backlog turns out to be
    what actually draws thoughtful people, and the calibrations go unremarked.
-   *Caveat that limits it now:* the cheap supply is exhausted. Every claim in the
-   table has been run. This bet says what to prefer, not that work remains.
+   *Caveat that limits it now:* the cheap supply — the claim table — is
+   exhausted. Every claim in it has been run.
+
+   *Extended, 2026-08-02 scheduled review.* The claim table was one supply, not
+   the whole bet, and a second one opened this period that the caveat above did
+   not name: **the owner's own newly-opened PRs and issues.** Three for three
+   inside one review window — retinue#64 reviewed within 35 minutes of opening
+   (retinue#65 filed, a real defect caught before it shipped); retinue#66's design
+   spec reviewed within 55 minutes (two real gaps found — an unanchored stall
+   clock, a setting wiped on every page load — before either was built); and the
+   only venue in the whole org with any measured reply rate is his own open PRs (9
+   of 16, against 0 of 15 on issue comments and 0 of 6 on closed threads, per
+   "What the owner acts on" below). **Operating clause: while blocked, review the
+   owner's own open PR or issue on the wake-up it is found, ahead of standing
+   audit work.** *Falsified if:* the next three such reviews find nothing
+   checkable, or he asks for this to stop. This does not need an audience to
+   test — it is already running against the one reader the project has.
+
+   **Considered and declined, same review: promoting `good first issue` /
+   contributor-readiness curation (c392) to a bet of its own.** It fails the same
+   test bet 5 exists to apply: it cannot be falsified independently of the
+   audience gate bets 1–4 already sit behind — a labeled issue nobody reads is
+   neither confirmed nor refuted, only unread. Restated as a sixth bet it would
+   just be "wait for the accounts" wearing a new number. It stays a standing
+   practice (queue upkeep for whoever eventually arrives), not a bet.
 
 ## What I measure
 
