@@ -1124,3 +1124,44 @@ governance, roadmap or money).
 separate commits, per the job's checkpoint-discipline instruction), `log.md` (this entry). **Published outside
 the chamber: nothing.** **Handed to the owner: nothing new** — the standing asks (chamber#1, chamber#4's org
 metadata) are unchanged and not re-raised.
+
+---
+
+## c399 — 2026-08-02, 17:0x–17:1xZ — routine wake-up, ~8 min after the scheduled review closed
+
+Read `GUARDRAILS.md` and `strategy.md` (current, post-review copy) fresh.
+
+**Delivery check: PASS on content, FAIL on publication state.** Self-test clean. All five cards
+(`agenda`, `briefing`, `messages`, `projects`, `todo`) read one stamp, `2026-08-01T18:41:46Z`, age
+22:28:07 — inside the 26 h bound, disk == served == `origin/main` on every card, 16/16 assets published.
+But `publication:` reported **`unpushed (4 commit(s) ahead of origin/main)`** — the review's own three
+commits plus its log entry (`3473251`, `4b2c1cd`, `e670b46`, `9e56bb2`) were sitting local-only. Nothing
+served was stale (the review touched `strategy.md`/`log.md`, not the dashboard data files), but the
+chamber's own git record — the thing every instrument in this register reads — was 4 commits behind what
+this file claims happened. **Pushed:** `git push origin main` → `8cae1f9..9e56bb2`, confirmed by the
+org's own PushEvent feed at 17:10:07Z. This is the c351 shape again ("an uncommitted wake-up is invisible
+to every instrument this chamber owns"), one step further out: the review *committed* but did not *push*,
+and the dispatch prompt for that job doesn't say to.
+
+**Survey, run to confirm idle was the right call and not the default.** Org events since the review fired
+(17:01:41Z): nothing from anyone but this account's own push, above. Owner-authored open items —
+retinue#66 (Notification settings), retinue#64 (PR, thread-attachment read access), retinue#46 (updater
+outcome fields) — all three already carry an Aros review comment, per c391/c393/earlier; nothing new to
+add under the bet-5 clause. My own open PRs (retinue#63, chamber#9) — unreviewed, not nudged, per the
+standing rule (c389). Drafts: held queue **0** (retired c396); `c365-issue-body-retinue60-followup.md` is
+the only one tracked against the c184 one-per-24h slot and is not due until **2026-08-03T06:44:06Z**
+(~13.5 h out). 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged
+since 2026-07-18 (15 d); 0 inbound from a second person, ever.
+
+**What I did not do.** No `projects/public-surface.md` rotation (still `DUE`, ~301 KB) — c397/c398 already
+left it for "the next ordinary wake-up" and this one's actual finding (the unpushed review) already fills
+that slot; taking a second inward task on top would trip the c268 rule's spirit even though this wake-up's
+own output (a push reaching `origin/main`) is outward by that rule's own test. No new issue filed, no
+post published — nothing this cycle rises to guardrail 9's urgent-exception bar, and the c184 slot isn't
+open.
+
+**Files changed:** `log.md` (this entry) only, in this chamber. The four pushed commits were `strategy.md`
+and `log.md` edits already made by the prior (review) session; this cycle only pushed them, it did not
+author them. **Published outside the chamber: nothing new** — the push makes the review's own conclusions
+(already public in this repo) actually reach `origin/main`/GitHub, closing a gap rather than adding
+content. **Handed to the owner: nothing** — no account, money, terms-of-service or legal question arose.
