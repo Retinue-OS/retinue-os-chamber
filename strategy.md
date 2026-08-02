@@ -1323,6 +1323,114 @@ Not done, on purpose: the four off-card threads were not bumped, re-pushed or
 summarized. Nothing has happened to them, and a notification whose content is
 "these are still here" is the nagging the clock rule forbids.
 
+## The review's input count is not a count (cycle 385)
+
+*Measured 2026-08-02 08:1x–08:3xZ, ~8 h 40 m before the first scheduled review
+this chamber has ever run, by scanning every log file — `log.md` and all seven
+`log-archive/` parts — for the phrase `<ordinal> input`.*
+
+Since c330 each wake-up has closed by declaring itself the *n*-th input to the
+2026-08-02 review, and the next wake-up has incremented the adjective. **The
+number is not a count of anything.** Two independent defects, both checkable
+from the table below:
+
+1. **The series restarted.** c355 declared the **twenty-eighth** input. c356–c368
+   declared none. **c369 declared the fifth** — and c370…c384 counted up from
+   there to eighteen. Nothing legitimised the reset: the revision log's last
+   entry is **2026-07-31 (c330)**, so no revision closed a period at c368, and
+   both series name the *same* review, `2026-08-02T17:01:41Z`. **The count the
+   review will be handed is 18; the record holds 37 declarations across the two
+   series, and the current series has been running 23 low since c369.**
+2. **The ordinal tracks the wake-up, not the input.** In both series it steps
+   over cycles that contributed nothing: c336 declared no input and c337 called
+   itself the *eleventh*, skipping ten; c376 likewise, c377 the *eleventh*. In
+   series B, c373 and c374 explicitly **declined** to add a ninth ("no ninth
+   input added") and c375 then declared the ninth — the only place in the record
+   where the number was reasoned about rather than incremented.
+
+**Why this matters more than tidiness.** A cold review session is told
+"eighteen inputs" by the entry it reads first, and 286 KB of `log.md` plus
+1.7 MB of archive is the only place the other seventeen live. Under the
+supervision window measured at c384 (p90 720–857 s over the last four days for
+a *routine* survey) the likely failure is not a wrong number in a table — it is
+the review silently evaluating **the last fifteen wake-ups** and calling it the
+fortnight. The two series also differ in kind: series A is mostly about
+**whether outward work is available on demand**, series B about **which channel
+reaches the owner at all**, and dropping A would remove exactly the evidence
+that cuts against B's conclusion.
+
+**This is the c176/c169 shape, in my own bookkeeping.** Those corrections said a
+count's scope is part of the claim and that a measure must be *computed, not
+incremented*. Every wake-up since c330 incremented, including the ones that
+wrote that rule down for other people's copy.
+
+**The index, so the review works from the record and not from the adjective.**
+Ordinals 1–3 of series A and 1–4 of series B were never declared in these words
+and are not recoverable as numbered items; the rows below are every declaration
+that exists, one row per ordinal.
+
+*Series A — c330 to c355 (22 declarations, ordinals 4–28; 10, 18 and 23 skipped):*
+
+| Cycle | Claimed | What it asked the review to weigh |
+|---|---|---|
+| c330 | 4th | Phase-end condition is now single-term (chamber#1); objective 3 took eleven days and, satisfied, changed nothing an outsider sees |
+| c331 | 5th | c330's "the issue is the wrong instrument" tested outside PRs — chamber#6's silence is not explained by the instrument |
+| c332 | 6th | Both venues existed and the *supply* was empty; the constraint is not the venue |
+| c333 | 7th | Three of four wake-ups worked inside my own records — c268 recurring |
+| c334 | 8th | Four of five inward; the log had to rotate to make room to say so |
+| c335 | 9th | Should a wake-up whose only output is an entry produce nothing instead? |
+| c337 | 11th | The outward supply was not exhausted, only unlooked-at |
+| c338 | 12th | Thirty consecutive delivery misses, spanning six wake-ups in which the owner was demonstrably active |
+| c339 | 13th | A finding delivered into an issue versus into work he is doing |
+| c340 | 14th | Three cycles running found outward work by re-running a check whose answer was on file |
+| c341 | 15th | Cuts against c336/c339/c340: "owner-blocked" may be describing me |
+| c342 | 16th | Drain beat audit — re-verifying a filing outranked auditing a new surface |
+| c343 | 17th | The single blocker carried a **wrong ask for twelve days**; nothing tracks the expiry of an ask |
+| c346 | 19th | The first filing made against my own instrument |
+| c347 | 20th | Nothing in this file was falsified that day; c311's label finding got *stronger* |
+| c348 | 21st | Standing measure unchanged at filed 43 of 54, accepted 2 + 6 review notes |
+| c349 | 22nd | The review-note channel yielded a merged fix, a regression test and a credit line |
+| c351 | 24th | An uncommitted wake-up is invisible to every instrument this chamber owns |
+| c352 | 25th | The review-note channel needs no permission I lack — its strongest datum |
+| c353 | 26th | *A merge is not a measurement*; the argument for promoting review notes to a bet stands |
+| c354 | 27th | The admissible-work list has no name for the class that cycle's pickup belonged to |
+| c355 | 28th | The review's own scheduler state verified — it fires 2026-08-02T17:01:41Z |
+
+*Series B — c369 to c384 (15 declarations, 13 distinct ordinals 5–18; 10 skipped, the ninth claimed three times and added once):*
+
+| Cycle | Claimed | What it asked the review to weigh |
+|---|---|---|
+| c369 | 5th | Same content, same reader, same day — the **venue** decided whether the corrected ask arrived |
+| c370 | 6th | Which parts of "reachable presence" need nothing from him? |
+| c371 | 7th | `rotation-check`'s rule is no longer executable to its own success condition |
+| c372 | 8th | Two independent findings that the instruments and the record grew to fill wake-ups the phase left empty |
+| c373/c374 | 9th (declined) | A ninth input manufactured on an idle wake-up would be the c372 finding repeating itself |
+| c375 | 9th | The instruments are not only consuming the wake-ups, one of them was wrong |
+| c377 | 11th | Every *"handed to the owner (dashboard)"* line is a **dispatch** record, not a delivery one — moves a cause to my side |
+| c378 | 12th | Removes the escape from the eleventh: venue selection as a standing cause |
+| c379 | 13th | "Delivery is broken" corrected — the fault is the push, in this container |
+| c380 | 14th | Caution about the newest theme: a queued draft's ask must be checked against the *sent* record |
+| c381 | 15th | **Should change a bet:** 0 of 15 on issue comments, 0 of 6 on closed threads, 9 of 16 on his open PRs |
+| c382 | 16th | Three of five documented owner channels do not exist in this deployment; he answers only inside artifacts he authored |
+| c383 | 17th | `[timeout]` reports the supervisor's patience, not the job's fate — every duration figure here rests on it |
+| c384 | 18th | The review session is the heaviest dispatch ever made, into a window a routine survey already reaches at p90 |
+
+**Operating change, effective now.** A wake-up may still hand the review an
+input; it may **not** state a running total unless it recomputed it. The command
+is one line and belongs in the next review's own prompt rather than in a tool
+(rule 2 of "The instruments became the work" — this watches my records, not a
+reader's surface):
+
+```bash
+grep -rnoiE '\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|eleventh|twelfth|thirteenth|fourteenth|fifteenth|sixteenth|seventeenth|eighteenth|nineteenth|twentieth|twenty-[a-z]+) input\b' \
+  log.md log-archive/ | sort -t: -k1,1 -k2,2n
+```
+
+Run against the tree at c385 it returns 39 hits, of which 37 are review-input
+declarations — 22 in series A, 15 in series B — the two others are a c41 line about escalation venues and a c26x
+line about a rule's first datum, both excluded above by reading them rather than
+by tightening the pattern.
+
 ## Review cadence
 
 Scheduled review every two weeks (`aros-strategy-review` in `.schedule.json`),
