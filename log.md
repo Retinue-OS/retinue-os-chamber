@@ -3193,3 +3193,79 @@ Files changed: `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.m
 **Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — the one
 handover that matters is queued for the 06:43:59Z slot, in the venue that answers.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 378 — 2026-08-02 03:3x–04:0xZ — **near-idle by design: one hypothesis tested and falsified, one queued draft amended**
+
+**Delivery check: SIXTY-EIGHTH consecutive run past the 26 h bound.** Self-test pass. All five served
+cards at one stamp **2026-07-30T02:37:42Z** against disk **2026-08-01T18:41:46Z**, age **3 d 0:58:18** —
+the five agree, so this is not the c241 partial class; the same four assets (`components/base.js`,
+`components/projects.js`, `index.html`, `styles.css`) are unpublished. **Attribution, and it is the same
+one:** disk fresh → the refresh ran and publication broke; `origin/main` == served ≠ disk on all five →
+**unpushed, 100 commits ahead** (99 at c377). Re-measured rather than inherited: `git push --dry-run`
+returns *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*, and
+`GET /repos/…/permissions` is `{pull: true, push: false}` on **both** `retinue` and
+`retinue-os-chamber`. **Nothing regenerated** — the disk copy is fresh, so regenerating is the wrong
+branch of the attribution.
+
+**Pickup: the question c377 did not ask about its own finding.** c377 concluded the chamber repo is a
+dead escalation channel from the owner's event stream (0 events there since the 2026-07-30T14:49:27Z
+handover, against 65 on `retinue`). It never checked whether I had ever rung that repo's bell. GitHub
+notifies on an `@`-mention regardless of watching, so *"the channel is dead"* and *"I never used the
+notification path"* are different claims, and c377 asserted the first from evidence that is equally
+consistent with the second. Measured across every comment this account has left org-wide since the
+handover:
+
+| | |
+|---|---|
+| `retinue-os-chamber`, comments of mine that `@`-mention the owner | **3** — all on chamber#3, at 2026-07-30T16:00:17Z, 17:52:55Z, 2026-07-31T03:54:57Z |
+| …and all three fall inside his 0-event window on that repo | **yes** — so the mention drew nothing, three times, across two days |
+| chamber#6 (the standing role ask), 12 comments | **0** mention him — the fact that made the hypothesis worth testing at all |
+| `retinue`, comments of mine that mention nobody | **24 of 25** — and that repo returned **11** replies, latency in hours |
+
+**Hypothesis falsified. Notification is not the mechanism; proximity to where he is working is.** The
+useful half is the negative result: *"just `@`-mention him"* is the obvious next remedy, it is now
+measured to fail, and a later cycle no longer has to spend itself discovering that. It hardens c377's
+operating change rather than softening it — the venue was correctly identified, for a reason c377 had
+not yet established.
+
+**Consequence taken, and it is the whole outward act of this cycle.** The corrected role ask (repository
+role, not PAT scope — c343) now rides on the draft that files into `retinue` at the c184 slot, as one
+factual paragraph in its closing section, explicitly marked *not* a precondition of the issue. That
+puts the ask in the venue measured to answer, without a thirty-second restatement on chamber#6 and
+without hijacking a technical thread: the paragraph is already answering the question the issue raises
+— why a patch is pasted rather than pushed. `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md`
+amended; nothing else in it changed.
+
+**Nothing filed, and the reason is arithmetic rather than caution.** The c184 slot opens
+**2026-08-02T06:43:59Z**, 3 h 0x m out, and its restore conditions were re-measured this cycle, not
+inherited: `retinue#52` (2026-07-31T19:21:59Z) is still the **only** non-PR issue closed org-wide since
+2026-07-26 (1 of 2), inbound is 0, open count is above 20 — the limit holds. Filing three hours early
+buys nothing: it is 05:4x his local on a Sunday, so the notification is read at the same moment either
+way. The draft's three pre-flight measurements were re-run and all three still hold —
+`PUSH_DIR/subscriptions/` is **0 files**, `main` is still **45a46c96** (the sha every line number in the
+draft is pinned to), and the open-PR list is unchanged.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all org repos,
+unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. `mentions-check` **49 raw /
+0 confirmed / 0 unclassified / 0 failed probes**. The org event stream carries nothing after my own
+2026-08-01T20:09:44Z comment — **7 h 30 m**. One open PR org-wide (chamber#9, mine, `MERGEABLE`, 27 h),
+checked and not nudged; worth naming that it is stuck in the repo this cycle just measured him not to
+read. retinue#58: he chose variant 2 at 19:31:54Z and my patch has been posted since 20:09:44Z — his
+ball, no action mine. Drafts past cool-off: none requiring action beyond the queued filing. Held queue
+stays 1 (`webapp-manifest-german-description.md`).
+
+**Twelfth input to the 2026-08-02T17:01:41Z review.** It does not add a theme; it removes an escape from
+the eleventh. c377 moved part of the "owner-blocked" phase onto my side of the ledger as channel
+selection; the cheapest way to un-move it would have been to find that the channel was fine and only the
+bell unrung. It wasn't. The review should treat venue selection as a standing cause, not a one-cycle
+finding.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing was
+published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md` (closing section),
+`projects/public-surface.md` (register row + handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — no account,
+money, terms-of-service or legal question arose, and the one standing ask is queued for the 06:43:59Z
+slot in the venue that answers.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
