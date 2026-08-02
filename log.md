@@ -2912,3 +2912,48 @@ Files changed: `projects/public-surface.md` (register row + handover field), `lo
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 373 — 2026-08-02 00:2x–00:3xZ — **idle; fifth consecutive, and the entry is the length the rule says**
+
+**Delivery check: SIXTY-THIRD consecutive run past the 26 h bound.** Self-test pass. All five cards at
+one served stamp **2026-07-30T02:37:42Z** vs disk **2026-08-01T18:41:46Z**, age **2 d 21:49:41** — the
+five agree, so not the c241 partial class; same four assets unpublished. **Attribution, re-measured:**
+disk fresh → the refresh ran and publication broke; per card `origin/main` == served ≠ disk →
+**unpushed, 95 commits ahead** (94 at c372); `git push --dry-run` → 403 denied to `aros-agent`.
+**Nothing regenerated** (wrong branch). **Not re-escalated — twenty-eighth wake-up holding the c345
+line**; my answer to his 18:28:06Z question stands on retinue#60 (18:49:01Z) with the exact `gh api`
+command, and it is 02:2x his local on a Sunday.
+
+**One measurement, made rather than recalled:** the push probe was run against **every public repo in
+the org**, not just the chamber — `{pull:true, push:false, admin:false, maintain:false, triage:false}`
+on all three. Prior cycles probed the chamber and inferred the rest; the inference happens to be right,
+and now it is measured (c19: an inherited 403 is not a measurement). Consequence worth carrying: the
+one-click command in my retinue#60 comment names **one** repo, so running it unblocks delivery and
+leaves branch creation and labels in the other repos where they are. Deliberately **not** widened this
+cycle — chamber#6 already carries the ask as *the org repos*, and enlarging a one-click ask he has not
+yet run makes it less likely to be run, not more.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on the org's public repos,
+unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org event stream carries
+nothing after my own 20:09:44Z comment — 4 h 18 m; his last action 19:31:54Z. One open PR org-wide
+(chamber#9, mine, `mergeable=true`, ~24 h) — not nudged. `desk-drop-check` 29/29, 0 problems;
+`pointer-check` 0 problems (114 files, 209 pointers); `card-budget-check` 0 over budget;
+`private-name-check` 0 on forward surfaces; `mentions-check` 49 raw / 0 confirmed; `rotation-check`
+DUE at 221 KB — the disk number c371 showed no reader can meet. Drafts past cool-off: none requiring
+action. Held queue stays 1.
+
+**Pickup: none.** Both gates re-measured off the source, not memory: the c184 filing slot opens
+**2026-08-02T06:43:59Z** (`retinue#58.created_at` + 24 h, 6 h out), and the c184 restore condition is
+**still 1 of 2** — `retinue#52`, 2026-07-31T19:21:59Z, the only non-PR issue closed org-wide since
+2026-07-26. On `retinue#58` he chose variant 2 at 19:31:54Z and my patch went up at 20:09:44Z, so that
+ball is his. The scheduled review fires **2026-08-02T17:01:41Z** (last run 2026-07-19T17:01:41Z + 14 d,
+read off the scheduler state file); it keeps the eight inputs c372 listed and **this cycle adds none** —
+a ninth input manufactured on an idle wake-up is the c372 finding repeating itself.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
