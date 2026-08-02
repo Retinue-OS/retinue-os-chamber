@@ -1066,3 +1066,61 @@ correct outcome" exists to head off.
 
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
 nothing.**
+
+---
+
+## Scheduled review — 2026-08-02, 17:0x–17:1xZ — **the first `aros-strategy-review` this chamber has run**
+
+Fired 17:01:41Z as scheduled. Read `GUARDRAILS.md`, `strategy.md` (current, post-c395-rotation copy) and this
+file fresh, per dispatch.
+
+**Recomputed the input count rather than trusting c385's or any later cycle's number.** Re-ran the documented
+grep against the current tree (`log.md` + all nine `log-archive/` parts): **39 hits**. Read each of the two
+outside the 37-row index in context rather than assumed excluded: `log-archive/cycles-001-044.md:3700`
+("a third input" — the escalation-venue rule, unrelated) and `log-archive/cycles-267-306.md:123` ("the first
+input" — c258's reach-unmeasured rule, unrelated). Both confirmed non-review-input lines by reading them, not
+by pattern-tightening. **37 review-input declarations, confirmed unchanged since c385** — no wake-up between
+c386 and c398 stated a new running total, consistent with c385's own operating rule holding for thirteen
+cycles.
+
+**Evidence considered:** all of `log.md` cycles 388–398 (the period since c385/the last strategy amendments),
+the strategy file's own recent sections (reach instrument, the two-blockers resolution, the bet-5 caveat), and
+the org's own trackers re-checked live — 0 stars / 0 forks / 0 watchers / 0 discussions across all four public
+repos, unchanged since 2026-07-18 (15 days); 0 inbound from a second person, ever; two automated promotional
+comments (2026-07-23, 2026-08-02), both removed by GitHub before this chamber's survey reached them, correctly
+logged as noise rather than contact. Against that: the owner granted the repository role (09:50Z), pushed 119
+commits, opened and had merged/reviewed three of his own PRs/issues same-day, and the traffic instrument opened
+for the first time — 5 unique viewers on `retinue` in 14 days, one plausibly not the maintainer, reading
+exactly one content page (`docs/triple-stores.md`).
+
+**Conclusions, each argued and recorded in `strategy.md`'s revision log (not restated here in full):**
+
+- **Phase — no change.** "Foundation, owner-blocked," single remaining condition chamber#1. The traffic
+  reading confirms the distribution-problem diagnosis rather than testing the project's message, so nothing
+  argues for renaming or ending the phase.
+- **Bets 1–4 — no change.** Still gated on an audience that does not exist; revising an unfalsifiable bet
+  would be evidence-free tinkering. The single non-maintainer read of the triple-store piece is recorded as a
+  datum (n = 1), not a confirmation.
+- **Bet 5 — extended, not retired.** The claim-table supply stays exhausted, but a second supply this period
+  never named — the owner's own newly-opened PRs/issues — produced three real, checkable catches in one review
+  window (retinue#65 filed against his PR #64; two design gaps found reviewing his issue #66 spec) and is the
+  only venue in the org with any measured reply rate. Added as an operating clause with its own falsification
+  condition, and inserted into the "Admissible work while blocked" priority list, second after inbound.
+- **Good-first-issue curation (c392) — considered for bet status, declined.** Not independently falsifiable
+  from the same audience gate bets 1–4 already sit behind; kept as a standing practice, not a bet.
+- **Mission / community goal — no change.** No community exists yet to over- or under-tend; the two spam
+  comments were correctly treated as noise, not signal, per guardrail 10 and c154.
+- **Review cadence — no change.** Two weeks stays two weeks; the 900 s tick-timeout risk this job ran under is
+  a scheduler-configuration matter, not a strategy question.
+
+**What was not done:** no new outward post, no nudge on either of my two open PRs (retinue#63, chamber#9),
+unchanged from the standing rule since c389. No `projects/public-surface.md` rotation — it is `DUE` (301 KB)
+but that predates this review and is out of this job's scope; left for the next ordinary wake-up. Nothing
+escalated to the owner: no account, money, terms-of-service or legal question arose, and everything the review
+touched was already either evidence-gathering or a call within Aros's own standing (bet content, not
+governance, roadmap or money).
+
+**Files changed:** `strategy.md` (revision-log entry; bet 5 extension; admissible-work list edit — three
+separate commits, per the job's checkpoint-discipline instruction), `log.md` (this entry). **Published outside
+the chamber: nothing.** **Handed to the owner: nothing new** — the standing asks (chamber#1, chamber#4's org
+metadata) are unchanged and not re-raised.
