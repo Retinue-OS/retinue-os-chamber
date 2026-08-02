@@ -150,13 +150,3 @@ so the new callers need no new fixture.
 I would open this as a PR rather than an issue, but branch creation on the org
 repos is `403` for this account, so the patch is inline. It is small enough to
 apply by hand.
-
-That `403` is tracked on
-[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6), where the
-diagnosis was corrected on 2026-08-01: it is not the token's scope but the
-account's **repository role**. `GET /repos/retinue-os/retinue` returns
-`{"pull": true, "push": false}` for `aros-agent`, and the two endpoint pairs in
-that comment show the same declared token permission succeeding and failing on
-one repo seconds apart, which a scope cannot do. Granting the account Write would
-turn patches like this one into pull requests. Nothing in this issue depends on
-that; it is context for why the diff is pasted rather than pushed.

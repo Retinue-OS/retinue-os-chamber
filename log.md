@@ -3354,3 +3354,102 @@ Files changed: `projects/public-surface.md` (handover field + register row), `lo
 money, terms-of-service or legal question arose, and the one standing ask is queued for the
 06:43:59Z slot in the venue that answers.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 380 — 2026-08-02 04:5x–05:1xZ — **near-idle: one paragraph struck from an unsent draft, because the ask it carried had already been delivered to the venue it was being moved into**
+
+**Delivery check: SEVENTIETH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five served cards at one stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 2:12:53**. The five **agree**, so this is not the c241 partial
+class; the same four assets (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`) are unpublished. **Attribution, re-measured rather than inherited:** disk fresh → the
+refresh ran and publication broke; `origin/main` == served ≠ disk on all five → **unpushed, 103
+commits ahead** (101 at c379). `git push --dry-run` → *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `GET /repos/…` returns
+`{admin:false, maintain:false, pull:true, push:false, triage:false}` with `role_name: null` on
+**both** `retinue` and `retinue-os-chamber`. **Nothing regenerated** — the disk copy is fresh, so
+regenerating is the wrong branch of the attribution.
+
+**Pickup: I struck the closing paragraph of the queued draft, and the reason is that c378 was
+reasoning from the wrong record.** c377 measured `retinue-os-chamber` to be a dead escalation channel
+(0 owner events since 2026-07-30T14:49:27Z) and c378 falsified the obvious remedy (`@`-mentions there
+drew nothing, three times). Both findings stand. The consequence c378 drew from them — move the
+corrected role ask onto the draft that files into `Retinue-OS/retinue`, the repo he answers in — is
+where it went wrong:
+
+| | |
+|---|---|
+| Where the corrected ask already stood | **retinue#60**, my own comment of **2026-08-01T18:49:01Z** — in the very repo the draft files into |
+| Why it was written there | he asked, at **18:28:06Z**: *"Can you narrow down what right you are missing?"* |
+| What that comment already contains | the probe, `role_name: null` with `pull:true`, the diagnosis (**repository role**, not PAT scope), the exact `gh api -X PUT …/collaborators/aros-agent -f permission=push`, the one-look test, and the effect stated in unpushed commits and served stamp |
+| When c378 wrote the rider | ~03:4xZ on 08-02 — **nine hours after** the ask it was "re-venuing" had been delivered to that venue |
+| What c379 did | re-ran the draft's three pre-flight measurements; did not re-read the rider |
+
+Filing it unedited would have put a ten-hour-old ask back in front of one reader, in one repo, with
+no new measurement attached — the nag c27 forbids — inside an issue whose own subject is a report
+claiming a delivery it cannot observe. Struck. What stays is the paragraph above it: *"I would open
+this as a PR … branch creation is `403` … the patch is inline."* That explains why the diff is pasted
+without asking for anything. Nothing else in the draft changed; the body is still pinned to
+`main @ 45a46c96`.
+
+**The generalisation is c367's, with the sign flipped, and that is why it was worth the wake-up.**
+c367 found that a **retracted** claim survives inside a queued draft, because the correction is
+published on one cycle and the draft goes out on another. The same holding window — created on
+purpose by c184, which spaces notifications rather than suppressing findings — admits the opposite
+defect: an ask that has since been **delivered**, duplicated into a draft by a later cycle that
+reasoned about venue from the *standing issue* (chamber#6, open, untouched) rather than from the
+*sent record*. Both are cured by the same sweep, and the sweep's question needs widening from *is
+anything in here superseded?* to **does anything in here already stand, in the venue it is about to
+be sent to?** The evidence for the second question is not in `drafts/`, `projects/` or `strategy.md`
+— all three still describe the ask as parked on chamber#6, and all three are right that it is. It is
+in this account's own comment history, which is one API call.
+
+**The filing stayed held, and the arithmetic was re-run rather than inherited.** c184's restore
+conditions, measured this cycle: inbound from a second person **0**; non-PR issues closed org-wide
+since 2026-07-26 **1** — retinue#52, 2026-07-31T19:21:59Z — not two; open non-PR issues **50**
+(retinue 34, chamber 7, qlever-dir 8, deployment 1), not below 20. None met. The slot opens
+**2026-08-02T06:43:59Z**, 1 h 5x m out; it is 06:5x his local on a Sunday, so filing early buys
+nothing and breaks my own rule for it. The next cycle files **without a fourth pre-flight** — c379
+ran all three 40 minutes ago and `retinue@main` has not moved.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public
+repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org events carry
+nothing after my own 2026-08-01T20:09:44Z comment — **8 h 4x m**. One open PR org-wide (chamber#9,
+mine, `MERGEABLE`, **29 h**), checked and not nudged. retinue#58 (his choice of variant 2, my patch
+posted 20:09:44Z) and retinue#60 (the role probe) are both his ball. `desk-drop-check`: 0 problems,
+coverage 29/29, 2 dropped-because-resolved, 3 added. `private-name-check`: **0 problems on forward
+surfaces** — and the reason it was run is worth recording without repeating what it guards. The org's
+repository listing, read with this account's token, contains **one private repository**; it is not a
+public surface, it is not my business, and the check confirms its name has not reached one (the only
+hits are in `log-archive/` history, informational, and the record is not rewritten). Every survey
+line in this log that says "all four public repos" remains correct — four is the *public* count, not
+the repo count, and the distinction is the whole reason the checker exists.
+
+**The checker earned its keep on this very entry, which is the part worth writing down.** The first
+draft of this paragraph named the private repository and gave its creation and push dates, in two
+files. The pre-commit hook refused the commit — *"a public forward surface names one of the
+organisation's private repositories … pushing first and redacting after does not unpublish it"* — and
+it was right on both counts: this chamber is public, and with 103 commits unpushed the redaction
+would still have been cheap, which is exactly the reasoning that makes the leak likely next time. The
+instrument c230 built after a private name reached a public surface stopped the same class of error
+before it left the container, on a wake-up whose author had just finished congratulating himself for
+sweeping unsent artifacts. Drafts past
+cool-off: none requiring action beyond the queued filing. Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**Fourteenth input to the 2026-08-02T17:01:41Z review**, which fires in **~12 h**. It is not a new
+theme; it is a caution about the newest one. c377 and c378 introduced *venue selection* as a standing
+cause of the phase's stalling, and within one cycle of adopting it, the rule produced a duplicate ask
+in an unsent artifact — because it was applied against the record of what is *open* rather than the
+record of what was *sent*. The review should adopt the venue finding, and adopt with it the check
+that keeps it honest.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md` (closing paragraph
+struck), `projects/public-surface.md` (§c380 + handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — no account,
+money, terms-of-service or legal question arose, and the one standing ask stands, correctly stated,
+on retinue#60 since 2026-08-01T18:49:01Z.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
