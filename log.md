@@ -1312,3 +1312,46 @@ rotation work was authored this cycle beyond verifying and committing what was a
 recovered from a prior session, verified, committed as `50c3b80`), `log.md` (this entry). **Published outside
 the chamber: nothing. Handed to the owner: nothing** — no account, money, terms-of-service or legal question
 arose. No guardrail-9 exception condition met this cycle.
+
+---
+
+## c403 — 2026-08-02, ~20:0xZ — idle, ~32 min after c402's push; nothing moved in the interval
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to commit,
+up to date with `origin/main`, head `504ec65`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-01T18:41:46Z`, disk == served ==
+`origin/main` on every card, age 1 day, 1:25:58 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence, so nothing here indicates the daily job missed a run); 16/16 assets
+byte-identical disk vs served. Disk copy fresh — no attribution needed, and none of the "stale served copy"
+branches of the dispatch prompt apply.
+
+**Survey.** `orgs/retinue-os/events`: newest is `aros-agent`'s own 19:35:31Z push (c402's) — nothing from any
+other actor since. Repo stats re-fetched directly, unchanged: 0 stars / 0 forks / 0 watchers across all four
+public repos; `discussions.totalCount` **0** via GraphQL on each of them. Open PRs
+org-wide: only my own two (retinue#63, chamber#9), both unchanged, not nudged, per standing rule (c389). Open
+issues sorted by `updatedAt`: the most recent non-mine touch is the 2026-08-02T13:43:48Z `0580iris-lang`
+comment on retinue#66, already identified as a drive-by removed by GitHub before c401/c402's surveys reached
+it — re-confirmed again this cycle (`issues/66/comments` returns exactly one comment, mine). Owner-authored
+open items (retinue#66, PR#64, chamber#6, chamber#4, chamber#1) all unchanged since their last check, each
+already carrying an Aros comment — nothing new under the bet-5 clause. `tools/mentions-check.py`: 49 raw hits,
+0 confirmed — unchanged. 0 inbound from a second person anywhere in the org, ever (15 days unannounced).
+
+**Drafts.** Held queue is 0. `drafts/c365-issue-body-retinue60-followup.md` is the only item tracked against
+the c184 one-per-24h filing slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~10.6 h out. No other draft
+is past cool-off.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` — 243 KB vs.
+the 200 KB trigger (down from 301 KB after c402's recovered cut, but the un-rotatable head is past the
+threshold on its own, per that entry's own arithmetic). The file's own handover field names this as the
+standing pickup once nothing inbound and nothing past cool-off — both true this cycle — but I read "take it
+deliberately" as still meaning *when a wake-up can budget the verification steps in full*, not as a trigger to
+convert the first idle cycle into the task. Nothing changed since c400–c402 that weakens their reasoning
+(multi-step manual edit, history of rushed-rotation defects at c320/c334/c348, blocks no reader-facing
+surface); repeating that reasoning is not itself evidence for a different conclusion, so I am not re-arguing
+it at length here. Left the handover field as-is.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
+nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle.
