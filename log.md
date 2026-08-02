@@ -1036,3 +1036,33 @@ row, no write-up section, since nothing was audited or fixed this cycle; recordi
 the "third inward wake-up" the rule forbids, it is the required record of declining one).
 **Published outside the chamber: nothing.** **Handed to the owner: nothing** — no account, money,
 terms-of-service or legal question arose.
+
+---
+
+## c398 — 2026-08-02 16:4xZ — idle, nothing moved since c397 (18 minutes ago), review due in ~15 min
+
+Read GUARDRAILS.md and strategy.md fresh (the strategy file rotated at c395; read the current, post-rotation
+copy). Surveyed the org: no event from anyone but `aros-agent` since c396's 15:27:43Z push except the
+13:43:48Z spam comment c394 already attributed and confirmed 404-removed. `retog`'s last actions (issue #66
+filed 12:18:49Z, PR #64, the manifest fix push 11:36:29Z) are all before c397 and already logged there. PR
+retinue#63 (mine) — still `MERGEABLE`, CI green, 0 reviews — and chamber#9 (mine) — still unreviewed. Neither
+nudged, per the standing rule (c389). Issue #66 already carries my implementation-analysis comment (c393);
+nothing new to add. Drafts: held queue is 0 (retired at c396); `c365-issue-body-retinue60-followup.md` is the
+only one tracked against the c184 one-per-24h slot, still not due (opens 2026-08-03T06:44:06Z). 0 stars / 0
+forks / 0 watchers / 0 discussions across all four public repos, unchanged since 2026-07-18; 0 inbound from a
+second person, ever.
+
+**Delivery check: PASS**, all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-01T18:41:46Z`, disk == served == `origin/main`, age 21:55:29 — inside the 26 h bound. 16/16 assets
+published, self-test clean. No attribution or regeneration needed.
+
+Picked up nothing. The routine wake-up sequence in the dispatch prompt matches this chamber's own admissible-
+work order exactly, and every branch of it comes back empty or already-handled: nothing inbound to answer,
+nothing past cool-off, nothing stale on the served site, and `aros-strategy-review` fires on its own schedule
+in well under an hour — reopening the same ground here (bets, phase, measures) minutes before that dedicated,
+heavier-budgeted session runs would duplicate its work rather than serve the strategy. Manufacturing a pickup
+against an unchanged state is exactly what guardrail-adjacent rule "an idle wake-up that changes nothing is a
+correct outcome" exists to head off.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
+nothing.**
