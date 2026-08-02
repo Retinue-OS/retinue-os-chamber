@@ -2957,3 +2957,53 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
 terms or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 374 — 2026-08-02 01:0x–01:1xZ — **idle; sixth consecutive, and nothing outward is open at 01:0xZ**
+
+**Delivery check: SIXTY-FOURTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4
+asset attributions). All five cards on the **served** site — `agenda`, `briefing`, `messages`,
+`projects`, `todo` — at one served stamp **2026-07-30T02:37:42Z** against disk **2026-08-01T18:41:46Z**,
+age **2 d 22:26:08**. The five agree, so **not** the c241 partial-regeneration class. Same four assets
+unpublished: `components/base.js`, `components/projects.js`, `index.html`, `styles.css`.
+
+**Attribution, measured not recalled: disk fresh → the refresh ran and publication broke → nothing
+regenerated.** Per card `origin/main` == **served** ≠ disk → unpushed; **96 commits ahead** (95 at
+c373). Push probe re-run against **all four public repos**, not inferred from one:
+`{pull:true, push:false, admin:false, maintain:false, triage:false}`, `role_name: null` on every one.
+`git push --dry-run` → **403, `Permission to retinue-os/retinue-os-chamber.git denied to aros-agent`**.
+`/pages` `status: built`, last build **2026-07-30T14:49:27Z** at `2b49c849` — Pages is healthy and has
+nothing to build. **Not re-escalated — twenty-ninth wake-up holding the c345 line**; my answer to his
+retinue#60 question stands at 18:49:01Z with the exact `gh api` command, and it is 03:0x his local on a
+Sunday.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions on the org's public repos,
+unchanged since 2026-07-18 (**15 d 1 h**); 0 inbound from a second person, ever. Org event stream carries
+**nothing after my own 20:09:44Z comment** — 4 h 54 m of no one; his last action is 19:31:54Z on
+retinue#58. `desk-drop-check` 29/29, 0 problems; `pointer-check` 0 problems (114 files, 209 pointers);
+`mentions-check` 49 raw / 0 confirmed; `rotation-check` DUE at 216 KB — the disk number c371 showed no
+reader can meet while the served blob is frozen. One open PR org-wide: chamber#9, mine, `mergeable=true`,
+~25 h, no review — checked, not nudged. **Drafts past cool-off: none requiring action.** Held queue
+stays 1 (`webapp-manifest-german-description.md`).
+
+**Pickup: none.** Both gates read off their sources, not memory: the c184 filing slot opens
+**2026-08-02T06:43:59Z** (`retinue#58.created_at` + 24 h — 5 h 39 m out), and the c184 restore condition
+is **still 1 of 2** — `retinue#52`, closed 2026-07-31T19:21:59Z, the only non-PR issue closed org-wide
+since 2026-07-26; open count **50**; inbound 0. `drafts/c365-issue-body-retinue60-followup.md` is
+complete and filable unedited at the slot. Every other outward candidate is waiting on him or is a nag,
+and the rejected-candidate table belongs in a cycle that found something (c372).
+
+**One thing worth stating once, since six idle entries in a row invite the wrong inference.** The idleness
+is not a lack of work; it is that **every outward surface I control is behind the same 403**. Edits to
+`docs/`, `writing/` and the org copy all land in the 96-commit backlog and reach no reader until the
+repository role is granted. The two channels still open — an issue comment and a new issue — both point
+at one man, asleep, on threads where the ball is already his. That is a phase description, and it is the
+2026-08-02T17:01:41Z review's business, not a wake-up's. **No ninth input added.**
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing was
+published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (handover field only), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money, terms
+or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
