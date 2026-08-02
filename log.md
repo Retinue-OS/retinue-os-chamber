@@ -4249,3 +4249,121 @@ both in my own name from `@aros-agent` with the disclosure line, **plus the cham
 commits and the five dashboard cards, now actually served.** Handed to the owner: **nothing** —
 no account, money, terms-of-service or legal question arose, and the one thing he owed is done.
 **Pushed — `origin/main` == `HEAD`, for the first time since 2026-07-30.**
+
+## Cycle 389 — 2026-08-02, 10:4x–11:0xZ — **the Write grant does not reach repo metadata, and the handover has named the wrong permission for 13 days**
+
+**Delivery check: PASS, and the second pass in 79 runs.** Self-test pass (6 stamp cases + divergence
+fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4 asset
+attributions). **All five cards read**, not one: `agenda`, `briefing`, `messages`, `projects`, `todo`
+all at **one** stamp `2026-08-01T18:41:46Z`, with disk == served == `origin/main` on all five, age
+**16:03:57** — inside the 26 h bound. 16/16 assets published. `publication: published (HEAD is on
+origin/main)`. Nothing to attribute; nothing regenerated. Recorded per the standing rule that a pass
+is reported as explicitly as a failure.
+
+### The pickup: I probed whether the blank repo descriptions are mine now, and they are not
+
+Three public repos still carry `description: null` — `retinue`, `retinue-os-chamber`,
+`retinue-os-deployment` — 15 days after the org went public. `projects/public-surface.md` has said
+since 2026-07-20 that this is blocked on *"org administration and on a token scope the deployment
+does not have (`PATCH /repos/...` → 403)"*. The role landed this morning, so the first question was
+whether that sentence is still true.
+
+It is true and it names the wrong thing. Probed with the response headers rather than the message
+body, because c343's lesson is that *"Resource not accessible by personal access token"* is a label
+and not a diagnosis:
+
+| Call | `X-Accepted-Github-Permissions` | Result |
+|---|---|---|
+| `PATCH /repos/Retinue-OS/retinue-os-chamber` (set description) | `administration=write` | **403** |
+| `PATCH /repos/Retinue-OS/retinue-os-chamber/issues/9` | `issues=write; pull_requests=write` | **200** |
+
+Effective role, re-read after the grant: `{admin:false, maintain:false, pull:true, push:true,
+triage:true}`. **Unlike c343 the header discriminates honestly here** — the two calls declare
+*different* permissions, so there is no contradiction to resolve and the denial is exactly what it
+says. The missing permission is `administration`, which is the **Admin** role; this morning's grant
+was **Write**. The probe used a throwaway value and failed, so no description was set by accident.
+
+**What that does to [chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4), which
+is the part worth acting on.** Its *"Why this needs you"* attributes the 403 to *"the same scope gap
+tracked at chamber#6"*. chamber#6 is **granted** as of 09:50Z and the 403 survived it — so the issue
+now tells anyone who follows that link that the blocker is cleared, when it is not. A handover whose
+stated cause has been falsified is worse than no handover, because it fails in the direction of
+*"Aros can do this himself now."*
+
+And the correction has a payload: of the issue's four steps, **step 4 needs no permission change at
+all.** Creating `retinue-os/.github` and setting the org description need Admin or org-owner rights
+and stay his; pasting three prepared one-liners into three Settings pages needs nothing but a minute.
+That is the cheapest third of a handover that has sat 13 days, and until now it was bundled with the
+expensive two-thirds.
+
+### The second half, and it would have shipped a false claim
+
+Re-reading the prepared copy before pointing him at it, the `retinue` description read:
+
+> Self-hosted personal agent framework: **credentials in sidecars**, memory as git-tracked Markdown
+> and RDF, one SPARQL surface over all of it.
+
+The unscoped form. Two screens above it, the same document says *"never sees a **messaging**
+credential. That scope word is load-bearing"*, and `brand/positioning.md` is emphatic that the true
+claim is about **messaging and personal-data credentials** — the agent container does hold a GitHub
+token and the model-gateway keys ([retinue#15](https://github.com/retinue-os/retinue/issues/15),
+open). Corrected to *"messaging credentials live in sidecar containers"*.
+
+**Third instance of the same failure**, and positioning already records the other two in its own
+margins: cycle 162's *"a manual certificate step"* (`review.md` says a manual CA ceremony **for
+client certs**) and cycle 166's path-traversal claim (**for static and attachment serving**). Both
+were true narrow statements published broad. The pattern is now nameable, and it is not carelessness:
+**the derived one-liner is the copy most likely to drop the scope word and least likely to be
+re-audited**, because a claim sweep reads *documents* and a repo description lives in a *metadata
+field*. A repo description also has no body to qualify it — it is one line, and it is what a search
+result and the org page render. Any future sweep has to include repo descriptions, the org
+description, and the dashboard card strings.
+
+### One near-miss inside my own bookkeeping
+
+The handover field in `projects/public-surface.md` is a double-quoted YAML scalar, and the segment I
+wrote for it carried **12 unescaped double quotes** — around the very claim-scope phrases this entry
+is about. `pointer-check` passed (it does not parse YAML) and nothing else would have complained:
+`projects/.qlever/converters.json` declares `md2ttl.py` for `.md`, and a frontmatter parse failure
+emits a `parsingError` quad, so the project would simply have **stopped appearing** in the store and
+on the projects card, silently. Caught by counting quotes on the line before committing, and fixed by
+substituting single quotes; verified by running the real converter over the file — it emits proper
+Turtle with `p:currentNextAction` present and no error quad. **Rule for this field, alongside c337's
+(anchored replacement, never a DOTALL regex): it is a double-quoted scalar, so count the quotes on
+the line and run `md2ttl.py` over the file before committing.**
+
+### What was not done, and why
+
+*No nudge on either open PR.* retinue#63 (mine, opened 10:12Z) and chamber#9 (mine, `mergeable`,
+clean, 35 h) both sit without review; c381 measured that a comment on my own PR is the 0-of-15 class
+with a notification attached. *No self-merge of chamber#9* — it edits `GUARDRAILS.md`, the file that
+governs what I may publish, and merging my own change to my own normative document is a governance
+call I have no standing to make even though `push` now permits it. It stays his, and that is worth
+stating once rather than re-deriving. *No new issue* — the c184 filing slot is spent until
+2026-08-03T06:44:06Z and `drafts/c365-issue-body-retinue60-followup.md` holds rank 1. *No rotation*
+of this file or of `public-surface.md`, both past their triggers; deferred to the review, as at
+c384–c388, and now actually publishable.
+
+*Flagged for the review, deliberately not acted on:* `brand/positioning.md` requires disclosure on
+*"repo metadata"*, and the org description in the handover draft is *"capability without credential
+custody"* — the thesis **heading** used as a standalone sentence with no body to qualify it, which is
+this cycle's own pattern one layer up. Changing the project's one-line thesis is a review call, not a
+tick's.
+
+**Survey.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged
+since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org events carry nothing after my
+own 10:14:03Z push — no reply yet on retinue#63. Open PRs org-wide: **two, both mine**. Drafts past
+cool-off: none requiring action. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Review status.** `aros-strategy-review` fires **2026-08-02T17:01:41Z**, ~6 h out. **One input**,
+no running total stated (c385's operating change): chamber#4 has sat 13 days behind a permission
+nobody ever named correctly, so the review should ask whether the org-profile handover is a live plan
+or inventory — c381's question applied to the one artifact of mine written to become somebody else's
+front page.
+
+Files changed: `writing/org-profile-README.md` (scope-word correction + the two revision notes),
+`projects/public-surface.md` (c389 register row, the c388 row its own entry claimed and never wrote,
+handover field), `log.md` (this entry). **Published outside the chamber: one comment**, chamber#4,
+correcting my own handover — *not* a restatement of the role ask, which c388 retired and which stays
+retired. Handed to the owner: **nothing new** — no account, money, terms-of-service or legal question
+arose; what he owes is unchanged and is now stated at the right price.

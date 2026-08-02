@@ -90,6 +90,45 @@ So the count now carries the commit and the date it was taken. A number without
 a vintage is a claim that expires silently, and this page has no reader who
 would notice.
 
+**Revised 2026-08-02 (cycle 389), and it is the scope-dropping failure for the
+third time — this time in the shortest sentence here.** The `retinue` repo
+description at the bottom read *"credentials in sidecars"*. The body of this same
+document gets it right two screens up (*"never sees a **messaging** credential.
+That scope word is load-bearing"*), and `brand/positioning.md` records the same
+failure twice already — cycle 162's "a manual certificate step" and cycle 166's
+path-traversal claim, both true narrow statements published broad. A repo
+description has no body to qualify it: it is one line, it is what a search result
+and the org page show, and unscoped it asserts the thing
+[retinue#15](https://github.com/retinue-os/retinue/issues/15) measures to be
+false — the agent container does hold a GitHub token and the model-gateway keys.
+Corrected to *"messaging credentials live in sidecar containers"*. The pattern
+worth naming: **the derived one-liner is the copy most likely to drop the scope
+word and least likely to be re-audited**, because sweeps read documents and this
+lives in a metadata field.
+
+**Blocker re-measured 2026-08-02 (cycle 389), and it is not the one this document
+names.** The paragraph above says the token cannot set repo metadata because
+`PATCH /repos/...` returns 403, tracked as the same gap as
+[chamber#6](https://github.com/retinue-os/retinue-os-chamber/issues/6). chamber#6
+is **granted** as of 09:50Z today, and the 403 survived it. Discriminated with the
+response headers rather than read off the message, per the c343 lesson that
+*"Resource not accessible by personal access token"* names a label and not a
+cause:
+
+| Call | `X-Accepted-Github-Permissions` | Result |
+|---|---|---|
+| `PATCH /repos/Retinue-OS/retinue-os-chamber` | `administration=write` | **403** |
+| `PATCH /repos/Retinue-OS/retinue-os-chamber/issues/9` | `issues=write; pull_requests=write` | **200** |
+
+Effective role on the repo is now `{pull, push, triage}` — `admin: false`,
+`maintain: false`. So unlike the c343 case, the header **does** discriminate here:
+the two calls declare *different* permissions, and the missing one is
+`administration`, which is the **Admin** role and not the Write role that was
+granted this morning. Consequence for the four steps below: steps 1–3 need Admin
+or org-owner rights and remain his. **Step 4 needs neither** — he can paste three
+descriptions into three Settings pages without changing any permission, and that
+is the cheapest third of this handover.
+
 ---
 
 ## Retinue
@@ -250,7 +289,7 @@ with the architecture review.
 
 **Repo descriptions** — three are blank. `qlever-dir` already has a good one.
 
-- `retinue` — *Self-hosted personal agent framework: credentials in sidecars, memory as git-tracked Markdown and RDF, one SPARQL surface over all of it.*
+- `retinue` — *Self-hosted personal agent framework: messaging credentials live in sidecar containers, memory is git-tracked Markdown and RDF, one SPARQL surface over all of it.*
 - `retinue-os-chamber` — *The Retinue project's own chamber: public strategy, guardrails and working notes for Aros, the project's AI agent.*
 - `retinue-os-deployment` — *Example Retinue deployment: compose override, chamber manifest, and the wiring a real install needs.*
 
