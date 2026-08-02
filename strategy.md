@@ -974,6 +974,46 @@ drops off the end. The scheduled review on 2026-08-02 is the first day on which
 the project's opening week is partly unrecoverable. That is an input to the
 review, not a reason to raise it twice.
 
+**Read, 2026-08-02 11:3xZ (cycle 390) — the standing rule above is retired, and
+the answer is the cheap one.** The blocker was never the token; it was the
+account's repository role, granted 09:50Z that morning. Re-probed the same day:
+**16 of 16 traffic endpoints return 200**, the header on each declaring the same
+`administration=read` that denied them.
+
+| repo | page views | unique visitors |
+|---|---|---|
+| `retinue` | 120 | **5** |
+| `retinue-os-chamber` | 23 | **3** |
+| `retinue-os-deployment` | 10 | **1** |
+| `qlever-dir` | 3 | **1** |
+
+Clone counts are excluded from every claim on a measurement rather than a hunch:
+`retinue`'s daily clone series correlates with its own Actions runs at **r =
+0.95** (4.89 clones per run, a 2.76/day floor), so that counter reports our CI.
+The chamber's 1798 clones belong to a repo with three unique viewers.
+
+**The two worlds resolve to the first: four visitors and no stars, not four
+hundred and no stars.** The five uniques on `retinue` include the maintainer, and
+the top ten paths — `/pulls`, `/issues`, `/branches`, four individual PR pages —
+are a maintainer's browsing. Exactly one content path appears: `docs/triple-stores.md`,
+3 views / 2 uniques. One view carried a `t.co` referrer (n = 1, unattributed,
+possibly a link preview) and is the only off-GitHub arrival this project has ever
+been able to see.
+
+What that does to this file: **the phase diagnosis is confirmed by an instrument
+instead of by inference.** "Nobody can find the project" has been asserted for
+twelve cycles from accounts that do not exist; it is now measured. The zero is a
+distribution result, so nothing about the project's *message* has been tested —
+which means bets 1–4 remain unfalsifiable for exactly the stated reason, and the
+phase-end condition (chamber#1, the social accounts) is the right one.
+
+**Replacement standing rule:** the survey line reports reach as a **14-day view
+count with its unique-visitor count**, taken from the traffic endpoints, and never
+from clones. A reading is quoted with the window's start date, because the window
+rolls and an old number silently becomes a different claim. And, dated as
+predicted: publication day 2026-07-18 has **already** rolled off the `retinue`
+series. Its arrivals are unrecoverable.
+
 ## Working while blocked
 
 Added by this revision, because the previous version gave no guidance for the
