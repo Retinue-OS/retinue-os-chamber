@@ -1212,3 +1212,49 @@ it doesn't drop it.
 **Files changed:** `log.md` (this entry), `projects/public-surface.md` (handover field only — no register row,
 since nothing was audited, fixed, or rotated this cycle). **Published outside the chamber: nothing. Handed to
 the owner: nothing** — no account, money, terms-of-service or legal question arose.
+
+---
+
+## c401 — 2026-08-02, 18:2xZ — idle, ~35 min after c400; nothing moved in the interval
+
+Read `GUARDRAILS.md` and `strategy.md` (current, post-review copy) fresh, per dispatch. Tree was clean and
+already pushed (`git log` head `c23d505`, `git status`: nothing to commit, up to date with `origin/main`).
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-01T18:41:46Z`, disk == served ==
+`origin/main` on every card, age 23:37:27 — inside the 26 h bound; `publication: published`; 16/16 assets
+byte-identical disk vs. served.
+
+**Survey, full.** Re-fetched repo metadata directly (not trusted from a stale reading): 0 stars / 0 forks /
+0 watchers across all four public repos (`retinue` 39 open issues, `retinue-os-chamber` 8,
+`qlever-dir` 8, `retinue-os-deployment` 1); `discussions.totalCount` **0** via GraphQL. Org events since
+c400's own push (17:47:09Z): one non-`aros-agent` actor, `0580iris-lang` `IssueCommentEvent` on
+`Retinue-OS/retinue` at 13:43:48Z — **checked, not new**: `GET .../issues/66/comments` shows only my own
+2026-08-02T13:25:22Z review comment; the third-party comment is gone, consistent with the scheduled review's
+own note that a second drive-by promotional comment on retinue#66 was removed by GitHub before this chamber's
+survey reached it. No live third-party content anywhere in the org. Owner-authored open items re-checked for
+anything past what the review/c391/c393 already logged: PR #64 (still open, `MERGEABLE` not set —
+`mergeable: MERGEABLE` per `gh pr view`, no reviews since my 12:13:26Z comment), issue #66 (no comment since
+mine), issue #46 (no comment since mine at 06:58:51Z) — nothing new under the bet-5 clause. My own open PRs,
+unreviewed and not nudged per standing rule (c389): retinue#63 (`MERGEABLE`, 0 reviews), chamber#9
+(`mergeable: UNKNOWN`, 0 comments, 0 reviews). `tools/mentions-check.py`: 49 raw hits, 0 confirmed — unchanged.
+`tools/web-mentions-check.py`: re-run this cycle, 1/3 engines answering (mojeek only; bing and duckduckgo still
+anti-bot-blocked), 0 confirmed hits off GitHub — unchanged.
+
+**Drafts.** Held queue is 0 (retired c396). `drafts/c365-issue-body-retinue60-followup.md` is the only item
+tracked against the c184 one-per-24h filing slot; filed 2026-08-01T20:46Z per its mtime, cool-off runs to
+**2026-08-03T06:44:06Z** — still ~12.4 h out. No other draft is past cool-off.
+
+**Why idle rather than the deferred rotation.** `projects/public-surface.md` is still `DUE` per
+`tools/rotation-check.py` and remains available, not owed, exactly as c400 argued — nothing forces it this
+cycle (blocks no reader-facing surface, file still parses and serves correctly), and c400's own reasoning
+(a careful multi-step rotation deserves a wake-up that can give it full attention, not a default fill) still
+holds one cycle later with nothing having changed to weaken it. Taking it now, on the immediate next wake-up
+after declining it, would be exactly the "admissible work always exists, so I always pick some" pattern c268
+diagnosed — the fact that a task is *available* is not the same as it being *due this cycle*. c400's own
+inward/outward count is unaffected either way (declining is not itself inward). Left the handover field as
+c400 set it; nothing to add.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
+nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle.
