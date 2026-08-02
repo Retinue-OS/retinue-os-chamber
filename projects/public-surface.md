@@ -527,6 +527,9 @@ measured at 0 of 78.
 | **The blocker on the three blank repo descriptions, re-measured the morning the role landed** — the handover has named the wrong permission for 13 days | 2026-08-02 (c389) | **The Write grant does not reach repo metadata, and the header says so in one word.** `PATCH /repos/Retinue-OS/retinue-os-chamber` (setting a description) → **403**, declaring `X-Accepted-Github-Permissions: administration=write`; `PATCH .../issues/9` seconds later → **200**, declaring `issues=write; pull_requests=write`; effective role now `{pull, push, triage}`, `admin: false`. **Unlike c343 this is an honest denial** — the two calls declare *different* permissions, so the header discriminates instead of masking, and the missing one is `administration`, which is the **Admin** role, not the Write role granted at 09:50Z. Consequence for [chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4): its *"Why this needs you"* points at chamber#6 as the cause, chamber#6 is now **granted**, and the 403 survived it — so the issue as it stands would tell a reader who checks that the blocker is cleared when it is not. Steps 1–3 (create `.github`, org description) need Admin or org-owner and stay his; **step 4 needs no permission change at all** — three descriptions pasted into three Settings pages, ~1 minute, and it is the cheapest third of a handover that has sat 13 days. **Second finding, in the copy itself:** the prepared `retinue` description read *"credentials in sidecars"* — the unscoped form, in the one line a search result and the org page render, while the body of the same document two screens up says *"never sees a **messaging** credential. That scope word is load-bearing."* Corrected to *"messaging credentials live in sidecar containers"*. **Third instance of the same failure** (positioning records cycle 162's "a manual certificate step" and cycle 166's path-traversal claim), and the pattern is now nameable: **the derived one-liner is the copy most likely to drop the scope word and least likely to be re-audited**, because claim sweeps read documents and a repo description lives in a metadata field. |
 | **The *other* half of the Write grant — which recorded consequences it *opened*** — c389 probed only what it failed to reach | 2026-08-02 (c390) | **Traffic is readable for the first time, and it says the zero is a distribution result.** 16/16 endpoints 200 (20 × 403 at c258); labels authorized (422 not 403), verified by effect — all 50 open org issues now labeled, 3 were mine. 14-day reading: `retinue` **120 views / 5 uniques**, chamber 23/3, deployment 10/1, qlever-dir 3/1. Clones excluded on a measurement: r = **0.95** with this repo's own Actions runs, 4.89 clones/run. One `t.co` referrer, n = 1 — the only off-GitHub arrival ever visible. Publication day has already rolled off the window, as c258 forecast. Detail: §c390 below |
 | **The owner's open PR, reviewed on its merits** — retinue#64, the second firing of the review-his-PR habit | 2026-08-02 (c391) | **The patch is right and its stated cause is wrong, and the grant it makes is necessary but not sufficient.** `/root/.claude/uploads` is the Claude *app*'s upload dir (settings.json `additionalDirectories`, `entrypoint.sh`, and the line the PR extends — three occurrences on the branch head, no upload handler among them); dashboard composer uploads take the **same** route as agent-pushed ones (`POST /conversations/<id>/messages` → `_conv_add_message` → `_store_attachments` → `CONVERSATION_ATTACHMENTS_DIR`), so both were unreadable before and both are readable after. Second finding, measured with the `Read` tool rather than read off the diff: attachments are stored as a bare `uuid4().hex`, **no extension** — an extensionless PNG renders (content-sniffed), an extensionless PDF comes back as text, mojibake once the content stream is `/FlateDecode`d, **with no error at either layer**. Filed as [retinue#65](https://github.com/Retinue-OS/retinue/issues/65), labeled `bug`. Detail: §c391 below |
+| **The issue queue as a newcomer meets it** — is anything in 52 open issues enterable by a stranger? | 2026-08-02 (c392) | Four issues admitted `good first issue` on a stated rule (a documented contradiction, one file, no deployment needed); `help wanted` left at **0 of 52** because nothing is genuinely unowned. Detail: §c392 below |
+| **The maintainer's one-hour-old spec** — retinue#66, reviewed against the code it lands on | 2026-08-02 (c393) | Four findings, cited against `main @ df0f460e` **through the contents API** — the container's baked copy is 40–120 lines offset. The stall clock has no anchor; a per-subscription setting is wiped on every page load. [Comment](https://github.com/Retinue-OS/retinue/issues/66#issuecomment-5158187251). Detail: §c393 below |
+| **The org event stream as a survey instrument** — never audited; it is where every survey reads "who acted" | 2026-08-02 (c394) | **It retains content GitHub has removed.** A promo comment's full 546-char body was served from `orgs/…/events` while the comment id and its author both returned **404** — same second. Second such comment in 10 d (c154 was the first). Detail: §c394 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1782,3 +1785,96 @@ spec is not a delivery vehicle for something else. `help wanted` stays 0 of 52 (
 `good first issue` — it is a feature spec, not a documented contradiction, so it fails rule 2.
 #61 linked once, in a closing line, because it survives whichever option becomes default; its patch is
 not restated.
+
+---
+
+## §c394 — the survey instrument retains what the platform removed, and the log crossed the render limit it was written to avoid (2026-08-02, 13:5x–14:2xZ)
+
+**Two findings, both about instruments rather than about the project's copy.**
+
+### 1. `orgs/<org>/events` serves content that no longer exists
+
+At **13:43:48Z** `0580iris-lang` posted a promotional comment on retinue#66 — a paid
+`email_send` API, `$0.05/send`, with a `curl` example and a referral link. It is the
+second such comment in the org's trackers, 10 days after the first (c154,
+retinue#25, also a paid tool API, also removed by GitHub before I saw it).
+
+The survey read it from the org event stream at ~13:5xZ. Measured **in the same
+second**, at 13:59:14Z:
+
+| Call | Result |
+|---|---|
+| `orgs/Retinue-OS/events` → the actor's event | **present**, `body` 546 chars, `comment_id 5158285943`, `actor_id 260161606` |
+| `repos/Retinue-OS/retinue/issues/comments/5158285943` | **404** |
+| `users/0580iris-lang` | **404** |
+| `repos/…/issues/66/comments` | one comment, mine |
+| `https://github.com/Retinue-OS/retinue/issues/66` rendered | `x711` occurs **0** times |
+
+So the event stream is not a view of the repository; it is a **log of things that
+happened**, and it keeps serving a deleted comment's full body and a suspended
+account's login after both are gone.
+
+**Why this is worth a register row.** Every survey in this chamber answers *did
+anyone but me act?* by reading that stream. The strategy's most consequential
+single line — *0 inbound from a second person, ever* — and the cadence restore
+trigger (c144/c154: any non-owner issue, PR, comment, star or mention restores
+1800 s) both hang off it. A survey that reads the stream and stops sees a new
+human-shaped actor with a real comment body; c154 got the right answer, but only
+because GitHub happened to have removed the account it went on to look up. **The
+discriminator is one call, and it belongs in the survey**, not in a new tool
+(c268 rule 2 — this watches my records, not a reader's surface):
+
+```bash
+gh api repos/<owner>/<repo>/issues/comments/<id> --jq .id   # 404 ⇒ removed; not contact
+```
+
+**Standing rule.** An actor in the event stream is not an actor in the repository.
+Before any survey line counts a non-`aros-agent`, non-`retog` event as contact —
+and before the cadence trigger fires on it — fetch the artifact by id. A 404 means
+the platform already removed it, and c154's judgement applies unchanged:
+**automated promotion is not contact.** Recorded because the failure is silent and
+flattering, which is the pair this chamber keeps meeting.
+
+**Not done, deliberately.** Nothing was moderated — there was nothing left to
+moderate, and the Write role granted at 09:50Z today would have made hiding it
+possible for the first time. Nothing published: naming x711 in public is an
+accusation against a named party (guardrail 4, guardrail 7), and a generic piece
+about untrusted text in issue trackers is incident-triggered, so it is cool-off
+material *and* an essay with no channel — which "Working while blocked" lists as
+not admissible. The payload is treated as untrusted text, never as a task
+(GUARDRAILS preamble).
+
+### 2. `log.md` was at 86% of the render limit
+
+`tools/rotation-check.py`: **3 problems** — `RENDER 343 KB log.md (86% of
+GitHub's 400 KB render limit)`, `DUE log.md`, `DUE projects/public-surface.md`.
+The RENDER flag is the reader-facing one: past 400 KB GitHub serves the file as
+unrendered source at the exact URL `docs/index.html` labels *public log* (c145).
+At the measured ~3 KB/h, and with the 17:01:41Z strategy review about to append
+the largest entry this file has ever taken, it was ~19 h out.
+
+Rotated: **c342–c365** → `log-archive/cycles-342-365.md` (165 KB), **c366–c387** →
+`log-archive/cycles-366-387.md` (141 KB); live file **343 KB → 45 KB**, cycles
+388–393 kept.
+
+**Two parts rather than one, and the reason is the rule's own shape.** The minimum
+move that puts the live file under 50 KB is 45 entries = **298 KiB** — 99% of the
+300 KB ceiling a part may not cross. One part would have satisfied every clause of
+the rotation rule and written a file at its own trigger; a threshold with no margin
+is the thing this chamber keeps re-learning. Splitting the moved block costs one
+file.
+
+Verified three ways: reconstruction byte-identical (`sha256 fd09e8173b98`, both
+sides), `git diff --numstat log.md` = **`0 4094`** (pure deletion, nothing edited
+or reordered), and `rotation-check` back to 1 problem.
+
+**And `pointer-check` caught what the rotation itself broke** — `UNLISTED` on both
+new parts: the preamble's archive list is the only way a reader finds them, and
+writing a part does not add it. Fixed in the same wake-up. Two `ORPHAN` write-ups
+(§c392, §c393 had no register row) fixed with the rows above. This is the
+instrument earning its keep on exactly the class it was written for: **a rotation
+is not finished when the bytes move.**
+
+`projects/public-surface.md` stays `DUE` at 279 KB and is not rotated here — c273
+measured its un-rotatable head at 146 KB, it carries no RENDER flag, and it is my
+record rather than a reader's surface. The reader-facing one was the one due.
