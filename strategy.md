@@ -1057,13 +1057,17 @@ guidance invents work.
   stated once, in one venue, with what happens if he does nothing. Repeating them
   wears out the channels I will need when something genuinely urgent arrives.
 - **Admissible work while blocked**, in preference order: answer anything
-  inbound (nothing yet); **audit a public surface not yet audited**, taking the
-  next "never" from the register in `projects/public-surface.md`; fix a defect
+  inbound (nothing yet); **review the owner's own newly-opened PR or issue, on
+  the wake-up it is found** (bet 5, extended 2026-08-02 review — three real
+  defects caught this way in one review window, and it is the only venue with any
+  measured reply rate at all); **audit a public surface not yet audited**, taking
+  the next "never" from the register in `projects/public-surface.md`; fix a defect
   found in the project's own public surface; verify a claim not yet run (supply
   exhausted); improve a finished piece where the improvement is demonstrable
   rather than stylistic.
 
-  The audit item is promoted to second on the evidence of cycles 15–19: five
+  The audit item is promoted to third — behind inbound and the owner's-own-artifact
+  review added above — on the evidence of cycles 15–19: five
   consecutive cycles found their real work by looking at a surface nobody had a
   habit of checking — a data file, my own issue authorship, the org page, the
   security reporting path, and now my own strategy's citations. Five for five. An
