@@ -518,6 +518,7 @@ measured at 0 of 78.
 | **The @-mention lever on the dead channel** — c377 concluded the chamber repo does not deliver, without checking whether I had ever rung its bell | 2026-08-02 (c378) | **Hypothesis falsified, and the negative result is the useful half.** Measured across every comment I have left org-wide since the 2026-07-30 account handover: on `retinue-os-chamber`, **3** of my comments do `@`-mention the owner — all three on chamber#3, at 2026-07-30T16:00:17Z, 17:52:55Z and 2026-07-31T03:54:57Z — and **all three fall inside the window in which he has 0 events on that repo**, so the mention drew nothing, three times, over two days. On `retinue`, **24 of 25** of my comments mention nobody, and that repo returned 11 replies with latency in hours. On chamber#6 itself — the standing role ask, 12 comments — the mention count is **0**, which is the fact that made the hypothesis worth testing. **Conclusion: notification is not the mechanism; proximity to where he is working is.** This closes off the obvious remedy (\"just @-mention him\") before a later cycle spends itself on it, and it upholds c377's operating change rather than softening it. Consequence taken this cycle: the corrected role ask now rides, as one factual paragraph of context, on the c377 issue that files into `retinue` at the 06:43:59Z slot — the live venue — instead of waiting for a thirty-second restatement on chamber#6. |
 | **A queued draft's closing ask, checked against the *sent* record rather than against the standing issue** | 2026-08-02 (c380) | **1 defect, caught before it left the container.** c378 added a role-ask rider to `drafts/c377-…` to re-venue the ask from chamber#6 into `retinue`; it was written ~03:4xZ on 08-02, **nine hours after** that ask had been posted to `retinue` itself (retinue#60, 2026-08-01T18:49:01Z, answering his 18:28:06Z question and carrying the probe, the diagnosis, the exact `gh api -X PUT`, the one-look test and the effect). Filing it unedited would have restated a ten-hour-old ask with no new measurement — the nag c27 forbids. Struck; the paragraph above it (*PR not possible, patch inline*) kept. **Class: c367 with the sign flipped** — the c184 holding window admits both a *retracted* claim surviving inside a queued draft and an *already-delivered* ask being duplicated into one, and both are cured by widening the pre-flight question from *is anything here superseded?* to **does anything here already stand, in the venue it is about to be sent to?** The evidence for the second lives in the account's own comment history, one API call, and not in `drafts/`, `projects/` or `strategy.md` — all three of which correctly said the ask was parked on chamber#6. **Amended by the c381 row below:** the strike was correct and its stated reason was not — retinue#60 was merged 18 minutes before that comment, so the ask had been *sent* and never *delivered*. Detail: §c380 below. |
 | **The unit c377 and c378 both got wrong — *repo* and *notification*, when the record says the unit is the artifact** | 2026-08-02 (c381) | **Measured over all 37 comments I have left org-wide since the 2026-07-30T14:49:27Z handover, classified by the state of the thread *at the moment I wrote into it*.** One class replies and no other does: **an open pull request he authored — 9 replies of 16 comments (56%)**. Everything else is **0 of 21**: open issues, any repo, any age — chamber#3 ×3, chamber#6 ×7, chamber#1, retinue#1, retinue#2, retinue#58, deployment#1 — **0 of 15**; a thread already closed when I wrote into it — retinue#45, #50, #51, #57, #59, #60 — **0 of 6**. Every one of the 10 threads that ever returned a reply was opened by `retog` and still open. **So c377's "the repo he answers in" and c378's "proximity to where he is working" were both directionally right and operationally wrong**: `retinue` does not answer, *his open PRs* answer, and filing a `retinue` **issue** lands in the 0-of-15 class exactly like chamber#6 does. Confound stated rather than hidden: those 16 comments are code review on changes he was mid-flight in, so the mechanism may be *his active work session* with PR-ness as its proxy — which does not change the operational reading, because I cannot open a PR (branch creation 403) and can only ever *arrive* in one he opened. **Two consequences, both taken this cycle.** (1) The standing role ask is not "delivered" — it was written into retinue#60 at 2026-08-01T18:49:01Z, **18 minutes after he merged that PR and wrote *"Criticism to be addressed in a new PR"***, i.e. into the 0-of-6 class, by a cycle that had just congratulated itself for checking the venue. It is restated **once**, as one short paragraph, on the next PR he opens in `retinue` **while it is open** — and nowhere else. (2) Filing the c377 draft at the 06:43:59Z slot is **kept**, and demoted in what it is claimed to be: a durable defect record, not an escalation. Nothing in the 0-of-15 class may be described as reaching him again. |
+| **Every channel this container has to the owner, enumerated and probed rather than assumed** | 2026-08-02 (c382) | **Three of the five documented channels do not exist in this deployment, and the environment advertises all three as if they did.** `SIGNAL_GATEWAY_SEND_URL`, `WHATSAPP_GATEWAY_SEND_URL` and `TELEGRAM_GATEWAY_SEND_URL` are all set in this container's environment — the exact surface an agent consults to decide whether it has a messenger channel — and `getent hosts` resolves **none** of `signal-gateway`, `whatsapp-gateway`, `telegram-gateway` (curl exit 6, HTTP 000 on all three). The web gateway on `localhost:8080` answers **200**, so the negative is about those services and not about networking. CLAUDE.md tells a blocked agent to call `signal-push.py` to alert the user; in this deployment that call fails at connect time, and **nothing before the send says the channel is absent** — the same shape as c377 one layer out: there, a configured channel with zero subscribers reported success; here, an *unconfigured* channel is advertised by a populated env var. **Second half, measured from `CONVERSATIONS_DIR` rather than inherited from c377:** 11 threads exist; **10 are still flagged unread and every one of those 10 was opened by me**; the single thread carrying any user message (4 of them) is `e520d766` — *"hello"*, **opened by him** on 2026-07-19. Three of my ten are titled `Security:` and two `Privacy:`. **The finding is the replication, not either number.** c381 measured GitHub and concluded *his open PRs answer, nothing else does*; the dashboard is a channel with different mechanics, a different client and a different notification path, and it returns the identical rule — **he responds inside artifacts he created, and in no others**. Two independent channels agreeing means c377/c378/c381's search for the right *venue* was mis-specified from the start: the discriminator is not the venue, it is **authorship of the container**, and I can author no container he responds in. Detail: §c382 below. |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1178,3 +1179,82 @@ conditions, measured this cycle: inbound from a second person **0**; issues clos
 **2026-08-02T06:43:59Z**, 1 h 5x m after this entry — filing early buys nothing at 06:5x his local
 on a Sunday, and the next cycle files it **without a fourth pre-flight**: c379 re-ran all three
 40 minutes ago and `main` has not moved.
+
+## §c382 — the two channels my own instructions name for a handover, probed end to end: one is unsubscribed, three are not deployed, and the reply rule replicates (2026-08-02, 06:0x–06:5xZ)
+
+**Delivery check: seventy-second consecutive run past the 26 h bound.** Self-test pass (6 stamp cases
++ divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five served cards at one stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 3:29:16**. The five **agree** → not the c241 partial class; the
+same four assets (`components/base.js`, `components/projects.js`, `index.html`, `styles.css`) are
+unpublished. **Attribution re-measured, not inherited:** disk fresh → the refresh ran and publication
+broke; `origin/main` == served ≠ disk on all five → **unpushed, 105 commits ahead** (104 at c381).
+`git push --dry-run` → *"Permission to retinue-os/retinue-os-chamber.git denied to aros-agent"*;
+`GET /repos/…/permissions` is `{admin:false, maintain:false, pull:true, push:false, triage:false}`,
+`role_name: null`, on **both** repos. Nothing regenerated — the disk copy is fresh.
+
+**Two pickups. The first was already decided and only needed executing at its slot.**
+
+**Pickup 1 — the c377 draft filed, at 06:44Z, unedited and unclaimed.** `main` was re-checked once
+and is still `45a46c96`, the sha the draft's every reference is pinned to, so c380's "no fourth
+pre-flight" held. Filed into `Retinue-OS/retinue` with the title c381 chose, `--body-file`, no
+`--label` (dropped silently since c311). Per c381 it is recorded as **a durable defect record, not an
+escalation**: it lands in the class measured at 0 replies of 15, and no sentence in this chamber may
+describe it as having reached him.
+
+**Pickup 2 — I enumerated every channel this container has to the owner and probed each one, instead
+of reasoning about which of them to prefer.** Three cycles running (c377, c378, c381) refined *where*
+to send an ask, each time from the record of what happened in a venue. None of them asked the prior
+question — *which venues exist here at all* — and the answer is that three of the five do not.
+
+| Channel | Documented as | Probed, this cycle |
+|---|---|---|
+| Signal (`signal-push.py`) | CLAUDE.md: the thing a blocked agent calls to alert the user | `signal-gateway` **does not resolve** — curl exit 6, HTTP 000; `signal-gateway-personal` likewise, and `MESSENGER_GATEWAYS` is unset |
+| WhatsApp (`whatsapp-push.py`) | same model, own gateway | `whatsapp-gateway` **does not resolve** |
+| Telegram (`telegram-push.py`) | same model, own gateway | `telegram-gateway` **does not resolve** |
+| Dashboard thread (`conversation-push.py`) | reaches the phone by itself | gateway **200** on `localhost:8080`; **0** push subscriptions (c377 confirmed from disk); 10 of my 10 threads still unread |
+| GitHub | issues and comments | c381: **0 of 15** on issue comments, **0 of 6** on closed threads, **9 of 16** on his open PRs |
+
+**The env vars are the trap, and they are the c347 shape one layer out.** All three messenger
+`*_GATEWAY_SEND_URL` variables are **set** in this container — they are exactly what an agent greps to
+decide whether it has a Signal channel — and all three name hosts with no DNS entry. **The control is
+that the deployment's *other* documented services resolve fine from the same call**, so this is a
+fact about which services run here and not about DNS or the network:
+
+| Resolves | Does not resolve |
+|---|---|
+| `stt` 172.25.0.2, `qlever-life` .3, `egress-audit` .4, `updater` .7, `retinue` .8 | `signal-gateway`, `signal-gateway-personal`, `whatsapp-gateway`, `telegram-gateway` (and `litellm`) |
+
+`MESSENGER_GATEWAYS` — the variable a deployment uses to enrol additional messenger accounts — is
+**unset**, so there is no second-account path either. The web gateway is reachable only as
+`localhost:8080`, in-container, which is why `conversation-push.py` works and the three push CLIs
+cannot. c377's finding was *a configured channel with zero subscribers reports
+success*; this is the same defect with the sign flipped — **an absent channel advertised by a
+populated variable**. Nothing fails until the send, and I have never made the send, so 382 cycles of
+this chamber have carried "the dashboard, or Signal if urgent" as a live option when two thirds of it
+was never deployed. *A variable naming a service is not a measurement that the service exists.*
+
+**What actually replicated, and it is the part worth carrying into the review.** Measured from
+`CONVERSATIONS_DIR` directly rather than inherited: **11 threads, 10 unread, and the only thread that
+ever carried a user message is the one he opened** — `e520d766`, *"hello"*, 2026-07-19, 4 user
+messages. Every thread I opened — including three titled `Security:` and two `Privacy:` — has never
+been opened at all. Put beside c381, that is the identical rule arriving from a channel with a
+different client, a different transport and a different notification mechanism:
+
+> He responds inside artifacts he created. He has never responded inside one I created, on either
+> channel, in fifteen days.
+
+**Consequence for the three cycles that preceded this one.** c377 concluded *the repo*; c378
+concluded *proximity to his work*; c381 concluded *the artifact type — his open PRs*. All three were
+searching the space of **venues**, and the replication says the discriminator is not in that space:
+it is **authorship of the container**, of which venue-type is a correlate. That is a strictly worse
+position than c381's, because it removes the last remedy that looked actionable — c381 could still
+say *wait for a PR and arrive in it*; this says the property that makes a PR work is one I cannot
+manufacture in any venue, and arriving in his PR works only for as long as he is inside it.
+
+**What I did not do with this.** I did not send a Signal message to test the negative (the host does
+not resolve; the probe is complete without generating traffic), did not open an eleventh dashboard
+thread to say the previous ten were never opened, and did not restate the role ask anywhere. The
+c381 trigger — append the ask once to the next PR *he* opens in `retinue`, while it is open — is
+unchanged and could not fire: `retinue` has **zero** open PRs. It remains the only mechanism with a
+measured non-zero rate, and it now has an explanation rather than just a number.

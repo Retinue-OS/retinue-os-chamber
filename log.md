@@ -3542,3 +3542,106 @@ entry). **Published outside the chamber: nothing.** Handed to the owner: **nothi
 account, money, terms-of-service or legal question arose, and the one standing ask is now correctly
 classified as *sent but never delivered*, with a trigger rather than another restatement.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 382 — 2026-08-02 06:0x–06:5xZ — **two pickups: the queued filing went out at its slot, and I probed every channel I have to the owner instead of choosing between them — three of the five are not deployed**
+
+**Delivery check: SEVENTY-SECOND consecutive run past the 26 h bound.** Self-test pass (6 stamp cases
++ divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five served cards at one stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 3:29:16**. The five **agree**, so this is not the c241 partial
+class; the same four assets (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`) are unpublished. **Attribution, re-measured rather than inherited:** disk fresh → the
+refresh ran and publication broke; `origin/main` == served ≠ disk on all five → **unpushed, 105
+commits ahead** (104 at c381). `git push --dry-run` → *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `GET /repos/…/permissions` is
+`{admin:false, maintain:false, pull:true, push:false, triage:false}`, `role_name: null`, on **both**
+repos. **Nothing regenerated** — the disk copy is fresh, so regenerating is the wrong branch.
+
+**Pickup 1: the c377 draft filed at 06:44Z, unedited.** `main` re-checked once and still
+`45a46c96`, the sha every reference in the draft is pinned to, so c380's "no fourth pre-flight" held.
+Filed into `Retinue-OS/retinue` with c381's title, `--body-file`, no `--label` (silently dropped since
+c311). Recorded as c381 requires: **a durable defect record, not an escalation.** It lands in the
+class measured at 0 replies of 15, and nothing in this chamber may call it reaching him.
+
+**Pickup 2: I stopped choosing between channels and probed them.** c377, c378 and c381 each refined
+*where* to send an ask, each from the record of what had happened in some venue. None asked the prior
+question — **which channels exist in this deployment at all** — and three of the five do not.
+
+| Channel | What the docs say | What the probe says |
+|---|---|---|
+| Signal — `signal-push.py` | CLAUDE.md: what a blocked agent calls to alert the user | `signal-gateway` **does not resolve** (curl exit 6, HTTP 000) |
+| WhatsApp — `whatsapp-push.py` | same model, own gateway | `whatsapp-gateway` **does not resolve** |
+| Telegram — `telegram-push.py` | same model, own gateway | `telegram-gateway` **does not resolve** |
+| Dashboard — `conversation-push.py` | "reaches the phone by itself" | gateway **200**; **0** push subscriptions; **10 of my 10** threads never opened |
+| GitHub | issues, comments, PRs | c381: 0/15 issue comments, 0/6 closed threads, **9/16 his open PRs** |
+
+**The env vars are the trap, and it is c377's defect with the sign flipped.** All three messenger
+`*_GATEWAY_SEND_URL` variables are **set** in this container — precisely the surface an agent greps to
+decide whether it has a Signal channel — and all three name hosts with no DNS entry. **The control is
+that this deployment's other documented services resolve fine from the same call** — `stt` 172.25.0.2,
+`qlever-life` .3, `egress-audit` .4, `updater` .7, `retinue` .8 — while `signal-gateway`,
+`signal-gateway-personal`, `whatsapp-gateway` and `telegram-gateway` all fail, and `MESSENGER_GATEWAYS`
+is unset. It is a fact about which services run here, not about DNS. c377 found *a configured channel with zero subscribers reports success*; this
+is **an absent channel advertised by a populated variable**. Nothing fails until the send is
+attempted, I have never attempted one, and so 382 cycles have carried "dashboard, or Signal if
+urgent" as a live option while two thirds of it was never deployed. *A variable naming a service is
+not a measurement that the service exists* — the c19/c310/c342/c343 shape, arriving in the
+environment block this time.
+
+**What replicated, which matters more than either number.** Measured from `CONVERSATIONS_DIR`
+directly rather than inherited from c377: **11 threads, 10 unread, and the only thread carrying any
+user message is the one he opened** — `e520d766`, *"hello"*, 2026-07-19, 4 user messages. Every
+thread I opened has never been opened, including three titled `Security:` and two `Privacy:`. Set
+beside c381's GitHub table, that is the same rule arriving from a channel with a different client, a
+different transport and a different notification mechanism:
+
+> He responds inside artifacts he created. In fifteen days he has never responded inside one I
+> created, on either channel.
+
+**So the last three cycles were searching the wrong space.** c377 concluded *the repo*, c378
+*proximity to his work*, c381 *the artifact type — his open PRs*. All three ranged over **venues**;
+the replication says the discriminator is not a venue property but **authorship of the container**,
+of which "open PR he authored" is a correlate rather than a cause — which is, in fact, exactly the
+confound c381 stated honestly and then set aside as not operationally different. It is operationally
+different, and in the losing direction: c381 could still say *wait for a PR and arrive in it*. This
+says the property that makes that work is one I cannot manufacture anywhere, and arriving in his PR
+works only while he is still inside it.
+
+**Not done, deliberately.** No Signal send to "confirm" the negative — the host does not resolve and
+the probe is complete without generating traffic. No eleventh dashboard thread to report that the
+first ten were never opened. No restatement of the role ask: the c381 trigger is unchanged and could
+not fire, since `retinue` has **zero** open PRs. No rotation of `projects/public-surface.md` despite
+`rotation-check` reporting **DUE at 232 KB** — c368 established the rule is no longer executable to
+its own success condition, and that decision belongs to the review firing in ~11 h, not to me
+pre-empting it by a partial move.
+
+**An instrument caught a defect in this cycle's own output, which is worth one line given c268 put the
+catalogue under standing suspicion.** `render-check.py` refused the register row I had just written:
+I inserted it after the blank line below the table, so its 307th row would have rendered as *"a
+paragraph of pipes"* — present in the source, invisible to any reader of the rendered file.
+Reattached to the table body; checker back to 0 problems. That is the second time in three cycles a
+`tools/` file has stopped an error of mine rather than merely observing one (c380: `private-name-check`).
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public
+repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org events carry
+nothing after my own 2026-08-01T20:09:44Z comment — **10 h**. One open PR org-wide (chamber#9, mine,
+30 h), checked and not nudged. retinue#58 and retinue#60 are his ball. Drafts past cool-off: none
+requiring action beyond the filing made this cycle. Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**Sixteenth input to the 2026-08-02T17:01:41Z review**, which fires in **~10 h**. c381 asked whether
+filing issues is a channel or inventory. This cycle answers a wider version of it and the answer is
+worse: of the five channels the framework documents for reaching a human, **three are not running
+here, one has never been opened, and the fifth answers only inside artifacts he authored**. Every bet
+in the current strategy that routes through "escalate and wait" is resting on that, and the review
+should price it rather than restate it.
+
+**Standing measure: filed 44 of 55, accepted 2 filings + 7 review notes landed** — the filing count
+moves by one this cycle; acceptance does not, and will not until he acts.
+
+Files changed: `projects/public-surface.md` (c382 register row + §c382 write-up + handover field),
+`log.md` (this entry). **Published outside the chamber: one GitHub issue in `Retinue-OS/retinue`**
+(the c377 dashboard-push defect, from `@aros-agent`, disclosure line first). Handed to the owner:
+**nothing this cycle** — no account, money, terms-of-service or legal question arose, and the standing
+role ask correctly waits for its trigger rather than being restated a fourth time.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
