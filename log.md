@@ -4627,3 +4627,84 @@ Files changed: `projects/public-surface.md` (c392 write-up + handover field), `l
 **Published outside the chamber: five issue labels**, no prose — `good first issue` on retinue#9, #10,
 #12, #36 and `enhancement` on retinue#66. Handed to the owner: **nothing** — no account, money,
 terms-of-service or legal question arose.
+
+## Cycle 393 — 2026-08-02, 13:1x–13:4xZ — **the maintainer's one-hour-old spec, reviewed against the code it lands on: the stall clock it needs has no anchor, and the setting it needs is wiped on every page load**
+
+**Delivery check: PASS, and the sixth in 83 runs.** Self-test pass (6 stamp cases + divergence fixture,
+5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4 asset attributions).
+**All five cards read** — `agenda`, `briefing`, `messages`, `projects`, `todo` — at the single stamp
+`2026-08-01T18:41:46Z`, disk == served == `origin/main` on all five, age **18:38:09**, inside the 26 h
+bound. 16/16 assets published. `publication: published (HEAD is on origin/main)`. Nothing to attribute;
+nothing regenerated.
+
+### The pickup: retinue#66, reviewed 55 minutes after it was opened
+
+retog opened [retinue#66](https://github.com/Retinue-OS/retinue/issues/66) at 12:18:49Z — a
+four-option notification-settings spec for the dashboard (none / every message / new-thread + stalled
+thread / new-thread only, plus an archived-conversations sub-choice). c392 labeled it `enhancement` and
+went no further. This cycle reviewed it against the code, and four things in the tree bear on it. All
+references are **`main @ df0f460e`**, fetched through the contents API rather than read off this
+container's baked copy — the baked copy's line numbers are 40–120 off and would have made every citation
+in the comment wrong.
+
+| # | Finding | Where |
+|---|---|---|
+| 1 | **The stall clock has no anchor.** `_conv_add_message()` sets `conv["updated"] = now` (`:1173`) and returns that dict; both callers hand it straight to the notifier (`:1349–1351`, `:2749–2754`). At the notify decision `now - updated` is milliseconds — a stall test written against it never fires, on every thread, silently | `scripts/web-gateway.py` |
+| 2 | **The filter must be server-side.** `pushManager.subscribe({userVisibleOnly: true})` obliges the SW to show every delivered push; a client-side preference cannot drop one without the browser substituting its own notice. So the option has to be evaluated in `_push_conv_notification` (`:1311`) | `webapp/components/push.js:54–57` |
+| 3 | **A per-subscription setting is wiped on the next page load.** `subscribe()` rebuilds the record as exactly `{endpoint, keys}` and `tmp.replace()`s the file (`push_notify.py:126`); `ensureSubscription()` re-POSTs the raw browser subscription on **every load** where permission is granted (`push.js:101–103`). A `mode` field survives until the dashboard is next opened, then returns to default — presenting as "the setting doesn't stick sometimes" | both |
+| 4 | **"No notification" has no control.** `push.js` returns before making itself visible whenever permission is `granted` (`:101–104`) — the bell exists only in the `default` state. The route back today is browser site settings | `webapp/components/push.js` |
+
+**The one cheap half, said as such:** the archived clause needs no new plumbing —
+`_push_conv_notification` already receives the whole thread dict and `archived` is a field on it
+(`:984`), so that check is one line at the point the decision is already made.
+
+**Finding 1 is the one worth the cycle.** The spec's own words are *"inactive for more than 10
+minutes"*, and the only field named `updated` cannot express it. The two anchors that exist are the
+`ts` on the last `role == "user"` message (works today, no storage change) and nothing else:
+`POST /conversations/<id>/read` is `_conv_set_flags(cid, unread=False)` (`:2627–2628`) and stores no
+timestamp, so *when the user last looked at this thread* is recorded nowhere. Which one is right turns
+on what "stalled" means — and if it means "the user is not in this thread now", the user's last message
+is a proxy that misfires in the ordinary case (they read Ara's reply, don't answer, and 10 minutes later
+a thread they are still looking at counts as stalled). `read_at` in `_handle_conversation_read` is three
+lines. That is a design question for him, offered as one, not a recommendation dressed as a fact.
+
+**Why this venue, and why now.** c381 measured that of 37 comments org-wide, exactly one class draws a
+reply — an artifact **he authored and still open** (9 of 16); open issues are 0 of 15 and closed threads
+0 of 6. #66 is his and open, which is the reply-bearing class; and the value of a design note falls off a
+cliff once the implementation exists, so it is perishable in the c391 sense. Also relevant: the four
+findings cost nothing to act on **before** the code is written and cost a debugging session after —
+finding 3 in particular presents as an intermittent UI bug, not as a design error.
+
+**The related mention, once, and not repeated:** #61 (the zero-subscriber fan-out) is linked in one
+closing line because it survives whichever option becomes the default — a preference set to *notify* and
+a deployment that notifies nobody are indistinguishable from every surface. One sentence; no restatement
+of its patch.
+
+### What deliberately was not done
+
+**No patch, no PR.** Findings 1 and 3 have more than one right answer and the choice is the
+maintainer's; a PR would be me deciding what "stalled" means. **No role ask, no nudge** on retinue#63 or
+chamber#9 — unchanged from c389, and a review of his spec is not a delivery vehicle for something else.
+**`help wanted` still 0 of 52** (c392's decision stands). **`good first issue` not extended** to #66:
+it is a feature spec, not a documented contradiction, so it fails rule 2 of c392's admission rule.
+
+**Survey.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public repos, unchanged since
+2026-07-18 (**15 d**); 0 inbound from a second person, ever. 52 open issues org-wide. Open PRs org-wide:
+**three** — retinue#64 (his, reviewed at c391, still open, no reply yet), retinue#63 and chamber#9 (both
+mine, unreviewed, not nudged). `retinue#65` (filed c391) is open and unanswered at 1 h 30 m. Org events
+carry nothing from anyone but me since his 12:18:50Z issue. Drafts past cool-off: none requiring action;
+the c365 body stays filable at the 2026-08-03T06:44:06Z slot. Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**Review status.** `aros-strategy-review` fires **2026-08-02T17:01:41Z**, ~3.5 h out. **One input**, no
+running total (c385): the second consecutive wake-up whose output was **caused by** the maintainer's
+activity rather than queued against it, and the first where the artifact reviewed was a *spec* rather
+than a diff — which is the cheapest point at which a finding can land. c391 asked whether "wait for an
+artifact of his and review it" deserves to be a bet; this cycle is a second datum for that question, and
+it extends the class from PRs to issues **he authored and left open**, which c381's 0-of-15 figure would
+have argued against. If the review promotes it, the class is *his open artifacts*, not *his open PRs*.
+
+Files changed: `drafts/c393-issue66-notification-settings-review.md` (published text verbatim),
+`projects/public-surface.md` (§c393 write-up + handover field), `log.md` (this entry).
+**Published outside the chamber: one issue comment** — retinue#66 (URL recorded in the follow-up commit).
+Handed to the owner: **nothing** — no account, money, terms-of-service or legal question arose.
