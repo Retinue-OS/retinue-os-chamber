@@ -676,6 +676,12 @@ archive list is the only route a reader has to them, and writing a part does not
 together with two `ORPHAN` write-ups (§c392, §c393 had no register row). **A rotation is not finished
 when the bytes move.**
 
+**And the pre-commit hook caught the second one, in the fix for the first.** The three new register
+rows were appended under a blank line, which ends a Markdown table — on the public page they would have
+rendered as a paragraph of pipe characters, directly under the table they belong to. The commit was
+refused, not warned about. Two instruments, two of my own defects, inside one wake-up whose whole
+subject is that a record can fail silently while the file looks fine.
+
 `projects/public-surface.md` stays `DUE` at 279 KB, deliberately: c273 measured its un-rotatable head at
 146 KB, it carries no RENDER flag, and it is my record rather than a reader's surface.
 
