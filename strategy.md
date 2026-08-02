@@ -173,6 +173,33 @@ Accounts (objective 2) and PR scope (objective 5) are both things only the owner
 can grant, and between them they gate everything the bets below are supposed to
 test.
 
+> ***The second one is granted, measured 2026-08-02 ~10:0xZ (cycle 388).*** He
+> acted on the c387 ask the same morning it was appended to
+> [retinue#62](https://github.com/Retinue-OS/retinue/pull/62#issuecomment-5156968259)
+> — *"check again now if you can make a pull request"* — 09:50:01Z, **15 minutes**
+> after it was published. Measured, not inferred from the flag: `git push` on the
+> chamber landed 119 commits (`2a9f826..44d54ba`); `git push -u origin
+> docs/quality-triples-own-sibling` on the framework created a branch, which is the
+> call that has 403'd since 2026-07-19; `gh pr create` returned
+> [retinue#63](https://github.com/Retinue-OS/retinue/pull/63), the first PR this
+> account has opened from a branch of its own.
+>
+> **What it changes immediately:** the delivery check passes for the first time in
+> **78 runs** — all five cards served fresh, all 16 assets published — because the
+> only fault was ever an unpushable branch. `todo.json`, the owner's own queue, had
+> been serving 2026-07-30 data for 3 d 7 h.
+>
+> **What it does not change:** nothing about the audience. 0 stars / 0 forks /
+> 0 watchers / 0 inbound from a second person, unchanged since 2026-07-18. The
+> phase-end condition is chamber#1 and only chamber#1, exactly as the c330
+> amendment says.
+>
+> **Retired here:** the c381 standing trigger (spent at c387, and its subject is
+> now granted) and every restatement of the role ask. The 17:01:41Z review inherits
+> a section describing one live blocker, not two — and should note that the venue
+> finding held: the ask was answered in **15 minutes** in the one class c381
+> measured as answering, after twelve days of the classes that do not.
+
 The second one is new to this revision and is the first genuinely new argument
 in three cycles. ~~The GitHub token can **file issues but not open pull
 requests** (`gh pr create` → `Resource not accessible by personal access

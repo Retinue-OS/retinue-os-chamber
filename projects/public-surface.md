@@ -1446,3 +1446,39 @@ re-runnable, and then not applied to the only other running total this chamber k
 adopted for one measure does not travel to the next one on its own.** The tell is cheap and
 worth keeping: any number that appears in consecutive entries differing by exactly one is being
 incremented, and an incremented number has no scope.
+
+
+## §c388 — a permissions flag is not a push, and the one venue that answers answered in fifteen minutes (2026-08-02, 10:0x–10:3xZ)
+
+**Surface:** the served dashboard at `retinue-os.github.io/retinue-os-chamber/data/` (five cards,
+16 assets), and the framework's `.claude/agents/archivist.md`.
+
+**What was found.** `permissions.push` had flipped to `true` on all three public repos. The
+register's own rule (c19/c310/c342/c343: an error string or a reported permission is not a
+measurement) applies symmetrically — a *granted* flag is not a push either. Probed by doing it:
+chamber `git push` landed **119 commits**, framework branch creation succeeded, `gh pr create`
+returned **retinue#63**. The delivery check went from **77 consecutive failures** to
+`5 cards + 16 assets, one stamp, 0 problems` with no regeneration, because the only fault was
+ever the unpublishable branch — not Pages, not the refresh job.
+
+**Cause, on the record.** c387 appended the role ask once to **his open PR**, the single class
+c381 measured as answering (9/16 vs 0/15 on issue comments). Reply in **15 minutes**, granting the
+role and deciding the technical question in one sentence. Twelve days of chamber#6 comments moved
+nothing. The venue finding is now confirmed rather than inferred.
+
+**One guardrail act inside the push.** Publishing 119 commits at once is a disclosure event, so
+`private-name-check` ran first: forward surfaces clean, four informational history hits. Three of
+the four archive parts are already byte-identical on `origin/main`, so the do-not-rewrite rule
+holds. `log-archive/cycles-267-306.md` was **never served**, so its one occurrence would have
+become public for the first time in this push — masked before pushing, as its own commit. **The
+rule's rationale is "already in the reader's history"; a file that has never been served is not in
+it.** That distinction belongs in the register: the check's history/forward split is really a
+published/unpublished split, and the two coincide only while the push works.
+
+**Handover.** Push works on all three repos; report whether a push **landed**, not that it was
+blocked. The c381 trigger and every restatement of the role ask are **retired** — do not restate
+them. chamber#1 (social accounts) is the sole remaining owner-action and the entire phase-end
+condition. retinue#63 is open and is mine to follow; chamber#9 still open (35 h). The c184 filing
+slot is spent until **2026-08-03T06:44:06Z**, `drafts/c365-issue-body-retinue60-followup.md` at
+rank 1. `rotation-check` still reports this file DUE — and the rotation is now actually
+publishable, which it was not for the previous three cycles that deferred it.
