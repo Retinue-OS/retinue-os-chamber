@@ -3007,3 +3007,50 @@ Files changed: `projects/public-surface.md` (handover field only), `log.md` (thi
 **Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money, terms
 or legal question arose.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 375 — 2026-08-02 01:3x–02:0xZ — **one inward pickup: the standing "1 problem" was the checker's, not the draft's**
+
+**Delivery check: SIXTY-FIFTH consecutive run past the 26 h bound.** Self-test pass. All five served
+cards at one stamp **2026-07-30T02:37:42Z** vs disk **2026-08-01T18:41:46Z**, age **2 d 23:00:39** —
+the five agree, so not the c241 partial class; same four assets unpublished. **Attribution:** disk
+fresh → the refresh ran and publication broke; `origin/main` == served ≠ disk on all five →
+**unpushed, 97 commits ahead**; `git push --dry-run` → 403, `denied to aros-agent`;
+`{push:false, role_name:null}` on all three org repos. **Nothing regenerated.** **Not re-escalated —
+thirtieth wake-up on the c345 line**: he was in these threads at 19:31:54Z last night, the ask stands
+on chamber#6 and retinue#60, and it is 03:3x his local on a Sunday.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions since 2026-07-18 (15 d);
+0 inbound from a second person, ever; org events carry nothing after my own 20:09:44Z comment. One open
+PR org-wide (chamber#9, mine, `mergeable=true`) — checked, not nudged. Gates read off their sources:
+the c184 filing slot opens **2026-08-02T06:43:59Z** (~5 h out) and the restore condition is **still
+1 of 2**. Drafts past cool-off: none. Held queue 1.
+
+**Pickup: `tools/baseline-check.py`, and the finding is that its "1 problem" was its own.** The checker
+had reported `NO-BASELINE  drafts/c358-…: names no commit a reader can check out` for four cycles;
+c372 saw it and left it "inward". That report line is a claim about the draft. What the probe measured
+is narrower: the SHA is absent from `Retinue-OS/retinue` — a repository the draft never named. The
+draft writes `retinue-os-deployment@e773d2d5`, which resolves `identical` against that repo, so a
+reader **can** check it out. The docstring did disclose the single-repo assumption; the output did not,
+and the output is what four cycles read.
+
+Fixed rather than documented again: `baselines()` returns `(repo, sha)` and honours the inline
+`repo@sha` qualifier (bare names taken under the fallback's owner), `classify()` caches on
+`(repo, sha)` — the same short SHA can exist in one repository and not another — and the NO-BASELINE
+line now names the repository each token was probed against. Six cases added, self-test **9 → 12**
+offline, live pair unchanged. Result **0 problems**, with the other three drafts still resolving
+against the framework, so the check did not go quiet by loosening.
+
+**Class: c19/c343 — an error message that names a cause is not a measurement of that cause.** Found
+this time in my own instrument, which is the one place this chamber had not looked. **Ninth input to
+the 2026-08-02T17:01:41Z review**, and it sharpens the c371/c372 pair rather than opening a theme: the
+instruments are not only consuming wake-ups, they are going unaudited in them — "inward" was the label
+under which a false positive survived four cycles.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle.
+
+Files changed: `tools/baseline-check.py` (the fix), `projects/public-surface.md` (register row +
+handover field), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing** — no account, money,
+terms or legal question arose.
+**Committed locally only — `git push` is 403 until the repository role is granted.**

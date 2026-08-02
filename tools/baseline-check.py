@@ -48,10 +48,21 @@ Usage
 -----
     python3 tools/baseline-check.py [chamber-root] [--repo OWNER/NAME]
 
-Default repo is `Retinue-OS/retinue`, which is where every held draft currently
-points. A draft targeting another repo is checked against the wrong one — stated
-plainly rather than guessed at, because a check that silently uses the wrong
-repository is worse than no check. Fix by passing `--repo` when that changes.
+`--repo` sets the **fallback** repository for a bare SHA; it defaults to
+`Retinue-OS/retinue`. A draft that names its repository inline — the
+`repo@sha` form, e.g. `retinue-os-deployment@e773d2d5` or
+`Retinue-OS/retinue@f1f8c72f`, with a bare name taken under the fallback's
+owner — is resolved against **that** repository, per token.
+
+*Corrected c375.* This paragraph used to say a draft targeting another repo is
+"checked against the wrong one — stated plainly rather than guessed at". It was
+not stated plainly anywhere a reader of the **output** would see: the report line
+read *"names no commit a reader can check out"*, which is a claim about the draft,
+while the thing measured was only that the SHA is absent from one repository the
+draft never named. `drafts/c358-…` carried that false NO-BASELINE for four cycles;
+its `e773d2d5` resolves `identical` against `retinue-os-deployment`. An error
+message that names a cause is not a measurement of that cause — the c19/c343
+shape, now found in this chamber's own instrument.
 
 Exit status is 1 if any held draft names no reachable baseline at all.
 
@@ -90,6 +101,15 @@ CONTEXT = re.compile(
 SHA = re.compile(r"\b([0-9a-f]{7,40})\b")
 # Tokens that are hex but never a commit here.
 NOT_A_SHA = re.compile(r"(?i)thread|conversation|issue #|blob\b")
+# `repo@sha` / `owner/repo@sha`, the form the drafts already use to say which
+# repository a baseline belongs to. The name must sit directly against the `@`
+# (so "`main` @ `26297a2`" does not read as a repo named `main`), and must carry
+# at least one character no short SHA can (`-`, `_`, `.`, `/`, or a letter past
+# `f`), so a sha-looking prefix is never mistaken for a repository.
+QUALIFIED = re.compile(
+    r"(?<![A-Za-z0-9_./-])((?:[A-Za-z0-9_.-]+/)?[A-Za-z0-9_.-]+)@`?([0-9a-f]{7,40})\b"
+)
+REPO_ISH = re.compile(r"[g-zG-Z_./-]")
 
 
 def held_drafts(root):
@@ -114,15 +134,24 @@ def is_held(text):
 
 
 def baselines(text):
-    """Yield distinct commit-ish tokens named in a baseline context."""
-    seen = []
+    """Distinct commit-ish tokens named in a baseline context.
+
+    Returns a list of `(repo_or_None, sha)`. `repo_or_None` is set only when the
+    draft wrote the `repo@sha` form on that line; otherwise the caller's fallback
+    repository applies. A SHA that appears both bare and qualified keeps the
+    qualified reading — the draft said which repository it meant.
+    """
+    seen, qualified = [], {}
     for line in text.split("\n"):
         if not CONTEXT.search(line) or NOT_A_SHA.search(line):
             continue
+        for name, sha in QUALIFIED.findall(line):
+            if REPO_ISH.search(name):
+                qualified.setdefault(sha, name)
         for sha in SHA.findall(line):
             if sha not in seen:
                 seen.append(sha)
-    return seen
+    return [(qualified.get(sha), sha) for sha in seen]
 
 
 def gh_json(path):
@@ -139,9 +168,14 @@ def gh_json(path):
 
 
 def classify(repo, sha, cache):
-    """'reachable' | 'unreachable' | 'unknown' for one commit-ish."""
-    if sha in cache:
-        return cache[sha]
+    """'reachable' | 'unreachable' | 'unknown' for one commit-ish.
+
+    Cached on `(repo, sha)`, not `sha`: the same short SHA can exist in one
+    repository and not another, and a sha-keyed cache would carry the first
+    repository's verdict into the second.
+    """
+    if (repo, sha) in cache:
+        return cache[(repo, sha)]
     verdict = "unknown"
     if gh_json(f"repos/{repo}/commits/{sha}"):
         cmp_ = gh_json(f"repos/{repo}/compare/HEAD...{sha}")
@@ -149,8 +183,15 @@ def classify(repo, sha, cache):
         # 404 (no common ancestor) mean it is off the current line.
         status = (cmp_ or {}).get("status")
         verdict = "reachable" if status in ("identical", "behind") else "unreachable"
-    cache[sha] = verdict
+    cache[(repo, sha)] = verdict
     return verdict
+
+
+def qualify(name, fallback):
+    """`retinue-os-deployment` -> `Retinue-OS/retinue-os-deployment`."""
+    if name is None:
+        return fallback
+    return name if "/" in name else f"{fallback.split('/')[0]}/{name}"
 
 
 HELD_FM = '---\nstatus: held — rank 1\n---\nMeasured against `main` @ `26297a2`.\n'
@@ -164,6 +205,11 @@ LAYERED = (
     "Measured against `main` @ `26297a2` (c224).\n"
     "Re-baselined c254. New baseline: `50b5be890`, current `main`.\n"
 )
+# The c375 case: the draft names its repository inline, and it is not the default.
+CROSS = "**Baseline:** `retinue-os-deployment@e773d2d5` (`main` tip, pushed\n"
+CROSS_OWNED = "Baseline: `Retinue-OS/qlever-dir@abc1234`.\n"
+# A sha-looking prefix must never be read as a repository name.
+CROSS_NOISE = "Baseline `deadbee@abc1234`.\n"
 
 
 def self_test():
@@ -172,11 +218,19 @@ def self_test():
         is_held(HELD_PROSE),
         not is_held(FILED_FM),
         not is_held(NOISE),
-        baselines(HELD_FM) == ["26297a2"],
-        baselines(HELD_PROSE) == ["abc1234"],
+        baselines(HELD_FM) == [(None, "26297a2")],
+        baselines(HELD_PROSE) == [(None, "abc1234")],
         baselines(NOISE) == [],  # a thread id is not a baseline
-        baselines(CMD) == ["deadbee"],  # a ?ref= in a runnable command is
-        baselines(LAYERED) == ["26297a2", "50b5be890"],  # history and current
+        baselines(CMD) == [(None, "deadbee")],  # a ?ref= in a runnable command is
+        # history and current, and `main` @ `sha` is not a repo qualifier
+        baselines(LAYERED) == [(None, "26297a2"), (None, "50b5be890")],
+        baselines(CROSS) == [("retinue-os-deployment", "e773d2d5")],
+        baselines(CROSS_OWNED) == [("Retinue-OS/qlever-dir", "abc1234")],
+        baselines(CROSS_NOISE) == [(None, "deadbee"), (None, "abc1234")],
+        qualify(None, "Retinue-OS/retinue") == "Retinue-OS/retinue",
+        qualify("retinue-os-deployment", "Retinue-OS/retinue")
+        == "Retinue-OS/retinue-os-deployment",
+        qualify("a/b", "Retinue-OS/retinue") == "a/b",
     ]
     return all(checks)
 
@@ -212,23 +266,31 @@ def main():
     if not ok:
         print(f"live probe FAILED ({detail}) — refusing to report", file=sys.stderr)
         return 2
-    print(f"self-test: pass (9 offline cases, live pair against {repo} @ {detail[:9]})")
+    print(f"self-test: pass (12 offline cases, live pair against {repo} @ {detail[:9]})")
 
     problems, drafts, probed = [], 0, 0
     for path, text in held_drafts(root):
         drafts += 1
         verdicts = {}
-        for sha in baselines(text):
+        for name, sha in baselines(text):
             probed += 1
-            verdicts[sha] = classify(repo, sha, cache)
-        live = [s for s, v in verdicts.items() if v == "reachable"]
+            target = qualify(name, repo)
+            verdicts[(target, sha)] = classify(target, sha, cache)
+        live = {}
+        for (target, sha), v in verdicts.items():
+            if v == "reachable":
+                live.setdefault(target, []).append(sha)
         if live:
-            print(f"  ok  {path}: {', '.join(live)} on {repo}")
+            where = "; ".join(f"{', '.join(s)} on {t}" for t, s in live.items())
+            print(f"  ok  {path}: {where}")
         else:
-            detail = ", ".join(f"{s} ({v})" for s, v in verdicts.items()) or "none named"
+            detail = (
+                ", ".join(f"{s} ({v}, {t})" for (t, s), v in verdicts.items())
+                or "none named"
+            )
             problems.append(
                 f"NO-BASELINE  {path}: names no commit a reader can check out "
-                f"of {repo} — {detail}"
+                f"— {detail}"
             )
 
     if not problems:
