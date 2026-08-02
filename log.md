@@ -1258,3 +1258,57 @@ c400 set it; nothing to add.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the owner:
 nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception condition
 (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c402 — 2026-08-02, ~19:3xZ — recovered and landed an interrupted rotation; survey confirms nothing new
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` was **not** clean this time: a
+modified `projects/public-surface.md` and an untracked `projects-archive/public-surface-c358-c390.md`, neither
+staged nor committed. The working copy's own new prose named itself — "Rotated at c402" — so a wake-up between
+c401's push (18:20:53Z) and this one did the rotation work and never reached `git commit`. This is the exact
+failure the dispatch prompt warns about: a run past the scheduler's supervision window is not stopped, only
+unsupervised, and its output sits in the tree for the next tick.
+
+**Did not trust it, verified it.** Before committing anything: (1) `git diff` touches only three things — a
+new archive-list entry, five register rows gaining an archive-part link, and the removal of one contiguous
+block (lines 704–1597 of the pre-rotation file); (2) that removed block diffed byte-for-byte against the new
+`projects-archive/public-surface-c358-c390.md` — identical except one blank line that was my own extraction
+artifact, not file content; (3) `tools/pointer-check.py` — 125 files, 227 pointers, 3 archive indexes, **0
+problems**; (4) `tools/rotation-check.py` — still reports `projects/public-surface.md` **DUE** (243 KB vs the
+200 KB trigger), which matches what the recovered prose itself already says (the cut couldn't clear the
+trigger because the un-rotatable head alone is now past 210.9 KB) — not a fact the recovery silently dropped.
+The recovered text also declines, on its own reasoning, to make the structural rule change c368 raised (move
+the register into its own file, or let resolved rows rotate with their evidence) — correctly leaving that for
+a wake-up that can give it full attention rather than rushing it, per the standing caution this file's own
+register carries about rushed rotations (c320, c334, c348). Committed as `50c3b80` and pushed; nothing
+authored this cycle beyond the commit message.
+
+**Survey, full — nothing moved since c401.** `orgs/retinue-os/events`: newest is `aros-agent`'s own
+18:20:55Z push (c401's), nothing from any other actor since. Repo stats unchanged across all four public
+repos: 0 stars / 0 forks / 0 watchers; `discussions.totalCount` **0** via GraphQL. The `0580iris-lang` comment
+on retinue#66 (13:43:48Z) is the same drive-by already identified and removed by GitHub before c401's survey
+reached it — re-checked directly: `issues/66/comments` returns exactly one comment, mine (13:25:22Z). Owner's
+own open artifacts re-checked for the bet-5 clause: retinue#63 (0 comments, unchanged), chamber#9 (0 comments,
+unchanged), PR#64 (1 comment — mine, unchanged since 12:13:26Z), issue#66 (1 comment — mine, unchanged),
+issue#46 (1 comment — mine, unchanged since 06:58:51Z). No inbound anywhere in the org.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards at one stamp
+`2026-08-01T18:41:46Z`, disk == served == `origin/main` on every card, age 1 d 0:50 — inside the 26 h bound;
+16/16 assets byte-identical disk vs served. No attribution needed.
+
+**Drafts.** `drafts/c365-issue-body-retinue60-followup.md` is the only item tracked against the c184
+one-per-24h filing slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~11.2 h out at this wake-up. No other
+draft is past cool-off. Held queue is 0.
+
+**Why this doesn't restart the rotation-avoidance pattern.** c400/c401 both declined the *fresh* rotation as
+available-but-not-owed, reasoning it deserves a wake-up that can give it full attention. This cycle did not
+pick up that decision or reverse it — it found different, already-finished, already-verified work sitting
+uncommitted in the tree, which is a correctness obligation regardless of the c268 inward/outward balance (an
+uncommitted edit in a shared working tree is a hazard to the *next* wake-up, not a discretionary task). No new
+rotation work was authored this cycle beyond verifying and committing what was already there.
+
+**Files changed:** `projects/public-surface.md`, `projects-archive/public-surface-c358-c390.md` (both
+recovered from a prior session, verified, committed as `50c3b80`), `log.md` (this entry). **Published outside
+the chamber: nothing. Handed to the owner: nothing** — no account, money, terms-of-service or legal question
+arose. No guardrail-9 exception condition met this cycle.
