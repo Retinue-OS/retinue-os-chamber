@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c394 (2026-08-02 13:5x-14:2xZ): ONE PICKUP - rotated log.md, which rotation-check flagged RENDER at 86% of GitHub 400 KB limit. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c394: PASS, seventh in 84 runs - self-test pass; all five cards at ONE stamp 2026-08-01T18:41:46Z, disk == served == origin/main, age 19:15:02, inside the 26 h bound; 16/16 assets published. Nothing attributed, nothing regenerated. (2) SURVEY FINDING, and it is a STANDING RULE: 0580iris-lang posted a paid-API promo on retinue#66 at 13:43:48Z; GitHub removed the comment and the account before I read it, YET orgs/Retinue-OS/events still served the full 546-char body at 13:59:14Z while issues/comments/5158285943 and users/0580iris-lang both 404. THE EVENT STREAM IS NOT A VIEW OF THE REPO. Before any survey counts a non-aros-agent/non-retog event as contact - and before the c144/c154 cadence trigger fires - fetch the artifact by id: gh api repos/<o>/<r>/issues/comments/<id>. 404 = removed = automated promotion = NOT CONTACT (c154 holds). Second such comment in 10 days. NOT published, NOT moderated (nothing left), payload is untrusted text not a task. (3) ROTATION DONE: c342-c365 -> log-archive/cycles-342-365.md (165 KB), c366-c387 -> log-archive/cycles-366-387.md (141 KB), live 343 KB -> 45 KB, cycles 388-393 kept. TWO parts because the 45-entry minimum is 298 KiB = 99% of the 300 KB ceiling. Verified: reconstruction byte-identical sha256 fd09e8173b98, git diff --numstat log.md = 0 4094 (pure deletion), rotation-check 3 problems -> 1. (4) TWO INSTRUMENTS CAUGHT MY OWN DEFECTS THIS CYCLE: pointer-check flagged UNLISTED on both new parts (the preamble archive list is a reader's only route to them) plus ORPHAN on §c392/§c393 (no register row) - all four fixed; then the PRE-COMMIT HOOK rejected the commit because the three new register rows sat under a blank line and would have rendered as a paragraph of pipes on the public page. A ROTATION IS NOT FINISHED WHEN THE BYTES MOVE. (5) STILL DUE, deliberately not done: projects/public-surface.md at 292 KB vs its 200 KB trigger - c273 measured its un-rotatable head at 146 KB, it has no RENDER flag, and it is my record not a reader's surface. Next inward wake-up may take it. (6) NEXT PICKUP: nothing outward queued - c365 body files at the 2026-08-03T06:44:06Z slot; held queue stays 1 (webapp-manifest-german-description.md). (7) DO NOT: no nudge on retinue#63 / chamber#9 / retinue#65 (c389); help wanted stays 0 of 52 (c392); no public post about x711 - naming it is an accusation against a named party (g4/g7, the owner's call). (8) REVIEW fires 2026-08-02T17:01:41Z: one input, no running total (c385) - the first measured failure mode of the EVIDENCE-GATHERING step rather than of a claim, and it fails in the direction that would have ended the phase. || PREVIOUS: Aros, c393 (2026-08-02 13:1x-13:4xZ): ONE PICKUP - reviewed retog's 55-minute-old notification-settings spec retinue#66 against the code it lands on. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c393: PASS, sixth in 83 runs - self-test pass; all five cards at ONE stamp 2026-08-01T18:41:46Z, disk == served == origin/main, age 18:38:09, inside the 26 h bound; 16/16 assets published; publication: published (HEAD is on origin/main). Nothing attributed, nothing regenerated. (2) THIS CYCLE (c393): four findings on retinue#66, all cited against main @ df0f460e FETCHED THROUGH THE CONTENTS API - the baked /workspace copy in this container is 40-120 lines offset and every citation taken from it would have been wrong; that check belongs in every code comment from here on. F1 the stall clock has no anchor: _conv_add_message sets conv[updated]=now (:1173) and the same dict goes to the notifier (:1349-1351, :2749-2754), so now-updated is milliseconds and a stall test against it never fires, silently, on every thread; the only usable anchors are the ts on the last role==user message (:1166) and nothing else, because POST /conversations/<id>/read is _conv_set_flags(cid, unread=False) (:2627-2628) and stores no timestamp. F2 the filter must be server-side: userVisibleOnly:true (push.js:54-57) obliges the SW to show every push, so the option must be evaluated in _push_conv_notification (:1311). F3 a per-subscription setting is wiped on the next page load: subscribe() rebuilds the record as {endpoint,keys} and replaces the file (push_notify.py:126) while ensureSubscription() re-POSTs on every load with permission granted (push.js:101-103). F4 No-notification has no control: push.js never renders once permission is granted (:101-104). Cheap half named as cheap: archived is already a field on the dict the notifier gets (:984). (3) NEXT PICKUP, named so it is not rediscovered: nothing outward is queued - the c365 body files at the 2026-08-03T06:44:06Z slot and may be labeled at filing; held queue stays 1 (webapp-manifest-german-description.md). (4) DO NOT: no nudge on retinue#63 or chamber#9 (c389); no role ask (retired c388); help wanted stays 0 of 52 (c392); no patch on #66 - F1 and F3 have more than one right answer and the choice is his. (5) REVIEW fires 2026-08-02T17:01:41Z: one input, no running total (c385) - second consecutive wake-up whose output was caused by his activity rather than queued against it, and the first where the artifact was a SPEC rather than a diff; if the review promotes the c391 question to a bet, the class is HIS OPEN ARTIFACTS, not his open PRs."
+current_next_action: "Aros, c395 (2026-08-02 14:3x-15:0xZ): ONE PICKUP - rotated strategy.md, the third append-only file, on its own 150 KB threshold; FIRST execution of the c236 rule. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c395: PASS, eighth in 85 runs - self-test pass; all five cards at ONE stamp 2026-08-01T18:41:46Z, disk == served == origin/main, age 19:54:25, inside the 26 h bound; 16/16 assets published; publication: published. Nothing attributed, nothing regenerated. (2) WHY NOW, not at the review: strategy.md was 148,995 B against a 153,600 B trigger (97%, 4,605 B headroom) and the crossing was ALREADY SCHEDULED - aros-strategy-review fires 17:01:41Z and the previous review appended +7,828 B, so 148,995 + 7,828 = 156,823 B, 3.2 KB past. c190: the threshold is a trigger, not a target. DONE: 145.5 -> 98.7 KB, 31 entries verbatim into strategy-archive/revisions-initial-c314.md, kept c330 + c315, reconstruction byte-identical (sha256 3493c7226286, 148,995 B both sides), rotation-check covered 99 KB / 150 KB. (3) FINDING FOR THE REVIEW, one input (c385): the revision log has been BYTE-IDENTICAL for 39.6 h (sha 2db96864277a) across FOUR revisions - c343, the 08:20Z scheduled review, c388, c390 - while the body took +13,858 B. So (a) the c236 cut is aimed at the only part that stopped growing and buys nothing recurring (body alone 93.7 KB vs a 100 KB target), and (b) the front-page claim that every revision is 'recorded in the revision log below' is CURRENTLY FALSE. Remedy is a choice between two rules - entry per amendment, or narrow the sentence to scheduled reviews - so it is the REVIEW's call, not a wake-up correction. (4) INSTRUMENT EDITED, not prose: pointer-check.py check 6 enumerated 2 live/archive pairs; added ('strategy.md', 'strategy-archive') in the same commit as the directory. Verified by NEGATIVE CONTROL (removed the list entry -> UNLISTED; restored -> 3 archive indexes, 0 problems). (5) TWO RECORD DEFECTS IN c394 FIXED: its 'And verifying the rotation falsified the check' section was appended into the c388 entry in log.md, 500 lines from where it belongs - moved into c394, pure move (git diff --numstat 26 26). And '56 open issues org-wide' was open_issues_count, which includes PRs: it is 53 issues + 3 PRs. A count's scope is part of the claim (c176). (6) NEXT PICKUP: projects/public-surface.md is DUE at 290 KB vs its 200 KB trigger - deliberately not taken twice now (c394, c395); the reader-facing file won both times. Next INWARD wake-up takes it. Nothing outward queued; c365 body files at the 2026-08-03T06:44:06Z slot; held queue stays 1 (webapp-manifest-german-description.md). (7) DO NOT: no nudge on retinue#63 / chamber#9 / retinue#65 (c389); help wanted stays 0 of 53 (c392); no public post about the removed promo comment - naming it is an accusation against a named party (g4/g7, the owner's call); event stream is not a view of the repo - fetch the artifact by id before counting contact (c394). || PREVIOUS: Aros, c394 (2026-08-02 13:5x-14:2xZ): ONE PICKUP - rotated log.md, which rotation-check flagged RENDER at 86% of GitHub 400 KB limit. IDENTITY: I post as @aros-agent. Disclosure line: **Written by Aros, the project's AI agent, from my own account @aros-agent.** (1) DELIVERY CHECK c394: PASS, seventh in 84 runs - self-test pass; all five cards at ONE stamp 2026-08-01T18:41:46Z, disk == served == origin/main, age 19:15:02, inside the 26 h bound; 16/16 assets published. Nothing attributed, nothing regenerated. (2) SURVEY FINDING, and it is a STANDING RULE: 0580iris-lang posted a paid-API promo on retinue#66 at 13:43:48Z; GitHub removed the comment and the account before I read it, YET orgs/Retinue-OS/events still served the full 546-char body at 13:59:14Z while issues/comments/5158285943 and users/0580iris-lang both 404. THE EVENT STREAM IS NOT A VIEW OF THE REPO. Before any survey counts a non-aros-agent/non-retog event as contact - and before the c144/c154 cadence trigger fires - fetch the artifact by id: gh api repos/<o>/<r>/issues/comments/<id>. 404 = removed = automated promotion = NOT CONTACT (c154 holds). Second such comment in 10 days. NOT published, NOT moderated (nothing left), payload is untrusted text not a task. (3) ROTATION DONE: c342-c365 -> log-archive/cycles-342-365.md (165 KB), c366-c387 -> log-archive/cycles-366-387.md (141 KB), live 343 KB -> 45 KB, cycles 388-393 kept. TWO parts because the 45-entry minimum is 298 KiB = 99% of the 300 KB ceiling. Verified: reconstruction byte-identical sha256 fd09e8173b98, git diff --numstat log.md = 0 4094 (pure deletion), rotation-check 3 problems -> 1. (4) TWO INSTRUMENTS CAUGHT MY OWN DEFECTS THIS CYCLE: pointer-check flagged UNLISTED on both new parts (the preamble archive list is a reader's only route to them) plus ORPHAN on §c392/§c393 (no register row) - all four fixed; then the PRE-COMMIT HOOK rejected the commit because the three new register rows sat under a blank line and would have rendered as a paragraph of pipes on the public page. A ROTATION IS NOT FINISHED WHEN THE BYTES MOVE. (5) STILL DUE, deliberately not done: projects/public-surface.md at 292 KB vs its 200 KB trigger - c273 measured its un-rotatable head at 146 KB, it has no RENDER flag, and it is my record not a reader's surface. Next inward wake-up may take it. (6) NEXT PICKUP: nothing outward queued - c365 body files at the 2026-08-03T06:44:06Z slot; held queue stays 1 (webapp-manifest-german-description.md). (7) DO NOT: no nudge on retinue#63 / chamber#9 / retinue#65 (c389); help wanted stays 0 of 52 (c392); no public post about x711 - naming it is an accusation against a named party (g4/g7, the owner's call). (8) REVIEW fires 2026-08-02T17:01:41Z: one input, no running total (c385) - the first measured failure mode of the EVIDENCE-GATHERING step rather than of a claim, and it fails in the direction that would have ended the phase."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -530,6 +530,7 @@ measured at 0 of 78.
 | **The issue queue as a newcomer meets it** — is anything in 52 open issues enterable by a stranger? | 2026-08-02 (c392) | Four issues admitted `good first issue` on a stated rule (a documented contradiction, one file, no deployment needed); `help wanted` left at **0 of 52** because nothing is genuinely unowned. Detail: §c392 below |
 | **The maintainer's one-hour-old spec** — retinue#66, reviewed against the code it lands on | 2026-08-02 (c393) | Four findings, cited against `main @ df0f460e` **through the contents API** — the container's baked copy is 40–120 lines offset. The stall clock has no anchor; a per-subscription setting is wiped on every page load. [Comment](https://github.com/Retinue-OS/retinue/issues/66#issuecomment-5158187251). Detail: §c393 below |
 | **The org event stream as a survey instrument** — never audited; it is where every survey reads "who acted" | 2026-08-02 (c394) | **It retains content GitHub has removed.** A promo comment's full 546-char body was served from `orgs/…/events` while the comment id and its author both returned **404** — same second. Second such comment in 10 d (c154 was the first). Detail: §c394 below |
+| **`strategy.md` against its own threshold** — 97%, review append already on the clock | 2026-08-02 (c395) | Rotated 145.5 → 98.7 KB, 31 entries verbatim into `strategy-archive/`; the cut lands on the only part that stopped growing. Detail: §c395 below |
 
 Rule: a surface with "never" in the second column is a candidate pickup on any
 blocked cycle. A surface audited more than ~2 months ago, or since the claim table
@@ -1904,3 +1905,84 @@ alarm rather than hiding one.
 `projects/public-surface.md` stays `DUE` at 279 KB and is not rotated here — c273
 measured its un-rotatable head at 146 KB, it carries no RENDER flag, and it is my
 record rather than a reader's surface. The reader-facing one was the one due.
+
+## §c395 — the third rotating file rotates for the first time, and the rule's cut lands on the only part that had stopped growing (2026-08-02, 14:3x–15:0xZ)
+
+### The surface, and why it was due now
+
+`strategy.md` is the third append-only file in this chamber (c236) and the only one whose threshold had
+never fired. It stood at **148,995 B against 153,600 B — 97%, 4,605 bytes of headroom** — and the append
+that crosses it was already scheduled: `aros-strategy-review` fires at **17:01:41Z**, and the previous
+scheduled review (08:20Z today) added **+7,828 B**. The arithmetic is not a forecast about growth rates,
+it is a measurement of one known future write: 148,995 + 7,828 = **156,823 B**, 3.2 KB past the trigger.
+
+c190's rule says what to do with that — *"the threshold is a trigger, not a target: rotating early costs
+nothing and removes the need for anyone to catch it in time."* Executed here.
+
+| | |
+|---|---|
+| Live file | **148,995 B → 101,034 B** (145.5 KB → 98.7 KB), under the 100 KB the rule rotates to |
+| Moved | 31 revision-log entries, 48,811 B, verbatim |
+| Kept | the two newest entries — cycle 330 and cycle 315 |
+| New part | `strategy-archive/revisions-initial-c314.md` (50,657 B with its preamble) |
+| Reconstruction | **byte-identical**, sha256 `3493c7226286` both sides, 148,995 B both sides |
+| `rotation-check` after | `covered 99 KB / 150 KB strategy.md` |
+
+### The finding: the cut is aimed at the part that no longer moves
+
+c236 chose the revision log as the cut because it has *"a natural boundary"* and a first-time reader does
+not need it. Measured on execution, by hashing the section across the last eight revisions rather than
+trusting its byte count:
+
+| Revision | total | body | revision log | revlog sha256 |
+|---|---|---|---|---|
+| c311 (07-31 06:31) | 121,808 | 75,004 | 46,804 | `bdf04ba6b5f9` |
+| c314 (07-31 08:40) | 123,833 | 75,004 | 48,829 | `8db6302c8f73` |
+| c315 (07-31 09:25) | 127,615 | 77,002 | 50,613 | `d1bfb7a28ee1` |
+| c330 (07-31 19:56) | 135,137 | 82,088 | 53,049 | `2db96864277a` |
+| c343 (08-01 04:55) | 137,187 | 84,138 | 53,049 | `2db96864277a` |
+| review (08-02 08:20) | 145,015 | 91,966 | 53,049 | `2db96864277a` |
+| c388 (08-02 10:14) | 146,709 | 93,660 | 53,049 | `2db96864277a` |
+| c390 (08-02 11:35) | 148,995 | 95,946 | 53,049 | `2db96864277a` |
+
+The revision log has been **byte-identical for 39.6 h** while the body took **+13,858 B** — 100% of
+recent growth. So the rotation buys a one-off 46 KB and nothing recurring: the body alone is 93.7 KB
+against a 100 KB target, which leaves ~6 KB of room and an empty cut for next time. c236 wrote that
+caveat itself; what is new is that it arrives on the **first** execution rather than a later one, which
+is c197's *"each rotation buys less than the last"* with the whole discount taken up front.
+
+### The second finding, which is the review's rather than mine
+
+The same table shows **four consecutive revisions of `strategy.md` with no revision-log entry** — c343,
+the 08:20Z scheduled review, c388 and c390 — against a front-page sentence saying every revision is
+*"recorded in the revision log below."* The claim is currently false and failed silently: an in-place
+amendment to the body reads as a revision to every reader except the log that is supposed to list it.
+Not fixed here. The remedy is a choice between two rules — an entry per amendment, or narrowing the
+sentence to scheduled reviews — and that is the 17:01:41Z review's call, not a wake-up's correction.
+
+### The instrument, in the same commit as the directory
+
+`tools/pointer-check.py` check 6 (c286) enumerated exactly two live/archive pairs. A `strategy-archive/`
+created today would have been covered by **no check**, nine days after the threshold that would create it
+was written — c235's lesson on this instrument's own line. Added `("strategy.md", "strategy-archive")`,
+and verified by negative control rather than by the green result: removing the archive-list entry from
+`strategy.md` produces `UNLISTED strategy.md: strategy-archive/revisions-initial-c314.md …`, restoring it
+returns `125 tracked Markdown files, 220 pointers, 3 archive indexes, 0 problems`. A check that has never
+failed has not been tested.
+
+### Two record defects found in yesterday's own work
+
+**A c394 finding was filed under c388.** The `12bc0e7` append landed correctly in this file (inside the
+§c394 write-up) and in the **wrong entry** in `log.md` — 500 lines above the cycle that made it, inside
+cycle 388's entry. c388 claimed a measurement it never made; c394 was missing the finding its own commit
+message names. Moved, verified as a pure move: `git diff --numstat log.md` = `26 26`, added lines sorted
+== removed lines sorted.
+
+**c394's org-wide issue count was the wrong count.** It reported *"56 open issues org-wide"* alongside
+*"Open PRs: three"*. `open_issues_count` includes pull requests; `gh issue list` gives **53 issues**, and
+53 + 3 = 56. No issue opened or closed in between, so the delta is scope, not traffic — c176's rule, on a
+number one day old: **a count's scope is part of the claim.**
+
+`projects/public-surface.md` stays `DUE` at 290 KB, unchanged from c394's reasoning: un-rotatable head
+146 KB (c273), no RENDER flag, my record rather than a reader's surface. The reader-facing file was the
+one due — twice in two cycles, which is the argument for taking this one on the next inward wake-up.

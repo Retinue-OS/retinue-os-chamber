@@ -697,9 +697,20 @@ def main():
 
     # Check 6 (c286): each rotating file's archive directory against its own
     # *Archive, oldest first* list.
+    #
+    # This list must name every file with a rotation threshold, and the third
+    # one was added the day it first rotated (c395) rather than the day its
+    # threshold was written (c236) — nine days in which a `strategy-archive/`
+    # created by that rule would have been covered by no check at all. It is
+    # c235's lesson on this instrument's own line: a rule recorded in prose does
+    # not propagate to an instrument written later. Keep this list in step with
+    # THRESHOLDS in tools/rotation-check.py; they are the same set of files seen
+    # from two sides (does it need rotating / did the rotation leave a reachable
+    # archive).
     indexes = [
         ("projects/public-surface.md", "projects-archive"),
         ("log.md", "log-archive"),
+        ("strategy.md", "strategy-archive"),
     ]
     for live, archive in indexes:
         problems.extend(check_archive_index(root, live, archive, load(live) or ""))
