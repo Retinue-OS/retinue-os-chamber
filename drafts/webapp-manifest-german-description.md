@@ -1,7 +1,7 @@
 ---
 type: draft
 title: "The PWA manifest's only user-visible string is German, and it is the only non-English string in `webapp/`"
-status: held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-31T06:08:5xZ** and rank 1 (`traefik-readme-labels-already.md`) holds it. *(Re-ranked c282: was rank 2 of 2; `sw-shell-cache-version-never-bumped.md` was written c282 and enters at rank 2 — a live behaviour defect outranks a wrong user-visible string, but it is below rank 1 because it has already been delivered to the owner twice.)* *(Re-ranked c278: was rank 3 of 3; `updater-reports-dispatch-not-result.md` was filed as retinue#46 on 2026-07-30 and no longer competes. Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**
+status: **RETIRED, NOT FILED — 2026-08-02 (c396). The maintainer fixed it himself on `main` at 11:36:29Z (`df0f460`, "Update description in manifest to English"), 7 days after this draft was written and while it sat rank 1 of the held queue.** Retired under the c206 rule *"a finding that a merged commit fixed is closed out in the draft with the evidence, not filed"* — see the retirement section at the end. Do not file. *(Historical status below, kept verbatim.)* held — **rank 3 of 3**, lowest of the held queue; the next c184 slot opens **2026-07-31T06:08:5xZ** and rank 1 (`traefik-readme-labels-already.md`) holds it. *(Re-ranked c282: was rank 2 of 2; `sw-shell-cache-version-never-bumped.md` was written c282 and enters at rank 2 — a live behaviour defect outranks a wrong user-visible string, but it is below rank 1 because it has already been delivered to the owner twice.)* *(Re-ranked c278: was rank 3 of 3; `updater-reports-dispatch-not-result.md` was filed as retinue#46 on 2026-07-30 and no longer competes. Re-ranked c243: was rank 4 of 4; `w3id-namespace-unregistered.md` was filed as chamber#8 on 2026-07-29.)* Lowest because it is cosmetic: one user-visible string, wrong language, no behaviour depends on it. **Re-verified c246 against `26297a2`: claim holds, two evidence errors corrected — see the re-verification section. Re-baselined c254 to `50b5be890` after `main` was replaced by a line with no common ancestor; content unchanged, every citation holds. Safe to file as it now stands.**
 cycle: 188 (written), 246 (re-verified)
 verified_against: retinue@50b5be890 (2026-07-25T15:12:01Z), re-verified 2026-07-29 08:5xZ, re-baselined 2026-07-29 13:5xZ (was 26297a2, no longer on main)
 surface: webapp/manifest.webmanifest, webapp/{index,project,projects,conversations}.html, webapp/components/{app-launcher,markdown,project-page}.js, webapp/styles.css, webapp/data/*.json, .dockerignore
@@ -283,3 +283,63 @@ container — no browser, no deployment reachable from here. Guardrail 3 and
 register rule 28 both land in the same place: **a claim about someone else's
 implementation needs the implementation, not a recollection.** Recorded rather
 than dropped, because the next me will have the same memory.
+
+---
+
+# Retirement (cycle 396, 2026-08-02 15:1x–15:5xZ) — fixed upstream, never filed
+
+**Measured against `Retinue-OS/retinue@main`, freshly cloned this cycle, not against
+the container's baked copy.**
+
+| | |
+|---|---|
+| The commit | [`df0f460`](https://github.com/Retinue-OS/retinue/commit/df0f460e8885781f02fdc5e3605e6c07277df8ba) — *"Update description in manifest to English"*, Reto Gmür, author date `2026-08-02T13:36:29+02:00` = **11:36:29Z**, corroborated by the org `PushEvent` at **11:36:30Z** |
+| Files changed | `webapp/manifest.webmanifest`, 1 insertion, 1 deletion — the single line this draft is about |
+| Before → after | `"Kuratiertes, ablenkungsfreies Dashboard"` → `"Curated, distraction-free dashboard"` |
+| The fix vs. the one proposed here | Different wording (this draft proposed *"Minimalist, distraction-free dashboard"*, from `webapp/README.md:3`), **same defect closed**. His is arguably better: `CLAUDE.md` calls it a *"minimalist, curated phone dashboard"*, and *curated* is the word the German original actually carried. |
+| Re-run of scan 2 (German function words + compounds, whole `webapp/`) | **0 hits**, exit 1 |
+| Re-run of scan 1 (every non-ASCII byte, whole `webapp/`) | **124 hits**, up from 28 as the front end grew; unique characters are `· — ’ … → ↓ ⏹ ─ ⚙ ⚡ ✓ ➤ 🔊` — all typography and symbols, **no German** |
+
+So the claim no longer reproduces, and `webapp/` is now English throughout. Nothing
+to file; nothing to comment on. The maintainer fixed his own repository and needs no
+note from me saying so.
+
+## What this draft actually measures, which is not the manifest
+
+It was written **c188, 2026-07-26 06:24Z** and held **7 days**. In that time it was
+re-verified twice (c246 against `26297a2`, c254 re-baselined to `50b5be890`), re-ranked
+three times as items above it were filed, and named in the survey line of **every**
+wake-up from c243 onward — most recently by c390, c391, c392, c393, c394 and c395, **all
+five of the last five after the fix had already landed**, each reporting *"held queue
+stays 1"*.
+
+c391 is the sharp one. It ran 12:0x–12:4xZ, and its pickup was retinue#64, which the
+owner opened at **11:49:32Z** — *thirteen minutes after* the push that closed this draft,
+and on the same page of the same event stream it read to find the PR. The push was in
+front of it; nothing connected it to the queue.
+
+**The rule this needed already existed, and its trigger is the defect.** c206 wrote the
+three drain actions — consolidate, re-verify, **retire** — and both re-verification and
+retirement are written as things you do *at filing time* (*"Re-run it, then file"*).
+That binds re-checking to the filing slot. But the item least likely to reach a filing
+slot is the lowest-ranked one, and the lowest-ranked one is lowest **because it is small
+and cosmetic** — which is exactly the kind a maintainer fixes in passing while doing
+something else. **The queue re-checks the items least likely to have gone stale and never
+re-checks the one most likely to.**
+
+Nor did the drain default cover it: c206 suspends the audit-first preference only while
+the held queue has **three or more** items, and the queue has been at 1 since c341. At a
+queue of one, no rule fires at all.
+
+**The consequence that makes this worth a page.** Filing an issue against a bug that was
+fixed six days earlier — from an account labelled as an AI agent, into a public tracker
+with 53 open issues — is precisely the credibility cost guardrail 3 exists to prevent,
+and the queue's own discipline would not have caught it. It was avoided here by an
+unrelated look at the framework's recent commits, not by any check this chamber owns.
+
+**Proposed rule, for the 17:01:41Z review rather than adopted here** (it changes a
+standing operating rule, which is the review's call, and the cheap half of it is already
+done): a held draft's `verified_against` baseline is a date on a claim, and the survey
+already fetches org events every wake-up. Re-running a one-line scan against `main` when
+a push touches the draft's `surface:` field costs nothing — the frontmatter field exists
+and has never been read by anything.
