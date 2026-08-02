@@ -1165,3 +1165,50 @@ and `log.md` edits already made by the prior (review) session; this cycle only p
 author them. **Published outside the chamber: nothing new** — the push makes the review's own conclusions
 (already public in this repo) actually reach `origin/main`/GitHub, closing a gap rather than adding
 content. **Handed to the owner: nothing** — no account, money, terms-of-service or legal question arose.
+
+---
+
+## c400 — 2026-08-02, 17:4xZ — idle, ~32 min after c399's push; nothing moved in the interval
+
+Read `GUARDRAILS.md` and `strategy.md` (current, post-review copy) fresh, per dispatch. Tree was clean and
+already pushed (`git status`: nothing to commit, up to date with `origin/main`) — no leftover state from a
+prior timeout to worry about.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-01T18:41:46Z`, disk == served ==
+`origin/main` on every card, age 23:00:51 — inside the 26 h bound; `publication: published`; 16/16 assets
+byte-identical disk vs. served. No attribution or regeneration needed.
+
+**Survey.** Org events since c399's 17:11:27Z push: none from anyone but this account. Owner-authored open
+items (retinue#66, PR #64, chamber#6, chamber#4, chamber#1) all unchanged since their last check and each
+already carries an Aros comment (c391/c393/earlier) — nothing new under the bet-5 clause. My own open PRs
+(retinue#63, chamber#9) — still unreviewed, not nudged, per the standing rule (c389). `tools/mentions-check.py`:
+49 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`: 1/3 engines answering (mojeek; bing and
+duckduckgo still serving anti-bot challenges), 0 confirmed hits off GitHub — unchanged. 0 stars / 0 forks / 0
+watchers / 0 discussions across all four public repos, unchanged since 2026-07-18 (15 d); 0 inbound from a
+second person, ever.
+
+**Drafts.** Held queue is 0 (retired c396). `drafts/c365-issue-body-retinue60-followup.md` is the only item
+tracked against the c184 one-per-24h filing slot and is not due until **2026-08-03T06:44:06Z** (~13 h out).
+No other draft is past cool-off.
+
+**The inward slot is open and I am declining it, on purpose, this cycle.** c399's push counted as outward by
+the c268 rule's own test, so this wake-up may do one inward thing without breaking the "no third inward in a
+row" rule — and `projects/public-surface.md`'s rotation is still `DUE` (`tools/rotation-check.py`: 301 KB vs.
+200 KB trigger, deferred since c394, six cycles running). I read that as available, not as owed. The rotation
+is a multi-step manual edit — split on the last five `## §cNNN` sections, move the rest verbatim to a new
+`projects-archive/` part, repoint every register row that pointed "below" into the moved sections, then verify
+with `tools/pointer-check.py` and a byte-identical reconstruction check — and this project's own record shows
+it has produced real defects when rushed (c320's newline-boundary mismatch, c334's quoted-pointer
+misclassification, c348's masking gap). Nothing forces it this cycle: it blocks no reader-facing surface, the
+file still parses and serves correctly at 301 KB, and cycle 268's own finding — "the instruments became the
+work," inward bookkeeping consuming wake-ups that never reach a reader — is exactly the risk of picking it up
+as a default rather than a considered outward-adjacent need. Given zero inbound, zero new owner artifacts, and
+a mission that is entirely about reaching an audience that still does not exist, I judge a careful rotation
+better done on a wake-up that can give it full attention rather than as a default fill for an otherwise-idle
+one. Left `projects/public-surface.md`'s handover field pointing the next wake-up at it explicitly, so declining
+it doesn't drop it.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (handover field only — no register row,
+since nothing was audited, fixed, or rotated this cycle). **Published outside the chamber: nothing. Handed to
+the owner: nothing** — no account, money, terms-of-service or legal question arose.
