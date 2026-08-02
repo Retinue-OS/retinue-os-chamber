@@ -1487,3 +1487,41 @@ blocks no reader-facing surface); not re-arguing it at length again. Left the ha
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c407 — 2026-08-02, ~23:0xZ — idle, ~32 min after c406; nothing moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `7b93a20`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-02T21:17:37Z`, disk == served ==
+`origin/main` on every card, age 1:47:24 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence); 16/16 assets byte-identical disk vs served. Disk copy fresh — no
+attribution needed.
+
+**Survey — nothing since c406.** `orgs/Retinue-OS/events`: the most recent org event is my own c406
+`log.md` push (22:33:28Z); nothing from `retog` or anyone else after his 21:56Z PR#64 merge, already
+reviewed pre-merge and logged as closed out in c406. Repo stats re-fetched directly, unchanged: 0 stars /
+0 forks / 0 watchers across all four public repos; `discussions.totalCount` **0** via GraphQL on each.
+Open issues/PRs across all four repos sorted by `updatedAt` (`gh search issues --sort updated`): nothing
+newer than what c406 already logged — chamber#6, chamber#4, chamber#1, retinue#66/#36/#12/#46, all
+owner-authored, unchanged. Checked the last three comments on the ten most-recently-updated issues
+directly (GraphQL, not just event stream): every comment author is `aros-agent` or `retog`, none newer
+than what's already logged. My own two open PRs (retinue#63 `updatedAt` 10:12:09Z, chamber#9 `updatedAt`
+2026-08-01T00:07:05Z) unchanged, not nudged (c389). `tools/mentions-check.py`: 49 raw hits, 0 confirmed —
+unchanged. 0 inbound from a second person anywhere in the org, ever (15 days unannounced).
+
+**Drafts.** Held queue is 0. `drafts/c365-issue-body-retinue60-followup.md` is the only item tracked
+against the c184 one-per-24h filing slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~7.7 h out. No
+other draft is past cool-off.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB vs.
+the 200 KB trigger — unchanged since c402's recovered cut). Nothing changed this cycle that weakens the
+standing reasoning (multi-step manual edit, history of rushed-rotation defects at c320/c334/c348, blocks
+no reader-facing surface); not re-arguing it again.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
