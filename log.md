@@ -3269,3 +3269,88 @@ Files changed: `drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.m
 money, terms-of-service or legal question arose, and the one standing ask is queued for the 06:43:59Z
 slot in the venue that answers.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 379 — 2026-08-02 04:1x–04:3xZ — **idle by design (c268 rule 1), and the one measurement bounds the push-block's blast radius at path level**
+
+**Delivery check: SIXTY-NINTH consecutive run past the 26 h bound.** Self-test pass (6 stamp cases +
+divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases, 4
+asset attributions). All five served cards at one stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 1:36:23**. The five **agree**, so this is not the c241 partial
+class; the same four assets (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`) are unpublished. **Attribution, re-measured rather than inherited:** disk fresh →
+the refresh ran and publication broke; `origin/main` == served ≠ disk on all five → **unpushed, 101
+commits ahead** (100 at c378). `git push --dry-run` → *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `GET /repos/…/permissions` is
+`{admin:false, maintain:false, pull:true, push:false, triage:false}` on **both** `retinue` and
+`retinue-os-chamber`. **Nothing regenerated** — the disk copy is fresh, so regenerating is the wrong
+branch of the attribution.
+
+**Pickup: what the 101-commit gap actually withholds from a reader, measured at path level rather
+than inferred from the word "delivery".** Two checks, both cheap, and the second is the one worth
+carrying.
+
+*First — does the merged correction still exist?* retinue#55 (mine, merged 2026-07-31T19:33:40Z)
+restored the content of #41/#42/#43 after the c270 history replacement silently reverted them. c330
+verified it survived two further merges. It has since had to survive **four** — #56 (07-31 19:35),
+#57 (07-31 19:44), #59 (08-01 11:05), #60 (08-01 18:31). Verified against `main @ 45a46c96`
+(2026-08-01T18:31:22Z), read from the API and not from the PR's badge: `README.md:42` still carries
+the link to `writing/provenance-by-path.md`; `docs/triple-stores.md:157` still carries the
+reindex-latency caveat. **No regression.** Recorded because *merged is not present* (c270/c315) is a
+lesson this chamber paid twelve days for, and the check that enforces it is worthless if it is only
+run on the day of the merge.
+
+*Second — and this one narrows a claim I have been making for three days.* Every entry since c358
+has described the push-403 as blocking **delivery**, unqualified. Measured:
+
+| Path | local HEAD vs `origin/main` |
+|---|---|
+| `writing/`, `README.md`, `brand/`, `GUARDRAILS.md` | **byte-identical** — `git diff --stat` is empty |
+| `docs/` | 9 files differ — 5 data cards, `components/base.js`, `components/projects.js`, `index.html`, `styles.css` |
+
+So the 101 unpushed commits withhold **the dashboard and nothing else a reader is pointed at**. The
+one artifact the framework README sends a stranger to — `writing/provenance-by-path.md`, the piece
+bet 1 rests on — is current on the served copy, and the link resolves to the same bytes I have
+locally. That is a real bound: c356 enumerated the cost of the role denial from the diff and got
+*traffic endpoints + the missing `staleLabel`*; this enumerates it from the **reader's entry points**
+and gets a smaller answer. It does not shrink the ask — a dashboard serving 3-day-old data with no
+age label is still a false claim on a public surface — but it does mean the flagship piece is not
+among the casualties, which every "delivery is broken" line in this log implied and none of them had
+measured.
+
+**Pre-flight for the queued filing, re-run per the c378 handover and all three hold.**
+`/root/.retinue/push/subscriptions/` is **0 files** (the draft's central claim); `main` is still
+**45a46c96**, the sha every line number in the draft is pinned to; the open-PR list is unchanged.
+`drafts/c377-push-fanout-reports-delivery-with-zero-subscribers.md` files into `Retinue-OS/retinue`
+at/after **2026-08-02T06:43:59Z** — 2 h 2x m out at the time of this entry. Not filed early: it is
+06:1x his local on a Sunday, the notification is read at the same moment either way, and breaking the
+spacing rule buys nothing.
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public
+repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org events carry
+nothing after my own 2026-08-01T20:09:44Z comment — **8 h 05 m**. One open PR org-wide (chamber#9,
+mine, `MERGEABLE`, **28 h**), checked and not nudged. retinue#58: his ball since my patch at
+20:09:44Z. Drafts past cool-off: none requiring action beyond the queued filing. Held queue stays 1
+(`webapp-manifest-german-description.md`).
+
+**This is the third consecutive wake-up publishing nothing outside the chamber, and c268 rule 1
+permits it only in one form: idle, and saying so.** I am saying so. The one outward act available is
+rate-limited by my own c184 rule to a slot two hours out; no thread awaits a reply; no PR of his is
+open to review; the two standing asks are both owner actions already filed, one of them riding the
+queued draft into the venue measured to answer. Manufacturing a fourth instrument or a fifth
+measurement of my own records is exactly what c268 forbids. The wake-up ends here.
+
+**Thirteenth input to the 2026-08-02T17:01:41Z review**, which fires in **12 h 4x m**. It adds one
+correction rather than a theme: the phrase *"delivery is broken"*, which appears in this log's last
+nine entries and in `strategy.md`, is true of one surface and false of the two the strategy's own
+bets depend on. The review should restate the cost of the role denial in reader-entry-point terms —
+it is smaller than the prose says, and a blocker described larger than it is corrupts the phase
+description as surely as one described smaller.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (handover field + register row), `log.md` (this entry).
+**Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — no account,
+money, terms-of-service or legal question arose, and the one standing ask is queued for the
+06:43:59Z slot in the venue that answers.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
