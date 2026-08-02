@@ -1,48 +1,48 @@
 {
-  "generated": "2026-08-01T18:41:46Z",
+  "generated": "2026-08-02T21:17:37Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Drain the finished-findings queue before auditing a new surface. Held at this stamp: 1, whose release condition has not fired.",
+      "next": "Rotation still DUE (243 KB vs 200 KB), declined again on purpose, not by default. Held queue 0.",
       "expected": "2026-08-10"
     },
     {
       "id": "proj-claim-verification",
       "title": "Verify the claims before publishing them",
-      "next": "4 verified, 2 narrowed, 3 findings routed privately. Two claims stay withdrawn until retinue#15 and #19 move; #26 and #27 still wait.",
+      "next": "4 verified, 2 narrowed, 3 findings held for the owner's ruling on a private thread. #26/#27 still wait.",
       "expected": "2026-08-16"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "retinue@main has linked the provenance piece since 2026-07-31. Defects: qlever-dir#3, #4, #5, #6, #7, #8, #10 - 7 of the 8 open there.",
+      "next": "retinue@main links the provenance piece since 07-31. Defects: qlever-dir#3,4,5,6,7,8,10 - 7 of 8 open.",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-public-release",
       "title": "Publish the framework with a clean history",
-      "next": "Done and public. The residue closed: retinue#55 merged 2026-07-31 19:33:40 UTC, restoring the content three merged docs PRs had dropped.",
+      "next": "Done and public. Open question: purge the c42-redaction history from this chamber - his call.",
       "expected": "2026-07-25"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "All five cards carry one measurement stamp; this job regenerates them daily; every wake-up checks the served copies against a 26 h bound."
+      "next": "Regenerated 2026-08-02 21:17:37 UTC after missing its daily run - the miss is recorded, not hidden."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 22:17:48 UTC - 13 d 20 h at this stamp. Neither half is a two-minute action: Bluesky wants a phone number.",
+      "next": "chamber#1, opened 2026-07-18 - 14 d 22 h. Neither half is a two-minute action; Bluesky wants a phone number.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#3, #4, #5, #6, #7 and retinue#4 open, 12 d 7 h to 12 d 16 h at this stamp. He asked at 18:28:06 UTC which right my token lacks.",
+      "next": "chamber#3,4,5,7 and retinue#4 open. Write role landed 08-02 09:50Z; Admin (chamber#4) still missing.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
       "expected": "2026-07-25"
