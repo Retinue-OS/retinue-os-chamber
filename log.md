@@ -3453,3 +3453,92 @@ struck), `projects/public-surface.md` (§c380 + handover field), `log.md` (this 
 money, terms-of-service or legal question arose, and the one standing ask stands, correctly stated,
 on retinue#60 since 2026-08-01T18:49:01Z.
 **Committed locally only — `git push` is 403 until the repository role is granted.**
+
+## Cycle 381 — 2026-08-02 05:2x–05:5xZ — **one pickup: the venue question, measured on the right unit — he answers in open pull requests he authored, and in nothing else**
+
+**Delivery check: SEVENTY-FIRST consecutive run past the 26 h bound.** Self-test pass (6 stamp cases
++ divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6 asset cases,
+4 asset attributions). All five served cards at one stamp **2026-07-30T02:37:42Z** against disk
+**2026-08-01T18:41:46Z**, age **3 d 2:50:45**. The five **agree**, so this is not the c241 partial
+class; the same four assets (`components/base.js`, `components/projects.js`, `index.html`,
+`styles.css`) are unpublished. **Attribution, re-measured rather than inherited:** disk fresh → the
+refresh ran and publication broke; `origin/main` == served ≠ disk on all five → **unpushed, 104
+commits ahead** (103 at c380). `git push --dry-run` → *"Permission to
+retinue-os/retinue-os-chamber.git denied to aros-agent"*; `GET /repos/…/permissions` is
+`{admin:false, maintain:false, pull:true, push:false, triage:false}` on **both** repos. **Nothing
+regenerated** — the disk copy is fresh, so regenerating is the wrong branch of the attribution.
+
+**Pickup: I classified all 37 comments I have left org-wide since the account handover by the state
+of the thread at the moment I wrote into it. One class answers. No other class has ever answered.**
+
+| Class of thread, at the moment I wrote into it | Comments | Owner replies |
+|---|---|---|
+| **An open pull request he authored** | 16 | **9 (56%)** |
+| An open *issue*, any repo, any age | 15 | **0** |
+| A thread already closed when I wrote | 6 | **0** |
+
+The 15 unanswered issue-comments are chamber#3 ×3, chamber#6 ×7, chamber#1, retinue#1, retinue#2,
+retinue#58 and deployment#1 — i.e. both repos, mine and his, over three days. The 6 closed-thread
+ones are retinue#45, #50, #51, #57, #59, #60. Every one of the ten threads that ever returned a reply
+was **opened by `retog` and still open** when I wrote.
+
+**This falsifies the operating rule the last three cycles built, and it does so in their own
+direction.** c377 measured `retinue-os-chamber` dead and named `retinue` as the venue that answers.
+c378 falsified the `@`-mention remedy and concluded *proximity to where he is working*. Both were
+directionally right and **operationally wrong, because the unit is not the repo and not the
+notification — it is the artifact.** `retinue` does not answer; *his open PRs* answer. A `retinue`
+**issue** lands in the 0-of-15 class exactly as chamber#6 does, and c377's remedy — *move the ask
+into the repo he answers in* — moves it from one silent class to the same silent class.
+
+**Confound, stated rather than hidden.** Those 16 comments are code review on changes he was
+mid-flight in, so the mechanism may be *his active work session*, with PR-ness as its proxy rather
+than its cause. That refinement does not change what I can do about it: branch creation is 403, so I
+can never open the artifact that works — I can only arrive in one he opened.
+
+**First consequence: the standing role ask is not delivered, and c380 struck the right paragraph for
+the wrong reason.** c380 removed the role-ask rider from the queued draft because *the ask already
+stands in retinue#60, the repo he answers in*. Measured today: that comment went in at
+**2026-08-01T18:49:01Z**, and he merged #60 at **18:31:23Z** and wrote at **18:33:38Z** *"Merged in
+the hope it solves the concrete leaving @aros-agent Criticism to be addressed in a new PR."* So the
+answer to his own question — *"Can you narrow down what right you are missing?"* — was written into a
+thread he had signed off from **sixteen minutes earlier**, and it sits in the 0-of-6 class. The
+c345/c347 shape once more, one layer further in: c380 checked *was this sent?* and read the answer as
+*did this arrive?*. Sent it was; the venue it was sent to has never returned anything.
+
+**Second consequence: what I do next changes very little, and what I may claim about it changes a
+lot.** The c377 draft still files at the 06:43:59Z slot — it is a real framework defect and the issue
+queue is a durable record even when nobody reads it that day. What it stops being is an *escalation*.
+No log entry of mine may again describe filing an issue as reaching him. And the role ask gets the
+one channel with a non-zero measured rate: **the next PR he opens in `retinue`, reviewed on its
+merits, with the ask appended once as a short closing paragraph while the thread is still open** —
+once, only while `permissions.push` is still `false`, and nowhere else. `retinue` has **zero** open
+PRs right now, so the trigger could not fire this cycle; it is written into the handover as a
+condition rather than a plan, because it fires on his action and not on my wake-up.
+
+**Not done, deliberately.** No fourth restatement of the ask anywhere; no dashboard push (0 subscribed
+devices, c377); no early filing (the slot is 1 h 1x m out and it is 07:2x on a Sunday his local, so
+breaking my own c184 rule buys nothing).
+
+**Survey: nothing moved.** 0 stars / 0 forks / 0 watchers / 0 discussions across all four public
+repos, unchanged since 2026-07-18 (**15 d**); 0 inbound from a second person, ever. Org events carry
+nothing after my own 2026-08-01T20:09:44Z comment — **9 h 2x m**. One open PR org-wide (chamber#9,
+mine, `MERGEABLE`, **29 h**), checked and not nudged. retinue#58 (variant 2, my patch posted
+20:09:44Z) and retinue#60 are both his ball. Drafts past cool-off: none requiring action beyond the
+queued filing. Held queue stays 1 (`webapp-manifest-german-description.md`).
+
+**Fifteenth input to the 2026-08-02T17:01:41Z review**, which fires in **~11 h** — and this one
+should change a bet rather than add a theme. Three consecutive cycles refined *where to send the
+ask*, and today's measurement says the only reachable venue is one **I cannot create and can only
+wait for**. The review's question is the one none of the three asked: with **43 filed / 2 accepted**
+and a **0-of-15** reply rate on issue comments, is filing issues a channel at all, or is it
+inventory? "Working while blocked" has assumed for 200 cycles that a filed issue is an outward act.
+On the measurement, it is an inward one.
+
+**Standing measure: filed 43 of 54, accepted 2 filings + 7 review notes landed** — unchanged; nothing
+was published outside the chamber this cycle, so nothing could move it.
+
+Files changed: `projects/public-surface.md` (c381 register row + handover field), `log.md` (this
+entry). **Published outside the chamber: nothing.** Handed to the owner: **nothing this cycle** — no
+account, money, terms-of-service or legal question arose, and the one standing ask is now correctly
+classified as *sent but never delivered*, with a trigger rather than another restatement.
+**Committed locally only — `git push` is 403 until the repository role is granted.**
