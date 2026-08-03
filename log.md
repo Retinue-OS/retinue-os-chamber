@@ -3093,3 +3093,61 @@ reasoning at c436–c441 each cycle since. Idle is the honest reading, not a def
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
 the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+---
+
+## c443 — 2026-08-03, ~19:0xZ — pickup: recovered and landed an interrupted regeneration, two real defects fixed before commit
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch.
+
+**Delivery check: FAIL at start, not the 26 h case — an uncommitted regeneration, not a stale one.**
+`tools/delivery-check.py` exited 1: served stamp `2026-08-02T21:17:37Z`, age 21:47:06 — well inside the
+26 h bound, so this was not the "attribute stale-disk vs stale-delivery" branch the dispatch describes.
+Instead `git status` showed all five `docs/data/*.json` modified on disk, uncommitted, all five carrying
+one consistent new stamp `2026-08-03T18:58:17Z` — the daily `aros-dashboard-refresh` job (confirmed from
+`.schedule.json`) had run and written its output but never reached its own commit step, same shape as the
+prior `21:17:37Z` recovery noted in this file's git history. A complete, single-stamp set sitting
+uncommitted is recoverable, not a missed run, so this became the cycle's one pickup rather than a second
+GitHub/drafts item.
+
+**Verified before landing, per the job's own "measure first, commit second, drop stale-resolved before you
+commit" rule — and it caught two real defects, not zero:**
+- `tools/card-budget-check.py`: 78 budgeted values, 0 over — clean on the first run.
+- `tools/desk-drop-check.py`: **1 problem on the first run** — `retinue#60` and `retinue#68` reported
+  STALE-RESOLVED (referenced on the desk card, both already merged). Traced to `docs/data/todo.json`:
+  the otherwise-live items `retinue#67` and `#69` cite their originating PRs as "PR#60 follow-up" /
+  "PR#68 follow-up" — true, incidental context, not a claim that those PRs are still open — but the
+  checker's regex has no way to tell a citation from a queue item and correctly flags any `#<number>`
+  reference to a resolved issue. Reworded `PR#60`→`PR 60`, `PR#68`→`PR 68` (dropping the bare `#`) so the
+  reference parser no longer misreads cited, already-resolved context as something still owed. Re-run:
+  0 problems, coverage 33/33.
+- **Pre-commit `private-name-check.py` blocked the first commit attempt outright** — a real guardrail-5
+  defect the job's own run had introduced: `docs/data/briefing.json` named the org's one private repo,
+  by name, on a public surface. This is exactly the class of leak guardrail 5 exists to catch — a repo
+  the owner keeps private is not public content regardless of how incidental the mention, and this log
+  entry deliberately does not repeat the name either. Reworded to "one further org repo is private and
+  out of scope," no name. Re-run: 0 problems on forward surfaces.
+
+**Landed.** Commit `b063444` on `retinue-os-chamber`, pushed to `main`. Confirmed end-to-end, not from the
+push succeeding alone: polled `repos/.../pages/builds` until a build for `b063444` completed, then read
+the **served** copy directly (`curl .../data/todo.json`) — `generated: 2026-08-03T18:58:17Z`, matching
+disk. Final `delivery-check.py` run: `5 cards + 16 assets, one stamp, 0 problems`. Delivery is clean as
+of this entry.
+
+**Why this was the right one thing.** Committing the recovered files verbatim would have republished a
+private repo name and left two false-reading desk references live for up to a full day until the next
+scheduled run — a worse outcome than the uncommitted state it was found in. Fixing both before landing
+is exactly the "measurements are not finished, commit the five you have" discipline the job's own prompt
+describes, applied one step earlier: the five *were* finished, and what was missing was the verification
+pass, not the run itself.
+
+**Light survey, not a second pickup.** `gh api orgs/retinue-os/events`: top five entries are my own four
+pushes from this recovery plus nothing else new; no non-`aros-agent`/`retog` actor anywhere. Stars/forks/
+watchers re-fetched directly for all four public repos: 0/0/0 on each, unchanged. This confirms there was
+nothing else worth a second pickup this cycle — the recovery above stands alone.
+
+**Files changed:** `docs/data/agenda.json`, `docs/data/briefing.json`, `docs/data/messages.json`,
+`docs/data/projects.json`, `docs/data/todo.json` (all committed as `b063444`), `log.md` (this entry).
+**Published outside the chamber:** the recovered dashboard, `retinue-os-chamber@b063444`, now served at
+https://retinue-os.github.io/retinue-os-chamber/ — a data regeneration, not new prose; no social post.
+**Handed to the owner:** nothing new. No guardrail-9 exception condition met this cycle.
