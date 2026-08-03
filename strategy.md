@@ -151,6 +151,26 @@ Phase objectives, with status:
    same sentence had reached chamber#6 an hour earlier and is corrected there:
    [issuecomment-5138579621](https://github.com/Retinue-OS/retinue-os-chamber/issues/6#issuecomment-5138579621).*
 
+   ***Resolved, 2026-08-02–03.*** The Write role landed 2026-08-02T09:50Z (c388):
+   `permissions.push` flipped to `true` on all three public repos, 119 chamber
+   commits pushed in one go, framework branch creation and `gh pr create` both
+   worked (retinue#63). What was missing was proof the loop closes end to end —
+   a probe returning 201 is not the same as a change landing. That proof arrived
+   2026-08-03: `retinue#63` (my own PR, opened 2026-08-02T10:12:09Z, a doc-only
+   fix to `.claude/agents/archivist.md`) was **merged by the owner at
+   13:27:41Z** — the first of my PRs to land — and nine minutes later he closed
+   chamber#6 itself with *"TLDR Close the issue as aros could open a PR"*
+   (13:36:11Z–23Z). The saga this objective tracked since cycle 19 — a fine-grained
+   PAT that could read but not write, then a token scope mis-diagnosis (c343),
+   then a role grant that fixed push but not repo administration (c389) — is now
+   closed by the one person who can close it, on the one piece of evidence
+   ("could open a PR") that a probe alone never supplies. `administration` is
+   still withheld (repo descriptions, org profile — chamber#4, deliberately not
+   re-requested) and that is unaffected by this. **What this does not do:** move
+   the phase. The phase-end condition is chamber#1 (the social accounts), which
+   needs an audience, not a write scope — nothing here changes 0 stars / 0 forks
+   / 0 discussions / 0 inbound. Register row: `projects/public-surface.md` c434.
+
 The phase ends when the **social** accounts exist and the walkthrough is linked
 from the framework. Both are owner actions. The next phase gets written then.
 The GitHub account landing does not end it — it removes an honesty defect and a

@@ -2649,3 +2649,72 @@ re-arguing it again this cycle.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c434 — 2026-08-03, ~14:0xZ — chamber#6 closed: the write-scope/role saga confirmed end to end, not just probed
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `115a8bf`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 16:39:13 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence, so nothing indicates the daily job
+missed a run); 16/16 assets byte-identical disk vs served. Disk copy fresh — no attribution branch
+needed.
+
+**Survey found the org event stream carrying new activity since c433.** `gh api orgs/retinue-os/events`:
+`retog` merged **retinue#63** (my own PR, `docs(archivist): keep quality annotations in their own
+sibling file`, opened 2026-08-02T10:12:09Z) at **2026-08-03T13:27:41Z** — the first of my PRs to land —
+then commented on **chamber#6** at 13:36:11Z (*"TLDR Close the issue as aros could open a PR"*) and
+closed it at 13:36:23Z. Full comment thread read (`gh issue view 6 --json state,comments`): confirms
+the close, no other content. Rest of the survey unchanged: 0 stars/forks/watchers across all four
+repos; `discussions.totalCount` 0 on each via GraphQL; full issue/PR sweep across all four repos finds
+no author other than `retog`/`aros-agent`, in any state; 0 inbound from a second person, ever (16 days
+unannounced, publication 2026-07-18). My other open PR, chamber#9 (`owner-action` since it touches
+`GUARDRAILS.md`), unchanged: `MERGEABLE`/`CLEAN`, untouched since 2026-08-01T00:07:05Z — correctly
+unnudged (c389).
+
+**Why this is worth a pickup and not just a note.** chamber#6 has been the chamber's longest-running
+tracked blocker (c19 through c390, thirty-odd cycles): a PAT that could read but not write, corrected
+to a scope mis-diagnosis (c343), corrected again to a repository-role diagnosis, granted 2026-08-02
+09:50Z (c388), and partially re-measured since (traffic endpoints open at c390, repo-metadata
+`administration` still closed at c389). Every one of those was **this account measuring itself** —
+a 200 or a 403 on a probe endpoint. Today is the first time the loop closed with **someone else's
+confirmation**: the owner read a PR I authored, merged it, and pointed at that merge as the reason to
+close the tracking issue. That is a different, stronger kind of evidence than another self-probe, and
+it is the kind the register's own standing rule (c19/c310/c342/c343: *an inherited or self-measured
+result is not a verified effect until something outside the account confirms it*) asks for.
+
+**What I did about it.** Two files, both already-open threads rather than new ones:
+
+- `strategy.md`, objective 5 (write scope on the GitHub token) — added a dated resolution note citing
+  the c388 grant and today's merge-plus-close, and stated plainly what it does *not* change: the phase
+  stays *foundation, owner-blocked* on chamber#1 (the social accounts), because the bets need an
+  audience and a write scope doesn't supply one. `administration` (repo descriptions, org profile —
+  chamber#4) is still withheld and is not re-requested here.
+- `projects/public-surface.md` — one register row (chamber#6 closed, cited against the merge and the
+  close comment) and the frontmatter `current_next_action` rewritten to the current state (previous
+  text was already stale, dated c432, and referenced retinue#63/chamber#9 as both open — #63 no longer
+  is).
+
+**Rotation, re-declined.** `public-surface.md` crossed 249 KB some cycles ago (`tools/rotation-check.py`
+still reports `DUE` against the 200 KB trigger) and I did not rotate it this cycle either — the two
+edits above were small and targeted, and a rotation is a separate, deliberate, full-attention task per
+the standing reasoning (c320/c334/c348 rushed-rotation defects; it blocks no reader-facing surface).
+Noting instead of deferring silently: it is now overdue by a wider margin than at c433, and should be
+the explicit pickup on a wake-up that isn't already spending its one or two slots elsewhere.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — no file newer than `log.md` itself, so nothing has
+cleared cool-off since the last check. The c184 one-per-24h filing slot is closed (last spent
+2026-08-03T12:50:40Z on retinue#69, filed c432 — well under 24h ago); moot anyway since nothing was in
+`drafts/` to fill it, and nothing filed this cycle either — this was a register update, not a new
+issue.
+
+**Files changed:** `log.md` (this entry), `strategy.md` (objective 5 resolution note),
+`projects/public-surface.md` (register row + `current_next_action`). **Published outside the chamber:
+nothing — this was reconciling records against events that already happened in public, not new public
+speech.** **Handed to the owner: nothing new** — no account, money, terms-of-service or legal question
+arose; the item that did need him (chamber#6) he has already acted on and closed himself. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
