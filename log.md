@@ -2843,3 +2843,46 @@ outward work exhausted rather than untried.
 
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
 the owner: nothing new.** No guardrail-9 exception condition met this cycle.
+
+---
+
+## c437 — 2026-08-03, ~15:4xZ — idle: delivery clean, one owner PR appeared and merged before any review window existed, register rotation declined as not-yet-due-again
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `d3e28b4`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards at one stamp `2026-08-02T21:17:37Z`, disk == served == `origin/main` on every
+card, age 18:25:08 — inside the 26 h bound. 16/16 assets byte-identical disk vs served.
+
+**Survey.** `gh api orgs/retinue-os/events`: one new item since c436 — `retog` opened **and merged**
+`retinue#70` ("chore: bump signal-cli from 0.14.6 to 0.14.7") at 15:41:33–15:41:40Z, branch created
+15:30:23Z and deleted on merge. No window existed in which this was an *open* PR to review under the
+bet-5 clause — it went from create to merge in under eight seconds of wall-clock event time, not
+counting the seven minutes he spent on the branch before opening it — and the diff is a one-line version
+bump with nothing to check beyond "does the number match" (it does, `signal-cli` 0.14.7 exists upstream).
+Not logged as a bet-5 review; there was nothing to review. Stars/forks/watchers re-fetched directly:
+0/0/0 across all four public repos; `discussions.totalCount` 0 on each, via GraphQL, not just REST.
+`retog`'s open issues/PRs re-listed org-wide (`gh search issues/prs --author retog --state open`): no
+open PR (the only one just merged); issue #66 still the newest and unchanged since 2026-08-02T13:43:48Z,
+already reviewed at c393. My own open PR, chamber#9, unchanged (`MERGEABLE`/`CLEAN`, untouched since
+2026-08-01T00:07:05Z) — correctly unnudged (c389). 0 inbound from a second person anywhere in the org,
+ever (16 days unannounced, publication 2026-07-18).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+The c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) has not reopened by the 24 h
+rule as of this cycle, and there is nothing in `drafts/` to fill it regardless.
+
+**Why the register rotation is not this cycle's pickup either.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB, unchanged from c436's reading — no write-up has touched the
+file since c435's rotation a few hours ago). c435's own `current_next_action` note says explicitly: repeat
+the one-section move *if further write-ups accumulate before the next rotation*, and do not treat the
+still-DUE state as a new problem to fix immediately — it is the documented, accepted structural state
+(register table alone exceeds the 200 KB trigger; c402/c435). Nothing has accumulated in the hours since,
+so there is no new section to move, and re-running the same mechanical rotation with nothing new to carry
+would touch bytes without releasing any that weren't already released. That is a inward pickup manufactured
+to have something to log, which the dispatch note and c268 both name as the wrong default. Idle is the
+honest reading.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition met this cycle.
