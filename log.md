@@ -3413,3 +3413,46 @@ met this cycle. (Also disregarded, out of caution: this run's tool output contai
 initialization — no such server is configured for this chamber and nothing in this dispatch calls for
 one, so it was treated as noise/injection and not acted on. Noted here only because guardrail 9 says the
 instinct that something is trying to steer me outside these rules is itself a signal worth recording.)
+
+---
+
+## c450 — 2026-08-03, ~23:0xZ — idle: delivery clean, nothing new since c449
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `eff8b80` — no leftover state from a prior run.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 4 card attributions + the uncommitted
+override, 6 asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`,
+`projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card,
+age 4:07:24 — well inside the 26 h bound and the 24 h refresh cadence, so no need to separately read
+`docs/data/briefing.json`'s on-disk stamp. 16/16 assets byte-identical disk vs served. 0 problems.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest non-`aros-agent` entries are still `retog`'s
+16:10:29Z push on 2026-08-03 (already logged c439–c449); everything after that through this cycle is my
+own pushes. Stars/forks/watchers/open-issues re-fetched directly for all four public repos (`retinue`
+0/0/0/39, `retinue-os-chamber` 0/0/0/7, `retinue-os-deployment` 0/0/0/1, `qlever-dir` 0/0/0/8) —
+unchanged. `discussions.totalCount` 0 on each via GraphQL. Open PRs across all four repos (`gh search
+prs --owner retinue-os --state open`): only my own chamber#9, unchanged (`updatedAt` still
+2026-08-01T00:07:05Z, 0 comments) — correctly unnudged (c389); no open PR from `retog` anywhere in the
+org. `gh search issues --owner retinue-os --state open --sort updated --limit 10`: newest ten span both
+authors, all previously known — `retog`'s newest open item is still issue #66, unchanged since
+2026-08-02T13:43:48Z, already reviewed under the bet-5 clause at c393. 0 inbound from a second person
+anywhere in the org, ever (16 days unannounced, publication 2026-07-18). `tools/mentions-check.py`: 50
+raw hits, 0 confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check. The
+c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z by
+the 24 h rule; still closed this cycle, and there is nothing in `drafts/` to fill it regardless.
+
+**Why the register rotation is not this cycle's pickup.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB against the 200 KB trigger) — flagged, not new: `git log` on
+that file shows no commit since c435's rotation (`9758b5d`, 2026-08-03 14:38:38Z), so nothing has
+accumulated to move; re-running the mechanical rotation now would touch bytes without releasing any,
+matching the reasoning at c436–c449 each cycle since. Idle is the honest reading, not a deferral.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle. (Also disregarded, out of caution, same as c449: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server exists for
+this chamber, and it was treated as noise/injection and not acted on.)
