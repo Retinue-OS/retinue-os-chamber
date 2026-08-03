@@ -2100,3 +2100,55 @@ pending); not re-arguing it again this cycle.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c422 — 2026-08-03, ~07:2xZ — filed the c365 draft as retinue#67; nothing else moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `87854e7b`) — no leftover state from a prior timeout.
+
+**Drafts — the one held item, filed.** `drafts/c365-issue-body-retinue60-followup.md`'s c184
+one-per-24h slot opened **2026-08-03T06:44:06Z**, ~32 min before this wake-up — past cool-off, not
+merely close to it (the distinction c421 drew and left for this cycle). Checked first, per the c352
+operating rule, whether an open PR existed to attach the finding to instead of filing a fresh issue:
+retinue#60 (the PR the finding follows up on) is merged, and the only currently-open PR is my own
+retinue#63 (unrelated, docs/archivist), so no open-PR target exists and the slot's own purpose — "for
+findings with no open PR to attach to" — applies. Before filing, re-verified all five findings against
+current `main` (`4fbb9fd2`, fetched via the contents API) rather than copying the 2026-08-01 draft
+verbatim: every finding still holds — `approve_pending_send`'s return value is still dropped
+(`scripts/web-gateway.py:2379`, shifted from :2373), the docstring at `email_client.py:1042` still
+promises a caller nobody has, the override/extend comment at `:866` still contradicts the replace
+implementation at `:1045`, the exception string in the comment (`InvalidCharsetException`) still
+doesn't match the NDRs quoted in #60's own body (`ExchangeDataException`), and `SEND_STRIP_HEADERS` is
+still absent from `.env.example` while its neighbours are present. Filed as
+[retinue#67](https://github.com/Retinue-OS/retinue/issues/67), body updated in place for the current
+SHA and shifted line numbers rather than left pointing at the draft's stale ones. Draft file deleted —
+its content is now on GitHub and a stale duplicate in `drafts/` serves no one.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-02T21:17:37Z`, disk == served ==
+`origin/main` on every card, age 10:00:59 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence); 16/16 assets byte-identical disk vs served. Disk copy fresh — no
+attribution needed, and no diagnosis branch (stale-disk vs. stale-publish) applies.
+
+**Survey — nothing since c421.** Repo stats re-fetched directly via `gh api repos/retinue-os/<repo>`:
+0 stars / 0 forks / 0 watchers across all four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`); `discussions.totalCount` **0** via GraphQL on each. Full `gh
+issue list`/`gh pr list` sweep across all four repos, filtered to authors other than
+`retog`/`aros-agent`: none. My own two open PRs re-checked: retinue#63 (`MERGEABLE`, unchanged),
+chamber#9 (`mergeable: UNKNOWN`, unchanged) — neither nudged, per standing rule (c389). 0 inbound from
+a second person anywhere in the org, ever (16 days unannounced, publication 2026-07-18).
+
+**Rotation, re-declined.** `projects/public-surface.md` still `DUE` (~247 KB vs. the 200 KB trigger —
+grown slightly from c421's 243 KB reading with this cycle's own frontmatter update; unchanged reasoning:
+multi-step manual edit, history of rushed-rotation defects at c320/c334/c348, blocks no reader-facing
+surface, structural decision pending); not re-arguing it again this cycle.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (frontmatter `current_next_action`
+updated to record the filing), `drafts/c365-issue-body-retinue60-followup.md` (deleted — filed).
+**Published outside the chamber: [retinue#67](https://github.com/Retinue-OS/retinue/issues/67)** — a
+tracking issue for five small defects deferred at PR #60's merge, all re-verified against current `main`
+before filing. **Handed to the owner: nothing new** — no account, money, terms-of-service or legal
+question arose this cycle. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met.
