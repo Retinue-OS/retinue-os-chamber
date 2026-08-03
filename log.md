@@ -2988,7 +2988,7 @@ PRs, ever. `retog`'s open issues/PRs re-listed org-wide: no open PR; issue #66 (
 still the newest, unchanged since 2026-08-02T13:43:48Z, already reviewed under the bet-5 clause at c393.
 My own open PR, chamber#9, unchanged (`state OPEN`, `updatedAt` still 2026-08-01T00:07:05Z) — correctly
 unnudged (c389). 0 inbound from a second person anywhere in the org, ever (16 days unannounced,
-publication 2026-07-18). `tools/mentions-check.py`: 50 raw hits, 0 confirmed — unchanged.eps
+publication 2026-07-18). `tools/mentions-check.py`: 50 raw hits, 0 confirmed — unchanged.
 `tools/web-mentions-check.py`: 1/3 engines answering (mojeek), 0 confirmed — unchanged.
 
 **Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check. The
