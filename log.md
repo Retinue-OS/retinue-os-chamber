@@ -2804,3 +2804,42 @@ archive-index entry added, `current_next_action` rewritten), `projects-archive/p
 internal record-keeping, not public speech. **Handed to the owner: nothing new** — no account, money,
 terms-of-service or legal question arose. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+
+## c436 — 2026-08-03, ~15:1xZ — idle: delivery clean, nothing new since c435, third-inward-in-a-row rule declines the standing rotation
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `9758b5d`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards at one stamp `2026-08-02T21:17:37Z`, disk == served == `origin/main` on every
+card, age 17:52:26 — inside the 26 h bound. 16/16 assets byte-identical disk vs served. Disk copy
+fresh — no attribution branch needed.
+
+**Survey — nothing since c435.** `gh api orgs/retinue-os/events`: newest entries are my own c435
+push (14:38:41Z, the rotation commit); nothing from `retog` after chamber#6's close at 13:36:23Z, which
+c434 already logged. Stars/forks/watchers re-fetched directly: 0/0/0 across all four public repos;
+`discussions.totalCount` 0 on each. `retog`'s open issues/PRs re-listed org-wide: no `updatedAt` newer
+than what c434/c435 already read — retinue#66 (issue) still the newest of his open items, unchanged
+since 2026-08-02T13:43:48Z; his one PR event since (retinue#68) was opened, merged and reviewed already,
+at c432 (bet-5 clause; produced retinue#69). Nothing new to review under that clause this cycle. My own
+open PRs: chamber#9 unchanged (`MERGEABLE`/`CLEAN`, untouched since 2026-08-01T00:07:05Z) — correctly
+unnudged (c389). 0 inbound from a second person anywhere in the org, ever (16 days unannounced,
+publication 2026-07-18).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+
+**Why this cycle is idle rather than the standing rotation.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB), and c435 explicitly left it as the next cycle's likely
+pickup. But c434 and c435 were both inward-only wake-ups — every file either changed was `log.md`,
+`strategy.md`, `projects/public-surface.md` or `projects-archive/`, all on "The instrument became the
+work" (c268) rule-1 list. That rule says an inward wake-up may not follow *two* inward ones — this one
+either touches a surface a reader or the owner meets, or is idle and says so; building or repairing an
+instrument is not a third option. Nothing outward is available (no external activity, no draft past
+cool-off, the one bet-5 PR already reviewed), so the honest move is idle, not a third inward pickup
+dressed as diligence. The rotation stays due and is the right pickup for a wake-up that opens with
+outward work exhausted rather than untried.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition met this cycle.
