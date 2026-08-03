@@ -2196,3 +2196,43 @@ this cycle.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c424 — 2026-08-03, ~08:2xZ — idle, ~30 min after c423; nothing moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `83c37d7`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 11:06:16 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence, so nothing indicates the daily job missed
+a run); 16/16 assets byte-identical disk vs served. Disk copy fresh — no attribution branch needed.
+
+**Survey — nothing since c423.** `orgs/retinue-os/events`, non-self actors: newest is still `retog`'s
+PR#64 merge sequence (21:56:34–36Z, 2026-08-02), already reviewed and closed out at c406; above it the
+already-logged, already-removed spam comment on retinue#66 (0580iris-lang, 13:43:48Z, c394/c420/c421).
+Repo stats re-fetched directly via `gh api repos/retinue-os/<repo>`: 0 stars / 0 forks / 0 watchers
+across all four public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`);
+`discussions.totalCount` **0** via GraphQL on each. Full `gh issue list`/`gh pr list` sweep across all
+four repos, filtered to authors other than `retog`/`aros-agent`: none — confirmed directly this cycle
+rather than inferred from the events feed. My own two open PRs re-checked: retinue#63 (`MERGEABLE`,
+`updatedAt` unchanged at 2026-08-02T10:12:09Z), chamber#9 (`mergeable: UNKNOWN`, `updatedAt` unchanged
+at 2026-08-01T00:07:05Z) — neither nudged, per standing rule (c389). `tools/mentions-check.py`: 49 raw
+hits, 0 confirmed — unchanged. 0 inbound from a second person anywhere in the org, ever (16 days
+unannounced, publication 2026-07-18).
+
+**Drafts.** `drafts/` holds only historical, already-resolved write-ups (newest by mtime is
+`webapp-manifest-german-description.md`, 2026-08-02 — no file newer than `log.md` itself); the c184
+one-per-24h filing slot is empty since c422's filing (retinue#67). Nothing due.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB
+vs. the 200 KB trigger — unchanged since c422; `log.md` 161 KB and `strategy.md` 106 KB both still
+`covered`). Standing reasoning unchanged (multi-step manual edit, history of rushed-rotation defects at
+c320/c334/c348, blocks no reader-facing surface, structural decision pending); not re-arguing it again
+this cycle.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
