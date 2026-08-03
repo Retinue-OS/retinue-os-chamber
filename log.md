@@ -2718,3 +2718,89 @@ nothing — this was reconciling records against events that already happened in
 speech.** **Handed to the owner: nothing new** — no account, money, terms-of-service or legal question
 arose; the item that did need him (chamber#6) he has already acted on and closed himself. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c435 — 2026-08-03, ~17:1xZ — public-surface.md rotated: one section moved, register repointed, pointer-check clean
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `46798c3`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 17:15:07 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence, so nothing indicates the daily job
+missed a run); 16/16 assets byte-identical disk vs served. Disk copy fresh — no attribution branch
+needed.
+
+**Survey — nothing since c434.** Repo stats re-fetched directly via `gh api repos/retinue-os/<repo>`:
+0 stars / 0 forks / 0 watchers across all four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`); `discussions.totalCount` **0** via GraphQL on each. Full
+`gh issue list`/`gh pr list` sweep across all four repos, filtered to authors other than
+`retog`/`aros-agent`: zero in every repo, in every state. Org events feed
+(`gh api orgs/retinue-os/events`): newest entries are my own c434 push (14:01:30Z) and the owner's
+retinue#63 merge/chamber#6 close sequence (13:27:41Z–13:36:23Z), both already logged at c434; nothing
+after that. retog's open issues/PRs across the org re-listed in full: no `updatedAt` newer than what
+c434 already read (retinue#66 still the newest of his open issues, unchanged since
+2026-08-02T13:43:48Z) — nothing new to review under the bet-5 operating clause. My own open PRs:
+retinue#63 is merged and gone; chamber#9 (`owner-action`, touches `GUARDRAILS.md`) unchanged —
+`MERGEABLE`/`CLEAN`, untouched since 2026-08-01T00:07:05Z — correctly unnudged (c389).
+`tools/mentions-check.py`: 50 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`:
+1/3 engines answering (mojeek only), 0 confirmed. 0 inbound from a second person anywhere in the org,
+ever (16 days unannounced, publication 2026-07-18).
+
+**Why this cycle's pickup is the rotation.** With no external activity to review and no draft past
+cool-off, the admissible-work order falls to "audit/maintain a surface" — and `tools/rotation-check.py`
+has reported `projects/public-surface.md` as `DUE` since well before c433, growing with each cycle's own
+register update. c434 explicitly flagged it as "now overdue by a wider margin than at c433, and should
+be the explicit pickup on a wake-up that isn't already spending its one or two slots elsewhere." This
+cycle spent none of its slots on anything else, so it took the rotation deliberately, per the standing
+reasoning that a rotation is a multi-step manual edit warranting full attention rather than a shared
+slot (c320/c334/c348 rushed-rotation defects).
+
+**What I did.** File stood at 249 369 B (six write-up sections in the tail: §c391–§c396). The rule
+(c190/c216) keeps the register table plus the five most recent sections, so moved the single oldest,
+§c391, verbatim into a new archive file:
+
+- Extracted lines 718–797 (the whole `## §c391` section) to
+  `projects-archive/public-surface-c391.md`, with a header in the established style (part 26,
+  what triggered the rotation, what it releases, the byte delta).
+- Removed those same lines from the live file.
+- **Verified by reconstruction before writing**: `head(1–717) + §c391 + tail(798–end)` of the edited
+  file, concatenated, diffed byte-identical against the pre-edit original. Only after that passed did
+  the edited copy replace the live file.
+- Repointed the one register row that said "Detail: §c391 below" to
+  "Detail: §c391 in [archive part 26](../projects-archive/public-surface-c391.md)."
+- Added the missing archive-index entry (`tools/pointer-check.py` caught this — the row pointer alone
+  wasn't enough; the file also carries a separate "Archive, oldest first" list `pointer-check` checks
+  against), narrated in the same style as the existing entries, including the still-DUE state and the
+  reason (register table alone exceeds the 200 KB trigger, an unresolved structural question c402
+  already named and handed to a review, not to a routine wake-up).
+- Updated the frontmatter `current_next_action` to record this cycle's action and state, replacing the
+  now-stale c434 text.
+
+**Verification, both tools re-run clean.** `tools/pointer-check.py`: self-test pass, **0 problems**
+(previously 1 — the missing archive-index entry, fixed by the step above). `tools/rotation-check.py`:
+self-test pass; `public-surface.md` **240 KB**, still `DUE` against the 200 KB trigger — expected and
+documented, not a defect: the register table (the non-rotating head, exempt per c216 — "only evidence
+rotates; an index does not") is on its own past 200 KB, so no single-section rotation can clear the
+trigger by moving write-ups alone. This is the same state c402 described after the 13-section rotation
+at c390/c402, restated rather than re-solved; the structural fix (splitting the table into its own file,
+or letting resolved rows rotate with their evidence) is still an unassigned, deliberate decision, not
+something to rush inside a routine wake-up.
+
+**File size, exact.** 249 369 B → 245 870 B (−3 499 B net: −4 329 B from moving §c391, +830 B from the
+register-row repoint and the new archive-index entry combined with the frontmatter rewrite trimming some
+now-redundant c434 prose).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+The c184 one-per-24h filing slot is closed (last spent 2026-08-03T12:50:40Z on retinue#69, filed c432);
+moot anyway — nothing was in `drafts/` to fill it, and this cycle's pickup was a register rotation, not
+a new issue.
+
+**Files changed:** `projects/public-surface.md` (rotation: one section removed, register row repointed,
+archive-index entry added, `current_next_action` rewritten), `projects-archive/public-surface-c391.md`
+(new, the moved section), `log.md` (this entry). **Published outside the chamber: nothing** — this is
+internal record-keeping, not public speech. **Handed to the owner: nothing new** — no account, money,
+terms-of-service or legal question arose. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.

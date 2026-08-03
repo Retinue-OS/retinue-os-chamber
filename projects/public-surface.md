@@ -4,7 +4,7 @@ id: proj-public-surface
 title: "The project's public surfaces say what the project is"
 goal: "Anyone landing on the org, a repo, or the docs site learns what Retinue is and what it isn't, without opening a source file."
 goal_status: not_achieved
-current_next_action: "Aros, c434 (2026-08-03 ~15:xxZ): CHAMBER#6 CLOSED - THE MULTI-WEEK WRITE-SCOPE/ROLE SAGA IS OVER. Survey found retinue#63 (my own PR, opened 2026-08-02T10:12:09Z) merged by retog at 2026-08-03T13:27:41Z - the first of my PRs to land - and chamber#6 closed nine minutes later (13:36:23Z) with his comment 'TLDR Close the issue as aros could open a PR' (13:36:11Z). This is end-to-end confirmation, not another probe: a real authored change, merged, cited by the owner himself as the resolution. Added one register row (this file) and updated strategy.md objective 5 to mark it resolved. IDENTITY: I post as @aros-agent. (1) DELIVERY CHECK c434: PASS, clean - all five cards at one stamp 2026-08-02T21:17:37Z, disk == served == origin/main, age ~16.6h, inside the 26h bound; 16/16 assets byte-identical. (2) SURVEY: 0 stars/forks/watchers/discussions across all four repos; 0 issues/PRs from any author other than retog/aros-agent; 0 inbound from a second person, ever (16 d unannounced). chamber#9 (my other open PR, owner-action since it touches GUARDRAILS.md) still open, MERGEABLE/CLEAN, untouched since 2026-08-01, correctly unnudged (c389). (3) NEXT PICKUP: projects/public-surface.md rotation still DUE (now well over 249 KB vs 200 KB trigger, unchanged reasoning across many cycles: c320/c334/c348 rushed-rotation defects, blocks no reader-facing surface) - take it deliberately when a wake-up can give it full attention. (4) DO NOT: no nudge on chamber#9 (c389); do not treat chamber#6's closure as changing the phase - the phase stays blocked on chamber#1 (social accounts), which write access does not touch."
+current_next_action: "Aros, c435 (2026-08-03 ~17:1xZ): ROTATED THIS FILE - one section (c391) moved to projects-archive/public-surface-c391.md, reconstruction verified byte-identical before writing, register row repointed, archive index entry added, pointer-check clean (0 problems). Chosen because c433/c434 both flagged the rotation as increasingly overdue and this cycle had no external activity to review (0 stars/forks/watchers/discussions across all four repos; 0 issues/PRs from any non-retog/aros-agent author; nothing new from retog since c434's read of chamber#6's close). File 249.4 KB -> 245.9 KB; STILL DUE per rotation-check (240 KB > 200 KB trigger) because the register table (the non-rotating head) is itself past 200 KB on its own - this is the same unresolved structural state c402 described and c435's archive-index note restates; not re-argued or fixed here, no owner cycle assigned yet. IDENTITY: I post as @aros-agent. (1) DELIVERY CHECK c435: PASS, clean - all five cards at one stamp 2026-08-02T21:17:37Z, disk == served == origin/main, age ~17.2h, inside the 26h bound; 16/16 assets byte-identical. (2) SURVEY: confirmed idle since c434 - no new stars/forks/issues/PRs/discussions/comments from anyone but retog/aros-agent; chamber#9 (my other open PR) still open MERGEABLE/CLEAN, untouched since 2026-08-01, correctly unnudged (c389). (3) NEXT PICKUP: this rotation only released one section per the fixed-floor rule: with 6 write-ups accumulated (c391-c396) it moved the oldest and kept five - if further write-ups accumulate before the next rotation, repeat the same one-section move; the structural question (register table itself exceeds the threshold) still needs a deliberate review-level decision, not a routine wake-up's rush (c320/c334/c348 rushed-rotation defects). (4) DO NOT: no nudge on chamber#9 (c389); do not treat the still-DUE rotation-check result as a new problem to fix immediately - it is the documented, accepted structural state."
 current_actor: actor-owner
 waiting_since: 2026-07-20
 expected_by: 2026-08-10
@@ -254,6 +254,16 @@ Archive, oldest first:
   head alone crosses 200 KB") one day after c368 measured it at 185.7 KB. See
   the note this cycle added below the register for what that means for the
   rule itself.
+- [`projects-archive/public-surface-c391.md`](../projects-archive/public-surface-c391.md)
+  — cycle 391, 2026-08-02. Rotated at c435, thirty-three wake-ups after the
+  previous rotation (c391–c396 accumulated six write-ups while the c268
+  no-two-inward-in-a-row rule and other pickups took priority); releasing the
+  single oldest section, per the fixed-floor rule, keeps the tail at exactly
+  five (c392–c396). **−4 329 B**, live file **249.4 KB → 245.0 KB, still past
+  the 200 KB trigger** — the same unresolved-structural-decision state c402
+  described: the head this rotation cannot touch is on its own past the
+  threshold, so no single-section rotation clears it. Not re-argued here;
+  the c402 note below still stands and still has no owner cycle.
 
 **The rotation rule itself needs a decision this rotation could not make (added 2026-08-02, cycle 402).** c368 named two candidate repairs — move the register table into its own file, or let resolved rows rotate with the evidence they point at — and handed the choice to the 2026-08-02T17:01:41Z scheduled review. That review declined it explicitly ("No `projects/public-surface.md` rotation — it is DUE (301 KB) but that predates this review and is out of this job's scope; left for the next ordinary wake-up"), so the decision is still unmade a cycle later, and this rotation is the second data point that the rule's own success condition — clear the 200 KB trigger — is unreachable by moving sections alone: head **210.9 KB**, five kept write-ups ~30 KB, floor ~241 KB against a 200 KB trigger. Not decided here either, for the reason c368 gave: this is a structural change to a rule c216 argued for on evidence, and a routine wake-up rushing it is exactly the class of defect this file's own rotations have produced before (c320, c334, c348). Recorded so the next wake-up does not read "DUE, deferred" as a stable state — it is a standing question with no owner cycle yet, not a queue merely waiting its turn.
 
@@ -539,7 +549,7 @@ measured at 0 of 78.
 | **Whether a granted `permissions.push` is a push** — added late, because c388's log entry claimed a register row it never wrote | 2026-08-02 (c388) | **It is not, and it was probed by doing it.** `permissions.push` flipped to `true` on all three public repos 09:50Z; the register's own rule (c19/c310/c342/c343) applies symmetrically to a *granted* flag, so: chamber `git push` landed **119 commits** (`2a9f826..44d54ba`), framework branch creation succeeded, `gh pr create` returned [retinue#63](https://github.com/Retinue-OS/retinue/pull/63). Delivery check went **77 consecutive failures → `5 cards + 16 assets, one stamp, 0 problems`** with no regeneration — the only fault was ever the unpublishable branch. **The row itself is the second finding:** c388's log entry lists `projects/public-surface.md (c388 register row + handover)` under *files changed*, and the file received the §c388 write-up and the handover field but **no row** — so for one cycle the index did not contain an entry the record said it contained. A write-up is the detail; the row is the only thing a later cycle scans. Detail: §c388 in [archive part 25](../projects-archive/public-surface-c358-c390.md). |
 | **The blocker on the three blank repo descriptions, re-measured the morning the role landed** — the handover has named the wrong permission for 13 days | 2026-08-02 (c389) | **The Write grant does not reach repo metadata, and the header says so in one word.** `PATCH /repos/Retinue-OS/retinue-os-chamber` (setting a description) → **403**, declaring `X-Accepted-Github-Permissions: administration=write`; `PATCH .../issues/9` seconds later → **200**, declaring `issues=write; pull_requests=write`; effective role now `{pull, push, triage}`, `admin: false`. **Unlike c343 this is an honest denial** — the two calls declare *different* permissions, so the header discriminates instead of masking, and the missing one is `administration`, which is the **Admin** role, not the Write role granted at 09:50Z. Consequence for [chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4): its *"Why this needs you"* points at chamber#6 as the cause, chamber#6 is now **granted**, and the 403 survived it — so the issue as it stands would tell a reader who checks that the blocker is cleared when it is not. Steps 1–3 (create `.github`, org description) need Admin or org-owner and stay his; **step 4 needs no permission change at all** — three descriptions pasted into three Settings pages, ~1 minute, and it is the cheapest third of a handover that has sat 13 days. **Second finding, in the copy itself:** the prepared `retinue` description read *"credentials in sidecars"* — the unscoped form, in the one line a search result and the org page render, while the body of the same document two screens up says *"never sees a **messaging** credential. That scope word is load-bearing."* Corrected to *"messaging credentials live in sidecar containers"*. **Third instance of the same failure** (positioning records cycle 162's "a manual certificate step" and cycle 166's path-traversal claim), and the pattern is now nameable: **the derived one-liner is the copy most likely to drop the scope word and least likely to be re-audited**, because claim sweeps read documents and a repo description lives in a metadata field. |
 | **The *other* half of the Write grant — which recorded consequences it *opened*** — c389 probed only what it failed to reach | 2026-08-02 (c390) | **Traffic is readable for the first time, and it says the zero is a distribution result.** 16/16 endpoints 200 (20 × 403 at c258); labels authorized (422 not 403), verified by effect — all 50 open org issues now labeled, 3 were mine. 14-day reading: `retinue` **120 views / 5 uniques**, chamber 23/3, deployment 10/1, qlever-dir 3/1. Clones excluded on a measurement: r = **0.95** with this repo's own Actions runs, 4.89 clones/run. One `t.co` referrer, n = 1 — the only off-GitHub arrival ever visible. Publication day has already rolled off the window, as c258 forecast. Detail: §c390 in [archive part 25](../projects-archive/public-surface-c358-c390.md) |
-| **The owner's open PR, reviewed on its merits** — retinue#64, the second firing of the review-his-PR habit | 2026-08-02 (c391) | **The patch is right and its stated cause is wrong, and the grant it makes is necessary but not sufficient.** `/root/.claude/uploads` is the Claude *app*'s upload dir (settings.json `additionalDirectories`, `entrypoint.sh`, and the line the PR extends — three occurrences on the branch head, no upload handler among them); dashboard composer uploads take the **same** route as agent-pushed ones (`POST /conversations/<id>/messages` → `_conv_add_message` → `_store_attachments` → `CONVERSATION_ATTACHMENTS_DIR`), so both were unreadable before and both are readable after. Second finding, measured with the `Read` tool rather than read off the diff: attachments are stored as a bare `uuid4().hex`, **no extension** — an extensionless PNG renders (content-sniffed), an extensionless PDF comes back as text, mojibake once the content stream is `/FlateDecode`d, **with no error at either layer**. Filed as [retinue#65](https://github.com/Retinue-OS/retinue/issues/65), labeled `bug`. Detail: §c391 below |
+| **The owner's open PR, reviewed on its merits** — retinue#64, the second firing of the review-his-PR habit | 2026-08-02 (c391) | **The patch is right and its stated cause is wrong, and the grant it makes is necessary but not sufficient.** `/root/.claude/uploads` is the Claude *app*'s upload dir (settings.json `additionalDirectories`, `entrypoint.sh`, and the line the PR extends — three occurrences on the branch head, no upload handler among them); dashboard composer uploads take the **same** route as agent-pushed ones (`POST /conversations/<id>/messages` → `_conv_add_message` → `_store_attachments` → `CONVERSATION_ATTACHMENTS_DIR`), so both were unreadable before and both are readable after. Second finding, measured with the `Read` tool rather than read off the diff: attachments are stored as a bare `uuid4().hex`, **no extension** — an extensionless PNG renders (content-sniffed), an extensionless PDF comes back as text, mojibake once the content stream is `/FlateDecode`d, **with no error at either layer**. Filed as [retinue#65](https://github.com/Retinue-OS/retinue/issues/65), labeled `bug`. Detail: §c391 in [archive part 26](../projects-archive/public-surface-c391.md). |
 | **The issue queue as a newcomer meets it** — is anything in 52 open issues enterable by a stranger? | 2026-08-02 (c392) | Four issues admitted `good first issue` on a stated rule (a documented contradiction, one file, no deployment needed); `help wanted` left at **0 of 52** because nothing is genuinely unowned. Detail: §c392 below |
 | **The maintainer's one-hour-old spec** — retinue#66, reviewed against the code it lands on | 2026-08-02 (c393) | Four findings, cited against `main @ df0f460e` **through the contents API** — the container's baked copy is 40–120 lines offset. The stall clock has no anchor; a per-subscription setting is wiped on every page load. [Comment](https://github.com/Retinue-OS/retinue/issues/66#issuecomment-5158187251). Detail: §c393 below |
 | **The org event stream as a survey instrument** — never audited; it is where every survey reads "who acted" | 2026-08-02 (c394) | **It retains content GitHub has removed.** A promo comment's full 546-char body was served from `orgs/…/events` while the comment id and its author both returned **404** — same second. Second such comment in 10 d (c154 was the first). Detail: §c394 below |
@@ -715,86 +725,6 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
-## §c391 — the fix is right, its stated cause is wrong, and what it grants is necessary but not sufficient (2026-08-02, 12:0x–12:4xZ)
-
-### The surface, and why this one
-
-`retinue#64`, opened by the owner at 11:49:32Z — twenty minutes before this
-wake-up. c390 named the next pickup (a `good first issue` pass over 50 bodies)
-and this displaced it on perishability: a labeling pass keeps, an open PR does
-not, and c381 measured that an open PR he authored is the **only** venue that has
-ever produced a reply (9 of 16 comments; everything else 0 of 21).
-
-### What the review found
-
-**The patch is right.** `CONVERSATION_ATTACHMENTS_DIR` is `mkdir(parents=True,
-exist_ok=True)`-ed at import, next to its definition, so the second `--add-dir`
-can never name a path that does not exist yet — which is the failure mode a
-second `--add-dir` invites.
-
-**Its Cause section is wrong, and only the git history pays.** The PR states that
-`/root/.claude/uploads` is where composer uploads land, and infers the symptom
-from the asymmetry. On the branch head that path occurs three times and none is
-an upload handler:
-
-| occurrence | what it is |
-|---|---|
-| `.claude/settings.json` → `permissions.additionalDirectories` | grant for the session |
-| `scripts/entrypoint.sh` | `--add-dir` on the `--remote-control` session |
-| `scripts/web-gateway.py` | the line this PR extends |
-
-It is the Claude **app's** upload directory. Dashboard composer uploads take the
-same route as agent-pushed attachments — `POST /conversations/<id>/messages` →
-`_conv_add_message(..., attachments=…)` → `_store_attachments()` →
-`CONVERSATION_ATTACHMENTS_DIR/<cid>/<att_id>`. Same tree, same grant. So both
-kinds were unreadable before the patch and both are readable after it; the
-behaviour is unaffected and the recorded reason is not. If a composer upload
-really did open without a prompt, the cause is somewhere other than `--add-dir`,
-and it will explain the next surprise too.
-
-### The second finding, and it is the one worth filing
-
-Measured with the `Read` tool in this container, not read off the diff.
-`_store_attachments()` writes each file as a bare `uuid4().hex` — deliberately, so
-an untrusted filename never becomes a path component — and
-`_conv_attachment_note()` hands the session exactly that extensionless path.
-
-| file | what `Read` returned |
-|---|---|
-| PNG, no extension | rendered as an image |
-| PDF, uncompressed content stream, no extension | the PDF source as text |
-| PDF, `/FlateDecode`, no extension | `x?s\nQ?w3T04RIS02P05PIQ?p??-(J-.NMQ` … as text |
-| same PDF bytes, named `doc.pdf` | rendered as a document |
-
-Images are content-sniffed; PDFs are keyed on the extension. Real PDFs compress
-their content streams, so row three is the ordinary case. **Neither layer emits an
-error.** The patch converts a visible failure (a permission prompt) into a silent
-one, on precisely the case `CLAUDE.md` advertises — "an e-mail attachment (a PDF
-invoice) forwarded into a thread". Filed as
-[retinue#65](https://github.com/Retinue-OS/retinue/issues/65), labeled `bug`, with
-a fix that appends an allowlisted suffix derived from the stored `content_type` to
-the generated id, so the extension comes from the allowlist rather than from the
-user's string and the containment check in `_serve_conversation_attachment()` is
-untouched. Kept out of #64 so it does not hold that one up.
-
-### What deliberately was not done
-
-**No role ask, no nudge.** c388 retired the standing ask and it stays retired; a
-review of his PR is not a delivery vehicle for something else. `retinue#63` and
-`chamber#9` — both mine, both unreviewed — were not nudged, unchanged from c389
-and for c381's measured reason.
-
-### The transferable half
-
-**A permission grant and a working read are two claims, and a patch that makes the
-first true can make the second harder to notice.** The prompt was the only
-instrument reporting that a thread attachment was unreachable. Removing it was
-correct and it also removed the signal, so the residual defect now presents as an
-agent confidently discussing a document it never decoded. Whenever a fix removes a
-visible failure, ask what the visible failure was *measuring* — this is the
-c347 rule ("a 200 is not a measurement of the effect") applied to a permission
-rather than to a status code.
-
 ## c392 — the queue gets a newcomer path, on a rule that can be checked from the body
 
 *2026-08-02 12:4x–13:0xZ. Delivery check PASS (fifth in 82 runs), all five cards at
