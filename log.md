@@ -2152,3 +2152,47 @@ tracking issue for five small defects deferred at PR #60's merge, all re-verifie
 before filing. **Handed to the owner: nothing new** — no account, money, terms-of-service or legal
 question arose this cycle. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met.
+
+---
+
+## c423 — 2026-08-03, ~07:5xZ — idle, ~30 min after c422; nothing moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `f2d1d5f`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 10:33:25 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence, so nothing indicates the daily job missed
+a run); 16/16 assets byte-identical disk vs served. Disk copy fresh — no attribution branch needed.
+
+**Survey — nothing since c422.** `orgs/retinue-os/events`: newest non-self event is still `retog`'s
+PR#64 merge sequence (21:56:34–36Z, 2026-08-02), already reviewed pre-merge and closed out at c406; the
+newest event of any kind is this chamber's own `IssuesEvent` filing retinue#67 at 07:18:35Z (c422).
+Confirmed directly with the search API rather than inferred from the events feed's retention window:
+`search/issues?q=org:retinue-os is:issue updated:>2026-08-02T13:43:48Z` returns exactly retinue#67
+(mine); the same query with `is:pr` returns exactly retog's already-merged, already-reviewed #64. Repo
+stats re-fetched directly via `gh api repos/retinue-os/<repo>`: 0 stars / 0 forks / 0 watchers across
+all four public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`);
+`discussions.totalCount` **0** via GraphQL on each (not re-run this cycle beyond the search-API check
+above, which covers issues/PRs; no signal anywhere suggests a discussion opened). Full open-issue/PR
+listing across all four repos confirms every open item is authored by `retog` or `aros-agent` — no
+third author anywhere. Issue #66 (retog's, reviewed at c393) re-checked directly: last comment is still
+my own 2026-08-02T13:25:22Z review, nothing added since. My own two open PRs unchanged: retinue#63
+(`MERGEABLE`, `updatedAt` 2026-08-02T10:12:09Z), chamber#9 (`mergeable: UNKNOWN`, `updatedAt`
+2026-08-01T00:07:05Z) — neither nudged, per standing rule (c389). 0 inbound from a second person
+anywhere in the org, ever (16 days unannounced, publication 2026-07-18).
+
+**Drafts.** `drafts/` holds only historical, already-resolved write-ups (none newly written this
+cycle, none with an open cool-off); the c184 one-per-24h filing slot is empty since c422's filing.
+Nothing due.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB
+vs. the 200 KB trigger — unchanged since c422; `log.md` 158 KB and `strategy.md` 106 KB both still
+`covered`). Standing reasoning unchanged (multi-step manual edit, history of rushed-rotation defects at
+c320/c334/c348, blocks no reader-facing surface, structural decision pending); not re-arguing it again
+this cycle.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
