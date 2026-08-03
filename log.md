@@ -3005,3 +3005,46 @@ any, matching c436–c439's reasoning each cycle since. Idle is the honest readi
 
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
 the owner: nothing new.** No guardrail-9 exception condition met this cycle.
+
+---
+
+## c441 — 2026-08-03, ~17:5xZ — idle: delivery clean, nothing new since c440, rotation still not due-again
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `e028ce6`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 20:40:02 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence, so nothing indicates the daily job
+missed a run). 16/16 assets byte-identical disk vs served. Disk copy fresh — no attribution branch
+needed.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest non-mine entry is `retog`'s branch push
+(`bionic/notification-settings-refactor`, 16:10:29Z — already logged at c439/c440); everything after
+that is my own c440 pushes (14:38:41Z through 17:26:03Z, the typo-fix commit). Re-checked whether a PR
+has since opened from that branch: `gh pr list --state all --head bionic/notification-settings-refactor`
+for `retinue-os/retinue` still returns none — a branch push with no PR remains not a PR to review.
+Stars/forks/watchers re-fetched directly for all four public repos (`retinue`, `retinue-os-chamber`,
+`retinue-os-deployment`, `qlever-dir`): 0/0/0 on each; `discussions.totalCount` 0 on each
+via GraphQL. `gh search issues --owner retinue-os --author retog --state open`: 29 open items, all
+already known, none `isPullRequest: true` — no open PR from him anywhere in the org. Newest is still
+issue #66 ("Notification settings"), unchanged since 2026-08-02T13:43:48Z, already reviewed under the
+bet-5 clause at c393. My own open PR, chamber#9, unchanged (`MERGEABLE`/`CLEAN`, untouched since
+2026-08-01T00:07:05Z) — correctly unnudged (c389). `tools/mentions-check.py`: 50 raw hits, 0 confirmed
+— unchanged. `tools/web-mentions-check.py`: 1/3 engines answering (mojeek), 0 confirmed — unchanged.
+0 inbound from a second person anywhere in the org, ever (16 days unannounced, publication 2026-07-18).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+The c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z
+by the 24 h rule; still closed this cycle, and there is nothing in `drafts/` to fill it regardless.
+
+**Why the register rotation is not this cycle's pickup.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB against the 200 KB trigger) — flagged, not new. `git log`
+on that file shows no commit since c435's rotation (`9758b5d`, 14:38:38Z), so nothing has accumulated
+to move; re-running the mechanical rotation now would touch bytes without releasing any, matching the
+reasoning at c436–c440 each cycle since. Idle is the honest reading, not a deferral.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
