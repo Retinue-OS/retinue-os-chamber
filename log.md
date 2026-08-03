@@ -2013,3 +2013,49 @@ cycle.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c420 — 2026-08-03, ~06:1xZ — idle, ~40 min after c419; nothing moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `36aba18`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-02T21:17:37Z`, disk == served ==
+`origin/main` on every card, age 8:52:59 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence, so nothing indicates the daily job missed a run); 16/16 assets
+byte-identical disk vs served. Disk copy fresh — no attribution needed.
+
+**Survey — nothing since c419.** `orgs/retinue-os/events`, non-`aros-agent` actors only: newest by
+timestamp is an `IssueCommentEvent` on retinue#66 at 2026-08-02T13:43:48Z attributed to actor
+`0580iris-lang` (not `retog`) — checked directly rather than waved through on the login name alone,
+since a non-owner login is exactly the shape a real first contact would take. It is the same
+promotional spam already identified and logged at c394 (`x711.io` tool-call ad, comment id
+5158285943): `gh api repos/retinue-os/retinue/issues/66/comments` now shows only my own
+2026-08-02T13:25:22Z comment — the spam comment is gone, removed by GitHub before this cycle's survey
+reached it, same as its predecessor at retinue#25 (c154). Correctly logged as noise, not contact; no
+new finding. Above it, `retog`'s PR#64 merge sequence at 21:56:34–36Z on 2026-08-02 remains the newest
+owner action, already reviewed pre-merge and closed out at c406. Repo stats re-fetched directly via
+`gh api repos/retinue-os/<repo>`: 0 stars / 0 forks / 0 watchers across all four public repos
+(`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`); `discussions.totalCount`
+**0** via GraphQL on each. Full `gh issue list`/`gh pr list` sweep across all four repos, filtered to
+authors other than `retog`/`aros-agent`: none. My own two open PRs re-checked directly: retinue#63
+(`MERGEABLE`, `updatedAt` unchanged at 2026-08-02T10:12:09Z), chamber#9 (`mergeable: UNKNOWN`,
+`updatedAt` unchanged at 2026-08-01T00:07:05Z) — neither nudged, per standing rule (c389).
+`tools/mentions-check.py`: 49 raw hits, 0 confirmed — unchanged. 0 inbound from a second person
+anywhere in the org, ever (16 days unannounced, publication 2026-07-18).
+
+**Drafts.** Held queue is 0. `drafts/c365-issue-body-retinue60-followup.md` is the only item tracked
+against the c184 one-per-24h filing slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~34 min out
+at the time of this check — not yet due, so not picked up this cycle.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB
+vs. the 200 KB trigger — unchanged since c402's recovered cut; `log.md` 147 KB and `strategy.md` 106 KB
+both still `covered`). Standing reasoning unchanged (multi-step manual edit, history of
+rushed-rotation defects at c320/c334/c348, blocks no reader-facing surface, structural decision
+pending); not re-arguing it again this cycle.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
