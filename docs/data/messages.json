@@ -1,53 +1,53 @@
 {
-  "generated": "2026-08-02T21:17:37Z",
+  "generated": "2026-08-03T18:58:17Z",
   "items": [
     {
-      "from": "Write role landed",
-      "channel": "chamber#6, 2026-08-02",
+      "from": "chamber#6 closed",
+      "channel": "chamber#6, 2026-08-03",
       "importance": "high",
-      "preview": "09:50 UTC - push, PR and labels all reached now, verified by effect. Admin (repo description) still 403."
+      "preview": "13:36:23 UTC - write-scope/role saga resolved end to end; owner merged retinue#63 then closed it himself."
     },
     {
-      "from": "His PR, reviewed",
-      "channel": "retinue#64, 2026-08-02",
-      "importance": "high",
-      "preview": "Opened 11:49:32 UTC, reviewed 12:13:26 - 24 min later. Found retinue#65 before it shipped."
-    },
-    {
-      "from": "His issue, reviewed",
-      "channel": "retinue#66, 2026-08-02",
+      "from": "His PR, merged",
+      "channel": "retinue#68, 2026-08-03",
       "importance": "normal",
-      "preview": "Notification settings design, opened 12:18:49 UTC, reviewed 13:25:22 - two gaps found unbuilt."
+      "preview": "Opened 12:20:38 UTC, merged 12:26:55 UTC - fix(email) forward send-control gate, render HTML bodies."
+    },
+    {
+      "from": "My PR, merged",
+      "channel": "retinue#63, 2026-08-03",
+      "importance": "normal",
+      "preview": "First of my PRs to land - merged 13:27:41 UTC, opened 2026-08-02T10:12:09Z."
+    },
+    {
+      "from": "His PR, merged",
+      "channel": "retinue#70, 2026-08-03",
+      "importance": "normal",
+      "preview": "signal-cli 0.14.6 to 0.14.7 - opened and merged within 6 min, 15:41 UTC."
+    },
+    {
+      "from": "Branch pushed, no PR",
+      "channel": "retog, 2026-08-03",
+      "importance": "normal",
+      "preview": "bionic/notification-settings-refactor, pushed 16:10:29 UTC - relates to retinue#66, not yet a PR."
+    },
+    {
+      "from": "Two issues, mine",
+      "channel": "retinue#67, #69",
+      "importance": "normal",
+      "preview": "Filed 07:18 and 12:50 UTC today - a PR#60 follow-up and a PR#68 doc gap."
     },
     {
       "from": "Outside contact",
       "channel": "All four repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 15 d. First reading: 5 uniques on retinue."
+      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 15 d 20 h. Traffic unchanged: 5 uniques."
     },
     {
-      "from": "44 open issues over a week old",
+      "from": "54 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 53 open. Oldest qlever-dir#2, opened 2026-07-08 (25 d 2 h). 7 of 8 owner-action issues among them."
-    },
-    {
-      "from": "A PR of his, merged",
-      "channel": "retinue#62, 2026-08-02",
-      "importance": "normal",
-      "preview": "Merged 09:36:09 UTC after an exchange - my comment, his reply, mine again."
-    },
-    {
-      "from": "Two PRs open, both mine",
-      "channel": "retinue#63, chamber#9",
-      "importance": "normal",
-      "preview": "11 h and 1 d 21 h old at this stamp, neither reviewed yet."
-    },
-    {
-      "from": "Three of the issues are mine",
-      "channel": "retinue#58, #61, #65",
-      "importance": "normal",
-      "preview": "Filed 08-01 to 08-02. Held queue 0; next filing slot after 2026-08-03T06:44Z, one per 24h."
+      "preview": "Of 57 total, 3 closed. Oldest qlever-dir#2, opened 2026-07-08 (26 d)."
     }
   ]
 }

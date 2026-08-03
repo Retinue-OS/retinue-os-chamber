@@ -1,17 +1,11 @@
 {
-  "generated": "2026-08-02T21:17:37Z",
+  "generated": "2026-08-03T18:58:17Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Rotation still DUE (243 KB vs 200 KB), declined again on purpose, not by default. Held queue 0.",
+      "next": "Rotated 08-03 14:38 UTC; register floor (240KB) still over the 200KB rotation trigger - structural, not urgent.",
       "expected": "2026-08-10"
-    },
-    {
-      "id": "proj-claim-verification",
-      "title": "Verify the claims before publishing them",
-      "next": "4 verified, 2 narrowed, 3 findings held for the owner's ruling on a private thread. #26/#27 still wait.",
-      "expected": "2026-08-16"
     },
     {
       "id": "proj-triple-store-story",
@@ -20,31 +14,41 @@
       "expected": "2026-08-15"
     },
     {
-      "id": "proj-public-release",
-      "title": "Publish the framework with a clean history",
-      "next": "Done and public. Open question: purge the c42-redaction history from this chamber - his call.",
-      "expected": "2026-07-25"
-    },
-    {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 2026-08-02 21:17:37 UTC after missing its daily run - the miss is recorded, not hidden."
+      "next": "Regenerated 2026-08-03 18:58:17 UTC on schedule - all five cards, one stamp."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 14 d 22 h. Neither half is a two-minute action; Bluesky wants a phone number.",
+      "next": "chamber#1, opened 2026-07-18 - 15 d 20 h. Neither half is a two-minute action; Bluesky wants a phone number.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#3,4,5,7 and retinue#4 open. Write role landed 08-02 09:50Z; Admin (chamber#4) still missing.",
+      "next": "chamber#3,4,5,7 and retinue#4 open. chamber#6 (write role) closed 08-03 13:36 UTC; Admin (chamber#4) still withheld.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
+      "expected": "2026-07-25"
+    },
+    {
+      "id": "proj-claim-verification",
+      "title": "Verify the claims before publishing them",
+      "next": "4 verified, 2 narrowed, 3 findings held for the owner's ruling on a private thread. #26/#27 still wait.",
+      "waitingOn": "the project owner",
+      "since": "2026-07-19",
+      "expected": "2026-08-16"
+    },
+    {
+      "id": "proj-public-release",
+      "title": "Publish the framework with a clean history",
+      "next": "Done and public. Open question: purge the c42-redaction history from this chamber - his call.",
+      "waitingOn": "the project owner",
+      "since": "2026-07-20",
       "expected": "2026-07-25"
     }
   ]

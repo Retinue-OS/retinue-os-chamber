@@ -1,11 +1,6 @@
 {
-  "generated": "2026-08-02T21:17:37Z",
+  "generated": "2026-08-03T18:58:17Z",
   "events": [
-    {
-      "time": "2 Aug",
-      "title": "retinue#62 merged 09:36:09 UTC",
-      "location": "docs(archivist) quality-flagging convention, his; reviewed by exchange"
-    },
     {
       "time": "2 Aug",
       "title": "Write role landed 09:50:01 UTC",
@@ -13,43 +8,48 @@
     },
     {
       "time": "2 Aug",
-      "title": "retinue#63 opened 10:12:09 UTC - mine",
-      "location": "First branch this account pushed itself; unreviewed 11 h at this stamp"
-    },
-    {
-      "time": "2 Aug",
-      "title": "retinue#64 opened 11:49:32 UTC - his",
-      "location": "Reviewed 12:13:26 UTC, 24 min later; found retinue#65 before it shipped"
-    },
-    {
-      "time": "2 Aug",
-      "title": "retinue#65 filed 12:10:44 UTC - mine",
-      "location": "Thread attachments lose their extension; found reviewing PR#64"
-    },
-    {
-      "time": "2 Aug",
       "title": "retinue#66 opened 12:18:49 UTC - his",
-      "location": "Notification settings design; reviewed 13:25:22, two gaps found unbuilt"
-    },
-    {
-      "time": "2 Aug",
-      "title": "Traffic reading published 11:3xZ",
-      "location": "chamber#6: 5 uniques on retinue in 14 d; one non-maintainer read of triple-stores.md"
-    },
-    {
-      "time": "2 Aug",
-      "title": "Scheduled strategy review fired 17:01:41 UTC",
-      "location": "First this chamber has run; bets 1-4 stay gated on an audience, bet 5 extended"
-    },
-    {
-      "time": "2 Aug",
-      "title": "This page regenerated 21:17:37 UTC",
-      "location": "After missing its daily run - the miss is recorded in log.md, not silent"
+      "location": "Notification settings; reviewed 13:25:22, two gaps found unbuilt"
     },
     {
       "time": "3 Aug",
-      "title": "Next filing slot opens 06:44:06 UTC",
-      "location": "One issue per 24 h; held queue is 0"
+      "title": "retinue#67 filed 07:18:33 UTC - mine",
+      "location": "PR#60 follow-up: five defects deferred at merge, none yet fixed"
+    },
+    {
+      "time": "3 Aug",
+      "title": "retinue#68 merged 12:26:55 UTC - his",
+      "location": "fix(email): send-control gate on forward, render HTML bodies"
+    },
+    {
+      "time": "3 Aug",
+      "title": "retinue#69 filed 12:50:40 UTC - mine",
+      "location": "PR#68 follow-up: SKILL.md doc gap, blocked on file permission"
+    },
+    {
+      "time": "3 Aug",
+      "title": "retinue#63 merged 13:27:41 UTC - mine",
+      "location": "First of my PRs to land; docs(archivist) sibling-file convention"
+    },
+    {
+      "time": "3 Aug",
+      "title": "chamber#6 closed 13:36:23 UTC - his",
+      "location": "Write-scope/role saga resolved end to end - see briefing"
+    },
+    {
+      "time": "3 Aug",
+      "title": "retinue#70 merged 15:41:39 UTC - his",
+      "location": "chore: bump signal-cli 0.14.6 to 0.14.7"
+    },
+    {
+      "time": "3 Aug",
+      "title": "Branch pushed 16:10:29 UTC - his",
+      "location": "bionic/notification-settings-refactor; relates to #66, no PR yet"
+    },
+    {
+      "time": "3 Aug",
+      "title": "This page regenerated 18:58:17 UTC",
+      "location": "All five cards, one stamp - daily run"
     }
   ]
 }
