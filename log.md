@@ -2529,3 +2529,78 @@ re-arguing it again this cycle.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c432 — 2026-08-03, ~15:3xZ — reviewed the owner's newly-merged PR #68 (bet-5 clause), filed the one doc gap it left as retinue#69
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `b7606b8`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp
+`2026-08-02T21:17:37Z`, disk == served == `origin/main` on every card, age 15:30:05 — inside the 26 h
+bound (also inside the 24 h `aros-dashboard-refresh` cadence); 16/16 assets byte-identical disk vs
+served. Disk copy fresh — no attribution branch needed.
+
+**Survey found a new signal: retinue#68, the owner's own PR, opened and merged inside one wake-up
+gap.** `gh pr list -R retinue-os/retinue --state all`: #68 ("fix(email): route forward through
+send-control gate; render HTML bodies"), opened 12:20:38Z, merged 12:27:12Z — not open by the time
+this cycle read it, but the bet-5 operating clause ("review the owner's own newly-opened PR or issue
+on the wake-up it is found") doesn't stop applying just because the merge beat me to it; the point is
+still to catch anything checkable before it goes stale. 0 stars/forks/watchers/discussions across all
+four repos, unchanged; no other issue/PR from any author other than `retog`/`aros-agent`.
+
+**Reviewed #68 against `main`, not against the PR's own description.** Cloned the framework fresh
+(`/tmp`, per the standing submodule workaround) at `1ba3588`, the merge commit. Diffed
+`scripts/email_client.py` against the PR patch: identical. Two real fixes, both verified in the
+merged code, not just claimed in the PR body:
+
+- `cmd_forward` now calls `_dispatch_message` — the same choke point `send`/`reply` use — instead of
+  calling `_smtp_send` directly. Before this, a `forward` from a `verify`-category account **bypassed
+  the approval gate entirely**: `verify` is supposed to mean no direct send, ever, and forward was the
+  one command where that wasn't true. Closed.
+- `_body_text` now runs an HTML-only source body through a new stdlib `_html_to_text`
+  (`HTMLParser`-based, no new dependency) instead of quoting raw markup in the forwarded message.
+
+**The PR's own body flagged a follow-up it left out** — `.claude/skills/use-email-client/SKILL.md`
+should note that `forward` now shares the send-control policy and renders HTML — and the author noted
+he "couldn't edit it in the headless session (sensitive-file permission)." Confirmed the gap is real:
+the skill file's "Send control" section still documents only `send`'s behaviour, and the `forward`
+example line says nothing about the policy or the rendering. Went to fix the one-line/one-sentence
+addition myself, since it looked trivial and doc-only, and **hit the identical wall**: the `Read` tool
+403s on that exact file with a sensitive-file permission error in this headless session — even though
+a plain `cat`/`sed` on the same fresh clone reads it fine, so the restriction is at the tool layer
+(editing skill content headlessly), not a filesystem permission and not specific to either account.
+Worth having on record precisely because it isn't: the next agent hitting `.claude/skills/` shouldn't
+read a 403 there as "I lack write access to this repo" (the c343 shape, one layer up) and shouldn't try
+to route around it with a raw shell edit either — the restriction is presumably deliberate, since
+skills shape agent behaviour and neither of us should change them unattended.
+
+**Filed [retinue#69](https://github.com/Retinue-OS/retinue/issues/69)** — a small, low-urgency tracking
+issue: confirms the merge is correct, states the doc gap precisely, gives the two-line suggested
+wording so whoever next has an interactive session (or the explicit exception) can land it in under a
+minute, and is explicit that this is not urgent — the code already errs safe; the docs only understate
+a now-safer behaviour, not a risk. No labels attempted (still 403 on this account, standing issue,
+unchanged since c343).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+The c184 one-per-24h filing slot is open (last spent 2026-08-03T07:18:33Z on retinue#67, filed c422 —
+now past 24h, but nothing sat in `drafts/` to fill it this cycle; today's item went straight to GitHub
+without a cool-off, correctly, since it is neither a response to hostility, an incident, nor another
+project's failure).
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (now
+well past 247 KB against the 200 KB trigger — grown again this cycle by this entry's own
+`current_next_action` update); `log.md` and `strategy.md` both `covered`. Standing reasoning unchanged
+(multi-step manual edit, history of rushed-rotation defects at c320/c334/c348, blocks no
+reader-facing surface, structural decision pending); not re-arguing it again this cycle.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (frontmatter
+`current_next_action` updated to record the review and the filing). **Published outside the chamber:
+[retinue#69](https://github.com/Retinue-OS/retinue/issues/69)** — a tracking issue for one small,
+doc-only defect deferred at PR #68's merge, verified against current `main` before filing. **Handed to
+the owner: nothing new as a separate escalation** — the issue itself carries what he needs (what's
+missing, the exact wording, and why neither account can land it headlessly); no account, money,
+terms-of-service or legal question arose otherwise. No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle.
