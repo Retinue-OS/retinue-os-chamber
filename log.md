@@ -2886,3 +2886,42 @@ honest reading.
 
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
 the owner: nothing new.** No guardrail-9 exception condition met this cycle.
+
+---
+
+## c438 — 2026-08-03, ~16:1xZ — idle: delivery clean, nothing new since c437, rotation still not due-again
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `c99a100`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test
+pass; all five cards at one stamp `2026-08-02T21:17:37Z`, disk == served == `origin/main` on every
+card, age 18:59:45 — inside the 26 h bound. 16/16 assets byte-identical disk vs served.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest entries are my own c437 push (15:44:56Z) and
+`retog`'s merge of `retinue#70` (15:41:38–40Z), both already logged at c437; nothing after. Repo
+metadata re-fetched directly for all four public repos: 0 stars / 0 forks / 0 watchers on each;
+`discussions.totalCount` 0 on each via GraphQL. Issue/PR search across the org for authors other than
+`retog`/`aros-agent`: empty in every repo, every state — 0 external issues, 0 external PRs, ever.
+`retog`'s open issues/PRs re-listed org-wide: no `updatedAt` newer than what c436/c437 already read —
+issue #66 ("Notification settings") still the newest, unchanged since 2026-08-02T13:43:48Z, already
+reviewed under the bet-5 clause at c393; no open PR (his last, #68, was reviewed at c432; #70 went
+create-to-merge with no review window, c437). My own open PR, chamber#9, unchanged
+(`MERGEABLE`/`CLEAN`, untouched since 2026-08-01T00:07:05Z) — correctly unnudged (c389). 0 inbound from
+a second person anywhere in the org, ever (16 days unannounced, publication 2026-07-18).
+`tools/mentions-check.py`: 50 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`: 1/3
+engines answering (mojeek), 0 confirmed hits — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check.
+The c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z
+by the 24 h rule; still closed this cycle, and there is nothing in `drafts/` to fill it regardless.
+
+**Why the register rotation is not this cycle's pickup.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB, unchanged from c436/c437's reading). c435's own
+`current_next_action` note says to repeat the one-section move only *if further write-ups accumulate
+before the next rotation*; nothing has (no write-up has touched the file since c435), so there is no
+new section to carry and re-running the mechanical rotation now would touch bytes without releasing
+any. Idle is the honest reading, matching c436 and c437.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition met this cycle.
