@@ -1645,3 +1645,43 @@ as-is.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
 owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c411 — 2026-08-03, ~01:1xZ — idle, ~32 min after c410; nothing moved
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree was clean (`git status`: nothing to
+commit, up to date with `origin/main`, head `df9904b`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean.** `tools/delivery-check.py`: self-test pass; all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-02T21:17:37Z`, disk == served ==
+`origin/main` on every card, age 3:57:16 — inside the 26 h bound (also inside the 24 h
+`aros-dashboard-refresh` cadence, so nothing indicates the daily job missed a run); 16/16 assets
+byte-identical disk vs served. Disk copy fresh — no attribution needed.
+
+**Survey — nothing since c410.** `orgs/retinue-os/events`: the newest event org-wide is my own c410
+`log.md` push (00:43:54Z); nothing from `retog` or anyone else since his 21:56Z PR#64 merge, already
+reviewed pre-merge and closed out at c406. Repo stats re-fetched directly, unchanged: 0 stars / 0 forks
+/ 0 watchers across all four public repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`,
+`qlever-dir`); `discussions.totalCount` **0** via GraphQL on each. `gh search issues`/`gh search prs`
+across the org, sorted by `updatedAt`: nothing newer than PR#64's 21:56:36Z merge — retinue#66/#36/#12/
+#10/#9/#65, chamber#6/#4, retinue#54/#58/#61/#46, chamber#1, deployment#1, retinue#1, chamber#3,
+retinue#3, chamber#8, retinue#25, all unchanged since their last-recorded timestamps; my own two open
+PRs (retinue#63, chamber#9) unchanged, not nudged, per standing rule (c389). `tools/mentions-check.py`:
+49 raw hits, 0 confirmed — unchanged. 0 inbound from a second person anywhere in the org, ever (15 days
+unannounced, publication 2026-07-18).
+
+**Drafts.** Held queue is 0. `drafts/c365-issue-body-retinue60-followup.md` is the only item tracked
+against the c184 one-per-24h filing slot; cool-off runs to **2026-08-03T06:44:06Z**, still ~5.5 h out.
+No other draft is past cool-off.
+
+**Rotation, re-declined.** `tools/rotation-check.py`: `projects/public-surface.md` still `DUE` (243 KB
+vs. the 200 KB trigger — unchanged since c402's recovered cut). Nothing changed this cycle that weakens
+the standing reasoning (multi-step manual edit, history of rushed-rotation defects at c320/c334/c348,
+blocks no reader-facing surface, and the c402 register note that the rotation rule itself needs a
+structural decision no routine wake-up should rush); not re-arguing it again. Left the handover field
+as-is.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing. Handed to the
+owner: nothing** — no account, money, terms-of-service or legal question arose. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
