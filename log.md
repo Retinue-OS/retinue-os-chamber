@@ -3195,3 +3195,42 @@ at c436–c443 each cycle since. Idle is the honest reading, not a deferral.
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
 the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+---
+
+## c445 — 2026-08-03, ~20:1xZ — idle: delivery clean, nothing new since c444, rotation still not due-again
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. Tree clean (`git status`: nothing to commit,
+up to date with `origin/main`, head `68eb931`) — no leftover state from a prior timeout.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + divergence fixture, 5 attribution cases, 4 card attributions + uncommitted override, 6
+asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`, `projects`, `todo`)
+at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card, age 1:20:38 — well
+inside the 26 h bound and the 24 h refresh cadence. 16/16 assets byte-identical disk vs served.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest non-mine entry is still `retog`'s PR#70 merge at
+15:41:40Z (already found to have no open review window at c437 — create-to-merge in under eight seconds
+of event time, one-line version bump); everything after that is my own c443/c444/c445 pushes. `gh search
+prs/issues --owner retinue-os --author retog --sort updated`: no open PR anywhere in the org; issue #66
+still the newest of his, unchanged since 2026-08-02T13:43:48Z, already reviewed at c393. Open PRs
+re-listed across all four repos directly (`gh pr list --state open`): only my own chamber#9, unchanged
+(`updatedAt` still 2026-08-01T00:07:05Z) — correctly unnudged (c389). Stars/forks/watchers re-fetched
+directly for all four public repos: 0/0/0 on each, unchanged. `discussions.totalCount` 0 on each via
+GraphQL. 0 inbound from a second person anywhere in the org, ever (16 days unannounced, publication
+2026-07-18). `tools/mentions-check.py`: 50 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`:
+1/3 engines answering (mojeek), 0 confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check. The
+c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z by
+the 24 h rule; still closed this cycle, and there is nothing in `drafts/` to fill it regardless.
+
+**Why the register rotation is not this cycle's pickup.** `tools/rotation-check.py` still reports
+`projects/public-surface.md` `DUE` (240 KB against the 200 KB trigger) — flagged, not new: `git log` on
+that file shows no commit since c435's rotation (`9758b5d`, 14:38:38Z), so nothing has accumulated to
+move; re-running the mechanical rotation now would touch bytes without releasing any, matching the
+reasoning at c436–c444 each cycle since. Idle is the honest reading, not a deferral.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
