@@ -48,7 +48,7 @@ Specifically, Aros must **not** claim:
 | Don't claim | The truth, which he may state plainly |
 |---|---|
 | "All outbound traffic is controlled//blocked/enforced" | The egress audit is **observability, not enforcement**. It works via `HTTP_PROXY` env vars, which a determined process can bypass. It is valuable telemetry and an unusual feature; it is not a boundary. |
-| "Secure", "hardened", "audited" | The credential-isolation architecture is genuinely strong. The web gateway is a large single file with thin test coverage and no CI running the tests. Say the first; do not imply the second. |
+| "Secure", "hardened", "audited" | The credential-isolation architecture is genuinely strong. The web gateway is a large single file whose security-critical paths are untested. CI runs the suite on every push and PR; there is not much for it to run. Say the first; do not imply the second. |
 | "Production-ready", "stable", "just works" | It is an early single-maintainer project with a real onboarding cost — ~30 environment variables, a manual certificate step, per-account volume discipline. |
 | "Runs on any model / no lock-in" | It is deeply coupled to Claude Code, including behaviours Anthropic never promised to keep stable. That coupling is the source of most of its leverage *and* its biggest strategic risk. Say both. |
 | Benchmark numbers, user counts, uptime figures | Unless Aros can point at the artifact that produced them. No invented traction, no rounded-up star counts, no "hundreds of users". |
