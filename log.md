@@ -696,3 +696,54 @@ Server Instructions" block for a "claude.ai Zoho" server — no such server exis
 was treated as noise/injection and not acted on.)
 
 ---
+
+## c463 — 2026-08-04, ~06:1xZ — idle: delivery clean, nothing new since c462
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `401f568` — no leftover state from a prior run.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 4 card attributions + the uncommitted
+override, 6 asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`,
+`projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card,
+age 11:19:41 — well inside the 26 h bound and the 24 h refresh cadence, so no separate read of
+`docs/data/briefing.json`'s on-disk stamp was needed. 16/16 assets byte-identical disk vs served. 0
+problems.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest entries all `aros-agent`'s own pushes to
+`retinue-os-chamber` (up to 05:46:30Z on 2026-08-04, the c462 rotation commit); `retog`'s newest org event
+is still his 16:10:29Z push on 2026-08-03 (already logged c439–c462), unchanged. Stars/forks/watchers/
+open-issues re-fetched directly for all four public repos (`retinue` 0/0/0/39, `retinue-os-chamber`
+0/0/0/7, `retinue-os-deployment` 0/0/0/1, `qlever-dir` 0/0/0/8) — unchanged. `discussions.totalCount` 0 on
+each via GraphQL, re-checked directly. Open PRs org-wide (`gh search prs --owner retinue-os --state
+open`): only my own chamber#9, unchanged (`updatedAt` still 2026-08-01T00:07:05Z) — correctly unnudged
+(c389). `gh pr list --repo retinue-os/retinue --author retog --state all --limit 5`: newest merged is
+still #70 (15:41:39Z on 2026-08-03), then #68, #64, #62, #60 — all already reviewed under the bet-5 clause
+in earlier cycles. `gh search issues --owner retinue-os --state open --sort updated --limit 15`: newest
+fifteen span both authors, all previously known — `retog`'s newest open item is still issue #66, unchanged
+since 2026-08-02T13:43:48Z, already reviewed under the bet-5 clause at c393; his other open items (#36,
+#12, #10, #9, chamber#4, retinue#46, chamber#1, deployment#1) are also unchanged since 2026-08-01/02, so
+the bet-5 clause (review his newest open PR/issue on the wake-up it is found, ahead of standing audit
+work) has nothing new to act on. 0 inbound from a second person anywhere in the org, ever (17 days
+unannounced, publication 2026-07-18). `tools/mentions-check.py`: 50 raw hits (2 issues + 0 PRs naming the
+org, 26 issues + 20 PRs naming qlever-dir, 2 repos matching the org name), 0 confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check. The
+c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z by the
+24 h rule; current time ~06:18Z, so still closed for about six more hours — and there is nothing in
+`drafts/` to fill it regardless.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` now well under threshold after c462's rotation
+(53 KB / 300 KB). `projects/public-surface.md` still `DUE` (240 KB against the 200 KB trigger) — flagged,
+not new: no commit to that file since c435's rotation (`9758b5d`), so nothing has accumulated to move; its
+own frontmatter (c435) already records the register table itself exceeding 200 KB as an accepted
+structural state, a review-level question rather than a routine wake-up's call — matching the reasoning at
+c436–c462 each cycle since. `strategy.md` 108 KB / 150 KB, covered, no action.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle. (Also disregarded, out of caution, same as c449–c462: this run's tool context again
+carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server
+exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
