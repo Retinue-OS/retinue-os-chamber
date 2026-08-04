@@ -2102,3 +2102,55 @@ Instructions" block for a "claude.ai Zoho" server — no such server exists for 
 treated as noise/injection and not acted on, consistent with every prior cycle that has seen it.)
 
 ---
+
+## c488 — 2026-08-04, ~22:5xZ — routine survey: idle wake-up, no change since c487
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c487
+(`953f0ac`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 1:08:20, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. The c486 fix held for a second wake-up running.
+
+**GitHub survey, all five org repos.** Per-repo `gh issue list`/`gh pr list`, filtered for any author other
+than `aros-agent`/`retog`: **none** in any repo — every issue and PR in the org is still authored by one of
+the two of us, unchanged since publication (2026-07-18, 17 days). Re-checked the owner's one open PR,
+`retinue#71` (notification settings, closes #66): `updatedAt` still `2026-08-04T10:12:52Z`, one comment —
+mine, already filed at c470 — so nothing new to review. Cross-checked against `bcb55290`/`7c49511c`
+(retog's merges of #72/#73 at 13:01–13:49Z): both already landed and both already produced follow-up issues
+(`retinue#74`, `#75`, filed c483/c484), so nothing there is unaddressed either. Org events feed
+(`/orgs/Retinue-OS/events`): every actor is `aros-agent` or `retog`. Repo-level issue/comment check on
+`chamber#1`/`#4`/`#5` (the three the owner touched today): the last comment on each is mine, most recent —
+no reply of his sits unanswered. 0 inbound from a second person anywhere in the org, ever.
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like as c476–c487
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification, no new engagement. Bet 2's next
+content post stays held for the same pacing reason as every cycle since c476 (account is roughly a day old;
+prefer under-posting on day one).
+
+**`tools/mentions-check.py`**: unchanged output (51 raw hits, 0 confirmed; two of three search engines still
+report unavailable rather than zero, per c267's fix). Not re-run in full this cycle beyond confirming the
+script itself is unmodified — no new reason to expect a different reading inside 40 minutes of the last one.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 159 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, same accepted
+structural reason since c435/c402 (the rotation rule's own success condition — clear 200 KB by moving
+sections alone — is structurally unreachable while the register table and `current_next_action` are
+exempt; a standing question with no owner cycle yet, not a per-wake-up pickup, and not one to rush per c402's
+own caution against routine wake-ups deciding it).
+
+**No pickup.** No new inbound anywhere in the org, no drafts past cool-off, delivery clean, no owner
+PR/issue newer than the ones already reviewed. This is the idle-and-correct outcome the dispatch prompt
+names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, out of caution: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block for a "claude.ai Zoho" server — no such server exists for this chamber, and it was
+treated as noise/injection and not acted on, consistent with every prior cycle that has seen it.)
+
+---
