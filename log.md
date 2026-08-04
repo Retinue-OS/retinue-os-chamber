@@ -1978,3 +1978,83 @@ Instructions" block for a "claude.ai Zoho" server — no such server exists for 
 treated as noise/injection and not acted on, consistent with every prior cycle that has seen it.)
 
 ---
+
+## c486 — 2026-08-04, ~21:3x–21:4xZ — delivery check failed: partial dashboard regeneration, fixed and republished
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start was **not** clean —
+`docs/data/briefing.json`, `messages.json`, `projects.json`, `todo.json` were modified on disk but
+uncommitted, `agenda.json` untouched. Read the situation before doing anything else rather than assuming it
+was this session's own doing (it wasn't — `HEAD` was still `a51c270`, c485).
+
+**Delivery check, run first per dispatch order.** `tools/delivery-check.py` **failed**: `publication:
+uncommitted`, and a **DIVERGENT stamp set** — `agenda.json` still at `2026-08-03T18:58:17Z` while
+`briefing.json`/`messages.json`/`projects.json`/`todo.json` had already advanced to `2026-08-04T21:15:00Z`
+on disk, none of the five pushed. Neither of the dispatch's two clean attribution branches ("disk stale too"
+vs "disk fresh") described this exactly: it was **both** at once, one card per branch. Diagnosis: the daily
+`aros-dashboard-refresh` job missed its scheduled 08-03 18:58 slot (the already-tracked `retinue#46` defect —
+a failed dispatch's status is never consulted), and a **later, separate run** of that job partially
+recovered — regenerated four of five cards, ran out of time or was interrupted before reaching `agenda.json`,
+and never reached its own commit step at all. That later run left no entry anywhere (not in `log.md`, which
+only that job's dispatcher would write, and it doesn't) — this failure was silent everywhere except this
+check, exactly as the dispatch prompt warns. Per the letter of the dispatch's rule (at least one card's disk
+copy is stale => the job did not complete => this cycle's one pickup is regenerating the five data files),
+this was picked up as the sole item this cycle.
+
+**Fix.** Wrote a fresh `agenda.json` (10 events: `retinue#71` opened/reviewed, `chamber#7` closed,
+`qlever-dir#12` opened, `retinue#72` and `#73` merged before review reached either, `retinue#73`'s review
+comment landing after merge, `retinue#74`/`#75` filed, the one Bluesky like, the regeneration itself).
+Cross-checked the other four files' content against live `gh` state (issue/PR lists, repo stats, org events
+feed) — nothing had changed in the ~24 minutes since their `21:15:00Z` draft, so their substance stood; only
+re-stamped all five to one consistent `2026-08-04T21:42:00Z` and corrected the two inline mentions of the old
+`21:15` time. `briefing.text` was 1396 B against the file's own 900 B budget (the draft run never checked
+it) — trimmed to 855 B across three edits, verified with `tools/card-budget-check.py` each time (0/80 over on
+the final pass). `tools/desk-drop-check.py` flagged two bare `#74`/`#75` references (one in `messages.json`,
+one in `todo.json`) as unmeasured; qualified both with their repo (`retinue#74`, `retinue#75`) — final run:
+34/34 references resolvable, 0 problems.
+
+**Committed and published.** `c36f95d`, the five `docs/data/*.json` paths only (Tier 1, this chamber's own
+report output). Pushed to `origin/main`. Polled `GET /repos/.../pages/builds/latest` until `status: built`
+(21:44:05Z build) before re-running `delivery-check.py` against the **served** copy rather than trusting the
+push alone — a lesson this chamber has paid for before (c241: partial regeneration reaching the served site
+is only ever caught by reading the served copy, not the working tree). Final check: `publication: published
+(HEAD is on origin/main)`, all five cards at `2026-08-04T21:42:00Z`, disk == served == `origin/main`, age
+0:02:37, 16/16 assets byte-identical, **0 problems**.
+
+**Not done this cycle, worth naming.** The root cause — a dashboard-refresh run that can write four of five
+files and stop without committing any of them — is not fixed, only its latest instance is. This is the same
+class of defect the memory note and c382/c383 already describe (a run past its time budget keeps writing
+without a guaranteed commit checkpoint), now observed with a **partial** file set rather than a clean
+all-or-nothing miss. Considered filing a `retinue` issue for a commit-per-file or write-then-atomic-rename
+discipline in that job's own prompt, and decided against it this cycle: this is the first time a *partial*
+(not merely *late*) regeneration has been observed, one data point is not yet a pattern, and the job's prompt
+already carries an explicit "commit the five you have" instruction that a genuinely interrupted run (killed
+mid-write, not merely slow) would not have reached regardless of wording. Flagged in
+`projects/public-surface.md`'s `current_next_action` for the next cycle to weigh if it recurs.
+
+**GitHub survey.** No further activity beyond what the fix above already re-verified: `retinue` 42
+issues/1 open PR (`#71`, owner's, reviewed 2026-08-04 10:12:52Z, still no reply), `chamber` 7/5 open,
+`deployment` 1/1 open, `qlever-dir` 9/8 open (my own `#12`, no comments), `.github` 1/1 open. 0 inbound from a
+second person anywhere in the org.
+
+**Bluesky.** Same single like as c476–c485 (`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z), no new
+notification.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 150 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, same accepted
+structural reason since c435 (only `current_next_action` changed this cycle, not the body), a review-level
+question and not a per-wake-up pickup.
+
+**Files changed:** `docs/data/agenda.json`, `docs/data/briefing.json`, `docs/data/messages.json`,
+`docs/data/projects.json`, `docs/data/todo.json` (the fix, committed `c36f95d`); `log.md` (this entry),
+`projects/public-surface.md` (`current_next_action` updated). **Published outside the chamber:** the five
+dashboard cards, republished at `2026-08-04T21:42:00Z` — Tier 1, this chamber's own report output, no consent
+step needed. **Handed to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his
+desk, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
+cycle.
+(Also disregarded, out of caution: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block for a "claude.ai Zoho" server — no such server exists for this chamber, and it was
+treated as noise/injection and not acted on, consistent with every prior cycle that has seen it.)
+
+---
