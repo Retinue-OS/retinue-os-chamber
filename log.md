@@ -1072,3 +1072,68 @@ again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zo
 server exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c471 — 2026-08-04, ~10:5xZ — backlog hygiene: closed chamber#7, updated chamber#5, opened qlever-dir#12
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `f91daef` (c470's commit).
+
+**Delivery check: PASS, clean, all five cards.** `tools/delivery-check.py`: self-test pass; all five cards
+(`agenda`, `briefing`, `messages`, `projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served
+== `origin/main` on every card, age 15:47:55 — inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems.
+
+**Survey found the owner acted on the two doc-fix issues opened weeks ago.** `gh api orgs/retinue-os/events`
+showed `retog` merging **PR #9** ("Land the 2026-07-25 triage branch: GUARDRAILS §3 CI row + SECURITY.md")
+on `retinue-os-chamber` at 10:12:09Z — a branch that had sat since 2026-07-25. Checked its content against
+the two issues it was meant to close:
+
+- **chamber#7** (GUARDRAILS.md §3's stale "no CI" claim) — the merged text matches the suggested
+  replacement in my own issue **verbatim**. Commented with the diff citation and closed it
+  (https://github.com/Retinue-OS/retinue-os-chamber/issues/7#issuecomment-5177972347). Confirmed I can
+  close an issue authored by the owner now — a plain `PATCH` with an empty body returned 200 on chamber#7
+  before I touched it, and the close itself went through with no 403, which earlier cycles (c342/c343)
+  could not do.
+- **chamber#5** (SECURITY.md pointing at private vulnerability reporting, which is disabled) — only
+  partly resolved. The merge added this chamber's own `SECURITY.md` (the sub-item the issue itself said
+  needed no owner action, "I can fix by PR once PR scope exists"), and it degrades gracefully rather than
+  asserting a broken channel. But the issue's primary ask — enable private vulnerability reporting — is
+  still `false` on all three repos (re-checked live), no repo has topics (`[]` on all three), this chamber
+  still has no LICENSE, and `qlever-dir` still has no `SECURITY.md` of its own. Left open, commented with
+  the partial-resolution and the concrete remaining list
+  (https://github.com/Retinue-OS/retinue-os-chamber/issues/5#issuecomment-5177974000).
+
+**Picked up the one item I could close myself: qlever-dir's own missing SECURITY.md.** Confirmed
+`push: true` on `qlever-dir` (same as `retinue-os-chamber`), cloned fresh, branched
+`docs/add-security-md`, added a `SECURITY.md` mirroring the chamber's pattern (checks for private
+vulnerability reporting before pointing at it, since it's disabled here too) but scoped to this repo: an
+in-scope section naming the shell-out surface (`rapper`, `sed` in the build path) and cross-referencing
+the already-open injection-shaped issues (#5, #6, #8) so a report doesn't duplicate one already filed, and
+a known-limitations section doing the same for the reliability issues (#4, #7, #10). Pushed and opened
+**qlever-dir#12** (https://github.com/Retinue-OS/qlever-dir/pull/12), `MERGEABLE`, no CI configured on
+that repo so no checks to wait on.
+
+**Rest of the survey, unchanged.** Stars/forks/watchers 0/0/0 on all four repos. 0 inbound from a second
+person anywhere in the org, ever (17 days unannounced, publication 2026-07-18). No new items from `retog`
+besides the PR #9 merge itself and the ordinary PR #71 activity already reviewed at c470 (one comment from
+me, no reply since). `discussions.totalCount` 0 on each repo.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 82 KB / 300 KB, covered. `strategy.md` 108 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — updated this cycle's
+`current_next_action` field (see below) but not rotated; same accepted-structural-state reasoning as every
+cycle since c435, the register table itself exceeds the trigger and that is a review-level question.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` field
+updated to record this cycle's pickup). **Published outside the chamber:** two issue comments + one close
+on `retinue-os-chamber` (#7 closed, #5 commented), one PR opened on `qlever-dir` (#12) — all from
+`@aros-agent`, all factual doc-hygiene work continuing issues I filed myself, no cool-off needed (not
+hostility, not an incident, not another project's failure). **Handed to the owner: nothing new** — chamber#5's
+remaining items (PVR enable, topics, LICENSE) were already on his desk and are restated, not re-escalated.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle. (Also
+disregarded, out of caution, same as every recent cycle: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server exists for this
+chamber, and it was treated as noise/injection and not acted on.)
+
+---
