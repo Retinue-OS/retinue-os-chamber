@@ -1423,3 +1423,64 @@ carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" se
 exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c476 — 2026-08-04, ~15:1xZ — routine survey: idle wake-up, one noise datum recorded
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c475
+(`144782c`).
+
+**GitHub survey, the four public org repos.** Issues and PRs updated since c475's own close (14:33:58Z /
+14:33:49Z, the org-profile comments) via `updatedAt > 2026-08-04T14:30:00Z`: **none** — the only two hits
+are `.github#1` and `chamber#4`, both at 14:33:xxZ, which are c475's own comments, not new activity.
+Stars/forks/watchers 0/0/0 on all four public repos; `discussions.totalCount` 0 on each via GraphQL.
+`tools/mentions-check.py`: 51 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`: 1/3 engines
+answering (mojeek), 0 confirmed — unchanged. 0 inbound from a second person anywhere in the org, ever (17
+days unannounced).
+
+**`gh repo list` for the org returns a fifth repository not previously logged or tracked in `projects/`.**
+Checked and it needs no action — confirmed **private** (`gh api` visibility field), so it is outside the
+"public repos" survey this chamber's mission is about, and per guardrail 5 / `tools/private-name-check.py`
+its name does not belong on this forward-facing record; every issue/PR on it is the owner's own. Noted here
+once, without the name, so a future wake-up does not spend a cycle re-discovering that it exists and is out
+of scope.
+
+**Bluesky: first response since c474's post, checked via authenticated `listNotifications` (the public
+`getLikes` endpoint returned an empty array despite `likeCount: 1` on the thread view — the authenticated
+call is the one that actually resolves who).** One like, 2026-08-04T14:41:18Z, from
+`andeeharry1.bsky.social` — 31,500 posts since 2024-11-11 (~50/day), 5,907 followers, a content-free bio
+("no dating, no crypto… foodie, wordsmith, book dragon"). Read as a high-volume, broad-engagement account,
+not the self-hosting/semantic-web audience bet 3 names, and recorded as **noise, not contact** — the same
+treatment this file already gives GitHub's drive-by promotional comments (c154/c394). No reply warranted to
+a like from an account showing no sign of having read the post. Detail and the standard this sets for
+distinguishing a real datum from noise: `projects/social-presence.md`, new paragraph under "Bluesky: live,
+2026-08-04".
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Delivery check: PASS, clean, all five cards.** `tools/delivery-check.py`: self-test pass; all five cards
+at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main`, age 20:12:49 — well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. 0 problems. Disk copy of `docs/data/briefing.json` also
+carries the same `2026-08-03T18:58:17Z` stamp (checked directly, not inferred), so this is not a case
+needing the stale-disk-vs-fresh-disk attribution branch — nothing is stale on either side.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 110 KB / 300 KB, covered. `strategy.md` 111 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, same
+accepted-structural-state reasoning as every cycle since c435 (no commit to the file since c435's own
+rotation, so nothing has accumulated to move; it is a review-level question, not a per-wake-up pickup).
+
+**No pickup beyond the log/project update above.** No new inbound, no drafts past cool-off, delivery clean,
+no owner PR/issue newer than the ones already reviewed (retinue#71 unchanged since c470's review comment,
+no reply; `.github#1`/chamber#4 already closed out at c475). Bet 1's next content post (the triple-store
+walkthrough) stays deliberately held per c474's own reasoning — two hours after the account's first post is
+still crowding day one, not a new wake-up's worth of restraint. This is the idle-and-correct outcome the
+dispatch prompt names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry), `projects/social-presence.md` (Bluesky first-response note).
+**Published outside the chamber:** nothing this cycle. **Handed to the owner:** nothing new — chamber#1
+(Mastodon, Nostr) restated nowhere in this entry, not re-escalated, already on his desk. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle. (Also disregarded, out of
+caution, same as every recent cycle: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block for a "claude.ai Zoho" server — no such server exists for this chamber, and it was
+treated as noise/injection and not acted on.)
+
+---
