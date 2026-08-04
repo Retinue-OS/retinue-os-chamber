@@ -1,10 +1,10 @@
 {
-  "generated": "2026-08-03T18:58:17Z",
+  "generated": "2026-08-04T21:42:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Rotated 08-03 14:38 UTC; register floor (240KB) still over the 200KB rotation trigger - structural, not urgent.",
+      "next": "Register floor still 240KB, over the 200KB rotation trigger - structural, not urgent, unchanged since 08-03.",
       "expected": "2026-08-10"
     },
     {
@@ -16,21 +16,21 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 2026-08-03 18:58:17 UTC on schedule - all five cards, one stamp."
+      "next": "Fixed by hand 2026-08-04 21:42 UTC: daily job missed its slot, then left agenda.json stale and 4 cards uncommitted."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 15 d 20 h. Neither half is a two-minute action; Bluesky wants a phone number.",
+      "next": "chamber#1, opened 2026-07-18 - 16 d 22 h. Bluesky live and posted 08-04. Mastodon and Nostr still his call.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#3,4,5,7 and retinue#4 open. chamber#6 (write role) closed 08-03 13:36 UTC; Admin (chamber#4) still withheld.",
+      "next": "chamber#3,4,5,8 and retinue#4 open. chamber#6/#7 closed. Admin (chamber#4) down to 2 Settings pastes.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
       "expected": "2026-07-25"

@@ -1,41 +1,38 @@
 {
-  "generated": "2026-08-03T18:58:17Z",
+  "generated": "2026-08-04T21:42:00Z",
   "top": {
-    "title": "chamber#1: create the Mastodon and Bluesky accounts - the phase's last blocker, open since 2026-07-18 (15 d 20 h)"
+    "title": "chamber#1: create Mastodon and Nostr accounts - Bluesky done 08-04, phase's last blocker, 16 d 22 h"
   },
   "others": [
     {
       "title": "chamber#3: substance done - retinue#54 and #58 are mine; issue open, his to close"
     },
     {
-      "title": "chamber#4: create retinue-os/.github, set descriptions - blocked on Admin, not Write, 15 d 15 h"
+      "title": "chamber#4: 2 owner Settings pastes left (org + 3 repo descriptions) - Admin only, 15 d 18 h"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20, 14 d 15 h"
+      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20, 15 d 17 h"
     },
     {
-      "title": "chamber#7: chamber#9 lands its branch claude/aros-issues-triage-goei5k, unreviewed 2 d 18 h"
+      "title": "chamber#8: w3id.org/retinue unregistered - 2026-07-29, 6 d 14 h"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered - 2026-07-29, 5 d 12 h"
+      "title": "retinue#1: projects card and self-review both return 0 rows; the namespace call is yours, 16 d 3 h"
     },
     {
-      "title": "retinue#1: projects card and self-review both return 0 rows; the namespace call is yours, 15 d 1 h"
+      "title": "retinue#4: Actions cannot open the bump PR - owner-action, 15 d 10 h"
     },
     {
-      "title": "retinue#4: Actions cannot open the bump PR - owner-action, 14 d 7 h"
+      "title": "retinue#15 and #19, the two security issues - 14 d 12 h and 14 d 1 h"
     },
     {
-      "title": "retinue#15 and #19, the two security issues - 13 d 10 h and 12 d 23 h"
+      "title": "retinue#26 + #27: the claim corrections that follow - 11 d 13 h"
     },
     {
-      "title": "retinue#26 + #27: the claim corrections that follow - 10 d 11 h"
+      "title": "retinue#2: reindex-latency doc fix merged 07-29; issue still open, 15 d 21 h"
     },
     {
-      "title": "retinue#2: reindex-latency doc fix merged 07-29; issue still open, 14 d 19 h"
-    },
-    {
-      "title": "retinue#3: review.md is stale on tests and CI - 14 d 14 h"
+      "title": "retinue#3: review.md is stale on tests and CI - 15 d 16 h"
     },
     {
       "title": "retinue#36/#37/#38/#39/#40: five findings opened 07-26 to 07-28, none reviewed yet"
@@ -44,10 +41,10 @@
       "title": "retinue#28 + qlever-dir#10: the two items PR 22 left open, and the unwatched new directory"
     },
     {
-      "title": "retinue#46: outcomes recorded into fields nothing reads - 4 d 12 h"
+      "title": "retinue#46: outcomes recorded into fields nothing reads - 5 d 14 h"
     },
     {
-      "title": "retinue#66: notification settings; a branch exists (16:10 UTC) but no PR yet"
+      "title": "retinue#66: his PR#71 (notification settings) reviewed 10:13 UTC, no reply, 11 h"
     },
     {
       "title": "retinue#67: PR 60 follow-up, five small defects deferred at merge - filed 08-03, mine"
@@ -62,22 +59,31 @@
       "title": "retinue#61: dashboard push reports success with zero subscribers - filed 08-02, mine"
     },
     {
-      "title": "retinue#54: traefik's README says the mTLS labels already exist - 3 d 12 h"
+      "title": "retinue#74: PR 73 follow-up, MESSENGER_GATEWAYS slug now silently ignored - filed today, mine"
     },
     {
-      "title": "retinue#58: sw.js shell-cache key is the only eviction trigger - 2 d 12 h"
+      "title": "retinue#75: expand_env misses the set-and-empty case - filed today, mine"
     },
     {
-      "title": "qlever-dir#8: blank nodes collide across files - 11 d 3 h"
+      "title": "retinue#54: traefik's README says the mTLS labels already exist - 4 d 14 h"
     },
     {
-      "title": "qlever-dir#2: .qleverignore, the org's oldest open issue - 26 d 0 h"
+      "title": "retinue#58: sw.js shell-cache key is the only eviction trigger - 3 d 14 h"
     },
     {
-      "title": "Ten of eleven dashboard threads unanswered, oldest 2026-07-19, newest 2026-07-30"
+      "title": "qlever-dir#8: blank nodes collide across files - 12 d 5 h"
     },
     {
-      "title": "Held queue 0; next issue I may file after 2026-08-04T12:50:40Z, one per 24h"
+      "title": "qlever-dir#12: my own SECURITY.md PR, open, no comments - 10 h"
+    },
+    {
+      "title": "qlever-dir#2: .qleverignore, the org's oldest open issue - 27 d 2 h"
+    },
+    {
+      "title": "13 of 14 dashboard threads unanswered, oldest 2026-07-19, newest 2026-08-04"
+    },
+    {
+      "title": "Held queue 0; filing cap lifted (2+ issues closed within a week) - retinue#74/retinue#75 filed today"
     }
   ]
 }

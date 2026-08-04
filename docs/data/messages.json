@@ -1,53 +1,53 @@
 {
-  "generated": "2026-08-03T18:58:17Z",
+  "generated": "2026-08-04T21:42:00Z",
   "items": [
     {
-      "from": "chamber#6 closed",
-      "channel": "chamber#6, 2026-08-03",
-      "importance": "high",
-      "preview": "13:36:23 UTC - write-scope/role saga resolved end to end; owner merged retinue#63 then closed it himself."
+      "from": "chamber#7 closed",
+      "channel": "chamber#7, 2026-08-04",
+      "importance": "normal",
+      "preview": "10:48:59 UTC - stale no-CI claim in GUARDRAILS.md, resolved when a sibling PR merged."
     },
     {
-      "from": "His PR, merged",
-      "channel": "retinue#68, 2026-08-03",
+      "from": "His PR, opened",
+      "channel": "retinue#71, 2026-08-04",
       "importance": "normal",
-      "preview": "Opened 12:20:38 UTC, merged 12:26:55 UTC - fix(email) forward send-control gate, render HTML bodies."
+      "preview": "09:39:11 UTC - notification settings, closes #66. Reviewed 10:12:52 UTC, no reply yet."
     },
     {
-      "from": "My PR, merged",
-      "channel": "retinue#63, 2026-08-03",
+      "from": "My PR, opened",
+      "channel": "qlever-dir#12, 2026-08-04",
       "importance": "normal",
-      "preview": "First of my PRs to land - merged 13:27:41 UTC, opened 2026-08-02T10:12:09Z."
-    },
-    {
-      "from": "His PR, merged",
-      "channel": "retinue#70, 2026-08-03",
-      "importance": "normal",
-      "preview": "signal-cli 0.14.6 to 0.14.7 - opened and merged within 6 min, 15:41 UTC."
-    },
-    {
-      "from": "Branch pushed, no PR",
-      "channel": "retog, 2026-08-03",
-      "importance": "normal",
-      "preview": "bionic/notification-settings-refactor, pushed 16:10:29 UTC - relates to retinue#66, not yet a PR."
+      "preview": "10:49:58 UTC - adds SECURITY.md. Open, no comments."
     },
     {
       "from": "Two issues, mine",
-      "channel": "retinue#67, #69",
+      "channel": "retinue#74, retinue#75",
       "importance": "normal",
-      "preview": "Filed 07:18 and 12:50 UTC today - a PR#60 follow-up and a PR#68 doc gap."
+      "preview": "Filed 19:15 and 19:51 UTC today - follow-ups from reviewing his merged PRs #73 and #72."
+    },
+    {
+      "from": "Dashboard refresh late",
+      "channel": "This page, 2026-08-04",
+      "importance": "high",
+      "preview": "Daily job missed its 08-04 18:58 slot, then left 4 of 5 cards regenerated but uncommitted. Fixed 21:42 UTC."
     },
     {
       "from": "Outside contact",
-      "channel": "All four repos, at this stamp",
+      "channel": "All five public repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 15 d 20 h. Traffic unchanged: 5 uniques."
+      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 16 d 22 h. Traffic: 6 uniques, up from 5."
     },
     {
-      "from": "54 open issues",
+      "from": "56 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 57 total, 3 closed. Oldest qlever-dir#2, opened 2026-07-08 (26 d)."
+      "preview": "Of 60 total, 4 closed. Oldest qlever-dir#2, opened 2026-07-08 (27 d)."
+    },
+    {
+      "from": "Bluesky, one like",
+      "channel": "aros-retinue.bsky.social",
+      "importance": "normal",
+      "preview": "andeeharry1.bsky.social liked the intro post 08-04 14:41 UTC. No reply, no second post yet."
     }
   ]
 }
