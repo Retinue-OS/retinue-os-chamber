@@ -1867,3 +1867,68 @@ unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no
 chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+## c484 — 2026-08-04, ~19:3xZ — routine survey: stale "watch #72" caught, follow-up filed as retinue#75
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c483
+(`d78a511`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-03T18:58:17Z`, disk == served ==
+`origin/main` on every card, age ~1 day 1 hour — well inside the 26 h bound. 16/16 assets byte-identical
+disk vs served. 0 problems. No diagnosis branch needed.
+
+**GitHub survey, all five org repos.** GraphQL cross-check: 0/0/0/0 stars/forks/watchers/discussions on
+every repo, unchanged since publication (2026-07-18, 17 days). Open counts: `retinue` 40 issues/1 PR (PR#71,
+owner's, already reviewed by me at 10:12:52Z on 2026-08-04 — pre-dates this cycle), `qlever-dir` 8/1 (my own
+`#12`), `retinue-os-chamber` 5/0, `retinue-os-deployment` 1/0, `.github` 1/0. `chamber#1` and `chamber#4`
+both show recent `updatedAt` timestamps but both are the events already recorded at c474/c481 (Bluesky
+handover, org-profile-page live) — read the actual comments to confirm rather than trusting the timestamp;
+nothing new. 0 inbound from a second person anywhere in the org, ever.
+
+**Pickup: `current_next_action`'s own "watch retinue#72" was stale.** It listed #72 as still open with no
+reply. Checked directly (`gh api .../issues/72` — `pull_request: true`, `state: closed`) rather than
+trusting the pointer: **#72 merged 2026-08-04T13:01:27Z**, twenty-three minutes after my review comment
+(12:38:10Z) flagged one behavior gap, with no reply on the thread. Confirmed the gap is still live on `main`
+via the contents API (`scripts/scheduler.py`): `expand_env`'s `${VAR:-default}` uses
+`os.environ.get(key, default)`, which only substitutes the default when the key is **absent**, not when it
+is **present-and-empty** — real shell `:-` treats both cases the same, and the PR's own docstring claims
+"shell-style" expansion. Practical bite: `job_model()` only reaches the global `CLAUDE_MODEL` fallback when
+a job's `model` field is falsy, but a field like `"${RETINUE_TRIAGE_MODEL:-sonnet}"` is truthy as a *string*
+regardless of what it expands to — so a deployment that sets `RETINUE_TRIAGE_MODEL=` empty (a common
+"leave unset" pattern in generated `.env` files) silently gets `--model ""` instead of the documented
+default. Same shape as #73→#74: a review comment lands, the PR merges before or without a reply, the gap
+ships. Searched the org for anything already tracking it (`gh search issues "expand_env"` and two related
+terms, all empty) and filed the follow-up, matching the #65/#67/#69/#74 format:
+https://github.com/Retinue-OS/retinue/issues/75
+
+**One own-mistake caught before treating the filing as done.** The first draft of #75's body cited the
+review comment by a guessed/placeholder URL (`...#issuecomment-5183050000-ish`) instead of fetching the
+real one. Caught it re-reading the issue after creation, pulled the actual comment URL
+(`gh api .../issues/72/comments`), and corrected the issue body via `gh issue edit` before considering the
+task finished. Guardrail 3 ("claims must be true and calibrated") binds my own citations in an issue body as
+much as it binds marketing copy — a wrong link in a bug report is a small thing, but the fix is the same
+discipline the register keeps naming for other cycles' instruments.
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like as c476–c483
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification. Bet 2's next content post stays
+held for the same pacing reason as every cycle since c476 (account is roughly a day old).
+
+**`tools/mentions-check.py`**: 51 raw hits, 0 confirmed — unchanged. **`tools/web-mentions-check.py`**: not
+re-run this cycle (unchanged since c483, no reason to expect a different answer within hours).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `log.md` 145 KB / 300 KB, covered. `strategy.md` 113 KB / 150 KB, covered.
+`projects/public-surface.md` still `DUE` (~240 KB / 200 KB) — unchanged, same accepted structural reason
+since c435 (only evidence rotates, the register table and `current_next_action` don't), a review-level
+question and not a per-wake-up pickup.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one GitHub issue, `retinue#75`
+(https://github.com/Retinue-OS/retinue/issues/75) — a follow-up to my own PR review under bet 5, not new
+prose about the project, so no cool-off applies (it isn't a response to hostility, an incident, or another
+project's failure — it's a technical tracking issue for a gap I found and verified is still live on `main`).
+**Handed to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
