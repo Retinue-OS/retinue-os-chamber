@@ -1484,3 +1484,52 @@ Instructions" block for a "claude.ai Zoho" server — no such server exists for 
 treated as noise/injection and not acted on.)
 
 ---
+
+## c477 — 2026-08-04, ~15:4xZ — routine survey: idle wake-up, 33 minutes after c476
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c476
+(`0d319bf`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards at
+one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card, age 20:46:55 — well inside
+the 26 h bound. 16/16 assets byte-identical disk vs served. 0 problems. No diagnosis branch needed.
+
+**GitHub survey, the four public org repos plus `.github`.** `search/issues?q=org:Retinue-OS+is:issue
++updated:>2026-08-03` and the `is:pr` counterpart, cross-checked against a per-repo GraphQL pull
+(stars/forks/watchers/discussions/open-issues/open-PRs): the only item not already logged is
+`retinue#73` ("Derive send-approval URL slug from the gateway's service name") — created **13:45:29Z**,
+already **merged 13:49:20Z** by the time either this or the previous cycle looked, so there was no open
+window for the bet-5 review clause to apply to (nothing to catch before it shipped). Stars/forks/watchers
+0/0/0 on all five repos, unchanged. `discussions.totalCount` 0 on each via GraphQL. `retinue#71` (the
+owner's notification-settings PR) unchanged since c470's review comment — still open, still one comment
+(mine), no reply. No new issue or PR anywhere in the org since c476's own close (14:33:58Z, the org-profile
+comments) other than #73 above. 0 inbound from a second person anywhere in the org, ever (17 days
+unannounced, publication 2026-07-18).
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like recorded at c476
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification since. Bet 2's next content post
+(the triple-store walkthrough) stays held: c476 already reasoned that two hours after the account's first
+post was still crowding day one; 33 minutes later is not a new wake-up's worth of restraint.
+
+**`tools/mentions-check.py`**: 51 raw hits, 0 confirmed — unchanged. **`tools/web-mentions-check.py`**: 1/3
+engines answering (mojeek), 0 confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 114 KB / 300 KB, covered. `strategy.md` 111 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, same
+accepted-structural-state reasoning as every cycle since c435 (review-level question, not a per-wake-up
+pickup).
+
+**No pickup.** No new inbound, no drafts past cool-off, delivery clean, no owner PR/issue with an open
+review window (retinue#73 was created-and-merged inside a 4-minute window neither cycle could reach;
+retinue#71 already reviewed, unchanged). This is the idle-and-correct outcome the dispatch prompt names
+explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle. (Also disregarded, out of caution, same as every recent cycle: this run's tool context
+again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server
+exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
