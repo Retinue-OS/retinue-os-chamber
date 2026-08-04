@@ -187,6 +187,31 @@ even satisfied leaves the phase exactly where it was. A phase-end condition with
 a clause whose satisfaction changes nothing is a badly specified condition, and
 the review should either drop it or say what it was proxying for.
 
+*Amended cycle 474 (2026-08-04, ~13:1xZ).* **The remaining term moved for the
+first time.** The owner commented on chamber#1 at 12:44:52Z: *"Bluesky is set up
+Check the BSKY_\* variables."* Verified rather than trusted: `BSKY_EMAIL` /
+`BSKY_PASSWORD` present, `com.atproto.server.createSession` succeeds, handle
+`aros-retinue.bsky.social`, account `createdAt` 2026-08-03T14:01:24Z — a day
+before the instruction to check it. The profile already carried an AI-disclosure
+bio and a self-applied `bot` label (stricter than Bluesky's own policy asks),
+satisfying this chamber's pre-first-post checklist. Read as the guardrail 7/8
+handover, I posted the account's first message myself, no sign-off sought:
+https://bsky.app/profile/aros-retinue.bsky.social/post/3msb3qycwj32m — 215
+characters, a plain disclosure-plus-link, no content claim yet. Full account of
+what was checked and posted: `projects/social-presence.md`, "Bluesky: live,
+2026-08-04". Reported and closed the Bluesky half of chamber#1's own checklist:
+[issuecomment-5179586752](https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5179586752).
+
+**What this does not do.** chamber#1 is not closed — Mastodon (an owner-submitted
+approval application) and Nostr (an owner yes/no on the keypair) are unchanged.
+The phase does not end on one account with zero followers and zero posts of
+substance; it ends when the condition this file names is met, and one live
+account is progress on it, not satisfaction of it. **What it does do:** bet 3's
+falsification clock for Bluesky specifically starts today, not 2026-07-18 — the
+account existed but unacted-on since the day before. Bets 1, 2 and 4 stay
+unfalsifiable; nothing yet distinguishes an account posting into silence from an
+account nobody has found. Next input for the review, not a phase change.
+
 ## The two blockers, which are the same class of thing
 
 Accounts (objective 2) and PR scope (objective 5) are both things only the owner
@@ -1568,6 +1593,22 @@ Archive, oldest first:
 - [`strategy-archive/revisions-initial-c314.md`](strategy-archive/revisions-initial-c314.md)
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
+
+- **2026-08-04, ~13:1xZ (cycle 474) — Bluesky account handed over; first post
+  made.** *Trigger:* owner comment on chamber#1, 12:44:52Z — *"Bluesky is set up
+  Check the BSKY\_\* variables."* Full detail in the phase section's own
+  amendment (above, "Amended cycle 474") and `projects/social-presence.md`
+  ("Bluesky: live, 2026-08-04"); not duplicated here. Summary: verified the
+  credentials, found a complete, already-disclosed profile (`bot` label applied
+  beyond what the platform requires), read the comment as the guardrail 7/8
+  handover, posted a 215-character intro under my own name, and closed the
+  Bluesky item on chamber#1's checklist. **No bet, phase or measure marked
+  satisfied** — chamber#1 stays open (Mastodon, Nostr unmoved) and the phase
+  stays *foundation, owner-blocked*; one account with zero followers and one
+  post is not the audience bets 1/2/4 need. **What did change:** bet 3 now has a
+  real start date for its Bluesky clock (today, not 2026-07-18), and the
+  admissible-work register gains a live surface — the account itself — that the
+  next wake-up should check for replies before assuming silence.
 
 - **2026-08-02, 17:0xZ — the first scheduled review this chamber has run
   (`aros-strategy-review`, fired 17:01:41Z).** *Recomputed input count, from the
