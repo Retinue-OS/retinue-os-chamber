@@ -1003,3 +1003,72 @@ carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" se
 exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c470 — 2026-08-04, ~10:1xZ — bet-5 clause: reviewed retinue#71, filed a PR comment (three of four design gaps still open)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `77c0886`.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 4 card attributions + the uncommitted
+override, 6 asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`,
+`projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card,
+age 15:12:07 — well inside the 26 h bound and the 24 h refresh cadence. 16/16 assets byte-identical disk
+vs served. 0 problems.
+
+**Survey found a new item and the bet-5 clause applied.** `gh api orgs/retinue-os/events`: newest
+non-mine entry is `retog` opening **retinue#71** ("feat: implement granular notification settings and
+fix subscription persistence — closes #66") at 09:39:11Z, `MERGEABLE`, CI green (`test` workflow SUCCESS
+at 09:39:45Z). Per the bet-5 operating clause (review the owner's newest open PR/issue ahead of standing
+audit work), read it in full: cloned the repo fresh to `/tmp`, fetched `pull/71/head`, diffed against
+`main`, and checked it against the four gaps my own comment on #66 found on 2026-08-02 (c393).
+
+**Finding: one of the four is fixed, one is short a state, two are unwired.**
+- *#3 (setting wiped on reload) — fixed*, differently than either option I'd suggested but sound: the
+  client now resends the mode from `localStorage` on every `_init()` (`push.js:14`, `:135-136`), so the
+  server rebuilds the record correctly each load.
+- *#4 (no control to reach "off") — partly fixed.* The bell now stays visible with a mode selector once
+  granted (the `enabled` attribute), so "hides for good once tapped" is gone. But `MODES` (`push.js:16-20`)
+  has three entries — `all`, `new_only`, `new_and_stalled` — not the four #66 asked for; there is still no
+  "no notification" option, so muting requires the browser's own site settings.
+- *#1 (no anchor for "stalled") and #2 (filtering must run server-side) — plumbing exists, nothing calls
+  it.* `push_notify.notify()` takes a `mode` argument and filters on it (`push_notify.py:172-191`), real
+  and unit-tested (`tests/test_notification_settings.py`). But the only caller that fires a live
+  notification, `_push_conv_notification` (`web-gateway.py:1311-1325`), still calls `notify_async(title,
+  body, url=…, tag=cid)` with **no `mode=`** at any of its three call sites (`:1351`, `:2731`, `:2761`).
+  Nothing in the PR computes "new" vs. "stalled" — no `read_at`, no anchor on the last user message, no
+  `archived` check. So `mode` is `None` on every real call, the filter short-circuits, and every device is
+  notified on every message regardless of what it picked. CI is green because the tests call
+  `push_notify.notify(mode=...)` directly and never exercise the trigger path.
+
+**Net effect, stated in the comment:** the dropdown now promises a choice ("new conversations only") the
+code doesn't keep — worse UX than no choice, not better. Posted as a PR comment (not a new issue — the
+standing rule since c329 is that a finding fitting an open PR goes to the PR), citing exact lines on the
+`pr71` branch and the three remaining steps in the order #66's own comment laid them out (a `read_at`
+anchor, `_push_conv_notification` computing `mode`/`archived` before calling `notify_async`, a fourth
+`MODES` entry): https://github.com/Retinue-OS/retinue/pull/71#issuecomment-5177590996
+
+**Rest of the survey, unchanged.** Stars/forks/watchers 0/0/0 on all four repos; `retinue` open-issues
+39→40 (the new PR, not a second-person item — `gh search issues/prs --owner retinue-os` shows every open
+item across all four repos still authored by `retog` or `aros-agent`, none new besides #71 itself).
+`discussions.totalCount` 0 on each repo, re-checked via GraphQL. 0 inbound from a second person anywhere
+in the org, ever (17 days unannounced, publication 2026-07-18). `tools/mentions-check.py` and
+`tools/web-mentions-check.py` not re-run this cycle — the bet-5 review was the one pickup, per the
+dispatch instruction to prefer finishing/serving the one item found over stacking a second.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 77 KB / 300 KB, covered. `strategy.md` 108 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged since c435's
+rotation, no new commit to move, same accepted-structural-state reasoning as every cycle since.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** one PR review comment,
+[retinue#71](https://github.com/Retinue-OS/retinue/pull/71#issuecomment-5177590996), from `@aros-agent` —
+fair technical review of the owner's own open PR, no cool-off needed (not hostility, not an incident, not
+another project's failure). **Handed to the owner: nothing new** — the comment itself is the handoff; no
+guardrail-7 action needed. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle. (Also disregarded, out of caution, same as every recent cycle: this run's tool context
+again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such
+server exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
