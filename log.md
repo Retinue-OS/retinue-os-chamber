@@ -1187,3 +1187,69 @@ again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zo
 server exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c473 — 2026-08-04, ~12:5xZ — bet-5 clause: reviewed retinue#72, one checkable defect found and posted
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `39f267c`.
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 4 card attributions + the uncommitted
+override, 6 asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`,
+`projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card,
+age 17:37:39 — well inside the 26 h bound, so no separate read of `docs/data/briefing.json`'s on-disk
+stamp was needed. 16/16 assets byte-identical disk vs served. 0 problems.
+
+**Survey found a new PR and the bet-5 clause applied.** `gh api orgs/retinue-os/events`: newest non-mine
+entries are `retog` creating a branch and opening **retinue#72** ("feat(scheduler): per-job model override
+with env-defaulting") at 12:33:21Z, `MERGEABLE`, CI (`test`) green in 18s. retinue#71 (reviewed c470) is
+unchanged since my comment there — no reply, no new commits. Per the bet-5 operating clause (review the
+owner's newest open PR/issue ahead of standing audit work), read #72 in full: cloned fresh to `/tmp`,
+fetched `pull/72/head`, diffed against `main` (51 lines across `.env.example` and `scripts/scheduler.py`
+only — no test file touched, and the repo has no `scheduler.py` test at all, before or after).
+
+**Finding: the `${VAR:-default}` expansion diverges from real shell semantics on empty-vs-unset, and it's
+silent.** `expand_env()` (`scheduler.py:76-88`) documents itself as "shell-style `${VAR:-default}`
+expansion." Verified both ways rather than by reading the regex: `RETINUE_TRIAGE_MODEL="" bash -c 'echo
+"${RETINUE_TRIAGE_MODEL:-sonnet}"'` prints `sonnet` (bash's `:-` treats unset and empty alike); the same
+case through `os.environ.get(name, default)` — which only substitutes the default when the key is *absent*
+from `os.environ`, not when it's present-and-empty — returns `''`. Traced the consequence through
+`job_model()` (`:90-96`): a job's `model` field is truthy the moment it's a non-empty template string
+(`"${RETINUE_TRIAGE_MODEL:-sonnet}"`), so once a job declares a `model` field at all, the branch that would
+fall through to the global `RETINUE_CLAUDE_MODEL` is never reached — even when the field expands to `''`.
+Concretely: a deployment that leaves `RETINUE_TRIAGE_MODEL=` empty in `.env` (a common "not set" placeholder
+pattern, distinct from omitting the line) expecting the job's documented default (`sonnet`) to apply
+instead silently drops both that default and any global model, running on whatever `claude`'s own default
+is. Nothing errors; the manifest's stated model is just not the one that runs. Narrow — bites only on
+present-but-empty, not absent, and every example in the PR's own docs sets a real value — but checkable and
+silent, which is the shape guardrail 3 asks me to watch for in code as much as in copy. Also noted, lower
+stakes: neither `expand_env` nor `job_model` has a unit test, so the green `test` check doesn't exercise
+either function.
+
+Posted as a PR comment, not a new issue — the standing rule since c329 is that a finding fitting an open PR
+goes to the PR:
+https://github.com/Retinue-OS/retinue/pull/72#issuecomment-5179174733
+
+**Rest of the survey, unchanged.** Stars/forks/watchers 0/0/0/0 on all four repos; open issues `retinue` 41
+(the new PR), `retinue-os-chamber` 5, `retinue-os-deployment` 1, `qlever-dir` 9 — all four unchanged besides
+the PR count. `discussions.totalCount` 0 on each repo via GraphQL, re-checked individually. 0 inbound from a
+second person anywhere in the org, ever (17 days unannounced, publication 2026-07-18).
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 91 KB / 300 KB, covered. `strategy.md` 108 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — updated this cycle's
+`current_next_action` field only, not rotated; same accepted-structural-state reasoning as every cycle
+since c435, the register table itself exceeds the trigger and that is a review-level question.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` field
+updated to record this cycle's pickup). **Published outside the chamber:** one PR review comment,
+[retinue#72](https://github.com/Retinue-OS/retinue/pull/72#issuecomment-5179174733), from `@aros-agent` —
+fair technical review of the owner's own open PR, no cool-off needed (not hostility, not an incident, not
+another project's failure). **Handed to the owner: nothing new** — the comment itself is the handoff; no
+guardrail-7 action needed. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle. (Also disregarded, out of caution, same as every recent cycle: this run's tool context again
+carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server
+exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
