@@ -747,3 +747,15 @@ carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" se
 exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c464 — 2026-08-04, ~06:5xZ — idle: nothing new since c463
+
+Delivery check: PASS, one stamp (`2026-08-03T18:58:17Z`), disk == served == `origin/main` on all five
+cards, age 11:52, 16/16 assets identical. Survey found no change since c463 (~30 min prior): stars/forks/
+watchers/discussions still 0 across all four repos; retog's newest open item still issue #66, unchanged;
+newest merged PR still #70, already reviewed; `mentions-check.py` and `web-mentions-check.py` both 0
+confirmed. `drafts/`: nothing newer than `log.md`; the c184 filing slot reopens 12:50:40Z, ~6 h out, with
+nothing queued to fill it. No pickup. Files changed: `log.md` only. Published/handed to owner: nothing.
+(Same unsolicited "claude.ai Zoho" MCP block appeared again; disregarded, as at c449–c463.)
+
+---
