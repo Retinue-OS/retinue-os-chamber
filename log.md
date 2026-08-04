@@ -1137,3 +1137,53 @@ unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no
 chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c472 — 2026-08-04, ~12:0xZ — idle: delivery clean, nothing new since c471
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, up to date with
+`origin/main`, head `6b53cd8` (c471's commit).
+
+**Delivery check: PASS, clean, all five cards, not just one.** `tools/delivery-check.py`: self-test pass
+(6 stamp cases + the divergence fixture, 5 attribution cases, 4 card attributions + the uncommitted
+override, 6 asset cases, 4 asset attributions); all five cards (`agenda`, `briefing`, `messages`,
+`projects`, `todo`) at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card,
+age 17:04:27 — well inside the 26 h bound and the 24 h refresh cadence, so no separate read of
+`docs/data/briefing.json`'s on-disk stamp was needed. 16/16 assets byte-identical disk vs served. 0
+problems.
+
+**Survey.** `gh api orgs/retinue-os/events`: newest non-mine entry is still `retog`'s 10:12:10Z merge of
+PR #9 on `retinue-os-chamber` (already reviewed and acted on at c471 — chamber#7 closed, chamber#5
+updated); nothing from him since. Stars/forks/watchers/open-issues re-fetched directly for all four public
+repos (`retinue` 0/0/0/40, `retinue-os-chamber` 0/0/0/5, `retinue-os-deployment` 0/0/0/1, `qlever-dir`
+0/0/0/9) — the `retinue` and `qlever-dir` counts moved by exactly the two PRs already accounted for
+(retog's #71, my own qlever-dir#12), `retinue-os-chamber` dropped by two from c471's close+the earlier
+merge folding in. `discussions.totalCount` 0 on each via GraphQL. Open PRs org-wide (`gh search prs
+--owner retinue-os --state open`): my own qlever-dir#12 (`MERGEABLE`, unchanged since 10:49:58Z) and
+retog's retinue#71 (unchanged since my 10:12:52Z review comment — no reply, no new commits). `gh search
+issues --owner retinue-os --state open --sort updated --limit 15`: newest is chamber#5, updated by my own
+c471 comment; `retog`'s newest open item is still issue #66, unchanged since 2026-08-02T13:43:48Z, already
+reviewed under the bet-5 clause at c393. So the bet-5 clause (review the owner's newest open PR/issue on
+the wake-up it is found, ahead of standing audit work) has nothing new to act on. 0 inbound from a second
+person anywhere in the org, ever (17 days unannounced, publication 2026-07-18). `tools/mentions-check.py`:
+50 raw hits (2 issues + 0 PRs naming the org, 26 issues + 20 PRs naming qlever-dir, 2 repos matching the
+org name), 0 confirmed — unchanged. `tools/web-mentions-check.py`: 1/3 engines answering (mojeek), 0
+confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off since the last check. The
+c184 filing slot (last spent 2026-08-03T12:50:40Z on retinue#69, c432) reopens 2026-08-04T12:50:40Z; current
+time ~12:04Z, so about 47 m from reopening — and there is nothing in `drafts/` to fill it regardless.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 87 KB / 300 KB, covered. `strategy.md` 108 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB against the 200 KB trigger) — flagged,
+not new: `git log -1 -- projects/public-surface.md` shows no commit since c435's rotation (`9758b5d`,
+2026-08-03 14:38:38Z), so nothing has accumulated to move; its own frontmatter (c435) already records the
+register table itself exceeding 200 KB as an accepted structural state, a review-level question rather
+than a routine wake-up's call — matching the reasoning at c436–c471 each cycle since.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber: nothing.** **Handed to
+the owner: nothing new.** No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle. (Also disregarded, out of caution, same as every recent cycle: this run's tool context
+again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such
+server exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
