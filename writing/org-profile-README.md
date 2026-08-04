@@ -1,11 +1,11 @@
 ---
 type: draft
 title: "Org profile README for github.com/retinue-os"
-status: ready-for-owner
+status: published
 drafted_by: aros
 drafted: 2026-07-20
-revised: 2026-07-30
-target: "retinue-os/.github → profile/README.md"
+revised: 2026-08-04
+target: "retinue-os/.github → profile/README.md (live)"
 ---
 
 # Org profile README — handover draft
@@ -129,6 +129,46 @@ or org-owner rights and remain his. **Step 4 needs neither** — he can paste th
 descriptions into three Settings pages without changing any permission, and that
 is the cheapest third of this handover.
 
+**Revised 2026-08-04 (cycle 475): step 1 is done, and that changed step 2's
+owner.** He created `Retinue-OS/.github` himself and opened
+[`.github#1`](https://github.com/Retinue-OS/.github/issues/1) — *"have an
+attractive and informative start page of the Github organization"* — at
+13:19:29Z, 17 days after this draft first said the repo was the blocker. With
+the repo existing, `GET /repos/Retinue-OS/.github` returned `push: true` (the
+same org-wide Write role chamber#6 granted 2026-08-02, confirmed to reach this
+repo too) and `admin: false`. Adding a file to an existing repo needs push, not
+admin — so **step 2 no longer needed him**. Numbers in the published text below
+were re-run against `main` @ `bcb5529` (not `26297a2`, four merges later) rather
+than carried: the `.env.example` grew to 326 lines / 74 settings (was 300/67),
+and `tests/` grew to eleven files (was seven) — both corrected in place, with
+what's new named rather than just counted.
+
+**Corrected 2026-08-04 (cycle 475, same wake-up cycle the push happened, next
+container start): the sentence above claimed a pull request that does not
+exist, and this is a self-caught error, not a report of what happened.** The
+repo was empty — no `main`, no branch at all — so `git push` of
+`profile/README.md` on a new branch (`add-profile-readme`) became that repo's
+**first commit**, and GitHub set it as the **default branch** on push, the same
+as it would for anyone's first push to a brand-new repository. There was no
+existing branch to open a pull request against, so `gh pr create` had nothing
+to target; no `.github#2` was ever created, and no review step happened before
+this went live. **The content is published, not pending:** verified via
+`GET /repos/Retinue-OS/.github/contents/profile/README.md` (present on the
+default branch, matches this file's body below except heading levels — `#`/`##`
+instead of `##`/`###`, appropriate for a standalone page — and the closing
+AI-authorship sentence) and independently via a logged-out fetch of
+`https://github.com/retinue-os`, which renders it. Worth naming because it is
+the second time this file's own status line lagged the repository state (the
+first was "written and merged" vs. the reindex link, strategy.md cycle 315) —
+same shape, one project away: **a status claimed at write time is not a status
+measured after the write.** The one thing this bypassed that a PR would have
+given: a second look before publication. Nothing wrong was found on that
+second look, taken now instead of before, but the gap is the finding.
+
+Steps 3–4 (org description, the three repo descriptions) are unchanged and
+still his — `admin: false` on every probed repo, and org-level metadata has no
+push-only path.
+
 ---
 
 ## Retinue
@@ -232,18 +272,21 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
 
 ### What this is not
 
-- **Not one-click.** A 300-line `.env.example` documenting 67 distinct settings
+- **Not one-click.** A 326-line `.env.example` documenting 74 distinct settings
   (35 reach the container by name), a domain and reverse proxy for TLS, and
   per-account volume discipline. Early days, single maintainer.
 - **Not model-agnostic.** Deeply coupled to Claude Code, including behaviour
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk.
 - **Not hardened.** The credential-isolation design is the strong part. The web
-  gateway is a large hand-rolled file, and test coverage is thin: seven test
-  files — three send-policy, one contact-lookup, one push-notify, one
-  conversation-model emitter, one covering the web gateway's projects endpoints
-  (counted on `main` @ `26297a2`, 2026-07-29). CI runs them on pushes to `main`
-  and on every pull request; it has little to run.
+  gateway is a large hand-rolled file, and test coverage is thin: eleven test
+  files — three send-policy (Signal, WhatsApp, Telegram), one contact-lookup,
+  two on gateway connection monitoring and Signal's re-link race, one
+  push-notify, two on the conversation-model picker (the boot emitter and the
+  web gateway's own logic), one on a mail-provider header workaround, one
+  covering the web gateway's projects endpoints (counted on `main` @
+  `bcb5529`, 2026-08-04). CI runs them on pushes to `main` and on every pull
+  request; it has little to run.
 - **Not a guarantee about your whole deployment.** Credential isolation covers
   the channels the framework ships. It says nothing about other paths you attach
   to the same accounts, and a deployment that adds one has given the model reach

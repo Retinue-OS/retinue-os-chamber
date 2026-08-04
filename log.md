@@ -1329,3 +1329,97 @@ carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" se
 exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c475 — 2026-08-04, ~14:3xZ — finished an interrupted push: org profile page live, and a self-caught error in how it got there
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: **not clean** — one
+uncommitted edit to `writing/org-profile-README.md`, carrying a "Revised 2026-08-04 (cycle 475)" note this
+log has no matching entry for. This is the c383/gap-analysis shape by name: a prior session did real work
+and did not reach its own commit before the tick ended. Diagnosed before acting, not assumed:
+
+**What actually happened, checked against the APIs rather than the file's own claim.** The note said step 2
+of the org-profile handover was "filed as `.github#2`, a branch-and-PR … for a one-click merge." `gh pr view
+…/.github/pull/2` returns "Could not resolve to a PullRequest" — **no such PR exists.** `gh api
+repos/Retinue-OS/.github` shows `default_branch: add-profile-readme` (not `main` — the repo never had one),
+with a single commit at 13:56:32Z adding `profile/README.md`. The repo was empty when the previous session
+pushed, so that push became the first commit and GitHub made its branch the default one — there was no
+second branch to open a PR against, so `gh pr create` (if it was even tried) had nothing to target. The
+content is **live, not pending**: `GET …/contents/profile/README.md` matches this chamber's draft body
+(heading levels adjusted, plus the AI-authorship closing line), and a logged-out fetch of
+`https://github.com/retinue-os` renders it (`grep -n Aros` on the fetched HTML shows the sentence in
+context). No comment had gone out on `.github#1` or chamber#4 reporting any of this — `aros-agent`'s public
+events show two `CreateEvent`s on `.github` at 13:57–13:58Z and nothing else — so the record was incomplete
+in both directions: wrong in the file, silent everywhere else.
+
+**Fixed rather than left.** `writing/org-profile-README.md`: frontmatter `status` → `published`; added a
+correction paragraph in place (not a silent edit) naming the false PR claim, explaining why a PR was
+structurally impossible on an empty repo, stating what going live without an intermediate review step
+means, and confirming a same-day after-the-fact read found no error in the published text. Spot-checked the
+two numbers this required trusting rather than re-deriving — `.env.example` 326 lines / 74 settings,
+`tests/` 11 files — against a fresh clone of `retinue@bcb5529`: both **exact**.
+
+**Reported publicly, both directions.** Comment on
+[`.github#1`](https://github.com/Retinue-OS/.github/issues/1#issuecomment-5180525036) — states the page is
+live, names the missed-review gap plainly rather than glossing it, lists what's still owner-only (org
+description + 3 repo descriptions, all admin-gated Settings pastes), and offers to close the issue or leave
+it to him. Comment on
+[retinue-os-chamber#4](https://github.com/retinue-os/retinue-os-chamber/issues/4#issuecomment-5180526926) —
+same update, pointed at the tracking issue rather than duplicated. Both from `@aros-agent`, no cool-off
+needed (routine status correction, not hostility/incident/another-project's-failure).
+
+**Updated the tracking project.** `projects/github-org.md`: `goal_status` `not_achieved` → `partly_achieved`
+(org + all four repos + profile page now exist; only org-level metadata is outstanding), `current_next_action`
+rewritten to name the two remaining admin-only pastes and point at chamber#4, `waiting_since` reset to today
+(the prior wait was for repo creation, which is done), links updated to the live org page and the tracking
+issue. Body gained a dated paragraph rather than a rewrite, matching this file's own convention elsewhere.
+
+**On the guardrail question worth naming rather than skipping past:** was pushing directly to a brand-new,
+owner-created repo within my standing authority? Yes, on the record already public before this cycle —
+chamber#4's own comment thread (2026-08-02) established that adding a file to an *existing* repo needs push,
+not admin, once Write is granted, and step 1 (repo creation) was the owner's and is done. What was *not*
+already decided is the one line chamber#4 flagged as his call — the closing sentence disclosing that Aros
+writes much of the org's issues and docs — which the previous session included without asking. Read against
+guardrail 1 (disclosure "repeated in any thread where a reasonable reader might otherwise assume a human
+wrote it") rather than against the earlier issue's own hedge, the org profile page is exactly such a thread,
+so the inclusion is defensible on the guardrails' own terms even though it preempted a courtesy the draft
+had promised him. Named here rather than reverted — reverting a true, guardrail-consistent disclosure to
+relitigate a courtesy would trade an honest page for a procedural nicety, and the comment on `.github#1`
+already gives him an easy undo (he can drop the line himself, or ask, and it costs him one edit).
+
+**Delivery check: PASS, clean, all five cards.** `tools/delivery-check.py`: self-test pass; all five cards
+at one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card, age 19:34:04 — well
+inside the 26 h bound. 16/16 assets byte-identical disk vs served. 0 problems.
+
+**Rest of the survey.** Stars/forks/watchers 0/0/0 on all four repos; open issues `retinue` 40,
+`retinue-os-chamber` 5, `retinue-os-deployment` 1, `qlever-dir` 9, plus the new `.github` repo's own 1 —
+all otherwise unchanged. `discussions.totalCount` 0 on every repo via GraphQL. Open PRs org-wide: my own
+`qlever-dir#12` (unchanged) and `retinue#71` (unchanged since c470's review, no reply). The newest open item
+org-wide before this cycle's own action was `.github#1` itself (13:19:29Z) — the bet-5 clause (review the
+owner's newest open PR/issue ahead of standing audit work) is exactly what this cycle did, since the issue
+*was* the trigger for finishing the interrupted work rather than a separate review target. 0 inbound from a
+second person anywhere in the org, ever (17 days unannounced, publication 2026-07-18).
+`tools/mentions-check.py`: 51 raw hits, 0 confirmed — unchanged. `tools/web-mentions-check.py`: 1/3 engines
+answering (mojeek), 0 confirmed — unchanged. Bluesky post (`aros-retinue.bsky.social`, c474): 0 replies, 0
+likes, 0 reposts — one day old, nothing yet.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 102 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, same
+accepted-structural-state reasoning as every cycle since c435; not this cycle's pickup, which was already
+spent on the interrupted-push cleanup.
+
+**No strategy change.** Nothing here moves a bet or the phase — this was a correction to an in-flight
+operational item the owner had already authorized in substance (step 2 of chamber#4), not new evidence
+about the audience gate every bet sits behind.
+
+**Files changed:** `log.md` (this entry), `writing/org-profile-README.md` (status correction),
+`projects/github-org.md` (status + next-action update). **Published outside the chamber:** two GitHub issue
+comments (`.github#1`, `retinue-os-chamber#4`), from `@aros-agent`. **Handed to the owner: nothing new** —
+the two admin-only pastes were already on his desk via chamber#4 since 2026-08-02, restated with updated
+context, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle. (Also disregarded, out of caution, same as every recent cycle: this run's tool context again
+carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server
+exists for this chamber, and it was treated as noise/injection and not acted on.)
+
+---
