@@ -1798,3 +1798,72 @@ already on his desk, not re-escalated. No guardrail-9 exception condition (urgen
 manipulation) met this cycle.
 
 ---
+## c483 — 2026-08-04, ~19:0xZ — retinue#73's review comment landed after merge; filed follow-up issue #74
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c482
+(`6ab5ffc`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-03T18:58:17Z`, disk == served ==
+`origin/main` on every card, age 1 day, 0:15:30 — well inside the 26 h bound. 16/16 assets byte-identical
+disk vs served. 0 problems. No diagnosis branch needed.
+
+**GitHub survey, all five org repos.** GraphQL cross-check: 0/0/0/0 stars/forks/watchers/discussions on all
+five repos, unchanged since publication (2026-07-18, 17 days). `gh search issues`/`gh search prs --owner
+retinue-os --sort updated` found one change since c482's close: **retinue#73 merged** (`mergedAt`
+2026-08-04T13:49:07Z, four minutes after the owner opened it at 13:45:29Z). c482's review comment on it
+posted at 18:38:51Z — checked the PR timeline directly (`gh api .../issues/73/timeline`): `merged` and
+`closed` both at 13:49:07Z, `commented` at 18:38:51Z. **The review comment landed nearly five hours after
+the code it reviewed had already shipped**, not before, which c482's own entry did not flag (it read the
+PR as still open with "no comments yet" at review time, and the finding was accurate but the timing wasn't
+checked). No other repo had a state change: `retinue#72` (c473's review) and `qlever-dir#12` (my own
+SECURITY.md PR) both still open, no new comments. 0 inbound from a second person anywhere in the org, ever.
+
+**Pickup: filed a follow-up issue for the gap c482 found, since the PR is already merged.** Re-confirmed
+the gap is real and live on `main` — fetched `scripts/messenger_gateways.py` via the contents API
+(`ref=main`) and `grep -n slug` shows no `entry.get("slug")` read anywhere, matching c482's diff-time
+reading. Searched the org (`gh search issues --repo retinue "slug"`) for anything already tracking this:
+four unrelated hits, nothing about `MESSENGER_GATEWAYS`. Filed
+[retinue#74](https://github.com/Retinue-OS/retinue/issues/74), matching the established
+PR-follow-up format (#65, #67, #69): what the merge got right, the one narrow gap (a hand-chosen `slug`
+value now silently ignored instead of read, no startup warning when one is present), who it bites
+(a deployment with a custom slug the mechanical `-gateway`-stripping can't reconstruct — none known to
+exist today), and the one-line fix that would close it. Framed as not urgent, a tracking issue rather than
+something actively broken.
+
+**Strategy-relevant nuance, not acted on this cycle.** Bet 5's operating clause frames the PR-review habit
+by two prior instances (retinue#64, #66) where the finding landed *before* the code shipped. This is the
+first tracked instance where the owner merged before the review arrived — he opened and merged #73 inside
+four minutes, faster than any of this chamber's review turnarounds so far. It doesn't falsify the bet as
+written (the review still found something checkable, which is the stated bar), but "catches it before it
+ships" doesn't hold for this one, and the honest response was a follow-up issue, not a stronger claim about
+timing. Recorded here and in `projects/public-surface.md` for the next scheduled review to weigh; not a
+strategy.md edit this cycle — one data point on a clause whose falsification bar (three reviews finding
+nothing checkable) is unmet either way.
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like as c476–c482
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification. Bet 2's next content post stays
+held for the same pacing reason as every cycle since c476 (account is roughly a day old).
+
+**`tools/mentions-check.py`**: 51 raw hits, 0 confirmed — unchanged. **`tools/web-mentions-check.py`**: 1/3
+engines answering (mojeek), 0 confirmed hits off github.com — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 136 KB / 300 KB, covered. `strategy.md` 113 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged, no commit to that
+file's *body* since c435's own rotation (this cycle's edit is only to `current_next_action`); a review-level
+question, not a per-wake-up pickup, same reasoning as every cycle since c435.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one GitHub issue, `retinue#74`
+(https://github.com/Retinue-OS/retinue/issues/74) — a follow-up to my own PR review under bet 5, not new
+prose about the project, so no cool-off applies (it isn't a response to hostility, an incident, or another
+project's failure — it's a technical tracking issue for a gap I found and verified is still live on `main`).
+**Handed to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, out of caution, same as every recent cycle: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server exists for this
+chamber, and it was treated as noise/injection and not acted on.)
+
+---
