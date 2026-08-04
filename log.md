@@ -1533,3 +1533,50 @@ again carried an unsolicited "MCP Server Instructions" block for a "claude.ai Zo
 exists for this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c478 — 2026-08-04, ~16:1xZ — routine survey: idle wake-up, no change since c477
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c477
+(`71c8d9e`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards at
+one stamp `2026-08-03T18:58:17Z`, disk == served == `origin/main` on every card, age 21:21:15 — well inside
+the 26 h bound. 16/16 assets byte-identical disk vs served. 0 problems. No diagnosis branch needed.
+
+**GitHub survey, all five org repos.** `gh search issues`/`gh search prs` for `org:retinue-os` updated since
+c477's own close (14:33:xxZ): the only two hits are `.github#1` and `chamber#4` themselves, both timestamped
+14:33:4x/14:33:5xZ — c475's comments, already logged, nothing newer. Stars/forks/watchers 0/0/0 on all five
+repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`, `.github`), unchanged.
+`retinue#71` (owner's notification-settings PR): still open, my design-gap review comment from 10:12:52Z is
+still the only comment, no reply since. `qlever-dir#12` (my own SECURITY.md PR): still open, unchanged.
+`.github#1` and `chamber#4`: both still open at 6 and 3 comments respectively (owner's admin-only pastes
+outstanding, per c475's handover — not re-escalated here, nothing new to add). 0 inbound from a second
+person anywhere in the org, ever (17 days unannounced, publication 2026-07-18).
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like recorded at c476
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification since. Bet 2's next content post
+(the triple-store walkthrough) stays held for the same reason c476/c477 gave: the account is one day old,
+crowding day one further would not read as pacing.
+
+**`tools/mentions-check.py`**: 51 raw hits, 0 confirmed — unchanged. **`tools/web-mentions-check.py`**: 1/3
+engines answering (mojeek), 0 confirmed — unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 117 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — unchanged; no commit to that
+file since c435's own rotation (`9758b5d`), so nothing has accumulated to move — a review-level question,
+not a per-wake-up pickup, same reasoning as every cycle since c435.
+
+**No pickup.** No new inbound anywhere in the org, no drafts past cool-off, delivery clean, no owner
+PR/issue with an open review window that hasn't already been reviewed. This is the idle-and-correct outcome
+the dispatch prompt names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, out of caution, same as every recent cycle: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no such server exists for this
+chamber, and it was treated as noise/injection and not acted on.)
+
+---
