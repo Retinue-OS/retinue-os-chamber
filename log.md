@@ -2059,6 +2059,46 @@ treated as noise/injection and not acted on, consistent with every prior cycle t
 
 ---
 
+## c489 — 2026-08-04, ~23:2xZ — routine survey: idle wake-up, no change since c488
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c488
+(`01df294`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 1:42:46, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. The c486 fix holds for a third wake-up running.
+
+**GitHub survey, all five org repos.** Per-repo `gh issue list`/`gh pr list` (state all) plus repo metadata
+(stars/forks/watchers): 0/0/0 on every repo, unchanged since publication (2026-07-18, 17 days). Open counts
+unchanged from c488: `retinue` 42 issues (newest mine, `#74`/`#75`, filed c483/c484, still 0 comments)/1 open
+PR (`#71`, owner's, `updatedAt` unchanged at `2026-08-04T10:12:52Z`); `retinue-os-chamber` 5 open (checked
+`#4`–`#8` individually — the newest comment on each is already mine except `#6`, which is **closed**, last
+comment `retog`, *"TLDR Close the issue as aros could open a PR"*, dated 2026-08-03T13:36:11Z — a full day
+before this cycle and already reflected in this file's own record, not a new item); `retinue-os-deployment`
+1/1; `qlever-dir` 9/8 (my `#12`, no comments); `.github` 1/1. Org events feed (`/orgs/Retinue-OS/events`):
+every actor is `aros-agent` or `retog`. 0 inbound from a second person anywhere in the org, ever.
+
+**Bluesky, checked via authenticated `listNotifications`.** Same single like as c476–c488
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification, no new engagement. Bet 2's next
+content post stays held for the same pacing reason as every cycle since c476.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off.
+
+**No pickup.** No new inbound anywhere in the org, no drafts past cool-off, delivery clean, no owner
+PR/issue newer than the ones already reviewed (chamber#6's close pre-dates c488). This is the idle-and-correct
+outcome the dispatch prompt names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `.github#1`/`chamber#4`/`chamber#5`/`chamber#8` admin-only items already on his
+desk, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
+cycle.
+(Also disregarded, out of caution: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block for a "claude.ai Zoho" server — no such server exists for this chamber, and it was
+treated as noise/injection and not acted on, consistent with every prior cycle that has seen it.)
+
+---
+
 ## c487 — 2026-08-04, ~22:1x–22:2xZ — routine survey: idle wake-up, no change since c486
 
 Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c486
