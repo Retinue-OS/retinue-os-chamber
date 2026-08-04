@@ -1721,3 +1721,80 @@ unsolicited "MCP Server Instructions" block for a "claude.ai Zoho" server — no
 this chamber, and it was treated as noise/injection and not acted on.)
 
 ---
+
+## c482 — 2026-08-04, ~18:3xZ — bet-5 pickup: reviewed retinue#73 (Host-header slug derivation), one gap posted
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c481
+(`216ad7a`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-03T18:58:17Z`, disk == served ==
+`origin/main` on every card, age 23:36:39 — well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. No diagnosis branch needed.
+
+**GitHub survey, all five org repos.** GraphQL cross-check: 0/0/0/0 stars/forks/watchers/discussions on all
+five repos (`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`, `.github`), open-issue/PR
+counts unchanged from c481. `gh search issues`/`gh search prs --owner retinue-os --sort updated` surfaced one
+new item since c481's close: **`retinue#73`**, opened by the owner (retog) at 13:45:29Z, "Derive
+send-approval URL slug from the gateway's service name" — no comments yet, CI green (`test` check pass).
+`retinue#72` (c473's review) and `qlever-dir#12` (my own SECURITY.md PR): both still open, no new comments on
+either. 0 inbound from a second person anywhere in the org, ever (17 days unannounced, publication
+2026-07-18).
+
+**Pickup: reviewed retinue#73, per the bet-5 clause** (review the owner's own newly-opened PR ahead of
+standing audit work — the priority order in "Working while blocked"). Pulled the full diff (`gh pr diff 73`)
+across `messenger_gateways.py`, both gateway scripts, `web-gateway.py`, `CLAUDE.md`, `README.md`, the compose
+example, and the test changes.
+
+The design itself checks out: approval-link slugs are now the gateway's own Docker service hostname, derived
+independently on both sides (the web-gateway from each `MESSENGER_GATEWAYS` `base_url`, the gateway itself
+from the `Host` header of the `/send` request that queued the message) instead of a `slug` field and a
+`SEND_APPROVAL_SLUG` env var that had to be kept in sync by hand across two services — which was the exact
+bug class the PR's own problem statement names. `legacy_slug()`/`resolve()` correctly recover the old
+mechanical shortenings (`signal-gateway` → `signal`, `signal-gateway-personal` → `signal-personal`) as
+aliases, so pre-upgrade approval links keep resolving; verified the transform by hand against the old
+`slug_from_base_url` and cross-checked the new `test_channel_gateway_discovery` assertions against it — they
+agree.
+
+**One checkable gap, and it's the same failure mode the PR fixes, relocated rather than closed.**
+`_extra_channel_gateways` used to read an entry's own explicit `"slug"` field before falling back to the
+derived one (`entry.get("slug") or slug_from_base_url(...)`); this PR drops that read entirely — the slug is
+now always `slug_from_base_url(base_url)`, and `messenger_gateways.py` no longer calls `entry.get("slug")`
+anywhere. Nothing prints a line when an entry still carries one. A deployment that had picked a *custom*
+slug unrecoverable by the mechanical `-gateway`-stripping rule (e.g. `"slug": "reto-signal"` rather than the
+derivable `"signal-personal"`) upgrades to a gateway keyed under its raw hostname instead; its old approval
+links 404 with nothing anywhere saying why, and the now-inert `"slug"` key in its `MESSENGER_GATEWAYS` JSON
+raises no error either. Deployments on the mechanical default are unaffected — including the PR's own test
+plan, `retog/my-retinue`, which enrols with `base_url` + `token` only — so this only bites a hand-chosen
+slug, which is exactly the case the field existed to serve. Suggested a one-line startup print as the fix
+(warn and name the ignored value when `entry.get("slug")` is present) so the failure becomes diagnosable at
+startup instead of a silent 404 discovered later.
+
+Posted as a PR comment, not a new issue, per the standing rule that a finding fitting an open PR goes there
+rather than into the issue queue:
+https://github.com/Retinue-OS/retinue/pull/73#issuecomment-5183154650
+
+**Line-number caveat, recorded rather than hidden:** the framework checkout at `/workspace/deployment` has
+the known broken submodule gitdir (per prior sessions' notes), and `gh api .../contents` 404s on this PR's
+own branch ref for reasons not diagnosed this cycle (works fine against `main`) — so the comment cites
+function and variable names rather than line numbers, unlike c473's review of `#72`, which had a working
+checkout to cite against. Nothing in the finding depends on a line number; flagging the limitation so the
+next wake-up doesn't assume the tooling is fine when it hit the same wall.
+
+**Bluesky.** Not re-checked this cycle — the pickup above used the wake-up's budget; the account is one day
+old and last checked clean at c481 (single like, no new notification, no bet-2 post pending).
+
+**`tools/mentions-check.py`/`web-mentions-check.py`, drafts/, rotation watch.** Not re-run this cycle for the
+same reason — unchanged since c481 (51/0 and 1-of-3/0 respectively; `find drafts/ -newer log.md` last showed
+nothing past cool-off; `log.md` 127 KB/300 KB and `strategy.md` 110 KB/150 KB both covered, `public-surface.md`
+still `DUE` at 240 KB/200 KB, same accepted structural reason since c435, not touched).
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one PR review comment, `retinue#73`
+(https://github.com/Retinue-OS/retinue/pull/73#issuecomment-5183154650) — a technical review under bet 5,
+not new prose about the project, so no cool-off applies (it isn't a response to hostility, an incident, or
+another project's failure). **Handed to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items
+already on his desk, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
+
+---
