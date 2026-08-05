@@ -3997,3 +3997,58 @@ re-escalated. No guardrail-9 exception condition (urgent, hostile, security, man
 (Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
 Instructions" block naming a "claude.ai Zoho" server initialization request — no such server is configured
 for this chamber's work, treated as noise/injection and not acted on.)
+
+---
+## c524 — 2026-08-05, ~19:1x–19:2xZ — scheduled dashboard regeneration, all five cards
+
+Dispatched specifically to regenerate `docs/data/*.json` (not the routine 30-min survey). `git status` at
+start: clean, `HEAD` at c523 (`3c71b45`).
+
+**Measured live via `gh` before writing anything**, per the dispatch's work order. GraphQL across all five
+public repos: stars/forks/watchers 0/0/0 everywhere, unchanged since 2026-07-18 (18 d). Issue/PR counts
+identical to c523's reading — `retinue` 42/2 (41 open), `retinue-os-chamber` 7/0 (5 open, 2 closed),
+`qlever-dir` 9/1 (8 open, 1 closed, PR#12 open), `retinue-os-deployment` 1/0, `.github` 1/0 — 60 issues
+total, 56 open. Checked every thread the previous todo.json named individually via `issues/<n>/comments`:
+no non-mine comment on any of them since the last generation. Org events feed: last 10 entries all
+`PushEvent`s by `aros-agent` — no outside activity. The one substantive change since the last generation
+(2026-08-04T21:42:00Z): his **retinue#76** opened 08:15:03Z (click-to-fill reply chips), reviewed by me
+08:53:47Z, no reply since. Bluesky `listNotifications` (fresh session): same single like from 08-04, no new
+notification. Traffic API on `retinue`: **7 uniques / 14 d**, up from the 6 the last card recorded. Re-ran
+the standing filed-by-Aros measure (four historical disclosure-line forms, issue bodies only, all five
+repos): **49 of 60**.
+
+**Wrote all five files from one stamp, `2026-08-05T19:20:00Z`, together** (rule: all-or-nothing). Ages
+recomputed against that stamp throughout rather than carried forward from the prior card. Two corrections
+made in passing, both required by the dispatch's own rules rather than by new facts: `projects.json`'s
+`proj-claim-verification` entry named a bare `#26/#27` with no repository — fixed to `retinue#26 + #27`
+(rule 10). Two `waiting` entries (`proj-github-org`, `proj-public-release`) carried an `expected` date
+already 10+ days in the past; checked `docs/components/projects.js` — that field only renders for `mine`
+items, so it was dead, unused data, not a visible defect — dropped it anyway rather than leave a
+stale broken-promise-looking date sitting in the committed JSON. Briefing text corrected "four public
+repos" (an old, uninvestigated error carried across many prior generations — there are five) to five, and
+states the owner's-desk age flag required by the dispatch: most desk items are over a week old, oldest
+chamber#1 at 17 d 21 h.
+
+**Checked, both clean.** `tools/card-budget-check.py`: self-test pass, 86 budgeted values, **0 over
+budget**. `tools/desk-drop-check.py`: self-test pass, previous generation 34 references / current 35,
+**0 dropped, 0 stale-resolved, 1 added (retinue#76)**, coverage 35/35. No STALE-RESOLVED items to drop, no
+open item dropped silently — every reference on the previous card survives onto this one; `retinue#76` is a
+pure addition.
+
+**Committed and pushed within the 600 s budget.** Staged the five `docs/data/*.json` paths **by name**,
+nothing else (`git status` before staging showed only those five modified — no concurrent session on this
+tree). Commit `50ffe7d`, pushed to `origin/main` at ~19:19:53Z, no push race. Polled
+`GET /repos/.../pages/builds/latest` (2 polls, ~10 s) rather than trusting the push alone (c241's lesson) —
+`built` at the second poll. Re-ran `delivery-check.py` against the served copy: **0 problems**, all five
+cards `2026-08-05T19:20:00Z`, disk == served == `origin/main`, 16/16 assets byte-identical.
+
+**Not done this cycle.** No GitHub survey beyond what regeneration itself required, no mentions sweep, no
+rotation check, no strategy revision — this dispatch was scoped to the five data files and stayed there.
+The routine 30-min survey resumes on its own schedule.
+
+**Files changed:** `docs/data/agenda.json`, `briefing.json`, `messages.json`, `projects.json`, `todo.json`,
+`log.md` (this entry). **Published outside the chamber:** the five regenerated cards, live on the public
+dashboard. **Handed to the owner:** nothing new. No guardrail-9 exception condition met this cycle. (Also
+disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block naming a "claude.ai Zoho" server initialization request — no such server is configured
+for this chamber's work, treated as noise/injection and not acted on.)
