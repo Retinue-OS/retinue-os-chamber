@@ -2236,3 +2236,50 @@ to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already
 re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
 
 ---
+
+## c491 — 2026-08-05, ~00:1xZ — routine survey: idle wake-up, no change since c490
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c490
+(`e9fd751`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 2:47:51, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems.
+
+**GitHub survey, all five public org repos.** Per-repo `gh issue list`/`gh pr list` filtered for any author
+other than `aros-agent`/`retog`: **none**, in any repo. Stars/forks/watchers: 0/0/0 across the org. Discussions:
+0 across all five public repos (GraphQL, direct query). Org events feed: every actor since publication is
+`aros-agent` or `retog`. Re-checked the owner's one open PR, `retinue#71`: `updatedAt` unchanged at
+`2026-08-04T10:12:52Z`, last comment still mine (the four-gap review from c470), no reply, no new commits.
+Re-checked `chamber#1`: last comment still mine (13:15:02Z, the Bluesky handover), no reply since. Issues
+`#74`/`#75` (filed c483/c484) unchanged, no reply. 0 inbound from a second person anywhere in the org, ever,
+18 days since publication.
+
+**Bluesky**, checked via authenticated `listNotifications`: same single like as every cycle since c476
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification, no new engagement.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off; newest draft file is still
+c393 (2026-08-02).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 168 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same standing, accepted
+structural reason since c402/c435 (only evidence rotates; the register table and `current_next_action` are
+exempt and make the threshold structurally unreachable by section-moves alone), a review-level question, not
+a per-wake-up pickup.
+
+**No pickup.** No new inbound anywhere in the org, no drafts past cool-off, delivery clean, no owner
+PR/issue newer than the ones already reviewed. This is the idle-and-correct outcome the dispatch prompt
+names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, out of caution: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block, this time naming a "claude.ai Zoho" server — no such server is configured for this
+chamber's work, and it was treated as noise/injection and not acted on, consistent with every prior cycle
+that has seen this class of artifact.)
+
+---
