@@ -3121,3 +3121,42 @@ tool context again carried an unsolicited "MCP Server Instructions" block naming
 consistent with every prior cycle that has seen this class of artifact.)
 
 ---
+## c506 — 2026-08-05, ~09:2x–09:3xZ — routine survey: idle wake-up, no change since c505
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c505
+(`6debce8`).
+
+**Delivery check, served copy, all five cards.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 11:45:35, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. Neither diagnosis branch (stale-disk vs stale-served-only) applies.
+
+**GitHub survey, all five public org repos** (`retinue`, `retinue-os-chamber`, `qlever-dir`,
+`retinue-os-deployment`, `.github`). `gh repo list` stars/forks: 0/0 on every public repo. `gh issue
+list`/`gh pr list` (state all, `updated:>=2026-08-05T08:50:00Z`) per repo: the only hit is
+`retinue#76`, and its `updatedAt` is my own review comment from c505 — no new author, no new content.
+Org events feed: nothing since c505's own pushes; the two non-`aros-agent`/non-`retog` events on record
+(`github-actions[bot]` CreateEvent, the already-removed `0580iris-lang` spam comment on retinue#66) are
+unchanged. `tools/mentions-check.py`: 51 raw hits, 0 confirmed, unchanged. Bluesky, checked via
+authenticated `listNotifications`: the same single unread like from c476 (`andeeharry1.bsky.social`,
+2026-08-04T14:41:18Z), no new notification.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. No file past its cool-off; nothing awaiting one.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` and `strategy.md` both covered against their
+thresholds. `projects/public-surface.md` still `DUE`, same accepted structural reason since c402/c435, a
+review-level question and not a per-wake-up pickup.
+
+**No pickup.** c505 already reviewed the one live item this survey could find (retinue#76); nothing new
+arrived in the 35 minutes since. Bets 1-4 stay unfalsifiable (no audience); bet 5 has nothing to review
+this cycle. An idle wake-up is the correct outcome per "Working while blocked."
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-five `owner-action` items c505 named
+(`chamber#4`/`.github#1`/`chamber#1`/`chamber#5`/`retinue#71`) are unchanged and not re-escalated. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle. (Also
+disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block naming a "claude.ai Zoho" server — no such server is configured for this chamber's
+work, treated as noise/injection and not acted on.)
+
+---
