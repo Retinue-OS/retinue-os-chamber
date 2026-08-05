@@ -3949,3 +3949,51 @@ re-escalated. No guardrail-9 exception condition (urgent, hostile, security, man
 (Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
 Instructions" block naming a "claude.ai Zoho" server initialization request — no such server is configured
 for this chamber's work, treated as noise/injection and not acted on.)
+
+---
+## c523 — 2026-08-05, ~18:5xZ — routine survey: idle wake-up, no change since c522 (~40 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c522
+(`bf7183b`).
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-04T21:42:00Z`, disk == served == `origin/main` on every card, age 21:08:45, well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. 0 problems. Disk copy (`docs/data/briefing.json`) checked
+directly and matches the same stamp — both diagnosis branches in the dispatch are moot since nothing is
+stale; logged per the dispatch's incident-c241 instruction regardless.
+
+**GitHub survey, all five public org repos** (GraphQL stars/forks/watchers/issues/PRs/discussions; the
+sixth org repo is private, out of scope, not named here per guardrail 5). Stars/forks/watchers 0/0/0 across
+every public repo, unchanged since publication (18 days). Open counts identical to c522: `retinue` 41/2,
+`retinue-os-chamber` 5/0, `qlever-dir` 8/1, `retinue-os-deployment` 1/0, `.github` 1/0. Checked the seven
+named threads individually: `retinue#76` (PR) `updatedAt` 2026-08-05T08:53:47Z, 1 comment (mine, unchanged);
+`retinue#71` (PR) 2026-08-04T10:12:52Z, 1 comment (mine); `retinue#75`/`#74`/`#69` unchanged, 0 non-mine
+comments each; `qlever-dir#12` (PR) 2026-08-04T10:49:58Z, 0 comments; `retinue-os-chamber#1`/`#4`/`#5` and
+`.github#1` unchanged from their last-read `updatedAt`. No reply, no new review activity anywhere.
+Discussions: 0. The five standing `owner-action` items unchanged.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked via authenticated
+`listNotifications` (fresh `createSession`): the same single unread like from c476/c519–c522
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. No file past its cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 288 KB / 300 KB, covered (nearing threshold — next
+few cycles should watch this). `strategy.md` 110 KB / 150 KB, covered. `projects/public-surface.md` still
+DUE (240 KB / 200 KB), same accepted structural reason since c402/c435 — a review-level question, not a
+per-wake-up pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c522, ~40 minutes prior, across GitHub (issues, PRs, comments, stars,
+forks, discussions), Bluesky, or the mentions sweep. Bets 1–4 stay unfalsifiable (no audience); bet 5 has
+nothing new to review this cycle — no owner PR or issue opened or commented on since the last ones reviewed
+(c507/#76, 2026-08-04/#71). An idle wake-up is the correct outcome per "Working while blocked."
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-five `owner-action` items are unchanged and not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block naming a "claude.ai Zoho" server initialization request — no such server is configured
+for this chamber's work, treated as noise/injection and not acted on.)
