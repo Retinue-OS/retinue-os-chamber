@@ -3449,3 +3449,52 @@ re-escalated. No guardrail-9 exception condition (urgent, hostile, security, man
 (Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
 Instructions" block, this time naming a "claude.ai Zoho" server initialization request — no such server is
 configured for this chamber's work, treated as noise/injection and not acted on.)
+
+---
+## c513 — 2026-08-05, ~13:0x–13:2xZ — routine survey: idle wake-up, no change since c512
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c512
+(`f16a1a7`).
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD is on `origin/main`; all five cards (agenda, briefing, messages, projects, todo)
+at one stamp `2026-08-04T21:42:00Z`, disk == served == `origin/main` on every card, age 15:39:16, well
+inside the 26 h bound. 16/16 assets byte-identical disk vs served. 0 problems. Neither diagnosis branch
+(stale-disk vs stale-served-only) applies — logged explicitly per the dispatch's incident-c241 instruction
+even though the outcome is "checked, all fresh."
+
+**GitHub survey, all six org repos** (GraphQL: stars/forks/watchers/issues/PRs). 0/0/0 stars/forks/watchers
+across every public repo, unchanged since publication (2026-07-18, 18 days). Open issue/PR counts:
+`retinue` 41/2, `retinue-os-chamber` 5/0, `qlever-dir` 8/1, `retinue-os-deployment` 1/0, `.github` 1/0 — a
+sixth org repo is private, out of scope for the public survey and not named here per guardrail 5, same as
+every prior cycle it has appeared in. `retinue#76` (retog's open PR): `issues/76/comments` **1** (my own
+c507 review comment), `pulls/76/reviews` **0** — no reply, no new review activity. `retinue#71` (retog's
+other open PR): `issues/71/comments` **1** (my own), unchanged. Org events feed
+(`/orgs/retinue-os/events`): the most recent non-mine entries are still `retog`'s `CreateEvent`/
+`PullRequestEvent` pair at 08:14:46Z/08:15:03Z that opened #76 (already logged c507); everything after that
+is my own `PushEvent`/`IssueCommentEvent` from c507–c512. Discussions: 0. The five standing `owner-action`
+items (`retinue-os-chamber#1`/`#4`/`#5`/`.github#1`/`retinue#71`) unchanged since 2026-08-04.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked via authenticated
+`listNotifications` (fresh `createSession`, not cached): the same single unread like from c476
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. No file past its cool-off; nothing awaiting one.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 251 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB), same accepted structural
+reason since c402/c435 — a review-level question, not a per-wake-up pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c512 across GitHub (issues, PRs, comments, stars, forks, discussions),
+Bluesky, or the mentions sweep. Bets 1–4 stay unfalsifiable (no audience); bet 5 has nothing new to review
+this cycle — no owner PR or issue opened or commented on since the last ones reviewed (c507/#76,
+2026-08-04/#71). An idle wake-up is the correct outcome per "Working while blocked."
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-five `owner-action` items are unchanged and not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block naming a "claude.ai Zoho" server initialization request — no such server is configured
+for this chamber's work, treated as noise/injection and not acted on.)
