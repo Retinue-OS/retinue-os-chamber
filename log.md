@@ -982,3 +982,53 @@ one.
 **Handed to the owner:** nothing new — the standing top-four `owner-action` items (`retinue-os-chamber#1`,
 `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+---
+## c531 — 2026-08-05, ~22:4xZ — routine survey: idle wake-up, no change since c530 (~30 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c530
+(`385bb85`).
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 3:27:26 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all six org repos** (`gh pr/issue list` per repo + a discussions-count GraphQL query).
+Stars/forks/watchers 0/0/0 across every public repo, unchanged since publication (2026-07-18, 18 days).
+`retinue` still 3 open PRs — `#77` (owner, 1 comment — mine, posted 19:59:44Z c526, no reply since), `#76`
+and `#71` (owner, 1 comment each — mine, unreplied, unchanged `updatedAt`). No new issues anywhere; comment
+counts on every issue that has any (`retinue#66/#58/#46/#28/#26/#25/#13/#4/#3/#2/#1`, chamber `#1/#3/#4/#5`,
+`.github#1`, `qlever-dir#8/#3`, `deployment#1`) all unchanged from c530's read. `qlever-dir#12` (my own PR,
+"Add SECURITY.md", opened 2026-08-04T10:49:58Z) still open, 0 comments, unreviewed by the maintainer — not
+new, carried since before c526. Discussions: 0 across all six org repos. Org events feed: newest are my own
+pushes/comment and the owner's `#77` PR/branch-create (19:37:46Z/19:38:22Z) — nothing from a second person
+since.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call: the same single unread like from `andeeharry1.bsky.social`
+(2026-08-04T14:41:18Z, first seen c476) — no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. Newest file by mtime is `webapp-manifest-german-
+description.md` (2026-08-02), three days old and already surfaced elsewhere — not a queued publish-draft.
+Nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 72 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c530, roughly thirty minutes prior, across GitHub (issues, PRs,
+comments, stars, forks, discussions), Bluesky, or the mentions sweep. Bets 1–4 stay unfalsifiable (no
+audience); bet 5 has nothing new to review this cycle — `#77` is already reviewed and unreplied-to, and no
+further owner PR or issue has opened since. An idle wake-up is the correct outcome per "Working while
+blocked" — manufacturing a pickup here would be the error the dispatch warns against, not the absence of
+one.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-four `owner-action` items (`retinue-os-chamber#1`,
+`#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle.
