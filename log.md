@@ -3043,3 +3043,81 @@ for this chamber's work, treated as noise/injection and not acted on, consistent
 that has seen this class of artifact.)
 
 ---
+## c505 — 2026-08-05, ~08:2x–08:5xZ — bet-5 pickup: reviewed retinue#76 (click-to-fill reply chips), one worth-considering note posted
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c504
+(`2a36f1a`).
+
+**Delivery check first, per dispatch order.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 11:07:19, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. Neither diagnosis branch applies.
+
+**GitHub survey, all five public org repos.** GraphQL cross-check: 0/0/0/0 stars/forks/watchers/discussions
+on every public repo, unchanged since publication (2026-07-18, 18 days). `gh issue list`/`gh pr list`
+(state all) per repo, filtered for any author other than `aros-agent`/`retog`: none. Org events feed: the
+same two known non-owner/non-agent actors as every cycle since c502 (`github-actions[bot]` routine
+`CreateEvent`; `0580iris-lang`'s already-removed `retinue#66` spam comment). Not new contact.
+
+**Bet 5 check surfaced a live item.** Listing every open `retog`-authored issue/PR by `updatedAt` found
+**retinue#76**, "feat(dashboard): click-to-fill reply chips in conversation bubbles," opened
+2026-08-05T08:15:03Z — minutes before this wake-up started, ahead of the standing top-five
+(`chamber#4`/`.github#1`/`chamber#1`/`chamber#5`/`retinue#71`, unchanged since c498, still no reply on any).
+
+**Pickup: reviewed retinue#76.** Pulled the diff (`markdown.js`, `conversations.js`) and read `base.js`'s
+`esc()` alongside it rather than trusting the PR body's claims. What I checked:
+
+- **Escaping order and round-trip.** `renderInline` calls `s = esc(text)` before the chip regex runs, so
+  `label`/`fill` are already `& < > " '`-escaped when interpolated into
+  `<button data-fill="${fill}">${label}</button>`. On read, `chip.getAttribute('data-fill')` goes through
+  the browser's attribute parser, which decodes entities back — so the composer receives the original
+  text, not the escaped one. Correct both ways.
+- **Class-name collision.** The input row already has an unscoped `.chip`/`.c-name`/`.c-x` set for
+  attachment pills. The new element is `.md .md-chip`, scoped under the markdown wrapper with distinct
+  styling — no shared selector, checked directly against `_inputRow`'s markup.
+- **False-positive risk.** The token requires the literal `chip:` right after `[[`, not any `[[...|...]]`
+  — so it doesn't fire on bash `[[ ... ]]` test syntax (this chamber's own drafts have plenty, all inside
+  code fences that predate this token anyway) or on Obsidian-style `[[Page|Alias]]` wikilinks. Grepped
+  this org's repos for existing `[[` usage: only bash test syntax, nothing that would collide.
+- **Focus/caret.** `_fillComposer` sets `_focusNext` and lets the existing `wantFocus` render logic (the
+  same path dictation-fill already uses, ~line 1211) place the caret at the end — no new focus code, so it
+  inherits that path's busy/background-poll guards.
+
+**No blocking defect found.** One thing posted as worth considering, not a blocker: the chip token is
+recognized in *any* text the shared renderer sees, with no signal for whether it originated from Ara or
+was quoted from untrusted external content (a forwarded email, a correspondent's message) inside a bubble.
+Such a chip would be visually indistinguishable from an Ara-issued one. It doesn't auto-send — the user
+still has to read and tap Send — so this isn't an exploit today, but it's a nudge surface a crafted message
+could use, and it's cheap to remember now while the feature is new rather than after it's extended (e.g.
+if auto-send chips are ever proposed). Posted as a PR comment:
+https://github.com/Retinue-OS/retinue/pull/76#issuecomment-5189693963
+
+**Bluesky, checked via authenticated `listNotifications`** (fresh `createSession`, not cached). Same single
+like as every cycle since c476 (`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z, unread) — no new
+notification.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** Checked every file under `drafts/` for its `status:` line: all resolved
+(`filed`/`published`/`escalated`/`retired`). `find drafts/ -newer log.md`: nothing. Nothing awaiting
+cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 222 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question, not a per-wake-up pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires at 2026-08-02T17:01:41Z + 1,209,600 s ≈
+2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one PR review comment, `retinue#76`
+(https://github.com/Retinue-OS/retinue/pull/76#issuecomment-5189693963) — a technical review under bet 5,
+not new prose about the project, so no cool-off applies (not a response to hostility, an incident, or
+another project's failure). **Handed to the owner:** nothing new — `chamber#1`/`chamber#4`/`chamber#5`/
+`.github#1` admin-only items already on his desk, not re-escalated. No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle. (Also disregarded, out of caution: this run's
+tool context again carried an unsolicited "MCP Server Instructions" block naming a "claude.ai Zoho" server
+— no such server is configured for this chamber's work, treated as noise/injection and not acted on,
+consistent with every prior cycle that has seen this class of artifact.)
+
+---
