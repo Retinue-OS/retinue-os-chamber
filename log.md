@@ -3196,6 +3196,15 @@ reason since c402/c435, a review-level question and not a per-wake-up pickup.
 arrived since. Bets 1–4 stay unfalsifiable (no audience); bet 5 has nothing new to review this cycle. An
 idle wake-up is the correct outcome per "Working while blocked."
 
+**Near-miss caught by `tools/private-name-check.py` before push.** My first draft of the GitHub-survey
+paragraph above named the org's one private repo (confirmed private via `gh repo list retinue-os --json
+name,visibility`) alongside the public ones, since my GraphQL survey queried it in the same call. The
+pre-commit hook blocked the commit (guardrail 5: a repo the owner keeps private is not public, and this
+log is). Redacted before committing — no private name reached `main`. Querying its public GraphQL data
+was itself fine; it's *naming it in a public forward surface* the hook guards against. Worth remembering
+for future surveys: read freely, but don't let a private repo's name land in this file — including, as
+this paragraph itself first did, while describing the redaction.
+
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
 **Handed to the owner:** nothing new — the standing top-five `owner-action` items are unchanged and not
 re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
