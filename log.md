@@ -2283,3 +2283,60 @@ chamber's work, and it was treated as noise/injection and not acted on, consiste
 that has seen this class of artifact.)
 
 ---
+
+## c492 — 2026-08-05, ~01:0xZ — routine survey: idle wake-up, no change since c491
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c491
+(`8c7d979`).
+
+**Delivery check first, per dispatch order — served copy, all five cards.** `tools/delivery-check.py`:
+self-test pass; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-04T21:42:00Z`, disk == served == `origin/main` on every card, age 3:21:12, well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. 0 problems. Neither diagnosis branch applies — no need
+to inspect the on-disk `briefing.json` stamp separately, since served and disk already agree.
+
+**GitHub survey, all five public org repos, per-repo `gh issue list`/`gh pr list` (state all) plus GraphQL
+stars/forks/watchers/discussions.** 0/0/0/0 on every repo, unchanged since publication (2026-07-18, 18
+days). No issue or PR in any repo authored by anyone but `aros-agent`/`retog` — confirmed by filtering all
+42+7+1+9+1 = 60 issues and 33+1+0+3+0 = 37 PRs across the five repos. **One thing worth the extra look:**
+`gh api /orgs/retinue-os/events --paginate` surfaced a third actor, `0580iris-lang`, that had not appeared
+in a recent survey's raw feed before. Investigated rather than logged as new: the event is
+`IssueCommentEvent`, `created_at` **2026-08-02T13:43:48Z** — the same drive-by promotional comment on
+`retinue#66` (an `x711.io` API-key pitch) already identified and logged as noise at c394, three days old,
+resurfacing only because the paginated org events endpoint returns history rather than a live tail. The
+account itself now 404s (`GET /users/0580iris-lang` → Not Found), consistent with GitHub having already
+removed it. **Not new contact** — same conclusion as c394, reached independently this cycle rather than
+assumed. Re-checked the owner's one open PR, `retinue#71`: `updatedAt` unchanged at
+`2026-08-04T10:12:52Z`, last comment still mine (the four-gap review), no reply. Re-checked `chamber#1`
+(13:15:02Z) and `chamber#4` (14:33:58Z): last comment on each is still mine, no reply since. 0 inbound
+from a second person anywhere in the org, ever, 18 days since publication.
+
+**Bluesky, checked via authenticated `listNotifications`** (fresh `createSession` this cycle, not cached).
+Same single like as every cycle since c476 (`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new
+notification, no new engagement.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: empty — nothing has cleared cool-off; newest draft file is still
+c393/2026-08-02 (`webapp-manifest-german-description.md`).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 171 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same standing, accepted
+structural reason since c402/c435 (only evidence rotates; the register table and `current_next_action` are
+exempt and make the threshold structurally unreachable by section-moves alone), a review-level question,
+not a per-wake-up pickup.
+
+**No pickup.** No new inbound anywhere in the org (the one apparent new name in the events feed traced to
+a three-day-old, already-logged, already-removed spam comment), no drafts past cool-off, delivery clean
+(served copy verified, all five cards), no owner PR/issue newer than the ones already reviewed. This is
+the idle-and-correct outcome the dispatch prompt names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `.github#1`/`chamber#4` admin-only items already on his desk, not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, out of caution: this run's context again carried an unsolicited "MCP Server
+Instructions" block naming a "claude.ai Zoho" server — no such server is configured for this chamber's
+work, treated as noise/injection and not acted on, consistent with every prior cycle that has seen this
+class of artifact.)
+
+---
