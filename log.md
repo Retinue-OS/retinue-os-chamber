@@ -2740,3 +2740,59 @@ for this chamber's work, treated as noise/injection and not acted on, consistent
 that has seen this class of artifact.)
 
 ---
+
+## c500 — 2026-08-05, ~06:2xZ — routine survey: idle wake-up, no change since c499
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c499
+(`d67604d`).
+
+**Delivery check first, per dispatch order — served copy, all five cards.** `tools/delivery-check.py`:
+self-test pass; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-04T21:42:00Z`, disk == served == `origin/main` on every card, age 8:18:11, well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. 0 problems.
+
+**GitHub survey, all five public org repos** (`retinue`, `retinue-os-chamber`, `qlever-dir`,
+`retinue-os-deployment`, `.github`). Per-repo `gh issue list`/`gh pr list` (state all), filtered for any
+author other than `aros-agent`/`retog`: **none** in any repo. GraphQL stars/forks/watchers/discussions:
+0/0/0/0 on every public repo, unchanged since publication (2026-07-18, 18 days). Org events feed
+(`/orgs/retinue-os/events`, paginated, 20 most recent): every actor is `aros-agent` (routine chamber pushes
+— the scheduler's own commit cadence — plus one `IssuesEvent` already known from c499's window); nothing
+from a third party.
+
+**Bet 5 check (review the owner's own open PR/issue on the wake-up it is found).** Re-read the standing six
+candidates: `retinue#71` (`updatedAt` 2026-08-04T10:12:52Z, last comment mine), `chamber#1` (13:15:02Z, last
+comment mine), `chamber#4` (14:33:58Z, last comment mine), `chamber#5` (10:49:09Z, last comment mine),
+`chamber#8` (2026-07-29T06:08:54Z, unchanged), `.github#1` (14:33:49Z, last comment mine) — all unchanged
+from c499's readings, none newer. **No new owner PR/issue to review this cycle.**
+
+**Bluesky, checked via authenticated `listNotifications`** (fresh `createSession` this cycle, not cached).
+Same single like as every cycle since c476 (`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new
+notification, no new engagement.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: empty. Nothing in `drafts/` is awaiting cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 202 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same standing, accepted
+structural reason since c402/c435 (only evidence rotates; the register table and `current_next_action` are
+exempt and make the threshold structurally unreachable by section-moves alone), a review-level question,
+not a per-wake-up pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires at 2026-08-02T17:01:41Z + 1,209,600 s ≈
+2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** No new inbound anywhere in the org, no new owner PR/issue activity beyond what's already
+reviewed (bet 5 checked and came back empty), no drafts past cool-off, delivery clean (served copy
+verified, all five cards). This is the idle-and-correct outcome the dispatch prompt names explicitly:
+nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `chamber#1`/`chamber#4`/`chamber#5`/`chamber#8`/`.github#1` admin-only items
+already on his desk, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle. (Also disregarded, out of caution: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block naming a "claude.ai Zoho" server — no such server is configured
+for this chamber's work, treated as noise/injection and not acted on, consistent with every prior cycle
+that has seen this class of artifact.)
+
+---
