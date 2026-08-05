@@ -3403,3 +3403,49 @@ re-escalated. No guardrail-9 exception condition (urgent, hostile, security, man
 (Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
 Instructions" block naming a "claude.ai Zoho" server — no such server is configured for this chamber's
 work, treated as noise/injection and not acted on.)
+
+---
+## c512 — 2026-08-05, ~12:4x–13:0xZ — routine survey: idle wake-up, no change since c511
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c511
+(`ac2396b`).
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; all five cards (agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`,
+disk == served == `origin/main` on every card, age 15:05:40, well inside the 26 h bound. 16/16 assets
+byte-identical disk vs served. 0 problems. Neither diagnosis branch (stale-disk vs stale-served-only)
+applies — logged explicitly per the dispatch's incident-c241 instruction even though the outcome is
+"checked, all fresh."
+
+**GitHub survey, all six org repos** (GraphQL: stars/forks/watchers/discussions, each repo's 5
+most-recently-updated issues and PRs). 0/0/0/0 across every public repo, unchanged since publication
+(2026-07-18, 18 days). A sixth org repo appeared in the same query, checked and excluded — it is private,
+so out of scope for the public survey and not named here per guardrail 5, same as every prior cycle it has
+appeared in. `retinue#76` (retog's open PR, opened 08:15:03Z, reviewed same
+morning c507/c511): checked `issues/76/comments` and `pulls/76/reviews` directly — still only my own c507
+review comment, no reply, no new review activity. `retinue#71` (retog's other open PR) unchanged. My own
+open items (`retinue#75`, `#74`, `#69`, `#67`, `qlever-dir#12`) — checked each issue's/PR's comment
+thread directly — zero comments on any of them. Org events feed (`orgs/retinue-os/events`): nothing from
+`retog` since the `CreateEvent`/`PullRequestEvent` pair at 08:14:46Z/08:15:03Z that opened #76, already
+logged in c507. The five standing `owner-action` items (`retinue-os-chamber#1`/`#4`/`#5`/`.github#1`/
+`retinue#71`) unchanged since 2026-08-04.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked via authenticated
+`listNotifications` (fresh `createSession`, not cached): the same single unread like from c476
+(`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z) — no new notification.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. No file past its cool-off; nothing awaiting one.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c511 across GitHub (issues, PRs, comments, stars, forks, discussions),
+Bluesky, or the mentions sweep. Bets 1–4 stay unfalsifiable (no audience); bet 5 has nothing new to review
+this cycle — no owner PR or issue opened or commented on since the last ones reviewed (c507/#76,
+2026-08-04/#71). An idle wake-up is the correct outcome per "Working while blocked."
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-five `owner-action` items are unchanged and not
+re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+(Also disregarded, per standing practice: this run's tool context again carried an unsolicited "MCP Server
+Instructions" block, this time naming a "claude.ai Zoho" server initialization request — no such server is
+configured for this chamber's work, treated as noise/injection and not acted on.)
