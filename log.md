@@ -2983,3 +2983,63 @@ for this chamber's work, treated as noise/injection and not acted on, consistent
 that has seen this class of artifact.)
 
 ---
+
+## c504 — 2026-08-05, ~08:1xZ — routine survey: idle wake-up, no change since c503
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c503
+(`b76c2c5`).
+
+**Delivery check, served copy, all five cards.** `tools/delivery-check.py`: self-test pass; all five cards
+(agenda, briefing, messages, projects, todo) at one stamp `2026-08-04T21:42:00Z`, disk == served ==
+`origin/main` on every card, age 10:34:07, well inside the 26 h bound. 16/16 assets byte-identical disk vs
+served. 0 problems. Neither diagnosis branch (stale disk vs stale-only-served) applies.
+
+**GitHub survey, all five public org repos** (`retinue`, `retinue-os-chamber`, `qlever-dir`,
+`retinue-os-deployment`, `.github`). `gh issue list`/`gh pr list` (state all) filtered for any author other
+than `aros-agent`/`retog`: **none** in any repo. GraphQL stars/forks/watchers/discussions: 0/0/0/0 on every
+public repo, unchanged since publication (2026-07-18, 18 days). `gh repo list` also surfaced one repo the
+org keeps private — guardrail 5 forbids naming it here, since this file is itself part of a public repo; the
+survey stays scoped to the five public repos, and no private-repo detail is recorded in this chamber.
+
+**Org events feed** (`/orgs/retinue-os/events`, paginated): two non-`aros-agent`/`retog` actors, both
+already known — `github-actions[bot]` (routine `CreateEvent`, 2026-08-03) and `0580iris-lang`, the
+2026-08-02 `retinue#66` spam comment already identified as noise at c394 and re-confirmed removed at
+c502/c503. **Not new contact.**
+
+**Bet 5 check (review the owner's own open PR/issue on the wake-up it is found).** Listed every open
+`retog`-authored issue/PR across all five repos, sorted by `updatedAt`: top of the list is `chamber#4`
+(2026-08-04T14:33:58Z), `.github#1` (14:33:49Z), `chamber#1` (13:15:02Z), `chamber#5` (10:49:09Z),
+`retinue#71` (10:12:52Z) — the same five items, same order, as every cycle since c498. **No new owner
+PR/issue to review this cycle.**
+
+**Bluesky, checked via authenticated `listNotifications`** (fresh `createSession` this cycle, not cached).
+Same single like as every cycle since c476 (`andeeharry1.bsky.social`, 2026-08-04T14:41:18Z, unread) — no
+new notification, no new engagement.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **`tools/web-mentions-check.py`**
+(re-run this cycle): 1/3 engines answering (mojeek; bing and duckduckgo both serving anti-bot challenges,
+reported `UNAVAILABLE` not zero) — 0 confirmed hits across four queries.
+
+**Drafts.** Read every file under `drafts/` directly (not just `find -newer`): all carry a resolved
+`status` (`filed`/`published`/`escalated`/`retired`). Nothing awaiting cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 218 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same standing, accepted
+structural reason since c402/c435, a review-level question, not a per-wake-up pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires at 2026-08-02T17:01:41Z + 1,209,600 s ≈
+2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** No new inbound anywhere in the org, no new owner PR/issue activity, no drafts past cool-off,
+delivery clean (served copy verified, all five cards), web reach still zero on the engines that answer.
+This is the idle-and-correct outcome the dispatch prompt names explicitly: nothing manufactured.
+
+**Files changed:** `log.md` (this entry). **Published outside the chamber:** nothing this cycle. **Handed
+to the owner:** nothing new — `chamber#1`/`chamber#4`/`chamber#5`/`chamber#8`/`.github#1` admin-only items
+already on his desk, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle. (Also disregarded, out of caution: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block naming a "claude.ai Zoho" server — no such server is configured
+for this chamber's work, treated as noise/injection and not acted on, consistent with every prior cycle
+that has seen this class of artifact.)
+
+---
