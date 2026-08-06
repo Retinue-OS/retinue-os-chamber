@@ -2382,3 +2382,41 @@ outside the chamber:** nothing — the review found nothing worth a maintainer's
 precedent). **Handed to the owner:** nothing new — the standing top-four `owner-action` items
 (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+## c557 — 2026-08-06, ~13:4xZ — routine survey: idle wake-up, no change since c556 (~30 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c556
+(`83a21fd`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards at one stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on
+every card, age 18:22:27 — well inside the 26 h bound. 16/16 assets byte-identical disk vs served. **0
+problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo, unchanged
+since publication (19 days). `retinue#81` (owner's dashboard-layout PR, reviewed at c556, no defect found)
+unchanged — 0 comments, still open, `MERGEABLE`. `retinue#79` unchanged — no reply since my 11:31:21Z
+comment. `retinue#71` unchanged — no reply since my 09:50:35Z comment. `retinue-os-chamber#1`/`#4`/`#5` and
+`.github#1` unchanged — last comment on each is still mine (2026-08-04). No new issue, PR, comment, star,
+fork, watcher or discussion anywhere in the org (all five repos checked individually via `gh issue list`/
+`gh pr list`, not from a cached count).
+
+**Bluesky**, checked directly via a fresh `createSession` + `listNotifications` call: same single unread
+like from `andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower
+signal. **`tools/mentions-check.py`**: unchanged, 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off; 75-file backlog unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 177 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (241 KB / 200 KB), same accepted structural
+reason since c402/c435 — a review-level question, not this cycle's pickup.
+
+**No pickup.** Nothing arrived since c556. Bets 1–4 stay unfalsifiable; bet 5 has nothing new (`#81`, `#79`
+and `#71` already reviewed/commented and unreplied-to). An idle wake-up is the correct outcome per "Working
+while blocked".
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
