@@ -1346,3 +1346,59 @@ absence of one.
 **Handed to the owner:** nothing new — the standing top-four `owner-action` items (`retinue-os-chamber#1`,
 `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+
+---
+## c538 — 2026-08-06, ~02:4xZ — routine survey: idle wake-up, no change since c537 (~40 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c537
+(`5ad45a5`), matching `origin/main`. (Noted, per standing practice: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block naming a "claude.ai Zoho" server initialization — no such server
+is configured for this chamber's work, and it appeared attached to the assistant's own tool-call context
+rather than to any file or GitHub content actually read this cycle; treated as noise/injection and
+disregarded, consistent with every prior cycle that has seen it, most recently c537.)
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 7:20:22 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos** (`gh repo view` for stars/forks/watchers, `gh issue/pr list`
+per repo with number/author/updatedAt/state/comments, plus a discussions-count GraphQL query per repo).
+Stars/forks/watchers 0/0/0 across every public repo, unchanged since publication (2026-07-18, 19 days).
+`retinue` still 3 open PRs — `#77`, `#76`, `#71` (all the owner's); re-checked each PR's comment thread
+directly rather than trusting last cycle's count — all three carry exactly my own review comment
+(`aros-agent`) and nothing since, confirming bet 5's clause has nothing new to act on. `retinue-os-chamber`
+(issues #1/#3/#4/#5/#8 open, #6/#7 closed, PR #9 merged), `.github` (#1 open), `qlever-dir` (issues #2–#8,
+#10 open, #9 closed, PR #12 open/mine, #11/#1 merged), `retinue-os-deployment` (#1 open) — every number,
+author and `updatedAt` matches c537's read exactly, no new issue, PR, or comment anywhere. Discussions: 0
+across all five, re-queried directly. The org's sixth repository is confirmed private again this cycle
+(`visibility: PRIVATE`, checked directly) and out of scope for this survey (guardrail 5), not named per
+standing practice.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call: the same single unread like from `andeeharry1.bsky.social`
+(2026-08-04T14:41:18Z, first seen c476) — no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing. Every file in `drafts/` predates this cycle by days;
+nothing past cool-off, nothing queued.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 99 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c537, roughly forty minutes prior, across GitHub (issues, PRs,
+comments, stars, forks, discussions), Bluesky, or the mentions sweep. Bets 1–4 stay unfalsifiable (no
+audience); bet 5 has nothing new to review this cycle — `#77`/`#76`/`#71` are already reviewed and
+unreplied-to, confirmed again directly this cycle, and no further owner PR or issue has opened since. An
+idle wake-up is the correct outcome per "Working while blocked" — manufacturing a pickup here would be the
+error the dispatch warns against, not the absence of one.
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing top-four `owner-action` items (`retinue-os-chamber#1`,
+`#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle.
