@@ -2210,3 +2210,71 @@ reviewed and unreplied-to). An idle wake-up is the correct outcome per "Working 
 **Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
 owner:** nothing new — standing top-four `owner-action` items unchanged, not re-escalated. No guardrail-9
 exception met.
+
+---
+## c554 — 2026-08-06, ~11:3xZ — bet-5 pickup: reviewed the owner's new design issue retinue#79, found a real tension in its own proposal
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c553
+(`49ccd62`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 16:08:48 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo, unchanged
+since publication (19 days). **One change since c553:** `retinue#79`, a new design issue opened by the owner
+at 11:13:34Z, "tell_ara should close the loop: reconcile a reported outcome with project state" — proposing
+that `tell_ara` (the MCP connector's note-to-dashboard tool, added in #77) also wake a write-scoped Ara
+session to reconcile the note with project state, since today nothing wakes Ara on that path. `retinue#71`
+unchanged since c551/c552: still `OPEN`, no reply since my 09:50:35Z comment. Every other issue/PR across
+all five repos matches c553's read exactly; discussions 0 across all five.
+
+**Pickup — bet 5, reviewing the owner's own newly-opened issue ahead of standing audit work.** Traced the
+actual code rather than reading the proposal at face value. Confirmed the problem statement:
+`ara-mcp-server.py`'s `_tool_tell_ara` (line 460) only calls `POST /internal/conversations` — nothing wakes
+a session. Found a tension inside the proposal's own design points: "Where the session runs" names the
+existing async job store (`web-gateway.py:558-620`) as "the natural host... not new machinery." That store's
+session-producing function, `send_message()` (`web-gateway.py:1720`), is the literal dashboard-chat/edit
+codepath — `claude -p --permission-mode acceptEdits`, no `--disallowed-tools`, and `.claude/settings.json`
+grants that session `Bash(*)`, `Write(**)`, `Edit(**)`, plus the Zoho/WhatsApp/Telegram MCP tools: the full,
+unrestricted Ara persona. The same issue's "Write scope" bullet requires the opposite — a *separate* session
+with a narrow prompt ("update project files, commit; never send messages, never touch anything else"),
+explicitly because the note is untrusted input from a client that reads arbitrary web pages ("Untrusted
+input" bullet). Reusing `send_message()` as proposed would hand that untrusted note the unrestricted session
+— the exact outcome its own "Write scope"/"Untrusted input" bullets warn against. Checked whether a cheaper
+reuse exists: the only narrow session in the repo today is `ara-mcp-server.py`'s own answering session
+(`FORBIDDEN_TOOLS = ("Write", "Edit", "NotebookEdit")`, line 94, default `ask` permission mode) — narrow in
+the opposite direction, forbidding exactly the tools this feature needs. So a write-capable-but-bounded
+profile is genuinely new machinery regardless of which path is chosen, and "not new machinery" doesn't hold
+either way. The job store's *threading/locking* pattern (per-session-key serialization, worker-pool bound)
+is reusable; the `claude` invocation underneath it is not, if the narrow-scope requirement is meant to hold.
+
+Per the standing operating rule (c330: a finding that fits an open item goes there, not to a new issue),
+posted as an issue comment rather than filed: https://github.com/Retinue-OS/retinue/issues/79#issuecomment-5204083106.
+Not a cool-off case — plain technical design review, not a response to hostility, an incident, or another
+project's failure, so it went out immediately per guardrail 8. Updated `projects/public-surface.md`'s
+`current_next_action` with the full trace and a NEXT line naming what's still open (`#79` reply/PR, `#71`
+reply, `#74`/`#75` and `qlever-dir#12` unanswered since c483/c484).
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call (not cached): same single unread like from
+`andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 164 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** one issue comment,
+https://github.com/Retinue-OS/retinue/issues/79#issuecomment-5204083106 — a technical design review of the
+owner's own new proposal, per bet 5. **Handed to the owner:** nothing new beyond the comment itself — the
+standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and
+not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
+cycle.
