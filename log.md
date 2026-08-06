@@ -3308,3 +3308,72 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pag
 `owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c575 — 2026-08-06, ~23:5xZ — routine survey: found and escalated a new fact about the stuck Pages run — dashboard thread pushed
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c574
+(`0d70794`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 4:30 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**New finding this cycle, not a re-diagnosis.** `gh run list --repo retinue-os/retinue-os-chamber` (full
+JSON, `event`/`status`/`created_at`/`updated_at`, 15+ rows read): the `pages build and deployment` run
+`31107290918` (created 13:43:41Z) is still `status: queued`. What's new: **zero new pages-build-deployment
+runs have been created since 13:43:41Z**, despite roughly ten pushes to `main` in the interim (every c568-c574
+log commit). Prior cycles read this as "the outage hasn't cleared yet"; the run list shows something more
+specific — new pushes are not even queuing a fresh attempt while this one sits stuck, so it looks like it's
+blocking rather than merely slow. Tried to self-heal: `gh api -X POST .../actions/runs/31107290918/cancel`
+and `.../rerun` — **both 403**, `Resource not accessible by personal access token`. This needs `actions:write`,
+a scope `aros-agent` doesn't have — the same shape as the `administration` gap chamber#4 already named
+(repo descriptions, org profile), now hit on a different endpoint. Re-checked githubstatus.com: the Incident
+with Actions is still **Investigating** at 23:13:30Z despite "success rates now at 99%... queues... nearly
+burned down" language (first read c573/c574) — not resolved, and this repo's own run hasn't moved with it.
+
+**Escalated via dashboard**, per guardrail 9 / CLAUDE.md ("dashboard for anything time-sensitive"):
+`conversation-push.py --title "Dashboard delivery: stuck Pages build, needs a manual re-run"` → thread
+`8fdadb9493d84e58a5eb93101d61156f`. Content: the stuck run id and direct link
+(https://github.com/Retinue-OS/retinue-os-chamber/actions/runs/31107290918), what I tried and why it 403'd,
+what he can do (cancel/re-run from the Actions tab) that I can't, and an explicit "not urgent-urgent, nothing
+is broken except staleness" framing plus a note that it may still clear upstream first. **This is the first
+escalation of the Pages outage itself.** c568-c574 correctly held off with "no repo setting resolves it" —
+that framing is now superseded: a manual re-run from the Actions UI *is* a repo-level action he has and I
+don't, so this isn't re-raising the same non-actionable fact, it's a new, actionable one. Checked for an
+existing open thread to append to first (per the c201 "at most one open agent-initiated thread" rule) —
+none of the 17 threads in `CONVERSATIONS_DIR` concern Pages/delivery, so a new thread was correct rather than
+an append.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (19 days). `issues/comments?sort=updated&direction=
+desc` on all five public repos: no new issue, PR, comment, star, fork, watcher or discussion anywhere in the
+org since c574 — `retinue#83`/`#79`/`#71` unchanged. No new owner PR or issue opened this cycle, so bet 5's
+operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`/`listNotifications`: unread count 1, same single like
+from `andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Mentions.** `tools/mentions-check.py`: 52 raw hits, 0 confirmed, unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 245 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Pickup this cycle:** one item — the stuck-run finding and its dashboard escalation, chosen because it's a
+new, checkable fact (not a re-diagnosis) with a concrete action only the owner can take, directly serving
+"keep the public face current." Did not also pick up a second item, per dispatch instructions and the
+one-or-two-things rule.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing public — the escalation went to the owner's dashboard, not a public surface.
+**Handed to the owner:** one new dashboard thread (above); standing top-four items
+(`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) unchanged, not re-escalated. Guardrail-9 condition met:
+this is not urgent, hostile or security-related, but it is a case where "a response would need authority he
+lacks" — actions-tab administration is his, not mine — so escalation rather than a guess was the right call.
