@@ -2052,3 +2052,73 @@ error the dispatch warns against, not the absence of one.
 **Handed to the owner:** nothing new — the standing top-four `owner-action` items (`retinue-os-chamber#1`,
 `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+---
+## c551 — 2026-08-06, ~09:5xZ — bet-5 pickup: reviewed the owner's update to retinue#71, found the fix doesn't reach its own anchor
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c550
+(`8b1e1bf`), matching `origin/main`. (Noted, per standing practice: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block naming a "claude.ai Zoho" server initialization — no such server
+is configured for this chamber's work and it is attached to the assistant's own tool-call context rather
+than to any file or GitHub content actually read this cycle; treated as noise/injection and disregarded,
+consistent with every prior cycle that has seen it.)
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards at one stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on
+every card, age 14:27:26 — well inside the 26 h bound. 16/16 assets byte-identical disk vs served. **0
+problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo,
+unchanged since publication (19 days). One change since c550: `retinue#71` (the owner's PR, "feat: implement
+granular notification settings and fix subscription persistence closes #66") jumped from `updatedAt`
+2026-08-04T10:12:52Z to 2026-08-06T09:26:36Z — a new commit, `8441d7ed5` ("Addressing review comments"),
+pushed this morning on top of the branch, responding to my 2026-08-04 design review of the same PR. Nothing
+else moved: `#77`/`#76` unchanged since c550; every other issue/PR across all five repos matches c550's read
+exactly; discussions 0 across all five.
+
+**Pickup — bet 5, reviewing the owner's own newly-updated PR ahead of standing audit work.** Fetched the new
+commit's diff (`scripts/push_notify.py`, `scripts/web-gateway.py`, `webapp/components/push.js`) and traced it
+rather than reading the summary. Two of the three gaps from my c546 review are now real and covered by the
+new unit test: `off` is a real `MODES` entry and `notify()` skips it; `read_at` is set in
+`_handle_conversation_read`. The third — the actual "new vs. stalled vs. everything" distinction the PR's
+title claims to close #66 with — isn't. `_push_conv_notification` (`web-gateway.py:1311-1332`) branches on
+`conv.get("unread")` before `conv.get("read_at")`, and traced all three call sites: every one passes a `conv`
+whose `unread` is already `True` at that point, because it's the very flag the message-about-to-be-pushed
+just set (`_new_conv`'s `"unread": initiator == "agent"`, and two explicit `unread=True` arguments at
+`:1361` and `:2768`, both immediately followed by the push call). So `event_mode` is `"new"` on literally
+every call that ever reaches `push_notify.notify()`, the `elif conv.get("read_at")` branch that would compute
+`"stalled"` is unreachable dead code, and in `notify()`'s filter `mode="new"` satisfies both `new_only` and
+`new_and_stalled` on every message — not just the thread's first one. That reproduces the exact symptom my
+last review flagged (every subscriber notified regardless of which option they picked), through a new code
+path: `mode` is no longer `None`, it's a constant that happens to pass every non-`all`/non-`off` filter.
+Confirmed `tests/test_notification_settings.py` still only exercises `push_notify.notify(mode=...)` directly,
+never the trigger path, so CI stays green over this. Also flagged, smaller: the new
+`or conv.get("archived")` early-return in `_push_conv_notification` skips every archived conversation
+unconditionally, which is the opposite of #66's stated default ("this shall be applicable to archived
+conversations by default yes") — there is no setting to turn it back on.
+
+Per the standing operating rule (c330: a finding that fits an open PR goes there, not to a new issue), posted
+as a PR comment rather than filed: https://github.com/Retinue-OS/retinue/pull/71#issuecomment-5203045589.
+Not a cool-off case — plain technical review of code, not a response to hostility, an incident, or another
+project's failure, so it went out immediately per guardrail 8. Updated `projects/public-surface.md`'s
+`current_next_action` with the full trace and a NEXT line naming what's still open (`#71` reply, `#74`/`#75`
+and `qlever-dir#12` unanswered since c483/c484, `#76` for a reply/merge).
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**: same single unread like
+from `andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 152 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** one PR comment, https://github.com/Retinue-OS/retinue/pull/71#issuecomment-5203045589
+— a technical review of the owner's own update to his notification-settings PR, per bet 5. **Handed to the
+owner:** nothing new beyond the PR comment itself — the standing top-four `owner-action` items
+(`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
