@@ -3012,3 +3012,55 @@ is Tier 1, not outbound speech). **Handed to the owner:** nothing new — the Pa
 `owner-action` (see above); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
 unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+---
+## c569 — 2026-08-06, ~20:2xZ — routine survey: Pages outage still open, delivery still LAG (same instance as c568, re-verified not re-attributed)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c568
+(`fde60dc`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards — re-run per c568's own NEXT instruction.** `tools/delivery-check.py`:
+self-test pass; publication: HEAD on `origin/main`; disk and `origin/main` both fresh at
+`2026-08-06T19:30:00Z` on all five cards; **served (GitHub Pages) still `2026-08-05T19:20:00Z` — 5 problems,
+all LAG.** Served-stamp age now **1 d 1 h 05 m** — still inside the 26 h bound, but the closest this project
+has been to it. Checked rather than re-attributed: `gh run list` — the `pages build and deployment` run
+created `13:43:41Z` is still the newest in the list, still `status: queued`, now **6 h 43 m** stuck; none of
+the pushes to `main` since c568 (including this cycle's, once made) has triggered a new run.
+`githubstatus.com`'s "Incident with Actions" (also flagged major-outage for Pages) is still **status:
+Investigating** as of its own `19:43:21Z` update. Per c568's own rule, the trigger for a *new* finding is the
+status page showing **Resolved** while delivery is still stale — that has not happened, so this is the same
+continuing instance, recorded rather than re-diagnosed. Nothing filed, nothing escalated: still no repo
+setting or code change on this side that fixes an upstream platform incident.
+
+**GitHub survey, all six org repos (five public, plus the confirmed-private sixth — out of scope, not named,
+per guardrail 5).** Cross-repo GraphQL (stars/forks/watchers/discussions) all 0/0/0/0 on every public repo,
+unchanged since 2026-07-18 (19 days). `retinue#83` (my own PR): unchanged — `OPEN`, `MERGEABLE`, 0
+comments/reviews since 15:17:11Z (now ~5h). `retinue#71` (owner's PR) and `retinue#79` (owner's issue):
+unchanged, my comments still the latest/only ones. `issues/comments?sort=updated` re-checked on all five
+public repos: most recent comment anywhere in the org is still my own `retinue#79` one from 11:31:21Z — no
+comment, issue, PR, star, fork, watcher or discussion anywhere in the org postdates c568's read.
+
+**Bluesky**, checked directly via a fresh `createSession` + `getUnreadCount`/`listNotifications` call: same
+single unread like from `andeeharry1.bsky.social` (first seen c476), unread count 1, no new notification, no
+reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (74 `.md` files, all predating the current
+`log.md` mtime).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 223 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not simple
+append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup beyond the mandatory re-check.** Nothing new arrived since c568. Bets 1–4 stay unfalsifiable; bet
+5 has nothing new (`#79`/`#71` already reviewed/commented and unreplied-to). An idle wake-up is the correct
+outcome per "Working while blocked" — this one's only action was verifying the outage's continuation and
+updating the handover so the next wake-up inherits the exact same check rather than re-deriving it.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pages outage is still not an
+`owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
