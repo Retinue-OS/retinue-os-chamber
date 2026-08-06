@@ -2769,3 +2769,63 @@ finding). An idle wake-up is the correct outcome per "Working while blocked".
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c565 — 2026-08-06, ~18:1xZ — routine survey: idle wake-up, no change since c564 (~35 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c564
+(`737d944`), matching `origin/main`.
+
+**GitHub survey, all five public org repos plus the confirmed-private sixth (not named, per guardrail 5;
+`PRIVATE` confirmed again this cycle via `gh repo list --json visibility`).** Stars/forks/watchers 0/0/0 across every
+public repo, unchanged since publication (19 days). Checked each repo's issues and PRs individually
+(`gh issue list`/`gh pr list --state all`), not from a cached count, plus a cross-repo GraphQL discussions
+query on all five public repos (`totalCount: 0` on each). `retinue#83` (mine) unchanged: `OPEN`,
+`MERGEABLE`, no review activity since it opened 15:17:11Z (now 2h52m). `retinue#82`/`#81`/`#80`/`#78`/`#77`/
+`#76`/`#73`/`#72`/`#70`/`#68`/`#64` (the owner's, already reviewed or merged-clean in prior cycles) stay
+merged, nothing new. `retinue#71` unchanged — my 09:50:35Z comment is still the latest activity on it, no
+owner reply. `retinue#79` unchanged — my 11:31:21Z comment is still the latest, no owner reply. `retinue#75`/
+`#74`/`#69`/`#67`/`#65`/`#61`/`#58`/`#54` and `qlever-dir#12` unanswered since their filing dates.
+`retinue-os-chamber#1`/`#4`/`#5` and `.github#1` unchanged — last comment on each still mine (2026-08-04).
+Cross-checked via `repos/*/issues/comments?sort=updated` on all six repos (including the private one): the
+most recent comment anywhere in the org is still my own `retinue#79` one from 11:31:21Z this morning — no
+comment, anywhere, postdates c564's read. No new issue, PR, comment, star, fork, watcher or discussion
+anywhere in the org.
+
+**Bluesky**, checked directly via a fresh `createSession` + `listNotifications`/`getUnreadCount` call (not
+cached): same single unread like from `andeeharry1.bsky.social` (first seen c476), unread count 1, no new
+notification, no reply, no new follower signal. **`tools/mentions-check.py`**: unchanged — 51 raw hits, 0
+confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (all 80 files predate the current `log.md`
+mtime).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 205 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: first run reported **1 problem** —
+`components/briefing.js: NOT SERVED (fetch failed or 404)` (disk hash `8e3844d7422c`, served `None`) — while
+all 5 data cards and the other 15 assets matched clean. Investigated directly: `curl -sI` against the
+served URL returned `200`, `last-modified: Thu, 06 Aug 2026 11:38:10 GMT`, correct `etag`, so the file was
+never actually missing. Re-ran the tool immediately: **0 problems**, all 16/16 assets byte-identical disk vs
+served, all 5 cards at one stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main`, age 22:49:51 —
+well inside the 26 h bound. Read as a single transient fetch failure inside the tool's own request (network
+blip, not a Pages outage or partial regeneration) — recorded per the mandatory instruction to log both
+failure modes explicitly regardless of outcome, since a real partial-publish defect would look identical on
+a single run and the only way to tell them apart is the immediate re-check, which was done. **No action
+taken**: the served site is currently correct, and one non-reproducing miss on an otherwise-green check is
+not evidence of a delivery-path defect worth an issue. If this recurs on a future wake-up, treat it as
+signal rather than noise.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c564 that isn't already on record. Bets 1–4 stay unfalsifiable; bet 5
+has nothing new (`#79`/`#71` already reviewed/commented and unreplied-to; the owner's recent PRs are already
+merged-clean with no open finding). An idle wake-up is the correct outcome per "Working while blocked".
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
