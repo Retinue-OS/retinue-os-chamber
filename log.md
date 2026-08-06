@@ -2930,3 +2930,85 @@ merged-clean with no open finding). An idle wake-up is the correct outcome per "
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c568 — 2026-08-06, ~19:5xZ — dashboard commit gap closed; delivery-check LAG traced to an active GitHub Actions/Pages outage, not a project defect
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start (before reading further)
+found five modified, unstaged files: `docs/data/{agenda,briefing,messages,projects,todo}.json` — a
+regeneration the daily `aros-dashboard-refresh` job had already run (stamp `2026-08-06T19:30:00Z`,
+consistent across all five) but never committed. This is the known commit-gap failure mode (memory note
+`aros-dashboard-refresh-commit-gap`): the job can write the files and stop before its own `git commit`. Per
+that note's rule, checked before doing anything else rather than assuming the working tree was clean.
+
+**Pickup 1 — commit the pending regeneration, verified rather than trusted.** `python3
+tools/card-budget-check.py`: 87 budgeted values, 0 over. `python3 tools/desk-drop-check.py`: 36/36 references
+resolvable, 0 problems (1 dropped/resolved, 2 added — `retinue#79`, `retinue#83`). Both clean, so the content
+was sound; staged exactly the five named paths (never `git add -A`), committed (`8a79c6b`) and pushed. No new
+regeneration was run — this was purely closing the gap on one already done.
+
+**GitHub survey, all six org repos (five public, plus the confirmed-private sixth, out of scope per
+guardrail 5).** `gh repo list retinue-os --json visibility`: sixth repo still `PRIVATE`. Cross-repo GraphQL
+(`stargazerCount`/`forkCount`/`watchers.totalCount`/`discussions.totalCount`) on all five public repos: all
+zero, unchanged since 2026-07-18 (19 days). `gh issue list`/`gh pr list --state open` read individually on
+all five repos (not from a cached count) — `retinue#83` (mine): unchanged, `OPEN`, `MERGEABLE`, 0
+comments/reviews since 15:17:11Z (~4h40m). `retinue#71` (owner's PR): unchanged, my 09:50:35Z comment still
+latest. `retinue#79` (owner's issue): unchanged, my 11:31:22Z comment still the only one. Full open-issue/PR
+lists on `retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `qlever-dir`, `.github` cross-checked
+against `c567`'s read — no new issue, PR, comment, star, fork, watcher or discussion anywhere in the org.
+`repos/*/issues/comments?sort=updated&direction=desc` on all five repos: most recent comment anywhere in the
+org is still my own `retinue#79` one from 11:31:21Z.
+
+**Bluesky**, checked directly via a fresh `createSession` + `getUnreadCount`/`listNotifications` call: same
+single unread like from `andeeharry1.bsky.social` (first seen c476), unread count 1, no new notification, no
+reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (74 `.md` files, all predating the current
+`log.md` mtime at the start of this cycle).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 217 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural reason
+since c402/c435, a review-level question and not this cycle's pickup.
+
+**Delivery check, mandatory, all five cards — Pickup 2, diagnosing rather than re-running.**
+`tools/delivery-check.py`, run *after* the c568 commit above: **5 problems**, all five cards `LAG` — disk
+and `origin/main` both at the fresh `2026-08-06T19:30:00Z` stamp, but the **served** copy (GitHub Pages) was
+still `2026-08-05T19:20:00Z`. Per the dispatch's own branch for this exact shape (disk fresh, delivery path
+behind): checked `/pages` and `/pages/builds` rather than regenerating anything. Found: `gh api
+repos/…/pages` reports `"status":"errored"`. `gh run list` (workflow: "pages build and deployment") — the run
+created `13:43:41Z` has been stuck in `status: queued` for over 6 hours (`updatedAt` `16:13:41Z`, no further
+change since); the run before it (`13:10:09Z`) and the one before that (`12:34:43Z`) both `completed` /
+`failure`. Read the failed run's log directly (`gh run view … --log-failed`): `actions/deploy-pages@v5`
+polled `Current status: deployment_queued` every 5 s for the full 10-minute action timeout, then
+self-cancelled — the deployment never left GitHub's own queue at any point, on either failed attempt. **Five
+pushes to `main` since 13:43** (`c564`–`c568`'s log commits plus this cycle's data commit) **triggered no new
+`pages build and deployment` run at all** — the existing stuck run is still the newest one in the list.
+
+Cross-checked externally (`githubstatus.com`, not trusted on the project's own say-so): an active,
+**critical-impact** incident, *"Incident with Actions"*, created `2026-08-06T15:22:49Z`, status
+**Investigating** as of its latest update `19:43:21Z` (20 minutes before this check) — *"Capacity remains
+constrained and jobs may still be delayed or fail while it recovers gradually,"* explicitly flagging GitHub
+Pages as a **major outage** alongside Actions. This is the root cause: not a defect in this project's
+pipeline, the refresh job's content, or anything on `main` — GitHub's own deployment infrastructure is
+degraded, org-wide, right now. **Delivery check: FAILED — LAG on all 5 cards, attributed to an external,
+already-acknowledged GitHub Actions/Pages outage, not a project defect.** Nothing filed, nothing escalated:
+there is no repo setting or code change that resolves an upstream platform incident, and re-raising it as an
+`owner-action` would ask him to fix something neither of us can touch. Recorded in
+`projects/public-surface.md`'s `current_next_action` so the next wake-up re-checks delivery first rather than
+re-diagnosing from scratch, and treats a *continuing* failure once the incident's own status page shows
+"Resolved" as a new, real finding rather than another instance of this one.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Second pickup considered, declined.** Nothing else arrived since c567 that isn't already on record. Bets
+1–4 stay unfalsifiable; bet 5 has nothing new (`#79`/`#71` already reviewed/commented and unreplied-to). Two
+pickups (closing the commit gap, diagnosing the delivery lag) is the deliberate cap for this cycle rather
+than also opening a fresh audit item.
+
+**Files changed:** `docs/data/{agenda,briefing,messages,projects,todo}.json` (committed `8a79c6b`, the
+pending regeneration only — not a new one), `projects/public-surface.md` (`current_next_action`), `log.md`
+(this entry). **Published outside the chamber:** nothing (a data regeneration to the project's own dashboard
+is Tier 1, not outbound speech). **Handed to the owner:** nothing new — the Pages outage is not an
+`owner-action` (see above); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
+unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
