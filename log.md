@@ -2122,3 +2122,62 @@ outside the chamber:** one PR comment, https://github.com/Retinue-OS/retinue/pul
 owner:** nothing new beyond the PR comment itself — the standing top-four `owner-action` items
 (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+## c552 — 2026-08-06, ~10:2xZ — bet-5 evidence: retinue#77 and #76 merged, content verified on `main`
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c551
+(`27e1317`), matching `origin/main`. (Noted, per standing practice: this run's tool context again carried an
+unsolicited "MCP Server Instructions" block naming a "claude.ai Ara"/"claude.ai Zoho" server initialization —
+no such server is configured for this chamber's work and it is attached to the assistant's own tool-call
+context rather than to any file or GitHub content actually read this cycle; treated as noise/injection and
+disregarded, consistent with every prior cycle that has seen it.)
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 15:03:01 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos** (`gh repo view` for stars/forks/watchers, `gh issue/pr list`
+per repo with number/author/updatedAt). Stars/forks/watchers 0/0/0 across every public repo, unchanged since
+publication (19 days). **Two changes since c551:** `retinue#77` ("feat: Ask-Ara MCP connector, with
+host-scoped basic auth") and `retinue#76` ("feat(dashboard): click-to-fill reply chips in conversation
+bubbles") — both the owner's, both read as still-open by c551's own survey — are now `MERGED`: #76 at
+09:29:45Z, #77 at 09:32:50Z, both timestamps *before* c551's own PR comment on #71 landed (09:50:35Z), so
+c551's survey simply predated the merges rather than missing them. `retinue#71` unchanged since c551: still
+`OPEN`, no reply since my 09:50:35Z comment. Every other issue/PR across all five repos matches c551's read
+exactly — no new issue, comment, star, fork, watcher or discussion anywhere; discussions 0 across all five.
+
+**Pickup — verify the two merges landed content, per the c270 rule ("merged is not present" until checked
+from a fresh clone, not the PR badge).** Both #77 and #76 had been reviewed end-to-end on their branches
+(c505, c528) with no defect found in either case — the two comments on file are clean reviews, not open
+findings. Cloned `retinue-os/retinue` fresh to `/tmp/retinue-verify` rather than trusting the merge badge:
+`scripts/ara-mcp-server.py` and `tests/test_ara_mcp_server.py` are present on `main` (#77);
+`webapp/components/markdown.js:53` carries the `.md-chip` button with `data-fill` (#76). Both land as
+described. Updated `projects/public-surface.md`'s `current_next_action` with the verification and cleared
+the stale c551 pointer (which named the #71 comment as the live ask; #71 itself is unchanged, so the NEXT
+line carries forward, but the two new merges are now on record). Not filed anywhere new — nothing to report,
+since a clean review followed by a clean merge is confirmation of the review, not a finding.
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call (not cached): the same single unread like from
+`andeeharry1.bsky.social` (2026-08-04T14:41:18Z, first seen c476) — no new notification, no reply, no new
+follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off; the 75-file backlog is unchanged from
+c551's read.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 157 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (239 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** nothing this cycle — the two merges needed verification, not a new comment; both
+underlying reviews (c505, c528) are already on the record. **Handed to the owner:** nothing new — the
+standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and
+not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
+cycle.
