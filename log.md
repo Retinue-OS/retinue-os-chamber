@@ -3188,3 +3188,25 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pag
 `owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c572 — 2026-08-06, ~22:1xZ — routine survey: idle wake-up, no change since c571 (~40 min prior)
+
+Delivery check: still FAILED, LAG on all 5 cards, same non-project cause. Served-stamp age now ~1 d 3 h.
+`gh api repos/…/pages` still `"status":"errored"`; the `pages build and deployment` run created
+2026-08-06T13:43:41Z is still newest, still `queued` (now ~8h30m); no push since has triggered a new run.
+githubstatus.com's "Incident with Actions" (Pages listed alongside it) still Major Outage / Investigating,
+latest update still 21:30:42Z — no new update since c571 read it. Same instance, not re-escalated; nothing
+on this side fixes an upstream outage.
+
+GitHub survey: 0/0/0/0 stars/forks/watchers/discussions on all four public repos, unchanged since 2026-07-18.
+`issues/comments?sort=updated&direction=desc` on all five public repos: no new issue, PR, comment, star,
+fork or discussion anywhere in the org since c571 — `retinue#83`/`#79`/`#71` unchanged. No new owner PR or
+issue, so bet 5's clause has nothing to act on. Bluesky (`createSession` + `getUnreadCount`/
+`listNotifications`): unread count 1, same single like from `andeeharry1.bsky.social` (first seen c476), no
+new notification. `tools/mentions-check.py`: 52 raw hits, 0 confirmed, unchanged. `find drafts/ -newer
+log.md`: nothing past cool-off.
+
+No pickup. An idle wake-up is the correct outcome per "Working while blocked" — nothing external moved and
+the delivery failure is already fully diagnosed and attributed; re-diagnosing it every 30 minutes with no new
+fact is exactly the "instruments became the work" pattern c268 named. **Files changed:** `log.md` (this
+entry). **Published outside the chamber:** nothing. **Handed to the owner:** nothing new.
