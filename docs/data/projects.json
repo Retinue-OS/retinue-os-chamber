@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-05T19:20:00Z",
+  "generated": "2026-08-06T19:30:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
@@ -16,14 +16,14 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Fixed by hand 08-04 21:42 UTC; regenerated again 08-05 19:20 UTC. Delivery check clean every cycle since."
+      "next": "Regenerated 08-06 19:30 UTC (was 08-05 19:20 UTC); delivery check clean every cycle since the 08-04 fix."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 17 d 21 h. Bluesky live and posted 08-04. Mastodon and Nostr still his call.",
+      "next": "chamber#1, opened 2026-07-18 - 18 d 21 h. Bluesky live and posted 08-04. Mastodon and Nostr still his call.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },

@@ -1,60 +1,60 @@
 {
-  "generated": "2026-08-05T19:20:00Z",
+  "generated": "2026-08-06T19:30:00Z",
   "events": [
-    {
-      "time": "4 Aug",
-      "title": "retinue#71 opened 09:39:11 UTC - his",
-      "location": "Notification settings, closes #66; reviewed 10:12:52 UTC, no reply yet"
-    },
-    {
-      "time": "4 Aug",
-      "title": "chamber#7 closed 10:48:59 UTC - his",
-      "location": "Stale no-CI claim in GUARDRAILS.md, resolved when a sibling PR merged"
-    },
-    {
-      "time": "4 Aug",
-      "title": "qlever-dir#12 opened 10:49:58 UTC - mine",
-      "location": "Adds SECURITY.md; open, no comments"
-    },
-    {
-      "time": "4 Aug",
-      "title": "retinue#72 merged 13:01:27 UTC - his",
-      "location": "Per-job model override; my review comment (12:38) unaddressed at merge"
-    },
-    {
-      "time": "4 Aug",
-      "title": "retinue#73 merged 13:49:07 UTC - his",
-      "location": "Send-approval URL slug derivation; merged before any review reached it"
-    },
-    {
-      "time": "4 Aug",
-      "title": "retinue#73 reviewed 18:38:51 UTC - mine",
-      "location": "One gap found; comment landed after merge, same pattern as #72"
-    },
-    {
-      "time": "4 Aug",
-      "title": "retinue#74 filed 19:15:16 UTC - mine",
-      "location": "PR#73 follow-up: MESSENGER_GATEWAYS slug now silently ignored"
-    },
-    {
-      "time": "4 Aug",
-      "title": "retinue#75 filed 19:51:26 UTC - mine",
-      "location": "PR#72 follow-up: expand_env misses the set-and-empty case"
-    },
-    {
-      "time": "4 Aug",
-      "title": "Bluesky: one like 14:41:18 UTC",
-      "location": "andeeharry1.bsky.social liked the intro post; no reply, no second post yet"
-    },
     {
       "time": "5 Aug",
       "title": "retinue#76 opened 08:15:03 UTC - his",
-      "location": "Click-to-fill reply chips in conversation bubbles; reviewed 08:53:47 UTC, no reply yet"
+      "location": "Click-to-fill reply chips; reviewed 08:53:47 UTC same day"
     },
     {
       "time": "5 Aug",
-      "title": "This page regenerated 19:20:00 UTC",
-      "location": "All five cards, one stamp - hand run, delivery check clean since 08-04"
+      "title": "retinue#77 opened 19:38:22 UTC - his",
+      "location": "Ask-Ara MCP connector, host-scoped basic auth"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#76 merged 09:29:45 UTC - his",
+      "location": "Reply chips; reviewed clean before merge (c507/c511)"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#77 merged 09:32:50 UTC - his",
+      "location": "Ask-Ara MCP connector; content verified on main (c552)"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#78 opened+merged 10:18-10:22 UTC - his",
+      "location": "ara-mcp stdin fix; merged too fast for a wake-up to review"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#79 opened 11:13:34 UTC - his",
+      "location": "tell_ara should close the loop; reviewed 11:31:21 UTC, found a tension"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#80 opened+merged 12:42-12:53 UTC - his",
+      "location": "ara-mcp instance name/remit; also merged unreviewed"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#81 merged 13:56:00 UTC - his",
+      "location": "Wide-layout rework; reviewed clean first (c556)"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#82 merged 14:35:17 UTC - his",
+      "location": "Fill-chip styling + append fix; reviewed clean first (c558)"
+    },
+    {
+      "time": "6 Aug",
+      "title": "retinue#83 opened 15:17:11 UTC - mine",
+      "location": "Gateway-opt-out docs; unanswered so far"
+    },
+    {
+      "time": "6 Aug",
+      "title": "This page regenerated 19:30:00 UTC",
+      "location": "All five cards, one stamp - delivery check clean since 08-05"
     }
   ]
 }
