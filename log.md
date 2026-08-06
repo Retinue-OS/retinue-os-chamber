@@ -2315,3 +2315,70 @@ blocked".
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c556 — 2026-08-06, ~13:1xZ — bet-5 pickup: reviewed the owner's new PR retinue#81, traced both claimed fixes, found nothing to publish
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c555
+(`a566158`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 17:48:28 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo, unchanged
+since publication (19 days). **One change since c555:** `retinue#81`, a new PR opened by the owner at
+12:56:42Z, "feat(dashboard): let the wide layout use the space it has" — a responsive-layout rework (cards
+drop their phone-only row caps once the frame is wide enough to scroll its own column) plus two small fixes
+described in the body: a URL wrapped in `**bold**` swallowing its closing asterisks into the href, and the
+project page's command field ignoring Cmd/Ctrl+Enter. CI green, `MERGEABLE`. `retinue#79` and `retinue#71`
+unchanged since c554/c552 — no reply since my 11:31:21Z / 09:50:35Z comments respectively. Every other
+issue/PR count across the org matches c555's read exactly; discussions 0 across all five.
+
+**Pickup — bet 5, reviewing the owner's own newly-opened PR ahead of standing audit work.** The live
+framework checkout's submodule gitdir is still broken in-container (standing memory note), so cloned the PR
+fresh into `/tmp/retinue-check` and checked out `pull/81/head` to read real code rather than the description.
+Traced the markdown fix by hand: before the PR, `URL_TAIL_RE` (`/[.,;:!?)\]]+$/`) didn't include `*`, so for
+`**https://example.com**` the bare-URL regex swallowed the trailing `**` into the href (a dead link with
+garbage appended) and left only the *leading* `**` unpaired in the surrounding text, so the later bold pass
+had no closing pair to match — exactly the "dead link, no bold either" the PR body describes. With `*` added
+to the class, the trailing `**` is now peeled off as tail *before* stashing, so the string becomes
+`**<stash-token>**` — a valid bold pair around the stashed anchor — and walking it through the stash/bold/
+restore order by hand (bold applies to the sentinel first, then the sentinel is replaced with the real `<a>`
+HTML nested inside) confirms both the link and the bold now render correctly. Checked the layout plumbing
+next: `isWideFrame()`/`onFrameChange()` in `base.js` (`(min-width: 1000px) and (min-height: 480px)`) matches
+the CSS breakpoint it mirrors verbatim; the four call sites (`conversations.js` × 2, `projects.js` × 2)
+re-render from cached state rather than re-fetching, and `disconnectedCallback` unsubscribes in both. Checked
+the two CSS-grid reflows for the usual traps a grid conversion invites: the empty-state div in
+`conversations.js` gets `grid-column: 1 / -1` so it doesn't collapse to one narrow track; `_allLinkLabel()`'s
+"more" count is now computed against `_shownThreads().length` rather than the old fixed cap, so it correctly
+goes silent once the wide layout is already showing everything; `projects.js`'s `bodyFull()` (the dedicated
+page) was already uncapped, so the new wide-card cap-lift in `bodyCard()` doesn't double-apply there. Found
+**no defect** — both claimed fixes hold under a hand trace and the layout change is internally consistent
+across the five touched components. Per the c332 precedent — a clean review is a result for my own record,
+not a maintainer-notification carrying no information, the same reasoning that held back a "reviewed your
+merge, found nothing" comment — **nothing was posted.** Recorded the trace in full in
+`projects/public-surface.md`'s `current_next_action` so the next wake-up doesn't re-derive it, with a NEXT
+line naming what's still open (`#81` merge, `#79`/`#71` replies, `#74`/`#75` and `qlever-dir#12` unanswered
+since c483/c484).
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call (not cached): same single unread like from
+`andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off; 75-file backlog unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 171 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** nothing — the review found nothing worth a maintainer's notification (c332
+precedent). **Handed to the owner:** nothing new — the standing top-four `owner-action` items
+(`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
