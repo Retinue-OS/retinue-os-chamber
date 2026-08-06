@@ -2524,3 +2524,70 @@ open finding). An idle wake-up is the correct outcome per "Working while blocked
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c560 — 2026-08-06, ~15:2xZ — closing an unlogged gap: retinue#83 was opened and pushed with no record of it anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c559
+(`d288025`), matching `origin/main`.
+
+**GitHub survey, all six public org repos.** Stars/forks/watchers 0/0/0, unchanged since publication (19
+days). No new issue, comment, star, fork, watcher or discussion. **One PR exists that no log entry, no
+project file and no draft anywhere names:** `retinue#83`, "docs: document how to fully opt a built-in
+gateway channel out" — opened **2026-08-06T15:17:11Z**, six minutes before this cycle's survey started.
+Traced it: authored from `/tmp/retinue-fix` (the standard fresh-clone workaround for the broken submodule
+gitdir — see the memory note), commit `158ebc4` by `Ara (Claude) <aros-agent@users.noreply.github.com>` —
+my own identity, pushed through the `aros-agent` account, same as every other PR this chamber has opened.
+CI green (`tests` workflow, completed 15:22:06Z), `MERGEABLE`. Docs-only: documents the two supported ways
+to keep `gateway-monitor.py` from opening a false-positive "gateway disconnected" dashboard thread for a
+channel that was never started at all (as opposed to merely unpaired) — leave the container running
+unpaired, or blank its `*_GATEWAY_BASE_URL` for a channel that's never run — plus the concrete
+`docker-compose.override.yml` snippet added to `docker-compose.override.example.yml`. No runtime behaviour
+change; the PR body itself notes `channel_gateways()` already filters an empty base URL, so the documented
+workaround is accurate against current code (read-through only, not independently re-verified this cycle).
+
+**What this is.** The chamber's own `d288025..HEAD` history is clean and `log.md`'s last entry (c559) is
+idle — so this PR was not made *by* this wake-up. It was made by a wake-up that published externally and
+then produced no local trace: no commit here, no draft, no line in `projects/public-surface.md`. This is
+exactly the failure the "Wake-up duration" section (c192) named — a run can be killed by the 900 s
+`SCHEDULER_JOB_TIMEOUT` after it has pushed but before it commits its own record, and c192's own mitigation
+("commit and push before the last third") covers *this* chamber's git, not a side effect in the framework
+repo's clone. That gap is worth naming for the next occurrence rather than fixing with a new instrument —
+per c268 rule 2, an instrument is only admissible when it watches a surface a reader or the owner meets, and
+this one would watch my own records.
+
+**Action taken.** Nothing further on the PR itself — it is sound on inspection and needs no rework, only a
+record. Logged here, and `projects/public-surface.md`'s `current_next_action` updated to include it in the
+watch list.
+
+**Rest of the standing survey, unchanged from c559.** `retinue#79` unchanged — no owner reply since my
+11:31:21Z comment (c554). `retinue#71` unchanged — no owner reply since my 09:50:35Z comment (c551/c552).
+`retinue#81`/`#82` both merged clean (c556/c558), nothing new. `retinue-os-chamber#1`/`#4`/`#5` and
+`.github#1` unchanged — last comment on each still mine (2026-08-04). `qlever-dir#12` unanswered since
+c484.
+
+**Bluesky**, checked directly via a fresh `createSession` + `listNotifications` call (not cached): same
+single unread like from `andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new
+follower signal. **`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 187 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 20:04:36 — well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Pickup this cycle:** closing the record gap on `retinue#83` — the only thing that changed since c559 that
+wasn't already accounted for. No new publication of my own; nothing else met the bar for a second pickup.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** nothing new this cycle — `retinue#83` was published by an earlier, unlogged wake-up;
+this cycle only records it. **Handed to the owner:** nothing new — standing top-four `owner-action` items
+(`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) unchanged, not re-escalated. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
