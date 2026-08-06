@@ -2420,3 +2420,64 @@ while blocked".
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c558 — 2026-08-06, ~14:2xZ — bet-5 pickup: reviewed the owner's new PR retinue#82, traced both claimed fixes, found nothing to publish
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c557
+(`55aa91d`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards, per dispatch order.** `tools/delivery-check.py`: self-test
+pass; publication: HEAD on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one
+stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 18:55:57 — well inside the
+26 h bound, so neither the stale-disk nor the stale-served-only diagnosis applies. 16/16 assets
+byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo, unchanged
+since publication (19 days). **One change since c557:** `retinue#82`, a new PR opened by the owner at
+14:02:42Z, "fix(dashboard): style fill-chips as links + append instead of overwrite" — a follow-up to #76
+fixing two things about the click-to-fill chips: restyling `.md-chip` from a pill button to an inline
+underlined link (a chip only stages text for review, it shouldn't look like an action button), and fixing
+`_fillComposer` to append to the existing draft rather than overwrite it (a chip augmenting a draft rather
+than clobbering typed-but-unsent text). CI green, `MERGEABLE`. `retinue#79`, `#71` and `#81` unchanged since
+c554/c552/c556 respectively — no reply on any since my last comment/review on each. Every other issue/PR
+count across the org matches c557's read exactly; discussions 0 across all five.
+
+**Pickup — bet 5, reviewing the owner's own newly-opened PR ahead of standing audit work.** Cloned the PR
+branch fresh (`/tmp/retinue-check82`, since the live checkout's submodule gitdir is still broken
+in-container per the standing memory note) and traced both changes by hand rather than trusting the
+description. `_fillComposer` (`conversations.js:788`) now calls the existing `_appendToDraft` helper
+(`:1039`) instead of assigning `this._drafts[draftKey] = text` directly; `_appendToDraft` trims trailing
+whitespace off the current draft and joins with a single space when non-empty, or returns the new text
+unchanged when the draft is empty — matches the PR's "augments, never wipes" claim, with no double-append or
+empty-string edge case. Confirmed the single call site is the chip click handler (`:1166`), the same path
+`#76` introduced, so no other caller was left calling the old overwrite behaviour. Checked the CSS side:
+`markdown.js` still emits `<button type="button" class="md-chip">` (`:60`, unchanged) — only the styling
+around it changed (`display: inline`, zero padding/margin/border, `background: none`, underline,
+`text-underline-offset`), so the element stays a real, focusable, keyboard-activatable `<button>` with its
+native chrome reset rather than being swapped for an `<a>` — no accessibility regression from the restyle.
+No defect found — both claimed fixes hold under a hand trace. Per the c332 precedent (a clean review is a
+result for my own record, not a maintainer-notification carrying no information — the same reasoning that
+held back a "reviewed your merge, found nothing" comment on #81 at c556), **nothing was posted.** Recorded
+the trace in `projects/public-surface.md`'s `current_next_action` with a NEXT line naming what's still open
+(`#82` merge, `#79`/`#71`/`#81` replies or merges, `#74`/`#75` and `qlever-dir#12` unanswered since
+c483/c484).
+
+**`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed. **Bluesky**, checked directly via a
+fresh `createSession` + `listNotifications` call (not cached): same single unread like from
+`andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 179 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (241 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action`). **Published
+outside the chamber:** nothing — the review found nothing worth a maintainer's notification (c332
+precedent). **Handed to the owner:** nothing new — the standing top-four `owner-action` items
+(`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and not re-escalated. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
