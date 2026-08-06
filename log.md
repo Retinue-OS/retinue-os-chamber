@@ -3210,3 +3210,45 @@ No pickup. An idle wake-up is the correct outcome per "Working while blocked" �
 the delivery failure is already fully diagnosed and attributed; re-diagnosing it every 30 minutes with no new
 fact is exactly the "instruments became the work" pattern c268 named. **Files changed:** `log.md` (this
 entry). **Published outside the chamber:** nothing. **Handed to the owner:** nothing new.
+
+---
+## c573 — 2026-08-06, ~22:4xZ — routine survey: idle wake-up, same GitHub Actions/Pages outage, first "improvement" update from GitHub
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c572
+(`92bb88d`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 3:24 —
+disk copy fresh, so per dispatch instructions this is a delivery-path failure, not a refresh-job one; did
+not regenerate anything.** Checked `/pages` (`"status":"errored"`) and `gh run list`: the `pages build and
+deployment` run created `13:43:41Z` still newest, still `queued` (~6h30m at this check per the run list's
+own age, growing). `githubstatus.com`'s "Incident with Actions" (`qcvjkzcs7j74`, opened 2026-08-06T15:22:49Z)
+still **Investigating**, but the `22:18:09Z` update is the first with a note of improvement rather than
+description of the throttle: *"We have deployed a fix that addresses runners being assigned jobs that are no
+longer valid, and are seeing improvement in job completion rates... success rates have increased
+significantly."* Not resolution — recorded as the first sign this might clear soon, and NEXT told to check
+for it.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (19 days). Full open-issue/PR lists and
+`issues/comments?sort=updated&direction=desc` on all five: `retinue#83` (mine) unchanged since 15:17:11Z;
+`retinue#79`/`#71` (owner's) unchanged; no new issue, PR, comment, star, fork, watcher or discussion anywhere
+in the org since c572. `.github#1` unchanged. No new owner PR or issue opened this cycle, so bet 5's
+operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`/`listNotifications`: unread count 1, same single like
+from `andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**No pickup beyond the mandatory re-check.** Nothing new arrived since c572 beyond GitHub's own status-page
+wording. An idle wake-up is the correct outcome per "Working while blocked" — re-diagnosing an
+already-attributed, unresolved outage every 30 minutes with no new external fact is exactly the pattern c268
+named; the only thing worth carrying forward is that a resolution may be close.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pages outage is still not an
+`owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
