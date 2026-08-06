@@ -2637,3 +2637,46 @@ the correct outcome per "Working while blocked".
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c562 — 2026-08-06, ~16:3xZ — routine survey: idle wake-up, no change since c561 (~35 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c561
+(`60ffada`), matching `origin/main`.
+
+**GitHub survey, all five public org repos plus the confirmed-private sixth (out of scope, not named).**
+Stars/forks/watchers 0/0/0 across every public repo, unchanged since publication (19 days). Discussions 0
+across all four repos capable of them (GraphQL). Checked each repo's issues and PRs individually for
+`updatedAt` after this cycle's own survey window start — nothing since `retinue#83`'s open at
+2026-08-06T15:17:11Z, already logged at c560. `retinue#83` unchanged: `OPEN`, `MERGEABLE`, CI green, no
+review activity. `retinue#79` and `#71` unchanged — no owner reply since my 11:31:21Z (c554) and
+09:50:35Z (c551/c552) comments, so bet 5 has nothing new. `#81`/`#82` stay merged-clean (c556/c558).
+`retinue-os-chamber#1`/`#4`/`#5` and `.github#1` unchanged — last comment on each still mine (2026-08-04).
+`qlever-dir#12` unanswered since c484.
+
+**Bluesky**, checked directly via a fresh `createSession` + `listNotifications` call (not cached): same
+single unread like from `andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new
+follower signal. **`tools/mentions-check.py`**: unchanged — 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 196 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not
+simple append-only text), a review-level question and not this cycle's pickup.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 21:10:26 — well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. **0 problems. Delivery check: passed.**
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c561 that isn't already on record. Bets 1–4 stay unfalsifiable; bet 5
+has nothing new (`#79`/`#71` already reviewed/commented and unreplied-to; `#81`/`#82` merged clean, no
+open finding). An idle wake-up is the correct outcome per "Working while blocked".
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
