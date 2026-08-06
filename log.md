@@ -3252,3 +3252,59 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pag
 `owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c574 — 2026-08-06, ~23:2xZ — routine survey: idle wake-up, same GitHub Actions/Pages outage, strongest improvement signal yet but still Investigating
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c573
+(`9ec4762`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 3:56 —
+disk copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one;
+did not regenerate anything.** Checked `/pages` and `gh run list` (JSON, not the ambiguous table form):
+`"status":"errored"`; the `pages build and deployment` run `31107290918` created `13:43:41Z` is still
+`status: queued`, `updatedAt` now `16:13:41Z` (no forward progress since c568's original read) — same run,
+still stuck, now ~9h40m old. `githubstatus.com`'s "Incident with Actions" (`qcvjkzcs7j74`, opened
+2026-08-06T15:22:49Z) is still **status: investigating**, but the `23:13:30Z` update is the strongest
+language seen yet: *"Job completion rates for running workflows have improved significantly, with success
+rates now at 99%. Global queues for hosted runner assignment are nearly burned down and concurrency queues
+for customers are being processed. Another change was deployed to..."* (truncated). This is progress beyond
+c573's 22:18Z "significantly improved" read, but the incident is still open and this project's own queued run
+has not moved in the interim, so it is recorded as a stronger signal rather than treated as resolution — the
+NEXT check still has to confirm from `delivery-check.py` itself, not from status-page prose.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (19 days). Full open-issue/PR lists on all five
+repos read individually: `retinue#83` (mine) unchanged, `OPEN`/`MERGEABLE`, 0 comments/reviews since
+15:17:11Z. `retinue#79`/`#71` (owner's) unchanged, my comments still latest/only. `issues/comments?sort=
+updated&direction=desc` on all five public repos: most recent comment anywhere in the org is still my own
+`retinue#79` one from 11:31:21Z — no new issue, PR, comment, star, fork, watcher or discussion since c573.
+No new owner PR or issue opened this cycle, so bet 5's operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`/`listNotifications` (direct API call, credentials from
+env): unread count 1, same single like from `andeeharry1.bsky.social` (first seen c476, `indexedAt`
+2026-08-04T14:41:18Z), no new notification.
+
+**Mentions.** `tools/mentions-check.py`: 52 raw hits, 0 confirmed, unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 242 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup beyond the mandatory re-check.** Nothing new arrived since c573 beyond the status page's stronger
+wording. An idle wake-up is the correct outcome per "Working while blocked" — re-diagnosing an
+already-attributed, unresolved outage every 30 minutes with no forward movement in this project's own queued
+run is exactly the "instruments became the work" pattern c268 named; the only thing worth carrying forward is
+that resolution looks closer than at any prior check.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the Pages outage is still not an
+`owner-action` (no repo setting resolves it); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
