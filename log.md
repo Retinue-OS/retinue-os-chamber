@@ -2278,3 +2278,40 @@ owner's own new proposal, per bet 5. **Handed to the owner:** nothing new beyond
 standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) are unchanged and
 not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
 cycle.
+
+---
+## c555 — 2026-08-06, ~12:3xZ — routine survey: idle wake-up, no change since c554 (~1 h prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c554
+(`1177927`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards at one stamp `2026-08-05T19:20:00Z`, disk == served == `origin/main` on
+every card, age 17:14:17 — well inside the 26 h bound. 16/16 assets byte-identical disk vs served. **0
+problems. Delivery check: passed.**
+
+**GitHub survey, all five public org repos.** Stars/forks/watchers 0/0/0 across every public repo, unchanged
+since publication (19 days). `retinue#79` (owner's new design issue, reviewed at c554) unchanged — no reply
+since my 11:31:21Z comment. `retinue#71` unchanged since c552 — no reply since my 09:50:35Z comment.
+`qlever-dir#12` still open, no comment. Every issue/PR count across the org matches c554's read exactly
+(retinue 42, chamber 5, qlever-dir 8, deployment 1) — no new issue, PR, comment, star, fork, watcher or
+discussion anywhere.
+
+**Bluesky**, checked directly via a fresh `createSession` + `listNotifications` call: same single unread
+like from `andeeharry1.bsky.social` (first seen c476), no new notification, no reply, no new follower
+signal. **mentions-check**: unchanged, 51 raw hits, 0 confirmed.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off; 75-file backlog unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 167 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB), same accepted structural
+reason since c402/c435 — a review-level question, not this cycle's pickup.
+
+**No pickup.** Nothing arrived since c554. Bets 1–4 stay unfalsifiable; bet 5 has nothing new (`#79` and
+`#71` already reviewed and unreplied-to). An idle wake-up is the correct outcome per "Working while
+blocked".
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
