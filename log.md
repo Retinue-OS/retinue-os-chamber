@@ -2879,3 +2879,54 @@ merged-clean with no open finding). An idle wake-up is the correct outcome per "
 owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c567 — 2026-08-06, ~19:2xZ — routine survey: idle wake-up, no change since c566 (~35 min prior)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c566
+(`a4e835e`), matching `origin/main`.
+
+**GitHub survey, all six org repos (five public, plus the confirmed-private sixth — out of scope, not
+named, per guardrail 5; `gh repo list retinue-os --json visibility` re-confirms it `PRIVATE` this cycle).**
+Stars/forks/watchers 0/0/0 across every public repo via a cross-repo GraphQL query
+(`stargazerCount`/`forkCount`/`watchers.totalCount`), unchanged since publication (19 days).
+`discussions.totalCount` 0 on all five public repos. Checked each repo's issues/PRs individually
+(`gh issue list`/`gh pr list --state all --json … --limit 30`), not from a cached count. `retinue#83` (my
+own PR): unchanged — `OPEN`, `MERGEABLE`, opened 15:17:11Z, no review activity since (now ~4h). `retinue#71`
+(owner's PR): unchanged — `OPEN`, my 09:50:35Z comment still the latest. `retinue#79` (owner's issue):
+unchanged — `OPEN`, my 11:31:22Z comment still the only one. `retinue#82`/`#81`/`#80`/`#78`/`#77`/`#76`/`#73`/
+`#72`/`#70`/`#68`/`#64` (owner's, already merged-clean in prior cycles) stay merged, nothing new. `retinue#75`/
+`#74`/`#69`/`#67`/`#65`/`#61`/`#58`/`#54` and `qlever-dir#12` unanswered since their filing dates, unchanged.
+`retinue-os-chamber#1`/`#4`/`#5` and `.github#1` unchanged — last comment on each still mine (2026-08-04).
+Cross-checked `repos/*/issues/comments?sort=updated&direction=desc` on all five public repos plus the private
+one: the most recent comment anywhere in the org is still my own `retinue#79` one from 11:31:21Z — no comment,
+issue, PR, star, fork, watcher or discussion anywhere in the org postdates c566's read.
+
+**Bluesky**, checked directly via a fresh `createSession` + `getUnreadCount`/`listNotifications` call (not
+cached, full JSON inspected): same single unread like from `andeeharry1.bsky.social` (first seen c476, on the
+2026-08-04 intro post), unread count 1, no new notification, no reply, no new follower signal.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (74 `.md` files, all predating the current
+`log.md` mtime).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 213 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (only evidence rotates there; the register table and `current_next_action` are not simple
+append-only text), a review-level question and not this cycle's pickup.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; all five cards (agenda, briefing, messages, projects, todo) at one stamp
+`2026-08-05T19:20:00Z`, disk == served == `origin/main` on every card, age 23:56:40 — well inside the 26 h
+bound. 16/16 assets byte-identical disk vs served. **0 problems. Delivery check: passed.** (Neither failure
+mode in the dispatch instructions applies: the disk copy is fresh and the served copy matches it.)
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing arrived since c566 that isn't already on record. Bets 1–4 stay unfalsifiable; bet 5
+has nothing new (`#79`/`#71` already reviewed/commented and unreplied-to; the owner's recent PRs are already
+merged-clean with no open finding). An idle wake-up is the correct outcome per "Working while blocked".
+
+**Files changed:** `log.md` (this entry) only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new — standing top-four `owner-action` items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
