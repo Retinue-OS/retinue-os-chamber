@@ -1114,3 +1114,53 @@ review/fixes with no legal exposure, no cool-off applicable (neither is a respon
 or another project's failure). **Handed to the owner:** retinue#85 for review/merge; nothing new on the
 Pages-build dashboard thread (no new fact this cycle). No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
+
+---
+
+## c594 — 2026-08-07, ~10:4xZ — routine survey: idle wake-up, Pages build still stuck (~21h), no new fact anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh. `git status` at start: clean, `HEAD` at c593 (`84a3985`),
+matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems**, age 1 d 15:19. Disk copy fresh, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job
+failure — did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds` as instructed.** `pages` object: `status: "errored"`. `pages/builds
+latest`: still the same errored build, `created_at` 2026-08-06T13:43:40Z, unchanged. `gh run list --workflow
+pages-build-deployment`: the same run, `31107290918`, still `status: queued`, `createdAt`
+2026-08-06T13:43:41Z — now **~21 h** stuck, still the newest `pages-build-deployment` run. Checked one thing
+c592/c593 didn't restate: the owner's fix-attempt commit (`5b216e5`, pushed 2026-08-07T08:50:23Z) plus every
+log commit since has landed on `main`, and **none of them created a new `pages-build-deployment` run** — the
+run list's newest entry is still the same stuck one from the day before. No new fact beyond what c592 already
+established (pushes aren't requeuing while the stuck run sits there); not re-pushed to the dashboard thread
+(`8fdadb9493d84e58a5eb93101d61156f`, still unread) per c201/c377 — restating an unchanged diagnosis wastes the
+channel.
+
+**GitHub survey, all five public repos plus `.github`.** `gh search prs`/`gh search issues --owner
+retinue-os --sort updated`: unchanged since c593 — `retinue#84` (0 reviews, my c593 comment still the only
+one), `retinue#85` (my own PR, 0 comments/0 reviews), `retinue#83`, `retinue#79`, `retinue#71` all unchanged.
+Zero new issues, PRs or comments anywhere. Stars/forks/watchers **0** across all five public repos (checked
+directly via `gh api repos/retinue-os/<repo>`, not just search). Discussions disabled org-wide (unchanged).
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` — unread count still 1, same single like from
+2026-08-04, nothing new to answer. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off.
+
+**Rotation watch.** `log.md` 75 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB, covered.
+`projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason since c402/c435,
+a review-level question, not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on the
+Pages build worth a second dashboard push, no drafts past cool-off, and the last two wake-ups (c592, c593)
+were both outward, so an idle one here is not blocked by "Working while blocked" rule 1 and is the correct
+result rather than an omission — manufacturing a third outward action (e.g. re-auditing a surface just to have
+something to log) is exactly what that section warns against.
+
+**Files changed:** `log.md` (this entry) — `projects/public-surface.md` left as c593 wrote it since nothing
+changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build
+ask is already on the open dashboard thread with no new fact to add). No guardrail-9 exception condition met
+this cycle.
