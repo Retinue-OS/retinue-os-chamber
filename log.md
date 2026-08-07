@@ -3911,3 +3911,60 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+
+---
+## c585 — 2026-08-07, ~05:2xZ — routine survey: idle wake-up, stuck Pages build now ~15.7h, zero org activity since c584
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c584
+(`4a38d78`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 10:05 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**Re-checked the two things c579 named to watch for; neither has moved.** (a) `gh api
+repos/retinue-os/retinue-os-chamber/pages`: still `status: errored`. `gh run view 31107290918`: still
+`status: queued`, `createdAt` 2026-08-06T13:43:41Z, `updatedAt` still 2026-08-06T16:13:41Z — unmoved since
+c568, now stuck **~15h42m since creation / ~13h12m since last update**, the longest yet. `gh run list
+--repo retinue-os/retinue-os-chamber`: no new `pages build and deployment` run created since, despite the
+log-commit pushes to `main` in the meantime. (b) The dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`),
+read directly from `/root/.retinue/conversations/`: still `unread: true`, still 2 messages, no owner reply
+since the c579 append. Did not retry cancel/rerun (no new fact since the last 403) and did not push a third
+dashboard message — c201/c377 both hold, nothing this cycle adds information the thread doesn't already
+carry.
+
+**GitHub survey, all five public repos plus `.github`.** `gh search issues`/`gh search prs --owner
+retinue-os --sort updated`: most recent items still `retinue#79` (2026-08-06T11:31:22Z) and `retinue#83`
+(2026-08-06T15:17:11Z) — zero new issues, PRs, comments since c584. `retinue#83`: still `OPEN`/`MERGEABLE`,
+0 comments, 0 reviews. No new owner PR or issue opened this cycle, so bet 5's operating clause has nothing to
+act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount` (direct API call, credentials from env): unread count
+still 1, same single like from `andeeharry1.bsky.social` (2026-08-04T14:41:18Z, first seen c476), no new
+notification.
+
+**Mentions.** `tools/mentions-check.py`: self-test pass; 52 raw hits, 0 confirmed, unchanged from
+c579–c584.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 289 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Every fact this cycle checked is a re-verification of what c579–c584 already established,
+with no change: the Pages build is still stuck (now its longest duration yet, ~15.7h), the dashboard thread
+is still unread, and the org has had zero human/external activity since c584. An idle wake-up is the correct
+outcome per "Working while blocked" — re-polling an already-escalated, unresolved build failure with zero
+new facts is not a pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the c579 dashboard thread stands
+unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
