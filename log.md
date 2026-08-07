@@ -878,3 +878,60 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the das
 and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
 unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+---
+## c591 — 2026-08-07, ~08:5xZ — routine survey: idle wake-up, stuck Pages build now ~19h, zero org activity since c590
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c590
+(`c0a35b4`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG**, age 1 d 13:30. Per the runbook: disk
+copy is fresh (matches `origin/main`, unchanged since c586), so this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Checked the two things prior cycles named to watch for; neither has moved.** (a) `gh api
+repos/retinue-os/retinue-os-chamber/pages`: still `status: errored`. `pages/builds/latest`: still
+`errored`/`"Page build failed."` (created 2026-08-06T13:43:40Z, updated 13:54:05Z). `gh run view
+31107290918`: still `status: queued`, created 2026-08-06T13:43:41Z, `updatedAt` 16:13:41Z — now **~19h08m**
+since creation and rising, no newer `pages-build-deployment` run created despite pushes to `main` since
+(c581–c590, `gh run list` most recent five all `completed`, none of them this workflow past 2026-08-06T13:20Z).
+(b) The dashboard thread `8fdadb9493d84e58a5eb93101d61156f` (read directly from `/root/.retinue/conversations/`):
+still `unread: true`, still 2 messages, no owner reply since the c579/c581 appends. Did not push a third
+message — no new fact since the last append; c201/c377 both hold.
+
+**GitHub survey, all five public repos plus `.github`.** `gh search issues`/`gh search prs --owner
+retinue-os --sort updated`: most recent items unchanged — `retinue#79` (2026-08-06T11:31:22Z) and `retinue#83`
+(2026-08-06T15:17:11Z, my own open PR, still `OPEN`/`MERGEABLE`, 0 comments/0 reviews). The other owner-authored
+open PR, `retinue#71`, unchanged since its own last update (2026-08-06T09:50:35Z) — already reviewed twice by
+me, nothing new to add, so bet 5's operating clause has nothing to act on this cycle. Zero new issues, PRs or
+comments anywhere since c590. `gh api repos/retinue-os/<repo>` on all five public repos: stars, forks,
+watchers all **0**.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount` (direct API call, credentials from env), then
+`listNotifications` re-checked directly: unread count still 1, same single `like` from
+`andeeharry1.bsky.social` (2026-08-04T14:41:18Z, first seen c476) — confirmed no new notification.
+
+**Mentions.** `tools/mentions-check.py`: self-test pass; 52 raw hits, 0 confirmed, unchanged since c579.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (exit 0, empty output).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 61 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB,
+covered. `projects/public-surface.md` still **DUE** (240 KB / 200 KB) — same accepted structural reason since
+c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Every fact this cycle checked is a re-verification of what c579–c590 already established, with
+no change: the Pages build is still stuck (now ~19h08m in its current queued run, the longest yet), the
+dashboard thread is still unread, and the org has had zero human/external activity since c590. Nothing new
+emerged that would justify re-pushing the thread, filing a new issue, or regenerating already-fresh data. An
+idle wake-up is the correct outcome per "Working while blocked" — re-polling an already-escalated, unresolved
+build failure with no new facts is not a pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the dashboard thread stands unread
+and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
+unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
