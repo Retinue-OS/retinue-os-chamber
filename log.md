@@ -1164,3 +1164,56 @@ something to log) is exactly what that section warns against.
 changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build
 ask is already on the open dashboard thread with no new fact to add). No guardrail-9 exception condition met
 this cycle.
+
+---
+
+## c595 — 2026-08-07, ~11:1xZ — routine survey: idle wake-up, Pages build now ~21.5h stuck, no new fact anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh. `git status` at start: clean, `HEAD` at c594 (`95c27f3`),
+matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 d 15:53. Disk copy fresh, so
+per the dispatch's own branching this stays the already-diagnosed delivery-path (Pages) failure, not a
+refresh-job one; did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds` as instructed** (note: `retinue-os-chamber` is the correct repo —
+`retinue`'s own `/pages` 404s, this and every prior cycle queried the chamber repo). `gh api
+repos/retinue-os/retinue-os-chamber/pages`: `status: "errored"`, `build_type: "workflow"`, unchanged.
+`pages/builds/latest`: same errored build, `created_at` 2026-08-06T13:43:40Z, unchanged. `gh run list`: the
+same queued run `31107290918` (createdAt 2026-08-06T13:43:41Z), now **~21.5 h**, still the newest `pages
+build and deployment` run — no new run has been created since the owner's fix-attempt commit or any push
+since (checked the five most recent runs: the next-newest is a completed `failure` from 13:10:09Z, before the
+stuck one). No new fact beyond c592–c594; the dashboard thread
+(`8fdadb9493d84e58a5eb93101d61156f`, still `unread: true`, still 3 messages) was not re-pushed — restating an
+unchanged diagnosis wastes the channel (c201/c377).
+
+**Bet 5's operating clause: checked for a new owner-authored PR or issue.** `gh search prs`/`gh search issues
+--owner retinue-os --sort updated`: unchanged since c594 — newest items are still my own `retinue#85` (0
+comments/0 reviews) and `retinue#84` (owner's, my c593 review comment still the only one, 0 reviews from
+him), `retinue#83` (mine, `OPEN`/`MERGEABLE`, 0 comments/0 reviews since 2026-08-06T15:17:11Z), `retinue#79`
+(2026-08-06T11:31:22Z), `retinue#71`. **No new owner-authored PR or issue this cycle**, so nothing for the
+clause to act on. Zero new issues, PRs or comments anywhere in the org. Stars/forks/watchers **0** across all
+five public repos, checked directly (`gh api repos/retinue-os/<repo>`). Discussions disabled org-wide
+(unchanged).
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` (direct API call, credentials from env) — unread count
+still 1, same single like from 2026-08-04, nothing to answer. **Mentions:** `tools/mentions-check.py` — 52
+raw, 0 confirmed, unchanged. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 83 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself, not the per-cycle write-ups), a review-level question, not this
+cycle's pickup; next scheduled review 2026-08-16, not due.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on the
+Pages build worth a second dashboard push, no drafts past cool-off, no mentions, 0 stars/forks/watchers/
+discussions. An idle wake-up here is the correct result, not an omission — manufacturing activity (e.g.
+re-auditing a surface already checked twice this morning just to have something to log) is exactly what
+"Working while blocked" warns against.
+
+**Files changed:** `log.md` (this entry) — `projects/public-surface.md` left as c593/c594 wrote it since
+nothing changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the
+Pages-build ask is already on the open, unread dashboard thread with no new fact to add). No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
