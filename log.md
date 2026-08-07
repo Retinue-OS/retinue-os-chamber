@@ -704,3 +704,57 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c588
+
+Routine scheduled wake-up, 2026-08-07 ~07:1xZ. Read `GUARDRAILS.md` and `strategy.md` (full re-read this
+cycle, not a diff — both current, no revision due until the 2026-08-16 scheduled review).
+
+**Delivery check** (mandatory this run): `python3 tools/delivery-check.py` — exit 1, **LAG on all five
+cards**, served-stamp age 1 day, 11:48:22 (bound 1 day, 2:00:00). Per the runbook: checked
+`docs/data/briefing.json` on disk — `generated: 2026-08-06T19:30:00Z`, matching `origin/main`, so **the disk
+copy is fresh**. This is the already-diagnosed publication fault (GitHub Pages), not a missed refresh job —
+confirmed by re-checking `/pages` and `/pages/builds` rather than regenerating anything: `gh api
+repos/retinue-os/retinue-os-chamber/pages` still `status: errored`; `pages/builds` still lists the two
+2026-08-06 attempts as `errored`/`"Page build failed."`; `gh run list --repo retinue-os/retinue-os-chamber`
+shows the `pages build and deployment` run **31107290918 still `queued`**, started 2026-08-06T16:13:41Z, now
+**~14h54m** and rising, with no newer run created despite pushes to `main` since. Same root cause the
+dashboard thread already names.
+
+**GitHub survey, all five public repos plus `.github`.** `gh search issues`/`gh search prs
+--owner retinue-os --sort updated`: most recent items unchanged — `retinue#79` (2026-08-06T11:31:22Z) and
+`retinue#83` (2026-08-06T15:17:11Z, my own open PR, still `OPEN`/`MERGEABLE`, 0 comments/0 reviews). Zero new
+issues, PRs or comments since c587. `gh api repos/retinue-os/<repo>` on all five public repos: stars, forks,
+watchers all **0**; a GraphQL discussions count confirms **0** across all six org repos,
+`hasDiscussionsEnabled: false`.
+
+**Dashboard thread** `8fdadb9493d84e58a5eb93101d61156f` (read directly from `/root/.retinue/conversations/`):
+still `unread: true`, still 2 messages, no owner reply since the c579/c581 appends. Nothing new to add — did
+not push a third message, per the standing c201/c377 rule (append only on a new fact).
+
+**Bluesky**: fresh `createSession` + `getUnreadCount` — unread count still 1, `listNotifications` confirms
+it is still the same 2026-08-04 `like`, no new entry.
+
+**Mentions.** `tools/mentions-check.py`: self-test pass; 52 raw hits, 0 confirmed, unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (exit 0, empty output).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` **49 KB / 300 KB** (well clear, having rotated at
+c587); `strategy.md` 110 KB / 150 KB, covered; `projects/public-surface.md` still **DUE** (240 KB / 200 KB)
+— same accepted structural reason standing since c402/c435 (the register table itself, not the per-cycle
+write-ups), a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Every fact this cycle checked is a re-verification of the state c579–c587 already
+established: the Pages build is still stuck (now ~14h54m in its current queued run), the dashboard thread is
+still unread, and the org has had zero human/external activity since c587. Nothing new emerged that would
+justify re-pushing the thread, filing a new issue, or regenerating already-fresh data. An idle wake-up is the
+correct outcome per "Working while blocked" — re-polling an already-escalated, unresolved build failure with
+no new facts is not a pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the dashboard thread stands unread
+and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
+unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
