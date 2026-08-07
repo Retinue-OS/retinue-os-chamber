@@ -1663,3 +1663,79 @@ is exactly what "Working while blocked" warns against.
 changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build
 ask is already on the open, unread dashboard thread with no new fact to add). No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c604 — 2026-08-07, ~16:1xZ — reviewed owner's newly-opened PR #86 (bet 5's clause); Pages build still stuck (~26h30m)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start). `git fetch` + `git status` at start:
+clean, `HEAD` at c603 (`e4499a6`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 day, 20:49:29. Disk copy fresh, so per the
+dispatch's own branching this is the already-diagnosed delivery-path (Pages) failure, not a refresh-job one;
+did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds`.** `gh api repos/retinue-os/retinue-os-chamber/pages`: `status:
+"errored"`, unchanged. `pages/builds/latest`: same build id, `error.message: "Page build failed."`, unchanged
+timestamps. The Actions run behind it: still `id 31107290918`, `status: "queued"`, `conclusion: null`,
+`created_at` 2026-08-06T13:43:41Z — now **~26 h 30 m** since creation (current time 2026-08-07T16:09Z). No new
+run behind it since c603.
+
+**GitHub survey — new item found.** `gh search prs --owner retinue-os --sort updated`: the owner opened
+**retinue#86**, "feat(dashboard): show model, cost and time on conversation messages", at **15:46:16Z** —
+about 23 minutes before this wake-up, 0 comments, 0 reviews. This is exactly bet 5's operating clause
+("review the owner's own open PR or issue on the wake-up it is found, ahead of standing audit work"), so it
+became this cycle's pickup instead of the routine idle survey.
+
+**Review.** Pulled the diff (`gh pr diff 86`) and the PR-head copy of both changed files. The change adds
+per-message metadata to dashboard conversation bubbles (timestamp on every message; model short-name and
+turn cost on answer bubbles), reading `total_cost_usd` and a new `modelUsage` breakdown off the `claude -p
+--output-format=json` envelope. Two things checked rather than trusted:
+
+1. **Field names, against a live call, not the diff.** Ran `claude -p --output-format=json "reply with just
+   the word OK"` directly in this container and inspected the JSON. `modelUsage` is real and carries exactly
+   the shape the PR assumes — `costUSD`, `canonicalModel`, `outputTokens`, in that camelCase — including two
+   entries in a single "OK" turn (a background haiku classification alongside the sonnet turn), which is the
+   exact multi-model case `_envelope_model_name`'s cost-weighted selection exists to handle, and it picked the
+   higher-cost (sonnet) entry correctly. This is the kind of claim guardrail 3 says to verify rather than
+   assume, and it held up.
+2. **The exception-path fallback.** `_conv_worker`'s `except` block sets `result = {}` before the shared
+   `_conv_add_message(...)` call passes `result.get("model_name")`/`result.get("cost_usd")` — `result` is
+   otherwise only assigned inside the `try`, so without that line an exception thrown before `send_message()`
+   returns would raise `NameError` in the except handler itself. It's there and correct; read the full
+   function (not just the diff's context lines) to confirm it, since a truncated diff view would have shown
+   only the two added kwargs and not the guard above them.
+
+**One real gap found: the `agent` override is inert.** `_conv_add_message` gained an `agent: str | None =
+None` kwarg that sets `message["agent"]`, and the frontend uses `m.agent` to override the sender label (the
+PR body's own example: "Coach"). But `grep -n 'agent='` against the PR-head file, outside the parameter's own
+definition, returns **nothing** — none of the three call sites (`_conv_worker`, the user-reply handler, the
+agent-message handler) ever passes `agent=`. So `who` always falls through to the role default; the "Coach"
+example in the description doesn't fire in this PR. Not a crash — it degrades silently, `m.agent` just never
+exists — but worth flagging before merge in case it's a dropped wire-up rather than deliberately staged
+plumbing for a follow-up.
+
+**Posted:** [retinue#86 review comment](https://github.com/Retinue-OS/retinue/pull/86#issuecomment-5219397389)
+— both findings, disclosed per the standard line. This is the fourth such review since bet 5's clause was
+adopted (2026-08-02); the falsification condition (three consecutive reviews finding nothing checkable, or
+the owner asking it to stop) has not fired.
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` — unread count still 1, same single like from
+2026-08-04, nothing new. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off. **Mentions:**
+`tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged. **Stars/forks/watchers:** 0 across all four
+checkable public repos (unchanged). Discussions disabled org-wide (unchanged).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 122 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason since
+c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled
+review 2026-08-16, not due.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, per the c395 lesson — never regex a frontmatter scalar with `re.S`; matched the field by
+`startswith`, asserted the closing quote, edited in place; `tools/pointer-check.py` and `tools/rotation-check.py`
+both re-run clean after the edit, before committing). **Published outside the chamber:** one PR review comment,
+[retinue#86](https://github.com/Retinue-OS/retinue/pull/86#issuecomment-5219397389). **Handed to the owner:**
+nothing new via dashboard/issue — the review comment is itself the deliverable, in the venue bet 5 found
+actually gets read. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
+cycle.
