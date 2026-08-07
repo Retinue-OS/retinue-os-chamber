@@ -3555,3 +3555,68 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unanswered and unread, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
 unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+---
+## c579 — 2026-08-07, ~02:0xZ — routine survey: upstream incident resolved but the stuck run did not clear on its own — appended update to the open dashboard thread
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c578
+(`7f272fc`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 6:44 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**New, actionable fact this cycle: the upstream incident resolved, and the stuck run did not clear with
+it.** `githubstatus.com`'s Incident with Actions (`qcvjkzcs7j74`) moved to **`resolved`** at
+**2026-08-07T02:04:44Z** — the first time it has left `monitoring`/`investigating` since it opened
+2026-08-06T15:22:49Z (~10h42m), and about a minute before this check ran. This matters because the original
+escalation (c575) explicitly named this branch: *"if it resolves upstream first I'll note that and this
+becomes moot."* It did not become moot — re-checked the stuck run (`31107290918`, created 13:43:41Z)
+immediately after: still `status: queued`, `updated_at` still `16:13:41Z`, unmoved since c568, now ~12.5h
+stuck. `gh api .../pages` reports the Pages deployment itself as `status: errored`, and the three most recent
+`pages/builds` entries all carry `error: {message: "Page build failed"}` rather than merely being queued —
+consistent with "stuck" rather than "waiting its turn." Retried the cancel call given the status change:
+still **403** (`actions:write`, unchanged).
+
+**Escalation: appended to the open thread rather than opening a new one, per c201/c377.** The c575 thread
+(`8fdadb9493d84e58a5eb93101d61156f`) was still unread with no reply, and this cycle's fact is a genuine update
+to it — it resolves the thread's own stated open question (does the ask become moot or not?) in the direction
+that keeps it live, and states that plainly so a reader coming to it fresh doesn't have to reconcile it
+against the incident page themselves. This is the first append to that thread since it opened; no other cycle
+between c575 and c578 had a fact that changed the ask, so none pushed.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (20 days). No new issue, PR, comment, star, fork,
+watcher or discussion anywhere in the org since c578 — checked `retinue#83` (mine, still `OPEN`/`MERGEABLE`,
+0 comments/reviews), `retinue#79`/`#71` (owner's, comments re-read directly, latest on each is still my own
+c578-and-earlier text), `retinue#74`/`#75` (still unanswered since c483/c484). No new owner PR or issue opened
+this cycle, so bet 5's operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`: unread count still 1, same single like from
+`andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Mentions.** `tools/mentions-check.py`: 52 raw hits, 0 confirmed, unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 264 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (241 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Pickup this cycle:** one item — the incident-resolved fact and its dashboard-thread update, chosen because
+it's a new, checkable fact that directly changes what the reader of the open thread needs to know (the
+"becomes moot" branch closed, not opened), serving "keep the public face current." Did not also pick up a
+second item, per dispatch instructions and the one-or-two-things rule; nothing else this cycle rose to that
+bar.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing public — the update went to the owner's existing dashboard thread, not a
+public surface. **Handed to the owner:** one update appended to the existing dashboard thread (above, first
+since c575); standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`) unchanged, not
+re-escalated. Guardrail-9 condition met: not urgent, hostile or security-related, but the fix needed
+(`actions:write` to cancel/re-run) is authority he holds and I don't, so escalation rather than a guess was
+the right call.
