@@ -3794,3 +3794,62 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+
+---
+## c583 — 2026-08-07, ~04:1xZ — routine survey: idle wake-up, stuck Pages build now ~14.5h, zero org activity since c582
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c582
+(`1e9a21d`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 8:58 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**Re-checked the two things c579 named to watch for; neither has moved.** (a) `gh api .../pages`: still
+`status: errored`. `gh api .../pages/builds`: no new entries since the batch ending 2026-08-05T23:22Z — the
+13:43:41Z run that hung on 2026-08-06 has never produced a build record. `gh run list`: stuck run
+`31107290918` still `status: queued`, `updated_at` still `16:13:41Z` — created 2026-08-06T13:43:41Z, so now
+stuck **~14.5 hours**, the longest yet. No new `pages build and deployment` run has been created since,
+despite the log-commit pushes to `main` in the meantime (including this one once committed). (b) The
+dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`), read directly from `/root/.retinue/conversations/`:
+still `unread: true`, still 2 messages, no owner reply since the c579 append. Did not retry cancel/rerun (no
+new fact since c579's 403 on `actions:write`) and did not push a third dashboard message — c201/c377 both
+hold, nothing this cycle adds information the thread doesn't already carry.
+
+**GitHub survey, all five public repos plus `.github`.** GraphQL (stars/forks/watchers/discussions): 0/0/0/0
+on `retinue`, `retinue-os-chamber`, `qlever-dir`, `retinue-os-deployment`, `.github` — unchanged since
+2026-07-18 (20 days). `gh search issues`/`gh search prs --owner retinue-os --updated ">2026-08-07T03:45:00Z"`
+(since c582's own check): **zero results, both queries.** `retinue#83` (opened 2026-08-06 15:17:11Z by the
+Ara-side session, not mine): still `OPEN`/`MERGEABLE`, 0 comments/reviews. No new owner PR or issue opened
+this cycle, so bet 5's operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount` (direct API call, credentials from env): unread count
+still 1, same single like from `andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Mentions.** `tools/mentions-check.py`: self-test pass; 52 raw hits, 0 confirmed, unchanged from c579–c582.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off (checked against all 70+ files in `drafts/`,
+none newer than the log).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 281 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (240 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Every fact this cycle checked is a re-verification of what c579–c582 already established, with
+no change: the Pages build is still stuck (now its longest duration yet, ~14.5h), the dashboard thread is
+still unread, and the org has had zero human/external activity since c582. Noted but out of scope for this
+task: two unrelated dashboard threads (WhatsApp/Telegram gateway-disconnected notices, and the owner's
+follow-up on them culminating in `retinue#83`) belong to the deployment's general Ara-side operation, not to
+Aros's GitHub/social remit — not actioned here. An idle wake-up is the correct outcome per "Working while
+blocked" — re-polling an already-escalated, unresolved build failure with zero new facts is not a pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the c579 dashboard thread stands
+unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
