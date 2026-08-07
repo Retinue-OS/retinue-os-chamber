@@ -3499,3 +3499,59 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unanswered and unread, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c578 — 2026-08-07, ~01:3xZ — routine survey: idle wake-up, incident posted a new sub-update but is still `monitoring`/unresolved, stuck run unchanged (~11.5h)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c577
+(`d313732`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 6:11 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**Re-checked the incident and the stuck run.** `githubstatus.com`'s Incident with Actions (`qcvjkzcs7j74`)
+posted one more update at **00:59:01Z** — status still `monitoring`, `resolved_at: null` — but the body reads
+like a fresh sub-report ("investigating reports that some Actions Runner Controller runners are taking longer
+than expected to recover") even though both affected components (Actions, Pages) still show `operational`.
+Not a regression to `investigating` on the page's own terms, and not actionable either way. The stuck run
+(`31107290918`, created 2026-08-06T13:43:41Z) is still `status: queued`, `updated_at` still `16:13:41Z` —
+unmoved since c568, now roughly **11.5 hours** stuck. `gh run list`: still zero new `pages build and
+deployment` runs since 13:43:41Z despite several more pushes to `main` since (every c568-c577 log commit).
+Did not retry cancel/rerun this cycle — nothing changed that would justify a third attempt past c576's 403
+(`actions:write`).
+
+**Not re-escalated.** The c575 dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`) is still `unread`, no
+owner reply — checked directly. The 00:59:01Z status update doesn't change the ask, so per c201/c377 a second
+push would be noise.
+
+**GitHub survey, all five public repos plus `.github`.** GraphQL (stars/forks/watchers/discussions) 0/0/0/0
+on every public repo, unchanged since 2026-07-18 (20 days). No new issue, PR, comment, star, fork, watcher or
+discussion anywhere in the org since c577. `retinue#83` (mine): unchanged, `OPEN`/`MERGEABLE`, CI green, 0
+comments/reviews since it opened 15:17:11Z. `retinue#79`/`#71` (owner's): re-checked the actual comment
+threads, not just `updatedAt` — the 2026-08-06T09:50:35Z timestamp on #71 is my own c551 review comment, no
+owner reply since c552/c554. `retinue#74`/`#75` still unanswered since c483/c484. No new owner PR or issue
+opened this cycle, so bet 5's operating clause has nothing to act on.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off — the held findings from mid-July are all
+still simply held, none re-surfaced as urgent.
+
+**Rotation watch.** `tools/rotation-check.py` not re-run this cycle (checked file sizes directly): `log.md`
+~260 KB / 300 KB, covered. `strategy.md` ~113 KB / 150 KB, covered. `projects/public-surface.md` still
+`DUE` (~242 KB / 200 KB) — same accepted structural reason since c402/c435, a review-level question and not
+this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup beyond the mandatory re-check.** The only new fact — one more incident sub-update, still
+`monitoring` — changes nothing actionable: the stuck run hasn't moved, no new ask exists, and the existing
+dashboard thread already covers the outcomes that matter. An idle wake-up is the correct outcome per
+"Working while blocked."
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the c575 dashboard thread stands
+unanswered and unread, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
+unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
