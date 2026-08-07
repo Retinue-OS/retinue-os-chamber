@@ -1801,3 +1801,57 @@ one issue, [retinue#87](https://github.com/Retinue-OS/retinue/issues/87). **Hand
 new via dashboard (the Pages-build ask is already on the open, unread thread with no new fact to add); #87
 itself is the deliverable, filed rather than escalated since it needs no authority I lack. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c606 — 2026-08-07, ~17:2xZ — routine survey: idle wake-up, Pages build now ~27h37m stuck, no new fact anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start). `git fetch` + `git status` at start:
+clean, `HEAD` at c605 (`7dc1a2f`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 day, 21:59:01. Disk copy fresh, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job
+one; did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds` as instructed.** `gh api repos/retinue-os/retinue-os-chamber/pages`:
+`status: "errored"`, unchanged. `pages/builds/latest`: same build id `1135853385`, `error.message: "Page
+build failed."`, `created_at`/`updated_at` unchanged. The actual Actions run behind it, fetched fresh: still
+`id 31107290918`, `status: "queued"`, `conclusion: null`, `created_at` 2026-08-06T13:43:41Z — now **~27 h
+37 m** since creation (current time 2026-08-07T17:20:32Z). The five most recent runs before it unchanged
+(2 failure, 3 success, all 2026-08-06, all predating the stuck run). No new run behind it since c605.
+Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`, read directly from `/root/.retinue/conversations/`):
+still `unread: true`, `updated` 2026-08-07T09:30:08Z, 3 messages — not re-pushed, no new fact.
+
+**Bet 5's operating clause: checked for a new owner-authored PR or issue.** `gh search prs`/`gh search
+issues --owner retinue-os --sort updated --limit 5`: unchanged since c605 — newest owner PR is still #86
+(merged 15:52:12Z, reviewed c604), newest owner-authored open items are #84 (my c593 review comment still
+the only one) and #79 (my only comment already there). My own #85 and #87 are the newest items in the org.
+**No new owner-authored PR or issue this cycle.** Zero new issues, PRs or comments anywhere in the org.
+Stars/forks/watchers **0** across all four checkable public repos (`retinue`: 47 open issues;
+`retinue-os-chamber`: 5; `qlever-dir`: 9; `.github`: 1 — unchanged from c605). Discussions disabled org-wide
+(unchanged).
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` (direct API call) — unread count still 1, same single
+like from 2026-08-04, nothing new. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off; newest
+file on disk is 2026-08-02, no hostility/incident drafts waiting on the cool-off clock at all. **Mentions:**
+`tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 134 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next
+scheduled review 2026-08-16, not due. `tools/pointer-check.py`: clean, 0 problems, re-run after the
+frontmatter edit below.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on
+the Pages build worth a second dashboard push, no drafts past cool-off, no mentions, 0 stars/forks/watchers/
+discussions. An idle wake-up here is the correct result, not an omission — manufacturing activity (e.g.
+re-auditing a surface already checked repeatedly since the stuck run appeared just to have something to log)
+is exactly what "Working while blocked" warns against.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, matching the c395 rule — matched the field by `startswith`, asserted the closing quote,
+re-ran `pointer-check.py`/`rotation-check.py` clean before committing). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new (the Pages-build ask is already on the open, unread dashboard
+thread with no new fact to add). No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
