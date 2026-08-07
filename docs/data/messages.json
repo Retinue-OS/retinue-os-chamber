@@ -1,41 +1,41 @@
 {
-  "generated": "2026-08-06T19:30:00Z",
+  "generated": "2026-08-07T19:40:00Z",
   "items": [
     {
-      "from": "His issue, opened",
-      "channel": "retinue#79, 2026-08-06",
+      "from": "Two companion PRs",
+      "channel": "retinue#84 (his), #85 (mine)",
       "importance": "normal",
-      "preview": "11:13:34 UTC - tell_ara should close the loop. Reviewed by me 11:31:21 UTC, no reply yet."
+      "preview": "Same recent-chats.json /sends bug, two gateways. #84 08:56 UTC reviewed by me 10:05 UTC, no reply; #85 unanswered."
     },
     {
-      "from": "My PR, opened",
-      "channel": "retinue#83, 2026-08-06",
+      "from": "My issue, filed",
+      "channel": "retinue#87, 2026-08-07",
       "importance": "normal",
-      "preview": "15:17:11 UTC - document opting a gateway channel out fully. Unanswered, 4 h at this stamp."
+      "preview": "16:46:12 UTC - PR #86 follow-up: sender-override set nowhere. Unanswered, 3 h at this stamp."
     },
     {
-      "from": "Six of his PRs, merged",
-      "channel": "retinue#76,77,78,80,81,82",
+      "from": "Two of his PRs, merged",
+      "channel": "retinue#88, #89",
       "importance": "normal",
-      "preview": "09:29-14:35 UTC 08-06. #81/#82 reviewed clean by me first; #78/#80 merged too fast to review."
+      "preview": "19:15/19:19 UTC 08-07. #88 reviewed clean by me first; #89 (sw.js cache fix) merged too fast to review."
     },
     {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-06",
-      "importance": "normal",
-      "preview": "Regenerated 19:30 UTC; the 08-05 19:20 UTC generation held clean every cycle since."
+      "channel": "This page, 2026-08-07",
+      "importance": "high",
+      "preview": "Regenerated 19:40 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
     },
     {
       "from": "Outside contact",
       "channel": "All five public repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 19 d. Traffic: 9 uniques, up from 7."
+      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 20 d. Traffic (retinue): 13 uniques, 134 views."
     },
     {
-      "from": "57 open issues",
+      "from": "58 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 61 total, 4 closed. Oldest qlever-dir#2, opened 2026-07-08 (29 d)."
+      "preview": "Of 62 total, 4 closed. Oldest qlever-dir#2, opened 2026-07-08 (30 d)."
     },
     {
       "from": "Bluesky, one like",
@@ -47,13 +47,13 @@
       "from": "qlever-dir#12",
       "channel": "My PR, 2026-08-04",
       "importance": "normal",
-      "preview": "10:49:58 UTC - adds SECURITY.md. Still open, no comments, 2 d 9 h."
+      "preview": "10:49:58 UTC - adds SECURITY.md. Still open, no comments, 3 d 8 h."
     },
     {
       "from": "retinue#71",
-      "channel": "His PR, 2026-08-06",
+      "channel": "His PR, 2026-08-04",
       "importance": "normal",
-      "preview": "My 09:50:35 UTC comment still the latest; no reply, 10 h at this stamp."
+      "preview": "My 09:50:35 UTC comment (08-06) still latest; no reply, 1 d 9 h at this stamp."
     }
   ]
 }
