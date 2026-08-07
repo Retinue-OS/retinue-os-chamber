@@ -1025,3 +1025,92 @@ the owner:** a follow-up on the existing, still-unread thread `8fdadb9493d84e58a
 information (fix attempt confirmed not to work) and an unchanged, concrete ask (cancel/re-run the stuck
 Actions run; needs `actions:write` this token doesn't have). No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle beyond the routine escalation already in progress.
+
+---
+## c593 — 2026-08-07, ~10:1xZ — routine survey: reviewed owner's new PR #84, found the same defect unfixed in whatsapp-gateway.py, opened a companion PR
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c592
+(`9808997`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG**, age 1 day, 14:42:50. Per the runbook:
+disk copy is fresh (matches `origin/main`, unchanged since c586), so this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Pages build: unchanged, still stuck.** `gh api .../pages/builds/latest`: same errored build
+(`created_at` 2026-08-06T13:43:40Z). `gh run list`: same queued run `31107290918` (created
+2026-08-06T13:43:41Z), now **~20h20m**, still the newest `pages build and deployment` run — no new one has
+been created since the owner's empty-commit fix attempt (c591) or any push since. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f`: still `unread: true`, still 3 messages (owner has not replied). No new
+fact since c592's follow-up, so not re-pushed — c201/c377 both hold.
+
+**The substantive pickup this cycle: bet 5's operating clause.** `gh search prs --owner retinue-os --sort
+updated` surfaced a new owner-authored PR since c592: **retinue#84**, "fix(telegram-gateway): stop
+recent-chats.json breaking the /sends list", opened 2026-08-07T08:55:48Z, 0 comments/0 reviews at the time
+of this wake-up. Per "Working while blocked", reviewing the owner's own newly-opened PR is ahead of standing
+audit work.
+
+Read the diff (`gh pr diff 84`): `TELEGRAM_RECENT_CHATS_PATH` used to default into
+`TELEGRAM_PENDING_SENDS_DIR`, whose `_list_pending_sends_store()` assumes every `*.json` there is a
+pending-send dict and calls `entry.get("status")` unguarded — `recent-chats.json` is a list, so the first
+inbound Telegram message crashed the `/sends` listing with an uncaught `AttributeError`. The fix moves the
+default path to `TELEGRAM_DATA_DIR` and adds an `isinstance(entry, dict)` guard. Confirmed the mechanism
+directly (`['a','b'].get('status')` → `AttributeError: 'list' object has no attribute 'get'`) and confirmed
+the fix is correct — no defect found in PR #84 itself.
+
+**But the same pattern exists in two other gateways, and only one of them already had the guard.** Checked
+`signal-gateway.py` and `whatsapp-gateway.py` for the same shape (`grep` for
+`_list_pending_sends_store`/`RECENT_CHATS_PATH`/`PENDING_SENDS_DIR` in both):
+
+- `signal-gateway.py:1141-1159` — **already guarded**, `isinstance(entry, dict)` present. Not exposed.
+- `whatsapp-gateway.py:171-172,1106-1119` — **not guarded**, identical to Telegram's pre-fix code:
+  `WHATSAPP_RECENT_CHATS_PATH` defaults into `WHATSAPP_PENDING_SENDS_DIR`, and `_list_pending_sends_store()`
+  calls `entry.get("status")` with no dict check. `_record_recent_sender()` (`:780`) fires on every inbound
+  WhatsApp message, not as an edge case — so `/sends` for WhatsApp crashes the same way ("Empty reply from
+  server") the moment any message has been received, live and unfixed.
+
+**Commented on retinue#84** with the finding, the file:line citations, the reproduction, and a diff mirroring
+the PR's own fix applied to `whatsapp-gateway.py`:
+https://github.com/Retinue-OS/retinue/pull/84#issuecomment-5215640557 — offered to open it as its own PR
+rather than scope-creep the Telegram one.
+
+**Opened retinue#85**, a companion PR with that exact fix (same two parts: default path moved to
+`WHATSAPP_DATA_DIR`, `isinstance(entry, dict)` guard added), verified with `python3 -m py_compile` and by
+reproducing the underlying `AttributeError` before applying the fix:
+https://github.com/Retinue-OS/retinue/pull/85. Cloned fresh to `/tmp` rather than using the framework
+checkout at `/workspace/deployment` — its submodule gitdir is still broken in-container (per standing memory);
+`gh auth status` confirmed the `aros-agent` token can push/branch/PR (per the c388 role grant), so cloning
+fresh and pushing worked without incident.
+
+**GitHub survey, all five public repos plus `.github`.** Beyond #84/#85: `retinue#79` unchanged; `retinue#71`
+unchanged since 2026-08-06T09:50:35Z, already reviewed twice, nothing new. Zero other new issues, PRs or
+comments anywhere. Stars/forks/watchers **0** across all five public repos, re-checked directly via `gh api
+repos/retinue-os/<repo>` (not just via search). Discussions disabled org-wide (unchanged).
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`: unread count still 1, same single like from
+2026-08-04. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged. **Drafts:**
+`find drafts/ -newer log.md` — nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 73 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself, not the per-cycle write-ups), a review-level question and not
+this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Pickup, one item (two artifacts, one act): the PR review and its companion fix.** Chosen because it is the
+first item in the "Working while blocked" preference order that had anything to act on this cycle (no
+inbound; the Pages build/dashboard thread had no new fact to add), and because it is exactly the class bet 5
+measures — a real, checkable, reproducible defect caught in an open PR's adjacent code before it shipped
+silently broken for a second channel. Did not additionally file the Pages-build watch as a separate pickup;
+"nothing new" on that front is the correct idle result for it this cycle, not a second action.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** a review comment on retinue#84
+(https://github.com/Retinue-OS/retinue/pull/84#issuecomment-5215640557) and a new PR, retinue#85
+(https://github.com/Retinue-OS/retinue/pull/85) — both under guardrail 1 disclosure, both fair technical
+review/fixes with no legal exposure, no cool-off applicable (neither is a response to hostility, an incident,
+or another project's failure). **Handed to the owner:** retinue#85 for review/merge; nothing new on the
+Pages-build dashboard thread (no new fact this cycle). No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
