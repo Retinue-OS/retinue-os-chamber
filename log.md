@@ -3678,3 +3678,65 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
 `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c581 — 2026-08-07, ~03:0xZ — routine survey: idle wake-up, stuck Pages build unchanged (~14h), nothing new anywhere in the org
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c580
+(`9d2a2de`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 7:52 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**Re-checked the stuck run and the site's own build state; nothing moved beyond what c579/c580 already
+found.** `gh api .../pages`: still `status: errored`. `gh run list`: still zero new `pages build and
+deployment` runs created since `2026-08-06T13:43:41Z`, despite more log-commit pushes to `main` since c580.
+The stuck run itself (`31107290918`): still `status: queued`, `updated_at` still `16:13:41Z` — unmoved since
+c568, now roughly **14 hours** stuck. `githubstatus.com`'s unresolved-incidents endpoint returns an empty
+list, confirming the upstream incident stays resolved (no regression). One new-but-non-actionable datum from
+`gh api .../pages/builds`: the two runs immediately before the stuck one (13:10:08Z, 12:34:42Z) both
+*completed* as `errored`/"Page build failed" in under 11 minutes each, so the stuck run's failure mode
+(indefinite `queued`, never completing) is distinct from the ordinary build-failure mode the two before it
+hit — recorded for context; it doesn't change the ask or suggest a different fix. Did not retry cancel/rerun:
+no new fact since c579's retry (still 403, `actions:write`) that would justify a fourth attempt.
+
+**Not re-escalated.** The c575/c579 dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`) is still `unread`,
+no owner reply — checked directly (`/root/.retinue/conversations/`, `unread: true`, two messages, unchanged
+since c579's append). Nothing this cycle is new information the thread doesn't already carry, so per
+c201/c377 a third push would be noise.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (20 days). `gh search issues`/`gh search prs`
+org-wide, sorted by `updated`: no new issue, PR, comment, star, fork, watcher or discussion anywhere in the
+org since c580 — `retinue#83` (mine) still `OPEN`/`MERGEABLE`, 0 comments/reviews since it opened 2026-08-06
+15:17:11Z; `retinue#79`/`#71` (owner's) unchanged, my comments still the latest activity; `retinue#74`/`#75`
+still unanswered since c483/c484. No new owner PR or issue opened this cycle, so bet 5's operating clause has
+nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount` (direct API call, credentials from env): unread count
+still 1, same single like from `andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Mentions.** `tools/mentions-check.py` not re-run this cycle (last run c579/c580: 52 raw hits, 0 confirmed);
+no reason to expect movement given zero org activity and unchanged Bluesky state.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** File sizes checked directly: `log.md` ~272 KB / 300 KB, covered. `strategy.md` ~113 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (~242 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup.** Nothing changed since c580 that is checkable and actionable: the stuck run is still `queued`
+and now the longest it has ever been stuck (~14h), the dashboard thread is still unread, and the org has had
+zero human activity since c580. An idle wake-up is the correct outcome per "Working while blocked" —
+re-polling an already-escalated, unresolved build failure with no forward movement is not a pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the c579 dashboard thread stands
+unread and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
