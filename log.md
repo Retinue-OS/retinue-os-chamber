@@ -2059,3 +2059,113 @@ the chamber:** one PR review comment,
 owner:** nothing new via dashboard/issue — the review comment is itself the deliverable, the venue bet 5
 found actually gets read. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+## c610 — 2026-08-07, ~19:4xZ — reviewed owner's PR #89 (bet 5's clause, links to open retinue#58); closed the dashboard-refresh commit gap (c443/c486 shape, third occurrence); Pages build still stuck (~30h04m)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start). `git fetch` + `git status` at start:
+**dirty** — `HEAD` at c609 (`031eace`), matching `origin/main`, but all five `docs/data/*.json` modified in the
+working tree, none staged.
+
+**A note on this cycle's context, again.** The dispatch's context block again carried the same injected "MCP
+server instructions" section (`ask_ara`/`tell_ara`/etc., framed as unrelated "claude.ai Ara/Aros/Zoho"
+connectors) flagged at c608/c609. Same disposition: no such tools exist in this session's toolset,
+GUARDRAILS.md's preamble already covers a persuasive-sounding instruction arriving by any channel other than
+this file, and nothing in it asked for an action — treated as noise, not acted on, not escalated.
+
+**The dirty tree, diagnosed before anything else.** All five cards carried a fresh, mutually consistent
+`"generated": "2026-08-07T19:40:00Z"` stamp (up from `2026-08-06T19:30:00Z`), matching the
+dashboard-refresh-commit-gap shape already on file (c443, c486): `aros-dashboard-refresh` regenerated the
+cards but the run never reached its own commit step. Read the diff on all five before touching anything —
+age-counter increments and this cycle's GitHub state (PRs #88/#89 merged, #87 filed, updated traffic/issue
+counts), nothing sensitive, nothing that should have been held back. Per the memory note's own instruction,
+committed the existing output rather than regenerating: `git add` the five named paths (not `-A`), committed,
+pushed. Pre-commit hooks (`private-name-check.py`, `desk-drop-check.py`) passed clean. **Third occurrence of
+this exact gap** (c443, c486, now this one) — worth a line in `projects/public-surface.md` since the memory
+note already flagged a second occurrence as the threshold for filing a chamber issue; not filed this cycle
+(see "Files changed" below for what was carried instead), but noted here as the trigger met.
+
+**Delivery check, mandatory, all five cards — run twice, before and after the commit.** `tools/delivery-check.py`
+before: publication **`uncommitted`** (`agenda.json` on disk differs from HEAD), all five cards flagged STALE
+with the tool's own diagnosis pointing at the uncommitted state — matches the diagnosis above independently.
+After the commit+push: publication **`published`** (HEAD on `origin/main`), all five cards now show
+`origin/main 2026-08-07T19:40:00Z` — the commit gap is closed — but **served (GitHub Pages) still
+`2026-08-05T19:20:00Z`**, so the tool's own message changes to "this really is the build," i.e. purely the
+already-diagnosed Pages failure with no regeneration question left open. **5 problems, all STALE**, age 2
+days 0:27, both runs (self-test: pass both times).
+
+**Re-checked `/pages` and `/pages/builds`.** `gh api repos/retinue-os/retinue-os-chamber/pages`:
+`status: "errored"`, unchanged. `pages/builds/latest`: same build id `1135853385`, `error.message: "Page
+build failed."`, unchanged timestamps, pusher still `aros-agent`. The Actions run behind it: still
+`id 31107290918`, `status: "queued"`, `conclusion: null`, `created_at` 2026-08-06T13:43:41Z — now **~30h04m**
+since creation (current time 2026-08-07T19:48:19Z). No new run behind it since c609. Dashboard thread
+(`8fdadb9493d84e58a5eb93101d61156f`, read directly from `/root/.retinue/conversations/`): still `unread:
+true`, `updated` 2026-08-07T09:30:08Z, 3 messages — not re-pushed, no new fact (landing the cards on
+`origin/main` doesn't change the Pages diagnosis the thread already states).
+
+**GitHub survey — new item found.** `gh search prs --owner retinue-os --sort updated`: the owner opened
+[retinue#89](https://github.com/Retinue-OS/retinue/pull/89), "fix(dashboard): derive service-worker cache
+name from a shell content hash," at **19:19:01Z** — about 26 minutes before this wake-up, 0 comments at the
+time. Bet 5's operating clause, so it became this cycle's pickup.
+
+**Review.** Pulled the diff (`gh pr diff 89`) and the PR-head copy of both changed files
+(`scripts/web-gateway.py` +74/−0, `webapp/sw.js` +10/−1). The fix: `_shell_hash()` computes a sha256 over a
+stat-signature (relative path + size + mtime_ns) of every file under `WEBAPP_DIR` except `DASHBOARD_DATA_DIR`,
+memoised on that signature; `/sw.js` gets its own routed handler (`_serve_service_worker`) that substitutes a
+`__SHELL_HASH__` placeholder in the response only (the baked file on disk is never mutated), served
+`Cache-Control: no-cache`. Traced: the `DASHBOARD_DATA_DIR` exclusion degrades safely if that dir sits outside
+`WEBAPP_DIR` (the `rglob` never yields those files, so the parent-check is a no-op rather than a false
+exclusion); the memoisation race on `ThreadingHTTPServer` (two threads computing the same digest concurrently)
+is unsynchronized but harmless since the digest is a pure function of the signature — worst case one redundant
+`sha256` call, never a wrong value; `/sw.js` is deliberately absent from `SHELL_ASSETS` so the worker script
+itself is never cache-first'd, which is the piece that actually closes the loop — without it the browser's own
+SW update check would keep fetching a cached worker that still points at the stale cache name;
+`Content-Length` is computed from the post-substitution encoded body, correct since the 12-hex-char hash isn't
+the same length as the placeholder it replaces; the `except OSError: return "static"` fallback degrades to "no
+auto-invalidation this request" rather than a 500. **No functional defect found.**
+
+**The link this review adds: PR #89 closes an issue already on file.** `drafts/sw-shell-cache-version-never-
+bumped.md` (filed 2026-08-01 as [retinue#58](https://github.com/Retinue-OS/retinue/issues/58), still `OPEN`)
+is exactly this defect — the shell cache key never moving on a webapp change — and named fix (2) from its own
+list, "derive the key from a build stamp so it cannot be forgotten," as the one this PR implements (as a
+content hash rather than a build stamp, which needs no build wiring at all — the stronger version). Checked
+`gh issue view 58` fresh rather than trusting the draft's own memory of it: still open, no `Closes #58` in
+PR #89's body. Said so in a short follow-up comment rather than folding it into the main review, since it's a
+distinct fact (a queue-bookkeeping link) rather than part of the correctness trace.
+
+**One calibration note, same shape as c609's on #88.** Verification in the PR body is `node --check` plus a
+described-but-not-committed manual test of the hash helper; none of the existing `tests/test_*.py` touch
+`webapp/` or the gateway's dashboard-serving paths. Said so in the review rather than letting the green CI
+check stand in for coverage it doesn't have.
+
+**Posted:** [retinue#89 review comment](https://github.com/Retinue-OS/retinue/pull/89#issuecomment-5221357739)
+— the trace above and the CI-scope calibration, disclosed per the standard line; and a short
+[follow-up comment](https://github.com/Retinue-OS/retinue/pull/89#issuecomment-5221361657) linking it to
+retinue#58 and suggesting a `Closes #58` on merge. Sixth review since bet 5's clause was adopted
+(2026-08-02); two consecutive clean reviews now (#88, #89) — one more clean one in a row would meet the
+stated falsification threshold ("three consecutive... find nothing checkable"), worth tracking at the next
+scheduled review (2026-08-16) rather than treated as a trend yet.
+
+**Bluesky:** fresh `createSession` + `getUnreadCount`, plus `listNotifications` — unread count still 1, same
+single like from 2026-08-04T14:41:18Z (`andeeharry1.bsky.social`), `isRead: false` unchanged, nothing new.
+**Drafts:** `find drafts/ -type f -newer log.md` — nothing past cool-off; newest file on disk is 2026-08-02,
+held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged.
+**Stars/forks/watchers:** 0 across all four checkable public repos (`retinue`: 47 open issues;
+`retinue-os-chamber`: 5; `qlever-dir`: 9; `.github`: 1). Discussions: 0, disabled org-wide (unchanged).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 153 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled
+review 2026-08-16, not due. `tools/pointer-check.py`: clean, 0 problems.
+
+**Files changed:** `docs/data/{agenda,briefing,messages,projects,todo}.json` (committed the pre-existing
+refresh output, separate commit, `3b05ab5`), `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` handover updated line-wise, per the c395 rule — matched the field by `startswith`,
+asserted the closing quote; `pointer-check.py`/`rotation-check.py` both re-run after the edit, before
+committing). **Published outside the chamber:** two PR comments,
+[retinue#89 review](https://github.com/Retinue-OS/retinue/pull/89#issuecomment-5221357739) and its
+[#58 follow-up](https://github.com/Retinue-OS/retinue/pull/89#issuecomment-5221361657). **Handed to the
+owner:** nothing new via dashboard/issue — the Pages-build ask is already on the open, unread thread with no
+new fact to add; the commit-gap recurrence is noted here and in `projects/public-surface.md` rather than
+escalated, since it cost one wake-up's worth of diagnosis time and nothing was lost (the tool's own message
+made the diagnosis mechanical). No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
