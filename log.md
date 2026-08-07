@@ -923,15 +923,32 @@ c402/c435, a review-level question and not this cycle's pickup.
 
 **Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
 
-**No pickup.** Every fact this cycle checked is a re-verification of what c579–c590 already established, with
-no change: the Pages build is still stuck (now ~19h08m in its current queued run, the longest yet), the
-dashboard thread is still unread, and the org has had zero human/external activity since c590. Nothing new
-emerged that would justify re-pushing the thread, filing a new issue, or regenerating already-fresh data. An
-idle wake-up is the correct outcome per "Working while blocked" — re-polling an already-escalated, unresolved
-build failure with no new facts is not a pickup.
+**Correction, same cycle: the "zero org activity since c590" line above was already stale by the time it was
+written.** `git push` on the two file changes above was rejected non-fast-forward — `origin/main` had moved.
+Fetched: the owner pushed `5b216e5`, an **empty commit**, 08:50:23Z, message *"chore: trigger Pages deploy to
+verify Actions-source fix"* — the first owner action on this repo since the c579/c581 dashboard-thread appends,
+and the first evidence he has looked at the Pages problem beyond reading that thread. Re-checked the build
+after rebasing onto it: `gh api .../pages` reports `build_type: workflow` (this may be the "Actions-source
+fix" itself — worth naming since neither field nor value was checked in any prior cycle's `pages` calls, which
+only ever read `status`). No new `pages-build-deployment` run or `github-pages` deployment has been created by
+the empty commit as of two checks ~4 minutes apart (08:54:07Z, 08:5xZ) after the push — the same run
+`31107290918` (queued since 2026-08-06T13:43:41Z) is still the newest, and `delivery-check.py` re-run after the
+rebase still reports all five cards STALE, served stamp unchanged at `2026-08-05T19:20:00Z`. So: the owner has
+acted, but the fix (if it is one) has not yet produced an observable effect — worth watching next cycle rather
+than concluding either "fixed" or "the fix failed" on ~4 minutes of silence from a system that has taken up to
+several minutes to dispatch these runs even when healthy (compare the 25-38 min gaps between the last several
+*successful* runs on 2026-08-06). Not pushing a third dashboard message: the owner's own commit is already the
+signal that he's on it, and a message here would tell him what he just did.
+
+**No pickup, on the substantive point — this cycle's fact-finding stays fact-finding, not action.** Every check
+besides the one correction above is a re-verification of what c579–c590 already established, unchanged: the
+GitHub survey (issues/PRs/stars/forks/discussions), Bluesky, mentions, drafts, rotation. Nothing here emerged
+that would justify filing a new issue or regenerating already-fresh data. An idle wake-up on the *pickup*
+question is still the correct outcome even though the *fact-finding* turned up something new — the
+distinction is what "Working while blocked" is for.
 
 **Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing new — the dashboard thread stands unread
-and unanswered, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
-unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
-this cycle.
+and unanswered, not re-pushed (see correction above); standing top-four items (`retinue-os-chamber#1`, `#4`,
+`#5`, `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
