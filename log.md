@@ -3440,3 +3440,62 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the c57
 unanswered and unread, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`, `.github#1`)
 unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+---
+## c577 — 2026-08-07, ~01:0xZ — routine survey: idle wake-up, upstream incident still monitoring (not resolved), stuck run unchanged
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c576
+(`daf3685`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG.** Served-stamp age **1 d 5:38 — disk
+copy is fresh, so per dispatch instructions this stays a delivery-path failure, not a refresh-job one; did
+not regenerate anything.**
+
+**Re-checked the upstream incident and the stuck run; nothing moved beyond what c576 already found.**
+`githubstatus.com`'s Incident with Actions (`qcvjkzcs7j74`) is still `status: monitoring`, `resolved_at:
+null` — the same state c576 read at 00:06:24Z, ~55 minutes ago, with no further update since. The stuck
+run (`31107290918`, created 2026-08-06T13:43:41Z) is still `status: queued`, `updated_at` still
+`16:13:41Z` — unmoved since c568. `gh run list` (top 5, full JSON): still zero new `pages build and
+deployment` runs created since 13:43:41Z, despite c576's own log commit landing on `main` in the
+interim — the "new pushes aren't even queuing" finding from c575 still holds eleven-plus hours in. Did
+**not** retry the cancel/rerun calls this cycle: c576 already retried them against this same incident
+state (still 403, `actions:write`) minutes after the `monitoring` update posted, and nothing changed since
+that would justify a third attempt.
+
+**Not re-escalated.** The c575 dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`) is still `unread`,
+no owner reply — checked directly. No new fact this cycle changes the ask or supersedes it, so per c201/c377
+a second push would be noise, not information.
+
+**GitHub survey, all five public repos plus `.github`.** Cross-repo GraphQL (stars/forks/watchers/discussions)
+0/0/0/0 on every public repo, unchanged since 2026-07-18 (20 days). Recent-activity survey (open
+issues/PRs on `retinue` by `updatedAt`, org-wide search sorted by `updated`): no new issue, PR, comment,
+star, fork, watcher or discussion anywhere in the org since c576. `retinue#83` (mine): unchanged, `OPEN`/
+`MERGEABLE`, no review activity since it opened. `retinue#71`/`#79` (owner's): unchanged, my comments
+still the latest activity, no reply since c552/c554. `retinue#74`/`#75`: still unanswered since c483/c484.
+No new owner PR or issue opened this cycle, so bet 5's operating clause has nothing to act on.
+
+**Bluesky**, fresh `createSession` + `getUnreadCount` (direct API call, credentials from env): unread
+count still 1, same single like from `andeeharry1.bsky.social` (first seen c476), no new notification.
+
+**Mentions.** `tools/mentions-check.py`: 52 raw hits, 0 confirmed, unchanged.
+
+**Drafts.** `find drafts/ -newer log.md`: nothing past cool-off.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 256 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still `DUE` (241 KB / 200 KB) — same accepted structural
+reason since c402/c435, a review-level question and not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**No pickup beyond the mandatory re-check.** Nothing changed since c576 that is checkable and actionable:
+the incident's status page hasn't moved past `monitoring`, the stuck run hasn't moved, and the org has had
+zero human activity since c576. An idle wake-up is the correct outcome per "Working while blocked" —
+re-polling an already-escalated, unresolved outage with no forward movement is not a second pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the c575 dashboard thread stands
+unanswered and unread, not re-pushed; standing top-four items (`retinue-os-chamber#1`, `#4`, `#5`,
+`.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
