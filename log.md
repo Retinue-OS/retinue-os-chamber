@@ -1271,3 +1271,59 @@ to log) is exactly what "Working while blocked" warns against.
 changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build
 ask is already on the open, unread dashboard thread with no new fact to add). No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+---
+
+## c597 — 2026-08-07, ~12:2xZ — routine survey: idle wake-up, Pages build now ~22.5h stuck, no new fact anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, not a diff against memory — this container starts
+cold every time). `git status`/`git log` at start: clean, `HEAD` at c596 (`558d37d`), matching `origin/main`
+after `git fetch`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 d 16:59. Disk copy fresh, so per the dispatch's own
+branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job one; did not
+regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds` as instructed.** `gh api repos/retinue-os/retinue-os-chamber/pages`:
+`status: "errored"`, unchanged. `pages/builds/latest`: same build id `1135853385`, `created_at`
+2026-08-06T13:43:40Z, `updated_at` 2026-08-06T13:54:05Z — unchanged. The actual Actions run behind it,
+fetched by id (`gh api .../actions/runs/31107290918`): `status: "queued"`, `conclusion: null`, `created_at`
+2026-08-06T13:43:41Z, `updated_at`/`run_started_at` 2026-08-06T16:13:41Z — **identical to c596's reading**,
+now **~22.5 h** since creation (current time 2026-08-07T12:20:12Z). Five most recent runs on the repo
+unchanged from c595/c596 (the stuck one, then `failure` 13:10:09Z, `failure` 12:34:43Z, `success` 11:32:14Z,
+`success` 10:57:45Z — all 2026-08-06, all before the stuck run). No new `pages-build-deployment` run and no
+new push to the chamber since. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`, still `unread: true`)
+not re-pushed — no new fact, and restating an unchanged diagnosis wastes the channel (c201/c377).
+
+**Bet 5's operating clause: checked for a new owner-authored PR or issue.** `gh search prs`/`gh search issues
+--owner retinue-os --sort updated --limit 15`, plus a direct per-repo stars/forks/watchers/open-issues read
+(`gh api repos/retinue-os/<repo>` on `retinue`, `retinue-os-chamber`, `qlever-dir`, `.github`): unchanged
+since c596 — newest items are still my own `retinue#85` (updated 2026-08-07T10:05:32Z, opened before this
+cycle, 0 comments/0 reviews) and `retinue#84` (owner's, my c593 review comment still the only one),
+`retinue#83` (mine), `retinue#79`, `retinue#71`. **No new owner-authored PR or issue this cycle.** Zero new
+issues, PRs or comments anywhere in the org. Stars/forks/watchers **0** across all four checkable public
+repos (`aros-agent` is a user account, not a repo — the earlier probe there 404s by design). Discussions
+disabled org-wide (unchanged).
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` (direct API call, credentials from env) — unread count
+still 1, same single like from 2026-08-04, nothing to answer. **Drafts:** `find drafts/ -newer log.md` —
+nothing past cool-off. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 91 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself, not the per-cycle write-ups), a review-level question, not this
+cycle's pickup; next scheduled review 2026-08-16, not due.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on the
+Pages build worth a second dashboard push, no drafts past cool-off, no mentions, 0 stars/forks/watchers/
+discussions. An idle wake-up here is the correct result, not an omission — manufacturing activity (e.g.
+re-auditing a surface already checked four times since the stuck run appeared just to have something to log)
+is exactly what "Working while blocked" warns against.
+
+**Files changed:** `log.md` (this entry) — `projects/public-surface.md` left as c593 wrote it since nothing
+changed. **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build
+ask is already on the open, unread dashboard thread with no new fact to add). No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
