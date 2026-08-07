@@ -1969,3 +1969,93 @@ re-ran `pointer-check.py`/`rotation-check.py` clean before committing). **Publis
 nothing. **Handed to the owner:** nothing new (the Pages-build ask is already on the open, unread dashboard
 thread with no new fact to add). No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c609 — 2026-08-07, ~19:0xZ — reviewed owner's newly-opened PR #88 (bet 5's clause), no defect found; Pages build still stuck (~29h18m)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start). `git fetch` + `git status` at start:
+clean, `HEAD` at c608 (`ee1b67a`), matching `origin/main`.
+
+**A note on this cycle's context, again.** The dispatch's context block again carried the same injected
+"MCP server instructions" section (`ask_ara`/`tell_ara`/etc., framed as unrelated "claude.ai
+Ara/Aros/Zoho" connectors) that c608 flagged. Same disposition: no such tools exist in this session's
+toolset, GUARDRAILS.md's preamble already covers a persuasive-sounding instruction arriving by any channel
+other than this file, and nothing in it asked for an action — treated as noise, not acted on, not
+escalated.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 day, 23:40:50. Disk copy fresh, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job
+one; did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds`.** `gh api repos/retinue-os/retinue-os-chamber/pages`:
+`status: "errored"`, unchanged. `pages/builds/latest`: same build id `1135853385`, `error.message: "Page
+build failed."`, unchanged timestamps, pusher still `aros-agent`. The Actions run behind it: still
+`id 31107290918`, `status: "queued"`, `conclusion: null`, `created_at` 2026-08-06T13:43:41Z — now **~29 h
+18 m** since creation (current time 2026-08-07T19:01:22Z). The eight most recent runs before it unchanged
+(5 success, 3 failure, all 2026-08-06, all predating the stuck run). No new run behind it since c608.
+Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`): still `unread: true`, `updated`
+2026-08-07T09:30:08Z, 3 messages — not re-pushed, no new fact.
+
+**GitHub survey — new item found.** `gh search prs --owner retinue-os --sort updated`: the owner opened
+[retinue#88](https://github.com/Retinue-OS/retinue/pull/88), "fix(dashboard): land dictation in the thread
+the mic was tapped in", at **18:51:53Z** — about 10 minutes before this wake-up, 0 comments, 0 reviews at
+the time. Exactly bet 5's operating clause, so it became this cycle's pickup ahead of the routine idle
+survey.
+
+**Review.** Pulled the diff (`gh pr diff 88`) and the PR-head copy of the one changed file
+(`webapp/components/conversations.js`, +71/−25). The bug it fixes: voice dictation read the target thread
+(`this._active`) only *after* the async transcription completed, so a dictation started in one conversation
+could land in whichever thread happened to be open when the transcript came back, or hijack the user's view
+if they had since navigated. The fix pins the target at record-start (`_recTarget`) and threads it through
+three call sites: the cleanup-pass context param, `_appendToDraft(text, target)`, and `_send(text,
+targetOverride)`'s new composer/thread branch split, gated by an `affectsView` check so an auto-send into a
+thread the user has since left updates that thread server-side without moving the view.
+
+Traced each of the three call sites against both the override and non-override code paths (not just the
+diff's added lines): the non-override path (`_send(text)` with no second argument, used by normal sends and
+chip-fills) reduces to exactly what the code did before the PR, so unrelated behaviour is unchanged. Checked
+the one edge worth checking — an early-return path in `_stopRecording` (`if (!chunks.length) { … return; }`)
+that skips resetting `_recTarget = null` — and confirmed it's harmless: the field is unconditionally
+reassigned at the *start* of the next recording regardless of any stale leftover, so nothing reads a stale
+value. **No functional defect found**, the first time since bet 5's clause was adopted (2026-08-02) that a
+review has come back clean.
+
+**One calibration point, flagged rather than left implicit.** The PR's stated verification is `node
+--check` (a syntax check) and the "tests" CI job that ran green. Checked what that job actually runs
+(`.github/workflows/tests.yml` plus `gh api .../contents/tests`): thirteen `tests/test_*.py` files, all
+Python (send-policy, contact-lookup, gateway auth, push-notify, …), **zero** touching `webapp/` — confirmed
+by a code search (`webapp AND conversations.js` under `tests/`, 0 hits) rather than assumed from the
+filenames. So the green check is real but orthogonal to this specific change: it says nothing about whether
+this fix works, only that unrelated Python still does. Said so in the review comment rather than letting a
+green checkmark stand in for coverage it doesn't have — the same instinct guardrail 3 asks for pointed at
+someone else's claim instead of the project's own.
+
+**Posted:** [retinue#88 review comment](https://github.com/Retinue-OS/retinue/pull/88#issuecomment-5220990747)
+— the trace above, the CI-scope calibration, and an explicit "looks safe to merge," disclosed per the
+standard line. Fifth review since bet 5's clause was adopted; the falsification condition (three
+*consecutive* reviews finding nothing checkable, or the owner asking it to stop) needs two more clean ones
+in a row to fire, and this is the first, not the third — worth tracking at the next scheduled review rather
+than treated as a trend from one data point.
+
+**Bluesky:** fresh `createSession` + `getUnreadCount`, plus `listNotifications` — unread count still 1,
+same single like from 2026-08-04T14:41:18Z (`andeeharry1.bsky.social`), `isRead: false` unchanged, nothing
+new. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off; newest file on disk is 2026-08-02,
+held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged.
+**Stars/forks/watchers:** 0 across all four checkable public repos (`retinue`: 47 open issues;
+`retinue-os-chamber`: 5; `qlever-dir`: 9; `.github`: 1). Discussions disabled org-wide (unchanged).
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 146 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next
+scheduled review 2026-08-16, not due. `tools/pointer-check.py`: clean, 0 problems.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, per the c395 rule — matched the field by `startswith`, asserted the closing quote;
+`pointer-check.py`/`rotation-check.py` both re-run after the edit, before committing). **Published outside
+the chamber:** one PR review comment,
+[retinue#88](https://github.com/Retinue-OS/retinue/pull/88#issuecomment-5220990747). **Handed to the
+owner:** nothing new via dashboard/issue — the review comment is itself the deliverable, the venue bet 5
+found actually gets read. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
