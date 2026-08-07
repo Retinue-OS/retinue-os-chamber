@@ -952,3 +952,76 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the das
 and unanswered, not re-pushed (see correction above); standing top-four items (`retinue-os-chamber#1`, `#4`,
 `#5`, `.github#1`) unchanged, not re-escalated. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+---
+## c592 — 2026-08-07, ~09:2xZ — routine survey: owner's fix attempt confirmed not to work; posted a follow-up (with a tooling mishap en route)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch. `git status` at start: clean, `HEAD` at c591
+(`a64bfd7`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards; served
+(GitHub Pages) still `2026-08-05T19:20:00Z` — **5 problems, all LAG**, age 1 d 14:07. Disk copy fresh, so
+this stays the already-diagnosed delivery-path (Pages) failure; did not regenerate anything.
+
+**The substantive finding: the owner's mid-c591 fix attempt did not unstick the build, and enough time and
+pushes have now passed to say so rather than call it unproven.** `gh api .../pages/builds/latest`: still the
+same errored build (`created_at` 2026-08-06T13:43:40Z, unchanged). `gh run list`: still the same queued run
+`31107290918` (created 2026-08-06T13:43:41Z), now the newest run — **zero new `pages build and deployment`
+runs** were created by any of the three pushes to `main` since the owner's empty commit (5b216e5 08:50:23Z,
+plus this cycle's own two predecessors' log commits, c591's two entries), across ~46 minutes. c591 declined to
+conclude either way on ~4 minutes of silence, noting successful runs took 25-38 min gaps even when healthy;
+46 minutes with three separate push events and not even a *new* run being created (queued or otherwise) is a
+different, stronger signal than "still waiting" — it means pushes are not requeuing while the stuck run sits
+there, which is exactly the mechanism the original dashboard message hypothesized. Re-ran `delivery-check.py`:
+unchanged, all five cards STALE, served stamp still `2026-08-05T19:20:00Z`.
+
+**Posted a follow-up to the existing dashboard thread** (`8fdadb9493d84e58a5eb93101d61156f`) reporting this
+and restating the original, unchanged ask: cancel/re-run `31107290918` (or re-run all jobs) from the Actions
+tab, since that needs `actions:write`, which this token lacks. Chose the existing thread over a new one or an
+issue — this is the same fact pattern already being tracked there, time-sensitive, and a durable GitHub issue
+would be redundant with dashboard content the owner is already reading (he replied to it, via a commit, within
+the last hour). Not a guardrail-8 cool-off case: this is a private status update to the owner, not published
+content, and not written in response to hostility, an incident, or another project's failure.
+
+**Tooling mishap, caught and fixed same cycle.** First attempt passed both `--thread` and `--url` to
+`conversation-push.py`; reading the script (`/workspace/scripts/conversation-push.py:78-87`) after the fact
+shows `--url` being set at all skips the branch that turns a bare `--thread ID` into the `.../ID/messages`
+append URL, so it silently POSTed to the base endpoint and opened a **new** thread
+(`5d7533727ba34fdabf29502008b68f97`) instead of appending. Caught immediately by checking the returned id
+against the thread id passed. Fixed by re-running without `--url` (the default port matches
+`WEB_GATEWAY_PORT=8080` here, so no override was needed in the first place) — this correctly appended as
+message 3 of the real thread. Archived the stray thread (`POST /conversations/<id>/archive`) so it doesn't
+show as a second, confusing open item on the owner's active list; its one message is fully superseded by the
+correctly-placed one. No content was lost and nothing false was said in either copy, but it's a live bug in my
+own usage pattern worth naming for the next wake-up: **`--thread` and `--url` together silently misbehave;
+don't combine them unless the URL override itself targets a non-default append path.**
+
+**GitHub survey, all five public repos plus `.github`.** `gh search issues`/`gh search prs --owner
+retinue-os --sort updated`: unchanged since c591 — `retinue#79`, my own open PR `retinue#83` (still
+`OPEN`/`MERGEABLE`, 0 comments/0 reviews), `retinue#71` (already reviewed twice, nothing new). Zero new
+issues, PRs or comments anywhere. Stars/forks/watchers **0** across all five public repos. Discussions
+disabled org-wide (unchanged).
+
+**Bluesky**, fresh `createSession` + `getUnreadCount`: unread count still 1, same single like from
+2026-08-04. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged. **Drafts:**
+`find drafts/ -newer log.md` — nothing past cool-off.
+
+**Rotation watch.** `log.md` ~64 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB, covered.
+`projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason since c402/c435,
+review-level, not this cycle's pickup.
+
+**Scheduled review.** Next `aros-strategy-review` fires 2026-08-16T17:0xZ. Not due; not acted on.
+
+**Pickup, one item: the dashboard follow-up above.** Chosen because it is new, load-bearing information (a
+negative result that confirms rather than merely repeats the standing diagnosis) rather than a restatement,
+and because it directly serves the one open phase-blocking item this project has (the Pages build, blocking
+all five dashboard cards from reaching the served site). No second item picked up — the tooling fix was a
+same-cycle correction of an error made while executing the first item, not a separate pickup.
+
+**Files changed:** `projects/public-surface.md` (`current_next_action`), `log.md` (this entry). **Published
+outside the chamber:** nothing (dashboard messages are private to the owner, not publication). **Handed to
+the owner:** a follow-up on the existing, still-unread thread `8fdadb9493d84e58a5eb93101d61156f` — new
+information (fix attempt confirmed not to work) and an unchanged, concrete ask (cancel/re-run the stuck
+Actions run; needs `actions:write` this token doesn't have). No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle beyond the routine escalation already in progress.
