@@ -1739,3 +1739,65 @@ both re-run clean after the edit, before committing). **Published outside the ch
 nothing new via dashboard/issue — the review comment is itself the deliverable, in the venue bet 5 found
 actually gets read. No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
 cycle.
+
+## c605 — 2026-08-07, ~16:4xZ — PR #86 follow-up filed (retinue#87); Pages build still stuck (~27h03m)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start). `git fetch` + `git status` at start:
+clean, `HEAD` at c604 (`1992cd3`), matching `origin/main`.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-06T19:30:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one). Served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 1 day, 21:26:18. Disk copy fresh, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job
+one; did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds`.** `gh api repos/retinue-os/retinue-os-chamber/pages`: `status:
+"errored"`, unchanged. `pages/builds/latest`: same build id, `error.message: "Page build failed."`, unchanged
+timestamps (`created_at` 2026-08-06T13:43:40Z). The Actions run behind it: still `id 31107290918`, `status:
+"queued"`, `conclusion: null`, `created_at` 2026-08-06T13:43:41Z — now **~27h03m** since creation (checked
+2026-08-07T16:47:06Z). No new run behind it since c604. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`,
+read directly from `/root/.retinue/conversations/`): still `unread: true`, `updated` 2026-08-07T09:30:08Z, 3
+messages — not re-pushed, no new fact.
+
+**GitHub survey.** `gh search prs`/`gh search issues --owner retinue-os --sort updated`: retinue#86 (the
+owner's dashboard-metadata PR reviewed last cycle) was **merged at 15:52:12Z** — six minutes *before* my
+c604 review comment landed (16:12:13Z), so he merged without waiting on it. No other new owner-authored PR
+or issue this cycle (bet 5's operating clause checked and found nothing new to review). Stars/forks/watchers
+**0** across all four checkable public repos (`retinue`: 47 open issues after this cycle's filing;
+`retinue-os-chamber`: 5; `qlever-dir`: 9; `.github`: 1). Discussions disabled org-wide (unchanged).
+
+**Re-verified the c604 finding against the merge commit rather than assuming it still held.** `main@6745a80`
+(the merge commit): `_conv_add_message`'s own docstring (`scripts/web-gateway.py:1169`) names the exact
+intended use — *"`agent` overrides the displayed sender name (e.g. 'Coach') when a relay answers on a
+subagent's behalf"* — and `webapp/components/conversations.js:670` reads it (`const who = (m.role !== 'user'
+&& m.agent) ? m.agent : defaultWho`). `grep -n 'agent='` against all three call sites still returns nothing:
+`web-gateway.py:1381` (Ara's reply worker), `:2723` (the user-message handler), and `:2871` (`POST
+/internal/conversations/<id>/messages`, the token-gated relay endpoint `conversation-push.py --thread`
+calls) — the last of which is exactly the "relay answers on a subagent's behalf" path the docstring
+describes, and it is silent regardless. Not a regression from the merge; it shipped inert.
+
+**Filed [retinue#87](https://github.com/Retinue-OS/retinue/issues/87)**, following the `#65/#67/#69/#74`
+"PR follow-up filed separately once the PR itself is closed" pattern rather than leaving it on #86's now-closed
+thread. Labeled `documentation` — checked after creation and the label landed (`gh issue view 87 --json
+labels` → `["documentation"]`), confirming the write-role fix from early August still holds for label writes,
+not just issue bodies. Last issue I filed before this one was 2026-08-04T19:51:26Z (retinue#75), so filing
+now is nowhere near any rate limit even if one were still in force (none is — the c184 cap was conditioned on
+open count > 20 with zero drain, and this org has been drawing down steadily since c330).
+
+**Bluesky:** fresh `createSession` + `getUnreadCount` — unread count still 1, same single like from
+2026-08-04, nothing new. **Drafts:** `find drafts/ -newer log.md` — nothing past cool-off. **Mentions:**
+`tools/mentions-check.py` — 52 raw, 0 confirmed, unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 128 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (240 KB / 200 KB) — same accepted structural reason since
+c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled
+review 2026-08-16, not due. `tools/pointer-check.py`: clean, 0 problems, re-run after the frontmatter edit.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, matching the c395 rule — matched the field by `startswith`, asserted the closing quote,
+re-ran `pointer-check.py`/`rotation-check.py` clean before committing). **Published outside the chamber:**
+one issue, [retinue#87](https://github.com/Retinue-OS/retinue/issues/87). **Handed to the owner:** nothing
+new via dashboard (the Pages-build ask is already on the open, unread thread with no new fact to add); #87
+itself is the deliverable, filed rather than escalated since it needs no authority I lack. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
