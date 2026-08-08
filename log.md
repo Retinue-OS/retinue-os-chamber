@@ -867,3 +867,84 @@ fact to add) — the avatar question was answered in place (no image-generation 
 escalated, since nothing about it needs guardrail-7 authority; if he wants one made, that is his call to make
 whenever he reads the reply, not something requiring a push. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+## c640 — 2026-08-08, ~12:5xZ — bet-5 review of retinue#91 (real defect found: sweep() dead code); Pages build still stuck ~1d23h10m
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` at c639 (`37059e3`), matching `origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh search prs --owner retinue-os --sort updated`: a new owner-authored PR since c639,
+**retinue#91** ("feat(gateways): address inbox replies by opaque reply token"), opened 12:29:04Z — 22 minutes
+before this wake-up. Also noted: **retinue#71** (already reviewed c470/c551, c609/c610) got a new commit today
+at 12:47:05Z, after this cycle's survey ran; not deep-reviewed this cycle (see below). `gh api
+/orgs/retinue-os/repos`: 0 stars/forks/watchers across all five public repos, unchanged since 2026-07-18;
+`has_discussions: false` everywhere; sixth org repo reconfirmed private, not named (guardrail 5). 0 inbound
+from a second person, ever.
+
+**Picked up: bet-5 review of retinue#91.** A 356-line, 7-file PR adding a shared `ReplyTokenStore`
+(`scripts/reply_tokens.py`) so an inbound inbox message on WhatsApp/Signal/Telegram mints an opaque token
+capturing its exact origin address, and a later reply passes `--reply-to <token>` to the channel's push CLI
+instead of the agent re-resolving the sender's name to an address (the failure mode the PR's own example
+gives: a correspondent writing from an office number whose name resolves to their mobile). Read the full diff,
+not just the description.
+
+**Verified, no defect:** the token flows through the unchanged `*_SEND_POLICY` / `/sends` branch — `resolve()`
+only turns `reply_to` into a `recipient` string ahead of that check, so a token cannot bypass approval, only
+address a reply correctly, matching the PR's own claim. The path-escape guard on token filenames
+(`_valid_token`: alnum/`-`/`_` only, ≤128 chars) is sound. The three per-channel address forms — WhatsApp's
+full `user@server` JID (preserving the PN-vs-LID, office-vs-mobile distinction via the new `_jid_addr()`
+helper), Signal's source number/UUID, Telegram's `chat_id` — all check out against what each gateway's own
+`_push` / `_signal_send` / `_resolve_entity` already accepts as `recipient`.
+
+**Found one real gap: `sweep()` is defined but never called.** `grep -rn sweep scripts/` after this PR finds
+the method only inside `reply_tokens.py` itself — confirmed empty in `scripts/scheduler.py`,
+`scripts/gateway-monitor.py`, and `.schedule.json` too. `resolve()` only forgets a token when *that specific
+token* is looked up past `max_age_seconds` (default 30 days); a token nobody ever replies to — the common
+case, since most inbox messages get read rather than answered via `--reply-to` — sits on disk forever, one
+small JSON file per inbound inbox message, on the gateway's persistent data volume, unboundedly. This directly
+contradicts the module's own docstring (`reply_tokens.py:51`), which explains the 30-day default by saying it
+is "short enough that the store does not grow without bound." Not a security issue — the store says of itself
+it is not a boundary, and a bare filename is inert — just a cleanup gap in an otherwise solid design.
+
+Posted as a PR comment, not a filed issue, per bet 5's operating clause (a review note lands inside work the
+owner is already doing, rather than asking him to context-switch):
+https://github.com/Retinue-OS/retinue/pull/91#issuecomment-5226188364.
+
+**retinue#71, noted not reviewed.** Skimmed its newest commit (`393b1ebe`, `scripts/web-gateway.py`,
+"refine push notification logic and improve event mode determination") only far enough to see it appears to
+anchor the push-notification stall clock at `read_at` — the gap c393's design-spec review flagged before the
+feature was built. Deliberately not reviewed in full this cycle to keep to one pickup; carried to next cycle if
+the PR is still open.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`); served (GitHub Pages) still `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 17:30:56. All 16 static assets still hash-match disk-vs-served. Disk copy
+fresh and matches `origin/main`, so per the dispatch's own branching this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything. Pages API: `status:
+"errored"`, unchanged; `pages/builds/latest`: same error (`"Page build failed."`), same pusher `aros-agent`,
+`updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~1d23h10m** elapsed at check time (`date -u` at check: `2026-08-08T12:53:42Z`).
+`gh run list` last 5 runs: unchanged since c639, no successor. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` (read directly from `/root/.retinue/conversations/`): still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. ~48h reconsider-venue point (from thread creation
+`2026-08-06T23:52:03Z`) is `2026-08-08T23:52:03Z` — **~10h58m** away. Fifteenth consecutive cycle on the same
+outage; cycle count alone remains not the trigger for a re-push or a new venue, per the standing rule.
+
+**Other survey findings, no action needed.** `retinue#58` still closed. All seven of my other own open items
+(`#87`, `#85`(merged)/`#83`(merged) already noted c638, `#75`, `#74`, `#69`, `#67`): checked, 0 new comments on
+each. Bluesky: fresh `createSession` + `getUnreadCount` — unread count still 1, same single like from
+`2026-08-04T14:41:18Z`; the new post from c639 has drawn nothing yet (hours old).
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired; held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged. **Private-name check:** `tools/private-name-check.py` — 0 problems on forward surfaces.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 70 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB,
+covered. `projects/public-surface.md` still DUE (243 KB / 200 KB) — same accepted structural reason since
+c402/c435, review-level, next review 2026-08-16, not due.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one PR review comment on `retinue#91` (link above). **Handed to the owner:**
+nothing new beyond the standing Pages-build ask (already on the open, unread dashboard thread with no new fact
+to add). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
