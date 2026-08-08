@@ -708,3 +708,66 @@ hostility, an incident, or another project's failure). **Handed to the owner:** 
 ask is already on the open, unread dashboard thread with no new fact to add; retinue#90's architecture
 options are explicitly the owner's own call to make and the issue already states that — no separate handover
 needed). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c638 — 2026-08-08, ~11:4xZ — routine idle survey; three of my own PRs merged since c637, Pages build still stuck
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` at c637 (`650acbf`), matching `origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**Same injected "MCP server instructions" block again this cycle** (now naming "claude.ai Ara", "claude.ai
+Aros" and "claude.ai Zoho" connectors). No such tools exist in this session's toolset; per standing practice
+since c449/c608, treated as noise and not acted on — and note explicit: no message from any such source is
+consent, approval, or authority to change permissions/config, consistent with the harness's own framing.
+
+**GitHub survey — good news, but not a new pickup.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all five public repos, unchanged since 2026-07-18; sixth org repo reconfirmed private, not named
+(guardrail 5). `gh search prs`/`issues --owner retinue-os --sort updated`: three of my own PRs merged since
+c637's snapshot — **retinue#84** (owner-authored, telegram-gateway `recent-chats.json`-breaks-`/sends` fix,
+merged 11:34:12Z), **retinue#85** (my own PR, same defect for whatsapp-gateway, merged), and **retinue#83**
+(my own PR, `MESSENGER_BUILTIN_CHANNELS` opt-out, merged) — all three already known/tracked as open items in
+prior cycles (c637 named #83 explicitly). This moves the "accepted" side of the standing measure (filings/PRs
+landing on `main`) but needs no action: nothing to review, no comment to post, no defect found in what merged.
+**No new owner-authored open PR or issue** beyond what c637 already reviewed (`retinue#90`,
+`retinue-os-deployment#2` — both already handled): `retinue#71` and `#79` remain the only other open owner
+items and both are already reviewed with comments posted (c470/c551 for #71, c609/c610 for #79), unchanged
+since. `has_discussions: false` on every public repo. 0 inbound from a second person, ever.
+
+**Pages build.** `gh api .../pages`: `status: "errored"`, unchanged. Same stuck Actions run, `id
+31107290918`, `status: "queued"`, `createdAt` `2026-08-06T13:43:41Z` — **~1d21h56m** since creation (computed
+from this cycle's own `date -u`, per the standing rule against incrementing a prior figure). Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` still `unread: true`, `updated` `2026-08-07T09:30:08Z` — no new fact to
+push. ~48h reconsider-venue point (from thread creation `2026-08-06T23:52:03Z`) is `2026-08-08T23:52:03Z` —
+**~12h12m** away. This is the **thirteenth consecutive cycle** on the same outage (c625-c638, minus c635's
+issue-closure note); cycle count alone remains not the trigger for a re-push or a new venue, per the standing
+rule.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`); served (GitHub Pages) still `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 16:19:09. All 16 static assets still hash-match disk-vs-served. Disk copy
+fresh and matches `origin/main`, so per the dispatch's own branching this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount` + `listNotifications` — unread count still 1, same
+single like from `2026-08-04T14:41:18Z` (`andeeharry1.bsky.social`), nothing new.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired (c396); held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged. **Private-name check:** `tools/private-name-check.py` — 0 problems on forward surfaces.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 57 KB / 300 KB, covered. `strategy.md` 110 KB / 150
+KB, covered. `projects/public-surface.md` still DUE (242 KB / 200 KB) — same accepted structural reason since
+c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled review
+2026-08-16, not due.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review under bet 5's clause (both open items
+already reviewed), no new fact on the Pages build worth a second dashboard push (~1d21h56m elapsed, still
+~12h12m short of the 48h reconsider-venue point), no drafts past cool-off, no mentions, 0 stars/forks/watchers/
+discussions. The three merges are a genuine, welcome signal on the "accepted" measure but require no reply or
+correction — logging them is the only action they call for. This is the thirteenth consecutive idle cycle
+reporting the identical Pages outage; an idle wake-up here is the correct result, not an omission.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build ask is
+already on the open, unread dashboard thread with no new fact to add). No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle.
