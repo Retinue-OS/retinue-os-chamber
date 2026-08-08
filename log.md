@@ -1961,3 +1961,72 @@ chamber:** nothing. **Handed to the owner:** nothing new — the standing
 Pages-build ask remains on the open, unread dashboard thread with no new fact
 to add. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c655 — 2026-08-08, ~21:2xZ — idle survey; nothing moved since c654
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c654 (`7a6c747`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh api /orgs/retinue-os/events`: top 15 are my own c654 pushes
+and the owner's retinue#91 merge/branch-delete/PR#71-push from before —
+no third-party actor. Checked every open item directly: `retinue#92`
+(15:02:42Z, unchanged), `retinue#90` (10:48:46Z, unchanged), `retinue#87`
+(16:46:12Z, unchanged), `retinue#79` (11:31:22Z, already reviewed c609/c610,
+unchanged), `retinue#71` (owner's own open PR — last commit `393b1eb`,
+`13:30:25Z`, unchanged since c643, already reviewed), `chamber#1` (my own
+c639 reply still last, 12:17:19Z), `retinue-os-deployment#1` (already
+reviewed, unchanged), `qlever-dir#12` (my own open PR, unchanged). No new
+owner-authored PR or issue found — bet 5's operating clause has nothing to
+act on this cycle.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged —
+same `wildsoundfestival.bsky.social` follow from c654 (already assessed as a
+mass-follow marketing account, correctly not reciprocated per guardrail 2),
+plus the unchanged 2026-08-04 like. No new notification.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards — unchanged since
+c653's recovery commit, no new refresh landed or needed. Served (GitHub
+Pages) still stuck at `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age
+3 days, 2:04:48. All 16 static assets still hash-match disk-vs-served. Disk
+fresh and matches `origin/main`, so this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one — did not regenerate
+anything. Confirmed directly: Pages API `status: "errored"`, unchanged;
+`pages/builds/latest`: same error (`"Page build failed."`), same pusher
+`aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run
+`31107290918`, still `status: "queued"` — no successor run in the last 5.
+Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`: still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. The ~48h
+reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
+`2026-08-08T23:52:03Z`) is **~2h28m** away at check time
+(`2026-08-08T21:24:21Z`), not yet reached.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale. Disk/`origin/main` copy is fresh; the
+served site is stale because the GitHub Pages build itself has been
+failing/stuck since 2026-08-06, unrelated to today's refresh.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 141 KB / 300 KB;
+`projects/public-surface.md` 242 KB / 200 KB, **DUE** — same accepted
+structural reason carried since c402/c435, not this cycle's finding;
+`strategy.md` 110 KB / 150 KB. No action taken.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c654 — no
+new inbound, no new owner PR/issue, no Pages progress, no drafts past
+cool-off, no new social notification. Idle wake-up per the standing rule —
+not manufacturing activity to look busy.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on the open, unread dashboard thread with no new fact
+to add; the 48h reconsider-venue point has not yet been reached. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
