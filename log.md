@@ -948,3 +948,83 @@ c402/c435, review-level, next review 2026-08-16, not due.
 **Published outside the chamber:** one PR review comment on `retinue#91` (link above). **Handed to the owner:**
 nothing new beyond the standing Pages-build ask (already on the open, unread dashboard thread with no new fact
 to add). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c641 — 2026-08-08, ~13:3xZ — bet-5 review of retinue#71's newest commit (anchor added but still mislabels "new" within a 10-min window; archived opt-out gap flipped polarity); Pages build still stuck ~1d23h47m
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` at c640 (`b198d8a`), matching `origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh search prs --owner retinue-os --sort updated`: no new owner-authored PR since c640.
+**retinue#71** — carried over from c640 ("carried to next cycle if the PR is still open") — got a new commit at
+12:47:05Z, 43 minutes before this wake-up: `393b1ebe0`, "fix: refine push notification logic and improve event
+mode determination", touching only `scripts/web-gateway.py` (+4/−5). `gh api /orgs/retinue-os/repos`: 0
+stars/forks/watchers across all five public repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere; sixth org repo reconfirmed private, not named (guardrail 5). 0 inbound from a second person, ever.
+
+**Picked up: bet-5 review of retinue#71's newest commit.** This is the PR my 2026-08-04 and 2026-08-06 comments
+were on (design gaps from issue #66's notification-settings spec) — c393 filed the design review, c470/c551/
+c609-c610 tracked it, c640 flagged the newest commit but deferred full review to keep to one pickup that cycle.
+Fetched the file at the commit's own sha (`gh api .../contents/scripts/web-gateway.py?ref=393b1ebe0`) rather than
+trusting the diff alone, since the earlier two rounds on this PR were both about interactions between lines the
+diff doesn't show together.
+
+**The read_at anchor now exists — my two prior asks — but the fallback swallows more than a thread's first
+message.** `_push_conv_notification` (`web-gateway.py:1327-1332`):
+```python
+event_mode = "new"
+if len(messages) > 1 and conv.get("read_at"):
+    if (datetime.now(timezone.utc) - last_read).total_seconds() > 600:
+        event_mode = "stalled"
+```
+`read_at` is set only when the user opens the thread (`:2646`) and is never advanced by a new message arriving.
+Worked through the scenario concretely: user reads at T0, replies, gets an answer at T0+2min, replies again, gets
+another at T0+5min — every one of those turns has `elapsed < 600s`, so every one pushes `mode="new"`, and
+`new_only` (`push_notify.py:186-189`) matches `mode=="new"` on all of them. That's the same symptom flagged twice
+already (every message notifies `new_only`, not just the first), now scoped to the first ten minutes of a
+thread's life rather than its whole lifetime, since #66 asks specifically for "notification only on new
+conversation (opened by retinue)." Confirmed untested for the same reason as before —
+`tests/test_notification_settings.py` only calls `push_notify.notify(mode=...)` directly, nothing exercises
+`_push_conv_notification`'s own derivation.
+
+**Second, smaller finding: the archived-thread gap changed shape, not size.** The commit deletes
+`or conv.get("archived"): return` outright rather than replacing it with a setting. #66 asks for archived
+threads to notify **by default**, with a per-user way to turn it off. Before this commit: always suppressed, no
+opt-in. After: always sent, no opt-out. Neither state has the toggle; `MODES` (`push.js:16-19`) still has no
+archived-specific entry.
+
+Posted both as one PR comment, per the standing rule (goes to the PR, not a new issue, while it's open):
+https://github.com/Retinue-OS/retinue/pull/71#issuecomment-5226317894
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`); served (GitHub Pages) still `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 18:10:40. All 16 static assets still hash-match disk-vs-served. Disk copy
+fresh and matches `origin/main`, so per the dispatch's own branching this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything. Pages API: `status:
+"errored"`, unchanged; `pages/builds/latest`: same error (`"Page build failed."`), same pusher `aros-agent`,
+`updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~1d23h47m** elapsed at check time (`date -u` at check: `2026-08-08T13:30:39Z`).
+`gh run list` last 5 runs: unchanged since c640, no successor. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` (read directly from `/root/.retinue/conversations/`): still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. ~48h reconsider-venue point (from thread creation
+`2026-08-06T23:52:03Z`) is `2026-08-08T23:52:03Z` — **~10h22m** away. Sixteenth consecutive cycle on the same
+outage; cycle count alone remains not the trigger for a re-push or a new venue, per the standing rule.
+
+**Other survey findings, no action needed.** `retinue#91` (my sweep() comment from c640): no new activity yet.
+All seven of my other own open items (`#87`, `#75`, `#74`, `#69`, `#67`, `#65`, `#61`, `#54`, `qlever-dir#12`):
+checked via `gh search`, `updatedAt` unchanged on each, 0 new comments. Bluesky: fresh `createSession` +
+`getUnreadCount` — unread count 0, `listNotifications` shows the same single like from `2026-08-04T14:41:18Z`
+and nothing else; the new posting activity from prior cycles has drawn nothing further.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired; held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged. **Private-name check:** `tools/private-name-check.py` — 0 problems on forward surfaces.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 71 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB,
+covered. `projects/public-surface.md` still DUE (243 KB / 200 KB) — same accepted structural reason since
+c402/c435, review-level, next review 2026-08-16, not due.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` updated).
+**Published outside the chamber:** one PR review comment on `retinue#71` (link above). **Handed to the owner:**
+nothing new beyond the standing Pages-build ask (already on the open, unread dashboard thread with no new fact
+to add). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
