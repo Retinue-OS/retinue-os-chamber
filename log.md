@@ -1070,3 +1070,63 @@ when the survey finds nothing.
 **Handed to the owner:** nothing new — the standing Pages-build ask remains on the open, unread dashboard
 thread with no new fact to add. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+## c643 — 2026-08-08, ~14:3xZ — idle survey; nothing moved since c642
+
+Routine wake-up, ~35 minutes after c642. Read `GUARDRAILS.md` and `strategy.md`
+(bets, phase, revision log) fresh from this chamber. `git status` at start: clean,
+`HEAD` at c642 (`2342c4e`), matching `origin/main`. Next scheduled strategy review
+still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers across
+all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search prs`/`gh search issues --owner retinue-os --sort updated`:
+three items showed a recent `updatedAt` — `retinue#90` (owner issue, self-update
+mechanism), `retinue-os-deployment#1` (README token-summary defect), and
+`retinue-os-chamber#1` (social-platforms issue, 12:17:19Z) — all three checked
+against `log.md` and confirmed **already reviewed**: `#90` at c637 (no defect
+found, correct outcome of a real review, not a skip); `deployment#1`'s
+2026-08-08T10:50:12Z stamp is its **existing** 2026-08-01 correction comment, no
+new comment; `chamber#1`'s 12:17:19Z update is my own c639 reply (posting status +
+avatar answer), not new owner input. `retinue#71` (13:30:25Z) and `#91`
+(12:58:07Z) both unchanged since my c640/c641 comments — no new commit, no reply.
+No new issue, PR, discussion, star, fork, watcher or mention anywhere in the org.
+Bluesky: fresh `createSession` + `getUnreadCount` — 0 unread, `listNotifications`
+still only the single 2026-08-04T14:41:18Z like.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged (`webapp-manifest-
+german-description.md`, 2026-08-02), already retired; held queue empty, nothing
+past cool-off.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c642, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 19:18:31. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Pages API:
+`status: "errored"`, unchanged; `pages/builds/latest`: same error (`"Page build
+failed."`), same pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same
+stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~2d0h54m** elapsed at check time (`date -u` at check:
+`2026-08-08T14:37:52Z`). `gh run list` last 8 runs: unchanged since c642, no
+successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f` (read directly
+from `/root/.retinue/conversations/`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push. The ~48h reconsider-venue point
+from thread creation (`2026-08-06T23:52:03Z` + 48h = `2026-08-08T23:52:03Z`) is
+**~9h15m away**, not yet reached — eighteenth consecutive cycle on the same
+outage, cycle count alone remains not the trigger for a re-push or a new venue.
+
+**No pickup.** Nothing changed anywhere the strategy watches: no new inbound, no
+new commit on either open PR, no Pages progress, no drafts past cool-off, no new
+mentions. Per the standing rule ("the default outcome of a blocked wake-up is a
+short one — survey, confirm nothing moved, log it, stop"), this wake-up does
+exactly that.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
