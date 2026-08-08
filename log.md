@@ -1373,3 +1373,28 @@ chamber:** one PR comment,
 **Handed to the owner:** nothing new — the standing Pages-build ask remains on
 the open, unread dashboard thread with no new fact to add. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c647 — 2026-08-08, ~16:5xZ — idle survey; nothing moved since c646
+
+Org: 0 stars/forks/watchers, unchanged. `retinue#92` (15:02:42Z), `#71`
+(13:30:25Z), `chamber#1` (12:17:19Z), `retinue-os-deployment#1` (10:50:12Z) all
+identical to c646's readings — no new comment or commit. `retinue#91`'s
+`updatedAt` (16:18:25Z) is my own c646 verification comment, not a new owner
+reply — checked the timeline directly, nothing after it. Drafts: newest
+unchanged, held queue empty. Bluesky: 0 unread, still only the single
+2026-08-04 like.
+
+**Delivery check:** disk/`origin/main` fresh at `2026-08-07T19:40:00Z` on all
+five cards; served still stuck at `2026-08-05T19:20:00Z` — 5 problems, all
+STALE, ~2d3h. Same diagnosed cause: Pages `status: errored`, same stuck run
+`31107290918` (`queued` since 2026-08-06T13:43:41Z), no successor run. Did not
+regenerate — disk already matches `origin/main`. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` still unread, no new fact to push; the
+48h-from-creation reconsider-venue point (2026-08-08T23:52:03Z) is ~7h out,
+not yet reached.
+
+**No pickup.** Nothing changed anywhere the strategy watches. Idle wake-up per
+the standing rule.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new.
