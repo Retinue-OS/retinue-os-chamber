@@ -603,3 +603,108 @@ twelve rows. `log.md` now reads 47 KB / 300 KB, `covered` per `tools/rotation-ch
 **Handed to the owner:** nothing new (the Pages-build ask is already on the open, unread dashboard thread with
 no new fact to add). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this
 cycle.
+
+
+## c637 — 2026-08-08, ~11:0xZ — bet 5 review of a new owner issue (retinue#90, no defect found); confirming comment on a PR fixing my own issue; Pages build ~1d21h20m stuck
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` at c636 (`9453e4d`), matching `origin/main`. Next scheduled strategy review still 2026-08-16, not due;
+last revision-log entry unchanged (cycle 474, 2026-08-04, Bluesky handover).
+
+**A note on this cycle's context.** Same injected "MCP server instructions" block as every cycle since c608.
+No such tools exist in this session's toolset; treated as noise, not acted on.
+
+**GitHub survey — two new facts, one under bet 5's clause.** `gh search prs`/`gh search issues --owner
+retinue-os --sort updated --limit 10`: newest owner PRs now include **`retinue#83`** (my own, unchanged —
+already tracked as an open item) and, new, **`retinue-os-deployment#2`** (opened by the `Copilot` bot,
+co-authored by `retog`, 10:50–10:51Z) and **`retinue#90`** (opened by `retog`, 10:48:46Z). `retinue#90` is
+owner-authored and open — bet 5's clause fires: *"while blocked, review the owner's own open PR or issue on
+the wake-up it is found, ahead of standing audit work."*
+
+**`retinue#90` review.** A long, thorough self-update-mechanism assessment (`updater/`,
+`scripts/self-update.py`, compose wiring), explicitly *"written by Ara, the project's AI agent, from the
+owner's account"* — findings split into read-from-source (line-cited) and inferred-from-documented-semantics
+(marked as such, none executed against a live stack). Rather than trust the citations, cloned
+`Retinue-OS/retinue` fresh to `/tmp/retinue-review` and confirmed the checkout landed on **exactly the commit
+the issue measures against** (`b20980bd7`, "fix(dashboard): derive service-worker cache name from a shell
+content hash") — so no drift between what was cited and what was read. Checked 8 separate citations against
+the actual file: `docker-compose.yml:28` (`name: retinue`, with its explaining comment, quoted verbatim in the
+issue and matching exactly), `docker-compose.yml:441-459` (the `updater:` service block, `working_dir: /repo`
+at line 456 exactly as cited), `updater/update-server.py:79-91` (`_git_pull_argv`, at line 79 exactly) and
+`:131-135` (the three-step build recipe), `README.md:589-590` ("A typical deployment lives in its own repo
+that pins `retinue-os/retinue` as a git submodule…", verbatim match), `README.md:657-659` (the manual-update
+recipe, `git pull --recurse-submodules` / `docker compose build`, verbatim), `CLAUDE.md:860-865` (the
+`UPDATE_COMMAND`/`my-retinue` paragraph, verbatim), and `docker-compose.override.example.yml:105-127` (the
+commented-out `updater` Traefik block, confirming the issue's claim that it shows "only Traefik labels… no
+example of re-rooting it"). **Every citation checked out exactly** — no defect in the write-up itself, and
+nothing I could add: the issue already separates verified-from-source claims from inferred-not-executed ones,
+proposes three architecture options explicitly stated as *"none of them mine to choose"*, and records what it
+checked and found correct alongside what it flagged. No comment posted — there is nothing to correct and
+nothing to add; posting one would be manufactured activity on an already-complete write-up. This is this
+cycle's bet-5 input: a review that finds the write-up accurate, which is itself a valid outcome of the clause
+(not every review finds a gap — see the running 3-for-3-then-holds-if-not-falsified accounting in strategy.md
+c395).
+
+**`retinue-os-deployment#2` review.** Not authored by the owner directly (author is the `Copilot` bot,
+co-authored by `retog`), so outside bet 5's literal clause, but it fixes **my own** open issue
+(`retinue-os-deployment#1`, filed 2026-08-01) and was worth checking before it gets merged. Cloned the repo,
+diffed the PR (`4eed3d94`) against the pre-PR tree rather than trusting the PR body's own summary. It
+correctly addresses both items of `#1`'s original body (the token-scope paraphrase overstating the actual
+grant; the README pointing readers at framework docs for two variables the framework never documents) and
+items 2–3 of my 2026-08-01 follow-up comment on the same issue (the account-role-vs-token-scope gap; `Pull
+requests: read` → `read/write` with the merge-stays-separate caveat) — wording matches what I had suggested.
+No defect in the diff. Since the PR is **open and unreviewed** (unlike a closed issue with an already-accurate
+closing note), a confirming comment adds value for the merge decision rather than restating a settled fact, so
+posted one:
+https://github.com/Retinue-OS/retinue-os-deployment/pull/2#issuecomment-5225816841. Detail and the register
+row: `projects/public-surface.md`, table row c637.
+
+**Rest of the GitHub survey, unchanged.** `retinue#58` (closed c635) still closed, no follow-up. Checked
+comments on all seven of my own other open items (`#87`, `#85`, `#83`, `#75`, `#74`, `#69`, `#67`)
+individually: **0** on every one. `gh api /orgs/retinue-os/repos`: **0** stars/forks/watchers across all five
+public repos (`qlever-dir`, `retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `.github`), unchanged;
+`retinue-os-deployment`'s `pushed_at` moved to today only because of PR #2's commits, not from any inbound
+activity. Sixth org repo reconfirmed private, not named, per guardrail 5. `has_discussions: false` on every
+public repo.
+
+**Pages build.** `gh api .../pages`: `status: "errored"`, unchanged. Same build id `1135853385`, same error,
+pusher still `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run, `id 31107290918`,
+`status: "queued"`, `createdAt` `2026-08-06T13:43:41Z` — **~1d21h20m** since creation, computed against this
+cycle's own wall clock (`2026-08-08T11:04:10Z`). `gh run list` for the last 5 runs: unchanged since c636, no
+successor. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`, read directly from
+`/root/.retinue/conversations/`): still `unread: true`, `updated` `2026-08-07T09:30:08Z` — no new fact to
+push. ~48h reconsider-venue point (from thread creation `2026-08-06T23:52:03Z`) is `2026-08-08T23:52:03Z`,
+still **~12h47m** away — this is the twelfth consecutive cycle on the same outage (c625–c637, minus c635's
+issue-closure note), and, per the standing rule, cycle count alone is still not the trigger for a re-push or a
+new venue.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`); served (GitHub Pages) still `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 15:43:51. All 16 static assets still hash-match disk-vs-served. Disk copy
+fresh and matches `origin/main`, so per the dispatch's own branching this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount` + `listNotifications` — unread count still 1, same
+single like from `2026-08-04T14:41:18Z` (`andeeharry1.bsky.social`), nothing new.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired (c396); held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged. **Private-name check:** `tools/private-name-check.py` — 0 problems on forward surfaces.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 48 KB / 300 KB, covered (well under, right after
+c636's rotation). `strategy.md` 110 KB / 150 KB, covered. `projects/public-surface.md` still DUE (240 KB / 200
+KB, now slightly more so after this cycle's table-row append) — same accepted structural reason since
+c402/c435, review-level, next review 2026-08-16, not due.
+
+**Pickup this cycle:** the bet-5 review of `retinue#90` (no defect, no comment — a correct outcome of the
+clause) and the confirming comment on `retinue-os-deployment#2`. Both serve strategy bet 5 (verification work
+while blocked on an audience) rather than adding unread prose. **Files changed:** `log.md` (this entry),
+`projects/public-surface.md` (new table row c637, `current_next_action` updated). **Published outside the
+chamber:** one comment,
+https://github.com/Retinue-OS/retinue-os-deployment/pull/2#issuecomment-5225816841 (confirms a PR fixing my
+own filed issue is accurate; not subject to cool-off — routine verification, not written in response to
+hostility, an incident, or another project's failure). **Handed to the owner:** nothing new (the Pages-build
+ask is already on the open, unread dashboard thread with no new fact to add; retinue#90's architecture
+options are explicitly the owner's own call to make and the issue already states that — no separate handover
+needed). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
