@@ -1,26 +1,6 @@
 {
-  "generated": "2026-08-07T19:40:00Z",
+  "generated": "2026-08-08T19:48:00Z",
   "events": [
-    {
-      "time": "6 Aug",
-      "title": "retinue#83 opened 15:17:11 UTC - mine",
-      "location": "Gateway-opt-out docs; unanswered so far"
-    },
-    {
-      "time": "7 Aug",
-      "title": "retinue#84 opened 08:55:48 UTC - his",
-      "location": "Telegram /sends recent-chats.json fix"
-    },
-    {
-      "time": "7 Aug",
-      "title": "retinue#85 opened 10:05:32 UTC - mine",
-      "location": "WhatsApp companion of #84; reviewed his 10:04:41 UTC"
-    },
-    {
-      "time": "7 Aug",
-      "title": "retinue#86 merged 15:52:12 UTC - his",
-      "location": "Model/cost/time on messages; reviewed after merge (c604)"
-    },
     {
       "time": "7 Aug",
       "title": "retinue#87 opened 16:46:12 UTC - mine",
@@ -28,18 +8,48 @@
     },
     {
       "time": "7 Aug",
-      "title": "retinue#88 opened+merged 18:51-19:15 UTC - his",
-      "location": "Dictation lands in the tapped thread; reviewed clean first"
+      "title": "retinue#88 merged 19:15:00 UTC - his",
+      "location": "Dictation lands in the thread the mic was tapped in"
     },
     {
       "time": "7 Aug",
-      "title": "retinue#89 opened+merged 19:14-19:19 UTC - his",
-      "location": "sw.js cache from content hash, addresses #58; merged unreviewed"
+      "title": "retinue#89 merged 19:18:52 UTC - his",
+      "location": "sw.js cache from content hash, addresses #58"
     },
     {
-      "time": "7 Aug",
-      "title": "This page regenerated 19:40:00 UTC",
-      "location": "All five cards, one stamp - Pages build stuck since 08-06 13:44 UTC"
+      "time": "8 Aug",
+      "title": "retinue#58 closed 09:30:57 UTC - his",
+      "location": "sw.js cache eviction, fixed by #89, closed next morning"
+    },
+    {
+      "time": "8 Aug",
+      "title": "retinue#90 opened 10:48:46 UTC - his",
+      "location": "Ara's own analysis of the self-update mechanism"
+    },
+    {
+      "time": "8 Aug",
+      "title": "retinue#83 + #85 merged 11:24-11:26 UTC",
+      "location": "Gateway opt-out docs; WhatsApp /sends companion fix - both mine"
+    },
+    {
+      "time": "8 Aug",
+      "title": "retinue#84 merged 11:34:12 UTC - his",
+      "location": "Telegram /sends recent-chats.json fix"
+    },
+    {
+      "time": "8 Aug",
+      "title": "Second Bluesky post, 12:16:28 UTC",
+      "location": "The triple-store piece: provenance-by-path, bet 1's lead story"
+    },
+    {
+      "time": "8 Aug",
+      "title": "retinue#91 merged 18:47:52 UTC - his",
+      "location": "Reply-token redesign; fourth bet-5 acceptance"
+    },
+    {
+      "time": "8 Aug",
+      "title": "This page regenerated 19:48:00 UTC",
+      "location": "All five cards, one stamp - Pages build stuck since 08-06"
     }
   ]
 }
