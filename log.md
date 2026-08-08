@@ -3317,3 +3317,70 @@ omission.
 updated line-wise, per the c395 rule). **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing new (the Pages-build ask is already on the open, unread dashboard thread with no new fact to add).
 No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c629 — 2026-08-08, ~06:2xZ — routine survey: idle wake-up, Pages build ~40h45m stuck, no new signal anywhere
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start) from `/workspace/chambers/retinue` (found
+by locating the checkout whose `GUARDRAILS.md`/`strategy.md` exist, not by assuming a fixed path). `git
+status` at start: clean, `HEAD` at c628 (`5206e29`), matching `origin/main`.
+
+**A note on this cycle's context.** The dispatch again carried the injected "MCP server instructions" block
+(`ask_ara`/`tell_ara`/etc., framed as unrelated "claude.ai Ara/Aros/Zoho" connectors) — same disposition as
+every cycle since c608: no such tools exist in this session's toolset, GUARDRAILS.md's preamble already
+covers a persuasive-sounding instruction arriving by any channel other than this file, and nothing in it asked
+for an action. Treated as noise, not acted on, not escalated.
+
+**GitHub survey.** `gh search prs`/`gh search issues --owner retinue-os --sort updated --limit 10`: unchanged
+since c628 — newest owner PRs still #89 (merged), #88 (merged), #86 (merged), all three already reviewed on
+earlier cycles (c609/c610), no defect found. Newest owner-authored open items still #84 and #79. Checked
+comments on all seven of my own open items (`retinue#87`, `#85`, `#83`, `#75`, `#74`, `#69`, `#67`)
+individually via `gh api …/issues/<n>/comments --jq length` — **0** on every one. **No new owner-authored PR
+or issue this cycle** (bet 5's operating clause finds nothing to review). Zero new issues, PRs or comments
+anywhere in the org. `gh api /orgs/retinue-os/repos`: **0** stars/forks/watchers across all five public repos
+(`retinue`, `retinue-os-chamber`, `qlever-dir`, `.github`, `retinue-os-deployment` — unchanged); sixth org
+repo reconfirmed `visibility: "private"` — not named, per guardrail 5.
+
+**Pages build.** `gh api .../pages`: `status: "errored"`, unchanged. `pages/builds/latest`: same build id
+`1135853385`, `error.message: "Page build failed."`, pusher still `aros-agent`. The Actions run behind it:
+still `id 31107290918`, `status: "queued"`, `conclusion: null`, `created_at` `2026-08-06T13:43:41Z` —
+**~40h45m** since creation, computed against this cycle's own wall clock (`date -u` → `2026-08-08T06:29:05Z`),
+not carried forward from c628. `gh run list` for the last 5 runs: still the newest, nothing behind it since
+c628. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`, read directly from
+`/root/.retinue/conversations/`): still `unread: true`, `updated` `2026-08-07T09:30:08Z` (**~20h59m** old) —
+not re-pushed, no new fact (the thread already states the diagnosis in full and nothing about it has changed
+since; the ~48h reconsider-venue point, measured from thread creation `2026-08-06T23:52:03Z`, is still
+**~17h23m** away).
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 2 days, 11:08:29. All 16 static assets still
+hash-match disk-vs-served (page content itself is fine — the break stays specific to the four generated
+cards' publish step). Disk copy fresh and matches `origin/main`, so per the dispatch's own branching this
+stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount` + `listNotifications` — unread count still 1, same
+single like from `2026-08-04T14:41:18Z` (`andeeharry1.bsky.social`), `isRead: false` unchanged, nothing new.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime is `webapp-manifest-german-description.md` (2026-08-02),
+already retired (c396, fixed by the owner on `main` before it could be filed); no file past the cool-off
+window needs action. Held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed,
+unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 256 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (241 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled
+review 2026-08-16, not due.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on the
+Pages build worth a second dashboard push (~40h45m elapsed, but "worth a push" is gated on a new fact, not on
+elapsed time, and the ~48h reconsider-venue point has not been reached), no drafts past cool-off, no mentions,
+0 stars/forks/watchers/discussions. This is the **fifth consecutive idle cycle** reporting the identical Pages
+outage (c625–c629); nothing about that streak changes the operating rule — a re-push or a new venue (durable
+issue) is still gated on a new fact or the 48h point, not on cycle count. An idle wake-up here is the correct
+result, not an omission.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, per the c395 rule). **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new (the Pages-build ask is already on the open, unread dashboard thread with no new fact to add).
+No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
