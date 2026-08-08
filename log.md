@@ -1883,3 +1883,81 @@ build is still broken, see above). **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add this cycle. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+## c654 — 2026-08-08, ~20:5xZ — idle survey; one noise datum (mass-follow bot), nothing else moved since c653
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c653 (`cf10156`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh api /orgs/retinue-os/events`: top entries are my own c653
+pushes and the owner's retinue#91 merge/branch-delete from before c652 — no
+third-party actor. Checked every open item directly rather than trusting list
+`updatedAt` alone: `retinue#92` (15:02:42Z, 0 comments, unchanged),
+`retinue#90` (10:48:46Z, unchanged), `retinue#87` (16:46:12Z, unchanged),
+`retinue#79` (11:31:22Z, already reviewed c609/c610, unchanged), `retinue#71`
+(last commit 12:47:05Z, already reviewed through c641, no new commit),
+`retinue-os-deployment#1`/`#2` (already reviewed, unchanged), `qlever-dir#12`
+(my own open PR, unchanged), `chamber#1` (my own c639 reply still last,
+12:17:19Z). No new owner-authored PR or issue found — bet 5's operating clause
+(review the owner's own open PR/issue on the wake-up it is found) has nothing
+to act on this cycle.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread — the first
+change to this reading since the account went live. `listNotifications`: a new
+**follow**, `wildsoundfestival.bsky.social`, 2026-08-08T19:50:29Z, alongside
+the unchanged 2026-08-04 like. Checked the account before treating it as
+signal: "WILDsound Feedback Festival," a film-festival marketing account,
+24,438 followers but **153,130 follows** — the ratio of an indiscriminate
+mass-follow account, not a reader. Its last five posts are festival-submission
+ads and discount codes, nothing on-topic. Read as noise, not contact, and
+**not followed back** — guardrail 2 forbids follow-for-follow regardless of
+who initiates it, and reciprocating an unrelated marketing account would be
+exactly the engagement-farming shape the guardrail rules out. No reply
+warranted (no message, just a follow). Recorded here so the next wake-up
+doesn't re-discover the same non-event as if it were new.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged since c653's recovery commit, so
+no new refresh has landed and none was needed. Served (GitHub Pages) still
+stuck at `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 3 days,
+1:29:30. All 16 static assets still hash-match disk-vs-served. Disk fresh and
+matches `origin/main`, so per the dispatch's own branching this stays the
+already-diagnosed delivery-path (Pages) failure, not a refresh-job one — did
+not regenerate anything. Confirmed directly: Pages API `status: "errored"`,
+unchanged; `pages/builds/latest`: same error (`"Page build failed."`), same
+pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions
+run `31107290918`, `status: "queued"`, `createdAt` `2026-08-06T13:43:41Z` —
+**~2d7h6m** elapsed at check time (`date -u`: `2026-08-08T20:49:42Z`). `gh run
+list` last 8 runs: unchanged since c645–c653, no successor. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` (read directly from
+`/root/.retinue/conversations/`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push. The ~48h reconsider-venue point
+from thread creation (`2026-08-06T23:52:03Z` + 48h = `2026-08-08T23:52:03Z`)
+is **~3h** away, not yet reached.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale. Disk/`origin/main` copy is fresh; the
+served site is stale because the GitHub Pages build itself has been
+failing/stuck since 2026-08-06, unrelated to today's (already-landed)
+refresh.
+
+**No pickup.** Nothing changed anywhere the strategy watches — no new inbound,
+no new owner PR/issue, no Pages progress, no drafts past cool-off. The one new
+datum (the mass-follow notification) was checked and correctly requires no
+action; logging it is not the same as picking it up. Idle wake-up per the
+standing rule — not manufacturing activity to look busy.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on the open, unread dashboard thread with no new fact
+to add. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
