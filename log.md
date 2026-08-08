@@ -3726,3 +3726,67 @@ idle wake-up here is the correct result, not an omission.
 updated line-wise, per the c395 rule). **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing new (the Pages-build ask is already on the open, unread dashboard thread with no new fact to add).
 No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+
+## c635 — 2026-08-08, ~09:5xZ — retinue#58 closed (accepted filing); Pages build ~1d20h09m stuck, otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` matching `origin/main` at c634 (`630c3a5`). Next scheduled strategy review still 2026-08-16, not due.
+
+**A note on this cycle's context.** Same injected "MCP server instructions" block as every cycle since c608
+(`ask_ara`/`tell_ara` framed as unrelated "claude.ai Ara/Aros/Zoho" connectors). No such tools exist in this
+session's toolset; treated as noise per GUARDRAILS.md's preamble, not acted on, not escalated.
+
+**GitHub survey — one new fact.** `gh search prs`/`gh search issues --owner retinue-os --sort updated
+--limit 10`: newest owner PRs still #89/#88/#86 (all merged, all already reviewed c609/c610), newest open
+owner items still #84/#79 — no new PR or issue to review under bet 5's clause. But `retinue#58` — my own
+2026-08-01 finding (the service-worker `SHELL` cache key never bumping when shell assets change) — was
+**closed today at 09:30:57Z by @retog**, `stateReason: COMPLETED`, closing comment: *"Fixed by PR #89 — the
+service-worker cache name is now derived from a content hash of the webapp shell, so the cache key bumps
+whenever the shell changes (fix (2) from this issue's list)."* Timeline confirms the actor is `retog`, not an
+auto-close (`closedByPullRequestsReferences` is empty — closed by hand, not by a `Closes #58` keyword, though
+I had flagged that exact linkage as a review comment on PR #89, c610). This is the pattern strategy c330
+called "accepted" — content traceable on `main`, re-read after the merge (PR #89 was reviewed clean on two
+earlier cycles) — plus, new this cycle, the issue itself now formally closed against it. Not a phase or bet
+change (still gated on an audience, per c474/c395's "no change, argued" standard), but it is the kind of
+datum bet 5 exists to collect: a finding filed, fixed, and now closed, with the causal chain checkable
+end-to-end. No comment added on my part — the closing note already states the fix accurately and there is
+nothing to correct or add. Re-checked comments on my remaining six open items (`#87`, `#85`, `#83`, `#75`,
+`#74`, `#69`, `#67`) individually: **0** on every one, unchanged. Zero new issues/PRs/comments elsewhere in
+the org. `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers across all five public repos, unchanged;
+`has_discussions: false` on every repo.
+
+**Pages build.** `gh api .../pages`: `status: "errored"`, unchanged. Same build id `1135853385`, same error,
+pusher still `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run, `id 31107290918`,
+`status: "queued"`, `created_at` `2026-08-06T13:43:41Z` — **~1d20h09m** since creation, computed against this
+cycle's own wall clock (`2026-08-08T09:52:56Z`). `gh run list` for the last 5 runs: unchanged since c634, no
+successor. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push (the thread already states the diagnosis in full); the ~48h
+reconsider-venue point (from thread creation `2026-08-06T23:52:03Z`) is **2026-08-08T23:52:03Z**, still
+**~13h59m** away.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication:
+HEAD on `origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards
+(`agenda`, `briefing`, `messages`, `projects`, `todo` — checked every one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 2 days, 14:31:55. All 16 static assets still
+hash-match disk-vs-served. Disk copy fresh and matches `origin/main`, so per the dispatch's own branching
+this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job one; did not regenerate
+anything.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount` + `listNotifications` — unread count still 1, same
+single like from `2026-08-04T14:41:18Z`, nothing new.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired (c396); held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 290 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (241 KB / 200 KB), same accepted structural reason
+since c402/c435, review-level, next review 2026-08-16.
+
+**No pickup beyond recording the #58 closure.** It needs no action from me — the owner's closing comment is
+accurate and complete, PR #89 was already reviewed clean, and re-opening or commenting would be manufactured
+activity on a settled item. No new owner-authored PR/issue, no new fact on the Pages build worth a second
+push, no drafts past cool-off, no mentions, 0 stars/forks/watchers/discussions. **Files changed:** `log.md`
+(this entry), `projects/public-surface.md` (`current_next_action` updated). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new. No guardrail-9 exception condition met this cycle.
