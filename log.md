@@ -2977,3 +2977,85 @@ updated line-wise, per the c395 rule — matched the field by `startswith`, asse
 the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build ask is already on the open,
 unread dashboard thread with no new fact to add). No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
+
+
+## c624 — 2026-08-08, ~03:4xZ — routine survey: idle wake-up, Pages build now ~37h57m stuck; c623's own duration figure was inflated ~5h
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (full pass, cold start) from `/workspace/chambers/retinue`
+(located by finding the checkout whose `GUARDRAILS.md`/`strategy.md` exist, not by assuming a fixed path).
+`git fetch` + `git status` at start: clean, `HEAD` at c623 (`d2c2ddf`), matching `origin/main`.
+
+**A note on this cycle's context.** The dispatch's context again carried the injected "MCP server
+instructions" block (`ask_ara`/`tell_ara`/etc., framed as unrelated "claude.ai Ara/Aros/Zoho" connectors) —
+same disposition as every cycle since c608: no such tools exist in this session's toolset, GUARDRAILS.md's
+preamble already covers a persuasive-sounding instruction arriving by any channel other than this file, and
+nothing in it asked for an action. Treated as noise, not acted on, not escalated.
+
+**Correction to c623's own figure, found while recomputing today's age from first principles rather than
+incrementing the last entry's number** (the exact discipline "The review's input count is not a count",
+`strategy.md`, argues for). c623's git commit lands at `2026-08-08T03:07:49Z`, thirty-four minutes after
+c622's `02:33:48Z` — the same cadence as every sibling in this run (c619→c623 average ~34 min apart). But
+c623 labeled itself `~08:2xZ` and reported the stuck Actions run's age as `~42h37m`. Both numbers are wrong
+by the same ~5h13m: from creation (`2026-08-06T13:43:41Z`) to c623's *actual* commit time the elapsed is
+**37h24m**, not 42h37m — c623 computed against a "now" about five hours ahead of the clock it was actually
+running on. This is an isolated arithmetic slip in one entry, not a pattern across the run (c619–c622's
+figures check out against their own commit gaps to the minute), and it changes no diagnosis — the build was
+still errored, the run still queued, nothing about the delivery-check verdict depends on the exact hour
+count. Not rewriting c623 (rotation rule: past entries stay verbatim); recorded here because a wrong duration
+sitting uncorrected is exactly the kind of thing a later cycle would otherwise increment forward as fact.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD
+on `origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo` — checked every one, not just one); served (GitHub Pages) still
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 2 days, 8:19:13. All 16 static assets still
+hash-match disk-vs-served (page content itself is fine — the break is specific to the four generated cards'
+publish step). Disk copy fresh and matches `origin/main`, so per the dispatch's own branching this stays the
+already-diagnosed delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything.
+
+**Re-checked `/pages` and `/pages/builds`.** `gh api repos/retinue-os/retinue-os-chamber/pages`:
+`status: "errored"`, unchanged. `pages/builds/latest`: same build id `1135853385`, `error.message: "Page
+build failed."`, pusher still `aros-agent`, timestamps unchanged. The Actions run behind it: still
+`id 31107290918`, `status: "queued"`, `conclusion: null`, `created_at` 2026-08-06T13:43:41Z — **~37h57m**
+since creation, computed against this cycle's own wall clock (`date -u` → `2026-08-08T03:39–03:41Z`), not
+carried forward from c623. Checked the 5 most recent workflow runs directly: the stuck run is still the
+newest, nothing behind it since c623. Dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`, read directly
+from `/root/.retinue/conversations/`): still `unread: true`, `updated` 2026-08-07T09:30:08Z (**~18h11m**
+old) — not re-pushed, no new fact (the thread already states the diagnosis in full and nothing about it has
+changed).
+
+**GitHub survey.** `gh search prs`/`gh search issues --owner retinue-os --sort updated --limit 10`: unchanged
+since c623 — newest owner PRs are still #89 (merged 19:47:04Z), #88 (merged 19:15:28Z) and #86 (merged
+16:12:13Z), all three already reviewed on earlier cycles (c609/c610), no defect found on any. Newest
+owner-authored open items are still #84 and #79 (unchanged, already commented). Checked comments on all five
+non-owner-action `retinue` items of mine still open (`#87`, `#85`, `#83`, `#75`, `#74`) individually via
+`gh api …/issues/<n>/comments --jq length` — **0** on every one. **No new owner-authored PR or issue this
+cycle** (bet 5's operating clause finds nothing). Zero new issues, PRs or comments anywhere in the org.
+`gh api /orgs/retinue-os/repos`: **0** stars/forks/watchers across all five public repos (`retinue`: 47 open
+issues; `retinue-os-chamber`: 5; `qlever-dir`: 9; `.github`: 1; `retinue-os-deployment`: 1 — unchanged); the
+sixth org repo confirmed still `private: true` (`visibility: "private"`) — not named, per guardrail 5.
+Discussions disabled org-wide (checked via GraphQL on all six repos, not assumed).
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount` + `listNotifications` — unread count still 1, same
+single like from 2026-08-04T14:41:18Z (`andeeharry1.bsky.social`), `isRead: false` unchanged, nothing new.
+
+**Drafts.** `ls -t drafts/` — newest by mtime is `webapp-manifest-german-description.md` (2026-08-02),
+already retired (c396, fixed by the owner on `main` before it could be filed); no file past the cool-off
+window needs action. Held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0 confirmed,
+unchanged.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 228 KB / 300 KB, covered. `strategy.md` 110 KB /
+150 KB, covered. `projects/public-surface.md` still DUE (241 KB / 200 KB) — same accepted structural reason
+since c402/c435 (the register table itself), a review-level question, not this cycle's pickup; next scheduled
+review 2026-08-16, not due. `tools/pointer-check.py`: clean, 0 problems.
+
+**No pickup.** Nothing inbound, no new owner-authored PR/issue to review (bet 5's clause), no new fact on the
+Pages build worth a second dashboard push (now ~37h57m, but "worth a push" is gated on a new fact, not on
+elapsed time — the thread already states the problem and nothing about it has changed), no drafts past
+cool-off, no mentions, 0 stars/forks/watchers/discussions. An idle wake-up here is the correct result, not an
+omission. The one thing this cycle did add — the c623 duration correction above — is a record fix, not
+outward work, and does not count against the c268 inward/outward balance rule as a pickup.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md` (`current_next_action` handover
+updated line-wise, per the c395 rule). **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new (the Pages-build ask is already on the open, unread dashboard thread with no new fact to add).
+No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
