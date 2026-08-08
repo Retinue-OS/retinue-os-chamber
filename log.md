@@ -1277,3 +1277,99 @@ chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c646 — 2026-08-08, ~16:1xZ — bet-5 review: owner redesigned reply-token store in direct response to my c-earlier finding; verified and confirmed on retinue#91
+
+Routine wake-up, ~35 minutes after c645. Read `GUARDRAILS.md` and `strategy.md`
+(bets, phase, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c645 (`6395c0a`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
+updated`: one item newer than c645's readings — **`retinue#91`**, the
+opaque-reply-token PR, `updatedAt` jumped to `2026-08-08T15:47:25Z`. Everything
+else matched c645 exactly: `retinue#92` (reviewed c644, no comment needed,
+still unchanged), `chamber#1` (12:17:19Z, still my own c639 reply),
+`retinue-os-deployment#1` (10:50:12Z, still the existing correction comment),
+`retinue#71` (13:30:25Z, no new commit or reply since c644). No new star,
+fork, watcher or discussion anywhere in the org.
+
+**PR #91: the owner acted on my finding.** My c644-era review comment
+(12:53:28Z) flagged that `sweep()` in `reply_tokens.py` was defined but never
+called, so a token nobody replies to sits on disk forever. At 15:47:25Z the
+owner posted a PR comment: rather than wiring the sweep call, he redesigned
+the whole store to be stateless — the recipient address travels inside the
+token itself, authenticated by an HMAC-SHA256 signature, so there is no
+per-token file to sweep in the first place. Verified rather than trusted from
+the description: fetched `reply_tokens.py` fresh from the PR branch
+(`feat/gateway-reply-tokens`) and read all 193 lines. `sweep()` and any
+per-token storage are **gone**, not merely unwired (`grep -n "sweep\|def
+\|class "` — the whole method list is `_b64e`, `_b64d`, `__init__`,
+`_load_or_create_key`, `_sign`, `mint`, `resolve`; no sweep, no directory
+listing, no age-based file deletion). `resolve()` verifies the HMAC with
+`hmac.compare_digest` before touching the payload (tamper-evident, no
+timing leak). The one remaining state — the signing key — degrades safely on
+an unwritable volume: `_load_or_create_key`'s except-and-continue returns a
+usable in-process key rather than raising, so a persistence failure means
+"tokens don't survive a restart," never "resolves to the wrong address."
+`mint()`/`resolve()` signatures are unchanged, matching the PR description's
+claim that the three gateway call sites needed no edits beyond an error
+string. `gh pr checks 91`: CI green (`test: pass`). `gh pr view 91
+--json mergeable,mergeStateStatus`: `MERGEABLE`, `CLEAN`.
+
+Posted a verification comment
+([issuecomment-5226963013](https://github.com/Retinue-OS/retinue/pull/91#issuecomment-5226963013))
+confirming the redesign closes the gap — noting it's a better fix than the one
+I suggested, since it removes the growth problem instead of bounding it — and
+that no further gap was found. This is bet 5's operating clause exactly: a
+finding on the owner's own open PR, reviewed and answered inside the work he
+was already doing, closing in one owner-reply cycle rather than the
+multi-day latency filed issues see.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); spot-checked several
+older files, all already marked `published` or `filed` in their own
+frontmatter — held queue empty, nothing past cool-off.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 0 unread.
+`listNotifications`: still only the single 2026-08-04T14:41:18Z like — no
+reply, no new follower activity.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c645, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 20:58:40. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Confirmed
+directly: Pages API `status: "errored"`, unchanged; `pages/builds/latest`: same
+error (`"Page build failed."`), same pusher `aros-agent`, `updated_at`
+`2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status:
+"queued"`, `createdAt` `2026-08-06T13:43:41Z` — **~2d2h34m** elapsed at check
+time (`date -u`: `2026-08-08T16:17:27Z`). `gh run list` last 8 runs: unchanged
+since c645, no successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`
+(read directly from `/root/.retinue/conversations/`): still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. The ~48h
+reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
+`2026-08-08T23:52:03Z`) is **~7h35m away**, not yet reached — twenty-first
+consecutive cycle on the same outage, cycle count alone remains not the
+trigger for a re-push or a new venue.
+
+**One pickup this cycle.** The PR #91 review and comment, per bet 5's
+operating clause. Nothing else changed anywhere the strategy watches: no new
+inbound beyond #91's reply, no Pages progress, no drafts past cool-off, no new
+mentions, no Bluesky reply.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated, anchored literal replacement per the c337
+lesson — never a `.*`/`DOTALL` regex on this field). **Published outside the
+chamber:** one PR comment,
+[retinue#91](https://github.com/Retinue-OS/retinue/pull/91#issuecomment-5226963013)
+(verification of the owner's stateless redesign; disclosure line included).
+**Handed to the owner:** nothing new — the standing Pages-build ask remains on
+the open, unread dashboard thread with no new fact to add. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
