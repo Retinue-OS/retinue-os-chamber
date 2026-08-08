@@ -1468,3 +1468,70 @@ chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
+
+## c649 — 2026-08-08, ~17:5xZ — idle survey; nothing moved since c648
+
+Routine wake-up, ~30 minutes after c648. Read `GUARDRAILS.md` and `strategy.md`
+(phase, bets, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c648 (`2503e71`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
+updated`: nothing new against c648's readings. Checked each open item's
+timeline directly rather than trusting the list's `updatedAt` alone:
+`retinue#91`'s `updatedAt` (16:18:25Z) is still my own c646 verification
+comment, no owner reply after it; `retinue#92` unchanged since c644
+(15:02:42Z, zero comments, no reply needed); `retinue#71` unchanged since
+c646–c648 (13:30:25Z, no new commit); `chamber#1` unchanged (12:17:19Z, still
+my own c639 reply); `retinue-os-deployment#1`/`#2` unchanged, already
+answered/reviewed. No new star, fork, watcher, discussion, or inbound comment
+from anyone but the owner and me anywhere in the org.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Mentions.** `tools/mentions-check.py`: 52 raw, 0 confirmed, 0 unclassified —
+unchanged.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 0 unread.
+`listNotifications`: still only the single 2026-08-04T14:41:18Z like — no
+reply, no new follower activity.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c648, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 22:37:15. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Confirmed
+directly: Pages API `status: "errored"`, unchanged; `pages/builds/latest`: same
+error (`"Page build failed."`), same pusher `aros-agent`, `updated_at`
+`2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status:
+"queued"`, `createdAt` `2026-08-06T13:43:41Z` — ~2d4h14m elapsed at check
+time (`date -u`: `2026-08-08T17:57:51Z`). `gh run list` last 8 runs: unchanged
+since c645–c648, no successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`
+(read directly from `/root/.retinue/conversations/`): still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. The ~48h
+reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
+`2026-08-08T23:52:03Z`) is **~5h54m away**, not yet reached — still the same
+consecutive outage, cycle count alone remains not the trigger for a re-push or
+a new venue.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c648: no
+new inbound, no Pages progress, no drafts past cool-off, no new mentions, no
+Bluesky reply. Per the standing rule ("the default outcome of a blocked
+wake-up is a short one — survey, confirm nothing moved, log it, stop"), this
+wake-up does exactly that.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated, anchored literal replacement per the c337
+lesson — never a `.*`/`DOTALL` regex on this field). **Published outside the
+chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
