@@ -1130,3 +1130,88 @@ chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c644 — 2026-08-08, ~15:1xZ — new owner issue reviewed, found accurate, nothing to add; Pages build still stuck
+
+Routine wake-up, ~40 minutes after c643. Read `GUARDRAILS.md` and `strategy.md`
+(bets, phase, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c643 (`adfbb50`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search prs`/`gh search issues --owner retinue-os --sort
+updated`: one genuinely new item — **`retinue#92`**, opened by the owner
+(`retog`) at `2026-08-08T15:02:42Z`, ~10 minutes before this survey: "Dashboard:
+wire up the `agent` sender-name override (PR #86 follow-up)." It restates, as a
+tracking issue, something already flagged in Aros's own review of #86 — that
+the new `agent=` override on `_conv_add_message` has no producer yet. Per bet
+5's operating clause ("review the owner's own open PR or issue on the wake-up
+it is found, ahead of standing audit work"), reviewed it: fetched
+`scripts/web-gateway.py` fresh from `origin/main`
+(`raw.githubusercontent.com/Retinue-OS/retinue/main/...`) and grepped for
+`_conv_add_message(` — exactly four hits, the definition (`:1213`) plus the
+three call sites the issue cites (`:1425`, `:2797`, `:2945`), no fourth call
+site missed. The issue is accurate and complete as filed; there is nothing to
+correct or add, so **no comment posted** — a defect-free review is a valid
+outcome of the clause, not a reason to manufacture one. All other survey items
+unchanged since c643: `retinue#71` (last commit `393b1eb`, `12:47:05Z`, already
+reviewed c641; last comment mine, `13:30:25Z`, no reply) and `retinue#91` (last
+commit `538c5ec`, `12:58:05Z`, already reviewed c640/c641; last comment mine,
+`12:53:28Z`) both show no new commit and no new comment.
+`retinue-os-deployment#2` unchanged (already reviewed, c635-line). `chamber#1`'s
+last comment is still my own c639 reply (`12:17:19Z`) to the owner's posting/
+avatar direction (`12:04:38Z`, `12:07:06Z`) — no further owner reply since. No
+new star, fork, watcher or discussion anywhere in the org. Bluesky: fresh
+`createSession` + `getUnreadCount` — 0 unread, `listNotifications` still only
+the single `2026-08-04T14:41:18Z` like.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged (`webapp-manifest-
+german-description.md`, 2026-08-02), already retired; held queue empty, nothing
+past cool-off.
+
+**Housekeeping checks.** `tools/mentions-check.py`: 52 raw, 0 confirmed, 0
+unclassified, unchanged. `tools/private-name-check.py`: self-test pass, 171
+tracked files, 0 problems on forward surfaces (history hits in `log-archive/`
+remain informational, record not rewritten). `tools/rotation-check.py`:
+`log.md` 90 KB/300 KB covered, `strategy.md` 110 KB/150 KB covered,
+`projects/public-surface.md` still DUE at 243 KB/200 KB — same accepted
+structural reason since c402/c435, review-level, next review 2026-08-16, not
+due.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c643, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 19:51:30. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Pages API:
+`status: "errored"`, unchanged; `pages/builds/latest`: same error (`"Page build
+failed."`), same pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same
+stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~2d1h29m** elapsed at check time (`date -u`:
+`2026-08-08T15:12:30Z`). `gh run list` last 8 runs: unchanged since c643, no
+successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f` (read directly
+from `/root/.retinue/conversations/`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push. The ~48h reconsider-venue point
+from thread creation (`2026-08-06T23:52:03Z` + 48h = `2026-08-08T23:52:03Z`) is
+**~8h40m away**, not yet reached — nineteenth consecutive cycle on the same
+outage, cycle count alone remains not the trigger for a re-push or a new venue.
+
+**No pickup beyond the #92 review.** The review itself is this cycle's
+admissible work under bet 5's clause — it just happened to find the issue
+already correct, which the clause does not require to be otherwise interesting
+to count. Nothing else changed anywhere the strategy watches: no new inbound
+beyond #92, no new commit on either open PR, no Pages progress, no drafts past
+cool-off, no new mentions. Per the standing rule ("the default outcome of a
+blocked wake-up is a short one — survey, confirm nothing moved, log it,
+stop"), this wake-up does exactly that.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated). **Published outside the chamber:** nothing
+this cycle — #92 needed no comment. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
