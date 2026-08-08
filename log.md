@@ -1774,3 +1774,112 @@ replacement). **Published outside the chamber:** nothing this cycle. **Handed to
 the owner:** nothing new — the standing Pages-build ask remains on the open,
 unread dashboard thread with no new fact to add. No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c653 — 2026-08-08, ~20:2xZ — pickup: recovered an interrupted aros-dashboard-refresh regeneration, two desk-drop-check false positives fixed before landing
+
+Read `GUARDRAILS.md` and `strategy.md` fresh, per dispatch.
+
+**Found at wake-up start, before the mandatory delivery check even ran.** `git
+status` showed all five `docs/data/*.json` modified on disk, uncommitted, all
+five carrying one consistent new stamp `2026-08-08T19:48:00Z` — the daily
+`aros-dashboard-refresh` job (confirmed against `.schedule.json`) had run and
+written its output but never reached its own commit step. Same shape as the
+c443 recovery, and the exact failure mode `strategy.md`'s wake-up-duration
+section (c192) and this chamber's own memory note describe: the job writes
+five files sequentially under a 900 s `SCHEDULER_JOB_TIMEOUT` with no partial
+result and no notice on a kill.
+
+**Verified before landing, per the job's own "measure first, drop
+stale-resolved before you commit" rule:**
+- `tools/card-budget-check.py`: 84 budgeted values, 0 over — clean on the
+  first run.
+- `tools/desk-drop-check.py`: **5 problems on the first run** —
+  `retinue#58/#83/#84/#85/#86` all flagged `STALE-RESOLVED`. Traced to
+  `docs/data/todo.json`: two lines, both incidental citations of already-
+  resolved items rather than queue entries asking action on them — `"retinue#87:
+  PR #86 follow-up, ..."` (#86 merged 2026-08-07) and `"Held queue 0;
+  retinue#83/#84/#85 merged and retinue#58 closed since 08-07 19:40 UTC"` (a
+  status line explicitly announcing the resolutions, not asking for them).
+  Exactly the false-positive shape c443 found in the same tool (`PR#60`/`PR#68`
+  citations): the checker's regex can't distinguish a citation from a queue
+  item and correctly flags any bare `#<number>` reference to something
+  resolved. Reworded `PR #86` → `PR 86` and `retinue#83/#84/#85 ... retinue#58`
+  → `PRs 83/84/85 ... issue 58` — dropping the literal `#` the regex keys on.
+  Re-run: 0 problems, coverage 35/35.
+- `tools/private-name-check.py`: 0 problems on forward surfaces.
+
+**Landed.** Commit `74514a8` on `retinue-os-chamber`, pushed to `main`
+(`d214933..74514a8`). Confirmed by re-running `delivery-check.py`: publication
+now reads `HEAD is on origin/main`, and the attribution correctly moved from
+"not committed" to "disk fresh and on `origin/main`, served still stale — this
+really is the build." Re-checked the build directly rather than trusting the
+prior attribution alone: `gh api .../pages` → `status: "errored"`;
+`pages/builds/latest` → `error: "Page build failed."`, same pusher
+`aros-agent`; Actions run `31107290918` still `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z`, unchanged — **~2 d 6 h 32 m elapsed**, no successor
+run. This is the same known, already-escalated stuck-Pages condition carried
+since c645 (retinue#91's merge did not touch it, and nothing this cycle found
+changes its status) — recognized as such rather than re-diagnosed, and not
+re-escalated: the open dashboard thread (`8fdadb9493d84e58a5eb93101d61156f`,
+still unread) already carries it, this cycle adds no new fact about the outage
+itself, and the ~48 h reconsider-venue point from thread creation
+(`2026-08-08T23:52:03Z`) has not yet passed.
+
+**Why this was the right one thing.** Committing the recovered files verbatim
+would have republished five already-resolved issues on the owner's own queue
+card as if they still needed his attention — the exact "redo finished work"
+defect the job's own prompt names as worse than staying stale another day.
+Fixing both citations before landing is the "measurements are finished, what
+was missing was the verification pass" pattern from c443, recurring in the
+same tool for the same reason: incidental citations of resolved work inside an
+otherwise-live desk item are structurally indistinguishable from stale queue
+entries to a regex, and stay that way until someone rewords them.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh api /orgs/retinue-os/events`: top ten are my three pushes this
+cycle, the owner's retinue#91 merge/branch-delete from before c652, and my
+earlier pushes from c650–c652 — no third-party actor anywhere. `retinue#92`
+unchanged (opened 2026-08-08T15:02:42Z, no reply needed, his own tracking
+issue off my #86 review); `retinue#90` unchanged (10:48:46Z); `retinue#87`
+unchanged (16:46:12Z); `retinue#79` unchanged (2026-08-06T11:31:22Z);
+`chamber#1` unchanged, my own c639 reply still last (12:17:19Z).
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Delivery check, mandatory, all five cards — run twice, before and after the
+fix.** Before: `publication: uncommitted (agenda.json on disk differs from
+HEAD)`, 5 problems, correctly attributed as "refresh ran and publication
+broke... commit them." After the commit+push: `publication: published (HEAD is
+on origin/main)`, still 5 STALE (age ~3 d 1 h) but now correctly attributed to
+the Pages build, not to this container. All 16 static assets hash-match
+disk-vs-served throughout. **Delivery-check outcome, recorded per dispatch
+instructions:** was disk-uncommitted at wake-up start (now fixed and landed);
+current state is the known delivery-failure (Pages build), unrelated to
+today's regeneration or refresh job.
+
+**Pickup, one item.** Recovered and landed the interrupted regeneration, with
+the two desk-drop-check defects fixed first. No issue filed, no post
+published — the Pages outage already has its open channel with nothing new to
+add, and the recovery itself is routine hygiene on the project's own dashboard
+data (Tier 1: the refresh job's own output).
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 130 KB / 300 KB;
+`projects/public-surface.md` 242 KB / 200 KB, **DUE** (unchanged status,
+carried since earlier cycles per the un-rotatable-head finding at c273 — not
+this cycle's pickup); `strategy.md` 110 KB / 150 KB. No action taken on the
+DUE file this cycle; noted, not actioned, consistent with "not admissible: a
+long wake-up manufacturing a rotation that isn't this cycle's finding."
+
+**Files changed:** `docs/data/agenda.json`, `docs/data/briefing.json`,
+`docs/data/messages.json`, `docs/data/projects.json`, `docs/data/todo.json`
+(recovered regeneration, two desk-item rewordings), `projects/public-
+surface.md` (`current_next_action` updated), `log.md` (this entry).
+**Published outside the chamber:** `retinue-os-chamber@74514a8`, pushed to
+`main` — the recovered dashboard data (not yet visible to a reader; Pages
+build is still broken, see above). **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add this cycle. No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle.
