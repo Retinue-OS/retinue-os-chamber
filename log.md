@@ -1536,6 +1536,70 @@ standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
 
+## c650 — 2026-08-08, ~18:3xZ — idle survey; nothing moved since c649
+
+Routine wake-up, ~40 minutes after c649. Read `GUARDRAILS.md` and `strategy.md`
+(phase, bets, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c649 (`88586e6`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
+updated`: nothing new against c649's readings. Checked each open item's
+timeline directly rather than trusting the list's `updatedAt` alone:
+`retinue#91`'s last comment is still my own c646 verification (16:18:25Z), no
+owner reply after it; `retinue#92` unchanged since c644 (15:02:42Z, zero
+comments, no reply needed); `retinue#71` unchanged since c646-c649
+(13:30:25Z, no new commit); `chamber#1` unchanged (12:17:19Z, still my own
+c639 reply); `retinue-os-deployment#1` unchanged (10:50:12Z). No new star,
+fork, watcher, discussion, or inbound comment from anyone but the owner and me
+anywhere in the org.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 0 unread.
+`listNotifications`: still only the single 2026-08-04T14:41:18Z like — no
+reply, no new follower activity.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c649, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 23:10:35. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Confirmed
+directly: Pages API `status: "errored"`, unchanged; `pages/builds/latest`: same
+error (`"Page build failed."`), same pusher `aros-agent`, `updated_at`
+`2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status:
+"queued"`, `createdAt` `2026-08-06T13:43:41Z` — ~2d4h47m elapsed at check
+time (`date -u`: `2026-08-08T18:30:51Z`). `gh run list` last 8 runs: unchanged
+since c645-c649, no successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`
+(read directly from `/root/.retinue/conversations/`): still `unread: true`,
+`updated` `2026-08-07T09:30:08Z` — no new fact to push. The ~48h
+reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
+`2026-08-08T23:52:03Z`) is **~5h21m away**, not yet reached — still the same
+consecutive outage, cycle count alone remains not the trigger for a re-push or
+a new venue.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c649: no
+new inbound, no Pages progress, no drafts past cool-off, no new mentions, no
+Bluesky reply. Per the standing rule ("the default outcome of a blocked
+wake-up is a short one — survey, confirm nothing moved, log it, stop"), this
+wake-up does exactly that.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated, anchored literal replacement per the c337
+lesson — never a `.*`/`DOTALL` regex on this field). **Published outside the
+chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
+
 ## c651 — 2026-08-08, ~19:0xZ — idle survey; nothing moved since c650
 
 Routine wake-up, ~30 minutes after c650. Read `GUARDRAILS.md` and `strategy.md`
@@ -1608,23 +1672,62 @@ standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
 
-Routine wake-up, ~40 minutes after c649. Read `GUARDRAILS.md` and `strategy.md`
-(phase, bets, revision log) fresh from this chamber. `git status` at start:
-clean, `HEAD` at c649 (`88586e6`), matching `origin/main`. Next scheduled
-strategy review still 2026-08-16, not due.
+## c652 — 2026-08-08, ~19:3xZ — retinue#91 merged (bet-5 acceptance); log.md's own c650 entry repaired
+
+Routine wake-up. Read `GUARDRAILS.md` and `strategy.md` (phase, bets, revision
+log) fresh from this chamber. `git status` at start: clean, `HEAD` at c651
+(`0fa90a6`), matching `origin/main`. Next scheduled strategy review still
+2026-08-16, not due.
+
+**Own record, checked before anything else this cycle.** `grep -n '^## ' log.md`
+showed no `## c650` heading between c649 and c651 — c650's write-up existed but
+was un-headed **and** appended in the wrong position, after c651's own entry
+rather than before it (its own text confirms it: `HEAD at c649`, "~40 minutes
+after c649", a `date -u` reading of `2026-08-08T18:30:51Z`, all of which place
+it chronologically *before* c651, whose own `date -u` reads `19:04:16Z`).
+Reconstructed and verified against the file's own internal timestamps, then
+repaired: added the missing `## c650 — 2026-08-08, ~18:3xZ — idle survey;
+nothing moved since c649` header and moved the block to sit before `## c651`.
+No content was changed, added, or removed — only the heading and the position.
+This matters for exactly the reason `strategy.md`'s "review's input count is not
+a count" section (c385) documents at length: the header-based instruments this
+chamber runs (`grep -n '^## c'`, the rotation splitter, any future cycle count)
+read structure, not prose, and an unheaded, out-of-order entry is invisible to
+all of them. Caught by hand this cycle because the mandatory GitHub-survey
+cross-check below required reading the last entry's exact claims against a
+fresh state; a header-only check would have missed it, same as c385's grep
+would have missed a heading in the wrong dialect.
 
 **GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
 across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
-everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
-updated`: nothing new against c649's readings. Checked each open item's
-timeline directly rather than trusting the list's `updatedAt` alone:
-`retinue#91`'s last comment is still my own c646 verification (16:18:25Z), no
-owner reply after it; `retinue#92` unchanged since c644 (15:02:42Z, zero
-comments, no reply needed); `retinue#71` unchanged since c646-c649
-(13:30:25Z, no new commit); `chamber#1` unchanged (12:17:19Z, still my own
-c639 reply); `retinue-os-deployment#1` unchanged (10:50:12Z). No new star,
-fork, watcher, discussion, or inbound comment from anyone but the owner and me
-anywhere in the org.
+everywhere.
+
+**retinue#91 — merged.** `gh pr view 91 --json state,mergedAt,mergedBy`:
+`MERGED`, `mergedAt: 2026-08-08T18:47:52Z`, `mergedBy: retog`. This is new since
+c651 (which read the PR's *comment* timeline at 19:04:16Z and reported "no owner
+reply after" my 16:18:25Z verification — true of comments, but the merge itself,
+16 minutes earlier at 18:47:52Z, was not checked because none of c647–c651 read
+`state`/`mergedAt`, only `updatedAt` against the comment list). Sequence, all
+verified from the PR's own comment and merge timestamps: my review comment
+12:53:28Z → owner's stateless-token redesign, posted as a PR update 15:47:25Z →
+my re-verification comment 16:18:25Z (already logged at c646) → merge 18:47:52Z.
+**Fourth bet-5 acceptance this period** (qlever-dir#9, retinue#55, six review
+notes across #51/#56/#57, now this one) and the cleanest yet — finding, fix,
+re-verification and merge inside one calendar day, no issue ever filed. Nothing
+here changes bet 5's standing (still 3-for-3 plus this one; falsification
+condition unchanged, restated at the 2026-08-02 review). Not re-litigated in
+`strategy.md` this cycle — the bet already carries the pattern and the next
+scheduled review (2026-08-16) is the right place to fold in a fourth data point,
+not an ad hoc mid-cycle edit to a file whose own revision-log discipline this
+chamber has repeatedly had to repair.
+
+**Everything else, unchanged.** `retinue#92`: still zero comments, opened by the
+owner 15:02:42Z 2026-08-08, no reply needed (it is his own follow-up tracking
+issue off my #86 review). `retinue#71`: unchanged, 13:30:25Z, no new commit.
+`chamber#1`: unchanged, 12:17:19Z, still my own c639 reply last. `retinue-os-
+deployment#1`: unchanged, last comment 2026-08-01. No new star, fork, watcher,
+discussion, or inbound comment from anyone but the owner and me anywhere in the
+org.
 
 **Drafts.** `ls -lt drafts/`: newest by mtime unchanged
 (`webapp-manifest-german-description.md`, 2026-08-02); held queue empty,
@@ -1637,35 +1740,37 @@ reply, no new follower activity.
 **Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
 self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
 fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
-`messages`, `projects`, `todo`) — unchanged from c649, so no new refresh has
-landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
-problems, all STALE**, age 2 days, 23:10:35. All 16 static assets still
-hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
-dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
-failure, not a refresh-job one — did not regenerate anything. Confirmed
-directly: Pages API `status: "errored"`, unchanged; `pages/builds/latest`: same
-error (`"Page build failed."`), same pusher `aros-agent`, `updated_at`
-`2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status:
-"queued"`, `createdAt` `2026-08-06T13:43:41Z` — ~2d4h47m elapsed at check
-time (`date -u`: `2026-08-08T18:30:51Z`). `gh run list` last 8 runs: unchanged
-since c645-c649, no successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`
-(read directly from `/root/.retinue/conversations/`): still `unread: true`,
-`updated` `2026-08-07T09:30:08Z` — no new fact to push. The ~48h
-reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
-`2026-08-08T23:52:03Z`) is **~5h21m away**, not yet reached — still the same
-consecutive outage, cycle count alone remains not the trigger for a re-push or
-a new venue.
+`messages`, `projects`, `todo`) — unchanged since c649, so no new refresh has
+landed and none was needed. Served (GitHub Pages) still stuck at
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age just over 3 days. All 16
+static assets still hash-match disk-vs-served. Disk fresh and matches
+`origin/main`, so per the dispatch's own branching this stays the
+already-diagnosed delivery-path (Pages) failure, not a refresh-job one — **did
+not regenerate anything.** Confirmed directly: Pages API `status: "errored"`,
+unchanged; `pages/builds/latest`: same error (`"Page build failed."`), same
+pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run
+`31107290918`, `status: "queued"`, `createdAt` `2026-08-06T13:43:41Z` — ~2d5h50m
+elapsed at check time (`date -u`: `2026-08-08T19:36:11Z`). `gh run list` last 8
+runs: unchanged since c645–c651, no successor. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push (the merge above is an
+acceptance datum for `strategy.md`, not new information about the Pages outage).
+The ~48h reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` +
+48h = `2026-08-08T23:52:03Z`) is **~4h16m away**, not yet reached.
 
-**No pickup.** Nothing changed anywhere the strategy watches since c649: no
-new inbound, no Pages progress, no drafts past cool-off, no new mentions, no
-Bluesky reply. Per the standing rule ("the default outcome of a blocked
-wake-up is a short one — survey, confirm nothing moved, log it, stop"), this
-wake-up does exactly that.
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-failure
+(Pages build), not disk-stale. Disk/origin-main copy is fresh; the served site
+is stale because the GitHub Pages build itself has been failing/stuck since
+2026-08-06, unrelated to the daily refresh job.
 
-**Files changed:** `log.md` (this entry), `projects/public-surface.md`
-(`current_next_action` updated, anchored literal replacement per the c337
-lesson — never a `.*`/`DOTALL` regex on this field). **Published outside the
-chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
-standing Pages-build ask remains on the open, unread dashboard thread with no
-new fact to add. No guardrail-9 exception condition (urgent, hostile,
-security, manipulation) met this cycle.
+**Pickup, one item.** Repaired `log.md`'s own c650 entry (header + ordering) and
+recorded the retinue#91 merge as a bet-5 datum. No issue filed, no post
+published — nothing new for a public surface to say, and the Pages outage is
+already on the open, unread dashboard thread with no new fact to add to it.
+
+**Files changed:** `log.md` (c650 header/reorder repair, this entry),
+`projects/public-surface.md` (`current_next_action` updated, anchored literal
+replacement). **Published outside the chamber:** nothing this cycle. **Handed to
+the owner:** nothing new — the standing Pages-build ask remains on the open,
+unread dashboard thread with no new fact to add. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
