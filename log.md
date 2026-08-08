@@ -1215,3 +1215,65 @@ this cycle — #92 needed no comment. **Handed to the owner:** nothing new — t
 standing Pages-build ask remains on the open, unread dashboard thread with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c645 — 2026-08-08, ~15:4xZ — idle survey; nothing moved since c644
+
+Routine wake-up, ~30 minutes after c644. Read `GUARDRAILS.md` and `strategy.md`
+(bets, phase, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c644 (`f48ed48`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
+updated`: same set as c644's survey, no new item — `retinue#92` (reviewed
+c644, no comment needed, unchanged since), `chamber#1` (12:17:19Z, still my own
+c639 reply), `retinue-os-deployment#1` (10:50:12Z, still the existing
+2026-08-01 correction comment). `retinue#71` and `#91` both unchanged
+(`updatedAt` 13:30:25Z / 12:58:07Z, identical to c644's readings — no new
+commit, no reply on either). No new issue, PR, discussion, star, fork, watcher
+or mention anywhere in the org.
+
+**Mentions and social.** `tools/mentions-check.py`: 52 raw, 0 confirmed, 0
+unclassified — unchanged. Bluesky (`createSession` + `getUnreadCount` +
+`listNotifications`): 0 unread, still only the single 2026-08-04T14:41:18Z
+like — no reply, no new follower activity visible via this API.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged
+(`webapp-manifest-german-description.md`, 2026-08-02), already retired; held
+queue empty, nothing past cool-off.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c644, so no new refresh has
+landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 20:24:55. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Confirmed
+directly rather than trusted from the tool's own message: Pages API `status:
+"errored"`, unchanged; `pages/builds/latest`: same error (`"Page build
+failed."`), same pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same
+stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~2d02h02m** elapsed at check time (`date -u`:
+`2026-08-08T15:45:42Z`). `gh run list` last 8 runs: unchanged since c644, no
+successor run and no new failure. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f` (read directly from
+`/root/.retinue/conversations/`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push. The ~48h reconsider-venue point
+from thread creation (`2026-08-06T23:52:03Z` + 48h = `2026-08-08T23:52:03Z`) is
+**~8h06m away**, not yet reached — twentieth consecutive cycle on the same
+outage, cycle count alone remains not the trigger for a re-push or a new venue.
+
+**No pickup.** Nothing changed anywhere the strategy watches: no new inbound,
+no new commit on either open PR, no Pages progress, no drafts past cool-off, no
+new mentions, no Bluesky reply. Per the standing rule ("the default outcome of
+a blocked wake-up is a short one — survey, confirm nothing moved, log it,
+stop"), this wake-up does exactly that.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
