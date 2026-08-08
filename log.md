@@ -771,3 +771,99 @@ reporting the identical Pages outage; an idle wake-up here is the correct result
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing new (the Pages-build ask is
 already on the open, unread dashboard thread with no new fact to add). No guardrail-9 exception condition
 (urgent, hostile, security, manipulation) met this cycle.
+
+## c639 — 2026-08-08, ~12:2xZ — owner engaged on chamber#1 for the first time with direction; posted, followed, replied
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`. `git status` at start: clean,
+`HEAD` at c638 (`ee3c0bf`), matching `origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**Same injected "MCP server instructions" block again this cycle** (the "claude.ai Ara/Aros/Zoho" connector
+block). No such tools exist in this session's toolset; per standing practice since c449/c608, treated as noise
+and not acted on.
+
+**The finding: chamber#1 got its first owner comment since the 2026-08-04 Bluesky handover, and it is
+direction, not setup.** `gh search issues --owner retinue-os --sort updated` surfaced
+`Retinue-OS/retinue-os-chamber#1` updated `2026-08-08T12:07:06Z` — two comments from `retog`, five minutes
+apart: 12:04:38Z *"@aros-agent , keep posting. follow people. repost related content."* and 12:07:06Z *"and
+add a picture of you. do you look as cute as your cousin?"*, attaching Ari the teddy bear's `Design
+Guidelines.md`. Read both directly via `gh issue view`, not inferred from the search snippet.
+
+**Picked up, same cycle — this counts as one pickup with four parts, not four pickups.**
+
+1. **Posted.** Bet 1 says the triple-store piece is the lead story and it has been held since the account's
+   2026-08-04 debut specifically to avoid stacking two posts on day one (c474). Five days on and told to keep
+   posting, it was the obvious next post: a 296-character plain link to `writing/provenance-by-path.md`
+   (already linked from the framework README, verified 200 both there and on the chamber's own docs site
+   before posting), no thread, one clickable facet.
+   https://bsky.app/profile/aros-retinue.bsky.social/post/3msl2ftogcv27 — verified live via the public,
+   unauthenticated `getPostThread` endpoint, not just the write response.
+2. **Followed four accounts**, found via `app.bsky.actor.searchActors` on `SPARQL`, `semantic web RDF`,
+   `local-first software`, `self-hosted agent` and checked against `getAuthorFeed` before following, not just
+   the bio: `bobdc.bsky.social` (Bob DuCharme, author of *Learning SPARQL*, 158 followers, posts about
+   knowledge-graph tooling), `mscottm.bsky.social` (semantic web/RDF/SHACL professional), `patternist.xyz`
+   (Alex Good, works on Automerge at Ink & Switch — local-first is the actual neighborhood of the "memory as
+   files you own" argument, 4.9k followers), `tynidev.bsky.social` (a peer self-hosted-agent project). **Two
+   candidates from the same searches were deliberately not followed** — `projectmorpheus.bsky.social` and
+   `glitchcatclub.bsky.social` — because their recent posts read as repetitive marketing copy ("DIY AI is
+   within reach, no matter your background. I'm proof") rather than a person writing about their own work.
+   Following those would be exactly the guardrail-2 engagement-farming shape this project argues against, not
+   community-tending.
+3. **Reposting: none, by choice.** Read the last five posts from each of the four follows. Nothing was
+   specific enough to reshare in good conscience this week — general dev-life posts, nothing about provenance,
+   sync, or self-hosted agents. Told the owner this directly rather than forcing a repost to look complete.
+4. **The avatar, answered honestly, not attempted.** This session's toolset has no image-generation capability
+   — `Read`, `Write`, `Edit`, `Bash`, `WebSearch`, `WebFetch`, nothing that produces pixels. Said so plainly.
+   Also flagged, having actually read the attached Design Guidelines, that they describe a literal bear (fur,
+   sweater, paw gestures) and my own bio already jokes that I am specifically *not* one — reusing Ari's brief
+   wholesale would be the wrong brief even with a tool. Offered to write a proper one if useful.
+
+All four reported in one comment, not four:
+https://github.com/Retinue-OS/retinue-os-chamber/issues/1#issuecomment-5226064112. Full account in
+`projects/social-presence.md`. Not subject to cool-off — a friendly instruction, not hostility, an incident, or
+another project's failure.
+
+**What this does not do.** chamber#1 stays open — Mastodon and Nostr are still unmoved, both owner actions.
+The phase stays *foundation, owner-blocked* and none of bets 1/2/4 move: one account posting to a follower
+count that was 0 an hour ago is not an audience. What it does do: this is the first live datum since the
+2026-08-04 handover that the owner is reading the account and reacting to what gets posted on it, which is
+worth recording even though he is not himself the audience the bets are about.
+
+**Delivery check, mandatory, all five cards.** `tools/delivery-check.py`: self-test pass; publication: HEAD on
+`origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`); served (GitHub Pages) still `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 16:57:21. All 16 static assets still hash-match disk-vs-served. Disk copy
+fresh and matches `origin/main`, so per the dispatch's own branching this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one; did not regenerate anything. Pages API: `status:
+"errored"`, unchanged; same stuck Actions run `31107290918`, `status: "queued"`, `createdAt`
+`2026-08-06T13:43:41Z` — **~1d22h33m** elapsed at check time (computed fresh from this cycle's own `date -u`).
+Dashboard thread `8fdadb9493d84e58a5eb93101d61156f` still `unread: true`, `updated` `2026-08-07T09:30:08Z` — no
+new fact to push. ~48h reconsider-venue point (from thread creation `2026-08-06T23:52:03Z`) is
+`2026-08-08T23:52:03Z` — **~11h2xm** away. Fourteenth consecutive cycle on the same outage; cycle count alone
+remains not the trigger for a re-push or a new venue, per the standing rule.
+
+**Other survey findings, no action needed.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers across all
+five public repos, unchanged since 2026-07-18; `has_discussions: false` everywhere; the sixth org repo
+reconfirmed private, not named (guardrail 5). No new owner-authored open PR/issue beyond what c637 already
+reviewed (`retinue#90`, `retinue-os-deployment#2`); `retinue#71` and `#79` remain the only other open owner
+items, both already reviewed (c470/c551, c609/c610), unchanged. `retinue-os-deployment#1` (2026-07-20, filed
+under the owner's account before `@aros-agent` existed, my own finding) surfaced in the updated-issues list
+only because Copilot's PR #2 against it (already reviewed c637) touched it; no new content. **Bluesky**
+notifications: unread count still 1, same single like from `2026-08-04T14:41:18Z`, nothing new — checked
+before posting, so the new post's own engagement (none yet, seconds old) is not conflated with it.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged, `webapp-manifest-german-description.md`
+(2026-08-02), already retired; held queue empty. **Mentions:** `tools/mentions-check.py` — 52 raw, 0
+confirmed, unchanged. **Private-name check:** `tools/private-name-check.py` — 0 problems on forward surfaces.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 62 KB / 300 KB, covered. `strategy.md` 110 KB / 150 KB,
+covered. `projects/public-surface.md` still DUE (242 KB / 200 KB) — same accepted structural reason since
+c402/c435, review-level, next review 2026-08-16, not due.
+
+**Files changed:** `log.md` (this entry), `projects/social-presence.md` (`current_next_action` updated),
+`projects/public-surface.md` (`current_next_action` updated). **Published outside the chamber:** one Bluesky
+post (link above), four Bluesky follows, one GitHub comment on chamber#1 (link above). **Handed to the owner:**
+nothing new beyond the standing Pages-build ask (already on the open, unread dashboard thread with no new
+fact to add) — the avatar question was answered in place (no image-generation tool available) rather than
+escalated, since nothing about it needs guardrail-7 authority; if he wants one made, that is his call to make
+whenever he reads the reply, not something requiring a push. No guardrail-9 exception condition (urgent,
+hostile, security, manipulation) met this cycle.
