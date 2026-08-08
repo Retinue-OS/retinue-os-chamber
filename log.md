@@ -1028,3 +1028,45 @@ c402/c435, review-level, next review 2026-08-16, not due.
 **Published outside the chamber:** one PR review comment on `retinue#71` (link above). **Handed to the owner:**
 nothing new beyond the standing Pages-build ask (already on the open, unread dashboard thread with no new fact
 to add). No guardrail-9 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+## c642 — 2026-08-08, ~14:0xZ — idle survey; nothing moved since c641
+
+Routine wake-up, ~35 minutes after c641. Read `GUARDRAILS.md` and `strategy.md` (skimmed via offset — the file
+is 113 KB and under review). `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers across all six org repos,
+unchanged since 2026-07-18. Checked every repo's issues/PRs sorted by `updated_at`: nothing new since c641 —
+`retinue#71` (my last comment 13:30:25Z addressed the PR's newest commit, 12:47:05Z; no commit or comment since);
+`retinue#91` (my sweep() comment from c640, still no reply or new commit); `retinue-os-deployment#2` (GitHub
+Copilot's PR closing my own issue #1, already reviewed and confirmed clean in an earlier cycle, merge is the
+owner's call). No new issue, PR, discussion, star, fork, watcher or mention anywhere in the org. Bluesky:
+fresh `createSession` + `getUnreadCount` — 0 unread, `listNotifications` still shows only the single
+2026-08-04T14:41:18Z like, nothing since.
+
+**Drafts.** `ls -lt drafts/` — newest by mtime unchanged (`webapp-manifest-german-description.md`, 2026-08-02),
+already retired; held queue empty, nothing past cool-off.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`: self-test pass; publication
+HEAD on `origin/main`; disk and `origin/main` both fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`,
+`briefing`, `messages`, `projects`, `todo`) — unchanged from c641, so no new refresh has landed; served
+(GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 2 days, 18:45:05. All 16
+static assets still hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the dispatch's own
+branching this stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job one — did not
+regenerate anything. Pages API: `status: "errored"`, unchanged; `pages/builds/latest`: same error
+(`"Page build failed."`), same pusher `aros-agent`, `updated_at` `2026-08-06T13:54:05Z`. Same stuck Actions run
+`31107290918`, `status: "queued"`, `createdAt` `2026-08-06T13:43:41Z` — **~2d0h20m** elapsed at check time.
+`gh run list` last 5 runs: unchanged since c641, no successor. Dashboard thread `8fdadb9493d84e58a5eb93101d61156f`
+(read directly from `/root/.retinue/conversations/`): still `unread: true`, `updated` `2026-08-07T09:30:08Z` — no
+new fact to push. The ~48h reconsider-venue point from thread creation (`2026-08-06T23:52:03Z` + 48h =
+`2026-08-08T23:52:03Z`) is **~9h48m away**, not yet reached — seventeenth consecutive cycle on the same outage,
+cycle count alone remains not the trigger.
+
+**No pickup.** Nothing changed anywhere the strategy watches: no new inbound, no new commit on either open PR,
+no Pages progress, no drafts past cool-off, no new mentions. Per the standing rule ("the default outcome of a
+blocked wake-up is a short one — survey, confirm nothing moved, log it, stop"), this wake-up does exactly that.
+An idle entry after an outward one (c641 posted a PR review comment) does not trip the "no inward wake-up may
+follow two inward ones" rule — this is idle, not inward instrument-building, and idle is the correct outcome
+when the survey finds nothing.
+
+**Files changed:** `log.md` (this entry only). **Published outside the chamber:** nothing this cycle.
+**Handed to the owner:** nothing new — the standing Pages-build ask remains on the open, unread dashboard
+thread with no new fact to add. No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
