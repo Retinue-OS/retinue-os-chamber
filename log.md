@@ -1398,3 +1398,73 @@ the standing rule.
 
 **Files changed:** `log.md` (this entry only). **Published outside the
 chamber:** nothing. **Handed to the owner:** nothing new.
+
+## c648 — 2026-08-08, ~17:2xZ — idle survey; nothing moved since c647
+
+Routine wake-up, ~30 minutes after c647. Read `GUARDRAILS.md` and `strategy.md`
+(phase, bets, revision log) fresh from this chamber. `git status` at start:
+clean, `HEAD` at c647 (`5e7ed96`), matching `origin/main`. Next scheduled
+strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh search issues`/`gh search prs --owner retinue-os --sort
+updated`: nothing new against c647's readings. Checked each open item's
+timeline directly rather than trusting the list's `updatedAt` alone:
+`retinue#91`'s last comment is still my own c646 verification (16:18:25Z), no
+owner reply after it; `retinue#92` has zero comments and its `updatedAt`
+(15:02:42Z) is unchanged since c644, when it was read as accurate and
+complete as filed; `retinue#71`'s last comment is still my own c646/c647
+review (13:30:25Z), no new commit; `chamber#1`'s last comment is still my own
+c639 reply (12:17:19Z) to the owner's "keep posting / follow people / repost /
+add a picture" instructions, already acted on and reported there (Bluesky
+second post, four follows, avatar brief offered); `deployment#1` unchanged
+since 2026-08-01. No new star, fork, watcher, discussion, or inbound comment
+from anyone but the owner and me anywhere in the org.
+
+**Drafts.** Swept every file in `drafts/` whose own status line does not read
+`published`/`filed`/`retired`/`superseded`/`closed`/`escalated` — all of them
+resolve to one of those states on inspection (several read "published" or
+"FILED" in prose rather than a `status:` frontmatter key, which is why a
+grep alone under-counts; checked each by hand this cycle rather than trusting
+last cycle's read). Held queue empty, nothing past cool-off.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 0 unread.
+`listNotifications`: still only the single 2026-08-04T14:41:18Z like — no
+reply, no new follower activity.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication HEAD on `origin/main`; disk and `origin/main` both
+fresh at `2026-08-07T19:40:00Z` on all five cards (`agenda`, `briefing`,
+`messages`, `projects`, `todo`) — unchanged from c646/c647, so no new refresh
+has landed; served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 2 days, 22:04:31. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so per the
+dispatch's own branching this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything. Confirmed
+directly: Pages API `status: "errored"`, unchanged; `pages/builds/latest`: same
+error (`"Page build failed."`), same pusher `aros-agent`, `updated_at`
+`2026-08-06T13:54:05Z`. Same stuck Actions run `31107290918`, `status:
+"queued"`, `createdAt` `2026-08-06T13:43:41Z` — ~2d3h40m elapsed at check time.
+`gh run list` last 8 runs: unchanged since c645/c646/c647, no successor.
+Dashboard thread `8fdadb9493d84e58a5eb93101d61156f` (read directly from
+`/root/.retinue/conversations/`): still `unread: true`, `updated`
+`2026-08-07T09:30:08Z` — no new fact to push. The ~48h reconsider-venue point
+from thread creation (`2026-08-06T23:52:03Z` + 48h = `2026-08-08T23:52:03Z`) is
+**~6.5h away**, not yet reached — twenty-second/twenty-third consecutive cycle
+on the same outage, cycle count alone remains not the trigger for a re-push or
+a new venue.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c647: no new
+inbound, no Pages progress, no drafts past cool-off, no new mentions, no
+Bluesky reply. Per the standing rule ("the default outcome of a blocked
+wake-up is a short one — survey, confirm nothing moved, log it, stop"), this
+wake-up does exactly that.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated, anchored literal replacement per the c337
+lesson — never a `.*`/`DOTALL` regex on this field). **Published outside the
+chamber:** nothing this cycle. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on the open, unread dashboard thread with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
