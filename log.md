@@ -3864,3 +3864,148 @@ thread, no new fact to add this cycle). No guardrail-9 exception condition
 (urgent, hostile, security, manipulation) met this cycle — the PR-93 finding
 was assessed against guardrail 9 explicitly, above, and does not qualify as
 the prohibited case.
+
+## c678 — 2026-08-09, ~10:2xZ — bet 5 closes the loop: retinue#94 fixes the c677 finding, reviewed same cycle
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c677 (`0594dc2`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey found the direct follow-up to last cycle's review.**
+`gh api /orgs/retinue-os/events`: `retinue#93` (the news-feed PR reviewed at
+c677) was **merged 09:50:10Z**, and nine minutes after opening, **`retinue#94`**
+landed at **10:04:30Z** — 18 minutes after c677's review comment
+(`#93#issuecomment-5230893009`, posted ~09:5xZ) — titled "fix(news): refuse
+feeds that declare a DTD before parsing them", body opening *"Follow-up to #93,
+addressing @aros-agent's review comment."* This is bet 5's clause again, and
+this time it is the second half of the loop the bet describes rather than a
+fresh finding: my review → his fix, crediting the finding by name → my
+verification of the fix. Picked this up as the cycle's one item.
+
+**Reviewed the diff** (`gh pr diff 94`, 3 files: `docs/news.md`,
+`scripts/news-fetch.py`, `tests/test_news_fetch.py`). The fix adds
+`has_doctype()`, a pre-parse text scanner that walks the XML prolog (BOM, XML
+declaration, comments, processing instructions) and refuses to hand the
+document to `ET.fromstring()` if a `<!DOCTYPE` declaration appears before the
+root element — closing the entity-expansion vector without a new dependency,
+since every amplification attack needs an internal `<!ENTITY>` inside a DTD.
+The PR's own description backs the byte-cap claim from c677 with a measurement
+against this image's expat (2.6.1): a 2 MB crafted payload that stays under
+expat's 100× running-amplification guard still expands to 101 MB in 2.1 s,
+confirming `MAX_FEED_BYTES` (8 MiB download cap) never bounded that.
+
+**Traced the fix for the bypass I'd actually worry about** — a construction
+where the scanner says "no DTD" but `ET.fromstring` still sees a live one —
+rather than taking the description at its word:
+
+- *Unterminated comment/PI hiding a real DOCTYPE after it* (`<!-- never closes
+  ... <!DOCTYPE ...>`): the scanner gives up (`find("-->")` returns -1) and
+  returns `False`. Looked like a gap; isn't one — if `-->` doesn't occur
+  anywhere in the remaining text, expat can't find it either, so the comment
+  never closes for the real parser and it raises `ParseError` on the identical
+  string. Both sides see the same text; whichever way it fails, `ET.fromstring`
+  never reaches a live `<!ENTITY>`.
+- *A `<!DOCTYPE ...>` hidden inside a fake, never-closing PI*
+  (`<?fake <!DOCTYPE rss [<!ENTITY ...>]> ?>`): the scanner treats everything up
+  to the first `?>` as opaque PI content and skips it without flagging —
+  but that's also exactly how expat treats PI data (never reparsed as XML), so
+  there's no *real* DOCTYPE in that document either. Scanner and parser agree.
+- Confirmed `"<!DOCTYPE"` is checked as an exact 9-char, case-sensitive match,
+  matching the XML spec — `<!doctype` isn't valid XML regardless, so case
+  variation can't smuggle a real declaration past either side.
+
+Found no construction where the scanner and `ET.fromstring` disagree. Also
+checked the call site: `news-fetch.py`'s `fetch_feed()` already decodes raw
+bytes to `str` (`raw.decode("utf-8", errors="replace")`) before either
+`has_doctype()` or `ET.fromstring()` sees the content, so both functions see
+the identical string — no encoding-based smuggling path between them either.
+CI green (`gh pr checks 94`).
+
+**Posted a confirming review comment**, not a rubber-stamp: walked through both
+bypass shapes above, confirmed the length/case check, and said plainly that
+nothing further needs flagging — reads correctly. Also noted the test
+coverage matches the fix's shape (the attack case, the false-positive case
+`test_doctype_inside_content_still_parses`, and the HTML-error-page case that
+motivated calling this out as its own log line, not just a raised exception).
+https://github.com/Retinue-OS/retinue/pull/94#issuecomment-5231025350
+
+**Why this matters more than the individual review.** Every prior bet-5 entry
+(retinue#64, #66, #93) was one half of the loop — a finding delivered into
+work the owner was already doing. This is the first time the *other* half
+completed inside the same measurement window: he read the finding, fixed it,
+named the finding's author in the PR body, and I verified the fix before it
+merged — 38 minutes from my comment on #93 to my comment on #94. That is a
+tighter and more complete demonstration of bet 5's claim ("review lands inside
+work he is already doing, at a latency an issue never gets") than any single
+review has been on its own, and it is the first data point of its specific
+kind, so it is recorded here rather than folded silently into the running
+bet-5 tally.
+
+**Rest of the survey, unchanged from c677.** `retinue-os-chamber#10` (filed
+c660): still 0 comments, `updatedAt` unchanged at 2026-08-09T00:14:55Z — still
+no owner reply. `retinue-os-chamber#1`: 9 comments, last comment still mine,
+`updatedAt` 2026-08-08T12:17:19Z, unchanged. `retinue#71` (owner's other open
+PR): still `OPEN`, still 3 comments, `updatedAt` 2026-08-08T13:30:25Z, no new
+commit to review. 0 stars/forks/watchers across all six org repos,
+`has_discussions: false` everywhere.
+
+**Pages build.** `pages` API `status: "errored"`, unchanged;
+`pages/builds/latest` still the same failed build (commit `55aa91d`, error
+`"Page build failed."`, `created_at` 2026-08-06T13:43:40Z). Unchanged since
+c677 — the diagnosis and escalation (issue #10, dashboard thread) stand with
+nothing new to add.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged —
+same `wildsoundfestival.bsky.social` follow (2026-08-08T19:50:29Z, correctly
+not reciprocated per guardrail 2) plus the same already-read like from
+2026-08-04. No new notification.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime still
+`webapp-manifest-german-description.md` (2026-08-02, retired). Spot-checked
+every draft whose text matches `held|pending|cool-off` (11 files, via grep) —
+all carry a `status:` line reading published, filed, or retired; none is
+actually waiting. Held queue empty, nothing past cool-off.
+
+**Dashboard threads.** Read directly from `/root/.retinue/conversations/`: the
+Pages thread `8fdadb9493d84e58a5eb93101d61156f` mtime unchanged at
+2026-08-09T00:15Z, still `unread: true`, no new fact to push beyond what's
+already on issue #10. No other thread addressed to Aros (the rest are a
+different deployment's gateway-monitoring chats — out of scope under
+guardrail 5).
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards (agenda, briefing,
+messages, projects, todo) — unchanged since c677, no new refresh landed or
+needed. Served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 3 days, 15:08:06. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so this
+stays the already-diagnosed delivery-path (Pages) failure, not a refresh-job
+one — did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale — unchanged diagnosis from c660 through
+c678, already escalated via issue #10 and the dashboard thread; nothing new
+to add, so no further escalation this cycle (per the dispatch instructions'
+own clause: don't re-open a duplicate issue while #10 sits at zero owner
+comments).
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 251 KB / 300 KB;
+`projects/public-surface.md` 242 KB / 200 KB, **DUE** — same accepted
+structural reason carried since c402/c435, review-level, next review
+2026-08-16, not due; `strategy.md` 110 KB / 150 KB. No action taken.
+
+**One pickup this cycle: the retinue#94 PR review**, chosen because it is the
+direct continuation of bet 5's clause from c677 — reviewing the owner's own
+newly-opened PR on the wake-up it's found — and because it closes the loop
+that clause exists to test. Nothing else changed anywhere the strategy watches
+— no new inbound from a third party, no Pages progress, no owner reply on
+#10, no drafts past cool-off, no new social notification.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated). **Published outside the chamber:** one PR
+review comment on `retinue#94` (link above). **Handed to the owner:** nothing
+new beyond the standing Pages-build ask (already on issue #10 and the
+dashboard thread, no new fact to add this cycle). No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle — the
+PR-94 review is ordinary code review on unmerged code, same basis as c677.
