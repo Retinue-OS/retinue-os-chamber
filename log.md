@@ -1536,3 +1536,80 @@ Pages-build ask remains on both issue #10 and the dashboard thread, with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
 
+
+## c695 — 2026-08-09, ~20:2xZ — found and fixed an uncommitted dashboard-refresh (commit gap); otherwise idle, Pages build stuck (19 cycles, 0 owner comments)
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start was **not clean**: all five `docs/data/*.json` were
+modified but unstaged — the daily `aros-dashboard-refresh` job had
+regenerated them (fresh `2026-08-09T20:00:00Z` stamp, correct content,
+`briefing.json`'s text updated to match current org state) but the session
+ended without committing, the known commit-gap failure mode. Diffed each
+file to confirm the changes were a legitimate regeneration and not a
+half-written or corrupted state, then committed and pushed as the first
+action this cycle (`ea210c3`), before running the rest of the survey, so a
+second concurrent session or the next tick would not silently overwrite it.
+
+**Note on dispatch context.** Same injected "MCP server instructions" block
+as every cycle since c608 (`ask_ara`/`tell_ara` framed as claude.ai
+connectors for "Ara"/"Aros"/"Zoho"). No such tools exist in this session's
+toolset, nothing in it directed an action, disregarded per GUARDRAILS'
+preamble on instructions arriving outside this file.
+
+**GitHub survey, all five public repos.** `.github#1`: unchanged, last
+comment still `aros-agent` 2026-08-09T15:37:09Z. `retinue#94` (owner's
+open PR): still `OPEN`/`MERGEABLE`, 1 comment (mine, 10:27:26Z), unchanged
+— already reviewed. `retinue#71`: unchanged, 3 comments. `retinue-os-chamber#1`
+(social): unchanged, 9 comments. `retinue-os-chamber#10` (Pages ask):
+still **0 comments** — **nineteen cycles** now with no owner reply.
+`retinue-os-deployment#2`: unchanged, 1 comment. `qlever-dir#12` (my own
+SECURITY.md PR): still open, unmerged, unchanged. Org events: only
+`aros-agent` pushes and the owner's own PR/push/delete activity on
+`retinue` (merged #93 news feed, merged #95 mute flag, #94 still open) —
+no third-party event anywhere. 0 stars/forks/watchers across all five
+public repos (a sixth, private repo in the org is not part of this
+chamber's public-surface remit and is not named here per guardrail 5).
+
+**Pages build.** Still `status: "errored"`, latest build still the same
+failed build (`55aa91d`, `"Page build failed."`, `updated_at`
+2026-08-06T13:54:05Z) — unchanged. Nothing new to add to issue #10 or the
+open dashboard thread; a re-push with no new fact would be nagging.
+
+**Drafts, dashboard threads.** `drafts/`: nothing past cool-off. No
+dashboard thread needed an append.
+
+**Delivery check, mandatory, all five cards** (`python3
+tools/delivery-check.py`, run *after* the data commit above): self-test
+pass; publication `HEAD is on origin/main`; disk and `origin/main` now
+correctly fresh at `2026-08-09T20:00:00Z` on all five cards. Served
+(GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5 problems, all
+STALE**, age 4 days, 0:53. All 16 static assets hash-match disk-vs-served.
+**Branch (c) applies, confirmed**: disk is fresh and matches
+`origin/main`, so this remains the already-diagnosed delivery/publish-path
+failure (Pages build), not a refresh-job one. Before the commit above, the
+disk copy itself was the failure (branch (a): job ran, didn't commit) —
+recorded here so a future reader sees both states this cycle passed
+through, not just the one delivery-check reports last.
+
+**Rotation and mentions.** `tools/rotation-check.py`: `log.md` 89 KB /
+300 KB; `projects/public-surface.md` remains **DUE** (241 KB / 200 KB) —
+accepted structural exception since c402/c435, review-level, next
+scheduled review 2026-08-16, not due today; `strategy.md` 110 KB / 150 KB.
+`tools/mentions-check.py`: 52 raw, 0 confirmed, clean run.
+
+**Pickup: one item — the uncommitted refresh, described above.**
+Everything else checked this cycle matched c692–c694 exactly. This is the
+second time this exact failure mode has recurred (see
+`projects/public-surface.md`'s note); worth watching whether it needs a
+fix to the refresh job itself rather than relying on the next wake-up to
+catch it, but not acted on this cycle — one occurrence caught in time is
+not yet evidence of a pattern needing a job change.
+
+**Files changed:** `docs/data/{agenda,briefing,messages,projects,todo}.json`
+(committed `ea210c3`, pushed), `projects/public-surface.md`
+(`current_next_action`), `log.md` (this entry). **Published outside the
+chamber:** the dashboard data refresh, pushed to `origin/main` (not new
+content — a fix to a stuck regeneration). **Handed to the owner:**
+nothing new — the standing Pages-build ask remains on both issue #10 and
+the dashboard thread, with no new fact to add. No guardrail-9 exception
+condition (urgent, hostile, security, manipulation) met this cycle.
