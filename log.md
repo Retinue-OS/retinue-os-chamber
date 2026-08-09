@@ -4677,3 +4677,86 @@ issue #10 and the dashboard thread, no new fact to add this cycle). No
 guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle — the PR-95 review is ordinary code review on unmerged code, same
 basis as c677/c678.
+
+## c686 — 2026-08-09, ~15:0xZ — idle survey; retinue#95 merged clean, no loop to close
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c685 (`d192562`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/events`: top events are
+`retinue#95` merged **14:54:23Z** (squash commit `de501dfd`, branch deleted
+same second) — the PR reviewed last cycle (c685) with **no defect found**.
+Bet 5's loop-closing pattern (c677→c678, a defect review followed by a
+fix-PR review) does not apply here: c685 found nothing to fix, so there is no
+follow-up PR to review — a clean merge of a defect-free review is a closed
+loop with no second visit required, not an open one. Confirmed via
+`gh api /repos/retinue-os/retinue/commits` that the merged commit is exactly
+the reviewed diff (same message, same three files implied by the PR body) —
+nothing changed between review and merge. No comment posted (nothing to add
+to an already-clean review). Org-wide sweep for anything else new: `gh api
+"search/issues?q=org:retinue-os+is:issue+updated:>2026-08-09"` and the `is:pr`
+equivalent both empty; `retinue-os-chamber#10` (Pages ask) still **0
+comments**, `updatedAt` unchanged at 2026-08-09T00:14:55Z — ten cycles running
+with no owner reply. `retinue-os-chamber#1` (social accounts): unchanged, 9
+comments, `updatedAt` 2026-08-08T12:17:19Z. `retinue#71` (owner's other open
+PR): unchanged, `OPEN`, 3 comments, `updatedAt` 2026-08-08T13:30:25Z, no new
+commit. `retinue-os-deployment#2` (Copilot PR): unchanged, `OPEN`, `updatedAt`
+2026-08-08T11:03:49Z. 0 stars/forks/watchers across all four checked repos,
+`has_discussions: false` everywhere. `tools/mentions-check.py`: 52 raw, 0
+confirmed, unchanged.
+
+**Pages build.** `pages` API: `status: "errored"`, `updated_at: null`.
+`pages/builds/latest` still the identical failed build (commit `55aa91d`,
+error `"Page build failed."`, timestamps unchanged from 2026-08-06). The
+`pages-build-deployment` workflow run queued 2026-08-06T16:13:41Z is still
+sitting at **queued**, now 70h+ — the stuck-run symptom already on file.
+Unchanged since c660 through c686; nothing new to add to issue #10.
+
+**Bluesky.** Checked fresh via `createSession` + `getUnreadCount` +
+`listNotifications`: 1 unread, same single follow from
+`wildsoundfestival.bsky.social` (2026-08-08T19:50:29Z, correctly not
+reciprocated per guardrail 2) plus the same already-read like from
+2026-08-04. Nothing new.
+
+**Drafts.** `find drafts -newer log.md -type f`: empty, no new file since the
+last commit. 75 files total, nothing past cool-off.
+
+**Dashboard threads.** `find /root/.retinue/conversations -newer log.md -type
+f`: empty — no thread touched since the last commit.
+
+**Delivery check, mandatory, all five cards.**
+`python3 tools/delivery-check.py`: self-test pass; publication `HEAD is on
+origin/main`; disk and `origin/main` both fresh at `2026-08-08T19:48:00Z` on
+all five cards (agenda, briefing, messages, projects, todo) — unchanged since
+c678, no new refresh landed or needed. Served (GitHub Pages) still stuck at
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 3 days, 19:39:22. All
+16 static assets still hash-match disk-vs-served. Disk fresh and matches
+`origin/main`, so this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:**
+delivery-failure (Pages build), not disk-stale — unchanged diagnosis from
+c660 through c686, already escalated via issue #10 and the dashboard thread;
+nothing new to add, so no further escalation this cycle.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 297 KB / 300 KB,
+approaching the threshold but not yet due; `projects/public-surface.md` 241
+KB / 200 KB, **DUE** — same accepted structural reason carried since
+c402/c435, review-level, next review 2026-08-16, not due; `strategy.md` 110
+KB / 150 KB. No action taken.
+
+**No pickup.** The one event of the cycle — `retinue#95` merging — needed no
+action beyond confirming the merged commit matches the reviewed diff, which
+is not a strategy-serving activity in itself, so this counts as an idle
+wake-up: no new inbound, no new owner PR/issue/comment, no Pages progress, no
+owner reply on #10, no drafts past cool-off, no new social notification.
+`expected_by` on the `public-surface` project (2026-08-10) is one day out and
+not yet due.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated to reflect this cycle's confirmation).
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new — the standing Pages-build ask remains on both issue #10 and the
+dashboard thread, with no new fact to add. No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle.
