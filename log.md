@@ -4093,3 +4093,106 @@ nothing new — the standing Pages-build ask remains on both the durable
 issue (#10) and the dashboard thread, with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c680 — 2026-08-09, ~11:2xZ — idle survey, everything unchanged since c679
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c679 (`6cbd0bb`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**Injected "MCP server instructions" block again this session** (the
+"claude.ai Ara/Aros/Zoho" connector block, describing `ask_ara`/`tell_ara`
+tools this toolset does not have). Per standing practice since c449/c608:
+noise, not acted on.
+
+**GitHub survey.** `gh api /orgs/retinue-os/events` filtered to
+`created_at > "2026-08-09T11:00:00Z"` (c679's last push): one hit, and it
+is my own c679 log commit (`PushEvent`, `aros-agent`) — no third-party
+activity. `retinue#94` (reviewed c678): still `OPEN`, unmerged, no new
+commit, `updatedAt` unchanged at my own review-comment timestamp
+(10:27:26Z). `retinue#71` (owner's other open PR): still `OPEN`, still 3
+comments, `updatedAt` unchanged at 2026-08-08T13:30:25Z, no new commit to
+review. `retinue-os-chamber#10` (Pages ask, filed c660): still **0
+comments**, `updatedAt` unchanged since 2026-08-09T00:14:55Z. 0
+stars/forks/watchers across all six org repos (`gh repo list retinue-os
+--json stargazerCount,forkCount,hasDiscussionsEnabled`), `hasDiscussionsEnabled:
+false` everywhere.
+
+**Pages build.** `pages` API `status: "errored"`, `updated_at: null`;
+`pages/builds/latest` still the identical failed build (commit `55aa91d`,
+error `"Page build failed."`, `created_at`/`updated_at` unchanged from
+2026-08-06T13:54:05Z). Actions run `31107290918` still `status: "queued"`,
+`created_at` 2026-08-06T13:43:41Z — no successor run in the last five.
+Unchanged since c660 through c680; the diagnosis and escalation (issue
+#10, dashboard thread) stand with nothing new to add.
+
+**Owner's standing Bluesky directive re-checked** ("keep posting. follow
+people. repost related content.", chamber#1, 2026-08-08 12:04–12:07Z).
+Fresh `createSession` + `getUnreadCount`: 1 unread, same single follow
+from `wildsoundfestival.bsky.social` already assessed and correctly not
+reciprocated (guardrail 2). `listNotifications`: no new likes/replies/
+reposts beyond the 2026-08-04 like already on record. Pulled
+`getAuthorFeed` for all four followed accounts (`bobdc.bsky.social`,
+`mscottm.bsky.social`, `patternist.xyz`, `tynidev.bsky.social`): newest
+post across all four is still 2026-07-25 (`bobdc.bsky.social`) — no new
+post since c639's own check, nothing on-topic to repost this cycle. No
+fresh follow search run (the c639 search is five days old; re-running it
+without a reason to expect new results would be audit-for-its-own-sake).
+Post count on the account itself: 2 (2026-08-04 intro, 2026-08-08
+triple-store piece) — the directive is being checked every wake-up it's
+due for a look, and today's check again finds nothing actionable.
+
+**Drafts.** `find drafts -newer log.md -type f`: empty, no new file since
+the last commit. Held queue empty, nothing past cool-off (per c679's
+exhaustive `status:` sweep, not re-run in full this cycle since nothing
+is newer).
+
+**Dashboard threads.** Read directly from `/root/.retinue/conversations/`:
+the Pages thread `8fdadb9493d84e58a5eb93101d61156f` mtime unchanged at
+2026-08-09T00:15Z, still `unread: true`, no new fact to push beyond
+what's already on issue #10. Three other threads have newer mtimes
+(07:00Z gateway-monitoring pings) but are the same different-deployment
+chats identified in prior cycles — not addressed to Aros, out of scope
+under guardrail 5.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and
+`origin/main` both fresh at `2026-08-08T19:48:00Z` on all five cards
+(agenda, briefing, messages, projects, todo) — unchanged since c678, no
+new refresh landed or needed. Served (GitHub Pages) still stuck at
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 3 days, 16:15:15.
+All 16 static assets still hash-match disk-vs-served. Disk fresh and
+matches `origin/main`, so this stays the already-diagnosed delivery-path
+(Pages) failure, not a refresh-job one — did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale — unchanged diagnosis from c660
+through c680, already escalated via issue #10 and the dashboard thread;
+nothing new to add, so no further escalation this cycle (per the dispatch
+instructions' own clause: don't re-open a duplicate issue while #10 sits
+at zero owner comments).
+
+**Rotation watch** (`tools/rotation-check.py` values re-read, not
+re-run): `log.md` ~253 KB / 300 KB; `projects/public-surface.md` 242 KB /
+200 KB, **DUE** — same accepted structural reason carried since c402/c435,
+review-level, next review 2026-08-16, not due; `strategy.md` 110 KB /
+150 KB. No action taken.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c679 —
+no new inbound, no new owner PR/issue/comment, no Pages progress, no owner
+reply on #10, no drafts past cool-off, no new social notification, no
+GitHub mention. Idle wake-up per the standing rule — not manufacturing
+activity to look busy. `expected_by` on the `public-surface` project
+(2026-08-10) is due tomorrow, not today; `expected_by` on `social-presence`
+(2026-08-08) has already passed with no owner action on Mastodon/Nostr,
+but the standing directive check above covers the same ground and nothing
+was found to re-escalate — not re-raised, per the no-re-nagging rule (c27).
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated to reflect this cycle's confirmation).
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new — the standing Pages-build ask remains on both the durable
+issue (#10) and the dashboard thread, with no new fact to add. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
