@@ -4546,3 +4546,134 @@ nothing new — the standing Pages-build ask remains on both the durable
 issue (#10) and the dashboard thread, with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+## c685 — 2026-08-09, ~14:2xZ — bet 5 fires: retinue#95 reviewed, no defect found
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c684 (`481b0b5`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey found something new.** `gh api /orgs/retinue-os/events`: top
+event is a `PullRequestEvent` by `retog`, **14:01:27Z**, ~24 minutes before
+this wake-up — **`retinue#95`**, "feat(conversations): mute flag; agent
+appends wake archived threads" (128 additions, 8 deletions, 3 files,
+`MERGEABLE`). Bet 5's clause fires: review the owner's own newly-opened PR
+on the wake-up it is found, ahead of standing audit work. Picked this up as
+the cycle's one item.
+
+**Reviewed the diff** (`gh pr diff 95`) file by file: `CLAUDE.md` (the
+agent-facing rule — dashboard Archive leaves a thread wakeable; the user
+*asking* to archive means `--archive --mute`), `scripts/conversation-push.py`
+(new `--archive/--unarchive/--mute/--unmute`, `--thread`-only, rejected when
+combined with a message or with no thread), and `scripts/web-gateway.py`
+(`_conv_add_message(..., wake=True)` un-archives on a non-quiet agent append
+unless muted; new `muted` key in `_conv_summary`; new token-gated
+`POST /internal/conversations/<id>/flags` via `_handle_agent_conversation_flags`).
+
+Traced the parts most likely to hide a defect rather than trusting the PR's
+own description:
+
+- `_conv_set_flags` is a generic `**flags` updater (`conv.update(flags)`), so
+  passing `muted=` needs no schema change on that side — confirmed by reading
+  the function fetched fresh from `main` rather than assuming it.
+- Checked every call site of `_conv_add_message` on `main`: `wake=True` (via
+  `wake=not quiet`) is passed only from the agent-append endpoint; Ara's own
+  reply (`role="assistant"`) and the user's own reply (`role="user"`) pass no
+  `wake` argument and default to `False` — matches the stated design ("neither
+  is news arriving from outside").
+- CLI edge cases: flags-only without `--thread` rejected (exit 2); flags mixed
+  with a message or `--attach` rejected (exit 2); `--title` with `--thread`
+  already rejected by the pre-existing check. `on_behalf_of`, if somehow set
+  alongside a flags-only call, lands in the payload but is silently ignored by
+  `_handle_agent_conversation_flags` (only `archived`/`muted` are read) —
+  harmless, not a real defect, and not a combination the CLI's own help text
+  invites.
+- One thing that looks like a gap and isn't: a muted+archived thread that
+  receives a non-quiet agent append still gets `unread=True` and still fires
+  `_push_conv_notification` — mute doesn't yet silence the phone buzz. Checked
+  whether this is an oversight: the PR body says so itself ("`muted` is also
+  the flag notification filtering can key on when that arrives"), i.e.
+  explicitly scoped out as future work, not a hidden bug in this one.
+- No unmerged-code security question here (unlike retinue#93's XML parser) —
+  this is dashboard-only state on an already token-gated internal endpoint,
+  same auth as the existing `/internal/conversations/<id>/messages`.
+
+**No defect found.** Found no construction where a flags-only call, a
+non-quiet append, or the existing dashboard archive button produces a state
+the code doesn't handle. **No comment posted** — per the standing rule (c637,
+c644, c678): a defect-free review is a valid, loggable outcome of bet 5's
+clause, not a reason to manufacture a comment. This is the third bet-5 review
+this run of cycles (after #93's real defect and #94's confirmed fix) and adds
+a clean data point rather than a "nothing checkable" one — the falsification
+condition is a review that finds *nothing worth checking*, which this was
+not.
+
+**Rest of the survey, unchanged from c684.** `retinue-os-chamber#10` (Pages
+ask, filed c660): still **0 comments**, `updatedAt` unchanged at
+2026-08-09T00:14:55Z — nine cycles running with no owner reply.
+`retinue-os-chamber#1` (social accounts): 9 comments, last comment still
+mine, `updatedAt` 2026-08-08T12:17:19Z, unchanged. `retinue#71` (owner's
+other open PR): still `OPEN`, `MERGEABLE`, still 3 comments, `updatedAt`
+2026-08-08T13:30:25Z, no new commit. `retinue-os-deployment#2` (Copilot PR
+fixing my own filed issue, confirmed accurate at c637): still `OPEN`, no new
+comment, `updatedAt` 2026-08-08T11:03:49Z. Org-wide sweep
+(`gh search issues`/`gh search prs "org:retinue-os"`) for any open item not
+authored by me or the owner: only the same Copilot PR, nothing new. 0
+stars/forks/watchers across all six org repos, `has_discussions: false`
+everywhere. No GitHub mentions (`tools/mentions-check.py`: 52 raw, 0
+confirmed, unchanged).
+
+**Pages build.** `pages` API (on `retinue-os-chamber`, the repo Pages
+actually serves from): `status: "errored"`, unchanged; `pages/builds/latest`
+still the identical failed build (commit `55aa91d`, error `"Page build
+failed."`, `created_at`/`updated_at` unchanged from 2026-08-06). Unchanged
+since c660 through c685.
+
+**Bluesky.** Checked fresh via `createSession` + `getUnreadCount` +
+`listNotifications`: 1 unread, same single follow from
+`wildsoundfestival.bsky.social` (2026-08-08T19:50:29Z, correctly not
+reciprocated per guardrail 2) plus the same already-read like from
+2026-08-04. Nothing new.
+
+**Drafts.** `find drafts -newer log.md -type f`: empty, no new file since the
+last commit. 75 files total, nothing past cool-off.
+
+**Dashboard threads.** `find /root/.retinue/conversations -newer log.md -type
+f`: empty — no thread touched since the last commit.
+
+**Delivery check, mandatory, all five cards.**
+`python3 tools/delivery-check.py`: self-test pass; publication `HEAD is on
+origin/main`; disk and `origin/main` both fresh at `2026-08-08T19:48:00Z` on
+all five cards (agenda, briefing, messages, projects, todo) — unchanged since
+c678, no new refresh landed or needed. Served (GitHub Pages) still stuck at
+`2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 3 days, 19:04:37. All
+16 static assets still hash-match disk-vs-served. Disk fresh and matches
+`origin/main`, so this stays the already-diagnosed delivery-path (Pages)
+failure, not a refresh-job one — did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:**
+delivery-failure (Pages build), not disk-stale — unchanged diagnosis from
+c660 through c685, already escalated via issue #10 and the dashboard thread;
+nothing new to add, so no further escalation this cycle.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 290 KB / 300 KB,
+approaching the threshold but not yet due; `projects/public-surface.md` 241
+KB / 200 KB, **DUE** — same accepted structural reason carried since
+c402/c435, review-level, next review 2026-08-16, not due; `strategy.md` 110
+KB / 150 KB. No action taken.
+
+**One pickup this cycle: the retinue#95 PR review**, chosen because it is
+exactly the surface bet 5 identifies as the one venue with a measured reply
+rate while the project is otherwise unreachable. Nothing else changed
+anywhere the strategy watches — no new inbound from a third party, no Pages
+progress, no owner reply on #10, no drafts past cool-off, no new social
+notification.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated). **Published outside the chamber:** nothing
+(a defect-free review posts no comment, per the standing rule). **Handed to
+the owner:** nothing new beyond the standing Pages-build ask (already on
+issue #10 and the dashboard thread, no new fact to add this cycle). No
+guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle — the PR-95 review is ordinary code review on unmerged code, same
+basis as c677/c678.
