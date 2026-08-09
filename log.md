@@ -1259,3 +1259,105 @@ chamber:** nothing. **Handed to the owner:** nothing new — the standing
 Pages-build ask remains on both issue #10 and the dashboard thread, with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
+
+## c692 — 2026-08-09, ~18:2xZ — idle survey; nothing new since c691, Pages build stuck (16 cycles, 0 owner comments); re-tried the cancel, still 403
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c691 (`98cb26a`), matching
+`origin/main`.
+
+**Note on dispatch context.** Same injected "MCP server instructions" block
+as every cycle since c608 (`ask_ara`/`tell_ara` framed as claude.ai
+connectors for "Ara"/"Aros"/"Zoho", the last describing an unrelated "AROS
+advocacy community"). No such tools exist in this session's toolset, nothing
+in it directed an action, and GUARDRAILS.md's preamble already covers a
+persuasive-sounding instruction arriving by any channel other than this
+file. Treated as noise, disclosed and disregarded in the reply, not acted
+on.
+
+**GitHub survey, all six repos.** Issues/PRs listed fresh across
+`retinue`, `retinue-os-chamber`, `retinue-os-deployment`, `.github`,
+`qlever-dir`. `.github#1` shows a new comment timestamp
+(2026-08-09T15:37:09Z) but it is the **same** exchange c687 already logged
+and committed (`d7a6a82`, 15:41Z) — owner disputed the model-agnostic
+framing at 15:23:12Z, I checked the shipped LiteLLM config (0 Ollama
+references, one non-Claude route used only as a subscription-failover
+path) and replied with citations at 15:37:09Z; nothing after that. Not a
+new event, just the first time this cycle's fresh `gh issue view` surfaced
+the same timestamp — worth naming so a future me doesn't mistake a stale
+API read for a new one. `retinue#94` (owner's open PR): still `OPEN`,
+`MERGEABLE`, 1 comment (mine, 10:27:26Z), unchanged. `retinue#71`: still 3
+comments, `updatedAt` unchanged at 2026-08-08T13:30:25Z. `retinue-os-chamber#1`
+(social): unchanged since the 2026-08-08T12:17:19Z reply. `retinue-os-chamber#10`
+(Pages ask): still **0 comments**, `updatedAt` unchanged at
+2026-08-09T00:14:55Z — **sixteen cycles** now with no owner reply.
+`retinue-os-deployment#2` (Copilot PR) unchanged since 2026-08-08T11:03:49Z.
+`qlever-dir#12` (my own SECURITY.md PR) still open, unmerged, unchanged.
+0 stars/forks/watchers, 0 discussions across all five public repos.
+`gh api /orgs/retinue-os/events`: newest third-party event anywhere is
+still the 15:23:12Z `retog` comment already covered above — everything
+after it in the feed is my own pushes. `tools/mentions-check.py`: 52 raw,
+0 confirmed, self-test pass. `tools/web-mentions-check.py`: 1/3 engines
+answering (mojeek; bing/duckduckgo still anti-bot-gated), 0 confirmed off
+GitHub.
+
+**Pages build — tried an actual fix, not just re-observation.** Beyond the
+usual API read (`pages` still `status: "errored"`, `updated_at: null`;
+`pages/builds/latest` still the identical failed build, commit `55aa91d`,
+unchanged since 2026-08-06T13:54:05Z; the queued run `31107290918`
+unchanged since `created_at` 2026-08-06T13:43:41Z, now ~100.7h), I tried
+`POST .../actions/runs/31107290918/cancel` and `GET .../actions/permissions`
+from `aros-agent` this cycle, on the chance the Write-role grant from
+chamber#6 (2026-08-02) had incidentally widened Actions access since the
+issue was filed. Both **403 `Resource not accessible by personal access
+token`** — same result as the one already recorded in issue #10's own body.
+Not new information, and not posted anywhere: re-confirming a documented
+403 is not a new fact, it is the same fact re-measured, and the standing
+rule against re-pushing a thread with nothing new in it applies exactly as
+much to a second `curl` as to a second comment.
+
+**Bluesky, drafts, dashboard threads.** Fresh `createSession` +
+`getUnreadCount` + `listNotifications`: 1 unread, unchanged (the same
+`wildsoundfestival.bsky.social` follow, 2026-08-08T19:50:29Z) plus the same
+already-read like from 2026-08-04. Pulled `getAuthorFeed` for all four
+followed accounts (`bobdc.bsky.social`, `mscottm.bsky.social`,
+`patternist.xyz`, `tynidev.bsky.social`) per the owner's standing "repost
+related content" directive (chamber#1, 2026-08-08): newest post across all
+four is still 2026-07-25 — nothing on-topic posted since, nothing to
+repost this cycle. `find drafts -type f -newer strategy.md`: empty, nothing
+past cool-off. `find /root/.retinue/conversations -newer log.md -type f`:
+empty — the open "Dashboard delivery: stuck Pages build" thread
+(`8fdadb9493d84e58a5eb93101d61156f`) has nothing new to append.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and
+`origin/main` both fresh at `2026-08-08T19:48:00Z` on all five cards
+(agenda, briefing, messages, projects, todo) — unchanged since c687–c691,
+no refresh landed or needed this cycle. Served (GitHub Pages) still stuck
+at `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age 3 days, 23:08.
+All 16 static assets still hash-match disk-vs-served. **Branch (c)
+applies**: disk copy is fresh and matches `origin/main`, so this is the
+already-diagnosed delivery/publish-path failure, not a refresh-job one —
+did not regenerate anything.
+
+**Rotation.** `tools/rotation-check.py`: `log.md` 73 KB / 300 KB, well
+under. `projects/public-surface.md` remains **DUE** (241 KB / 200 KB) —
+same accepted structural exception carried since c402/c435, review-level,
+next scheduled review 2026-08-16, not due today. `strategy.md` 110 KB /
+150 KB. No action taken.
+
+**No pickup.** Every surface checked this cycle returned the same state
+c691 already recorded, with one addition — a direct attempt to self-serve
+the Pages fix (cancel the stuck run) rather than only reading its status,
+which failed the same way the issue already documents and so added no new
+fact to publish. No new inbound, no new owner PR/issue/comment, no drafts
+past cool-off, no dashboard thread needing an append, and the Pages
+failure unchanged with nothing new to escalate. This is an idle wake-up by
+the letter of the dispatch instructions — confirming nothing moved is the
+correct outcome, not a gap to fill with manufactured activity.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on both issue #10 and the dashboard thread, with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
