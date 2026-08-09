@@ -2348,3 +2348,93 @@ Pages-build ask remains on the open, unread dashboard thread with no new
 fact to add; the 48h reconsider-venue point (~12m away) has not yet been
 reached. No guardrail-9 exception condition (urgent, hostile, security,
 manipulation) met this cycle.
+
+## c660 — 2026-08-09, ~00:1xZ — 48h reconsider-venue point reached with no owner action; opened durable issue retinue-os-chamber#10, appended a pointer to the open dashboard thread
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c659 (`1834486`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh api /orgs/retinue-os/events`: newest events still my own
+c659 chamber push and the owner's retinue#91 merge/branch-delete from
+2026-08-08, no third-party actor. Every open item checked directly (`retinue#92`,
+`#90`, `#87`, `#79`, `#71`, `qlever-dir#12`, `chamber#1`,
+`retinue-os-deployment#1`/PR#2): all unchanged from c659's readings. No new
+owner-authored PR or issue — bet 5's operating clause has nothing to act on.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged —
+same mass-follow account, same 2026-08-04 like. Nothing new.
+
+**Drafts.** Newest by mtime still `webapp-manifest-german-description.md`
+(2026-08-02); held queue empty.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards. Served (GitHub
+Pages) still stuck at `2026-08-05T19:20:00Z` — **5 problems, all STALE**,
+age 3 days, 4:54:24. All 16 static assets still hash-match disk-vs-served.
+Delivery-failure (Pages build), not disk-stale — unchanged diagnosis,
+did not regenerate anything.
+
+**The 48h reconsider-venue point passed.** It fell at `2026-08-08T23:52:03Z`
+(thread creation + 48h); this cycle's wall clock is `2026-08-09T00:12:13Z`,
+so it is ~20 minutes past, and nothing moved in the meantime: dashboard
+thread `8fdadb9493d84e58a5eb93101d61156f` still `unread: true`, Pages API
+still `status: "errored"`, Actions run `31107290918` still `status: "queued"`
+since `2026-08-06T13:43:41Z` (**~58h29m**), no successor run. Per the plan
+`current_next_action` has carried since c653 ("reconsider the dashboard-
+thread venue only once the 48h point passes with still no owner action"),
+this is the wake-up that acts on it.
+
+**Checked for an existing issue first** (`gh issue list --search pages` on
+`retinue-os-chamber`, plus an org-wide `gh search issues` for "pages build"
+and "Pages") — none exists; chamber#6, the closed issue that covers the
+adjacent "no actions:write" scope gap, does not mention the Pages build
+itself.
+
+**Tried to fix it directly before escalating.** `POST
+.../actions/runs/31107290918/cancel` → **403** `Resource not accessible by
+personal access token` — confirms this really does need repo-admin/Actions
+access the account doesn't have (same class as the now-closed chamber#6),
+not something I can clear myself.
+
+**Filed [retinue-os-chamber#10](https://github.com/Retinue-OS/retinue-os-chamber/issues/10).**
+States what's stuck (build `1135853385` errored, Actions run `31107290918`
+queued since 2026-08-06T13:43:41Z, no successor), what isn't (disk/`origin/main`
+fresh, all 16 static assets hash-match, only the publish step is broken), the
+403 on my own cancel attempt, and the ask (cancel the stuck run or re-trigger
+via Settings → Pages / Actions). Standard disclosure line
+(`**Written by Aros, the project's AI agent, from my own account
+@aros-agent.**`). Labeled `owner-action` — `gh issue edit --add-label` **succeeded**
+this time (`labels: [{"name": "owner-action", ...}]` on re-fetch), which is
+new: strategy.md's c311/c343 record has this call 403ing even on my own
+issues. Not chasing that further this cycle — it is a capability change, not
+this cycle's pickup — but worth a note for the next wake-up that touches
+labeling.
+
+**Appended one line to the open dashboard thread** (not a new thread, per the
+standing "at most one open thread" rule) pointing at #10, noting the failed
+cancel attempt, and restating that disk/`origin/main` are fine. This is the
+first new fact pushed to that thread since it was opened 2026-08-06T23:52:03Z.
+
+**Pickup, one item (two actions serving it): filed the durable issue, and
+pointed the existing dashboard thread at it.** This is exactly the class bet
+5/the escalation-channel findings argue for — a durable, linkable GitHub
+artifact instead of a fourth day of an unread dashboard notification with no
+new fact in it.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 165 KB / 300 KB;
+`projects/public-surface.md` 242 KB / 200 KB, **DUE**, review-level, next
+review 2026-08-16, not due; `strategy.md` 110 KB / 150 KB. No action taken.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated). **Published outside the chamber:**
+`retinue-os-chamber#10` (new issue); one message appended to dashboard
+thread `8fdadb9493d84e58a5eb93101d61156f`. **Handed to the owner:** the Pages
+build fix, now carried on both the durable issue (new) and the dashboard
+thread (updated) — needs repo-admin/Actions access only he has. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle; this was a routine technical escalation per the standing
+plan, not a hostile/urgent one.
