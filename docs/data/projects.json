@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-08T19:48:00Z",
+  "generated": "2026-08-09T20:00:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Register floor still 242KB, over the 200KB rotation trigger - structural, not urgent, same reason since c402/c435.",
+      "next": "Register floor 241KB, over the 200KB rotation trigger - structural exception since c402/c435, next review 08-16.",
       "expected": "2026-08-10"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "2nd Bluesky post (08-08 12:16 UTC) IS the triple-store piece - bet 1's lead story, now live. Defects: qlever-dir#3-8,10 - 7/8 open.",
+      "next": "2nd Bluesky post (08-08 12:16 UTC) IS the triple-store piece - live, bet 1's lead story. Defects: qlever-dir#3-10, 7/8 open.",
       "expected": "2026-08-15"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 08-08 19:48 UTC (was 08-07 19:40 UTC); Pages build stuck since 08-06 13:44 UTC, served copy still 08-05 19:20 UTC."
+      "next": "Regenerated 08-09 20:00 UTC (was 08-08 19:48 UTC); Pages build stuck since 08-06 13:44 UTC, served copy still 08-05 19:20 UTC."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 20 d 22 h. Bluesky live, posted twice (08-04, 08-08). Mastodon and Nostr still his call.",
+      "next": "chamber#1, opened 2026-07-18 - 21 d 22 h. Bluesky live, posted twice (08-04, 08-08). Mastodon and Nostr still his call.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },

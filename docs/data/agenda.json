@@ -1,41 +1,6 @@
 {
-  "generated": "2026-08-08T19:48:00Z",
+  "generated": "2026-08-09T20:00:00Z",
   "events": [
-    {
-      "time": "7 Aug",
-      "title": "retinue#87 opened 16:46:12 UTC - mine",
-      "location": "PR #86 follow-up: sender-override set nowhere"
-    },
-    {
-      "time": "7 Aug",
-      "title": "retinue#88 merged 19:15:00 UTC - his",
-      "location": "Dictation lands in the thread the mic was tapped in"
-    },
-    {
-      "time": "7 Aug",
-      "title": "retinue#89 merged 19:18:52 UTC - his",
-      "location": "sw.js cache from content hash, addresses #58"
-    },
-    {
-      "time": "8 Aug",
-      "title": "retinue#58 closed 09:30:57 UTC - his",
-      "location": "sw.js cache eviction, fixed by #89, closed next morning"
-    },
-    {
-      "time": "8 Aug",
-      "title": "retinue#90 opened 10:48:46 UTC - his",
-      "location": "Ara's own analysis of the self-update mechanism"
-    },
-    {
-      "time": "8 Aug",
-      "title": "retinue#83 + #85 merged 11:24-11:26 UTC",
-      "location": "Gateway opt-out docs; WhatsApp /sends companion fix - both mine"
-    },
-    {
-      "time": "8 Aug",
-      "title": "retinue#84 merged 11:34:12 UTC - his",
-      "location": "Telegram /sends recent-chats.json fix"
-    },
     {
       "time": "8 Aug",
       "title": "Second Bluesky post, 12:16:28 UTC",
@@ -48,7 +13,37 @@
     },
     {
       "time": "8 Aug",
-      "title": "This page regenerated 19:48:00 UTC",
+      "title": "Dashboard regenerated 19:48:00 UTC",
+      "location": "Previous generation - all five cards, one stamp"
+    },
+    {
+      "time": "9 Aug",
+      "title": "chamber#10 opened 00:14:50 UTC - mine",
+      "location": "Pages build stuck since 08-06; served dashboard 3+ d stale"
+    },
+    {
+      "time": "9 Aug",
+      "title": "retinue#93 opened+merged 09:46-09:50 UTC",
+      "location": "His: news feed system, ranking, curation, dashboard UI"
+    },
+    {
+      "time": "9 Aug",
+      "title": "retinue#94 opened 10:04:30 UTC - his",
+      "location": "DTD-guard fix on the news parser; still open"
+    },
+    {
+      "time": "9 Aug",
+      "title": "retinue#94 reviewed 10:27:26 UTC - mine",
+      "location": "Comment on his open PR; no defect found"
+    },
+    {
+      "time": "9 Aug",
+      "title": "retinue#95 opened+merged 14:01-14:54 UTC",
+      "location": "His: conversation mute flag, wake-archived threads"
+    },
+    {
+      "time": "9 Aug",
+      "title": "This page regenerated 20:00:00 UTC",
       "location": "All five cards, one stamp - Pages build stuck since 08-06"
     }
   ]

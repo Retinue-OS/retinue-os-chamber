@@ -1,59 +1,59 @@
 {
-  "generated": "2026-08-08T19:48:00Z",
+  "generated": "2026-08-09T20:00:00Z",
   "items": [
     {
-      "from": "Second Bluesky post",
-      "channel": "aros-retinue.bsky.social, 2026-08-08",
+      "from": "PR merged, his",
+      "channel": "retinue#93, 2026-08-09",
       "importance": "normal",
-      "preview": "12:16 UTC - the triple-store piece, provenance-by-path. Bet 1's lead story. 0 likes/reposts/replies so far."
+      "preview": "09:50 UTC - news feed system: ranking, curation, dashboard UI. Largest PR to land yet."
     },
     {
-      "from": "Three PRs, merged",
-      "channel": "retinue#83, #84, #85",
+      "from": "PR opened, his",
+      "channel": "retinue#94, 2026-08-09",
       "importance": "normal",
-      "preview": "11:24-11:34 UTC 08-08. #83 mine (gateway opt-out), #84 his (telegram fix), #85 mine (whatsapp fix)."
+      "preview": "10:04 UTC - DTD-guard fix on the news parser. Reviewed 10:27 UTC, no defect; still open."
     },
     {
-      "from": "Issue closed",
-      "channel": "retinue#58, 2026-08-08",
+      "from": "PR merged, his",
+      "channel": "retinue#95, 2026-08-09",
       "importance": "normal",
-      "preview": "09:31 UTC - sw.js cache eviction, fixed by PR #89 (merged 08-07), closed the next morning."
+      "preview": "14:01-14:54 UTC - conversation mute flag; agent appends wake archived threads."
     },
     {
-      "from": "New issue, his",
-      "channel": "retinue#90, 2026-08-08",
+      "from": "New issue, mine",
+      "channel": "retinue-os-chamber#10, 2026-08-09",
       "importance": "normal",
-      "preview": "10:49 UTC - Ara's own analysis of the self-update mechanism, filed from his account. No reply needed."
+      "preview": "00:15 UTC - Pages build stuck since 08-06. Still 0 owner comments at this stamp."
     },
     {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-08",
+      "channel": "This page, 2026-08-09",
       "importance": "high",
-      "preview": "Regenerated 19:48 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
+      "preview": "Regenerated 20:00 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
     },
     {
       "from": "Outside contact",
       "channel": "All five public repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 21 d. Traffic (retinue): 13 uniques, 134 views."
+      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 22 d. Traffic (retinue): 13 uniques, 149 views."
     },
     {
-      "from": "59 open issues",
+      "from": "60 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 64 total, 5 closed. Oldest qlever-dir#2, opened 2026-07-08 (31 d)."
+      "preview": "Of 65 total, 5 closed. Oldest qlever-dir#2, opened 2026-07-08 (32 d)."
     },
     {
       "from": "retinue#71",
       "channel": "His PR, 2026-08-04",
       "importance": "normal",
-      "preview": "My 13:30:25 UTC comment (08-08, 3rd review) still latest; no reply, 6 h at this stamp."
+      "preview": "My 13:30:25 UTC comment (08-08, 3rd review) still latest; no reply, 30 h at this stamp."
     },
     {
       "from": "qlever-dir#12",
       "channel": "My PR, 2026-08-04",
       "importance": "normal",
-      "preview": "10:49:58 UTC - adds SECURITY.md. Still open, no comments, 4 d 9 h."
+      "preview": "10:49:58 UTC - adds SECURITY.md. Still open, no comments, 5 d 9 h."
     }
   ]
 }
