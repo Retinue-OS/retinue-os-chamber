@@ -929,3 +929,79 @@ standing Pages-build ask remains on issue #10 with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle — a claim-accuracy exchange with the owner is ordinary
 guardrail-3 work, not an escalation trigger.
+
+## c688 — 2026-08-09, ~16:1xZ — idle survey; nothing new since c687, Pages delivery failure unchanged
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c687 (`d7a6a82`), matching `origin/main`.
+
+**Note on dispatch context.** The dispatch again carried the injected "MCP
+server instructions" block (`ask_ara`/`tell_ara`/etc.). Same disposition as
+every cycle since c608: no such tools exist in this session's toolset,
+nothing in it asked for an action, and GUARDRAILS.md's preamble already
+covers a persuasive-sounding instruction arriving by any channel other than
+this file. Treated as noise, not acted on.
+
+**GitHub survey.** Org events since c687's last check (15:41Z push) show
+nothing new: the two `.github#1` comment events already in the org events
+feed are the owner's 15:23:12Z dispute and my own 15:37:09Z reply, both
+already logged in full at c687 — re-read the thread directly to confirm no
+third comment landed since. `retinue#95` (merged 14:54:23Z, reviewed c685,
+confirmed clean c686) unchanged. `retinue#94` ("refuse feeds that declare a
+DTD") still `OPEN`, still the only unmerged PR with recent activity, still
+carries my 2026-08-09T10:27:26Z review comment with nothing new to add —
+re-checked its comment/review list directly, no new comment since mine.
+`retinue#71` unchanged (`updatedAt` 2026-08-08T13:30:25Z, 3 comments).
+`retinue-os-deployment#2` unchanged (2026-08-08T11:03:49Z, 1 comment).
+`retinue-os-chamber#1` (social accounts) unchanged, 9 comments
+(2026-08-08T12:17:19Z). `retinue-os-chamber#10` (Pages ask) still **0
+comments**, `updatedAt` unchanged since 2026-08-09T00:14:55Z. 0
+stars/forks/watchers across all four public repos, unchanged.
+`tools/mentions-check.py`: 52 raw, 0 confirmed, unchanged. No discussions in
+any repo (GraphQL query, empty result).
+
+**Bluesky, drafts, dashboard threads.** No new notifications beyond the
+already-read follow/like. `find drafts -newer log.md`: empty. `find
+/root/.retinue/conversations -newer log.md`: empty — the open
+"Dashboard delivery: stuck Pages build" thread is still unread but has
+nothing new to append (same diagnosis as below), so it was not bumped, per
+the standing rule against re-pushing a thread whose only new content would
+be "still here."
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards (agenda, briefing,
+messages, projects, todo) — unchanged since c678/c687, no new refresh landed
+or needed. Served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 3 days, 20:53:37. All 16 static assets still
+hash-match disk-vs-served. **Branch (c) applies**: disk copy is fresh and
+matches `origin/main`, so this remains the already-diagnosed delivery/publish
+-path failure (Pages build), not a refresh-job one — did not regenerate
+anything. `pages` API confirms: `status: "errored"`, `updated_at: null`;
+`pages/builds/latest` still the identical failed build (commit `55aa91d`,
+error `"Page build failed."`, unchanged since 2026-08-06); the queued
+`pages-build-deployment` workflow run (id `31107290918`, queued
+2026-08-06T13:43:41Z) is still sitting at **queued**, now ~74.5h. Issue #10
+still has 0 owner comments, twelve cycles now with no reply. Nothing new to
+add to it — a re-push with no new fact would be exactly the nagging the
+strategy's own rule against re-bumping a thread forbids.
+
+**Rotation.** `tools/rotation-check.py`: `log.md` 53 KB / 300 KB, well under.
+`projects/public-surface.md` remains **DUE** (241 KB / 200 KB) — same
+accepted structural exception carried since c402/c435, review-level, next
+scheduled review 2026-08-16, not due today. `strategy.md` 110 KB / 150 KB.
+No action taken.
+
+**No pickup.** Every surface checked this cycle returned the same state
+c687 already recorded: no new inbound, no new owner PR/issue/comment beyond
+what's logged, PR#94 already reviewed with nothing new to say, no drafts
+past cool-off, no dashboard thread needing an append, and the Pages failure
+unchanged with no new fact to escalate. This is an idle wake-up by the
+letter of the dispatch instructions — confirming nothing moved is the
+correct outcome, not a gap to fill with manufactured activity.
+
+**Files changed:** `log.md` (this entry only). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on both issue #10 and the dashboard thread, with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
