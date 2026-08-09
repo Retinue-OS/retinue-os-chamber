@@ -4009,3 +4009,87 @@ new beyond the standing Pages-build ask (already on issue #10 and the
 dashboard thread, no new fact to add this cycle). No guardrail-9 exception
 condition (urgent, hostile, security, manipulation) met this cycle — the
 PR-94 review is ordinary code review on unmerged code, same basis as c677.
+
+## c679 — 2026-08-09, ~11:0xZ — idle survey, everything unchanged since c678
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c678 (`3111982`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/events` filtered to
+`created_at > "2026-08-09T10:29:30Z"` (c678's last push): **empty** — no
+org activity of any kind since c678 closed, mine or anyone else's.
+`retinue#94` (reviewed last cycle) still `OPEN`, unmerged, no new commit,
+`updatedAt` unchanged at my own review-comment timestamp (10:27:26Z).
+`retinue#71` (owner's other open PR) still `OPEN`, still 3 comments,
+`updatedAt` unchanged at 2026-08-08T13:30:25Z. A full open-issue/PR sweep
+across `retinue` and `retinue-os-chamber` (`gh pr list`, `gh issue list`,
+`--json updatedAt`) surfaced nothing newer than what c678 already read.
+`gh repo list retinue-os`: 0 stars/forks/watchers on all six repos,
+`hasDiscussionsEnabled: false` everywhere, unchanged. Search-based sweep
+(`search/issues`, `is:pr updated:>2026-08-08`) returned only #93/#94, both
+already logged. Notifications endpoint still 403 (role-not-scope
+limitation, unchanged, not re-litigated).
+
+**Pages build.** `pages` API `status: "errored"`, `updated_at: null`;
+`pages/builds/latest` still the identical failed build (commit `55aa91d`,
+error `"Page build failed."`, `created_at`/`updated_at` unchanged from
+2026-08-06). `retinue-os-chamber#10` (filed c660): still **0 comments**,
+`updatedAt` unchanged at 2026-08-09T00:14:55Z — still no owner reply, four
+cycles running.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged
+— same `wildsoundfestival.bsky.social` follow plus the same already-read
+like from 2026-08-04. No new notification.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime still
+`webapp-manifest-german-description.md` (2026-08-02, retired). Re-checked
+`status:` line on all 19 files with a recent mtime (down through
+`c336-chamber-pr1-stale-branch.md`) plus the older filed/published set —
+every one reads published, filed, retired, or escalated. Held queue empty,
+nothing past cool-off.
+
+**Dashboard threads.** Read directly from `/root/.retinue/conversations/`:
+the Pages thread `8fdadb9493d84e58a5eb93101d61156f` mtime unchanged at
+2026-08-09T00:15Z, still `unread: true`, no new fact to push beyond what's
+already on issue #10. Two other threads have newer mtimes (07:00Z) but are
+the same different-deployment gateway-monitoring chats identified in prior
+cycles — not addressed to Aros, out of scope under guardrail 5.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards (agenda, briefing,
+messages, projects, todo) — unchanged since c678, no new refresh landed or
+needed. Served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 3 days, 15:41:34. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so this
+stays the already-diagnosed delivery-path (Pages) failure, not a
+refresh-job one — did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale — unchanged diagnosis from c660
+through c679, already escalated via issue #10 and the dashboard thread;
+nothing new to add, so no further escalation this cycle (per the dispatch
+instructions' own clause: don't re-open a duplicate issue while #10 sits at
+zero owner comments).
+
+**Rotation watch** (`tools/rotation-check.py` values re-read, not
+re-run): `log.md` ~252 KB / 300 KB; `projects/public-surface.md` 242 KB /
+200 KB, **DUE** — same accepted structural reason carried since c402/c435,
+review-level, next review 2026-08-16, not due; `strategy.md` 110 KB /
+150 KB. No action taken.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c678 —
+no new inbound, no new owner PR/issue/comment, no Pages progress, no owner
+reply on #10, no drafts past cool-off, no new social notification, no
+GitHub mention. Idle wake-up per the standing rule — not manufacturing
+activity to look busy. `expected_by` on the `public-surface` project
+(2026-08-10) is due tomorrow, not today.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated to reflect this cycle's confirmation).
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new — the standing Pages-build ask remains on both the durable
+issue (#10) and the dashboard thread, with no new fact to add. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
