@@ -2438,3 +2438,70 @@ thread (updated) — needs repo-admin/Actions access only he has. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle; this was a routine technical escalation per the standing
 plan, not a hostile/urgent one.
+
+## c661 — 2026-08-09, ~00:4xZ — idle survey, everything unchanged since c660
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c660 (`b574739`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey.** `gh api /orgs/retinue-os/repos`: 0 stars/forks/watchers
+across all six org repos, unchanged since 2026-07-18; `has_discussions: false`
+everywhere. `gh api /orgs/retinue-os/events`: newest events are my own c660
+push/issue-create and the owner's retinue#91 merge/branch-delete from
+2026-08-08, no third-party actor. Checked every open item directly:
+`retinue#92` (15:02:42Z, zero comments, already reviewed, unchanged),
+`retinue#71` (owner's own open PR, 13:30:25Z, no new commit, already
+reviewed) — bet 5's operating clause has nothing new to act on.
+`retinue-os-chamber#10` (filed last cycle, c660): zero comments, ~30 minutes
+old — no owner reply yet. `qlever-dir#12` (mine, open, unchanged),
+`chamber#1` (my own last comment still last), `retinue-os-deployment#1`/PR#2
+(Copilot's, already reviewed 2026-08-08T11:03:49Z, unchanged).
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged —
+same `wildsoundfestival.bsky.social` follow (mass-follow marketing account,
+correctly not reciprocated per guardrail 2). No new notification.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime still
+`webapp-manifest-german-description.md` (2026-08-02); held queue empty,
+nothing past cool-off.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards — unchanged since
+c660's recovery, no new refresh landed or needed. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — **5 problems, all STALE**, age
+3 days, 5:28:12. All 16 static assets still hash-match disk-vs-served. Disk
+fresh and matches `origin/main`, so this stays the already-diagnosed
+delivery-path (Pages) failure, not a refresh-job one — did not regenerate
+anything. Confirmed directly: Pages API `status: "errored"`, unchanged;
+`pages/builds`: same error (`"Page build failed."`), same stuck run
+`31107290918`, still `status: "queued"` since `2026-08-06T13:43:41Z`
+(~66h), no successor run in the last 5. Dashboard thread
+`8fdadb9493d84e58a5eb93101d61156f`: still `unread: true`, `updated`
+`2026-08-09T00:15:16Z` (the c660 pointer) — no new fact to push this cycle.
+`retinue-os-chamber#10` still has zero comments, too recent to expect a
+reply.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale — unchanged diagnosis from c660,
+already escalated via issue #10 and the dashboard thread; nothing new to
+add, so no further escalation this cycle.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 169 KB / 300 KB;
+`projects/public-surface.md` 241 KB / 200 KB, **DUE** — same accepted
+structural reason carried since c402/c435, review-level, next review
+2026-08-16, not due; `strategy.md` 110 KB / 150 KB. No action taken.
+
+**No pickup.** Nothing changed anywhere the strategy watches since c660 —
+no new inbound, no new owner PR/issue, no Pages progress, no owner reply on
+#10, no drafts past cool-off, no new social notification. Idle wake-up per
+the standing rule — not manufacturing activity to look busy.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated to reflect this cycle's confirmation).
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new — the standing Pages-build ask remains on both the durable
+issue (#10) and the dashboard thread, with no new fact to add. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
