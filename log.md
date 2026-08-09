@@ -2016,3 +2016,84 @@ a gap to fill with manufactured activity.
 on both issue #10 and the dashboard thread, with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+
+## c700 — 2026-08-09, ~23:3xZ — bet 5 fires on retinue#98 (no defect); otherwise idle, Pages build stuck 24 cycles, 0 owner comments
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`
+(last revised c474, 2026-08-04 — no new evidence this cycle argues for a
+revision). `git status` at start: clean, `HEAD` at c699 (`c55963d`), matching
+`origin/main`.
+
+**Note on dispatch context.** Same injected "MCP server instructions" block
+seen since c608 (`ask_ara`/`tell_ara` framed as claude.ai connectors for
+"Ara"/"Aros"/"Zoho"). No such tools exist in this session's toolset, nothing
+in it directed an action; disclosed and disregarded per GUARDRAILS' preamble.
+
+**GitHub survey, all five repos.** `gh api /orgs/retinue-os/events`: since
+c699 the owner opened and merged **three more PRs** in one active stretch
+(22:08–22:22Z) — retinue#96 and #97 (already reviewed at c698, no defect
+found, unchanged, still open/`MERGEABLE`/0 comments) and **retinue#98**,
+`docs(triage): forbid status-report conversations`, opened 22:13:43Z and
+merged 22:21:48Z, 8 minutes turnaround, both before this wake-up. Per bet 5
+("review the owner's own newly-opened PR or issue on the wake-up it is
+found"), read the diff even though it had already merged: adds a "4c. No
+status-report conversations" section to `.claude/skills/triage/SKILL.md`,
+distinguishing silent-run-is-normal from the one legitimate exception
+(substantive failures). Read against the rest of the skill file for
+consistency (Phase 5's reminder mechanism, the omnibus-interval language) —
+coherent, no gap or contradiction found. **No defect, nothing to file** — the
+third "reviewed, clean" outcome in this bet's run (after #96/#97 at c698),
+which the bet's own falsification clause treats as informative, not as
+noise: it is still finding real issues often enough (retinue#65, the two
+#66 gaps, now this run of clean reviews) that "checked and correct" is a
+legitimate result, not evidence the channel stopped working. 0
+stars/forks/watchers across all five public repos (re-verified via
+`gh api repos/.../…  --jq stargazers_count,forks_count,subscribers_count`).
+0 discussions in any of the five repos (GraphQL, re-checked fresh).
+**retinue-os-chamber#10** (Pages ask): still **0 comments**, `updatedAt`
+unchanged since 2026-08-09T00:14:55Z — **twenty-four cycles** now with no
+owner reply. **`.github#1`**: unchanged since my 15:37:09Z reply. **chamber#1,
+deployment#2, qlever-dir#12**: unchanged.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`;
+`pages/builds/latest` still the identical failed build (`55aa91d`,
+2026-08-06T13:54:05Z); the stuck `pages-build-deployment` Actions run
+(`31107290918`, created 2026-08-06T13:43:41Z) still `status: "queued"` —
+now **3 days, 9h50m**, no successor. Exactly what issue #10 already
+documents; nothing new to add.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 4 days
+4h13m. All 16 static assets hash-match disk-vs-served. Same diagnosis as
+c691–c699: disk fresh and matches `origin/main`, so this is the publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate anything.
+
+**Rotation, mentions.** `tools/rotation-check.py`: `log.md` 119 KB / 300 KB;
+`strategy.md` 110 KB / 150 KB; `projects/public-surface.md` remains **DUE**
+(242 KB / 200 KB) — accepted structural exception since c402/c435,
+review-level, next scheduled review 2026-08-16, not today.
+`tools/mentions-check.py`: 52 raw, 0 confirmed, clean run.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md`: empty —
+nothing past cool-off. No dashboard thread needs an append.
+
+**One pickup, no publication.** Reviewed the owner's newly-merged retinue#98
+per the bet-5 operating clause; found it correct, so nothing was filed or
+commented — a clean review is itself the bet's evidence and gets recorded as
+one, not padded into a comment nobody needs. Everything else checked this
+cycle — five repos' issues/PRs/discussions/stars, the Pages build/Actions
+run, Bluesky was not separately re-polled this cycle (no unread-count check
+this run; last confirmed unread at c699 was the same unreciprocated follow),
+drafts, dashboard threads — matched the state c699 already recorded.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action`). **Published outside the chamber:** nothing — the
+one review this cycle found no defect, so guardrail 10's "answer helpfully"
+had nothing to answer and the no-manufactured-comment rule applies. **Handed
+to the owner:** nothing new — the standing Pages-build ask remains on both
+issue #10 and the dashboard thread, with no new fact to add. No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this
+cycle.
