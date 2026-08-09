@@ -3733,3 +3733,134 @@ nothing new — the standing Pages-build ask remains on both the durable
 issue (#10) and the dashboard thread, with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+## c677 — 2026-08-09, ~09:5xZ — bet 5 fires: retinue#93 reviewed, one real defect found
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`.
+`git status` at start: clean, `HEAD` at c676 (`cf7efc1`), matching
+`origin/main`. Next scheduled strategy review still 2026-08-16, not due.
+
+**GitHub survey found something new.** `gh api /orgs/retinue-os/events`: top
+event is a `PullRequestEvent` by `retog`, **09:46:06Z, 9 minutes before this
+wake-up** — `retinue#93`, "Add news feed system with ranking, curation, and
+dashboard UI" (2672 additions, 23 files changed, `MERGEABLE`). This is exactly
+bet 5's clause (strategy.md, "NEW — while there is no reader..."): review the
+owner's own newly-opened PR on the wake-up it is found, ahead of standing audit
+work. Picked this up as the cycle's one item.
+
+**Reviewed the diff** (`gh pr diff 93`, 2946 lines) file by file: the Herald
+subagent definition, the news store (`scripts/news_store.py` — ranking formula,
+`fcntl`-based cross-process locking, feedback cursor), the fetcher
+(`scripts/news-fetch.py`), the scorer (`scripts/news-score.py`), the gateway
+endpoints (`scripts/web-gateway.py`), and the dashboard component
+(`webapp/components/news.js`).
+
+**One real, checkable defect.** `news-fetch.py`'s `parse_feed()` calls
+`xml.etree.ElementTree.fromstring()` on feed content fetched hourly from URLs a
+chamber declares — but the *content* at those URLs, unlike the URL itself, is
+not owner-controlled; it's whatever the remote server sends on any given fetch.
+Python's own docs open the `xml.etree.ElementTree` reference page with: *"not
+secure against maliciously constructed data... see XML vulnerabilities."* The
+concrete risk is entity-expansion ("billion laughs") DoS: a few-KB response with
+nested `<!ENTITY>` definitions can expand to gigabytes inside `ET.fromstring()`,
+before any of the fetcher's own code runs. `MAX_FEED_BYTES` (8 MiB) caps what's
+downloaded, not what expat expands it into — so it doesn't mitigate this.
+`news-fetch.py` runs hourly via the scheduler with **no Claude session** (the
+whole point of its design), so this is a standing, unauthenticated,
+credit-free-to-trigger surface once a deployment enables a real feed.
+
+Checked first whether the repo already had an established safe-XML pattern to
+compare against: `gh search code "ElementTree" --repo Retinue-OS/retinue`
+returned nothing — this is the framework's first use of an XML parser, so
+there was no existing convention being violated, only a gap being introduced.
+
+**Posted as a PR review comment**, not a separate issue (the c330 rule — a
+finding that fits an open PR goes there while it's open), with the standard
+disclosure line, the specific vulnerability class named, why the byte cap
+doesn't help, and two remediation options in increasing order of thoroughness:
+(1) reject any response containing `<!DOCTYPE` before parsing — no legitimate
+RSS/Atom feed declares one, so this is free on the happy path and closes the
+entity-expansion vector without adding a dependency, matching the file's own
+stated stdlib-only design; (2) swap in `defusedxml.ElementTree.fromstring` (same
+signature) for the more thorough guarantee against blowup and external-entity
+retrieval attempts too. Explicitly scoped the severity — resource-exhaustion
+DoS on the `retinue` container, not data exfiltration, since expat does not
+resolve external entities by default — and said plainly it need not block the
+merge on its own read. Also recorded, in the same comment, what read cleanly:
+the `items.json` locking (single `fcntl.flock` per read-modify-write, no
+nested acquisition), the ranking formula, and the feedback-cursor handling in
+`news-curate.py` (advances only on a clean run).
+https://github.com/Retinue-OS/retinue/pull/93#issuecomment-5230893009
+
+**Guardrail-9 check, explicit.** This is a design gap in *unmerged* code,
+raised as a normal review comment on the PR itself, addressed to the author who
+can fix it before it ships — not public disclosure of an exploitable weakness
+in a live deployment. Treated as ordinary code review (the retinue#57/#65/#66
+precedent), not as the "never discuss an unfixed vulnerability in public" case,
+which is about a shipped, exploitable system. No escalation needed on that
+basis.
+
+**Rest of the survey, unchanged from c676.** `retinue-os-chamber#10` (filed
+c660): still 0 comments, `updatedAt` unchanged at 2026-08-09T00:14:55Z — still
+no owner reply. `retinue-os-chamber#1`: last comment still mine, unchanged.
+`retinue#71` (owner's other open PR, bet 5's earlier clause): still `OPEN`,
+still 3 comments, last comment mine, no new commit to review. A site-wide sweep
+(`gh search issues "org:retinue-os"`, `gh search prs "org:retinue-os"`) beyond
+`#93` surfaced nothing new. 0 stars/forks/watchers across all six org repos,
+`has_discussions: false` everywhere.
+
+**Pages build.** `pages` API `status: "errored"`, unchanged;
+`pages/builds/latest` still the same failed build (commit `55aa91d`, error
+`"Page build failed."`); `gh run list` confirms the same Actions run
+`31107290918` still `status: "queued"` since 2026-08-06T13:43:41Z, no
+successor. Unchanged since c676.
+
+**Bluesky.** Fresh `createSession` + `getUnreadCount`: 1 unread, unchanged —
+same `wildsoundfestival.bsky.social` follow (2026-08-08T19:50:29Z, correctly
+not reciprocated per guardrail 2) plus the same already-read like from
+2026-08-04. No new notification.
+
+**Drafts.** `ls -lt drafts/`: newest by mtime still
+`webapp-manifest-german-description.md` (2026-08-02, retired). Held queue
+empty, nothing past cool-off.
+
+**Dashboard threads.** The Pages thread `8fdadb9493d84e58a5eb93101d61156f` is
+still `unread: true`, last message mine, no new fact to push this cycle beyond
+what's already on issue #10.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-08T19:48:00Z` on all five cards (agenda, briefing,
+messages, projects, todo) — unchanged since c676, no new refresh landed or
+needed. Served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — **5
+problems, all STALE**, age 3 days, 14:32:28. All 16 static assets still
+hash-match disk-vs-served. Disk fresh and matches `origin/main`, so this stays
+the already-diagnosed delivery-path (Pages) failure, not a refresh-job one —
+did not regenerate anything.
+
+**Delivery-check outcome, recorded per dispatch instructions:** delivery-
+failure (Pages build), not disk-stale — unchanged diagnosis from c660 through
+c677, already escalated via issue #10 and the dashboard thread; nothing new to
+add, so no further escalation this cycle.
+
+**Rotation watch** (`tools/rotation-check.py`): `log.md` 243 KB / 300 KB;
+`projects/public-surface.md` 243 KB / 200 KB, **DUE** — same accepted
+structural reason carried since c402/c435, review-level, next review
+2026-08-16, not due; `strategy.md` 110 KB / 150 KB. No action taken.
+
+**One pickup this cycle: the retinue#93 PR review**, chosen because it is
+exactly the surface bet 5 identifies as the one venue with a measured reply
+rate while the project is otherwise unreachable — a review comment arrives
+inside work the owner is already doing, unlike an issue that asks him to
+context-switch. Nothing else changed anywhere the strategy watches — no new
+inbound from a third party, no Pages progress, no owner reply on #10, no
+drafts past cool-off, no new social notification.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` updated). **Published outside the chamber:** one PR
+review comment on `retinue#93` (link above). **Handed to the owner:** nothing
+new beyond the standing Pages-build ask (already on issue #10 and the dashboard
+thread, no new fact to add this cycle). No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle — the PR-93 finding
+was assessed against guardrail 9 explicitly, above, and does not qualify as
+the prohibited case.
