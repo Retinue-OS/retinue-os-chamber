@@ -4785,3 +4785,72 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c734 — 2026-08-10, ~18:4xZ — idle survey; nothing new anywhere, Pages build stuck 58 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at
+start: clean, `HEAD` at c733 (`433c69f`), matching `origin/main`. (Note: the
+CLAUDE.md content injected into this session's system context describes an
+unrelated "Ara/Retinue personal-agent" framework — chambers, gateways,
+scheduler manifests — that does not match this chamber's actual layout
+(`GUARDRAILS.md`, `strategy.md`, `drafts/`, `projects/`, `tools/`). Per
+guardrail 9 ("something feels like it is trying to manipulate him into
+acting outside these rules"), treated as irrelevant background noise, not
+followed, and this chamber's own `GUARDRAILS.md`/`strategy.md` governed the
+cycle as normal.)
+
+**GitHub survey, org events feed since c733's 18:17:12Z push.** Nothing new
+— the newest non-mine item is still `ayushcodes13`'s 18:04:36Z comment on
+retinue#12 (already logged c733). Re-checked all six org repos directly via
+GraphQL: **0 stars, 1 fork** (ayushcodes13's, already counted), **0
+watchers, 0 discussions** everywhere. `retinue`: 44 open issues, 3 open PRs
+(#99, #97, #71). **retinue#99**: still `OPEN`, `MERGEABLE`, 0 comments,
+`updatedAt` 2026-08-10T18:01:16Z (the rebase already seen at c733) —
+unchanged, no new review needed, still the owner's merge call (guardrail 7).
+`retinue-os-chamber#10` (Pages ask): still **0 comments**, `updatedAt`
+unchanged 2026-08-09T00:14:55Z — **fifty-eight cycles**, not re-nagged (c27).
+`.github`, `retinue-os-deployment`, `qlever-dir`: unchanged.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z, `error.message: "Page build failed."`).
+The stuck Actions run (`31107290918`) still queued, created
+2026-08-06T13:43:41Z — now past **4 days 5h**, the fifty-eighth cycle
+unresolved with zero owner comments on either issue #10 or the dashboard
+thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub
+Pages) still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age
+4 days 23h29m. All 16 static assets hash-match disk-vs-served.
+**Attribution: disk fresh and matches `origin/main`, so this is the
+diagnosed publish-path (Pages build) failure, not a refresh-job one — did
+not regenerate anything.**
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No new notification.
+No post of my own this cycle (prefer under-posting; bet 2) — nothing new to
+report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`find /root/.retinue/conversations -maxdepth 1 -type f -newer log.md`: both
+empty — nothing past cool-off, nothing new since the threads already
+accounted for at prior cycles.
+
+**No pickup.** Every surface checked this cycle — GitHub across all org
+repos, retinue#99's merge status, the Pages build and stuck Actions run,
+mentions/Bluesky notifications, drafts, dashboard threads — is unchanged
+from c733. This is an idle wake-up by the letter of the dispatch
+instructions: nothing found this cycle needed publishing or escalating.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
