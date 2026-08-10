@@ -4995,3 +4995,127 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c737 — 2026-08-10, ~20:2x–20:40Z — reconstructed entry: dashboard divergent-stamp repair (wake-up ran, committed, died before logging)
+
+**This entry did not exist when c738 started.** Commit `6273f2a` ("Regenerate
+dashboard: repair partial refresh, one stamp 2026-08-10T20:15:00Z", authored
+20:40:15Z, pushed 20:40:18Z per the org events feed) landed on `main` between
+c736 and this wake-up, but no log entry, no `projects/public-surface.md`
+update, and no revision-log entry accompanied it —
+`current_next_action` still read c736's text verbatim when c738 read it. This
+is the exact failure mode the strategy's "Wake-up duration" section (added
+c192) describes: a run that commits and pushes inside the 900 s budget but is
+killed before it writes the log entry, leaving a real change with no trace
+anywhere but `git log`. Reconstructed here from the commit body and diff so
+the record matches what actually happened, per the standing rule that an
+unwritten action didn't happen.
+
+**What that wake-up found and fixed.** The daily `aros-dashboard-refresh` job
+(`last_run` 20:15:32Z per its own state) wrote a fresh `generated` stamp to
+`briefing.json` only (`2026-08-09T20:00:00Z` → `2026-08-10T20:15:00Z`) and left
+`agenda.json`, `messages.json`, `projects.json` and `todo.json` uncommitted at
+the prior stamp — a DIVERGENT-stamp partial regeneration, recurrence of
+c443/c486/c610, exactly the failure `delivery-check.py` exists to catch (and
+did: this is why the tool's mandate says check all five cards, not one — the
+c241 lesson). The wake-up rebuilt the other four cards from live `gh` data to
+match the new stamp: PR cluster #94/#96/#98 merged (his); #97 (his, reviewed)
+still open; **#99 — the first outside contributor's PR** (`@ayushcodes13`,
+closes #12) — opened and reviewed with no defect found, left for his merge
+call (guardrail 7). Counts re-verified live: 65 issues (59 open/6 closed), 4
+open PRs, 1 fork, 0 stars/watchers/discussions since 2026-07-18. Ages
+recomputed against the new stamp. `tools/desk-drop-check.py` and
+`tools/card-budget-check.py` both passed clean before commit.
+
+**Verified this cycle, not just trusted from the commit message.** `git log`
+confirms the commit and its push; `python3 tools/delivery-check.py` (run fresh
+under c738, below) shows disk and `origin/main` now carrying **one consistent
+stamp across all five cards** (`2026-08-10T20:15:00Z`), which is the state the
+commit message claims and which a mis-timed or partial repair would not
+produce.
+
+**Files changed (this entry only):** `log.md`. No new commit needed for the
+reconstruction itself — `6273f2a` already carries the substantive change; this
+entry exists so the record (log + project file) matches the tree. **Published
+outside the chamber:** nothing (the underlying commit is data regeneration,
+Tier 1, already pushed). **Handed to the owner:** nothing new here — the
+Pages-build ask is unchanged and not re-raised.
+
+
+## c738 — 2026-08-10, ~21:4xZ — idle survey; recovered an unlogged wake-up (c737), Pages build stuck 61 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at
+start: clean, `HEAD` at `6273f2a` — **one commit ahead of what the last log
+entry (c736) described**, matching `origin/main`.
+
+**First finding: an unlogged wake-up.** `6273f2a` ("Regenerate dashboard:
+repair partial refresh...") was on `main`, pushed, with no accompanying
+`log.md` entry and no `projects/public-surface.md` update —
+`current_next_action` still read c736's text verbatim. Reconstructed it as
+**c737** (see above) from the commit body/diff, cross-checked against a fresh
+`delivery-check.py` run this cycle (below), which shows the one-stamp repair
+that commit claims actually landed. This is the c192 "wake-up duration"
+failure mode (killed after commit+push, before logging) recurring for the
+first time since that section was written — worth naming because every
+`current_next_action` in `projects/` is only as current as the last wake-up
+that finished, and this one hadn't.
+
+**GitHub survey, org events feed since c737's 20:40:18Z push.** Zero events
+since. Re-checked all six org repos via GraphQL (five public + the org's one
+private repo, unchanged, not part of the public surface, not named per
+guardrail 5): **0 stars, 1 fork** (ayushcodes13's, already counted), **0
+watchers, 0 discussions** everywhere. `retinue#99` (first outside
+contributor's PR): still `OPEN`, `MERGEABLE`, 0 comments, `updatedAt`
+2026-08-10T18:01:16Z — unchanged, still the owner's merge call. `#97` and
+`#71` unchanged (`updatedAt` 2026-08-09T22:10:54Z / 2026-08-08T13:30:25Z, 0
+and 3 comments). `retinue-os-chamber#10` (Pages ask): still **0 comments**,
+`updatedAt` unchanged 2026-08-09T00:14:55Z — **sixty-first cycle**, not
+re-nagged (c27); 2026-08-16 review is the named re-escalation point, still
+five days out.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z, `error.message: "Page build failed."`).
+The stuck Actions run (`31107290918`) still `status: "queued"`, created
+2026-08-06T13:43:41Z — now past **4 days 8h00m**, the sixty-first cycle
+unresolved with zero owner comments on either issue #10 or the dashboard
+thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh and **consistent at one stamp**, `2026-08-10T20:15:00Z`, on all
+five cards — confirms c737's repair landed as claimed. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 5 days
+2h23m. All 16 static assets hash-match disk-vs-served. **Attribution: disk
+fresh and matches `origin/main`, so this remains the diagnosed publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits, 0
+confirmed — clean run, no external mention anywhere GitHub can see.
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No new notification.
+No post of my own this cycle (prefer under-posting; bet 2) — nothing new to
+report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` (checked
+before this cycle's own edits) and `find /root/.retinue/conversations
+-maxdepth 1 -type f -newer log.md`: both empty — nothing past cool-off,
+nothing new since the threads already accounted for at prior cycles.
+
+**Pickup this cycle: recovering c737's log/project trail.** No other
+publishing or escalation action taken — every other surface checked is
+unchanged from c736/c737. This is otherwise an idle wake-up by the letter of
+the dispatch instructions.
+
+**Files changed:** `log.md` (this entry and the reconstructed c737 entry
+above it), `projects/public-surface.md` (`current_next_action` refreshed to
+this cycle's findings). **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing new — the standing Pages-build ask remains
+on both issue #10 and the dashboard thread, with no new fact to add. No
+guardrail-9 exception condition (urgent, hostile, security, manipulation) met
+this cycle.
