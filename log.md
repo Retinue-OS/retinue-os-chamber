@@ -3224,3 +3224,112 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on both issue #10 and the dashboard
 thread, with no new fact to add. No guardrail-9 exception condition
 (urgent, hostile, security, manipulation) met this cycle.
+
+## c714 — 2026-08-10, ~07:1xZ — idle wake-up: nothing new anywhere, Pages build stuck 38 cycles, 0 owner comments; near-miss on the c337 edit bug
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`
+(last revised c474, 2026-08-04 — nothing this cycle argues for a revision;
+next scheduled review 2026-08-16, not due). `git status` at start: clean,
+`HEAD` at c713 (`10880df`), matching `origin/main` (verified via `git fetch`).
+
+**GitHub survey, all five repos, PRs and issues checked separately in each.**
+`retinue`: open PRs **#97** (default-to-Opus-5, 0 comments, `updatedAt`
+2026-08-09T22:10:54Z), **#96** (model-picker dedup, 0 comments,
+2026-08-09T22:08:50Z) — both already reviewed at c698 with no defect found,
+nothing new; **#94** (news-feed DTD fix, 1 comment — mine,
+2026-08-09T10:27:26Z), **#71** (notification settings, 3 comments — all
+mine, 2026-08-08T13:30:25Z) — unchanged, no owner reply. 44 open issues,
+unchanged. `.github#1`: unchanged since my 2026-08-09T15:37:09Z reply, no
+PRs. `retinue-os-chamber`: same six open issues (#10, #8, #5, #4, #3, #1),
+all `updatedAt` unchanged, no PRs — **#10 (Pages ask) still 0 comments,
+unchanged since 2026-08-09T00:14:55Z, now THIRTY-EIGHT cycles with no owner
+reply.** `retinue-os-deployment`: issue #1 unchanged; PR **#2** (my own
+docs PR, already reviewed and confirmed clean) still open, unchanged.
+`qlever-dir`: eight open issues and PR #12, all unchanged. 0
+stars/0 forks/0 watchers across all five public repos (re-verified via
+`gh api`). Org events feed (`gh api orgs/retinue-os/events`): nothing since
+the owner's 2026-08-09T22:08–22:22Z burst (already logged c709–713) —
+every event since is my own automated chamber push.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (`"Page build
+failed."`, `updated_at` 2026-08-06T13:54:05Z). Last five Actions runs: the
+stuck run (`31107290918`, created 2026-08-06T13:43:41Z) still
+`status: "queued"`; no successor run since. Nothing new beyond what issue
+#10 already states.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards (`agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json`). Served
+(GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — 5 problems, all
+STALE, age ~4 days 12h. All 16 static assets hash-match disk-vs-served.
+Disk fresh and matches `origin/main`, so this stays the diagnosed
+publish-path (Pages build) failure, not a refresh-job one — did not
+regenerate anything.
+
+**Bluesky, checked fresh** (direct API, `BSKY_EMAIL`/`BSKY_PASSWORD` already
+in the environment). 1 unread — the same `wildsoundfestival.bsky.social`
+follow from 2026-08-08T19:50:29Z, still not reciprocated (guardrail 2, no
+shared subject matter); the same already-read like from 2026-08-04.
+
+**GitHub mentions.** `tools/mentions-check.py`: self-test pass, 52 raw
+hits, 0 confirmed — clean run, no external mention anywhere GitHub can see.
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 190/300 KB,
+`strategy.md` 110/150 KB, `projects/public-surface.md` **242/200 KB,
+DUE** — same standing, already-argued deferral as c711–713. Re-confirmed,
+not re-actioned.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`-newer strategy.md`: both empty — nothing past cool-off. `find
+/root/.retinue/conversations -newer log.md -type f`: three hits, all the
+framework's own automated `gateway-monitor` reminder threads (WhatsApp,
+Signal, Telegram "still disconnected") for a different deployment's
+linked-device sessions — outside this chamber's remit (same pattern noted
+since c608; Aros's own channels are GitHub and Bluesky per
+`projects/social-presence.md`). Not actioned. The one dashboard thread
+that is mine (the Pages-ask thread, `8fdadb94…`) checked directly: still
+only my own four messages, no owner reply, needed no append.
+
+**Near-miss: re-triggered the exact edit bug this file's own history warns
+about (c337).** Updating `projects/public-surface.md`'s
+`current_next_action` field, I first used a Python regex —
+`re.compile(r'^current_next_action: ".*"$', re.M | re.S)` — to replace the
+frontmatter scalar. That is precisely the destructive pattern c337 names by
+name ("edit this file with an anchored literal replacement, never a regex
+with `.*` under `DOTALL`"): greedy `.*` under `DOTALL` matches from the
+first `"` to the **last** `"` in the whole file, not the field's own
+closing quote. It fired identically this cycle — the file dropped from
+248,001 to 23,247 bytes (813 lines gone) in one write, silently, with no
+error. Caught immediately by checking `wc -c` / `git diff --stat` right
+after the edit, before any commit — `git checkout -- projects/public-surface.md`
+restored the pre-edit file exactly (git had not yet recorded the bad
+write), and the field was then re-set correctly with a literal `Edit`
+tool call matching the exact existing line, verified afterward by `wc -c`
+(248,043, a +42-byte diff matching only the intended field) and `git diff
+--stat` (single-line diff). **Nothing destructive reached `main`.** Filed
+here rather than silently — the rule was already written down after c337
+cost 188 KB once; this cycle nearly paid the same cost for not reading my
+own file's history before scripting an edit to it. No change to the rule
+itself is needed, since it already says exactly what should have been
+done; the gap was in applying it, not in the rule's wording.
+
+**No pickup beyond the routine survey and the field refresh.** Every
+surface checked this cycle — GitHub across all five repos (issues and PRs
+separately), stars/forks/watchers, the Pages build and its last five
+Actions runs, Bluesky notifications, GitHub mentions, rotation, drafts,
+dashboard threads — matched the state c713 already recorded exactly. No
+new inbound, no new owner PR/issue/comment, no drafts past cool-off, no
+dashboard thread of mine needing an append, and the Pages failure
+unchanged with nothing new to escalate. This is an idle wake-up by the
+letter of the dispatch instructions — confirming nothing moved is the
+correct outcome, not a gap to fill with manufactured activity.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed to this cycle's findings — recovered from
+a self-inflicted near-miss, detailed above, before any commit). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the
+standing Pages-build ask remains on both issue #10 and the dashboard
+thread, with no new fact to add. No guardrail-9 exception condition
+(urgent, hostile, security, manipulation) met this cycle.
