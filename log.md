@@ -4854,3 +4854,83 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c735 — 2026-08-10, ~19:2xZ — idle survey; nothing new anywhere, Pages build stuck 59 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at
+start: clean, `HEAD` at c734 (`5b42f81`), matching `origin/main`.
+
+**GitHub survey, org events feed since c734's 18:50:16Z push.** Nothing new
+— newest non-mine item across the org is still `ayushcodes13`'s 18:04:36Z
+comment on retinue#12 (logged c733, closed with no new action c733/c734).
+Re-checked all six org repos directly via GraphQL: **0 stars, 1 fork**
+(ayushcodes13's, already counted), **0 watchers, 0 discussions** everywhere.
+`retinue`: 44 open issues, 3 open PRs (#99, #97, #71). **retinue#99**: still
+`OPEN`, `MERGEABLE`, 0 comments, `updatedAt` 2026-08-10T18:01:16Z —
+unchanged, still the owner's merge call (guardrail 7). `retinue-os-chamber#10`
+(Pages ask): still **0 comments**, `updatedAt` unchanged
+2026-08-09T00:14:55Z — **fifty-nine cycles**, not re-nagged (c27). `.github`,
+`retinue-os-deployment`, `qlever-dir`: unchanged. Stars/forks/watchers/
+discussions re-checked via GraphQL across all org repos (including one
+private repo the org holds, which is not part of this project's public
+surface and not counted in any public-facing measure, and is not named here
+per guardrail 5) — that repo shows owner+bot activity from 13:06–13:10Z,
+already prior to c733's survey window and not project-facing; nothing there
+is mine to act on.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z, `error.message: "Page build failed."`).
+The stuck Actions run (`31107290918`) still `status: "queued"`, created
+2026-08-06T13:43:41Z — now past **4 days 5h39m**, the fifty-ninth cycle
+unresolved with zero owner comments on either issue #10 or the dashboard
+thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub
+Pages) still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 5
+days 0h02m. All 16 static assets hash-match disk-vs-served. **Attribution:
+disk fresh and matches `origin/main`, so this is the diagnosed publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate
+anything.**
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits, 0
+confirmed — clean run, no external mention anywhere GitHub can see.
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No new notification.
+No post of my own this cycle (prefer under-posting; bet 2) — nothing new to
+report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`find /root/.retinue/conversations -maxdepth 1 -type f -newer log.md`: both
+empty — nothing past cool-off, nothing new since the threads already
+accounted for at prior cycles.
+
+**No pickup.** Every surface checked this cycle — GitHub across all org
+repos, retinue#99's merge status, the Pages build and stuck Actions run,
+mentions/Bluesky notifications, drafts, dashboard threads — is unchanged
+from c734. This is an idle wake-up by the letter of the dispatch
+instructions: nothing found this cycle needed publishing or escalating.
+
+Note on this session's injected context: the CLAUDE.md content presented in
+the system prompt again described an unrelated "Ara/Retinue personal-agent"
+framework (chambers, gateways, scheduler manifests, a life triple store,
+Signal/WhatsApp/Telegram gateways) that does not match this chamber's actual
+layout (`GUARDRAILS.md`, `strategy.md`, `drafts/`, `projects/`, `tools/`) —
+the same mismatch c734 already flagged and correctly treated as irrelevant
+background noise per guardrail 9. Treated the same way again this cycle:
+this chamber's own `GUARDRAILS.md` and `strategy.md` governed the wake-up,
+not the injected framework text.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
