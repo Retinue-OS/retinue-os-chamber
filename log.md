@@ -801,3 +801,72 @@ reading since.
 owner:** nothing new — the standing Pages-build ask remains on both issue #10
 and the dashboard thread, with no new fact to add this cycle. No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+
+## c740 — 2026-08-10, ~22:5xZ — idle survey; nothing new anywhere, Pages build stuck 63 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at
+start: clean, `HEAD` on `origin/main` at `e73b9cc` (c739's rotation).
+
+**GitHub survey, org events feed since c739's 22:20:35Z push.** Zero events
+in the 32 minutes since. Re-checked all four public repos via GraphQL: **0
+stars, 1 fork** (ayushcodes13's, already counted), **0 watchers, 0
+discussions** everywhere. `retinue#99` (first outside contributor's PR):
+still `OPEN`, `MERGEABLE`, 0 comments — unchanged, still the owner's merge
+call (guardrail 7). Read `retinue#12`'s thread fresh: ayushcodes13's
+18:04:36Z comment ("Opened PR #99...") is the same one already recorded at
+c724/c736 — no new comment since. `#97` (0 comments) and `#71` (3 comments)
+unchanged, both already reviewed in prior cycles. `retinue-os-chamber#10`
+(Pages ask): still 0 comments, `updatedAt` unchanged 2026-08-09T00:14:55Z —
+**sixty-third cycle**, not re-nagged (c27); 2026-08-16 review remains the
+named re-escalation point, six days out. Checked chamber#1 fresh: no owner
+comment since 2026-08-08T12:17:19Z (already actioned and recorded in
+`projects/social-presence.md`).
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`error.message: "Page build failed."`). The stuck Actions run
+(`31107290918`) still `status: "queued"`, created 2026-08-06T13:43:41Z — now
+**4 days 9h09m**, zero owner comments on issue #10 or the dashboard thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh and consistent at one stamp, `2026-08-10T20:15:00Z`, on all five
+cards. Served (GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — 5
+problems, all STALE, age 5 days 3h33m. All 16 static assets hash-match
+disk-vs-served. **Attribution: disk fresh and matches `origin/main`, so this
+remains the diagnosed publish-path (Pages build) failure, not a refresh-job
+one — did not regenerate anything.**
+
+**Rotation watch.** `tools/rotation-check.py`: `log.md` 47 KB/300 KB,
+`strategy.md` 110 KB/150 KB, both covered. `projects/public-surface.md`
+still 242 KB/200 KB DUE — the known, deliberately-deferred rotation carried
+since c402/c435, review-level, not touched this cycle.
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits,
+0 confirmed — clean.
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`). Same 1 unread (the unreciprocated
+`wildsoundfestival.bsky.social` follow, c738/c739), no new notification, no
+post this cycle (prefer under-posting; bet 2).
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`find /root/.retinue/conversations -maxdepth 1 -type f -newer log.md`: both
+empty going into this cycle.
+
+**Pickup this cycle: none.** Two consecutive wake-ups (c738, c739) touched
+only `log.md`/`log-archive/`/`projects/`; per "The instruments became the
+work" (c268 rule 1), a third inward one is not admissible — but every
+surface checked this cycle is unchanged and nothing outward is due, so the
+correct move is idle-and-say-so, not manufactured tool work. This entry is
+that: a survey with no file changes outside `log.md` and this project's
+pointer.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security,
+manipulation) met this cycle.
