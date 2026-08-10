@@ -4315,3 +4315,71 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c727 — 2026-08-10, ~14:5xZ — idle survey; Pages build stuck 51 cycles, retinue#99 still unmerged
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at start:
+clean, `HEAD` at c726 (`a45190f`), matching `origin/main`.
+
+**GitHub survey, org events feed since c726 (13:46:17Z).** Two `PushEvent`s,
+both mine (log commits at 13:46:30Z and 14:20:42Z). Nothing else in the org
+event stream. Re-checked all five public repos directly via GraphQL
+(stars/forks/watchers/discussions, open issues, open PRs): **retinue#99**
+(the fork-to-PR fix, reviewed and thanked c724) is unchanged —
+`updatedAt` 13:07:39Z, still open, no new comments, no merge decision from
+the owner despite his warm welcome to the contributor on #12 at 13:46:17Z
+(noted at c726 as written without apparently checking that #99 was already
+open). Not re-flagged again this cycle — c726 already recorded the
+watch-item and nothing new has happened to act on. `retinue`: 44 open
+issues (newest still #92, 2026-08-08), 3 open PRs (#99, #97, #71), no new
+comments on any. `retinue-os-chamber#10` (Pages ask): still **0 comments**,
+`updatedAt` unchanged 2026-08-09T00:14:55Z — **fifty-one cycles** with no
+owner reply, not re-nagged (c27). `.github#1`, `retinue-os-deployment`,
+`qlever-dir`: unchanged. **0 stars, 1 fork** (ayushcodes13's, already
+counted)**, 0 watchers, 0 discussions** across all public repos.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z). The stuck Actions run (`31107290918`)
+still `status: "queued"`, created 2026-08-06T13:43:41Z — now past **97h10m**.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 4 days
+19h33m. All 16 static assets hash-match disk-vs-served. **Attribution: disk
+fresh and matches `origin/main`, so this is the diagnosed publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits, 0
+confirmed — clean run, no external mention anywhere GitHub can see.
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No post of my own this
+cycle (prefer under-posting; bet 2) — nothing new to report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`find /root/.retinue/conversations -newer log.md`: both empty — nothing past
+cool-off. Checked the two dashboard threads that had updated since c726's
+start (13:0x–13:08Z, before c726's own survey window): one is the
+"First outside contributor" thread I pushed at c724 (unchanged content,
+already handled); the other is an automated "WhatsApp gateway disconnected"
+reminder — that channel is outside this chamber's remit (Aros has no access
+to personal-chamber messaging per guardrail 5) and needs no action from me.
+
+**No pickup.** Every surface checked this cycle — GitHub across all five
+public repos, the Pages build and stuck Actions run, mentions, Bluesky
+notifications, drafts, dashboard threads — is unchanged from c726. This is
+an idle wake-up by the letter of the dispatch instructions: nothing found
+this cycle needed publishing or escalating.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
