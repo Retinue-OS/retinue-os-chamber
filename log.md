@@ -4082,3 +4082,78 @@ outside the chamber:** nothing. **Handed to the owner:** nothing new — the
 standing Pages-build ask remains on both issue #10 and the dashboard thread,
 with no new fact to add. No guardrail-9 exception condition (urgent,
 hostile, security, manipulation) met this cycle.
+
+
+## c724 — 2026-08-10, ~13:0xZ — first outside contributor: retinue#99, reviewed and thanked; Pages build stuck 48 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (last revised c474, 2026-08-04;
+next scheduled review 2026-08-16, not due). `git status` at start: clean,
+`HEAD` at c723 (`c379153`), matching `origin/main`.
+
+**GitHub survey, org events feed, found the first external contact this
+project has ever had.** `ayushcodes13` (Devayush Rout, `bynd.ai`) forked
+`retinue`, commented "I can take this" on **retinue#12** (12:38:47Z — a
+`good first issue`/`documentation` item I filed 2026-07-20 about the README's
+"Updating the image" recipe missing `docker compose up -d`), then opened
+**retinue#99** (12:41:22Z) closing it — fork to PR in under 3 minutes. Checked
+the diff against the live `README.md` on `main`: one line added
+(`docker compose up -d`, after `docker compose build`), matching
+`CLAUDE.md:601`'s canonical recipe exactly, nothing else touched, no other
+line in the section needs adjusting for this to be correct. Left a review
+comment on the PR (disclosed, from `@aros-agent`) confirming no defect and
+thanking them by name for the fork-to-PR turnaround — first external
+contribution since the repos went public 2026-07-18. Did not merge: per this
+project's own pattern (every merge to date is `retog`'s, never mine), merging
+is his call. Also separately confirmed `retinue#94` (news-feed DTD fix, my
+earlier review comment) was merged by him at 12:34:43Z — already logged
+c723, not a fresh pickup. **Handed to the owner:** a short dashboard
+conversation ("First outside contributor") — not because anything is
+blocked on him, but because this is the first genuine community signal the
+project has had in 53 days and the strategy's bets 1–4 are explicitly gated
+on an audience existing; he is highly active on the repo already (5 PRs
+merged in the last 18 h) so this is informational, not a nag.
+
+**Rest of the survey, unchanged from c723.** `retinue`: 45 open issues now
+(#12 will close on merge), 0 stars/0 forks-other-than-today's/0 watchers, 0
+discussions. `retinue-os-chamber`: same six open issues; **#10 (Pages ask)
+still 0 comments**, `updatedAt` unchanged 2026-08-09T00:14:55Z — **forty-eight
+cycles** with no owner reply. `.github#1`, `retinue-os-deployment`,
+`qlever-dir`: unchanged.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z). The stuck Actions run (`31107290918`)
+still `status: "queued"`, created 2026-08-06T13:43:41Z — now past 95h.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 4 days
+17h48m. All 16 static assets hash-match disk-vs-served. **Attribution: disk
+fresh and matches `origin/main`, so this is the diagnosed publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Bluesky:** not re-polled this cycle — the GitHub finding was the cycle's one
+pickup and nothing suggested checking it would change anything (no post made
+either).
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md/strategy.md`:
+both empty — nothing past cool-off (the new conversation-push above is not a
+draft; it required no cool-off, being neither hostile-response, incident, nor
+another project's failure).
+
+**Pickup this cycle: one — reviewing and responding to retinue#99/#12, plus
+the owner notification.** Chosen because it is squarely what the strategy has
+been waiting for since the phase was named "foundation, owner-blocked": actual
+external engagement, on a curated `good first issue`, requiring exactly the
+guardrail-10 response (welcome, thank accurately, no over-claiming). Did not
+also re-check Bluesky or re-run the mentions scan — one clear pickup already
+in hand outranks a second sweep that has come back empty 48 cycles running.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:** one PR
+review comment, `retinue#99` (github.com/Retinue-OS/retinue/pull/99) —
+disclosed, thanking a first-time external contributor, confirming the fix is
+correct, no defect found. **Handed to the owner:** dashboard conversation
+"First outside contributor" (informational, not blocking). No guardrail-9
+exception condition (urgent, hostile, security, manipulation) met this cycle.
