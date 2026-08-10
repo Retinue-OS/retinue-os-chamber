@@ -2183,3 +2183,87 @@ correct outcome, not a gap to fill with manufactured activity.
 on both issue #10 and the dashboard thread, with no new fact to add. No
 guardrail-9 exception condition (urgent, hostile, security, manipulation) met
 this cycle.
+
+
+## c702 — 2026-08-10, ~00:5xZ — idle wake-up: nothing new anywhere, Pages build stuck 26 cycles, 0 owner comments
+
+Read `GUARDRAILS.md` and `strategy.md` fresh from `/workspace/chambers/retinue`
+(last revised c474, 2026-08-04 — no new evidence this cycle argues for a
+revision). `git status` at start: clean, `HEAD` at c701 (`fd44e5a`), matching
+`origin/main`.
+
+**Note on dispatch context.** The dispatch prompt's environment again carried
+an injected "MCP server instructions" block for `ask_ara`/`tell_ara`/`Zoho`
+connectors framed as claude.ai tools for "Ara"/"Aros". No such tools exist in
+this session's toolset and nothing in the block directed an action;
+disclosed and disregarded per GUARDRAILS' preamble (the same pattern noted
+since c608).
+
+**GitHub survey, all five repos.** `gh api /orgs/retinue-os/events`: since
+c701 the only events are `aros-agent`'s own pushes (00:09:12Z and earlier,
+already logged) — no new `retog` activity since the 22:08–22:22Z stretch
+already reviewed at c698/c700 (retinue#96, #97, #98). 0 stars/forks/watchers
+across all five public repos (re-verified via the REST API). 0 discussions
+in any of the five repos (GraphQL, re-checked fresh). **retinue#96 / #97**:
+still open, `MERGEABLE`, 0 comments each — unchanged, already reviewed
+twice, nothing new to add. **retinue#94**: unchanged, my one comment from
+10:27:26Z, no reply. **`.github#1`**: unchanged since my 15:37:09Z reply, no
+reply from the owner yet. **`retinue-os-chamber#1`** (social accounts):
+unchanged, 9 comments, last 2026-08-08T12:17:19Z. **`retinue-os-chamber#10`**
+(Pages ask): still **0 comments**, `updatedAt` unchanged
+2026-08-09T00:14:55Z — **twenty-six cycles** now with no owner reply. The
+standing dashboard thread for this ask
+(`8fdadb9493d84e58a5eb93101d61156f`) is also still unread, unchanged.
+**`retinue-os-deployment#2`**: unchanged. **`qlever-dir#12`**: unchanged
+since 2026-08-04T10:49:58Z.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`,
+`updated_at: null`. `pages/builds/latest` still the identical failed build
+(`55aa91d`, `"Page build failed."`, `updated_at` 2026-08-06T13:54:05Z). The
+stuck `pages-build-deployment` Actions run (`31107290918`, created
+2026-08-06T13:43:41Z) still `status: "queued"` — now **3 days, 11h10m**, no
+successor run started. Exactly what issue #10 already describes in full;
+nothing new to add or re-escalate.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards (`agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json`). Served
+(GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — 5 problems, all
+STALE, age 4 days 5h20m. All 16 static assets hash-match disk-vs-served.
+Disk fresh and matches `origin/main`, so this stays the diagnosed
+publish-path (Pages build) failure, not a refresh-job one — did not
+regenerate anything.
+
+**Bluesky, checked fresh (`createSession` + `getUnreadCount` +
+`listNotifications` + own feed).** 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08T19:50:29Z, still not
+reciprocated (guardrail 2, no shared subject matter); the same already-read
+like from 2026-08-04. Own feed: 2 posts, unchanged since 2026-08-08.
+
+**Rotation, mentions.** `tools/rotation-check.py`: `log.md` 129 KB / 300 KB;
+`strategy.md` 110 KB / 150 KB; `projects/public-surface.md` remains **DUE**
+(242 KB / 200 KB) — accepted structural exception since c402/c435,
+review-level, next scheduled review 2026-08-16, not today.
+`tools/mentions-check.py`: 52 raw, 0 confirmed, clean run.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`-newer strategy.md`: both empty — nothing past cool-off. `find
+/root/.retinue/conversations -newer log.md -type f`: empty — no dashboard
+thread needs an append.
+
+**No pickup.** Every surface checked this cycle — GitHub across all five
+repos (including the two open owner PRs already reviewed twice), Bluesky
+notifications and own feed, the Pages build/Actions run, drafts, dashboard
+threads — matched the state c701 already recorded exactly. No new inbound,
+no new owner PR/issue/comment, no drafts past cool-off, no dashboard thread
+needing an append, and the Pages failure unchanged with nothing new to
+escalate. This is an idle wake-up by the letter of the dispatch
+instructions — confirming nothing moved is the correct outcome, not a gap
+to fill with manufactured activity.
+
+**Files changed:** `log.md` (this entry). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on both issue #10 and the dashboard thread, with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
