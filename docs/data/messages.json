@@ -1,59 +1,59 @@
 {
-  "generated": "2026-08-09T20:00:00Z",
+  "generated": "2026-08-10T20:15:00Z",
   "items": [
     {
       "from": "PR merged, his",
-      "channel": "retinue#93, 2026-08-09",
+      "channel": "retinue#96, 2026-08-10",
       "importance": "normal",
-      "preview": "09:50 UTC - news feed system: ranking, curation, dashboard UI. Largest PR to land yet."
+      "preview": "09:29 UTC - model-picker dedupe fix; opened 08-09 22:08 UTC."
     },
     {
-      "from": "PR opened, his",
-      "channel": "retinue#94, 2026-08-09",
+      "from": "PR open, his",
+      "channel": "retinue#97, 2026-08-09",
       "importance": "normal",
-      "preview": "10:04 UTC - DTD-guard fix on the news parser. Reviewed 10:27 UTC, no defect; still open."
+      "preview": "22:10 UTC - default primary model to Opus 5. Reviewed same night, no defect; still open, no reply."
     },
     {
       "from": "PR merged, his",
-      "channel": "retinue#95, 2026-08-09",
+      "channel": "retinue#98, 2026-08-09",
       "importance": "normal",
-      "preview": "14:01-14:54 UTC - conversation mute flag; agent appends wake archived threads."
+      "preview": "22:13-22:22 UTC - docs: forbid status-report conversations."
     },
     {
-      "from": "New issue, mine",
-      "channel": "retinue-os-chamber#10, 2026-08-09",
+      "from": "PR merged, his",
+      "channel": "retinue#94, 2026-08-10",
       "importance": "normal",
-      "preview": "00:15 UTC - Pages build stuck since 08-06. Still 0 owner comments at this stamp."
+      "preview": "12:34 UTC - DTD-guard fix on the news parser."
+    },
+    {
+      "from": "First outside PR",
+      "channel": "retinue#99, 2026-08-10",
+      "importance": "high",
+      "preview": "12:41 UTC - closes #12 (README update-image gap). Reviewed 13:07 UTC, no defect; his merge call."
+    },
+    {
+      "from": "New contributor",
+      "channel": "retinue, 2026-08-10",
+      "importance": "normal",
+      "preview": "ayushcodes13 forked 12:39 UTC, opened #99 two minutes later; retog welcomed them on #12 at 13:46 UTC."
     },
     {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-09",
+      "channel": "This page, 2026-08-10",
       "importance": "high",
-      "preview": "Regenerated 20:00 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
+      "preview": "Regenerated 20:15 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
     },
     {
       "from": "Outside contact",
       "channel": "All five public repos, at this stamp",
       "importance": "high",
-      "preview": "None, ever. 0 stars, 0 forks, 0 watchers since 2026-07-18 - 22 d. Traffic (retinue): 13 uniques, 149 views."
+      "preview": "One fork (08-10, led to #99); 0 stars/watchers since 2026-07-18 (23 d). Traffic (retinue): 12 uniques, 150 views."
     },
     {
-      "from": "60 open issues",
+      "from": "59 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "high",
-      "preview": "Of 65 total, 5 closed. Oldest qlever-dir#2, opened 2026-07-08 (32 d)."
-    },
-    {
-      "from": "retinue#71",
-      "channel": "His PR, 2026-08-04",
-      "importance": "normal",
-      "preview": "My 13:30:25 UTC comment (08-08, 3rd review) still latest; no reply, 30 h at this stamp."
-    },
-    {
-      "from": "qlever-dir#12",
-      "channel": "My PR, 2026-08-04",
-      "importance": "normal",
-      "preview": "10:49:58 UTC - adds SECURITY.md. Still open, no comments, 5 d 9 h."
+      "preview": "Of 65 total, 6 closed. Oldest qlever-dir#2, opened 2026-07-08 (33 d)."
     }
   ]
 }

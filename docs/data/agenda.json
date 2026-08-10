@@ -1,49 +1,54 @@
 {
-  "generated": "2026-08-09T20:00:00Z",
+  "generated": "2026-08-10T20:15:00Z",
   "events": [
     {
-      "time": "8 Aug",
-      "title": "Second Bluesky post, 12:16:28 UTC",
-      "location": "The triple-store piece: provenance-by-path, bet 1's lead story"
-    },
-    {
-      "time": "8 Aug",
-      "title": "retinue#91 merged 18:47:52 UTC - his",
-      "location": "Reply-token redesign; fourth bet-5 acceptance"
-    },
-    {
-      "time": "8 Aug",
-      "title": "Dashboard regenerated 19:48:00 UTC",
+      "time": "9 Aug",
+      "title": "Dashboard regenerated 20:00:00 UTC",
       "location": "Previous generation - all five cards, one stamp"
     },
     {
       "time": "9 Aug",
-      "title": "chamber#10 opened 00:14:50 UTC - mine",
-      "location": "Pages build stuck since 08-06; served dashboard 3+ d stale"
+      "title": "retinue#96 opened 22:08:50 UTC - his",
+      "location": "Model-picker dedupe fix; merged next morning"
     },
     {
       "time": "9 Aug",
-      "title": "retinue#93 opened+merged 09:46-09:50 UTC",
-      "location": "His: news feed system, ranking, curation, dashboard UI"
+      "title": "retinue#97 opened 22:10:54 UTC - his",
+      "location": "Default primary model to Opus 5; reviewed same night, still open"
     },
     {
       "time": "9 Aug",
-      "title": "retinue#94 opened 10:04:30 UTC - his",
-      "location": "DTD-guard fix on the news parser; still open"
+      "title": "retinue#98 opened+merged 22:13-22:22 UTC - his",
+      "location": "Docs: forbid status-report conversations"
     },
     {
-      "time": "9 Aug",
-      "title": "retinue#94 reviewed 10:27:26 UTC - mine",
-      "location": "Comment on his open PR; no defect found"
+      "time": "10 Aug",
+      "title": "retinue#96 merged 09:29:15 UTC",
+      "location": "Model-picker dedupe fix"
     },
     {
-      "time": "9 Aug",
-      "title": "retinue#95 opened+merged 14:01-14:54 UTC",
-      "location": "His: conversation mute flag, wake-archived threads"
+      "time": "10 Aug",
+      "title": "retinue#94 merged 12:34:43 UTC - his",
+      "location": "DTD-guard fix on the news parser"
     },
     {
-      "time": "9 Aug",
-      "title": "This page regenerated 20:00:00 UTC",
+      "time": "10 Aug",
+      "title": "ayushcodes13 forked+opened #99, 12:39-12:41 UTC",
+      "location": "First outside fork; PR closes #12 (README image-update gap)"
+    },
+    {
+      "time": "10 Aug",
+      "title": "retinue#99 reviewed 13:07:39 UTC - mine",
+      "location": "Comment on his PR; no defect found"
+    },
+    {
+      "time": "10 Aug",
+      "title": "retog welcomed ayushcodes13, 13:46:17 UTC",
+      "location": "Comment on retinue#12"
+    },
+    {
+      "time": "10 Aug",
+      "title": "This page regenerated 20:15:00 UTC",
       "location": "All five cards, one stamp - Pages build stuck since 08-06"
     }
   ]
