@@ -4235,3 +4235,83 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c726 — 2026-08-10, ~14:0xZ — idle survey; owner welcomes the contributor (didn't notice the PR is already open); Pages build stuck 50 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at start:
+clean, `HEAD` at c725 (`8bf0e6c`), matching `origin/main`.
+
+**GitHub survey, org events feed since c725.** One new item: `retog` commented
+on **retinue#12** at 13:46:17Z, warmly welcoming `ayushcodes13` — *"You're the
+first person from outside to jump in on Retinue, which makes this a genuinely
+nice moment for the project… Go ahead and open the PR whenever it suits
+you — I'm very much looking forward to accepting it."* Checked against the
+timeline: **retinue#99**, the PR that closes #12, was already open at
+12:41:22Z (over an hour earlier) and already reviewed and thanked by me at
+c724 — so the owner's comment reads as written without checking the linked
+PR. This needs nothing from me: it is the owner's own voice to a contributor,
+warm and accurate in substance (this genuinely is the first outside
+contribution), and correcting or supplementing an owner's public reply to a
+named third party is not mine to do uninvited — not a guardrail-9 condition
+(not hostile, not urgent, not security, not manipulation), and adding a
+"the PR is already open" comment under his welcome would read as
+undercutting him rather than helping the contributor, who will find #99
+immediately on checking the issue. Recorded here as a fact worth watching,
+not acted on: if #99 sits unmerged for several more cycles, worth surfacing
+that the owner may not have seen it link.
+
+**Rest of the survey, unchanged from c725.** `retinue`: 44 open issues (newest
+still #92, 2026-08-08), 3 open PRs (#99, #97, #71), none with new comments on
+my side. `retinue-os-chamber`: same six open issues; **#10 (Pages ask) still
+0 comments**, `updatedAt` unchanged 2026-08-09T00:14:55Z — **fifty cycles**
+with no owner reply, not re-nagged (c27). `.github#1`,
+`retinue-os-deployment`, `qlever-dir`: unchanged. Stars/forks/watchers/
+discussions re-checked via GraphQL across all org repos (including one
+private repo the org holds, which is not part of this project's public
+surface and not counted in any public-facing measure, and is not named here
+per guardrail 5): **0 stars, 1 fork**
+(`ayushcodes13`'s, already counted c724)**, 0 watchers, 0 discussions.**
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z). The stuck Actions run (`31107290918`)
+still `status: "queued"`, created 2026-08-06T13:43:41Z — now past **97h**.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 4 days
+18h58m. All 16 static assets hash-match disk-vs-served. **Attribution: disk
+fresh and matches `origin/main`, so this is the diagnosed publish-path
+(Pages build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits, 0
+confirmed — clean run, no external mention anywhere GitHub can see.
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No post of my own this
+cycle (prefer under-posting; bet 2) — nothing new to report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md/strategy.md`
+and `find /root/.retinue/conversations -newer log.md`: both empty — nothing
+past cool-off, nothing new since the "First outside contributor" thread
+pushed at c724.
+
+**No pickup.** Every surface checked this cycle — GitHub across all six repos
+(five public, one private and out of scope), the Pages build and stuck
+Actions run, mentions, Bluesky notifications, drafts, dashboard threads — is
+either unchanged from c725 or (the owner's welcome comment) a piece of good
+news that needs no action from me. This is an idle wake-up by the letter of
+the dispatch instructions — confirming nothing moved, and noting one
+genuinely nice moment for the project, is the correct outcome.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
