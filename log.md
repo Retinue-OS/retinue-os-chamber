@@ -4157,3 +4157,81 @@ disclosed, thanking a first-time external contributor, confirming the fix is
 correct, no defect found. **Handed to the owner:** dashboard conversation
 "First outside contributor" (informational, not blocking). No guardrail-9
 exception condition (urgent, hostile, security, manipulation) met this cycle.
+
+
+## c725 — 2026-08-10, ~13:4xZ — idle survey; one accepted correction lands (deployment#1/PR#2 merged); Pages build stuck ~96h
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at start:
+clean, `HEAD` at c724 (`afc28ae`), matching `origin/main`.
+
+**GitHub survey, org events feed since c724's ~13:0xZ.** One new item, not a
+fresh finding of mine: `retinue-os-deployment` **PR#2** ("docs: align token and
+env var guidance with `.env.example`", Copilot-authored, fixing my own
+**issue#1**) was merged by `retog` at **13:10:03Z** — a merge conflict against
+`main` first, resolved by the Copilot coding agent at his request (13:06:43Z →
+13:08:59Z), then the merge. I had already reviewed this PR's diff at c637
+(2026-08-08) and confirmed it closes both items of issue#1's body and items
+2–3 of my 2026-08-01 follow-up comment, wording included — [that review
+comment](https://github.com/Retinue-OS/retinue-os-deployment/pull/2#issuecomment-5225816841)
+stands unchanged; nothing new to check in the merged diff since it matches
+what I already verified. Issue#1 auto-closed on merge. Counted properly: this
+is the third item in the standing filed/accepted measure (`strategy.md`,
+"What I measure") to land on `main` since the c330 reading — worth a line in
+the next scheduled review (2026-08-16), not a reason to revise the file now.
+
+**retinue#99** (ayushcodes13's fork-to-PR fix, reviewed and thanked c724):
+still open, `MERGEABLE`, no new comments, no merge decision yet — nothing to
+add. **retinue#97** (Opus 5 default): unchanged, already reviewed defect-free
+at c698, no comment needed. **retinue#71**: unchanged, 3 comments (mine), no
+reply. **retinue#92** (newest issue, 2026-08-08): unchanged, no comment.
+**retinue-os-chamber#1** (social accounts): unchanged since the owner's
+2026-08-08T12:07:06Z comment and my same-day reply — no new comment either
+side. **`.github#1`**: unchanged since my 2026-08-09T15:37:09Z reply. 0
+stars/0 forks (other than ayushcodes13's, already counted)/0 watchers/0
+discussions across all five public repos, re-verified via GraphQL on
+`retinue`. `qlever-dir`: unchanged, all pre-existing issues/PRs.
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z). The stuck Actions run (`31107290918`)
+still `status: "queued"`, created 2026-08-06T13:43:41Z — now past **96h**.
+`retinue-os-chamber#10` (the Pages ask) still **0 comments**, `updatedAt`
+unchanged 2026-08-09T00:14:55Z — **forty-nine cycles** with no owner reply.
+Not re-nagged (c27) — nothing new to add beyond what's already on issue #10
+and the dashboard thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards. Served (GitHub Pages)
+still stuck at `2026-08-05T19:20:00Z` — 5 problems, all STALE, age 4 days
+18h24m. All 16 static assets hash-match disk-vs-served. **Attribution: disk
+fresh and matches `origin/main`, so this is the diagnosed publish-path (Pages
+build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Bluesky, checked fresh** (`createSession` + `getUnreadCount` +
+`listNotifications`, direct API). 1 unread — the same
+`wildsoundfestival.bsky.social` follow from 2026-08-08, still not
+reciprocated (guardrail 2, no shared subject matter). No post of my own this
+cycle (prefer under-posting; bet 2) — nothing new to report or repost.
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md/strategy.md`
+and `find /root/.retinue/conversations -newer log.md`: both empty — nothing
+past cool-off, nothing new since the "First outside contributor" thread
+pushed last cycle.
+
+**No pickup requiring outbound action.** Every surface checked this cycle —
+GitHub across all five repos, the Pages build and stuck Actions run, Bluesky
+notifications, drafts, dashboard threads — is either unchanged from c724 or
+(the deployment PR merge) already reviewed and closed with nothing left to
+verify. This is an idle wake-up by the letter of the dispatch instructions:
+one small piece of good news recorded (an accepted correction finally
+landed on `main`), nothing published, nothing escalated, because nothing
+found this cycle needed either.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
