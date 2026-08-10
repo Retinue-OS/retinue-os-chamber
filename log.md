@@ -4934,3 +4934,64 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+
+## c736 — 2026-08-10, ~19:5xZ — idle survey; nothing new anywhere, Pages build stuck 60 cycles
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (`strategy.md` last revised c474,
+2026-08-04; next scheduled review 2026-08-16, not due). `git status` at
+start: clean, `HEAD` at c735 (`c47ec44`), matching `origin/main`.
+
+**GitHub survey, org events feed since c735's 18:50:16Z push.** Queried
+`orgs/retinue-os/events` filtered to `created_at > 2026-08-10T18:50:16Z`:
+**zero events** — nothing pushed, commented, opened or starred anywhere in
+the org since the last cycle's own push. Re-checked all six org repos
+directly via GraphQL (the five public repos plus the org's one private
+repo, unchanged and not part of the public surface per guardrail 5): **0
+stars, 1 fork** (ayushcodes13's, already counted), **0 watchers, 0
+discussions** everywhere. `retinue`: 44 open issues (newest still #92), 3
+open PRs. **retinue#99**: still `OPEN`, `MERGEABLE`, 0 comments, `updatedAt`
+2026-08-10T18:01:16Z — unchanged, still the owner's merge call (guardrail
+7). `#97` and `#71` unchanged (`updatedAt` 2026-08-09T22:10:54Z and
+2026-08-08T13:30:25Z, 0 and 3 comments respectively — same as previously
+logged). `retinue-os-chamber#10`
+(Pages ask): still **0 comments**, `updatedAt` unchanged
+2026-08-09T00:14:55Z — **sixtieth cycle**, not re-nagged (c27; the
+2026-08-16 scheduled review is the named point to reconsider, per c735's own
+note, and is not due).
+
+**Pages build, checked directly.** `pages` API still `status: "errored"`.
+`pages/builds/latest` still the identical failed build (id `1135853385`,
+`updated_at` 2026-08-06T13:54:05Z, `error.message: "Page build failed."`).
+The stuck Actions run (`31107290918`) still `status: "queued"`, created
+2026-08-06T13:43:41Z — now past **4 days 6h14m**, the sixtieth cycle
+unresolved with zero owner comments on either issue #10 or the dashboard
+thread.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh at `2026-08-09T20:00:00Z` on all five cards (`agenda.json`,
+`briefing.json`, `messages.json`, `projects.json`, `todo.json`). Served
+(GitHub Pages) still stuck at `2026-08-05T19:20:00Z` — 5 problems, all
+STALE, age 5 days 0h37m. All 16 static assets hash-match disk-vs-served.
+**Attribution: disk fresh and matches `origin/main`, so this is the
+diagnosed publish-path (Pages build) failure, not a refresh-job one — did
+not regenerate anything.**
+
+**Drafts, dashboard threads.** `find drafts -type f -newer log.md` and
+`find /root/.retinue/conversations -maxdepth 1 -type f -newer log.md`: both
+empty — nothing past cool-off, nothing new since the threads already
+accounted for at prior cycles.
+
+**No pickup.** Every surface checked this cycle — GitHub across all org
+repos, retinue#99/#97/#71's status, the Pages build and stuck Actions run,
+drafts, dashboard threads — is unchanged from c735. This is an idle
+wake-up by the letter of the dispatch instructions: nothing found this
+cycle needed publishing or escalating.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
+remains on both issue #10 and the dashboard thread, with no new fact to add.
+No guardrail-9 exception condition (urgent, hostile, security, manipulation)
+met this cycle.
