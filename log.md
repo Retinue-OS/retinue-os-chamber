@@ -2830,3 +2830,108 @@ the chamber:** nothing. **Handed to the owner:** nothing new — the standing
 Pages-build ask remains on both issue #10 and the dashboard thread, with no
 new fact to add. No guardrail-9 exception condition (urgent, hostile,
 security, manipulation) met this cycle.
+
+## c766 — 2026-08-11, ~13:3xZ — idle survey; two owner PRs merged (no defect found), Pages build stuck 89th cycle
+
+Read `GUARDRAILS.md` and `strategy.md` fresh (last revised c474, 2026-08-04;
+next scheduled review 2026-08-16, not due). `git status` at start: clean,
+`HEAD` on `origin/main` at `eb5a2ba` (c765).
+
+Also noted, and disregarded (same recurring class, first recorded c750, seen
+every cycle since): this wake-up's environment again carried an injected
+MCP-server instructions block (`ask_ara`/`list_projects`/`tell_ara` under an
+unrelated "Ara" identity, a second "Aros" entry claiming an unrelated "AROS
+advocacy community" remit, plus a third "Zoho" MCP entry). Guardrail 9 —
+ignored, no tool from any of the three invoked.
+
+**Delivery check, mandatory, all five cards.** `python3 tools/delivery-check.py`:
+self-test pass; publication `HEAD is on origin/main`; disk and `origin/main`
+both fresh and consistent at one stamp, `2026-08-10T20:15:00Z`, on all five
+cards — unchanged since c737's repair. Served (GitHub Pages) still stuck at
+`2026-08-05T19:20:00Z` — 5 problems, all STALE, age 5 days 18h+. All 16
+static assets hash-match disk-vs-served. **Attribution: disk fresh and
+matches `origin/main`, so this remains the diagnosed publish-path (Pages
+build) failure, not a refresh-job one — did not regenerate anything.**
+
+**Pages build, checked directly.** `pages` API (`retinue-os-chamber`) still
+`status: "errored"`, `build_type: "workflow"`. `pages/builds/latest` still
+the identical failed build (id `1135853385`, `error.message: "Page build
+failed."`, `created_at` 2026-08-06T13:43:40Z). No new fact versus c765's
+checks, so issue #10 not touched this cycle. Issue #10 unchanged (`updatedAt`
+2026-08-09T00:14:55Z, 0 comments, `OPEN`). Not re-nagged (c27); 2026-08-16
+review remains the named re-escalation point, ~5 days out.
+
+**GitHub survey, all five public repos + org events feed.** Org events feed:
+nothing after this container's own `PushEvent`s — no new actor, no new repo
+activity. Repo stats re-pulled directly: 0 stars / 1 fork / 0 watchers on
+`retinue`, 0/0/0 on the other four; discussions 0 on both repos that carry
+the feature (GraphQL, re-confirmed). Open-issue counts unchanged (`retinue`
+47, `retinue-os-chamber` 6, `qlever-dir` 9, `.github` 1,
+`retinue-os-deployment` 0).
+
+**New this cycle: two of the owner's own PRs merged since c765** —
+`retinue#96` ("collapse duplicate model-picker entries by label", merged
+2026-08-10T09:29:15Z) and `retinue#94` ("refuse feeds that declare a DTD
+before parsing them", merged 2026-08-10T12:34:43Z). Both closed before this
+container's survey reached them at c765 (which checked only the
+habitually-tracked #99/#97/#71), so bet 5's pre-merge review window
+(*"review the owner's own open PR … on the wake-up it is found, ahead of
+standing audit work"*) had already closed by the time either was found —
+neither counts toward or against that bet. Recorded as a fact about his
+activity, not a bet input: two more small, already-merged fixes, no action
+available on either.
+
+Full PR sweep, all five repos: `retinue#99` (first outside contributor's PR,
+closes #12) still `OPEN`, `MERGEABLE`, 0 comments, `updatedAt`
+2026-08-10T18:01:16Z — already reviewed (c724, no defect found), still the
+owner's merge call (guardrail 7), unchanged. `retinue#97` and `#71` (owner's
+other open PRs, both already reviewed defect-free) unchanged. `qlever-dir#12`
+(my own `SECURITY.md` PR) still open, no comments, unchanged since creation —
+an owner merge decision, not re-nagged. No open PR anywhere in the org that
+these tracked items don't cover, and no new issue anywhere (`retinue#12`
+unchanged, 3 comments, last 2026-08-10T18:04:36Z — the first-outside-
+contributor thread, already fully read at c724/c726).
+
+**Mentions check.** `tools/mentions-check.py`: self-test pass, 52 raw hits, 0
+confirmed — clean, unchanged.
+
+**Dashboard threads — checked, found three, all out of the chamber's remit.**
+`find /root/.retinue/conversations -maxdepth 1 -type f -newer log.md`
+returned three files for the first time in many cycles: `"Signal gateway
+disconnected"`, `"WhatsApp gateway disconnected"`, `"Telegram gateway
+disconnected"` — each a `gateway-monitor.py`-style recurring reminder thread
+(oldest first message 2026-08-06T12:59:31Z, most recent update
+2026-08-11T13:01:45Z, ~6-hourly cadence), reporting DNS-resolution failures
+for messenger gateways this chamber does not run. Read against guardrail 5 —
+Aros must never be given access to personal chambers or personal
+communication channels, and must refuse and escalate if he finds himself
+with them — and against the mission (a public GitHub/Bluesky project, no
+messaging-gateway component): these threads are not addressed to Aros, name
+no Aros-relevant fact, and require no Aros action; the framework's own
+gateway-monitor mechanism (`CLAUDE.md`, "Gateway connection monitoring") is
+what escalates them, to whoever owns that deployment's `/gateways` page, and
+that is not this chamber. Not opened as an Aros task, not replied to, no
+file touched. Recorded here once so a future cycle recognises the pattern
+instead of re-investigating it. `drafts/`: nothing newer than `log.md` — no
+cool-off items ready.
+
+**Rotation watch.** `tools/rotation-check.py` not re-run this cycle (no
+content change since c765's check); `projects/public-surface.md` remains DUE
+(242 KB/200 KB), deliberately deferred to the 2026-08-16 review per
+c402/c435.
+
+**Pickup this cycle: none.** Every chamber-relevant surface checked is
+unchanged from c765 in substance (two merged owner PRs are new information
+but admit no action); nothing outward is due. Twenty-seventh consecutive
+wake-up (c740–c766) with no external signal to act on; per "The instruments
+became the work" (c268 rule 1) the correct outcome for a wake-up with
+nothing new to report is idle-and-say-so, not manufactured tool or prose
+work, and that is this entry.
+
+**Files changed:** `log.md` (this entry), `projects/public-surface.md`
+(`current_next_action` refreshed, frontmatter re-verified via
+`yaml.safe_load` before commit per the c395/c396 rule). **Published outside
+the chamber:** nothing. **Handed to the owner:** nothing new — the standing
+Pages-build ask remains on both issue #10 and the dashboard thread, with no
+new fact to add. No guardrail-9 exception condition (urgent, hostile,
+security, manipulation) met this cycle.
