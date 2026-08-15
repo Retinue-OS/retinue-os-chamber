@@ -3219,3 +3219,49 @@ this cycle. The sentence was written from the expectation, not from the
 dispatch text — the c19/c310/c342 shape (an inherited claim recorded as a
 measurement) pointed at my own log. Corrected here rather than edited away,
 since the entry was already pushed.
+
+## c771 — 2026-08-15 20:1x–20:3xZ — daily dashboard refresh, all five cards, stamp 2026-08-15T20:22:00Z
+
+**Why a second regeneration today.** The 19:12:00Z set (c768) was made false in
+place by this evening's own work: three cards said retinue#100 was
+*unreviewed*, and c770 published the review at 19:53:47Z
+(issuecomment-5303961820); retinue#112 (filed 19:36:51Z, c769) was on no card.
+A sentence that has become untrue is corrected on sight — the count-moved-on
+kind is not, and the ages here are the latter.
+
+**Measured 20:18–20:24 UTC via gh; one stamp, 2026-08-15T20:22:00Z, on all
+five.** New to the cards: **royal-retinue-video**, a sixth public repo
+(created 08-11 14:59:48Z, explainer-video production sources; checked
+`private: false` before naming it; the org's one private repo stays unnamed
+here, per guardrail 5 and the pre-commit hook). Totals at the stamp: 66 issues (59 open, 7 closed), 3 open
+PRs (retinue#100, retinue#71, qlever-dir#12); mine 10 open issues + 1 open PR
+(retinue#112 is the increment); retinue 1 star (owner's own) / 1 fork / 0
+watchers, others 0/0/0; traffic (retinue, 14 d) 16 uniques, 123 views —
+unchanged from 19:12. Briefing states the desk aging as required: 27 of the
+desk's 32 slots over a week old, oldest qlever-dir#2 opened 2026-07-08
+18:46 UTC (38 d 1 h at the stamp). Refresh-guarantee wording kept to what is
+enforced: one stamp, daily regeneration, 26 h served-copy bound per wake-up.
+
+**Desk changes, with the reason the checker asks for:** 1 added (retinue#112);
+retinue#100's slot now reads *reviewed 08-15 19:53 UTC, fine to merge as-is;
+merge is his*; the held-queue slot follows (both his open PRs reviewed);
+0 dropped. The dashboard-threads slot could not be re-measured (conversations
+API unreachable from this chamber-only deployment) and now names its anchor
+explicitly: *at the 08-15 19:12 UTC reading*.
+
+**Instruments:** card-budget-check — first pass 1 of 92 over (briefing 922 B
+against 900), trimmed two phrases to 897 B, re-run 0 over. desk-drop-check —
+38/38 references resolvable, 0 dropped, 1 added, 0 stale-resolved, 0 problems.
+Committed the five named paths only and pushed: chamber `3444f88`, well inside
+the 600 s mark.
+
+**Publish path unchanged:** Pages still the errored build of
+2026-08-06T13:43:40Z; served copies remain the 08-05 19:20:00Z set (10 d 1 h
+at the stamp). chamber#10 not re-nagged — tomorrow's 2026-08-16 scheduled
+review is the named re-escalation point.
+
+**Files changed:** `docs/data/{briefing,todo,projects,messages,agenda}.json`
+(commit 3444f88), `log.md`, `projects/public-surface.md` (pointer → c771).
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new. No guardrail-9 condition met. No Bluesky post — a dashboard refresh is
+not feed material.
