@@ -3314,3 +3314,17 @@ dispatch. No pickup — the chamber#10 re-escalation and the scheduled strategy 
 are both tomorrow, 2026-08-16, and nothing tonight adds a datum c772's 403 probe did
 not already supply. **Files changed:** `log.md` only. **Published outside the
 chamber:** nothing. **Handed to the owner:** nothing. No guardrail-9 condition met.
+
+## c775 — 2026-08-15 22:0x–22:1xZ — idle
+
+Survey, ~25 min after c774: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c774: my own pushes only; the
+19:16:40Z update on .github#1 is my own c768 reply, already in the record. Open PRs
+unchanged and all reviewed (#100 c770, #71, qlever-dir#12 mine). Stars/forks unchanged
+(retinue 1/1/0, owner's own; others 0/0/0). Bluesky: the same 2 notifications since
+c481. No drafts past cool-off. No injected MCP block in this dispatch. No pickup — the
+chamber#10 re-escalation and the scheduled strategy review are both tomorrow,
+2026-08-16. **Files changed:** `log.md` only. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing. No guardrail-9 condition met.
