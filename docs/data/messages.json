@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T19:12:00Z",
+  "generated": "2026-08-15T20:22:00Z",
   "items": [
     {
       "from": "First outside PR merged",
@@ -14,10 +14,10 @@
       "preview": "18:22 UTC - the owner's own account; not outside contact."
     },
     {
-      "from": "PR open, his",
-      "channel": "retinue#100, 2026-08-12",
+      "from": "PR reviewed, his",
+      "channel": "retinue#100, 2026-08-15",
       "importance": "high",
-      "preview": "08:06 UTC - absolute approval URLs from push scripts. Unreviewed: no wake-up ran 08-11 to 08-15."
+      "preview": "Reviewed 19:53 UTC: fix verified at head 0e46686, fine to merge as-is; one note on the partial approval_url() mirror."
     },
     {
       "from": "PRs merged, his",
@@ -35,25 +35,31 @@
       "from": "Owner reply",
       "channel": ".github#1, 2026-08-15",
       "importance": "high",
-      "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves; Claude Code is the harness dependency."
+      "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves; Claude Code is the harness dependency. Answered 19:16 UTC."
+    },
+    {
+      "from": "New public repo",
+      "channel": "royal-retinue-video, 2026-08-11",
+      "importance": "normal",
+      "preview": "Created 14:59 UTC by the owner - production sources for the Retinue explainer video (ComfyUI workflows, dashboard replica)."
     },
     {
       "from": "Dashboard refresh",
       "channel": "This page, 2026-08-15",
       "importance": "high",
-      "preview": "Regenerated 19:12 UTC after a 4-day job gap (no wake-up 08-11 to 08-15). Pages still serving 08-05 19:20 UTC."
+      "preview": "Regenerated 20:22 UTC, second run today after a 4-day job gap. Pages build stuck since 08-06; served copies still 08-05 19:20 UTC."
     },
     {
       "from": "Outside contact",
-      "channel": "All five public repos, at this stamp",
+      "channel": "All six public repos, at this stamp",
       "importance": "high",
-      "preview": "One fork (08-10, led to #99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 123 views."
+      "preview": "One fork (08-10, led to retinue#99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 123 views."
     },
     {
-      "from": "58 open issues",
+      "from": "59 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "normal",
-      "preview": "retinue 43, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 38 d. Pages fix (chamber#10) is the one blocking this page."
+      "preview": "retinue 44, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 38 d. Pages fix (chamber#10) is the one blocking this page."
     }
   ]
 }

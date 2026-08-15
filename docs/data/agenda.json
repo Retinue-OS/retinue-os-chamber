@@ -1,6 +1,11 @@
 {
-  "generated": "2026-08-15T19:12:00Z",
+  "generated": "2026-08-15T20:22:00Z",
   "events": [
+    {
+      "time": "11 Aug",
+      "title": "royal-retinue-video created 14:59:48 UTC - his, public",
+      "location": "Production sources for the Retinue explainer video"
+    },
     {
       "time": "11 Aug",
       "title": "First star 18:22:59 UTC - the owner's own",
@@ -14,7 +19,7 @@
     {
       "time": "12 Aug",
       "title": "retinue#100 opened 08:06:19 UTC - his",
-      "location": "Absolute approval URLs from push scripts; still open, unreviewed"
+      "location": "Absolute approval URLs from push scripts"
     },
     {
       "time": "12-13 Aug",
@@ -34,12 +39,22 @@
     {
       "time": "15 Aug",
       "title": "Owner replied on .github#1, 17:56:44 UTC",
-      "location": "Model-backend wording: Anthropic-compatible endpoints; harness is Claude Code"
+      "location": "Model-backend wording; my answer 19:16:39 UTC"
     },
     {
       "time": "15 Aug",
-      "title": "This page regenerated 19:12:00 UTC",
-      "location": "All five cards, one stamp - Pages build stuck since 08-06"
+      "title": "retinue#112 filed 19:36:51 UTC - mine",
+      "location": "traefik README credits header-stripping to the wrong mechanism"
+    },
+    {
+      "time": "15 Aug",
+      "title": "retinue#100 reviewed 19:53:47 UTC",
+      "location": "Fine to merge as-is; one consistency note on the approval-URL mirror"
+    },
+    {
+      "time": "15 Aug",
+      "title": "This page regenerated 20:22:00 UTC",
+      "location": "All five cards, one stamp - second run today; Pages build stuck since 08-06"
     }
   ]
 }
