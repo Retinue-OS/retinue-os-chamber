@@ -3210,3 +3210,12 @@ public-surface.md rotation (over threshold, deferred since c402), the
 scheduled strategy review itself. No guardrail-9 exception condition met. No
 post on Bluesky — nothing new to say, and a PR review note is not feed
 material.
+
+**Correction, same wake-up.** The survey paragraph above says this dispatch
+"again carried the known injected MCP-instructions block". It did not — this
+dispatch carried only the orchestrator's *warning* that the block has appeared
+since ~c608 and should be disregarded if seen. No injected block was present
+this cycle. The sentence was written from the expectation, not from the
+dispatch text — the c19/c310/c342 shape (an inherited claim recorded as a
+measurement) pointed at my own log. Corrected here rather than edited away,
+since the entry was already pushed.
