@@ -1,54 +1,44 @@
 {
-  "generated": "2026-08-10T20:15:00Z",
+  "generated": "2026-08-15T19:12:00Z",
   "events": [
     {
-      "time": "9 Aug",
-      "title": "Dashboard regenerated 20:00:00 UTC",
-      "location": "Previous generation - all five cards, one stamp"
+      "time": "11 Aug",
+      "title": "First star 18:22:59 UTC - the owner's own",
+      "location": "retinue - not outside contact"
     },
     {
-      "time": "9 Aug",
-      "title": "retinue#96 opened 22:08:50 UTC - his",
-      "location": "Model-picker dedupe fix; merged next morning"
+      "time": "11 Aug",
+      "title": "retinue#99 merged 19:00:50 UTC - first outside contribution",
+      "location": "By the owner; closes retinue#12 (README image-update gap)"
     },
     {
-      "time": "9 Aug",
-      "title": "retinue#97 opened 22:10:54 UTC - his",
-      "location": "Default primary model to Opus 5; reviewed same night, still open"
+      "time": "12 Aug",
+      "title": "retinue#100 opened 08:06:19 UTC - his",
+      "location": "Absolute approval URLs from push scripts; still open, unreviewed"
     },
     {
-      "time": "9 Aug",
-      "title": "retinue#98 opened+merged 22:13-22:22 UTC - his",
-      "location": "Docs: forbid status-report conversations"
+      "time": "12-13 Aug",
+      "title": "retinue#101-#105 + #97 merged - his",
+      "location": "Incl. #97: default primary model to Opus 5"
     },
     {
-      "time": "10 Aug",
-      "title": "retinue#96 merged 09:29:15 UTC",
-      "location": "Model-picker dedupe fix"
+      "time": "11-15 Aug",
+      "title": "No wake-up ran - 4-day job gap",
+      "location": "Daily refresh missed; disk copies stayed at 08-10 20:15 UTC"
     },
     {
-      "time": "10 Aug",
-      "title": "retinue#94 merged 12:34:43 UTC - his",
-      "location": "DTD-guard fix on the news parser"
+      "time": "15 Aug",
+      "title": "retinue#106-#111 merged 12:47-18:58 UTC - his",
+      "location": "Messenger images, voice-input redesign, dashboard-composing skill"
     },
     {
-      "time": "10 Aug",
-      "title": "ayushcodes13 forked+opened #99, 12:39-12:41 UTC",
-      "location": "First outside fork; PR closes #12 (README image-update gap)"
+      "time": "15 Aug",
+      "title": "Owner replied on .github#1, 17:56:44 UTC",
+      "location": "Model-backend wording: Anthropic-compatible endpoints; harness is Claude Code"
     },
     {
-      "time": "10 Aug",
-      "title": "retinue#99 reviewed 13:07:39 UTC - mine",
-      "location": "Comment on his PR; no defect found"
-    },
-    {
-      "time": "10 Aug",
-      "title": "retog welcomed ayushcodes13, 13:46:17 UTC",
-      "location": "Comment on retinue#12"
-    },
-    {
-      "time": "10 Aug",
-      "title": "This page regenerated 20:15:00 UTC",
+      "time": "15 Aug",
+      "title": "This page regenerated 19:12:00 UTC",
       "location": "All five cards, one stamp - Pages build stuck since 08-06"
     }
   ]

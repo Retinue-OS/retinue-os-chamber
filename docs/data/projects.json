@@ -1,29 +1,29 @@
 {
-  "generated": "2026-08-10T20:15:00Z",
+  "generated": "2026-08-15T19:12:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "retinue#99 (outside contributor's PR) unmerged, his call; chamber#10 (Pages stuck 4 d 6 h) unresolved 60 cycles, 0 owner comments.",
+      "next": "retinue#99 merged 08-11 - first outside contribution landed. chamber#10 (Pages stuck 9 d 5 h) open; 08-16 review is the re-escalation point.",
       "expected": "2026-08-17"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "2nd Bluesky post (08-08 12:16 UTC) IS the triple-store piece - live, bet 1's lead story. Defects: qlever-dir#3-10, 8/9 open.",
-      "expected": "2026-08-15"
+      "next": "2nd Bluesky post (08-08) is the triple-store piece - bet 1's lead story, live. No engagement measured. Defects: qlever-dir#3-10, 8/9 open.",
+      "expected": "2026-08-22"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 08-10 20:15 UTC (was 08-09 20:00 UTC); Pages build stuck since 08-06 13:44 UTC (4 d 6 h), served copy still 08-05 19:20 UTC."
+      "next": "Regenerated 08-15 19:12 UTC after a 4-day job gap; Pages build stuck since 08-06 (9 d 5 h), served copy still 08-05 19:20 UTC."
     }
   ],
   "waiting": [
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 22 d 21 h. Bluesky live, posted twice (08-04, 08-08). Mastodon and Nostr still his call.",
+      "next": "chamber#1, opened 2026-07-18 - 27 d 20 h at this stamp. Bluesky live, posted twice (08-04, 08-08). Mastodon and Nostr still his call.",
       "waitingOn": "the project owner",
       "since": "2026-07-18"
     },
@@ -37,7 +37,7 @@
     {
       "id": "proj-claim-verification",
       "title": "Verify the claims before publishing them",
-      "next": "4 verified, 2 narrowed, 3 findings held for the owner's ruling on a private thread. retinue#26 + #27 still wait.",
+      "next": "4 verified, 2 narrowed, 3 held for his ruling (private thread). retinue#26 + #27 wait. .github#1 reply 08-15 reopens model-backend wording.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
       "expected": "2026-08-16"

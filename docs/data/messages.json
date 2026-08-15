@@ -1,59 +1,59 @@
 {
-  "generated": "2026-08-10T20:15:00Z",
+  "generated": "2026-08-15T19:12:00Z",
   "items": [
     {
-      "from": "PR merged, his",
-      "channel": "retinue#96, 2026-08-10",
+      "from": "First outside PR merged",
+      "channel": "retinue#99, 2026-08-11",
+      "importance": "high",
+      "preview": "19:00 UTC - merged by the owner, closing retinue#12. First outside contribution to land."
+    },
+    {
+      "from": "First star",
+      "channel": "retinue, 2026-08-11",
       "importance": "normal",
-      "preview": "09:29 UTC - model-picker dedupe fix; opened 08-09 22:08 UTC."
+      "preview": "18:22 UTC - the owner's own account; not outside contact."
     },
     {
       "from": "PR open, his",
-      "channel": "retinue#97, 2026-08-09",
-      "importance": "normal",
-      "preview": "22:10 UTC - default primary model to Opus 5. Reviewed same night, no defect; still open, no reply."
-    },
-    {
-      "from": "PR merged, his",
-      "channel": "retinue#98, 2026-08-09",
-      "importance": "normal",
-      "preview": "22:13-22:22 UTC - docs: forbid status-report conversations."
-    },
-    {
-      "from": "PR merged, his",
-      "channel": "retinue#94, 2026-08-10",
-      "importance": "normal",
-      "preview": "12:34 UTC - DTD-guard fix on the news parser."
-    },
-    {
-      "from": "First outside PR",
-      "channel": "retinue#99, 2026-08-10",
+      "channel": "retinue#100, 2026-08-12",
       "importance": "high",
-      "preview": "12:41 UTC - closes #12 (README update-image gap). Reviewed 13:07 UTC, no defect; his merge call."
+      "preview": "08:06 UTC - absolute approval URLs from push scripts. Unreviewed: no wake-up ran 08-11 to 08-15."
     },
     {
-      "from": "New contributor",
-      "channel": "retinue, 2026-08-10",
+      "from": "PRs merged, his",
+      "channel": "retinue#101-#105 + #97, 2026-08-12/13",
       "importance": "normal",
-      "preview": "ayushcodes13 forked 12:39 UTC, opened #99 two minutes later; retog welcomed them on #12 at 13:46 UTC."
+      "preview": "Six merged, incl. #97 (default model to Opus 5, 08-13 10:47 UTC)."
+    },
+    {
+      "from": "PRs merged, his",
+      "channel": "retinue#106-#111, 2026-08-15",
+      "importance": "normal",
+      "preview": "Six merged 12:47-18:58 UTC: messenger images, voice-input redesign, dashboard-composing skill, chip shorthand."
+    },
+    {
+      "from": "Owner reply",
+      "channel": ".github#1, 2026-08-15",
+      "importance": "high",
+      "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves; Claude Code is the harness dependency."
     },
     {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-10",
+      "channel": "This page, 2026-08-15",
       "importance": "high",
-      "preview": "Regenerated 20:15 UTC. GitHub Pages still serving 08-05 19:20 UTC - stuck build, owner action needed."
+      "preview": "Regenerated 19:12 UTC after a 4-day job gap (no wake-up 08-11 to 08-15). Pages still serving 08-05 19:20 UTC."
     },
     {
       "from": "Outside contact",
       "channel": "All five public repos, at this stamp",
       "importance": "high",
-      "preview": "One fork (08-10, led to #99); 0 stars/watchers since 2026-07-18 (23 d). Traffic (retinue): 12 uniques, 150 views."
+      "preview": "One fork (08-10, led to #99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 123 views."
     },
     {
-      "from": "59 open issues",
+      "from": "58 open issues",
       "channel": "Owner's desk, at this stamp",
-      "importance": "high",
-      "preview": "Of 65 total, 6 closed. Oldest qlever-dir#2, opened 2026-07-08 (33 d)."
+      "importance": "normal",
+      "preview": "retinue 43, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 38 d. Pages fix (chamber#10) is the one blocking this page."
     }
   ]
 }

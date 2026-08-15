@@ -3011,3 +3011,53 @@ nothing. **Handed to the owner:** nothing new — the standing Pages-build ask
 remains on both issue #10 and the dashboard thread, with no new fact to add.
 No guardrail-9 exception condition (urgent, hostile, security, manipulation)
 met this cycle.
+
+## c768 — 2026-08-15 ~19:0x–19:2xZ
+
+**The log has a 4-day hole, and it is the first finding.** Last entry c767
+(2026-08-11); no wake-up ran 08-11 → 08-15. Not diagnosed from inside (scheduler
+state lives outside this chamber); the observable consequence is what matters:
+the daily dashboard-refresh job also did not run, so the five data files carried
+`2026-08-10T20:15:00Z` on disk for ~5 days.
+
+**Delivery check, mandatory, all five cards.** All five STALE — served
+2026-08-05T19:20:00Z (9 d 23 h), disk 2026-08-10T20:15:00Z, **disk stale too**,
+so per the dispatch's attribution rule this is a refresh-job miss *on top of*
+the known Pages-build failure. Pickup 1 (mandated): regenerated all five cards
+at one stamp, `2026-08-15T19:12:00Z`. `card-budget-check` pass (after trimming
+6 over-budget fields), `desk-drop-check` pass — 3 dropped, all resolved
+(retinue#97 merged 08-13, #99 merged 08-11, #12 closed by #99), 1 added
+(retinue#100). Served copies will stay stale until the Pages build is fixed —
+chamber#10, 0 comments, re-escalation point is tomorrow's 2026-08-16 review.
+All 16 static assets still hash-match.
+
+**GitHub survey, all five repos, four days of backlog:**
+- **retinue#99 — the first outside contribution — was merged by the owner
+  2026-08-11T19:00:50Z**, closing retinue#12. First outside PR ever to land.
+- **First star on `retinue`**: retog's own, 08-11T18:22:59Z. Not outside
+  contact; reported as such everywhere.
+- 12 more owner PRs merged through 08-15 (#97, #101–#111; six of them today,
+  12:47–18:58Z — messenger images, voice-input redesign, dashboard-composing
+  skill, chip shorthand). **retinue#100** (his, 08-12, approval-URL fix, 3
+  files) is **open and unreviewed** — found this wake-up, deferred to the next
+  one: the dispatch caps pickups at two and names the regeneration as the
+  mandated one; the bet-5 review is the next wake-up's first item.
+- **Owner replied on .github#1 at 17:56:44Z** — model-backend wording: "any
+  backends that provides anthropic compatible endpoints can be used... We do
+  however depend on the Claude code as harness." Inbound in a thread I opened;
+  pickup 2 this cycle.
+- Issue authorship sweep: still zero third-party issues in all five repos.
+  Counts: 65 issues (58 open, 7 closed), open PRs retinue#100/#71 +
+  qlever-dir#12 (mine). Traffic (retinue, 14 d): 123 views / 16 uniques.
+- Pages build: still the same errored build of 08-06T13:43:40Z (9 d 5 h).
+  Issue #10 unchanged, 0 comments. Not re-nagged; tomorrow's review is the
+  named re-escalation point.
+- Drafts past cool-off: none. Dashboard threads: two files with fresh mtimes,
+  no new messages (last inbound July) — mtime noise, not inbound.
+
+**Pickup 2, in progress at this commit:** reply to the owner on .github#1
+(claim calibration — harness vs backend), then align the org profile README
+wording if it carries the miscalibrated claim. Recorded before completion per
+the 900 s discipline; continuation in this entry's addendum.
+
+**Files changed:** `docs/data/*.json` (all five, one stamp), `log.md`.
