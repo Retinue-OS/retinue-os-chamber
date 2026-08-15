@@ -275,9 +275,15 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
 - **Not one-click.** A 326-line `.env.example` documenting 74 distinct settings
   (35 reach the container by name), a domain and reverse proxy for TLS, and
   per-account volume discipline. Early days, single maintainer.
-- **Not model-agnostic.** Deeply coupled to Claude Code, including behaviour
+- **Not harness-agnostic.** Deeply coupled to Claude Code, including behaviour
   nobody promised to keep stable. That coupling is where most of the leverage
-  comes from and it is the project's biggest strategic risk.
+  comes from and it is the project's biggest strategic risk. The *model behind
+  it* is a narrower story: Claude Code follows `ANTHROPIC_BASE_URL`, so any
+  backend exposing an Anthropic-compatible `/v1/messages` endpoint can serve
+  it — the shipped config routes through LiteLLM, and Ollama and LM Studio
+  both document Claude Code setups against endpoints of their own. Retinue
+  ships and has tested no route to either; the coupling that binds is to the
+  harness, not to a hosted model.
 - **Not hardened.** The credential-isolation design is the strong part. The web
   gateway is a large hand-rolled file, and test coverage is thin: eleven test
   files — three send-policy (Signal, WhatsApp, Telegram), one contact-lookup,

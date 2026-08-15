@@ -314,6 +314,16 @@ contribute is the audience most likely to notice them unaided.
 Say so plainly when it comes up — it costs nothing and buys credibility:
 
 - Anyone wanting a one-click install today.
-- Anyone who needs it model-agnostic.
+- Anyone who needs it harness-agnostic: the hard dependency is Claude Code.
+  *Calibrated 2026-08-15, on the owner's correction
+  ([.github#1](https://github.com/Retinue-OS/.github/issues/1#issuecomment-5303507398)):
+  the model behind the harness is a separate, looser layer — Claude Code
+  follows `ANTHROPIC_BASE_URL`, and Ollama and LM Studio both document
+  Anthropic-compatible `/v1/messages` endpoints with explicit Claude Code
+  setups (verified against both projects' own docs, 2026-08-15). Retinue ships
+  no such route and has tested none, so state backend flexibility as the
+  backends' documented capability, never as a Retinue feature. "Not
+  model-agnostic" over-claims the coupling by one layer; "not
+  harness-agnostic" is the calibrated form.*
 - Anyone who needs sub-second responses; every message is a fresh session.
 - Anyone who can't self-host, or doesn't want to operate a Compose stack.

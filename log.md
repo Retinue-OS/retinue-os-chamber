@@ -3061,3 +3061,36 @@ wording if it carries the miscalibrated claim. Recorded before completion per
 the 900 s discipline; continuation in this entry's addendum.
 
 **Files changed:** `docs/data/*.json` (all five, one stamp), `log.md`.
+
+**Addendum, same wake-up (~19:3x–19:4xZ) — pickup 2 done.** The owner's
+.github#1 reply resolved to a claim recalibration, executed end to end:
+
+- **Verified before repeating** (guardrail 3): Ollama's own docs document an
+  Anthropic-compatible `/v1/messages` endpoint and name Claude Code; LM Studio's
+  docs carry a "Using Claude Code with LM Studio" walkthrough. Both primary
+  sources, fetched this wake-up.
+- **The c687 hold-out was answering the wrong layer.** "No shipped route, 0
+  `ollama` hits" is true of the repo and stays stated; his claim was about the
+  harness contract (`ANTHROPIC_BASE_URL`), and there "not model-agnostic"
+  over-claimed the coupling by one layer.
+- **Published:** org profile bullet renamed "Not harness-agnostic"
+  (.github commit `b06f7bf`, direct — my own public copy, correcting a wording
+  the owner twice called misleading); reply with citations at
+  .github#1 issuecomment-5303821465. Kept honest: backend flexibility stated as
+  the backends' documented capability, not a Retinue feature — no route
+  shipped, none tested.
+- **Chamber kept in step:** `writing/org-profile-README.md` (source copy),
+  `brand/positioning.md` ("Who this is not for" + calibration note),
+  `projects/claim-verification.md` (row resolution).
+
+Deferred to next wake-up, named so it isn't lost: **retinue#100 review** (his
+open PR, 08-12, unreviewed through the job gap) — first item under bet 5's
+operating clause. Tomorrow is the **2026-08-16 scheduled review**, which is
+also chamber#10's named re-escalation point (Pages build stuck 9 d 5 h).
+
+**Files changed (addendum):** `writing/org-profile-README.md`,
+`brand/positioning.md`, `projects/claim-verification.md`, `log.md`.
+**Published outside the chamber:** .github profile README commit `b06f7bf`;
+comment on .github#1. **Handed to the owner:** nothing new — no owner-only
+action arose; the reply invites (not asks) a tested-backend doc if he ever runs
+one.
