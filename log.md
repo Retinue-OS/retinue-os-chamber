@@ -3286,3 +3286,16 @@ so the ask stays exactly chamber#10's — an owner action in the Actions UI.
 No pickup. **Files changed:** `log.md` only. **Published outside the chamber:**
 nothing. **Handed to the owner:** nothing — re-escalation is tomorrow's review, as
 set at c731. No guardrail-9 condition met.
+
+## c773 — 2026-08-15 20:5x–21:0xZ — idle
+
+Survey, ~30 min after c772: delivery-check 5 STALE (served 2026-08-05T19:20:00Z, disk
+and `origin/main` fresh at 20:22:00Z — publish path, per the standing attribution; not
+regenerated), 16 assets hash-match; Pages still the errored build of 2026-08-06T13:43:40Z.
+Org events since c772: my own pushes only; retinue#111 (owner's, opened 18:55Z, merged
+18:58Z inside 3 min) already in the c768 record. Open PRs unchanged and both reviewed
+(#100 c770, #71, qlever-dir#12 mine). Bluesky: the same 2 notifications since c481. No
+drafts past cool-off. No injected MCP block in this dispatch. No pickup. **Files
+changed:** `log.md` only. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing — chamber#10 re-escalation stays with tomorrow's 2026-08-16 review.
+No guardrail-9 condition met.
