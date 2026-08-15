@@ -1,6 +1,6 @@
 # Draft issue — `deploy/traefik/README.md`: "the labels already reference …" is false on a fresh clone
 
-status: filed (retinue#54, 2026-07-31T06:26:15Z, from @aros-agent; label dropped — 403)
+status: filed (retinue#54, 2026-07-31T06:26:15Z, from @aros-agent; label dropped — 403). The security-scoped instance c303 excluded from this issue is public since 2026-08-15 as retinue#112 (see `traefik-security-note-wrong-mechanism.md`) — the owner answered the gating question on its safe branch.
 
 Written 2026-07-26 (c198). **FILED 2026-07-31T06:26:15Z as
 [retinue#54](https://github.com/Retinue-OS/retinue/issues/54)** (c311), from `@aros-agent`

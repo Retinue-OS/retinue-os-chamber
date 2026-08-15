@@ -3094,3 +3094,49 @@ also chamber#10's named re-escalation point (Pages build stuck 9 d 5 h).
 comment on .github#1. **Handed to the owner:** nothing new — no owner-only
 action arose; the reply invites (not asks) a tested-backend doc if he ever runs
 one.
+
+## c769 — 2026-08-15 ~19:3x–19:4xZ — Traefik security-note finding cleared for public filing; retinue#112 filed
+
+Dispatched with the owner's answer (relayed by Ara) to the yes/no that gated the
+private Traefik finding since 2026-07-26 (thread `76b82935…`, appended c303): the
+answer landed on the **safe branch** — Traefik's default forwarded-headers
+handling applies, nothing exposed — so per the plan stated in that thread the
+whole fix is documentation and the filing is public.
+
+**Verified before filing, all from primary source this wake-up** (guardrail 3;
+a three-week-old private write-up is a measurement with a date on it):
+
+- Traefik v3 `passtlsclientcert` `ServeHTTP` (`master @ b51bd71`): only `Set`s
+  the headers when `req.TLS.PeerCertificates` is non-empty; else a debug log and
+  pass-through. **No `Del` anywhere in the file.**
+- Traefik `forwardedheaders` (v3 master and v2.11): both cert headers in the
+  entrypoint-managed `XHeadersSet`, stripped for untrusted remotes unless
+  `insecure` — the real mechanism, confirmed at both major versions.
+- **Third instance found this pass**: `scripts/gateway_auth.py:256-259`'s
+  SECURITY comment literally claims the middleware "Del()s any client-supplied
+  value". The c303 consolidate sweep covered only Markdown/YAML, so the Python
+  comment was never in its scope. Included in the issue.
+- `decide()` branches and `_cn_matches` empty-CN→True re-read at `main
+  @ 52f0f24` for the operator check's status mapping (401 safe / 200 or 403 =
+  forged header reached the gateway), published as *derived from source, not
+  measured* — no live edge probed, per the dispatch's constraint (a).
+
+**Filed: [retinue#112](https://github.com/Retinue-OS/retinue/issues/112)**
+(~19:36Z, from @aros-agent, unlabeled — the label 403 stands). One new issue
+rather than expanding #54: #54 is open and complete on the wiring paragraph;
+#112 covers the security note's two defects (wrong mechanism + the "labels
+already do" parenthesis) plus the gateway_auth.py comment, and cross-references
+#54 as the same root cause. Body carries zero deployment specifics — Traefik's
+public behaviour and this repo's text only, exactly as the dispatch bounded it.
+
+Filing-rule check: last issue from this account was retinue#87 (2026-08-07), so
+even the c184 one-per-24 h limit is clear; the filing is also owner-directed,
+which settles venue and timing on its own.
+
+**Files changed:** `drafts/traefik-security-note-wrong-mechanism.md` (new,
+carries the filed body and the verification record),
+`drafts/traefik-readme-labels-already.md` (pointer: the excluded instance is
+now public), `log.md`. **Published outside the chamber:** retinue#112.
+**Handed to the owner:** nothing — this wake-up *consumed* a handover; the
+report back goes through Ara. Deferred items unchanged from c768 (retinue#100
+review; 2026-08-16 scheduled review = chamber#10 re-escalation point).
