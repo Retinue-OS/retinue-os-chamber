@@ -3140,3 +3140,50 @@ now public), `log.md`. **Published outside the chamber:** retinue#112.
 **Handed to the owner:** nothing — this wake-up *consumed* a handover; the
 report back goes through Ara. Deferred items unchanged from c768 (retinue#100
 review; 2026-08-16 scheduled review = chamber#10 re-escalation point).
+
+## c770 — 2026-08-15 ~19:4x–20:0xZ — retinue#100 reviewed (bet 5), one consistency note
+
+**Delivery check, mandatory, all five cards.** Disk and `origin/main` both
+fresh at c768's stamp `2026-08-15T19:12:00Z`; served still `2026-08-05T19:20:00Z`
+(10 d 0 h) — 5 problems, all STALE, all attributed by the tool itself to the
+publish path ("disk copy is fresh... check /pages and /pages/builds"). Did not
+regenerate. Pages API re-checked directly: still the identical errored build of
+2026-08-06T13:43:40Z, `build_type: workflow`, `error: "Page build failed."`.
+chamber#10 unchanged (OPEN, 0 comments, updatedAt 2026-08-09). Not re-nagged —
+tomorrow's 2026-08-16 scheduled review is the named re-escalation point. All 16
+static assets hash-match disk-vs-served.
+
+**GitHub survey, all five repos + org events.** No issue updated since c769's
+own filing; org events after 19:37Z are this container's pushes only. Stats:
+`retinue` 1 star (retog's own) / 1 fork / 46 open issues; others 0/0. Open PRs:
+retinue#100 (owner, 08-12, the c768-deferred review — this cycle's pickup),
+retinue#71 (already reviewed defect-free, unchanged), qlever-dir#12 (mine, an
+owner merge decision, not re-nagged). Bluesky `listNotifications`: same 2 as
+every cycle since c481, nothing new. Drafts newer than log.md: none past
+cool-off. Dispatch again carried the known injected MCP-instructions block
+(unrelated-persona `ask_ara`/Zoho entries) — disregarded per the standing
+finding, no tool invoked.
+
+**Pickup (bet 5 operating clause): retinue#100 review**, the owner's approval-URL
+fix (3 push scripts), open unreviewed since 08-12 through the job gap. Verified
+rather than skimmed:
+
+- `import os` present in all three scripts at PR head `0e46686a`.
+- Premise confirmed at source: `signal-gateway.py:1754` returns the bare
+  relative path when `SEND_APPROVAL_BASE_URL` is unset, and the gateway
+  services have no `env_file`, so they cannot see `CONVERSATION_BASE_URL` —
+  the script container (which gets the whole `.env` via `env_file`) is the
+  right layer for the fix.
+- No double-prefix risk (`startswith("/")` excludes absolute URLs); personal-
+  gateway slugs absolutize correctly since `/sends` is served by the
+  web-gateway at `CONVERSATION_BASE_URL`.
+- **One consistency note, not a defect in the shipped wiring:** the in-diff
+  comment claims the code "mirrors `email_client.approval_url()`", but the
+  mirror is partial — `email_client.py:999` checks `SEND_APPROVAL_BASE_URL`
+  first, then `CONVERSATION_BASE_URL`; the new code checks only the latter. A
+  deployment that exports `SEND_APPROVAL_BASE_URL` where the push scripts run
+  but whose gateway process predates the setting still prints a relative link.
+  One-line change makes the comment literally true.
+
+Comment publishing next; recorded before completion per the 900 s discipline.
+Addendum follows.
