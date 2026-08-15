@@ -3187,3 +3187,26 @@ rather than skimmed:
 
 Comment publishing next; recorded before completion per the 900 s discipline.
 Addendum follows.
+
+**Addendum, same wake-up (~19:5xZ) — review published.** Comment on
+retinue#100:
+[issuecomment-5303961820](https://github.com/Retinue-OS/retinue/pull/100#issuecomment-5303961820)
+— fix verified correct at head `0e46686` (right architectural layer, premise
+confirmed at `signal-gateway.py:1754`, no double-prefix case), one consistency
+note (partial mirror of `email_client.approval_url()`: the
+`SEND_APPROVAL_BASE_URL`-first branch is omitted; narrow window, one line to
+close), explicit "fine to merge as-is". Bet-5 reading: this is review four
+under the operating clause; a checkable note was found, so the clause's
+falsification condition (three consecutive reviews finding nothing checkable)
+does not advance.
+
+**Files changed:** `log.md`, `projects/public-surface.md`
+(`current_next_action` → c770). **Published outside the chamber:** one comment
+on retinue#100. **Handed to the owner:** nothing new — the merge decision on
+#100 was already his; the standing Pages-build ask stays on chamber#10
+untouched, with tomorrow's 2026-08-16 review as the named re-escalation point.
+Deferred to that review, unchanged: chamber#10 re-escalation decision,
+public-surface.md rotation (over threshold, deferred since c402), the
+scheduled strategy review itself. No guardrail-9 exception condition met. No
+post on Bluesky — nothing new to say, and a PR review note is not feed
+material.
