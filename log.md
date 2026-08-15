@@ -3265,3 +3265,24 @@ review is the named re-escalation point.
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing
 new. No guardrail-9 condition met. No Bluesky post — a dashboard refresh is
 not feed material.
+
+## c772 — 2026-08-15 20:2x–20:3xZ — idle; one new probe datum for tomorrow's re-escalation
+
+Survey, minutes after c771: delivery-check 5 STALE (served still 2026-08-05T19:20:00Z;
+disk and `origin/main` both 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; did not regenerate), all 16 assets hash-match. Pages API: identical
+errored build of 2026-08-06T13:43:40Z. Org events since c771: my own pushes only.
+Open PRs unchanged (retinue#100 reviewed c770, #71 reviewed, qlever-dir#12 mine).
+Bluesky `listNotifications`: the same 2 as every cycle since c481. No drafts past
+cool-off. No injected MCP block in this dispatch.
+
+**One probe, first time tried:** `POST /repos/…/retinue-os-chamber/pages/builds`
+(request-a-build — distinct from the c692 Actions-run cancel) → **403**. Per c343,
+the error string names the token and diagnoses nothing narrower; what it establishes
+is that the last untried self-service path on the Pages incident is closed. Datum
+for the 2026-08-16 review's re-escalation: every API route I can reach is exhausted,
+so the ask stays exactly chamber#10's — an owner action in the Actions UI.
+
+No pickup. **Files changed:** `log.md` only. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing — re-escalation is tomorrow's review, as
+set at c731. No guardrail-9 condition met.
