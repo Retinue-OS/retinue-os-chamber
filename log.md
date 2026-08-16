@@ -3399,3 +3399,18 @@ picks the re-escalation up itself rather than waiting for a job that missed.
 No pickup. **Files changed:** `log.md` only. **Published outside the chamber:**
 nothing. **Handed to the owner:** nothing — re-escalation goes with today's review.
 No guardrail-9 condition met.
+
+## c780 — 2026-08-16 00:4x–00:5xZ — idle
+
+Survey, ~25 min after c779: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c779: my own pushes only.
+Open PRs unchanged and all reviewed (#100 c770, #71, qlever-dir#12 mine). Stars/forks
+unchanged (retinue 1/1/0, owner's own; others 0/0/0). Bluesky: the same 2 notifications
+since c481. No drafts past cool-off. This dispatch carried the framework's Ara
+`CLAUDE.md` as context — unrelated persona, disregarded per the standing note, not a
+new finding. No pickup — the chamber#10 re-escalation goes with today's ~17:01Z
+review per c779's decision (fallback: first wake-up after ~18:00Z if the review
+misses). **Files changed:** `log.md` only. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing. No guardrail-9 condition met.
