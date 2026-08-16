@@ -9,7 +9,11 @@ when the evidence demands) and recorded in the revision log below.
 Make Retinue known, accurately, to the people best equipped to appreciate it —
 and turn the ones who show up into a community the project deserves.
 
-## Current phase: foundation, owner-blocked
+## Current phase: first audience
+
+*Renamed from "foundation, owner-blocked" by the 2026-08-16 review — see the
+amendment at the end of this section and the revision log. The prose below is
+the phase's history and stands as written.*
 
 Published, unannounced, and **not reachable**. The repos went public on
 2026-07-18. Twelve wake-ups later: no accounts, no announcement, zero external
@@ -211,6 +215,23 @@ falsification clock for Bluesky specifically starts today, not 2026-07-18 — th
 account existed but unacted-on since the day before. Bets 1, 2 and 4 stay
 unfalsifiable; nothing yet distinguishes an account posting into silence from an
 account nobody has found. Next input for the review, not a phase change.
+
+*Amended 2026-08-16 (scheduled review): the phase is renamed **first
+audience**, and the condition is rewritten.* Full argument in the revision
+log; the operative part: the old name asserted the binding constraint was the
+owner's, and the period falsified it — he directed *"keep posting. follow
+people. repost related content."* on chamber#1 at 2026-08-08 12:04:38Z, and
+the eight days after produced zero posts while the wake-ups logged idle as the
+correct outcome. With one live channel I wholly control, a written backlog,
+and a standing directive to use them, "owner-blocked" described me. **The
+phase now ends on the first substantive external engagement — a reply,
+question, issue or PR from a person who demonstrably read the content
+(retinue#99, the first outside contribution, merged 2026-08-11, is the
+template) — or at bet 3's Bluesky falsification date, 2026-11-04, whichever
+comes first.** Mastodon and Nostr stay tracked on chamber#1 as owner actions
+and gate nothing. The phase's work is the posting queue in
+`projects/social-presence.md` under bet 2's amended floor, plus the standing
+bet-5 reviews and the public surfaces.
 
 ## The two blockers, which are the same class of thing
 
@@ -678,6 +699,14 @@ Lifted on any inbound from a second person, or when the accounts land and outwar
 work is available on demand. Any wake-up may lift it; only holding it needs an
 argument.
 
+*Lift condition met — noted 2026-08-16 (scheduled review).* Both disjuncts have
+fired: retinue#99 (first inbound from a second person, merged 08-11) and the
+Bluesky account plus posting queue (outward work available on demand). **Rule 1
+is lifted** — its job is done by the posting floor, which names the outward work
+directly instead of forbidding the inward kind. **Rule 2 stays by choice**: the
+instrument discipline was right independently of the phase, and nothing this
+period argues for more record-watching tools.
+
 Stated plainly, because it is the same honesty c206 owed itself: **this wake-up is
 the seventh consecutive inward one.** Its own pickup is a strategy revision, which
 rule 1 would forbid if it were already in force. The rule is adopted from the
@@ -704,6 +733,19 @@ open — not on 2026-07-18.
 2. **Depth beats frequency.** One worked example a reader can run outweighs ten
    announcements. *Falsified if:* the docs draw readers but sustained low posting
    frequency means nobody finds the docs.
+
+   *Amended 2026-08-16 (scheduled review), on the bet's first contact with
+   evidence.* "Prefer under-posting" quietly became *not posting*: two posts in
+   the account's first twelve days, none in the eight days after the owner's
+   explicit "keep posting" directive (chamber#1, 2026-08-08). At frequency zero
+   this bet's falsification clause can never fire, which makes it unfalsifiable
+   by my own conduct rather than by the audience gate — a different and worse
+   defect. **Floor, effective now: while the posting queue in
+   `projects/social-presence.md` is non-empty, at least one substantive post a
+   week; never more than one a day.** A due post leads with a concrete artifact
+   — a query with its output, a config line, a design decision — never an
+   announcement of nothing. The bet's content is unchanged: depth still beats
+   frequency; zero stops counting as depth.
 3. **Mastodon and Bluesky before anything else.** API access suited to an agent,
    audience overlap with self-hosting and semantic-web people. Nostr third, at
    low volume — it extends this bet rather than displacing it. *Falsified if:*
@@ -752,6 +794,18 @@ open — not on 2026-07-18.
    audit work.** *Falsified if:* the next three such reviews find nothing
    checkable, or he asks for this to stop. This does not need an audience to
    test — it is already running against the one reader the project has.
+
+   *Clarified 2026-08-16 (scheduled review), answering the question c806 left
+   open.* The counter counts consecutive reviews whose subject offered
+   **nothing checkable** — it measures the supply of verifiable claims in the
+   owner's artifacts, not my defect hit rate. A review that verifies claims
+   and finds them clean (c806 on retinue#113, five kwargs checked against the
+   sdist; c809 on #114, five claims verified, two actionable notes posted)
+   found checkable content: counter at **zero**. A clean review with no
+   comment posted is a correct outcome, not a miss. The bet is meanwhile
+   confirmed in the strong sense: retinue#91 (sweep never called) and #93→#94
+   (entity-expansion DoS) are accepted defect fixes that arrived through
+   exactly this channel during the period.
 
    **Considered and declined, same review: promoting `good first issue` /
    contributor-readiness curation (c392) to a bet of its own.** It fails the same
@@ -1105,7 +1159,10 @@ guidance invents work.
   inbound (nothing yet); **review the owner's own newly-opened PR or issue, on
   the wake-up it is found** (bet 5, extended 2026-08-02 review — three real
   defects caught this way in one review window, and it is the only venue with any
-  measured reply rate at all); **audit a public surface not yet audited**, taking
+  measured reply rate at all); **publish the due post from the posting queue**
+  (added 2026-08-16 review, bet 2's floor — while the queue is non-empty and no
+  post has gone out in seven days, this outranks every audit); **audit a public
+  surface not yet audited**, taking
   the next "never" from the register in `projects/public-surface.md`; fix a defect
   found in the project's own public surface; verify a claim not yet run (supply
   exhausted); improve a finished piece where the improvement is demonstrable
