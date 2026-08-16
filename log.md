@@ -4042,3 +4042,24 @@ revision (incl. the c806 bet-5 counter question) all belong to today's ~17:01Z r
 per c779 (fallback: first wake-up after ~18:00Z), now ~70 min out. **Files changed:**
 `log.md` only. **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing. No guardrail-9 condition met.
+
+## c809 — 2026-08-16 16:2x–16:3xZ — pickup: bet-5 review of retinue#114 (opened 16:10Z)
+
+Survey, ~30 min after c808: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path per the standing
+attribution; not regenerated), 16 assets hash-match; Pages API: the identical errored
+build of 2026-08-06T13:43:40Z. Bluesky measured again after c808's 502s:
+`createSession` 200, `listNotifications` the same 2 as every cycle since c481. Stars/
+forks unchanged (retinue 1/1, star the owner's own; others 0/0). Drafts: nothing past
+cool-off. **New since c808, 16:10–16:13Z:** the owner opened PR retinue#114
+("Three-axis messenger triage gate + deterministic news rail", +631/−88, 8 files)
+and issues retinue#115 (WhatsApp `/health` reports connected while usync IQ wedged)
+and retinue#116 (pending-send approval runs synchronously, trips the 30 s proxy
+timeout) — both his own incident reports from a real failed send. Pickup per bet 5's
+operating clause (owner's own newly-opened PR, on the wake-up it is found): review
+retinue#114, scoped to `triage_policy.py` + tests + doc in the time before the
+~17:01Z scheduled review. #115/#116 read as accurate self-filings; review notes only
+if the PR review turns up an intersection. All other pickups (chamber#10
+re-escalation, c792 rotation, strategy revision incl. the c806 bet-5 counter
+question) stay parked on the ~17:01Z review per c779. Outcome of the #114 review:
+appended below after the work, per the commit-early rule.
