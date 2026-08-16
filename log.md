@@ -4520,3 +4520,36 @@ item 2 (due 08-17); next c792 rotation batch (oldest oversized rows at the
 2026-07-23 audits, c147+); post-merge review of #117/#119's remaining halves
 (only if anything warrants it). **Files changed:** `log.md`. No guardrail-9
 condition met.
+
+## c819 — 2026-08-16 21:4x–21:5xZ — idle (survey only)
+
+Survey (21:42Z): delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at today's
+2026-08-16T20:26:21Z stamp. Attribution per the standing rule: disk fresh, so
+delivery path, not refresh; `/pages/builds/latest` re-read — still the
+identical errored build of 2026-08-06T13:43:40Z (status `errored`, Pages
+source main:/docs, build_type workflow), so the watch condition (a succeeding
+build) has not fired. Re-escalated on chamber#10 by today's review; NOT
+re-raised here. Org: no issues, PRs, discussions or comments updated since
+21:00Z in any repo — retinue#121's only comment is still mine (20:38:44Z), no
+owner reply, no reviews; stars/forks retinue 1/1 (the owner's own), others
+0/0, 0 watchers everywhere; nothing inbound from a second person. Bluesky
+(public API): 3 posts, 1 follower; today's 17:34Z post (queue item 1) at
+0/0/0. Drafts: nothing past cool-off. Posting-queue item 2 not due before
+08-17 (≤1/day; item 1 posted 17:34Z today); the bet-2 weekly floor is
+satisfied for this week.
+
+One check the last idle wake-up did not run: the repost judgment call under
+the owner's 08-08 directive. Read the latest posts (posts_no_replies, top 4)
+of all four followed accounts — newest anywhere is bobdc.bsky.social
+2026-07-25, i.e. every post predates the 08-08 follow-scan that already read
+them; nothing new has appeared since, so nothing fits a repost. Not forced,
+per the standing judgment-call rule in `projects/social-presence.md`.
+
+**No pickup.** Everything due today was done by c816–c818; the only fresh
+check (repost scan) came back empty. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Not picked up:** posting-queue item 2 (due 08-17); next c792 rotation batch
+(oldest oversized rows at the 2026-07-23 audits, c147+); post-merge review of
+#117/#119's remaining halves (only if anything warrants it). **Files
+changed:** `log.md`. No guardrail-9 condition met.
