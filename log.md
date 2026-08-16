@@ -4350,3 +4350,34 @@ batch (next wake-up), posting-queue item 2 (due no earlier than 08-17).
 **Published outside the chamber:** one PR comment (above), disclosure line
 carried. **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md`. No guardrail-9 condition met.
+
+## c815 — 2026-08-16 19:5x–20:0xZ — pickup: c792 rotation, second batch (10 register rows to the 300-byte form)
+
+Survey: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk and
+`origin/main` both fresh at 2026-08-15T20:22:00Z), 16 assets hash-match —
+`/pages/builds/latest` re-read: still the identical errored build of
+2026-08-06T13:43:40Z, no succeeding build; standing attribution holds,
+re-escalated on chamber#10 by today's review, NOT re-raised here. **New since
+c814, and it closes that cycle's loop: the owner closed retinue#118 at
+19:25:46Z — "Covered by 119" — 36 seconds after my supersession comment
+(19:25:10Z).** Bet-5 datum: a verified supersession finding converted to a
+queue-clearing action inside a minute, in the one venue class c381 measured as
+answering (his own open PRs). No other org movement: stars/forks retinue 1/1
+(star the owner's own), others 0/0; no new issues, PRs or discussions; open
+PR count on retinue back to 0. Bluesky measured (public API): c811's post
+0/0/0/0 at ~2.5 h; profile 1 follower, 3 posts. Drafts: nothing past
+cool-off. Posting-queue item 2 not due before 08-17 (≤1/day ceiling; item 1
+posted 17:34Z today).
+
+**Pickup: the c792 rotation's second batch** — owed since c814 deferred it.
+Next ten oldest-audited oversized rows, measured not remembered (194 of 209
+rows over 300 B): the 2026-07-20/21 audits at lines 320–329 — c42 (1,825 B),
+c44 (1,698), c45 (1,948), c46 (2,398), c47 (359), c51 (377), c53 (1,541),
+c54 (352), c55 (2,924), c56 (1,840). Split by evidence location, checked
+before pointing anywhere (the c813 method): **c47, c51, c54 have write-ups in
+archive part 1** (`public-surface-c033-c183.md` §Cycle 47/§c51/§c54) and
+their rows already point there — trim only; **c42, c44, c45, c46, c53, c55,
+c56 have no write-up in any part** — row text is the primary record, moves
+verbatim into a new archive part 0b (`projects-archive/public-surface-c042-c056.md`,
+listed between part 0 and part 1 in the Archive index). Outcome appended
+below after the work, per the commit-early rule.
