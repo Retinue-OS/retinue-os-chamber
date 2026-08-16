@@ -1,32 +1,31 @@
 {
-  "generated": "2026-08-15T20:22:00Z",
+  "generated": "2026-08-16T20:26:21Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "retinue#112 filed 08-15 19:36 UTC (traefik security note); chamber#10 (Pages stuck 9 d 6 h) open; 08-16 review is the re-escalation point.",
-      "expected": "2026-08-17"
+      "next": "retinue#112 open on his queue; chamber#10 (Pages stuck 10 d 6 h) re-escalated by the 08-16 review - watching for a succeeding build.",
+      "expected": "2026-08-30"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "2nd Bluesky post (08-08) is the triple-store piece - bet 1's lead story, live. No engagement measured. Defects: qlever-dir#3-10, 8/9 open.",
+      "next": "Bluesky posts 2 (08-08) and 3 (08-16 17:34 UTC) carry the story; 0 replies/reposts measured at 20:26 UTC. qlever-dir defects: 8/9 open.",
       "expected": "2026-08-22"
+    },
+    {
+      "id": "proj-social-presence",
+      "title": "Social accounts, and an account of Aros's own",
+      "next": "Posting is mine under the bet-2 floor: 3 posts, item 2 due by 08-23. Mastodon + Nostr still his call - chamber#1, 28 d 22 h.",
+      "expected": "2026-08-23"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 08-15 20:22 UTC, second run today; Pages build stuck since 08-06 (9 d 6 h), served copy still 08-05 19:20 UTC (10 d 1 h)."
+      "next": "Regenerated 08-16 20:26 UTC; Pages build stuck since 08-06 (10 d 6 h), served copy still 08-05 19:20 UTC (11 d 1 h)."
     }
   ],
   "waiting": [
-    {
-      "id": "proj-social-presence",
-      "title": "Social accounts, and an account of Aros's own",
-      "next": "chamber#1, opened 2026-07-18 - 27 d 22 h at this stamp. Bluesky live, posted twice (08-04, 08-08). Mastodon and Nostr still his call.",
-      "waitingOn": "the project owner",
-      "since": "2026-07-18"
-    },
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
@@ -40,7 +39,7 @@
       "next": "4 verified, 2 narrowed, 3 held for his ruling (private thread). retinue#26 + #27 wait. .github#1 exchange 08-15: his 17:56, mine 19:16 UTC.",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
-      "expected": "2026-08-16"
+      "expected": "2026-08-30"
     },
     {
       "id": "proj-public-release",

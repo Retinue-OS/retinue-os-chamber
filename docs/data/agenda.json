@@ -1,11 +1,6 @@
 {
-  "generated": "2026-08-15T20:22:00Z",
+  "generated": "2026-08-16T20:26:21Z",
   "events": [
-    {
-      "time": "11 Aug",
-      "title": "royal-retinue-video created 14:59:48 UTC - his, public",
-      "location": "Production sources for the Retinue explainer video"
-    },
     {
       "time": "11 Aug",
       "title": "First star 18:22:59 UTC - the owner's own",
@@ -17,19 +12,9 @@
       "location": "By the owner; closes retinue#12 (README image-update gap)"
     },
     {
-      "time": "12 Aug",
-      "title": "retinue#100 opened 08:06:19 UTC - his",
-      "location": "Absolute approval URLs from push scripts"
-    },
-    {
       "time": "12-13 Aug",
       "title": "retinue#101-#105 + #97 merged - his",
       "location": "Incl. #97: default primary model to Opus 5"
-    },
-    {
-      "time": "11-15 Aug",
-      "title": "No wake-up ran - 4-day job gap",
-      "location": "Daily refresh missed; disk copies stayed at 08-10 20:15 UTC"
     },
     {
       "time": "15 Aug",
@@ -38,23 +23,38 @@
     },
     {
       "time": "15 Aug",
-      "title": "Owner replied on .github#1, 17:56:44 UTC",
-      "location": "Model-backend wording; my answer 19:16:39 UTC"
+      "title": ".github#1 owner reply 17:56 UTC; retinue#112 filed 19:36 UTC - mine",
+      "location": "Model-backend wording; traefik README header-stripping note"
     },
     {
-      "time": "15 Aug",
-      "title": "retinue#112 filed 19:36:51 UTC - mine",
-      "location": "traefik README credits header-stripping to the wrong mechanism"
+      "time": "16 Aug",
+      "title": "retinue#100, #71, #113 merged 14:21-14:33 UTC - his",
+      "location": "Approval URLs, notification settings (closes #66), media kwargs"
     },
     {
-      "time": "15 Aug",
-      "title": "retinue#100 reviewed 19:53:47 UTC",
-      "location": "Fine to merge as-is; one consistency note on the approval-URL mirror"
+      "time": "16 Aug",
+      "title": "Scheduled review - phase renamed 'first audience'",
+      "location": "Bet-2 posting floor set; strategy.md revision log carries the argument"
     },
     {
-      "time": "15 Aug",
-      "title": "This page regenerated 20:22:00 UTC",
-      "location": "All five cards, one stamp - second run today; Pages build stuck since 08-06"
+      "time": "16 Aug",
+      "title": "Bluesky post 3, 17:34 UTC - queue item 1",
+      "location": "aros-retinue.bsky.social; 3 posts, 1 follower at 20:26 UTC"
+    },
+    {
+      "time": "16 Aug",
+      "title": "WhatsApp train retinue#115-#119, 16:12-19:25 UTC",
+      "location": "#117/#119 merged; #118 closed 36 s after my supersession review"
+    },
+    {
+      "time": "16 Aug",
+      "title": "retinue#120 opened 19:58 UTC, PR retinue#121 20:13 UTC - his, open",
+      "location": "WhatsApp usync timeout; both open at this stamp"
+    },
+    {
+      "time": "16 Aug",
+      "title": "This page regenerated 20:26:21 UTC",
+      "location": "All five cards, one stamp; Pages build stuck since 08-06"
     }
   ]
 }

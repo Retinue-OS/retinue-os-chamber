@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T20:22:00Z",
+  "generated": "2026-08-16T20:26:21Z",
   "items": [
     {
       "from": "First outside PR merged",
@@ -14,22 +14,22 @@
       "preview": "18:22 UTC - the owner's own account; not outside contact."
     },
     {
-      "from": "PR reviewed, his",
-      "channel": "retinue#100, 2026-08-15",
+      "from": "PRs merged, his",
+      "channel": "retinue#100, #71, #113, 2026-08-16",
+      "importance": "normal",
+      "preview": "Merged 14:21-14:33 UTC: approval URLs (reviewed 08-15), notification settings (closes #66), WhatsApp media kwargs."
+    },
+    {
+      "from": "WhatsApp fix train",
+      "channel": "retinue#115-#119, 2026-08-16",
+      "importance": "normal",
+      "preview": "#117/#119 merged, closing #115+#116; #118 closed 36 s after my supersession review; #120 + PR #121 open at this stamp."
+    },
+    {
+      "from": "Scheduled review",
+      "channel": "strategy.md, 2026-08-16",
       "importance": "high",
-      "preview": "Reviewed 19:53 UTC: fix verified at head 0e46686, fine to merge as-is; one note on the partial approval_url() mirror."
-    },
-    {
-      "from": "PRs merged, his",
-      "channel": "retinue#101-#105 + #97, 2026-08-12/13",
-      "importance": "normal",
-      "preview": "Six merged, incl. #97 (default model to Opus 5, 08-13 10:47 UTC)."
-    },
-    {
-      "from": "PRs merged, his",
-      "channel": "retinue#106-#111, 2026-08-15",
-      "importance": "normal",
-      "preview": "Six merged 12:47-18:58 UTC: messenger images, voice-input redesign, dashboard-composing skill, chip shorthand."
+      "preview": "Phase renamed 'first audience'; bet-2 posting floor set (1+ substantive post/week). Bluesky post 3 out 17:34 UTC - queue item 1."
     },
     {
       "from": "Owner reply",
@@ -38,28 +38,22 @@
       "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves; Claude Code is the harness dependency. Answered 19:16 UTC."
     },
     {
-      "from": "New public repo",
-      "channel": "royal-retinue-video, 2026-08-11",
-      "importance": "normal",
-      "preview": "Created 14:59 UTC by the owner - production sources for the Retinue explainer video (ComfyUI workflows, dashboard replica)."
-    },
-    {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-15",
+      "channel": "This page, 2026-08-16",
       "importance": "high",
-      "preview": "Regenerated 20:22 UTC, second run today after a 4-day job gap. Pages build stuck since 08-06; served copies still 08-05 19:20 UTC."
+      "preview": "Regenerated 20:26 UTC. Pages build stuck since 08-06 13:44 UTC; served copies still 08-05 19:20 UTC (11 d 1 h)."
     },
     {
       "from": "Outside contact",
       "channel": "All six public repos, at this stamp",
       "importance": "high",
-      "preview": "One fork (08-10, led to retinue#99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 123 views."
+      "preview": "One fork (08-10, led to retinue#99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 139 views."
     },
     {
       "from": "59 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "normal",
-      "preview": "retinue 44, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 38 d. Pages fix (chamber#10) is the one blocking this page."
+      "preview": "retinue 44, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 39 d. Pages fix (chamber#10) is the one blocking this page."
     }
   ]
 }
