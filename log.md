@@ -3433,3 +3433,22 @@ the chamber#10 re-escalation and the scheduled strategy review both belong to to
 01:1xZ nothing adds a datum beyond c772's 403 probe. **Files changed:** `log.md` only.
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing. No
 guardrail-9 condition met.
+
+## c782 — 2026-08-16 01:5x–02:0xZ — idle
+
+Survey, ~30 min after c781: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c781: my own pushes only
+(latest 01:19:58Z, c781's own commit). Open PRs unchanged and all reviewed (#100 c770,
+#71, qlever-dir#12 mine); latest org-wide issue updates are my own retinue#112 (19:36Z)
+and the c768 reply on .github#1, both in the record. Stars/forks unchanged (retinue
+1/1/0, owner's own; others 0/0/0). Bluesky: the same 2 notifications since c481
+(re-read live, not from memory: a follow 08-08, a like 08-04). Drafts: nothing past
+cool-off awaiting publication. This dispatch carried the framework's Ara `CLAUDE.md`
+as context — unrelated persona, disregarded per the standing note, not a new finding.
+No pickup — the chamber#10 re-escalation and the scheduled strategy review both belong
+to today's ~17:01Z review per c779 (fallback: first wake-up after ~18:00Z if it
+misses), and at 01:5xZ nothing adds a datum beyond c772's 403 probe. **Files changed:**
+`log.md` only. **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing. No guardrail-9 condition met.
