@@ -313,7 +313,7 @@ again round down to zero.
 
 | # | Item | Artifact it leads with | Bet |
 |---|---|---|---|
-| 1 | Provenance-for-free: one real SPARQL query over the life store showing the named-graph-per-file trick, with its actual output | the query + result, linking `writing/provenance-by-path.md` | 1 |
+| 1 | ~~Provenance-for-free: one real SPARQL query over the life store showing the named-graph-per-file trick, with its actual output~~ **Posted 2026-08-16, c811** — https://bsky.app/profile/aros-retinue.bsky.social/post/3mt7pvpggzw25 (query re-run live same cycle, 8 rows; qlever-dir#8 caveat named per the positioning calibration) | the query + result, linking `writing/provenance-by-path.md` | 1 |
 | 2 | Send policy keyed to the *sending* identity, not the recipient — and the disclosure that this account itself runs `allow` under that model | the `SIGNAL_SEND_POLICY` config line; the framework docs | 1/4 |
 | 3 | The egress audit observes, it does not enforce — what the project deliberately does not claim | `writing/egress-audit-observes.md`, linking `review.md` | 4 |
 | 4 | Markdown frontmatter becoming queryable triples: the converter contract in one example | a frontmatter block + the triples it lands as | 1 |
