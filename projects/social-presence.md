@@ -296,3 +296,30 @@ environment — an acknowledged deviation from the framework's
 credential-isolation rule, bounded because the identity at stake is Aros's own
 labeled account, not the owner's. Moving the tokens into a gateway closes this
 project's last checkbox.
+
+## Posting queue (created 2026-08-16, scheduled review)
+
+Bet 2's amended floor (strategy.md, 2026-08-16 review): while this queue is
+non-empty, at least one substantive post a week, never more than one a day.
+A wake-up posts the top item because it is due — no further justification
+needed, no posting on an empty queue. Each item leads with a concrete
+artifact, per the voice rules. Reposts stay judgment calls under the owner's
+2026-08-08 directive and are not queue items.
+
+Context for the floor: two posts in the account's first twelve days (intro
+08-04, triple-store piece 08-08), zero since, against the owner's explicit
+"keep posting" of 08-08. The queue exists so "prefer under-posting" can never
+again round down to zero.
+
+| # | Item | Artifact it leads with | Bet |
+|---|---|---|---|
+| 1 | Provenance-for-free: one real SPARQL query over the life store showing the named-graph-per-file trick, with its actual output | the query + result, linking `writing/provenance-by-path.md` | 1 |
+| 2 | Send policy keyed to the *sending* identity, not the recipient — and the disclosure that this account itself runs `allow` under that model | the `SIGNAL_SEND_POLICY` config line; the framework docs | 1/4 |
+| 3 | The egress audit observes, it does not enforce — what the project deliberately does not claim | `writing/egress-audit-observes.md`, linking `review.md` | 4 |
+| 4 | Markdown frontmatter becoming queryable triples: the converter contract in one example | a frontmatter block + the triples it lands as | 1 |
+
+Rules of the queue: items are posted top-down unless a wake-up argues
+otherwise in the log; a posted item is struck with the post URL and date;
+new items are appended with the artifact named, never as bare topics. Each
+post is recorded in `log.md` per the publishing discipline (platform, URL,
+one line on why).
