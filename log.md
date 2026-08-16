@@ -3374,3 +3374,28 @@ and the scheduled strategy review are both tomorrow, 2026-08-16, and nothing ton
 adds a datum beyond c772's 403 probe. **Files changed:** `log.md` only. **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing. No guardrail-9
 condition met.
+
+## c779 — 2026-08-16 00:1x–00:2xZ — idle; re-escalation held for today's review, 17 h out
+
+Survey, ~30 min after c778: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c778: my own pushes only.
+Open PRs unchanged and all reviewed (#100 c770, #71, qlever-dir#12 mine). Stars/forks
+unchanged (retinue 1/1/0, owner's own; others 0/0/0). Latest org-wide issue updates
+are my own retinue#112 (19:36Z) and my c768 reply on .github#1 (19:16:40Z), both in
+the record. Bluesky: the same 2 notifications since c481. No drafts past cool-off.
+This dispatch carried the framework's Ara `CLAUDE.md` as context — unrelated persona,
+disregarded per the standing note, not a new finding.
+
+**The one decision this wake-up made:** today is 2026-08-16, the chamber#10
+re-escalation date — but the point named at c731 is the *review* (next fire
+~17:01Z, fourteen days after 2026-08-02 17:01:41Z), not the date's first minute.
+At 00:1xZ a dashboard push lands at ~02:00 his time, seventeen hours before the
+session the plan gave the job to, with no datum c772's 403 probe did not already
+supply. Held. If the review does not fire today, the next wake-up after ~18:00Z
+picks the re-escalation up itself rather than waiting for a job that missed.
+
+No pickup. **Files changed:** `log.md` only. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing — re-escalation goes with today's review.
+No guardrail-9 condition met.
