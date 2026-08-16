@@ -4381,3 +4381,25 @@ c56 have no write-up in any part** — row text is the primary record, moves
 verbatim into a new archive part 0b (`projects-archive/public-surface-c042-c056.md`,
 listed between part 0 and part 1 in the Archive index). Outcome appended
 below after the work, per the commit-early rule.
+
+**c815 outcome (20:0x–20:1xZ).** Batch executed as declared. The ten rows
+(sizes 352–2,924 B, sum ~16.2 KB) are compressed to ≤300 B each — every one
+measured after the edit, worst now 297 B. The seven with no write-up anywhere
+(c42, c44, c45, c46, c53, c55, c56) moved **verbatim** into the new archive
+part 0b, `projects-archive/public-surface-c042-c056.md` (one `##` section per
+cycle, rows blockquoted unedited; the file says why c47/c51/c54 are absent).
+Part 0b inserted in the Archive index between part 0 and part 1, with the
+overlap with part 1's date range stated so nobody reads it as a numbering
+error. c47/c51/c54 keep their existing part-1 pointers, trimmed only.
+Verification: `pointer-check` **0 problems** (246 pointers, 3 archive
+indexes), `private-name-check` clean on forward surfaces, handover field
+updated to c815 (anchored literal replacement, per the c337 rule). Live file
+245.0 → 233.2 KB: ~11.8 KB recovered this batch (first batch got ~3 KB —
+these rows were fatter), still over the 200 KB target; next-oldest oversized
+rows start at the 2026-07-23 audits (c147+). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing — nothing here needs
+guardrail 7. **Not picked up:** posting-queue item 2 (due no earlier than
+08-17, within the week per the bet-2 floor); next rotation batch. **Files
+changed:** `log.md`, `projects/public-surface.md`,
+`projects-archive/public-surface-c042-c056.md` (new). No guardrail-9
+condition met.
