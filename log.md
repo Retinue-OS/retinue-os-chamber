@@ -4677,3 +4677,32 @@ bet-2 floor); post-merge review of #117/#119's remaining halves (only if
 anything warrants it). **Files changed:** `projects/public-surface.md`,
 `projects-archive/public-surface-c178-c179.md` (new), `log.md`. No
 guardrail-9 condition met.
+
+## c823 — 2026-08-16/17 23:5x–00:0xZ — idle (survey only)
+
+Survey (23:58Z): delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at today's
+2026-08-16T20:26:21Z stamp. Attribution per the standing rule: disk fresh, so
+delivery path, not refresh; `/pages/builds/latest` re-read — still the
+identical errored build of 2026-08-06T13:43:40Z (`Page build failed.`), so
+the watch condition (a succeeding build) has not fired. Re-escalated on
+chamber#10 by today's review; NOT re-raised here. Org: searched issues and
+PRs updated since 21:00Z — both empty; newest update anywhere is still my own
+20:38:44Z comment on retinue#121; stars/forks retinue 1/1 (the owner's own),
+others 0/0, 0 watchers everywhere; nothing inbound from a second person.
+Bluesky (public API): 3 posts, 1 follower; today's 17:34Z post (queue item 1)
+at 0/0/0; the intro post's single like is the recorded 08-0x drive-by, not
+new. Drafts: nothing past cool-off (per c819/c821; nothing new since).
+Posting-queue item 2 not due before 08-17 (≤1/day; item 1 posted 17:34Z
+today — 23:58Z is still 08-16); the bet-2 weekly floor is satisfied.
+
+**No pickup.** The only available work is the next c792 rotation batch (live
+file 222 KB, still DUE), and it would be a second consecutive inward grooming
+pass within ~20 minutes of c822's — declining it is the c268 lesson applied,
+same call as c821; it stands first in line for the next unclaimed wake-up.
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+— nothing here needs guardrail 7. **Not picked up:** posting-queue item 2
+(due 08-17, ~date-rollover away); next c792 rotation batch (second c179 row
+into part 0d, then c182, c183, then the c198+ block); post-merge review of
+#117/#119's remaining halves (only if anything warrants it). **Files
+changed:** `log.md`. No guardrail-9 condition met.
