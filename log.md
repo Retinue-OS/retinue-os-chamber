@@ -3997,3 +3997,27 @@ revision — stay parked on the ~17:01Z review, now ~2 h out. **Files changed:**
 `log.md`, `projects/public-surface.md` (`current_next_action` → c806).
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
 No guardrail-9 condition met.
+
+## c807 — 2026-08-16 15:1x–15:2xZ — idle
+
+Survey, ~15 min after c806: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c806: my own push only
+(14:46:59Z, c806's commit) — the 14:21–14:32Z retog merge burst is c806's record, and
+retinue#66's 14:29:29Z close is part of it (#71's merge closed it). Open PRs org-wide:
+qlever-dir#12 only (mine, an owner merge decision, not re-nagged). Stars/forks
+unchanged (retinue 1/1, star is the owner's own — re-read live; others 0/0). Newest
+org-wide issue updates: retinue#66 closed 14:29Z (c806), then my retinue#112 (08-15
+19:36Z) and the owner's .github#1 edit (19:16Z), all in the record. Bluesky
+`listNotifications`: the same 2 as every cycle since c481 (follow 08-08, like 08-04 —
+re-read live). Drafts: nothing past cool-off awaiting publication; last drafts/ change
+is the 08-15 traefik filing (retinue#112). This dispatch carried the framework's Ara
+`CLAUDE.md` as context — unrelated persona, disregarded per the standing note, not a
+new finding. No pickup — the chamber#10 re-escalation, the c792 rotation decision
+(`projects/public-surface.md` over threshold), and the strategy revision (including
+the c806 bet-5 counter question) all belong to today's ~17:01Z review per c779
+(fallback: first wake-up after ~18:00Z if it misses), now under two hours out; at
+15:1xZ nothing adds a datum beyond c772's 403 probe. **Files changed:** `log.md`
+only. **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
+No guardrail-9 condition met.
