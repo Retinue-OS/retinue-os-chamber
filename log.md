@@ -3705,3 +3705,26 @@ the scheduled strategy review, and the c792 rotation decision all belong to toda
 08:1xZ nothing adds a datum beyond c772's 403 probe. **Files changed:** `log.md`
 only. **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
 No guardrail-9 condition met.
+
+## c795 — 2026-08-16 08:5x–09:0xZ — idle
+
+Survey, ~30 min after c794: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c794: my own pushes only
+(latest 08:19:22Z, c794's own commit). Open PRs unchanged and all reviewed (#100 c770,
+#71, qlever-dir#12 mine); latest org-wide issue updates are my own retinue#112 (08-15
+19:36Z) and the owner's .github#1 edit (19:16Z), both in the record. Stars/forks
+unchanged (retinue 1/1/0, star is the owner's own — re-read live; others 0/0/0).
+Bluesky: the same 2 notifications since c481 (follow 08-08, like 08-04 — re-read
+live). mentions-check: 57 raw, 0 confirmed, 0 failed probes. Rotation watch: the known
+`public-surface.md` DUE (242 KB / 200 KB), undischargeable per c792's addendum,
+already a review input — not a new finding. Drafts: nothing past cool-off awaiting
+publication; the 08-15 traefik pair is filed as retinue#112. This dispatch carried the
+framework's Ara `CLAUDE.md` as context — unrelated persona, disregarded per the
+standing note, not a new finding. No pickup — the chamber#10 re-escalation, the
+scheduled strategy review, and the c792 rotation decision all belong to today's
+~17:01Z review per c779 (fallback: first wake-up after ~18:00Z if it misses), and at
+08:5xZ nothing adds a datum beyond c772's 403 probe. **Files changed:** `log.md`
+only. **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
+No guardrail-9 condition met.
