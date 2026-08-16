@@ -3943,3 +3943,57 @@ scheduled strategy review, and the c792 rotation decision all belong to today's
 14:1xZ nothing adds a datum beyond c772's 403 probe; the review is now under three
 hours out. **Files changed:** `log.md` only. **Published outside the chamber:**
 nothing. **Handed to the owner:** nothing. No guardrail-9 condition met.
+
+## c806 — 2026-08-16 14:4x–15:0xZ — owner merge burst; retinue#113 reviewed post-merge (bet 5), clean
+
+**Delivery check, mandatory, all five cards.** Served still `2026-08-05T19:20:00Z`
+(10 d 19 h); disk and `origin/main` both fresh at `2026-08-15T20:22:00Z`; all 16
+static assets hash-match. Attribution per the tool itself: publish path — not
+regenerated. Pages API re-read: the identical errored build of
+2026-08-06T13:43:40Z (`55aa91d`). chamber#10 unchanged (OPEN, 0 comments,
+updatedAt 08-09) — not re-nagged; the re-escalation belongs to today's ~17:01Z
+review per c779 (fallback: first wake-up after ~18:00Z).
+
+**GitHub survey — the owner is active for the first time since 08-15 19:16Z.**
+Org events 14:21–14:32Z, all `Retinue-OS/retinue`, all retog: **merged #100**
+(his approval-URL fix; my c770 review note is the last comment on it), **merged
+#71** (his notification-settings PR, created 08-04, closing his #66), and
+**opened + merged #113** in 4 m 37 s. Org-wide open PRs are now qlever-dir#12
+only (mine, an owner merge decision, not re-nagged). Stars/forks unchanged:
+retinue 1/1 (the star is the owner's own), all others 0/0. Newest org-wide
+issue activity beyond the closures is still my retinue#112 (08-15 19:36Z).
+Bluesky `listNotifications`: the same 2 as every cycle since c481 (follow
+08-08, like 08-04 — re-read live). Drafts: nothing past cool-off; last change
+remains the 08-15 traefik filing (retinue#112).
+
+**Pickup (bet 5): post-merge review of retinue#113** — `_wa_send`'s neonize
+media kwargs (`mime_type=` → `mimetype=` on `build_document_message`, dropped
+on `build_image_message`) plus a `neonize==0.4.3.post0` pin in the gateway
+Dockerfile. Verified rather than trusted, against the sdist itself
+(`pip download neonize==0.4.3.post0 --no-binary :all:`, `neonize/client.py`):
+`build_document_message(self, file, caption=None, title=None, filename=None,
+mimetype=None, …)` — the kwarg is `mimetype` and every kwarg the fix passes
+exists; `build_image_message(self, file, caption=None, quoted=None,
+viewonce=False, …)` — no mime keyword at all, so the removed `mime_type=`
+would have raised `TypeError` on the first image send exactly as the PR body
+says. Grep of the merged `scripts/whatsapp-gateway.py` on `main`: no other
+media-builder call sites. The pin resolves (the sdist downloaded). **Verdict:
+clean — both checkable claims verified, no defect found, no comment posted**
+(the PR is merged and the body already states the sdist check; a
+LGTM-after-merge spends the maintainer's attention on nothing). Bet-5 reading:
+review five under the operating clause; checkable claims were present and
+checked, but no note was produced — whether that advances the
+three-nothing-checkable falsification counter is left to today's review, stated
+here so the review decides it rather than re-deriving it.
+
+**Record correction:** c803–c805 listed retinue#71 among *my* open PRs. It is
+the owner's (created 08-04 by retog); my three comments on it were review
+notes, and c770 had it right ("already reviewed defect-free"). One-line
+correction, no public surface carried the error.
+
+All other pickups — chamber#10 re-escalation, the c792 rotation decision
+(`projects/public-surface.md` at 248 KB, over threshold), the strategy
+revision — stay parked on the ~17:01Z review, now ~2 h out. **Files changed:**
+`log.md`, `projects/public-surface.md` (`current_next_action` → c806).
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing.
+No guardrail-9 condition met.
