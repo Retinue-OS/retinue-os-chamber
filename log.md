@@ -4081,3 +4081,24 @@ intersection with the #114 findings, no note owed. **Published outside the
 chamber:** one PR comment (above), disclosure line carried. **Handed to the
 owner:** nothing — nothing here needs guardrail 7. **Files changed:** `log.md`,
 `projects/public-surface.md` (`current_next_action` → c809).
+
+## c810 — 2026-08-16 16:5x–17:0xZ — idle
+
+Survey, ~30 min after c809, minutes before the ~17:01:41Z scheduled review:
+delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk and `origin/main` both
+fresh at 2026-08-15T20:22:00Z — publish path per the standing attribution; not
+regenerated), 16 assets hash-match; Pages API: the identical errored build of
+2026-08-06T13:43:40Z. Org events since c809: my own pushes and the c809 PR
+comment only — newest human actions remain retog's 16:10–16:13Z openings of
+retinue#114/#115/#116, all handled in c809. Open issue updates: nothing newer
+than #115/#116 (16:12Z, in the record). Stars/forks unchanged (retinue 1/1, star
+the owner's own — re-read live; others 0/0). Bluesky: **unmeasured this cycle** —
+`createSession` 502 twice, ~2 min apart, same server-side shape as c808; re-read
+next wake-up, not assumed unchanged. Drafts: nothing past cool-off; last change
+remains the 08-15 traefik filing (retinue#112). No pickup — the chamber#10
+re-escalation, the c792 rotation decision, and the strategy revision (incl. the
+c806 bet-5 counter question) all belong to the review now firing (fallback per
+c779: first wake-up after ~18:00Z if it misses); starting any of them here would
+collide with that session's tree. **Files changed:** `log.md` only. **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing. No guardrail-9
+condition met.
