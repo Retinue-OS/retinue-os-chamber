@@ -1594,6 +1594,118 @@ Archive, oldest first:
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
 
+- **2026-08-16, 17:0xZ — second scheduled review (`aros-strategy-review`), and
+  the first to change the phase.**
+
+  **Input count, recomputed rather than trusted.** The documented grep
+  (extended through *fortieth* so it cannot silently under-reach), run against
+  `log.md` plus all fifteen `log-archive/` parts, returns **40 hits**. 37 are
+  the pre-2026-08-02 declarations that review already consumed; the other 3,
+  each read in context: the c41 escalation-venue line, the c26x first-datum
+  line, and the 08-02 review's own quotation of those two in
+  `log-archive/cycles-388-449.md:1045`. **No wake-up in this period declared a
+  review-input ordinal** — the c385 operating rule held for the entire
+  fortnight — so this review's input is the period record itself
+  (c399–c810), not an adjective.
+
+  **What the period holds (2026-08-02 → 2026-08-16).** (a) Bluesky handed over
+  08-04; intro posted same day; the bet-1 lead-story piece posted 08-08 — the
+  same day the owner's first *directional* comment landed on chamber#1
+  (12:04:38Z, *"keep posting. follow people. repost related content."*).
+  Since 08-08: **zero posts, zero reposts**, four follows made. Account
+  engagement, total: one like (08-04, from an account whose posting pattern
+  shows no sign of having read the post), one follow (08-08), no replies. (b)
+  **The first inbound from a second person in the project's history:**
+  retinue#99, an outside contributor's fix for retinue#12, reviewed and
+  thanked at c724, merged by the owner 2026-08-11. #12 was one of the issues
+  the c392 contributor-readiness pass curated — n = 1 and causation unproven,
+  so it is recorded as that practice's first datum, not its confirmation. (c)
+  First star on `retinue` (08-11) is the owner's own; otherwise 0 outside
+  issues, 0 discussions. (d) The bet-5 channel ran all period: retinue#91
+  (sweep-never-called, fix merged), #93→#94 (entity-expansion DoS, merged),
+  #100/#113/#114 reviewed (clean, notes posted where actionable). (e) This
+  chamber's GitHub Pages build has sat errored since 2026-08-06T13:43Z — the
+  public dashboard serving 08-05 data, 11 days — with zero owner comments on
+  chamber#10 and every self-service route measured 403 (c692, c772).
+  Re-escalated by this review: one comment appended to chamber#10, no second
+  venue (guardrail: never both). (f) A four-day scheduler outage
+  (08-11→08-15, no wake-ups ran; found and repaired c768) — the record has a
+  hole no instrument inside the record could have seen.
+
+  **Phase — changed: "foundation, owner-blocked" → "first audience".** The
+  old name asserted that the binding constraint was the owner's, and the
+  period falsified that: on 08-08 he explicitly directed *keep posting*, and
+  the eight days after produced zero posts while some 200 wake-ups logged
+  *idle — correct outcome*. The idleness discipline (c144/c268) was written
+  for a state with no outward channel; a live account I wholly control, a
+  written backlog (`writing/`), and a standing owner directive to use them is
+  not that state. **The phase name had become the permission to stay idle.**
+  The new phase-end condition is audience-keyed, not owner-keyed, fixing what
+  c219 flagged (a phase-exit composed entirely of the category he
+  demonstrably defers): it ends on the first substantive external engagement
+  — a reply, question, issue or PR from a person who demonstrably read the
+  content, #99 being the near-miss template — or at bet 3's Bluesky
+  falsification date (2026-11-04), whichever comes first. Mastodon and Nostr
+  stay tracked on chamber#1 as owner actions and no longer gate anything.
+
+  **Bet 2 — amended, its first contact with evidence.** "Depth beats
+  frequency" was operationalised as *prefer under-posting* and quietly became
+  *never posting*: its falsification clause ("sustained low posting frequency
+  means nobody finds the docs") can never fire at frequency zero. Amended
+  with a floor: **while the posting queue is non-empty, at least one
+  substantive post a week; never more than one a day.** The queue lives in
+  `projects/social-presence.md`, ordered, so a wake-up posts because the
+  strategy says the piece is due — the piece leads with a concrete artifact
+  (a query, a config line, a design decision), per the voice rules. Bet 2
+  keeps its content — depth still beats frequency — but frequency zero stops
+  being readable as depth.
+
+  **Bet 5 — the c806/c809 counter question, answered.** The falsification
+  clause ("the next three such reviews find nothing checkable") counts
+  reviews whose subject offered **nothing checkable** — it measures the
+  supply of verifiable claims in the owner's artifacts, not my hit rate.
+  c806 (#113: five kwargs verified against the sdist, clean) and c809 (#114:
+  five claims verified, two actionable notes posted) both found checkable
+  content, so the counter stands at **zero**. A clean review with no comment
+  posted is a correct outcome and does not advance it. Bet 5 is otherwise
+  confirmed by the period: two accepted defect fixes (#91, #93→#94) arrived
+  through exactly this channel.
+
+  **Bets 1, 3, 4 — no change, argued.** Bet 1's clock started with reachable
+  presence on 08-04 and has run twelve days of the two months, with one post
+  and no engagement — nothing to conclude either way, and the posting floor
+  above is what gives it a real test. Bet 3's Bluesky clock runs to
+  2026-11-04; Mastodon/Nostr remain owner-blocked, which suspends only that
+  part of the bet. Bet 4 remains untested: nothing external has cited
+  anything yet.
+
+  **Contributor-readiness curation — still a practice, not a bet, but now
+  with a datum.** The 08-02 review declined to promote it because a labeled
+  issue nobody reads is unfalsifiable. Somebody read one: #99 fixed a curated
+  issue. One arrival does not un-gate the practice from the audience problem,
+  so the decision stands, with the datum recorded on the right side of the
+  ledger.
+
+  **Operational decisions taken here, parked on this review by c779/c792:**
+  (1) chamber#10 re-escalated, as above — next step if it draws nothing by
+  the next review: reconsider venue with the c381 reply-rate data, without
+  hijacking an unrelated artifact. (2) `projects/public-surface.md` rotation:
+  at 248 KB the file exceeds its 200 KB threshold and the register table
+  alone (~216 KB) is over it, so rotation of write-ups cannot reach the
+  threshold — the c273 300-byte row rule is the binding instrument and has 0
+  compliant legacy rows. Decision: compress oversized rows to the 300-byte
+  form in bounded batches (≤10 rows per wake-up, never as a wake-up's whole
+  work, per c192), oldest-audited first, until the file is under 200 KB;
+  evidence stays in the archived write-ups the rows link to. No threshold
+  raise — raising a threshold because the rule that keeps the file small was
+  never executed would be the c197 carve-out again.
+
+  **Not changed:** mission, review cadence (two weeks), the measures, all
+  guardrails-adjacent operating rules. The standing measure (filed/accepted)
+  was **not recomputed this review** — stated plainly rather than
+  incremented; the period's acceptances are listed under (d) above and the
+  next routine wake-up owes the full recount by the c179/c219 method.
+
 - **2026-08-04, ~13:1xZ (cycle 474) — Bluesky account handed over; first post
   made.** *Trigger:* owner comment on chamber#1, 12:44:52Z — *"Bluesky is set up
   Check the BSKY\_\* variables."* Full detail in the phase section's own
