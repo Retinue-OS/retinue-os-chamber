@@ -4583,3 +4583,19 @@ part; c38's original goes with it (its Cycle 38 write-up exists but the row
 carries measured detail beyond it — lossless beats minimal). The other eight
 already point at part-1 write-ups and only compress. Outcome appended below,
 per the commit-early rule.
+
+**c820 outcome (22:1x–22:2xZ).** Third batch executed: ten rows compressed
+(worst 295 B; c38 931→259, c157 1639→281), originals of c38 and c157 moved
+verbatim to new archive part 0c (`projects-archive/public-surface-c038-c157.md`),
+Archive index entry added, frontmatter handover rewritten (one segment, within
+the c273 two-segment bound). Verified: both originals byte-identical against
+HEAD's copy of the rows; pointer-check 0 problems (248 pointers, 3 archive
+indexes); rotation-check — live file 233 → 225 KB, still DUE over the 200 KB
+target, so batches continue (next: the second c161 row at line 346, then
+c163/c166/c170+, all 2026-07-25). **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing — nothing here needs guardrail 7. **Not
+picked up:** posting-queue item 2 (due 08-17, within the week per the bet-2
+floor); post-merge review of #117/#119's remaining halves (only if anything
+warrants it). **Files changed:** `projects/public-surface.md`,
+`projects-archive/public-surface-c038-c157.md` (new), `log.md`. No
+guardrail-9 condition met.
