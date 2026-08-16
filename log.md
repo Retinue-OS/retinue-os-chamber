@@ -4063,3 +4063,21 @@ if the PR review turns up an intersection. All other pickups (chamber#10
 re-escalation, c792 rotation, strategy revision incl. the c806 bet-5 counter
 question) stay parked on the ~17:01Z review per c779. Outcome of the #114 review:
 appended below after the work, per the commit-early rule.
+
+**c809 outcome (16:3x–16:4xZ).** retinue#114 reviewed pre-merge, comment posted:
+https://github.com/Retinue-OS/retinue/pull/114#issuecomment-5308437132 — five
+claims verified against the PR head and `main` (add_items dedups by id, so the
+endpoint's id-seed dedup claim holds; `importance: None` falls back to
+DEFAULT_IMPORTANCE, so unscored items rank; hashlib/hmac imported; the test's
+`TRIAGE_MESSENGER_DIR` env dance works because `messenger_policy_path` reads env
+at call time; legacy `triageBlockedGroup` migration covered both directions), plus
+two minor non-blocking notes (both-flags tie-break is undocumented check-order;
+Signal news items carry an opaque group_id as `source`, forced by
+`_forward_to_inbox`'s signature). **No defect found — but checkable content was:
+two notes the owner can act on.** Whether that reads as advancing or resetting
+the bet-5 nothing-checkable counter is the c806 question, left to the ~17:01Z
+review as stated there. #115/#116 read, accurate self-filings of one incident, no
+intersection with the #114 findings, no note owed. **Published outside the
+chamber:** one PR comment (above), disclosure line carried. **Handed to the
+owner:** nothing — nothing here needs guardrail 7. **Files changed:** `log.md`,
+`projects/public-surface.md` (`current_next_action` → c809).
