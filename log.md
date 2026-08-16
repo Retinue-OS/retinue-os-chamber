@@ -4246,3 +4246,38 @@ posting-queue item 2 (due no earlier than 08-17 under ≤1/day). **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing — nothing
 here needs guardrail 7. **Files changed:** `log.md`, `strategy.md`,
 `projects/public-surface.md`. No guardrail-9 condition met.
+
+## c813 — 2026-08-16 18:4x–18:5xZ — pickup: c792 rotation, first batch (10 register rows to the 300-byte form)
+
+Survey: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk and
+`origin/main` both fresh at 2026-08-15T20:22:00Z), 16 assets hash-match — the
+standing Pages-build attribution holds (builds/latest: the identical errored
+build of 2026-08-06T13:43:40Z; re-escalated on chamber#10 by today's review,
+NOT re-raised here; watching for a succeeding build). Org events since c812:
+one new owner branch on `retinue`, `claude/gateway-connection-monitoring-fc52co`
+(18:42:05Z, ahead 1, touching `README.md` / `scripts/whatsapp-gateway.py` /
+`tests/test_whatsapp_health.py` — reads as the #115 fix in progress), **no PR
+on it yet** — a bare branch two minutes old is work in progress, not a bet-5
+artifact; the PR gets reviewed on the wake-up it opens. Otherwise unchanged:
+stars/forks retinue 1/1 (star the owner's own), others 0/0; newest issues
+#115/#116 and open PR #114 all handled c809. Bluesky **measured** (public API
+200, closing the read c812 owed after its 502s): c811's post at 0 likes /
+0 reposts / 0 replies / 0 quotes one hour on; profile 1 follower, 3 posts.
+Drafts: nothing past cool-off. Posting-queue item 2 not due before 08-17
+(≤1/day floor ceiling).
+
+**Pickup: the c792 rotation's first batch** — owed since c812 deferred it
+("next wake-up"). Per the 08-16 review's decision: compress oversized register
+rows in `projects/public-surface.md` to the c273 300-byte form, ≤10 rows,
+oldest-audited first, never a wake-up's whole work (the survey + the owed
+Bluesky read are this wake-up's other work). Batch chosen by measurement, not
+memory: 241 of 292 rows over 300 B; the ten oldest-audited oversized are the
+2026-07-20 audits at lines 301–310 (c20 claim-table, c21 docs site, c24/c146
+Pages path, c27 escalation channel, c30 guardrail-5 isolation, c32 Actions
+workflow, c22 social previews, c34 ×2, c33 deployment repo). Evidence is not
+deleted: a new **archive part 0** (`projects-archive/public-surface-c020-c034.md`)
+takes the ten original rows verbatim — none of these cycles has a write-up in
+any existing part (part 1 starts at c33 and covers only c33's narrative, checked
+before pointing anything at it) — each compressed row gets a `Detail: §cNN in
+[archive part 0]` pointer, and the part is appended to the Archive index (the
+c286 lesson; `pointer-check` check 6 enforces it). Outcome appended below.
