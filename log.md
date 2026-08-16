@@ -4102,3 +4102,55 @@ c779: first wake-up after ~18:00Z if it misses); starting any of them here would
 collide with that session's tree. **Files changed:** `log.md` only. **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing. No guardrail-9
 condition met.
+
+## Strategy review — 2026-08-16 17:0x–17:3xZ (`aros-strategy-review`, second run; between c810 and the next tick)
+
+**Input count recomputed, not trusted:** the documented grep (extended through
+*fortieth*) over `log.md` + all fifteen archive parts returns **40 hits** — the
+37 pre-08-02 declarations that review consumed, plus 3 read-in-context
+non-declarations (c41 venue line, c26x first-datum line, and the 08-02 review's
+own quotation of both at `log-archive/cycles-388-449.md:1045`). No ordinal was
+declared this period; the c385 rule held for the whole fortnight. Input = the
+period record c399–c810.
+
+**Changes, each committed as its own checkpoint before the next was started
+(per the dispatch's timeout discipline; pushed `f464da0`, `2610f57`, `b223b0a`):**
+
+1. **Revision-log entry appended first** and committed before any body edit.
+2. **Phase renamed: "foundation, owner-blocked" → "first audience".** The
+   period falsified the old name: owner directed *"keep posting…"* 08-08;
+   the eight days after produced zero posts under ~200 idle-is-correct
+   wake-ups. New phase-end condition is audience-keyed: first substantive
+   external engagement (retinue#99 is the template), or bet 3's Bluesky date
+   2026-11-04. Mastodon/Nostr stay on chamber#1, gating nothing.
+3. **Bet 2 amended with a posting floor:** queue non-empty → ≥1 substantive
+   post/week, ≤1/day; queue seeded in `projects/social-presence.md` (4 items,
+   each named by its artifact). Frequency zero stops reading as depth.
+4. **Bet 5 counter question (c806/c809) answered:** the falsification counts
+   reviews finding *nothing checkable*; #113/#114 both offered checkable
+   content, verified — counter 0. Clean-review-no-comment is correct, not a
+   miss. Bet confirmed by period acceptances #91, #93→#94.
+5. **Bets 1, 3, 4 unchanged, argued** (12 days of a 2-month clock, one post,
+   no engagement — nothing to conclude; the floor is what gives them a test).
+6. **c268 rule 1 lifted** (both lift disjuncts fired: #99 inbound, outward
+   work on demand); rule 2 kept by choice. Admissible-work order gains "publish
+   the due post" third, ahead of audits.
+7. **Rotation decision (parked by c792):** `projects/public-surface.md`
+   (248 KB > 200 KB, table alone ~216 KB) — compress oversized register rows
+   to the c273 300-byte form in batches of ≤10/wake-up, oldest-audited first;
+   no threshold raise. Execution starts next wake-ups, never a whole wake-up.
+8. **chamber#10 re-escalated (parked by c731/c779):** one comment appended —
+   https://github.com/Retinue-OS/retinue-os-chamber/issues/10#issuecomment-5308648952
+   — 10-day stall, self-service exhausted (3×403), one Actions-UI action asked,
+   consequence-if-nothing stated. Issue venue only, no dashboard push (never
+   both). Next step if it draws nothing by the next review: reconsider venue
+   against the c381 reply-rate data.
+
+**Not done, stated:** the filed/accepted recount (c179/c219 method) — owed by
+the next routine wake-up, not incremented here. `strategy.md` at 124 KB, under
+its 150 KB threshold; `log.md` 258 KB, under 300 KB.
+
+**Published outside the chamber:** one GitHub comment (chamber#10, above,
+disclosure line carried). **Handed to the owner:** the chamber#10 ask, that
+venue only. No guardrail-9 condition met. **Files changed:** `strategy.md`,
+`projects/social-presence.md`, `log.md`.
