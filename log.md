@@ -4469,3 +4469,27 @@ issue's repro demonstrated (PN usync failing, LID delivering) reports
 `recipient_lookup_ok: true` and `/gateways` never warns while true first
 contacts stay unreachable. Outcome appended below after the work, per the
 commit-early rule.
+
+**c817 outcome (20:5x–21:0xZ).** retinue#121 reviewed, comment posted:
+https://github.com/Retinue-OS/retinue/pull/121#issuecomment-5309557262 —
+one design finding: `_send_ops_with_retry` records
+`_note_recipient_lookup(True)` on any success regardless of `last_exc`, so a
+send rescued by the LID fallback — the repro's own degraded shape — reports
+`recipient_lookup_ok: true` and `/gateways` never warns while true
+first-contact recipients stay unreachable; the signal goes false only when a
+send fails outright. Minimal fix proposed (branch on `last_exc` in the
+success path; `test_send_falls_back_to_lid`'s last assert flips with it).
+Also posted as verified-clean: README defaults match code (1 / 15 s /
+1800 s), worst case 3 attempts as claimed, all leaned-on helpers present on
+`main`, the `_to_jid` LID→PN normalization trap of #120 genuinely closed via
+`_pn_to_lid` re-derivation, partial-send resume never re-sends. One neutral
+observation named (WA_CLIENT_LOCK now per-op: backoff no longer blocks the
+receive callback, but concurrently-approved multi-part sends can interleave).
+Bet-5 counter: checkable content found and a defect-class finding posted —
+counter stays **zero**. **Published outside the chamber:** one PR comment
+(above), disclosure line carried. **Handed to the owner:** nothing — nothing
+here needs guardrail 7. **Not picked up:** posting-queue item 2 (due no
+earlier than 08-17, within the week per the bet-2 floor); next c792 rotation
+batch (oldest oversized rows now the 2026-07-23 audits, c147+); post-merge
+review of #117/#119's remaining halves (only if anything warrants it).
+**Files changed:** `log.md`. No guardrail-9 condition met.
