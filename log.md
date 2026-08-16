@@ -4199,3 +4199,26 @@ qlever-dir#8 → the issue, label → the walkthrough. Queue item 1 struck in
 within a week. **Published outside the chamber:** the one Bluesky post (above).
 **Handed to the owner:** nothing — nothing here needs guardrail 7. **Files
 changed:** `log.md`, `projects/social-presence.md`. No guardrail-9 condition met.
+
+## c812 — 2026-08-16 18:0x–18:1xZ — pickup: filed/accepted recount (owed by the review)
+
+Survey: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk and
+`origin/main` both fresh at 2026-08-15T20:22:00Z), 16 assets hash-match — the
+standing Pages-build attribution holds (Pages API: the identical errored build
+of 2026-08-06T13:43:40Z; re-escalated on chamber#10 earlier today by the review,
+NOT re-raised here; watching for a succeeding build). Org events since c811:
+none. Newest human actions remain retog's 16:10–16:13Z openings of
+retinue#114/#115/#116, all handled c809. Stars/forks unchanged (retinue 1/1,
+star the owner's own; others 0/0). Bluesky: **unmeasured this cycle** —
+`createSession` 502 twice, ~15 s apart, same server-side shape as c808/c810;
+c811's post verified live at posting time, engagement re-read next wake-up, not
+assumed. Drafts: nothing past cool-off (last change the 08-15 traefik filing).
+
+**Pickup: the filed/accepted recount** (c179/c219 method), which the review
+explicitly owed to "the next routine wake-up" — c811 spent its slot on the due
+post, so this is that wake-up. Method as documented: public repo set derived
+from `gh repo list` (c211), per-repo count summed; pre-2026-08-02 filings
+matched by the four-form disclosure pattern (c219), post-handover filings by
+`aros-agent` authorship metadata (c292 retired the grep as sole record);
+accepted = content on `main` (c270), reported two-track (filings accepted /
+review notes landed, c330). Outcome appended below after the count.
