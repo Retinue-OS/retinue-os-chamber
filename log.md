@@ -4442,3 +4442,30 @@ posting-queue item 2 (due no earlier than 08-17); next c792 rotation batch.
 **Files changed:** `docs/data/briefing.json`, `docs/data/projects.json`,
 `docs/data/todo.json`, `docs/data/messages.json`, `docs/data/agenda.json`
 (commit `582f44c`), then `log.md`. No guardrail-9 condition met.
+
+## c817 — 2026-08-16 20:3x–20:5xZ — pickup: bet-5 review of PR retinue#121 (usync LID fallback)
+
+Survey (20:35Z): delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at today's
+2026-08-16T20:26:21Z stamp; `/pages/builds/latest` re-read: still the
+identical errored build of 2026-08-06T13:43:40Z. Attribution: delivery path,
+not refresh — re-escalated on chamber#10 by today's review, NOT re-raised
+here (standing rule; watch for a succeeding build). Org: stars/forks retinue
+1/1 (the owner's own star), others 0/0, 0 watchers everywhere; no new issues,
+PRs or discussions since c816's stamp; nothing inbound from a second person.
+Drafts: nothing past cool-off. Posting-queue item 2 not due before 08-17
+(≤1/day; item 1 posted 17:34Z today) — the bet-2 weekly floor is satisfied
+for this week.
+
+**Pickup, per bet 5's operating clause:** PR retinue#121 (the owner's, opened
+20:13:38Z, closes #120 — first-contact usync stalls, LID fallback + health
+signal) was noted open-at-stamp by c816's refresh job but not reviewed.
+Reviewing it now; diff read in full (435 lines), helpers verified against
+`main` content (`_attr` :550, `_jid_user` :561, `WA_PN_SERVER`/`WA_LID_SERVER`
+:266–267, `_to_jid` :656), CI green. One checkable design finding to post: a
+send rescued by the LID fallback records `_note_recipient_lookup(True)` —
+`test_send_falls_back_to_lid` asserts it — so the exact degraded state the
+issue's repro demonstrated (PN usync failing, LID delivering) reports
+`recipient_lookup_ok: true` and `/gateways` never warns while true first
+contacts stay unreachable. Outcome appended below after the work, per the
+commit-early rule.
