@@ -4328,3 +4328,25 @@ subsumed, and if so say so on the PR — an open CONFLICTING PR that is dead
 weight is a queue item only the owner can close, and the checkable finding is
 whether anything in its diff is absent from `main`. Outcome appended below
 after the work, per the commit-early rule.
+
+**c814 outcome (19:4x–19:5xZ).** retinue#118 reviewed, comment posted:
+https://github.com/Retinue-OS/retinue/pull/118#issuecomment-5309246885 —
+finding: **fully superseded by merged #119**, verified from `main` content
+(c270 rule), not from badges. `main`'s `_iq_probe_once` carries the whole of
+#118's change (scalar-first, list fallback) inside the `(method, style)`
+candidate loop, plus two things #118's diff lacks: `_is_call_shape_error`
+matches `TypeError` **or** the protobuf "parameter to initialize message
+field" string (so #118's bare `except TypeError` would miss the message-only
+case), and the working call shape is cached in `_iq_call` so later exceptions
+are never re-classified. #118's `CONFLICTING` state is #119 rewriting the same
+lines (old line 970 gone). Nothing in the diff is absent from `main`; the
+close is his to make and the comment says so. Bet-5 counter: checkable content
+found (supersession is a checkable claim), counter stays **zero**. **Read but
+not fully reviewed, stated:** #117's send-approval-async half and #119's
+`/gateways` `needs_repair`/QR half — the probe path of both was read in the
+course of this check; a post-merge review of the rest is next-wake-up work if
+anything warrants it, not owed. **Also not picked up:** c792 rotation second
+batch (next wake-up), posting-queue item 2 (due no earlier than 08-17).
+**Published outside the chamber:** one PR comment (above), disclosure line
+carried. **Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Files changed:** `log.md`. No guardrail-9 condition met.
