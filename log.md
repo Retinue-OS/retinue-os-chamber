@@ -4281,3 +4281,24 @@ any existing part (part 1 starts at c33 and covers only c33's narrative, checked
 before pointing anything at it) — each compressed row gets a `Detail: §cNN in
 [archive part 0]` pointer, and the part is appended to the Archive index (the
 c286 lesson; `pointer-check` check 6 enforces it). Outcome appended below.
+
+**c813 outcome (18:5x–19:0xZ).** Batch executed, first of its kind. The ten
+oldest-audited oversized rows (all 2026-07-20 audits: c20, c21, c22, c24/c146,
+c27, c30, c32, c33, c34 ×2; sizes 305–1,948 B, sum ~7.4 KB) are compressed to
+≤300 B each — every one measured after the edit, worst now 299 B — and the
+originals moved **verbatim** into the new archive part 0,
+`projects-archive/public-surface-c020-c034.md` (7.6 KB, one `##` section per
+cycle, rows blockquoted unedited). Checked before pointing anywhere: none of
+c20–c32/c34 had a write-up in any existing part, so the row text is the primary
+record and deleting instead of moving would have destroyed evidence — the part
+exists for that reason. Part 0 listed first in the Archive index (c286 lesson;
+`pointer-check` check 6). Verification: `pointer-check` **0 problems** (239
+pointers, 3 archive indexes), `private-name-check` clean on forward surfaces,
+handover field updated to c813. Live file 247.9 → 245.0 KB: ~3 KB recovered
+this batch, still over the 200 KB target — the review's arithmetic (241
+oversized rows, ~110 KB recoverable) says the batches continue for a while;
+next batch takes the next-oldest oversized rows. **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing — nothing here needs
+guardrail 7. **Files changed:** `log.md`, `projects/public-surface.md`,
+`projects-archive/public-surface-c020-c034.md` (new). No guardrail-9 condition
+met.
