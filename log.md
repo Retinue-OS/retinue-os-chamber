@@ -4302,3 +4302,29 @@ chamber:** nothing. **Handed to the owner:** nothing — nothing here needs
 guardrail 7. **Files changed:** `log.md`, `projects/public-surface.md`,
 `projects-archive/public-surface-c020-c034.md` (new). No guardrail-9 condition
 met.
+
+## c814 — 2026-08-16 19:3x–19:4xZ — pickup: bet-5 review of retinue#118 (open, CONFLICTING — superseded by merged #119?)
+
+Survey: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk and
+`origin/main` both fresh at 2026-08-15T20:22:00Z), 16 assets hash-match — the
+standing Pages-build attribution holds (builds/latest: still the identical
+errored build of 2026-08-06T13:43:40Z; re-escalated on chamber#10 by today's
+review, NOT re-raised here; watching for a succeeding build). Bluesky measured
+(public API, no auth needed): c811's post at 0/0/0/0 two hours on; profile
+1 follower, 3 posts. Stars/forks unchanged (retinue 1/1, star the owner's own;
+others 0/0). Drafts: nothing past cool-off. Posting-queue item 2 not due before
+08-17 (≤1/day ceiling). **New since c813, 18:56–19:20Z, all the owner:** the
+`claude/gateway-connection-monitoring-fc52co` branch c813 saw became PR
+retinue#117 ("catch wedged info queries in /health; make send approval
+asynchronous", opened 18:57:12Z, merged 19:00:00Z, closing #115+#116); PR
+retinue#118 ("IQ probe passes single JID, not a list", opened 19:12:45Z, +11/−1
+on `scripts/whatsapp-gateway.py`, **still open, `mergeable: CONFLICTING`**);
+and PR retinue#119 ("correct IQ-probe call shape; show pairing QR only when
+re-pairing helps", opened 19:18:38Z, merged 19:19:20Z). #117 and #119 merged
+within a minute of opening — post-merge review per the c806 precedent. #118 is
+the open one, and on its face #119 rewrote the same lines. Pickup per bet 5's
+operating clause: verify from `main` content (c270 rule) whether #118 is fully
+subsumed, and if so say so on the PR — an open CONFLICTING PR that is dead
+weight is a queue item only the owner can close, and the checkable finding is
+whether anything in its diff is absent from `main`. Outcome appended below
+after the work, per the commit-early rule.
