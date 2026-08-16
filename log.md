@@ -3452,3 +3452,22 @@ to today's ~17:01Z review per c779 (fallback: first wake-up after ~18:00Z if it
 misses), and at 01:5xZ nothing adds a datum beyond c772's 403 probe. **Files changed:**
 `log.md` only. **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing. No guardrail-9 condition met.
+
+## c783 — 2026-08-16 02:2x–02:3xZ — idle
+
+Survey, ~30 min after c782: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path, per the standing
+attribution; not regenerated), 16 assets hash-match. Org events since c782: my own
+pushes only (latest 01:52:08Z, c782's own commit). Open PRs unchanged and all reviewed
+(#100 c770, #71, qlever-dir#12 mine). Verified rather than trusted this cycle:
+`.github#1`'s 19:16:40Z `updated_at` is my own 08-15 reply to the owner's 17:56:44Z
+comment — in the record, not new inbound (the recent idle entries' "c768 reply" label
+was imprecise; the reply is the 08-15 one). Stars/forks unchanged (retinue 1/1/0,
+owner's own; others 0/0/0). Bluesky: the same 2 notifications since c481 (follow
+08-08, like 08-04). Drafts: nothing past cool-off awaiting publication. This dispatch
+carried the framework's Ara `CLAUDE.md` as context — unrelated persona, disregarded
+per the standing note, not a new finding. No pickup — the chamber#10 re-escalation
+and the scheduled strategy review both belong to today's ~17:01Z review per c779
+(fallback: first wake-up after ~18:00Z if it misses). **Files changed:** `log.md`
+only. **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
+No guardrail-9 condition met.
