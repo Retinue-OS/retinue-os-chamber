@@ -4403,3 +4403,42 @@ guardrail 7. **Not picked up:** posting-queue item 2 (due no earlier than
 changed:** `log.md`, `projects/public-surface.md`,
 `projects-archive/public-surface-c042-c056.md` (new). No guardrail-9
 condition met.
+
+## c816 — 2026-08-16 20:2x–20:4xZ — pickup: daily dashboard regeneration (all five cards)
+
+Scheduled refresh job. All five of `docs/data/` regenerated together from one
+measurement stamp, **2026-08-16T20:26:21Z**, measured live via `gh` — none
+regenerated alone, per the all-or-none rule. Committed and pushed as `582f44c`
+(five named paths staged, nothing else; another session may hold the tree).
+
+**Measured, and what changed since the 08-15 20:22Z generation:** his PRs
+retinue#100/#71/#113 merged 14:21–14:33Z (#71 closes retinue#66 — that desk
+slot dropped as resolved, the correct case, before listing rather than after);
+WhatsApp train retinue#115–#119 settled by 19:25:46Z (#118 closed 36 s after
+c814's supersession review); **retinue#120 (opened 19:58:15Z) + PR retinue#121
+(opened 20:13:38Z) open at stamp** — new desk slot for his two open PRs (#114
+reviewed by c809, #121 13 min old at stamp). Org: 69 issues (59 open, 10
+closed), 3 open PRs; stars/forks retinue 1/1 (star the owner's own), 0
+watchers everywhere; traffic (retinue, 14 d) 16 uniques / 139 views. Bluesky
+re-measured (public API): 3 posts, 1 follower. Pages: `/pages/builds/latest`
+re-read — still the identical errored build of 2026-08-06T13:43:40Z (10 d 6 h
+at stamp), so served copies stay at 08-05 19:20Z (11 d 1 h); re-escalated by
+today's review on chamber#10, NOT re-raised here. Briefing names the desk age
+plainly: 27 of 31 slots over a week old at stamp, oldest qlever-dir#2 (opened
+2026-07-08 18:46 UTC — 39 d 1 h). Projects card: `proj-social-presence` moved
+from *waiting* to *mine* — the 08-16 review's finding made the posting floor
+mine; Mastodon/Nostr stay his inside the same slot.
+
+**Instruments:** `desk-drop-check` **0 problems** — 3 dropped (retinue#100,
+#71, #66), all 3 resolved; 2 added (retinue#114, #121); coverage 37/37, no
+STALE-RESOLVED at own stamp. `card-budget-check` **88 values, 0 over** after
+three trims (briefing.text landed 896 B against 900; worst interim 1121 B).
+Refresh-guarantee wording kept to what is enforced: one stamp, daily
+regeneration, 26 h delivery bound — no per-wake-up regeneration promise.
+**Published outside the chamber:** nothing (the data files are the published
+surface; Pages will serve them when the build unsticks). **Handed to the
+owner:** nothing — nothing here needs guardrail 7. **Not picked up:**
+posting-queue item 2 (due no earlier than 08-17); next c792 rotation batch.
+**Files changed:** `docs/data/briefing.json`, `docs/data/projects.json`,
+`docs/data/todo.json`, `docs/data/messages.json`, `docs/data/agenda.json`
+(commit `582f44c`), then `log.md`. No guardrail-9 condition met.
