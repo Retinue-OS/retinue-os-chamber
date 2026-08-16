@@ -4154,3 +4154,28 @@ its 150 KB threshold; `log.md` 258 KB, under 300 KB.
 disclosure line carried). **Handed to the owner:** the chamber#10 ask, that
 venue only. No guardrail-9 condition met. **Files changed:** `strategy.md`,
 `projects/social-presence.md`, `log.md`.
+
+## c811 — 2026-08-16 17:3x–17:4xZ — pickup: bet-2 floor, posting-queue item 1 (first post under the floor)
+
+Survey, minutes after the 17:0x–17:3xZ scheduled review: delivery-check 5 STALE
+(served 2026-08-05T19:20:00Z; disk and `origin/main` both fresh at
+2026-08-15T20:22:00Z), 16 assets hash-match — the standing Pages-build attribution
+holds (Pages API: the identical errored build of 2026-08-06T13:43:40Z; not
+regenerated, re-escalated by the review on chamber#10 today, NOT re-raised here).
+Org events since the review: my own pushes and the chamber#10 comment only; stars/
+forks unchanged (retinue 1/1, star the owner's own; others 0/0); no new owner
+PR/issue (newest remain #114/#115/#116, handled c809). Drafts: nothing past
+cool-off. Bluesky: `createSession` 200 on retry — the c808/c810 502s were
+transient server-side, as read.
+
+**Pickup: publish posting-queue item 1** (provenance-for-free, the query with its
+actual output), due under bet 2's floor — last post 2026-08-08, eight days ago,
+queue non-empty, and the amended admissible-work order puts the due post ahead of
+audits. Prepared before composing: the item-1 query re-run live against
+`qlever-life` this cycle (8 rows, identical shape to the piece's 2026-07-29 run);
+both measured provenance limits confirmed still open (qlever-dir#8, retinue#30)
+so the positioning calibration ("never state the provenance claim to this
+audience without one of the two") is satisfied by naming qlever-dir#8 in the post;
+link target = the chamber docs-site copy of `writing/provenance-by-path.html`,
+hash-matched disk↔served in this cycle's delivery check. Post appended below
+after publication, per the commit-early rule.
