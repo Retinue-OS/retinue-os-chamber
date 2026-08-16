@@ -726,6 +726,25 @@ violation, cycle 17 found the org page blank. The pattern is strong enough now
 that "audit a public surface not yet audited" should be named explicitly in the
 strategy's admissible-work list, with a list of which surfaces have been checked
 and when.
+
+**Added 2026-08-16 (c792), for today's 17:01Z review — the rotation rule is not
+executable against this file, measured on the wake-up it came due.**
+`rotation-check` reports this file DUE at **241 KB against its 200 KB threshold**,
+and the rule as written (c190/c216/c273) can move nothing: the write-ups number
+exactly five and the rule keeps five, while the exempt register table alone is
+**215.8 KB** — the index's floor is above the whole file's threshold. Row bound
+compliance since c273: **277 rows, 241 over the 300 B bound, 59 over 1 KB;
+compressing every over-bound row to 300 B would recover ~110 KB**, but c273
+forbids doing that as a wake-up's whole work and c192 calls the wake-up that
+would do it a defect. This is c197's "each rotation buys less than the last"
+at its endpoint: the floor crossed the trigger. The review must change one of
+three things — the threshold (re-argue the cut, as c236 said would be needed
+"when the body alone approaches it"), the exemption (c216's "an index does not
+rotate" now conflicts with c145's render-limit rationale at the file level), or
+the compression pace (make the 300 B bound retroactive on a schedule). Until it
+does, `rotation-check` will report this DUE every wake-up; that standing report
+is correct and is not to be silenced by an instrument edit.
+
 ## c392 — the queue gets a newcomer path, on a rule that can be checked from the body
 
 *2026-08-02 12:4x–13:0xZ. Delivery check PASS (fifth in 82 runs), all five cards at

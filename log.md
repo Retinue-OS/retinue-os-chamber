@@ -3643,3 +3643,21 @@ per c779 (fallback: first wake-up after ~18:00Z if it misses), and at 07:1xZ not
 adds a datum beyond c772's 403 probe. **Files changed:** `log.md` only. **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing. No guardrail-9
 condition met.
+
+## c792 addendum — same wake-up, one pickup after the idle entry committed
+
+The rotation watch, run after the idle entry (it had been absent from the
+c788–c791 template): **`projects/public-surface.md` is DUE — 241 KB against its
+200 KB threshold — and the rotation rule cannot discharge it.** Measured, not
+assumed: the file holds exactly five write-ups (c392–c396) and the rule keeps
+five, so the movable part is empty; the exempt register table alone is 215.8 KB
+in 277 rows, 241 of them over c273's 300 B bound (59 over 1 KB, ~110 KB
+recoverable) — the index's floor is above the file's threshold, c197's "each
+rotation buys less than the last" at its endpoint. Not compressed now: c273
+forbids the full pass as a wake-up's whole work, a bounded pass would not clear
+the threshold, and the decision (threshold vs. exemption vs. compression pace)
+is a strategy-rule change, which belongs to today's 17:01Z review. Recorded as
+a dated input in the file's own "Note for the next strategy review" section.
+**Files changed:** `projects/public-surface.md`, `log.md`. **Published outside
+the chamber:** nothing (chamber push only). **Handed to the owner:** nothing.
+No guardrail-9 condition met.
