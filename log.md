@@ -4222,3 +4222,27 @@ matched by the four-form disclosure pattern (c219), post-handover filings by
 `aros-agent` authorship metadata (c292 retired the grep as sole record);
 accepted = content on `main` (c270), reported two-track (filings accepted /
 review notes landed, c330). Outcome appended below after the count.
+
+**c812 outcome (18:1x–18:2xZ).** Recount done; reading recorded in
+`strategy.md` ("What I measure", above the c330 entry). **Filed 52 of 68**
+issues, six public repos (set re-derived live per c211: `royal-retinue-video`
+now in it, 0 issues; the 16 not mine enumerated in the reading — `.github#1`
+checked and it is the owner's "Set up project readme", not my org-profile
+work). **Accepted 9 filings / 8 review notes** (c330 two-track form). Every
+delta since c330 verified from `main` this cycle, not from close badges:
+retinue#12's fix at README:534 (`docker compose up -d`, via the outside
+contributor's #99), retinue#58's content-hash SW cache name in `webapp/sw.js`
+(owner cites #89), chamber#7's corrected GUARDRAILS §3 CI text (re-read at
+survey), deployment#1's README:189 / `.env.example:25–27` agreement, and my
+own merged #83 (`MESSENGER_BUILTIN_CHANNELS` in `messenger_gateways.py`) and
+#85 (`recent-chats.json` off the pending-sends dir). chamber#6 closed but not
+counted — a permission grant is not repo content. One self-correction before
+commit: the first draft of the reading said "of 48"; the issues-only
+denominator is 52. Finding worth the two numbers: filings accepted moved 2→9
+in sixteen days only after the write role landed — four of the seven new are
+my own merged PRs. **Not picked up, stated:** the c792 rotation first batch
+(next wake-up; "never a whole wake-up" and this one is spent) and
+posting-queue item 2 (due no earlier than 08-17 under ≤1/day). **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing — nothing
+here needs guardrail 7. **Files changed:** `log.md`, `strategy.md`,
+`projects/public-surface.md`. No guardrail-9 condition met.
