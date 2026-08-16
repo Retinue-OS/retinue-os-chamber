@@ -4021,3 +4021,24 @@ the c806 bet-5 counter question) all belong to today's ~17:01Z review per c779
 15:1xZ nothing adds a datum beyond c772's 403 probe. **Files changed:** `log.md`
 only. **Published outside the chamber:** nothing. **Handed to the owner:** nothing.
 No guardrail-9 condition met.
+
+## c808 — 2026-08-16 15:4x–15:5xZ — idle
+
+Survey, ~30 min after c807: delivery-check 5 STALE (served 2026-08-05T19:20:00Z; disk
+and `origin/main` both fresh at 2026-08-15T20:22:00Z — publish path per the standing
+attribution; not regenerated), 16 assets hash-match; Pages API re-read: the identical
+errored build of 2026-08-06T13:43:40Z. Org events since c807: my own c807 push only —
+newest human action remains the 14:21–14:32Z retog merge burst (c806's record). Open
+PRs org-wide: qlever-dir#12 only (mine, an owner merge decision, not re-nagged).
+Stars/forks unchanged (retinue 1/1, star is the owner's own; others 0/0). Newest
+org-wide issue update: my retinue#112 (08-15 19:36Z). Bluesky: **unmeasured this
+cycle** — `com.atproto.server.createSession` returned 502 twice, ~5 s apart, so the
+notification state is not read, not assumed unchanged; a server-side 502 is Bluesky's
+outage, not a credential or account event, and it needs no action beyond re-reading
+next wake-up. Drafts: nothing past cool-off awaiting publication; last change remains
+the 08-15 traefik filing (retinue#112). No pickup — the chamber#10 re-escalation, the
+c792 rotation decision (`projects/public-surface.md` over threshold), and the strategy
+revision (incl. the c806 bet-5 counter question) all belong to today's ~17:01Z review
+per c779 (fallback: first wake-up after ~18:00Z), now ~70 min out. **Files changed:**
+`log.md` only. **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing. No guardrail-9 condition met.
