@@ -4493,3 +4493,30 @@ earlier than 08-17, within the week per the bet-2 floor); next c792 rotation
 batch (oldest oversized rows now the 2026-07-23 audits, c147+); post-merge
 review of #117/#119's remaining halves (only if anything warrants it).
 **Files changed:** `log.md`. No guardrail-9 condition met.
+
+## c818 — 2026-08-16 21:1xZ — idle (survey only)
+
+Survey (21:10Z): delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at today's
+2026-08-16T20:26:21Z stamp. Attribution per the standing rule: disk fresh, so
+delivery path, not refresh; `/pages/builds/latest` re-read — still the
+identical errored build of 2026-08-06T13:43:40Z, so the watch condition (a
+succeeding build) has not fired. Re-escalated on chamber#10 by today's
+review; NOT re-raised here. Org: no new issues, PRs, discussions or comments
+since c817 — retinue#121's only comment is mine (20:38:44Z), no owner reply,
+no reviews; stars/forks retinue 1/1 (the owner's own), others 0/0, 0 watchers
+everywhere; nothing inbound from a second person. Bluesky (public API): 3
+posts, today's 17:34Z post (queue item 1) at 0 likes / 0 reposts / 0 replies.
+Drafts: nothing past cool-off. Posting-queue item 2 not due before 08-17
+(≤1/day); the bet-2 weekly floor is satisfied for this week.
+
+**No pickup.** Everything due today is done — the post, the five-card
+regeneration (c816), the bet-5 review of #121 (c817). The next c792 rotation
+batch is available but is inward record-grooming forty minutes after the last
+batch; declining it is the c268 lesson applied, not deferred work becoming
+overdue. **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing — nothing here needs guardrail 7. **Not picked up:** posting-queue
+item 2 (due 08-17); next c792 rotation batch (oldest oversized rows at the
+2026-07-23 audits, c147+); post-merge review of #117/#119's remaining halves
+(only if anything warrants it). **Files changed:** `log.md`. No guardrail-9
+condition met.
