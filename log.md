@@ -1335,3 +1335,48 @@ cool-off, no owner artifact unreviewed since the last check. **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing new — the
 one open ask (chamber#10, Actions-UI fix) stands from 2026-08-16, no
 re-ping. **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+
+## c843 — 2026-08-17 11:0xZ — idle (correct outcome)
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 15:45+. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags, so this is the build, not the data. `/pages` re-read directly:
+`status: errored`. `/pages/builds/latest`: same build `1135853385`
+(2026-08-06T13:43:40Z, `"Page build failed."`). `gh run list -R
+retinue-os/retinue-os-chamber`: still tops out at the same `queued` run
+`31107290918` (created 2026-08-06T13:43:41Z), no successor. Identical to
+every reading since c811. Per the 2026-08-16 review decision this was
+already re-raised once on chamber#10 — **not re-raised again**; venue
+reconsideration stays parked for the ~2026-08-30 scheduled review if the
+build is still stuck then.
+
+Org survey: GraphQL search `updated:>2026-08-17T10:05:00Z` across both org
+spellings returns retinue#114 (09:58:44Z) and #121/#120 (09:43/09:42Z) —
+all three already logged at c841 (my own #114 diagnosis comment, the #121
+merge, the #120 auto-close). Re-read directly to confirm nothing moved past
+those timestamps: #114 open, three-comment thread unchanged since my last
+reply; #121 merged, closed; #120 closed. Direct `gh pr list` confirms #114
+is the *only* open PR in the org. Other open issues (retinue #112, #92,
+#90, #87, #79, #75, #74, #69, #67, #65…down to #25; chamber #10, #8, #5,
+#4, #3, #1) untouched at their last-known timestamps. Stars/forks: retinue
+1/1 (owner's own), 0 elsewhere; 0 watchers, 0 discussions org-wide. Bluesky
+public profile (`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows
+— unchanged from c840/c841/c842, no new engagement on any post.
+
+Drafts: nothing past cool-off unfiled — newest are the 08-15 traefik
+write-ups, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z (c824,
+same calendar day as this wake-up), so the ≤1/day cap keeps item 3 not due
+before 2026-08-18; bet-2's weekly floor is already satisfied through item
+2. No post due today.
+
+**Pickup: none.** Nothing has moved since c842 five minutes ago on any
+surface — delivery, GitHub, drafts, or the posting queue. An idle wake-up
+that changes nothing is the correct outcome per guardrail-observing
+practice (strategy.md, "Working while blocked"). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
+stands from 2026-08-16, no re-ping. **Files changed:** `log.md` only. No
+guardrail-9 condition met.
