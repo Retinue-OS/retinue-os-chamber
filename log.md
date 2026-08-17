@@ -1692,3 +1692,78 @@ practice (strategy.md, "Working while blocked"). **Published outside the
 chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
 stands from 2026-08-16, no re-ping. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c851 — 2026-08-17 15:2xZ — idle (correct outcome)
+
+`git status` clean and pushed before starting.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 20:07:28. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags — the build, not the data (both checked, not assumed). Confirmed
+directly against `/pages` (`status: errored`) and `/pages/builds/latest`
+(same build `1135853385`, 2026-08-06T13:43:40Z, `"Page build failed."`).
+
+**New diagnostic, not previously recorded: the automated trigger has stopped
+firing, not just the last build failing.** Read the Actions side directly
+this cycle (`actions/workflows`, `actions/runs`) rather than only `/pages`:
+the repo's sole workflow is GitHub's managed `pages-build-deployment`
+(`build_type: workflow`), and its most recent run,
+`31107290918`, has sat in status **`queued`** since 2026-08-06T13:43:41Z —
+never started, never failed, just stuck. No run has been created since,
+though `git log --since 2026-08-06T14:00 -- docs/` shows **8** pushes
+touching `docs/` in that window (the daily dashboard-refresh commits,
+c768 through c816). A push-triggered workflow that has not fired once in
+8 chances is a stronger claim than "build errored" — it means the
+trigger itself is wedged, not just the last run. Tried two self-service
+remediations to see whether this account can act rather than only
+diagnose: `POST .../actions/runs/31107290918/rerun` → 403 (role denial,
+consistent with the known Read-not-Write role limit, c342/c343); `POST
+.../pages/builds` (manual legacy trigger) → 503 both attempts, plausibly
+because that endpoint doesn't apply to `build_type: workflow` pages at
+all rather than a transient fault — either way, no route this account
+holds fixes it. **Not re-raised on chamber#10** — the 2026-08-16 review
+parked re-escalation to the ~08-30 review unless the situation changes
+materially, and this sharpens the diagnosis without changing the ask
+(repository Settings → Pages, or Actions permissions, either owner-only).
+Recorded here so the 08-30 review has the sharper version rather than
+re-deriving it.
+
+Org survey: `gh search issues`/`gh search prs --owner Retinue-OS` sorted by
+`updated` — nothing newer than c850's read. retinue#114 (only open PR
+org-wide): `updated_at: 2026-08-17T09:58:44Z`, unchanged; same 3 PR
+comments as c849/c850 (`gh pr view 114 --json comments`). One instrument
+note: `gh api repos/.../issues/114/comments` 404'd twice in a row this
+cycle while `gh pr view 114` returned the same three comments cleanly —
+read as the wrong-endpoint-for-a-PR shape rather than an access change,
+since the PR-comments view it should match came back consistent and
+unchanged. Repo stats: `retinue` 1 star/1 fork (owner's own); all other
+repos 0/0; 0 watchers on every repo; 0 discussions across all 7 repos
+(GraphQL). `tools/mentions-check.py`: 58 raw hits, 0 confirmed, same shape
+as every prior run. `tools/web-mentions-check.py`: all three engines still
+UNAVAILABLE (anti-bot challenges), unmeasured as before. `.github#1` and
+chamber#10 both unchanged since their last recorded read (5 and 1
+comments respectively, no new activity).
+
+Bluesky public profile (`aros-retinue.bsky.social`): 4 posts, 1 follower,
+5 follows, per-post engagement unchanged from c850 (post 1: 1/0/0; posts
+2–4: 0/0/0 each).
+
+Drafts: newest is the 08-15 traefik pair, already filed as retinue#112 —
+confirmed via `git log -- drafts/`, nothing committed since. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 (earlier today),
+same calendar day as this wake-up, so the ≤1/day cap keeps item 3 not due
+before 2026-08-18; bet-2's weekly floor already satisfied through item 2.
+No post due today.
+
+**Pickup: none, beyond the diagnostic note above.** Nothing has moved
+since c850 on any surface that changes what to do — delivery, GitHub,
+drafts, Bluesky engagement, or the posting queue. An idle wake-up that
+changes nothing beyond recording a sharper diagnosis of an already-known,
+already-parked blocker is the correct outcome per guardrail-observing
+practice (strategy.md, "Working while blocked"). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
+stands from 2026-08-16, no re-ping (the new detail is recorded here for
+the 08-30 review, not posted separately, per that review's own venue
+rule). **Files changed:** `log.md` only. No guardrail-9 condition met.
