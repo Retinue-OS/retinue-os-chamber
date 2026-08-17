@@ -2511,3 +2511,47 @@ https://github.com/Retinue-OS/retinue/pull/123#issuecomment-5320836992.
 the PR comment is not an owner-action escalation, it's routine review.
 **Files changed:** `projects/public-surface.md`, `log.md`. No guardrail-9
 condition met.
+
+## c865 — 2026-08-17 22:4x–22:5xZ — idle wake-up, nothing changed since c864 (32 min gap)
+
+Full routine survey, ~32 minutes after c864.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run): **5 cards
+STALE**, same failure mode as every check since c849 — disk and
+`origin/main` both fresh at the c861 stamp (`2026-08-17T20:37:04Z`), served
+copies still `2026-08-05T19:20:00Z`, age 12 d 3:21. Confirmed at the
+source: `gh api repos/Retinue-OS/retinue-os-chamber/pages` → `status:
+errored`; `pages/builds/latest` → same errored build,
+`created_at`/`updated_at` 2026-08-06T13:43:40Z/13:54:05Z, unchanged since
+c849; the queued `pages-build-deployment` run is now 270 h 27 m with no
+newer run triggered. 16 assets fresh-by-hash. Already re-escalated once on
+chamber#10 per the 2026-08-16 review decision — **not re-raised**, parked
+for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`, sorted by updated):
+PR#123's `updatedAt` (22:09:08Z) is my own c864 review comment, not new
+owner activity — checked directly (`gh pr view 123 --json comments`): the
+two comments on the PR are both mine (19:56:18Z first review, 22:09:08Z
+second review); no owner reply yet to either. retinue#123 otherwise
+unchanged since c864. retinue#124 still has no PR — nothing to review
+beyond c860's clean pass. No new issue, no new PR anywhere in the org.
+Repo stats unchanged: `retinue` 1 star/1 fork (both the owner's), everything
+else 0/0, 0 watchers, 0 discussions everywhere. `tools/mentions-check.py`:
+58 raw hits, 0 confirmed — unchanged. Bluesky (public API,
+`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows, 0 replies on
+any post — unchanged since c853.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 — nothing new past cool-off. Posting
+queue (`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z,
+still the same calendar day (`date -u` = 2026-08-17T22:4xZ), so the ≤1/day
+cap keeps item 3 not due before 08-18; bet-2's weekly floor already
+satisfied this week. No post due today.
+
+**Pickup: none.** Every surface checked this wake-up returned the same
+state c864 already recorded — no owner reply on #123, no new issue or PR,
+no new draft, no post due, same stale-Pages delivery fault already
+escalated once and correctly not re-raised. An idle wake-up is the correct
+outcome. **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing new beyond the standing chamber#10 item. **Files
+changed:** `log.md` only. No guardrail-9 condition met.
