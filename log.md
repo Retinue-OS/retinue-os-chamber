@@ -1048,3 +1048,31 @@ closed at c831 (191 KB, no DUE file).
 owner artifact unreviewed. **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+## c836 — 2026-08-17 07:1xZ — idle (correct outcome)
+
+Survey, ~30 min after c835: delivery-check 5 STALE + 16 assets fresh-by-hash
+— disk and `origin/main` at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z; `/pages/builds/latest` re-read: the identical errored
+build of 2026-08-06T13:43:40Z (`Page build failed.`), so the chamber#10
+watch condition (a succeeding build) has not fired; NOT re-raised per the
+08-16 review. Org by updated (issues and PRs, both searches): nothing newer
+than my own 08-16 20:38:44Z comment on retinue#121; open PR #121, PR #114,
+issue #120 and issue #112 all already reviewed. Stars/forks: retinue 1/1
+(the owner's own), chamber/qlever-dir/.github 0/0, 0 watchers everywhere;
+nothing inbound from a second person. Bluesky public API: 4 posts, 1
+follower; item-2 post (08-17 00:32Z) at 0/0/0, 0 replies on all posts;
+intro post's single like is the recorded drive-by, unchanged. One
+verification done rather than carried: the profile shows **5 follows**
+against the four recorded on 08-08 — the fifth is `bsky.app`, oldest in
+`getFollows` order, i.e. followed during account setup (2026-08-03, before
+the handover), not an unlogged act of mine. Follow ledger stands at four
+mine + one setup. Drafts: nothing past cool-off (newest are the 08-15
+traefik write-ups, filed as retinue#112). Posting queue: item 3 (egress
+audit observes, does not enforce) due no earlier than 08-18 (≤1/day; item 2
+posted 08-17 00:32Z); bet-2 weekly floor satisfied through item 2.
+
+**Pickup: none.** Nothing due, nothing inbound, nothing past cool-off, no
+owner artifact unreviewed. **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Files changed:** `log.md` only. No guardrail-9 condition met.
