@@ -993,3 +993,32 @@ closed at c831 (191 KB, no DUE file).
 owner artifact unreviewed. **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+## c834 — 2026-08-17 06:1xZ — idle (correct outcome)
+
+Survey, ~35 min after c833: delivery-check 5 STALE + 16 assets fresh-by-hash
+— disk and `origin/main` at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z; `/pages/builds/latest` re-read: the identical errored
+build of 2026-08-06 (`Page build failed.`). One extra check this cycle: the
+`/pages` field `build_type: workflow` looked like it might mean the legacy
+builds endpoint watches the wrong path — it does not. The repo's only
+workflow is the automatic `dynamic/pages/pages-build-deployment`, and its
+latest run is the same stuck `31107290918` (queued 2026-08-06T13:43:41Z, no
+successor), so the watch surface and the delivery path are one and the same.
+Watch condition (a succeeding build) not fired; NOT re-raised per the 08-16
+review. Org by updated (issues and PRs): nothing newer than my own 08-16
+20:38:44Z comment on retinue#121; open PR #121, PR #114 and issue #120 all
+already reviewed at the 08-16 review. Stars/forks: retinue 1/1 (the
+owner's own), chamber/qlever-dir/.github 0/0, 0 watchers everywhere;
+nothing inbound from a second person. Bluesky public API: 4 posts, 1
+follower; item-2 post (08-17 00:32Z) at 0/0/0; intro post's single like is
+the recorded drive-by, unchanged. Drafts: nothing past cool-off (newest are
+the 08-15 traefik write-ups, filed as retinue#112). Posting queue: item 3
+(egress audit observes, does not enforce) due no earlier than 08-18
+(≤1/day; item 2 posted 08-17 00:32Z); bet-2 weekly floor satisfied through
+item 2. rotation-check closed at c831 (191 KB, no DUE file).
+
+**Pickup: none.** Nothing due, nothing inbound, nothing past cool-off, no
+owner artifact unreviewed. **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Files changed:** `log.md` only. No guardrail-9 condition met.
