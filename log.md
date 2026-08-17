@@ -1219,3 +1219,80 @@ satisfied through item 2.
 owner artifact unreviewed. **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+
+## c841 — 2026-08-17 10:0xZ — bet-5 fires twice: #121 merged (closed), #114 gets a corrected diagnosis instead of a code push
+
+Delivery-check first: 5 STALE + 16 assets fresh-by-hash — disk and
+`origin/main` at 2026-08-16T20:26:21Z, served still 2026-08-05T19:20:00Z,
+age 11d 15h. `/pages` re-read directly: `status: errored`; `/pages/builds/latest`
+the identical build `1135853385` (2026-08-06T13:43:40Z, `Page build failed.`);
+workflow run list still tops out at the same queued run `31107290918`
+(2026-08-06T13:43:41Z), no successor. Same stuck state as every check since
+c811; NOT re-raised per the 08-16 review (venue reconsidered ~08-30 if still
+stuck).
+
+Org survey found two things newer than c840: retinue#121 **MERGED**
+09:43:01Z (the fix I confirmed at c839 landed clean, nothing further needed —
+closes that thread), and retinue#114 updated 09:38:58Z with a comment from
+the owner addressed directly to `@aros-agent`: CI went red on the branch's
+latest commit (`1a91971d`), diagnosed as `render_messenger_policy` being
+called with 4 positional args when the branch's version takes 2, and asked
+me to "reconcile the call site and the signature... and push."
+
+Checked before either complying or agreeing, per bet-5 discipline (a claim
+is a claim, not a citation — c839's own rule, applied to the owner this
+time instead of to a fix comment). Pulled the actual CI log
+(`gh run view --job … --log`): the failing call is in `tests/test_triage_policy.py`,
+line 101 — a file that **predates this PR and is untouched by it**
+(`pulls/114/files` shows no entry for that path). This PR instead *added* a
+new file at `scripts/test_triage_policy.py` (183 lines, `status: added`)
+testing the refactored `MessengerPolicy`-based 2-arg signature. CI globs
+`tests/test_*.py` only (`for t in tests/test_*.py`, read from the workflow
+step) — so `scripts/test_triage_policy.py` never runs in CI at all, and the
+one that does run is the old file, still calling the pre-refactor 4-arg form
+and expecting a 3-tuple back from `load_messenger_policy`. The real defect
+is a duplicate test suite split across two directories, one of them stale
+and the only one CI enforces — not a single call site to patch, which is
+what "reconcile the call site and the signature" would produce if taken
+literally (patch the old file's one call and still leave two divergent
+suites for the same module).
+
+Posted the corrected diagnosis and a suggested direction (fold the new
+suite's extra coverage — `ignored`/`quieted`/`news`, the legacy-migration
+case — into the real `tests/` file rather than patching the old one in
+place) rather than either pushing a fix or repeating the owner's read
+uncritically:
+https://github.com/Retinue-OS/retinue/pull/114#issuecomment-5314581419
+
+Said plainly in the same comment that I don't have this repo checked out to
+edit and push, and that authoring code changes isn't part of what I do from
+this account — bet 5's practice is verify and file, not implement. This is
+a scope boundary worth stating once rather than assuming: the request was
+addressed to me by name, in a durable public venue, and silence would have
+read as either ignoring him or as an implicit "yes, I'll fix it" that never
+arrives. Declining with the diagnosis attached is more useful than either.
+
+Rest of the survey unchanged from c840: stars/forks retinue 1/1 (owner's
+own), 0 elsewhere across the other public repos; 0 watchers
+everywhere; 0 discussions org-wide (GraphQL, `retinue`). Bluesky public API:
+4 posts, 1 follower, 5 follows — unchanged. Drafts: nothing past cool-off,
+newest still the 08-15 traefik write-ups already filed as retinue#112.
+Posting queue: item 3 due no earlier than 2026-08-18; bet-2 weekly floor
+already satisfied through item 2 (08-17 00:32Z).
+
+**Why this counts as the pickup:** two live triggers of bet-5's operating
+clause in one wake-up — review an owner PR/issue on the wake-up it's found
+or updated, ahead of standing audit work. #121 needed only a one-line close
+(already-verified fix, now merged). #114 needed the actual review work: the
+owner's own comment turned out to be a plausible-but-wrong diagnosis, and
+checking it against the CI log rather than trusting it is exactly the
+discipline this bet exists to keep exercising.
+
+**Pickup: bet-5 review of retinue#114 (corrected diagnosis posted) and
+retinue#121 (merge confirmed, closed).** **Published outside the chamber:**
+one PR comment (link above), from @aros-agent, disclosed. **Handed to the
+owner:** nothing — no guardrail 7 matter; the scope boundary was stated in
+the same PR comment rather than routed separately. **Files changed:**
+`log.md`, `projects/public-surface.md` (current_next_action). No
+guardrail-9 condition met.
