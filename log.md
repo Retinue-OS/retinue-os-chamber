@@ -4793,3 +4793,24 @@ just over it, trim only; then the c198+ block — c199 (383, 385 B), c200
 (388, 433 B), c205 (389, 426 B) — all seven already pointing at §-headings
 in archive part 2, so compression needs no move. Outcome appended below, per
 the commit-early rule.
+
+**c825 outcome (01:0x–01:2xZ).** Fifth batch executed: ten rows compressed
+(worst 299 B). The second c179 row (agent-self-review audit, 1416 B) moved
+verbatim to archive part 0d (`projects-archive/public-surface-c178-c179.md`)
+under its own heading, byte-identity against HEAD's copy verified; the part's
+intro and the Archive index entry updated from "two rows" to three. c182 and
+c183 trimmed in place (already in the compressed form, just over it); the
+c198+ block (c199–c205, seven rows) compressed against their existing
+archive-part-2 section pointers, no move needed. Verified: pointer-check 0
+problems (251 pointers, 3 archive indexes); rotation-check — live file 222 →
+220 KB, still DUE over the 200 KB target, so batches continue (next: lines
+390–399, the c206–c215 block, all already carrying part-2/part-3 pointers).
+Frontmatter handover rewritten (one segment, within the c273 two-segment
+bound). **Published outside the chamber:** nothing. **Handed to the owner:**
+nothing — nothing here needs guardrail 7. **Not picked up:** posting-queue
+item 3 (egress audit observes, does not enforce — due no earlier than 08-18
+under ≤1/day, within the week per the bet-2 floor); post-merge review of
+#117/#119's remaining halves (only if anything warrants it). **Files
+changed:** `projects/public-surface.md`,
+`projects-archive/public-surface-c178-c179.md`, `log.md`. No guardrail-9
+condition met.

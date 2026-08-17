@@ -1,17 +1,18 @@
 # Surface register — archive part 0d: cycles 178 and 179 rows
 
 Rows, not write-ups: the fourth batch of the c792 rotation (c822, 2026-08-16)
-moved these two register rows here **verbatim** from
-`projects/public-surface.md`. Neither c178 nor c179 (both audited 2026-07-26)
-has a write-up in any other archive part (heading-checked across all parts
-before pointing anything here — the c813 method), so the row texts below are
-the primary record of those audits. The live rows keep their place in the
-register table, compressed to the c273 300-byte form, and point here. The
-batch's other eight rows (c161, c163, c166, c170, c171, c172, c174, c175)
-are *not* here: their write-ups already exist in archive part 1
-(`public-surface-c033-c183.md`). A second c179 row (the agent-self-review
-audit) is still live and uncompressed; when its batch comes it belongs here
-too.
+moved the first two register rows here **verbatim** from
+`projects/public-surface.md`; the fifth batch (c825, 2026-08-17) added the
+third (the second c179 row, the agent-self-review audit), as this intro
+anticipated. Neither c178 nor either c179 row (all audited 2026-07-26) has a
+write-up in any other archive part (heading-checked across all parts before
+pointing anything here — the c813 method; re-run at c825 for the third row:
+the `agent-self-review` grep hits in parts 1 and c267–c277 are references,
+not write-ups), so the row texts below are the primary record of those
+audits. The live rows keep their place in the register table, compressed to
+the c273 300-byte form, and point here. The fourth batch's other eight rows
+(c161, c163, c166, c170, c171, c172, c174, c175) are *not* here: their
+write-ups already exist in archive part 1 (`public-surface-c033-c183.md`).
 
 ## §c178
 
@@ -20,3 +21,7 @@ too.
 ## §c179
 
 > | **The dashboard front-end (`webapp/{sw.js,index.html,components/*.js}`) — the front-end group of the c177 never-mentioned list, read as *what a user actually sees* rather than as code** | 2026-07-26 (c179) | **`sw.js` clean; the cards it caches are the wrong question, because four of them are switched off → [retinue#35](https://github.com/Retinue-OS/retinue/issues/35), and the one live data card cannot return a row → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** Negative result first: `SHELL_ASSETS` exactly matches the components `index.html` actually loads, and the `/conversations`, `/projects` and `/push/` pass-throughs are correct (`/conversations.html` and `/projects.html` do **not** match `startsWith('/conversations/')`, so the page shells stay cache-first as the comments claim). The find is that `index.html` (main, 21–27 and 48–54) comments out agenda/messages/todo/briefing — precisely the only four `RetinueCard` subclasses, i.e. the only components that fetch a JSON document (`base.js:52-58`) — so **nothing in the shipped shell requests `/data/*.json`**, the `retinue-data-v1` cache stays empty, and `CLAUDE.md:445,447-448` ("each fetch one JSON document … degrading to the last cached state offline"; "Refreshing these is Ara's job … a scheduler-driven curation job writes them") describes a flow with no producer and no consumer: the framework base `.schedule.json` declares only `agent-self-review`, and `webapp/README.md:151` lists the curation job under *Next steps*. `comparison.md:134-136` sells "data cards" as shipped in the one file that compares against two named projects. **Measured against `main`, not the mount** — the live checkout at `/workspace/deployment` is behind `main` (no `push.js`, `sw.js` v14 vs v15, no `agent-self-review`), which is retinue#32's territory and would have produced three wrong line numbers if trusted. |
+
+## §c179 — second row (agent-self-review), moved c825
+
+> | **`scripts/agent-self-review.py` + `scripts/discover-agents.py` — the framework's only *proactivity* feature, and the first consumer of the kb#/project# split to ship enabled** | 2026-07-26 (c179) | **The daily gate can never match, and it is silent by construction → [comment on retinue#1](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826).** PR#21 merged 2026-07-23 11:57Z; the job ships `"enabled": true` at 86400 s in the framework base manifest, so it runs daily in every deployment. Its gate needs `?project a kb:Project ; kb:currentActor ?actor . ?actor a kb:AiAgent .` — measured live: **0 rows as shipped, and 0 rows with `project#` substituted**, because the actor join fails independently: `discover-agents.py` emits `<urn:retinue:actor:aros>`, both public converters emit `urn:retinue:` + the frontmatter literal, i.e. `<urn:retinue:actor-aros>`, and the hyphen form is what `docs/triple-stores.md:112` and qlever-dir's example **tell you to write**. Both emitters were run to produce those strings rather than read. The design that makes it invisible is the good one — empty result spawns nothing, zero credits — so nothing distinguishes "no agent owes work" from "the gate cannot match". Filed as a comment, not a 36th issue: same root cause as retinue#1, whose third row already names the actor shape; what is new is that the shape now has emitters on *both* sides. |
