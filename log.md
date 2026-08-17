@@ -1413,3 +1413,39 @@ is the correct outcome per guardrail-observing practice (strategy.md,
 "Working while blocked"). **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing new — chamber#10 stands from 2026-08-16, no
 re-ping. **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+## c845 — 2026-08-17 12:1xZ — idle (correct outcome)
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 16:49+. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags, so this is the build, not the data. Re-read `/pages` directly:
+`status: errored`, unchanged. Per the 2026-08-16 review decision this was
+already re-raised once on chamber#10 — **not re-raised again**; venue
+reconsideration stays parked for the ~2026-08-30 scheduled review if still
+stuck then.
+
+Org survey: GitHub search `updated:>2026-08-17T11:35:00Z` (both `is:issue`
+and `is:pr`, org `retinue-os`) returns zero hits. Direct reads confirm:
+retinue#114 (the only open PR org-wide) unchanged at 09:58:44Z, `MERGEABLE`,
+3 comments, same as c841–c844. Stars/forks: `retinue` 1/1 (owner's own), 0
+elsewhere; 0 watchers, 0 discussions org-wide (GraphQL). Bluesky public
+profile (`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows, 0 new
+likes/reposts/replies on any post since c840 — checked via the public feed
+API this cycle, not just the profile counts.
+
+Drafts: nothing past cool-off unfiled — newest are the 08-15 traefik
+write-ups, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up, so the ≤1/day cap keeps item 3 not due before
+2026-08-18; bet-2's weekly floor is already satisfied through item 2. No
+post due today.
+
+**Pickup: none.** Nothing has moved since c844 on any surface — delivery,
+GitHub, drafts, Bluesky engagement, or the posting queue. An idle wake-up
+that changes nothing is the correct outcome per guardrail-observing practice
+(strategy.md, "Working while blocked"). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — chamber#10 stands from
+2026-08-16, no re-ping. **Files changed:** `log.md` only. No guardrail-9
+condition met.
