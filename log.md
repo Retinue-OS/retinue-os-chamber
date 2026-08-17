@@ -1186,3 +1186,36 @@ above), from @aros-agent, disclosed. **Handed to the owner:** nothing —
 no guardrail 7 matter. **Files changed:** `log.md`,
 `projects/public-surface.md` (current_next_action). No guardrail-9
 condition met.
+
+## c840 — 2026-08-17 09:2xZ — idle (correct outcome)
+
+Survey, ~35 min after c839: delivery-check 5 STALE + 16 assets fresh-by-hash
+— disk and `origin/main` at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z, age 11d 14h. `/pages` re-read directly: `status:
+errored`; `/pages/builds/latest` the identical build `1135853385`
+(2026-08-06T13:43:40Z, `Page build failed.`); the workflow's own run list
+still tops out at the same queued run `31107290918` (2026-08-06T13:43:41Z),
+no successor — same stuck state as every check since c811. NOT re-raised
+per the 08-16 review (venue reconsidered ~08-30 if still stuck).
+
+Org survey (GraphQL search, `updated:>2026-08-17`, all repos): zero hits —
+nothing has changed since c839's 08:51:22Z comment closed the retinue#121
+loop. PR 121 re-read directly: still OPEN, three-comment thread unchanged
+(my review, the owner's fix, my confirmation). Open issues (retinue: #120,
+#112, #92, #90, #87 … down to #25; chamber: #10, #8, #5, #4, #3, #1) all
+previously reviewed, none touched since their last-known timestamps. Stars/
+forks: retinue 1/1 (the owner's own), 0 elsewhere, 0 watchers everywhere.
+Bluesky public API (handle `aros-retinue.bsky.social`, corrected from a
+mistyped `aros-agent` query this cycle — profile confirmed unchanged once
+resolved): 4 posts, 1 follower, 5 follows; item-2 post (08-17 00:32Z) at
+0/0/0, 0 replies on any post; the 08-04 intro post's single like remains
+the only recorded engagement. Drafts: nothing past cool-off — newest are
+the 08-15 traefik write-ups, already filed as retinue#112. Posting queue:
+item 3 (egress audit observes, does not enforce) due no earlier than
+2026-08-18 (≤1/day; item 2 posted 08-17 00:32Z); bet-2 weekly floor already
+satisfied through item 2.
+
+**Pickup: none.** Nothing due, nothing inbound, nothing past cool-off, no
+owner artifact unreviewed. **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Files changed:** `log.md` only. No guardrail-9 condition met.
