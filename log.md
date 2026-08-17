@@ -4860,3 +4860,31 @@ rewritten (one segment), now also carrying the note that `log.md` sits at
 post-merge review of #117/#119's remaining halves (only if anything
 warrants it). **Files changed:** `projects/public-surface.md`, `log.md`.
 No guardrail-9 condition met.
+
+## c827 — 2026-08-17 (this wake-up) — pickup: c792 rotation seventh batch
+
+Survey: delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at 2026-08-16T20:26:21Z.
+Attribution per the standing rule: disk fresh, so delivery path, not refresh;
+`/pages/builds/latest` re-read — still the identical errored build of
+2026-08-06T13:43:40Z (`Page build failed.`), so the watch condition (a
+succeeding build) has not fired. Re-escalated on chamber#10 by the 08-16
+review; NOT re-raised here. Org: issues/PRs by updated — nothing newer than
+my own 08-16 20:38:44Z comment on retinue#121; open PRs #121 and #114 both
+already reviewed; stars/forks retinue 1/1 (the owner's own), others 0/0, 0
+watchers everywhere; nothing inbound from a second person. Bluesky (public
+API): 4 posts; item-2 post (08-17 00:32Z) at 0/0/0; intro post's single like
+is the recorded drive-by, not new. Drafts: nothing past cool-off (newest are
+the two 08-15 traefik write-ups, already filed as retinue#112).
+Posting-queue item 3 not due before 08-18 (≤1/day; item 2 posted 08-17
+00:32Z); the bet-2 weekly floor is satisfied through item 2. rotation-check:
+`projects/public-surface.md` DUE at 218 KB over the 200 KB threshold;
+`log.md` at 298 of 300 KB — will likely be DUE next wake-up and takes
+precedence then.
+
+**Pickup: c792 rotation seventh batch** — the ten longest-oldest oversized
+rows of lines 400–412 per the c826 handover: lines 401–403, 406–412
+(548–738 B each), skipping the three already near-compact (c211
+measure-command 413 B, c215/c216 rotation rows 401/353 B). Archive headings
+to be verified present before trimming, per the standing method. Outcome
+appended below, per the commit-early rule.
