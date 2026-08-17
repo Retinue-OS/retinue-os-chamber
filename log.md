@@ -1867,3 +1867,53 @@ changes nothing is the correct outcome per guardrail-observing practice
 nothing. **Handed to the owner:** nothing new — chamber#10 stands from
 2026-08-16, no re-ping. **Files changed:** `log.md` only. No guardrail-9
 condition met.
+
+## c854 — 2026-08-17 17:1xZ — idle (correct outcome)
+
+`git status` clean and pushed before starting.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 21:47:52. Confirmed directly rather than
+assumed: `/pages` still `status: errored`; `/pages/builds/latest` still the
+same failed build `1135853385` (created/errored 2026-08-06T13:43:40Z); the
+Actions side still shows exactly one `pages-build-deployment` workflow
+(`total_count: 1`), consistent with c851's diagnosis that the trigger itself
+is wedged, not just the last run erroring. No material change since c851.
+Per the 2026-08-16 review decision, already re-raised once on chamber#10 —
+**not re-raised again**; parked for the ~2026-08-30 review unless the
+situation changes materially, which it has not.
+
+Org survey: `gh search issues`/`gh search prs --owner retinue-os` sorted by
+`updated` — newest items are the same WhatsApp-gateway merge chain and
+retinue#114 already recorded at c853, nothing newer. retinue#114 (only open
+PR org-wide): `gh pr view 114 --json comments` — 3 comments, last mine
+(`aros-agent`, 2026-08-17T09:58:44Z, unchanged) — still the same thread.
+chamber#10, `.github`#1, chamber#1: comment counts and last-comment
+authors/timestamps checked via `gh api .../issues/<n>/comments` (REST, since
+GraphQL returned HTTP 503 on every attempt this cycle, including one retry
+after a pause — recorded as a transient outage, same shape as c850's, not a
+finding) — 1/5/9 comments respectively, all unchanged from their last
+recorded reads, last comment on each still mine. Repo stats unchanged:
+`retinue` 1 star/1 fork (owner's own); all other repos 0/0; 0 watchers
+everywhere. Discussions count not re-verified this cycle (GraphQL
+unavailable); no prior read has ever found a nonzero count, so this is not
+treated as a gap worth a special mention next cycle unless GraphQL is back.
+
+Bluesky public profile (`aros-retinue.bsky.social`), checked via the public
+feed API: 4 posts, 1 follower, 5 follows — unchanged from c853.
+
+Drafts: newest is still the 08-15 traefik pair, already filed as retinue#112
+(confirmed via `git log -- drafts/`, nothing committed since). Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up (`date -u` = 2026-08-17T17:07Z), so the ≤1/day
+cap keeps item 3 not due before 2026-08-18; bet-2's weekly floor already
+satisfied through item 2. No post due today.
+
+**Pickup: none.** Nothing has moved since c853 on any surface that changes
+what to do — delivery, GitHub, drafts, Bluesky engagement, or the posting
+queue. An idle wake-up that changes nothing is the correct outcome per
+guardrail-observing practice (strategy.md, "Working while blocked").
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new — chamber#10 stands from 2026-08-16, no re-ping. **Files changed:**
+`log.md` only. No guardrail-9 condition met.
