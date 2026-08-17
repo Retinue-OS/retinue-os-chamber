@@ -2299,3 +2299,52 @@ an idle wake-up. **Published outside the chamber:** nothing. **Handed to
 the owner:** nothing new beyond the standing chamber#10 item. **Files
 changed:** `log.md`, `projects/public-surface.md`. No guardrail-9 condition
 met.
+
+## c861 — 2026-08-17 20:3x–20:4xZ — pickup: daily dashboard regeneration (all five cards)
+
+Scheduled refresh job. All five of `docs/data/` regenerated together from one
+measurement stamp, **2026-08-17T20:37:04Z**, measured live via `gh` — none
+regenerated alone, per the all-or-none rule. Committed and pushed as `7f29a5b`
+(five named paths staged, nothing else).
+
+**Measured, and what changed since the 08-16 20:26:21Z generation:** his
+retinue#114 (the CI fix c855/c858 diagnosed) merged 20:21:34Z — had awaited
+his own push; PR#121 (WhatsApp usync LID fallback) merged 09:42:58Z, closing
+#120. He opened issue#122 (inbound Signal message silently dropped) at
+19:22:37Z, then PR#123 25 minutes later — reviewed same day (c859-equivalent
+work logged above this entry): persist-before-forward and the batch-abort fix
+verified against a fresh clone, one gap posted (round-trip test for
+`mark_delivered` described in the PR's own "Testing" section but absent from
+the diff), no owner reply yet. He opened issue#124 (Signal group news items
+show the raw `group_id`) at 20:09:19Z — reviewed clean (c860), no comment
+needed, no PR yet. Org: 70 issues (60 open, 10 closed), 2 open PRs (down from
+3 — #114 and #121 both resolved, only #123 and qlever-dir#12 remain open);
+stars/forks retinue 1/1 (star the owner's own), 0 watchers everywhere;
+traffic (retinue, 14 d) 16 uniques / 139 views, unchanged. Bluesky
+re-measured (public API): 4 posts, 1 follower, 5 follows, unchanged since
+c853. Pages: `/pages` and `/pages/builds/latest` re-read — still the
+identical errored build of 2026-08-06T13:43:40Z (11 d 7 h at stamp), so
+served copies stay at 08-05 19:20Z (12 d 1 h); **not re-raised** — already
+re-escalated once on chamber#10 per the 2026-08-16 review decision, parked
+for the ~08-30 review. Briefing names the desk age plainly: 27 of 32 slots
+over a week old at stamp (one slot added net — #122/#123 and #124 as two new
+items replacing the resolved #114+#121 slot), oldest qlever-dir#2 (opened
+2026-07-08 18:46 UTC — 40 d 1 h). Projects card: `proj-triple-store-story`
+and `proj-social-presence` next-fields updated for the 08-17 00:32Z post
+(queue item 2) and today's PR/issue activity; no project moved lane.
+
+**Instruments:** `desk-drop-check` **0 problems** — 2 dropped (retinue#114,
+#121), both resolved; 3 added (retinue#122, #123, #124); coverage 38/38, no
+STALE-RESOLVED at own stamp. `card-budget-check` **85 values, 0 over**
+(briefing.text landed 898 B against 900). Refresh-guarantee wording kept to
+what is enforced: one stamp, daily regeneration, 26 h delivery bound — no
+per-wake-up regeneration promise (rule 5).
+
+**Published outside the chamber:** nothing (the data files are the published
+surface; Pages will serve them when the build unsticks). **Handed to the
+owner:** nothing new — the one open ask (chamber#10, Actions-UI fix) stands,
+no re-ping. **Not picked up:** posting-queue item 3 (not due before 08-18);
+next inward rotation batch. **Files changed:** `docs/data/briefing.json`,
+`docs/data/projects.json`, `docs/data/todo.json`, `docs/data/messages.json`,
+`docs/data/agenda.json` (commit `7f29a5b`), then `log.md`. No guardrail-9
+condition met.
