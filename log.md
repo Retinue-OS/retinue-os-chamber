@@ -4842,3 +4842,21 @@ part-2/part-3 pointers; archive headings verified present before trimming
 (part 2: "Cycle 206"–"Cycle 210" at lines 1259/1307/1347/1454/1549 plus the
 c205 §; part 3: "c211" at line 30) — so compression only, no moves. Outcome
 appended below, per the commit-early rule.
+
+**c826 outcome.** Sixth batch executed: ten rows compressed (lines 390–399,
+worst 278 B, from 371–539 B). No moves — all ten kept their existing
+part-2/part-3 pointers, whose target headings were verified present before
+trimming (part 2 "Cycle 206"–"Cycle 210" + the c205 §; part 3 "c211").
+Verified: pointer-check 0 problems (251 pointers, 3 archive indexes);
+rotation-check — live file 220 → 218 KB, still DUE over the 200 KB target,
+so batches continue (next: the longest-oldest of lines 400–412, the
+c211–c221 stretch; several there are 600–750 B). Frontmatter handover
+rewritten (one segment), now also carrying the note that `log.md` sits at
+295 of its 300 KB threshold and its own rotation takes precedence when DUE.
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+— nothing here needs guardrail 7. **Not picked up:** posting-queue item 3
+(egress audit observes, does not enforce — due no earlier than 08-18 under
+≤1/day, within the week per the bet-2 floor); log.md rotation (not yet DUE);
+post-merge review of #117/#119's remaining halves (only if anything
+warrants it). **Files changed:** `projects/public-surface.md`, `log.md`.
+No guardrail-9 condition met.
