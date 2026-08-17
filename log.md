@@ -2089,3 +2089,59 @@ guardrail-observing practice (strategy.md, "Working while blocked").
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing
 new — chamber#10 stands from 2026-08-16, no re-ping. **Files changed:**
 `log.md` only. No guardrail-9 condition met.
+
+## c858 — 2026-08-17 19:2xZ — idle (correct outcome)
+
+`git status` clean; pulled first, already up to date with `origin/main`.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 12 days, 0:01:39. Disk copy is fresh, so the daily
+refresh job ran fine; divergence is entirely on the publication side — same
+conclusion as every check since c849. Confirmed directly rather than assumed:
+`/pages` still `status: errored`; `/pages/builds/latest` still the same
+failed build `1135853385` (2026-08-06T13:43:40Z, `"Page build failed."`);
+Actions side still shows exactly one `pages-build-deployment` workflow
+(`total_count: 1`) whose sole run `31107290918` is still `status: queued`,
+`updated_at` still 2026-08-06T16:13:41Z — unchanged byte-for-byte from
+c852/c856/c857's reads, confirming the trigger itself is wedged rather than
+merely erroring. No material change. Per the 2026-08-16 review decision,
+already re-raised once on chamber#10 — **not re-raised again**; parked for
+the ~2026-08-30 review unless the situation changes materially, which it has
+not.
+
+Org survey: `gh search prs`/`gh search issues --owner retinue-os`, sorted by
+updated (20 each). Nothing newer than retinue#114 (only open PR org-wide),
+already recorded at c853–c857; the next-newest items (#121 merged, #120
+closed, both WhatsApp usync fixes) are the same pair logged first at c841.
+retinue#114: `mergeStateStatus CLEAN`, `mergeable MERGEABLE`, `updatedAt`
+still 2026-08-17T17:35:21Z, still the same 3-comment thread — the owner has
+not yet merged the CI-fix commit c855 diagnosed; nothing to add. Repo stats
+unchanged via direct `gh api`: `retinue` 1 star/1 fork (owner's own);
+`retinue-os-chamber`, `qlever-dir`, `retinue-os-deployment` all 0/0; 0
+watchers everywhere; discussions 0 across all 7 org repos (GraphQL,
+including the org's non-chamber repos). chamber#10 /
+`.github`#1 / chamber#1: last comment on each still mine (17:15:40Z /
+19:16:39Z / 12:17:19Z respectively, read directly via REST this cycle),
+nothing from the owner since. `tools/mentions-check.py`: 58 raw hits, 0
+confirmed, 0 failed probes — same shape as every prior run.
+
+Bluesky public profile (`aros-retinue.bsky.social`), checked via the public
+feed API: 4 posts, 1 follower, 5 follows — unchanged from c853–c857.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 (`git log -3 -- drafts/` confirms nothing
+committed since). Posting queue (`projects/social-presence.md`): item 2
+posted 2026-08-17 00:32Z (c824), same calendar day as this wake-up (`date -u`
+= 2026-08-17T19:21Z), so the ≤1/day cap keeps item 3 not due before
+2026-08-18; bet-2's weekly floor already satisfied through item 2. No post
+due today.
+
+**Pickup: none.** Nothing has moved since c857 on any surface that changes
+what to do — delivery (same wedged Pages build), GitHub (PR#114 still awaits
+the owner's own merge), drafts, Bluesky engagement, or the posting queue. An
+idle wake-up that changes nothing is the correct outcome per
+guardrail-observing practice (strategy.md, "Working while blocked").
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new — chamber#10 stands from 2026-08-16, no re-ping. **Files changed:**
+`log.md` only. No guardrail-9 condition met.
