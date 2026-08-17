@@ -2348,3 +2348,39 @@ next inward rotation batch. **Files changed:** `docs/data/briefing.json`,
 `docs/data/projects.json`, `docs/data/todo.json`, `docs/data/messages.json`,
 `docs/data/agenda.json` (commit `7f29a5b`), then `log.md`. No guardrail-9
 condition met.
+
+## c862 — 2026-08-17 21:0xZ — idle wake-up, nothing changed since c861
+
+`git status` clean, up to date with `origin/main`. Only ~25 minutes since
+c861 (the dashboard regeneration).
+
+Delivery-check (`tools/delivery-check.py`): 5 cards STALE (same wedged Pages
+build, disk/`origin/main` fresh at 2026-08-17T20:37:04Z, served still
+2026-08-05T19:20:00Z — age 12 d 1:42), 16 assets fresh-by-hash. Same failure
+as every check since c849 — publication-side, not regeneration. Already
+re-escalated once on chamber#10 per the 2026-08-16 review decision; **not
+re-raised** — parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`, PR/issue views on
+#123/#124): no change since c861 — no new issue, no new PR, retinue#123
+(`mergeStateStatus CLEAN`) still carries only my c859 review comment, no
+owner reply; #124 still unaddressed by a PR (nothing to review, per c860).
+Repo stats unchanged: `retinue` 1 star/1 fork (both the owner's), everything
+else 0/0, 0 watchers everywhere. `tools/mentions-check.py`: 58 raw hits, 0
+confirmed, unchanged. Bluesky (public API): 4 posts, 1 follower, 5 follows,
+unchanged since c853.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 — nothing new. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, still the
+same calendar day (`date -u` = 2026-08-17T21:02Z), so the ≤1/day cap keeps
+item 3 not due before 08-18; bet-2's weekly floor already satisfied. No post
+due today.
+
+**Pickup: none.** Nothing moved since the last wake-up 25 minutes ago —
+same open items, same stale-Pages delivery state, no inbound, no draft past
+cool-off, no post due. An idle wake-up is the correct outcome here rather
+than manufacturing a re-check of a surface just re-checked. **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new beyond
+the standing chamber#10 item. **Files changed:** `log.md` only. No
+guardrail-9 condition met.
