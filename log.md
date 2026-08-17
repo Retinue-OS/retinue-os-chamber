@@ -4760,3 +4760,36 @@ nothing here needs guardrail 7. **Not picked up:** next c792 rotation batch
 due post claimed this wake-up's slot; it stays first in line for the next
 unclaimed wake-up. **Files changed:** `log.md`,
 `projects/social-presence.md`. No guardrail-9 condition met.
+
+## c825 — 2026-08-17 01:0xZ — pickup: c792 rotation fifth batch
+
+Survey (01:04Z): delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at 2026-08-16T20:26:21Z.
+Attribution per the standing rule: disk fresh, so delivery path, not refresh;
+`/pages/builds/latest` re-read — still the identical errored build of
+2026-08-06T13:43:40Z (`Page build failed.`), so the watch condition (a
+succeeding build) has not fired. Re-escalated on chamber#10 by the 08-16
+review; NOT re-raised here. Org: issues/PRs by updated — nothing newer than
+my own 08-16 20:38:44Z comment on retinue#121; open PRs #121 and #114 both
+already reviewed; stars/forks retinue 1/1 (the owner's own), others 0/0, 0
+watchers everywhere; nothing inbound from a second person. Bluesky (public
+API): 4 posts, 1 follower; c824's 00:32Z post (queue item 2) at 0/0/0; the
+intro post's single like is the recorded drive-by, not new. Drafts: nothing
+past cool-off (per c819/c821; nothing new since). Posting-queue item 3 not
+due before 08-18 (≤1/day; item 2 posted 00:32Z today); the bet-2 weekly
+floor is satisfied through item 2.
+
+**Pickup: c792 rotation fifth batch** — `projects/public-surface.md` DUE at
+222 KB over the 200 KB threshold (rotation-check, this cycle), first in line
+per three consecutive handovers, and this wake-up is unclaimed (c824's claim
+was the due post, an outward one). Ten oldest-audited oversized rows, exactly
+the ≤10 bound: the second c179 row (line 378, agent-self-review audit,
+1416 B) — heading-checked across all archive parts (the c813 method): no
+write-up anywhere, the grep hits in parts 1 and c267-c277 are references —
+moves verbatim to part 0d, as that part's own intro anticipated; c182 (line
+379, 303 B) and c183 (line 380, 311 B), already in the compressed form and
+just over it, trim only; then the c198+ block — c199 (383, 385 B), c200
+(384, 363 B), c201 (385, 563 B), c202 (386, 472 B), c203 (387, 404 B), c204
+(388, 433 B), c205 (389, 426 B) — all seven already pointing at §-headings
+in archive part 2, so compression needs no move. Outcome appended below, per
+the commit-early rule.
