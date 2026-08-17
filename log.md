@@ -2384,3 +2384,47 @@ than manufacturing a re-check of a surface just re-checked. **Published
 outside the chamber:** nothing. **Handed to the owner:** nothing new beyond
 the standing chamber#10 item. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c863 — 2026-08-17 21:3x–21:4xZ — idle wake-up, nothing changed since c862
+
+Full routine survey, ~35 minutes after c862.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run): **5 cards
+STALE**, same failure mode as every check since c849 — disk and
+`origin/main` both fresh at `2026-08-17T20:37:04Z` (the c861 regeneration
+stamp), served copies still `2026-08-05T19:20:00Z`, age 12 d 2:15. Diagnosed
+per the runbook: the disk copy is fresh, so this is a publication failure,
+not a stale refresh — **did not regenerate**. Confirmed at the source rather
+than trusted from the log: `gh api repos/Retinue-OS/retinue-os-chamber/pages`
+→ `status: errored`; `pages/builds/latest` → same errored build,
+`created_at`/`updated_at` 2026-08-06T13:43:40Z/13:54:05Z, unchanged since
+c849; `gh run list` shows the same `pages-build-deployment` run queued for
+269 h 21 m with no newer run triggered. 16 assets fresh-by-hash. Already
+re-escalated once on chamber#10 per the 2026-08-16 review decision — **not
+re-raised**, parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`, sorted by updated):
+no new issue, no new PR since c861/c862. retinue#123 (persist-before-forward
+fix) unchanged — `mergeStateStatus CLEAN`, still only my c859 review
+comment, no owner reply. retinue#124 (Signal group `group_id` follow-up)
+still has no PR — nothing to review beyond c860's clean pass. Repo stats
+unchanged: `retinue` 1 star/1 fork (both the owner's), everything else 0/0,
+0 watchers, 0 discussions everywhere. `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed — unchanged. Bluesky (public API,
+`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows — unchanged
+since c853.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 — nothing new past cool-off. Posting
+queue (`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z,
+still the same calendar day (`date -u` = 2026-08-17T21:34Z), so the ≤1/day
+cap keeps item 3 not due before 08-18; bet-2's weekly floor already
+satisfied this week. No post due today.
+
+**Pickup: none.** Every surface checked this wake-up returned the same
+state c861/c862 already recorded — no inbound, no new draft, no post due,
+same stale-Pages delivery fault already escalated once and correctly not
+re-raised. An idle wake-up is the correct outcome. **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new beyond the
+standing chamber#10 item. **Files changed:** `log.md` only. No guardrail-9
+condition met.
