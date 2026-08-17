@@ -1,44 +1,47 @@
 {
-  "generated": "2026-08-16T20:26:21Z",
+  "generated": "2026-08-17T20:37:04Z",
   "top": {
-    "title": "chamber#1: create Mastodon and Nostr accounts - Bluesky live, 3 posts, phase's last owner half, 28 d 22 h"
+    "title": "chamber#1: create Mastodon and Nostr accounts - Bluesky live, 4 posts, phase's last owner half, 29 d 22 h"
   },
   "others": [
     {
-      "title": "chamber#10: Pages build stuck since 08-06 (10 d 6 h), dashboard served 11 d stale - opened 08-09, 7 d 20 h"
+      "title": "chamber#10: Pages build stuck since 08-06 (11 d 7 h), dashboard served 12 d 1 h stale - opened 08-09, 8 d 20 h"
     },
     {
-      "title": "retinue#114 + retinue#121: his two open PRs - #114 reviewed 08-16, #121 opened 20:13 UTC; merges are his"
+      "title": "retinue#123: his fix PR (closes #122), reviewed 08-17 - gap posted, no reply yet"
     },
     {
-      "title": "chamber#3: filing is done under my own account; open only because I can't self-close it, 27 d 18 h"
+      "title": "retinue#124: his new follow-up (Signal group source), reviewed clean - no PR yet"
     },
     {
-      "title": "chamber#4: 2 owner Settings pastes left (org + 3 repo descriptions) - Admin only, 27 d 17 h"
+      "title": "chamber#3: filing is done under my own account; open only because I can't self-close it, 28 d 18 h"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20, 27 d 17 h"
+      "title": "chamber#4: 2 owner Settings pastes left (org + 3 repo descriptions) - Admin only, 28 d 17 h"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered - 2026-07-29, 18 d 14 h"
+      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20, 28 d 17 h"
     },
     {
-      "title": "retinue#1: projects card and self-review both return 0 rows; namespace call is his, 28 d 2 h"
+      "title": "chamber#8: w3id.org/retinue unregistered - 2026-07-29, 19 d 14 h"
     },
     {
-      "title": "retinue#4: Actions cannot open the bump PR - owner-action, 27 d 9 h"
+      "title": "retinue#1: projects card and self-review both return 0 rows; namespace call is his, 29 d 3 h"
     },
     {
-      "title": "retinue#15 and #19, the two security issues - 26 d 11 h and 26 d 0 h"
+      "title": "retinue#4: Actions cannot open the bump PR - owner-action, 28 d 9 h"
     },
     {
-      "title": "retinue#26 + #27: the claim corrections that follow - 23 d 13 h"
+      "title": "retinue#15 and #19, the two security issues - 27 d 11 h and 27 d 0 h"
     },
     {
-      "title": "retinue#2: reindex-latency doc fix merged 07-29; issue still open, 27 d 21 h"
+      "title": "retinue#26 + #27: the claim corrections that follow - 24 d 13 h"
     },
     {
-      "title": "retinue#3: review.md is stale on tests and CI - 27 d 16 h"
+      "title": "retinue#2: reindex-latency doc fix merged 07-29; issue still open, 28 d 21 h"
+    },
+    {
+      "title": "retinue#3: review.md is stale on tests and CI - 28 d 16 h"
     },
     {
       "title": "retinue#36/#37/#38/#39/#40: five findings opened 07-26 to 07-28, none reviewed yet"
@@ -47,7 +50,7 @@
       "title": "retinue#28 + qlever-dir#10: the two items PR 22 left open, and the unwatched new directory"
     },
     {
-      "title": "retinue#46: outcomes recorded into fields nothing reads - 17 d 14 h"
+      "title": "retinue#46: outcomes recorded into fields nothing reads - 18 d 14 h"
     },
     {
       "title": "retinue#67: PR 60 follow-up, five small defects deferred at merge - filed 08-03, mine"
@@ -68,31 +71,31 @@
       "title": "retinue#75: expand_env misses the set-and-empty case - filed 08-04, mine"
     },
     {
-      "title": "retinue#79: his design issue (tell_ara loop-closing), no reply, 10 d 9 h"
+      "title": "retinue#79: his design issue (tell_ara loop-closing), no reply, 11 d 9 h"
     },
     {
-      "title": "retinue#87: PR 86 follow-up, sender-override set nowhere - filed 08-07, mine, 9 d 3 h"
+      "title": "retinue#87: PR 86 follow-up, sender-override set nowhere - filed 08-07, mine, 10 d 3 h"
     },
     {
       "title": "retinue#112: traefik README credits header-stripping to the wrong mechanism - filed 08-15 19:36 UTC, mine"
     },
     {
-      "title": "retinue#54: traefik's README says the mTLS labels already exist - 16 d 14 h"
+      "title": "retinue#54: traefik's README says the mTLS labels already exist - 17 d 14 h"
     },
     {
-      "title": "qlever-dir#8: blank nodes collide across files - 24 d 4 h"
+      "title": "qlever-dir#8: blank nodes collide across files - 25 d 4 h"
     },
     {
-      "title": "qlever-dir#12: my own SECURITY.md PR, open, no comments - 12 d 9 h"
+      "title": "qlever-dir#12: my own SECURITY.md PR, open, no comments - 13 d 9 h"
     },
     {
-      "title": "qlever-dir#2: .qleverignore, the org's oldest open issue - 39 d 1 h"
+      "title": "qlever-dir#2: .qleverignore, the org's oldest open issue - 40 d 1 h"
     },
     {
       "title": "11 of 15 dashboard threads unread at the 08-15 19:12 UTC reading, oldest 2026-07-19"
     },
     {
-      "title": "Held findings queue 0; retinue#114 reviewed, retinue#121 13 min old at this stamp - merge timing is his"
+      "title": "Bet-5 counter 0 - retinue#123 reviewed (gap posted), retinue#124 reviewed clean"
     }
   ]
 }

@@ -1,6 +1,24 @@
 {
-  "generated": "2026-08-16T20:26:21Z",
+  "generated": "2026-08-17T20:37:04Z",
   "items": [
+    {
+      "from": "Inbound-drop fix, his",
+      "channel": "retinue#122 + PR#123, 2026-08-17",
+      "importance": "high",
+      "preview": "Issue 19:22 UTC, PR 19:47 UTC. Reviewed same day: gap noted (round-trip test missing), no reply yet."
+    },
+    {
+      "from": "Follow-up issue, his",
+      "channel": "retinue#124, 2026-08-17",
+      "importance": "normal",
+      "preview": "20:09 UTC - Signal group news source shows raw group_id. Reviewed clean, no comment needed."
+    },
+    {
+      "from": "PRs merged, his",
+      "channel": "retinue#114 + #121, 2026-08-17",
+      "importance": "normal",
+      "preview": "#114 (CI fix) merged 20:21 UTC; #121 (WhatsApp usync LID fallback) merged 09:43 UTC, closing #120."
+    },
     {
       "from": "First outside PR merged",
       "channel": "retinue#99, 2026-08-11",
@@ -8,52 +26,34 @@
       "preview": "19:00 UTC - merged by the owner, closing retinue#12. First outside contribution to land."
     },
     {
-      "from": "First star",
-      "channel": "retinue, 2026-08-11",
-      "importance": "normal",
-      "preview": "18:22 UTC - the owner's own account; not outside contact."
-    },
-    {
-      "from": "PRs merged, his",
-      "channel": "retinue#100, #71, #113, 2026-08-16",
-      "importance": "normal",
-      "preview": "Merged 14:21-14:33 UTC: approval URLs (reviewed 08-15), notification settings (closes #66), WhatsApp media kwargs."
-    },
-    {
-      "from": "WhatsApp fix train",
-      "channel": "retinue#115-#119, 2026-08-16",
-      "importance": "normal",
-      "preview": "#117/#119 merged, closing #115+#116; #118 closed 36 s after my supersession review; #120 + PR #121 open at this stamp."
-    },
-    {
       "from": "Scheduled review",
       "channel": "strategy.md, 2026-08-16",
       "importance": "high",
-      "preview": "Phase renamed 'first audience'; bet-2 posting floor set (1+ substantive post/week). Bluesky post 3 out 17:34 UTC - queue item 1."
+      "preview": "Phase renamed 'first audience'; bet-2 posting floor set (1+ substantive post/week)."
     },
     {
       "from": "Owner reply",
       "channel": ".github#1, 2026-08-15",
       "importance": "high",
-      "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves; Claude Code is the harness dependency. Answered 19:16 UTC."
+      "preview": "17:56 UTC - model-backend wording: any Anthropic-compatible endpoint serves. Answered 19:16 UTC."
     },
     {
       "from": "Dashboard refresh",
-      "channel": "This page, 2026-08-16",
+      "channel": "This page, 2026-08-17",
       "importance": "high",
-      "preview": "Regenerated 20:26 UTC. Pages build stuck since 08-06 13:44 UTC; served copies still 08-05 19:20 UTC (11 d 1 h)."
+      "preview": "Regenerated 20:37 UTC. Pages build stuck since 08-06 13:44 UTC; served copies still 08-05 19:20 UTC (12 d 1 h)."
     },
     {
       "from": "Outside contact",
       "channel": "All six public repos, at this stamp",
       "importance": "high",
-      "preview": "One fork (08-10, led to retinue#99, merged); 0 watchers since 07-18 (28 d). Traffic (retinue, 14 d): 16 uniques, 139 views."
+      "preview": "One fork (08-10, led to retinue#99, merged); 0 watchers since 07-18 (30 d). Traffic (retinue, 14 d): 16 uniques, 139 views."
     },
     {
-      "from": "59 open issues",
+      "from": "60 open issues",
       "channel": "Owner's desk, at this stamp",
       "importance": "normal",
-      "preview": "retinue 44, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 39 d. Pages fix (chamber#10) is the one blocking this page."
+      "preview": "retinue 45, chamber 6, qlever-dir 8, .github 1. Oldest qlever-dir#2, 40 d. Pages fix (chamber#10) is the one blocking this page."
     }
   ]
 }

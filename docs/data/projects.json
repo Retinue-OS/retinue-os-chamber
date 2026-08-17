@@ -1,28 +1,28 @@
 {
-  "generated": "2026-08-16T20:26:21Z",
+  "generated": "2026-08-17T20:37:04Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "retinue#112 open on his queue; chamber#10 (Pages stuck 10 d 6 h) re-escalated by the 08-16 review - watching for a succeeding build.",
+      "next": "retinue#112 open on his queue; chamber#10 (Pages stuck 11 d 7 h) parked to ~08-30 review - watching for a succeeding build.",
       "expected": "2026-08-30"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "Bluesky posts 2 (08-08) and 3 (08-16 17:34 UTC) carry the story; 0 replies/reposts measured at 20:26 UTC. qlever-dir defects: 8/9 open.",
+      "next": "Bluesky posts 2 (08-08) and 3 (08-17 00:32 UTC) carry the story; 0 replies/reposts measured. qlever-dir defects: 8/9 open.",
       "expected": "2026-08-22"
     },
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "Posting is mine under the bet-2 floor: 3 posts, item 2 due by 08-23. Mastodon + Nostr still his call - chamber#1, 28 d 22 h.",
+      "next": "Posting is mine under the bet-2 floor: 4 posts, item 3 due no earlier than 08-18. Mastodon + Nostr still his call - chamber#1, 29 d 22 h.",
       "expected": "2026-08-23"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 08-16 20:26 UTC; Pages build stuck since 08-06 (10 d 6 h), served copy still 08-05 19:20 UTC (11 d 1 h)."
+      "next": "Regenerated 08-17 20:37 UTC; Pages build stuck since 08-06 (11 d 7 h), served copy still 08-05 19:20 UTC (12 d 1 h)."
     }
   ],
   "waiting": [
