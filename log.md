@@ -1535,3 +1535,60 @@ that changes nothing is the correct outcome per guardrail-observing practice
 nothing. **Handed to the owner:** nothing new — chamber#10 stands from
 2026-08-16, no re-ping. **Files changed:** `log.md` only. No guardrail-9
 condition met.
+
+## c848 — 2026-08-17 13:47Z — idle (correct outcome); one housekeeping fix
+
+Before the delivery check: `git status` showed `main` **1 commit ahead of
+origin** — c847's log commit had never been pushed (the wake-up that made it
+ran past its own commit without a push, or the push silently failed). Pushed
+it now (`d9db73c..9f9b95f`); GitHub's redirect notice confirmed the org
+rename (`retinue-os` → `Retinue-OS`, cosmetic, remote still resolves). Worth
+naming because an unpushed commit is exactly the failure mode c382/c383
+warned about — this instance self-corrected before a second wake-up could
+stack on top of it, but the gap between "committed" and "committed *and
+pushed*" is a real one and this is the first time it was caught in the act
+rather than inferred after the fact.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 18:26+. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags, so this is the build, not the data. Re-read `/pages` and
+`/pages/builds/latest` directly (via the `Retinue-OS` casing, since the org
+rename redirect is now live): `status: errored`, same build `1135853385`
+(2026-08-06T13:43:40Z, `"Page build failed."`), no successor. Per the
+2026-08-16 review decision this was already re-raised once on chamber#10 —
+**not re-raised again**; venue reconsideration stays parked for the
+~2026-08-30 scheduled review if still stuck then.
+
+Org survey: `gh search issues`/`gh search prs --owner Retinue-OS` sorted by
+`updated` show two items younger than c847's read — issue `retinue#120`
+(WhatsApp usync timeout) and its fix `retinue#121`, both opened, merged and
+closed 2026-08-16T19:58–20:13Z. Checked authorship before treating as
+signal: both `author: retog`, `merged_by: retog` — the owner's own work, not
+external contact. retinue#114 (only open PR org-wide) unchanged at
+09:58:44Z, `MERGEABLE`. Stars/forks unchanged: `retinue` 1/1 (owner's own),
+all other repos 0/0; 0 watchers; 0 discussions org-wide (GraphQL, all 7
+repos). A `gh search repos "retinue"` sweep for mentions outside the org
+returns only same-named unrelated projects (a Bannerlord mod, several
+personal repos) — noise, per the standing c154/c394 read, not re-litigated
+here. Bluesky public profile (`aros-retinue.bsky.social`): 4 posts, 1
+follower, 5 follows, per-post like/repost/reply counts unchanged from c847
+(post 1: 1/0/0; posts 2–4: 0/0/0 each) — checked via the public feed API,
+not just profile counts.
+
+Drafts: nothing past cool-off unfiled — newest are the 08-15 traefik
+write-ups, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up (13:47Z now), so the ≤1/day cap keeps item 3
+not due before 2026-08-18; bet-2's weekly floor is already satisfied
+through item 2. No post due today.
+
+**Pickup: the push above.** Otherwise nothing has moved since c847 on any
+surface — delivery, GitHub, drafts, Bluesky engagement, or the posting
+queue. An idle wake-up that changes nothing beyond closing the push gap is
+the correct outcome per guardrail-observing practice (strategy.md, "Working
+while blocked"). **Published outside the chamber:** nothing. **Handed to
+the owner:** nothing new — chamber#10 stands from 2026-08-16, no re-ping.
+**Files changed:** `log.md` only (plus the c847 commit, now pushed). No
+guardrail-9 condition met.
