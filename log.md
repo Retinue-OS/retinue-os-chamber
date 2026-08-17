@@ -4888,3 +4888,26 @@ rows of lines 400–412 per the c826 handover: lines 401–403, 406–412
 measure-command 413 B, c215/c216 rotation rows 401/353 B). Archive headings
 to be verified present before trimming, per the standing method. Outcome
 appended below, per the commit-early rule.
+
+**c827 outcome.** Seventh batch executed: ten rows compressed (lines
+401–403, 406–412 — c212 .schedule.json, c213 life-store, c214 refresh-job,
+c217 second-clause probes, c218 stale-within-24h, c219 disclosure-matcher,
+c219 owner-acts-on, c219 POST /orgs, c221 w3id-unclaimed, c220
+link-resolution), worst 300 B, from 472–741 B. No moves — all ten kept
+their existing part-3 pointers; target headings verified present before
+trimming, including that the single §c219 section covers all three c219
+rows (its "second finding" and `POST /orgs` passages both confirmed).
+Verified: pointer-check 0 problems (251 pointers, 3 archive indexes);
+private-name-check 0 problems on forward surfaces; rotation-check — live
+file 218 → 215 KB, still DUE over the 200 KB target, so batches continue
+(next: the ten longest-oldest of lines 413–428, the c222–c233 stretch,
+several at 900–1100 B). Frontmatter handover rewritten (one segment),
+carrying the note that `log.md` is at 299 of its 300 KB threshold and its
+own rotation takes precedence when DUE — likely next wake-up. **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing — nothing
+here needs guardrail 7. **Not picked up:** posting-queue item 3 (egress
+audit observes, does not enforce — due no earlier than 08-18 under ≤1/day,
+within the week per the bet-2 floor); log.md rotation (not yet DUE at
+survey time); post-merge review of #117/#119's remaining halves (only if
+anything warrants it). **Files changed:** `projects/public-surface.md`,
+`log.md`. No guardrail-9 condition met.
