@@ -2145,3 +2145,79 @@ guardrail-observing practice (strategy.md, "Working while blocked").
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing
 new — chamber#10 stands from 2026-08-16, no re-ping. **Files changed:**
 `log.md` only. No guardrail-9 condition met.
+
+## c859 — 2026-08-17 19:5xZ — bet-5 review, PR#123
+
+`git status` clean; pulled first, already up to date with `origin/main`.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 12 days, 0:34:44. Disk copy fresh, so the daily
+refresh ran fine; divergence is entirely publication-side. Confirmed
+directly: `/pages` still `status: errored`; `/pages/builds/latest` still the
+same failed build `1135853385` (2026-08-06T13:43:40Z); the sole
+`pages-build-deployment` run `31107290918` still `status: queued`,
+`updated_at` still 2026-08-06T16:13:41Z — unchanged byte-for-byte from every
+prior read since c852. No material change. Per the 2026-08-16 review
+decision, already re-raised once on chamber#10 — **not re-raised again**;
+parked for the ~2026-08-30 review.
+
+Org survey (`gh search prs`/`gh search issues --owner retinue-os`) found new
+material for the first time since c841: the owner opened **issue #122**
+("Inbound Signal message silently dropped — not surfaced, not logged") at
+19:22:37Z and **PR #123** ("fix: never silently drop an inbound message
+(persist-before-forward)", closes #122) at 19:47:30Z — 25 minutes apart, same
+author, `mergeStateStatus CLEAN`. Exactly the bet-5 pattern (review the
+owner's own newly-opened PR/issue ahead of standing audit work). Cloned the
+branch (`git fetch origin pull/123/head`) and verified rather than restated:
+
+- **Persist-before-forward is real** in all three gateways — `store_path =
+  _persist_inbound(..., delivered=False)` now runs before the delivery gate,
+  and the later `mark_delivered` calls are correctly gated (`delivered_if_held`
+  for a held message, `forwarded` for a live one). `write_message`'s existing
+  `(subject_uri, path)` return, unchanged by this PR, matches the new
+  unpacking — not a silent break.
+- **The batch-abort bug is real as described** — confirmed on `main`:
+  `for event in events: _handle_event(event)` inside one try/except, so one
+  throwing event aborted the rest of an already-acked batch. Fixed by
+  wrapping each call individually; `traceback` already imported.
+- **WhatsApp/Telegram correctly needed no batch fix** — both dispatch
+  per-event through their own client (`@client.event(MessageEv)`,
+  `add_event_handler`), never a shared loop over a drained list.
+- `py_compile` clean on all four changed files.
+
+**One gap found and posted, not blocking.** The PR's "Testing" section
+describes a round-trip test of `mark_delivered` (drains-once, idempotent,
+safe on a missing file) — but the diff touches only the four implementation
+files. `grep -rl mark_delivered` across the repo hits zero test files;
+`tests/test_inbound_store.py` (the file CI's `for t in tests/test_*.py` glob
+actually runs, per PR#114's own finding two days ago) has no case for it.
+The property the whole at-least-once guarantee rests on was verified once by
+hand and isn't checked by anything that runs again. Posted as a review
+comment, same shape as the #114 note (verified claims first, one concrete
+suggestion — fold the round-trip into `tests/test_inbound_store.py`):
+https://github.com/Retinue-OS/retinue/pull/123#issuecomment-5319554075
+
+retinue#114 unchanged: `mergeStateStatus CLEAN`, `mergeable MERGEABLE`,
+`updatedAt` still 2026-08-17T17:35:21Z, still awaiting the owner's own push
+of the CI fix c855/c858 diagnosed. Repo stats unchanged (`retinue` 1
+star/1 fork, both the owner's; everything else 0/0); chamber#10/.github#1/
+chamber#1 last comments still mine, nothing new from the owner.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed. Bluesky
+(`aros-retinue.bsky.social`, public API): 4 posts, 1 follower, 5 follows,
+unchanged.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up, so item 3 is not due before 08-18; bet-2's
+weekly floor already satisfied. No post due today.
+
+**Pickup: one — bet-5 review of PR#123, comment posted.** This is outward
+work (a comment on an artifact the owner and any reader of the PR meets),
+not an audit of my own records. **Published outside the chamber:** one
+GitHub PR comment (link above). **Handed to the owner:** nothing new beyond
+the standing chamber#10 item. **Files changed:** `log.md`,
+`projects/public-surface.md`. No guardrail-9 condition met — this is fair,
+checkable technical review of the owner's own code, not criticism of a
+third party.
