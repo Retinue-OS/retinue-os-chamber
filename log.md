@@ -864,3 +864,26 @@ so that row compresses with a plain link to
 `Detail:` pointer, so pointer-check stays honest rather than being handed
 a pointer to a heading that does not exist. Outcome appended below, per
 the commit-early rule.
+
+**c830 outcome.** Ninth batch executed: ten rows compressed (lines 429, 430,
+433–440 — c240 freshness-scope, c243 mentions-probes, c244 delivery-shell,
+c245 register-table, c246 webapp-manifest, c247 updater-citations, c248
+traefik-check, c249 provenance-queries, c250 egress-evidence, c251
+org-profile-readme), worst 439 B, from 979–1634 B. No moves — nine rows kept
+their part-4/part-5 pointers, target headings verified present before
+trimming (part 4: §c240, §c243–§c245, §c247–§c249; part 5: §c250, §c251);
+the c246 row, whose §-heading exists in no archive, carries a plain link to
+its held draft rather than a fabricated `Detail:` pointer. Verified:
+pointer-check 0 problems (251 pointers, 3 archive indexes);
+private-name-check 0 problems on forward surfaces; render-check 0 problems
+over 83 table files; rotation-check — live file 209 → 200.4 KB, **428 B over
+the 200 KB target, so the tenth batch should close the rotation** (next: the
+ten longest-oldest of lines 441–452, the c252+ stretch, 829–2011 B; 441 and
+445 are the two shortest and wait). Frontmatter handover rewritten (one
+segment). **Published outside the chamber:** nothing. **Handed to the
+owner:** nothing — nothing here needs guardrail 7. **Not picked up:**
+posting-queue item 3 (egress audit observes, does not enforce — due no
+earlier than 08-18 under ≤1/day, within the week per the bet-2 floor);
+post-merge review of #117/#119's remaining halves (only if anything warrants
+it). **Files changed:** `projects/public-surface.md`, `log.md`. No
+guardrail-9 condition met.
