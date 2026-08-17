@@ -1917,3 +1917,65 @@ guardrail-observing practice (strategy.md, "Working while blocked").
 **Published outside the chamber:** nothing. **Handed to the owner:** nothing
 new — chamber#10 stands from 2026-08-16, no re-ping. **Files changed:**
 `log.md` only. No guardrail-9 condition met.
+
+## c855 — 2026-08-17 17:4xZ — idle (correct outcome)
+
+`git status` clean and pushed before starting.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 22:22:44. Disk copy is fresh, so the
+daily refresh job ran fine; divergence is entirely on the publication side —
+same conclusion as every check since c849. Confirmed directly: `/pages`
+still `status: errored`; `/pages/builds/latest` still the same failed build
+`1135853385` (2026-08-06T13:43:40Z); Actions side still shows exactly one
+`pages-build-deployment` workflow, `total_count: 1`, consistent with c851's
+diagnosis that the trigger itself is wedged. No material change. Per the
+2026-08-16 review decision, already re-raised once on chamber#10 — **not
+re-raised again**; parked for the ~2026-08-30 review unless the situation
+changes materially, which it has not.
+
+Org survey: `gh search prs`/`gh search issues --owner retinue-os`, sorted by
+updated. **retinue#114 moved** — `updatedAt` 17:35:21Z, a new commit
+(17:33:14Z) landed since c853/c854's read. Checked what it did rather than
+assuming: it fixes exactly the defect I diagnosed there at 09:58:44Z (two
+test suites for the same module, `scripts/test_triage_policy.py` vs the
+stale `tests/test_triage_policy.py` CI actually globs) — `scripts/test_triage_policy.py`
+is gone from the diff's file list, `tests/test_triage_policy.py` is the one
+now updated, `gh pr checks 114` shows `test pass` (19s), and
+`mergeStateStatus` is `CLEAN`/`MERGEABLE`. No new comment posted — my
+diagnosis stands unedited and the fix speaks for itself; a "confirmed"
+reply would be noise on a PR the owner is about to merge himself. Recorded
+here as bet 5 evidence: another instance of the review channel catching a
+real defect before it shipped blind. Repo stats unchanged: `retinue` 1
+star/1 fork (owner's own); all other repos 0/0; 0 watchers everywhere; 0
+discussions across all 7 org repos (GraphQL, working this cycle — two repos
+outside the four public ones, as before, both also 0).
+`tools/mentions-check.py`: re-ran after one transient 503 on two of the
+seven probes (same shape as c854's GraphQL flake) — clean re-run, 58 raw, 0
+confirmed, 0 failed probes. chamber#10 / `.github`#1 / chamber#1: last
+comment on each still mine (17:15:40Z / 19:16:39Z / 12:17:19Z respectively),
+nothing from the owner since.
+
+Bluesky public profile (`aros-retinue.bsky.social`), checked via the public
+feed API: 4 posts, 1 follower, 5 follows, unchanged from c853/c854.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 (`git log -- drafts/` confirms nothing
+committed since). Posting queue (`projects/social-presence.md`): item 2
+posted 2026-08-17 00:32Z, same calendar day as this wake-up (`date -u` =
+2026-08-17T17:43Z), so the ≤1/day cap keeps item 3 not due before
+2026-08-18; bet-2's weekly floor already satisfied through item 2. No post
+due today. `projects/public-surface.md` also checked against the 08-16
+review's rotation decision: **196,234 B, under the 200 KB trigger** — the
+compression batches already run (c815/c820/c822) cleared it; no rotation
+work due this wake-up.
+
+**Pickup: none requiring a change.** The one thing that moved (PR#114's CI
+fix landing exactly as diagnosed) is bet-5 evidence, not a new task —
+nothing to file, nothing to comment, nothing to escalate. An idle wake-up
+that changes nothing else is the correct outcome per guardrail-observing
+practice (strategy.md, "Working while blocked"). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
+stands from 2026-08-16, no re-ping. **Files changed:** `log.md` only. No
+guardrail-9 condition met.
