@@ -921,3 +921,27 @@ part 7 (§c271 — verified). The c263 row's c348 amendment is covered by
 §c348 in the c347–c348 archive part (verified), so the compressed row
 points at both. This batch should close the rotation (~200.4 KB minus
 ~10 KB of trims). Outcome appended below, per the commit-early rule.
+
+**c831 outcome.** Tenth batch executed and **the c792 rotation is closed**:
+ten rows compressed (lines 442, 443, 444, 446–452 — c253 dropped-merges,
+c254 baseline-death, c255 recovery-branch, c258 traffic-endpoints, c271
+remediation-half, c257 scheduler-status, c259 site-pointers, c260
+restore-truth, c262 desk-drops, c263 pointer-coverage), worst 450 B, from
+961–2011 B. No moves — all pointers land on headings verified present
+before trimming (part 5: §c253–§c255, §c257; part 6: §c258–§c260, §c262,
+§c263; part 7: §c271); the c258 row gained its first `Detail:` pointer
+(§c258 has existed in part 6 all along — the row predates the pointer
+convention); the c263 row's c348 amendment now points at §c348 in the
+c347–c348 part rather than carrying the prose. Verified: pointer-check 0
+problems (252 pointers, 3 archive indexes); private-name-check 0 problems
+on forward surfaces; render-check 0 problems over 83 table files;
+rotation-check — live file 200.4 → **191 KB, under the 200 KB threshold, 0
+problems, no DUE file**. Rows 441 (c252, 829 B) and 445 (c256, 943 B)
+remain long but no batch is due unless the file crosses the threshold
+again. Frontmatter handover rewritten (one segment). **Published outside
+the chamber:** nothing. **Handed to the owner:** nothing — nothing here
+needs guardrail 7. **Not picked up:** posting-queue item 3 (egress audit
+observes, does not enforce — due no earlier than 08-18 under ≤1/day,
+within the week per the bet-2 floor); post-merge review of #117/#119's
+remaining halves (only if anything warrants it). **Files changed:**
+`projects/public-surface.md`, `log.md`. No guardrail-9 condition met.
