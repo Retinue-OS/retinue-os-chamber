@@ -2428,3 +2428,86 @@ re-raised. An idle wake-up is the correct outcome. **Published outside the
 chamber:** nothing. **Handed to the owner:** nothing new beyond the
 standing chamber#10 item. **Files changed:** `log.md` only. No guardrail-9
 condition met.
+
+## c864 — 2026-08-17 22:0x–22:1xZ — pickup: bet-5 review, PR#123's second commit (one defect found, posted)
+
+Delivery check (`tools/delivery-check.py`, mandatory this run): **5 cards
+STALE**, same failure mode as every check since c849 — disk and
+`origin/main` both fresh at the c861 stamp (`2026-08-17T20:37:04Z`), served
+copies still `2026-08-05T19:20:00Z`, age 12 d 2:47. Confirmed at the source:
+`gh api repos/Retinue-OS/retinue-os-chamber/pages` → `status: errored`;
+`pages/builds/latest` → same errored build, `created_at`/`updated_at`
+2026-08-06T13:43:40Z/13:54:05Z, unchanged. Publication-side, not a stale
+refresh — already re-escalated once on chamber#10 per the 2026-08-16 review
+decision; **not re-raised**, parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`, sorted by updated):
+PR#123 (persist-before-forward, closes #122) grew a second commit,
+`d3a11b7` at 22:02:16Z — the owner's own extension, not a reply to my c859
+review comment. It closes a gap the first commit left: a voice note whose
+STT transcription failed hit the "no text/audio/image content" skip-return
+**upstream** of `_forward_to_inbox` (where the never-drop record is
+written), so a failed transcript was still silently dropped even after the
+persist-before-forward fix. Fixed by persisting the raw message and its
+retained audio *before* transcription (`inbound_store`'s new `media` field,
+`update_message()`, `media_dir()`), gated to inbox mode.
+
+Reviewed per the bet-5 practice — branch cloned fresh
+(`/tmp/retinue-pr123`), tests run, diff read against the description rather
+than trusted: `python3 tests/test_inbound_store.py` passes **11/11**
+including the four new round-trip cases; `py_compile` clean on all four
+touched files (`inbound_store.py`, and the three gateways); the inbox-mode
+gate is correctly scoped, control mode untouched.
+
+**One real, narrow defect found.** Signal's `_retain_media` fallback
+(`durable = _retain_media(voice) or voice`) can, on a copy failure (disk
+full, permission error — the exact class this PR exists to survive), leave
+`durable` pointing at `voice` — which is not a gateway-owned temp file but
+whatever `_attachment_path()` resolved inside `ATTACHMENT_SEARCH_DIRS`
+(`SIGNAL_DATA_DIR/attachments` or `SIGNAL_DATA_DIR` itself — signal-cli's
+own state dir, confirmed by reading `_attachment_path` and
+`ATTACHMENT_SEARCH_DIRS`'s definition). If transcription then *succeeds*,
+`_update_inbound(..., clear_media=True)` returns that same path as `prev`,
+and the caller unlinks it — deleting a file inside signal-cli's own data
+directory. Two lines further down, the control-mode branch says explicitly
+*"signal-cli owns the attachment file, so it is not unlinked here"* — the
+retain-failure fallback in the inbox-mode branch above it doesn't honor
+that. WhatsApp/Telegram don't have this: their `_retain_media` docstrings
+confirm the pre-retain file there is already a gateway-owned temp download,
+so the same fallback-then-unlink is safe for them. Narrow (needs a retain
+failure *and* a subsequent transcription success) but it is the one path in
+this diff that can delete data the gateway doesn't own — the class #122 was
+about. Posted with two suggested fixes (skip the unlink when
+`durable is voice`, or track copy success explicitly rather than inferring
+it from path equality):
+https://github.com/Retinue-OS/retinue/pull/123#issuecomment-5320836992
+
+Also noted in the same comment, status not a new finding: the
+`mark_delivered` round-trip test gap flagged on the first commit (c859) is
+still open — this commit didn't touch that coverage, which is fine, it's a
+different fix.
+
+Repo stats unchanged: `retinue` 1 star/1 fork (both the owner's), everything
+else 0/0, 0 watchers, 0 discussions everywhere. `tools/mentions-check.py`:
+58 raw hits, 0 confirmed — unchanged. Bluesky (public API,
+`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows — unchanged
+since c853.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 — nothing new past cool-off. Posting
+queue (`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z,
+still the same calendar day (`date -u` = 2026-08-17T22:1xZ), so the ≤1/day
+cap keeps item 3 not due before 08-18; bet-2's weekly floor already
+satisfied this week. No post due today.
+
+**Pickup: one — bet-5 review of PR#123's second commit, one defect found and
+posted.** This is the bet-5 practice firing a fourth time this week, on
+fresh material the owner produced within two hours of my first review of
+the same PR — consistent with the amended bet-5 clause (a review counts
+against the falsification clock only when it finds nothing checkable; this
+one did). **Published outside the chamber:**
+https://github.com/Retinue-OS/retinue/pull/123#issuecomment-5320836992.
+**Handed to the owner:** nothing new beyond the standing chamber#10 item —
+the PR comment is not an owner-action escalation, it's routine review.
+**Files changed:** `projects/public-surface.md`, `log.md`. No guardrail-9
+condition met.
