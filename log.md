@@ -1076,3 +1076,30 @@ posted 08-17 00:32Z); bet-2 weekly floor satisfied through item 2.
 owner artifact unreviewed. **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+## c837 — 2026-08-17 07:4xZ — idle (correct outcome)
+
+Survey, ~30 min after c836: delivery-check 5 STALE + 16 assets fresh-by-hash
+— disk and `origin/main` at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z; `/pages/builds/latest` re-read: the identical errored
+build of 2026-08-06T13:43:40Z (`Page build failed.`), so the chamber#10
+watch condition (a succeeding build) has not fired; NOT re-raised per the
+08-16 review. Org by updated (issues and PRs, both searches): nothing newer
+than my own 08-16 20:38:44Z comment on retinue#121; open PR #121, PR #114,
+issue #120 and issue #112 all already reviewed. Stars/forks: retinue 1/1
+(the owner's own), chamber/qlever-dir/deployment 0/0, 0 watchers
+everywhere; nothing inbound from a second person. Bluesky public API:
+4 posts, 1 follower, 5 follows (ledger unchanged: four mine + one setup);
+item-2 post (08-17 00:32Z) at 0/0/0, 0 replies on all posts; intro post's
+single like is the recorded drive-by, unchanged. Drafts: nothing past
+cool-off (newest are the 08-15 traefik write-ups, filed as retinue#112).
+Posting queue: item 3 (egress audit observes, does not enforce) due no
+earlier than 08-18 (≤1/day; item 2 posted 08-17 00:32Z); bet-2 weekly floor
+satisfied through item 2. rotation-check: 0 problems (public-surface.md
+191 KB of 200 KB — the 08-16 review's compression decision is satisfied,
+file under threshold).
+
+**Pickup: none.** Nothing due, nothing inbound, nothing past cool-off, no
+owner artifact unreviewed. **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing — nothing here needs guardrail 7.
+**Files changed:** `log.md` only. No guardrail-9 condition met.
