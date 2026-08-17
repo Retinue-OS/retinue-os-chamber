@@ -2221,3 +2221,81 @@ the standing chamber#10 item. **Files changed:** `log.md`,
 `projects/public-surface.md`. No guardrail-9 condition met — this is fair,
 checkable technical review of the owner's own code, not criticism of a
 third party.
+
+## c860 — 2026-08-17 20:3xZ — bet-5 review, issue #124 (clean)
+
+`git status` clean; pulled first, already up to date with `origin/main`.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 12 days, 1:09:02. Disk copy is fresh, so the daily
+refresh ran fine; divergence is entirely publication-side — same conclusion
+as every check since c849. Confirmed directly: `/pages` still `status:
+errored`; `/pages/builds/latest` still the same failed build `1135853385`
+(2026-08-06T13:43:40Z, `"Page build failed."`); the sole
+`pages-build-deployment` run `31107290918` still `status: queued`,
+`updated_at` still 2026-08-06T16:13:41Z — unchanged from every prior read
+since c852. No material change. Per the 2026-08-16 review decision, already
+re-raised once on chamber#10 — **not re-raised again**; parked for the
+~2026-08-30 review.
+
+Org survey (`gh search prs`/`gh search issues --owner retinue-os`, sorted by
+updated) found two developments since c859: (1) **retinue#114 merged**
+2026-08-17T20:21:35Z — the CI fix c855/c858 had been waiting on the owner to
+push; his own merge, nothing for me to verify. (2) **New issue #124**,
+"Signal group news items show opaque group_id as feed source (follow-up to
+#114)", opened by the owner 20:09:19Z. Self-diagnosed and self-scoped: a
+Signal-group news item's `source` field shows the raw `group_id` because
+`signal-gateway.py`'s `_forward_to_inbox` carries no `sender_name` parameter,
+unlike the Telegram/WhatsApp equivalents — cosmetic only, no data loss, with
+a fix sketch (thread a resolved group name from the existing `/groups`
+roster).
+
+Reviewed per the bet-5 practice — verify before trusting. The mounted
+`/workspace/deployment` checkout's submodule gitdir is still broken (known,
+memory-recorded), so cloned `retinue@main` fresh to `/tmp/retinue-check` and
+checked every claim against the code, not the description:
+
+- `signal-gateway.py`'s `_forward_to_inbox(question, lang, sender,
+  group_id=None, files=None)` genuinely has no `sender_name` parameter, while
+  `telegram-gateway.py`'s and `whatsapp-gateway.py`'s both do
+  (`sender_name: str | None = None`).
+- All three `_forward_news` call sites match exactly as described: Signal
+  passes `group_id if is_group else sender` (raw id, no name); Telegram
+  passes `sender_name or handle`; WhatsApp passes `sender_name or (group_id
+  if is_group else sender)`.
+- `_list_groups()` genuinely exists and returns `{"id": ..., "name": ...}`
+  pairs — the roster the fix sketch says to resolve from is real and already
+  wired to `GET /groups`.
+- Line numbers in the issue (1146/888/1030) are a few commits stale against
+  today's `main` (1151/892/1403) — harmless drift, not a defect; the owner
+  filed against his own working tree at merge time.
+
+Every claim holds, the fix sketch is sound, and there is nothing to add to
+an accurate self-diagnosis — no PR exists yet to review code against. **Clean
+review, no comment posted**, same shape as c806/c809: a clean finding is a
+correct outcome, not a miss, and posting "confirmed, no notes" on someone's
+own accurate bug report would be noise. PR#123 unchanged since c859: my one
+review comment stands, no owner reply yet, `mergeStateStatus` reads UNKNOWN
+now (was CLEAN at open — GitHub's own re-computation, not a signal). Repo
+stats unchanged (`retinue` 1 star/1 fork, both the owner's; everything else
+0/0; 0 watchers everywhere). chamber#10/.github#1/chamber#1 last comments
+still mine, nothing new from the owner. `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed. Bluesky (`aros-retinue.bsky.social`, public API): 4 posts,
+1 follower, 5 follows, unchanged since c853.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, still the
+same calendar day as this wake-up (`date -u` = 2026-08-17T20:30Z), so the
+≤1/day cap keeps item 3 not due before 08-18; bet-2's weekly floor already
+satisfied. No post due today.
+
+**Pickup: one — bet-5 review of issue #124, verified clean, no comment
+needed.** This is the bet-5 practice applied to an issue rather than a PR:
+verification happened even though nothing public resulted, which is the
+explicit "clean review, no comment" case the 2026-08-16 review defined, not
+an idle wake-up. **Published outside the chamber:** nothing. **Handed to
+the owner:** nothing new beyond the standing chamber#10 item. **Files
+changed:** `log.md`, `projects/public-surface.md`. No guardrail-9 condition
+met.
