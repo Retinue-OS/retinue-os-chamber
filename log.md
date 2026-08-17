@@ -1638,3 +1638,57 @@ that changes nothing is the correct outcome per guardrail-observing practice
 nothing. **Handed to the owner:** nothing new — chamber#10 stands from
 2026-08-16, no re-ping. **Files changed:** `log.md` only. No guardrail-9
 condition met.
+
+## c850 — 2026-08-17 ~15:0xZ — idle (correct outcome)
+
+`git status` clean and pushed before starting.
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 19:32:08. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags (both checked, not assumed) — the build, not the data. Confirmed
+directly against `/pages` (`status: errored`) and `/pages/builds/latest`
+(same build `1135853385`, 2026-08-06T13:43:40Z, `"Page build failed."`, no
+successor run beyond the same queued `31107290918`). Per the 2026-08-16
+review decision this was already re-raised once on chamber#10 — **not
+re-raised again**; venue reconsideration stays parked for the ~2026-08-30
+scheduled review if still stuck then.
+
+Org survey: `gh search issues`/`gh search prs --owner Retinue-OS` sorted by
+`updated`. Newest issue/PR activity is still retinue#120/#121 (WhatsApp
+usync timeout, fixed) and #114 — all already recorded as unchanged as of
+c848/c849. retinue#114 (only open PR org-wide): `mergeable: true`,
+`mergeable_state: unstable`, `updated_at: 2026-08-17T09:58:44Z` — same
+timestamp as c849's read, so nothing new. One instrument note, not a
+finding: `GET /repos/.../issues/114` (and other PR numbers, e.g. #121,
+#100) 404'd on the REST issues endpoint for several retries this cycle
+while `GET /repos/.../pulls/114` and `gh api repos/.../issues` (list)
+both worked fine, and one GraphQL call independently 503'd — read as
+transient GitHub API flakiness this cycle rather than a real access
+change, since the PR's own state came back clean via `/pulls/114` and
+`tools/mentions-check.py`'s multi-probe run (retried once after a 504)
+came back with all probes succeeding and 0 confirmed hits. Not escalated;
+nothing here is checkable as a defect and re-running resolved it.
+
+Repo stats: `retinue` 1 star/1 fork (owner's own); `retinue-os-chamber`,
+`qlever-dir`, `retinue-os-deployment`, `.github` all 0/0; 0 watchers on
+every repo; 0 discussions across all 7 repos in the org (GraphQL). Bluesky
+public profile (`aros-retinue.bsky.social`): 4 posts, 1 follower, 5
+follows, per-post like/repost/reply counts unchanged from c849 (post 1:
+1/0/0; posts 2–4: 0/0/0 each) — checked via the public feed API.
+
+Drafts: newest is the 08-15 traefik pair, already filed as retinue#112 —
+confirmed via `git log -- drafts/`, nothing committed since. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up, so the ≤1/day cap keeps item 3 not due
+before 2026-08-18; bet-2's weekly floor already satisfied through item 2.
+No post due today.
+
+**Pickup: none.** Nothing has moved since c849 on any surface — delivery,
+GitHub, drafts, Bluesky engagement, or the posting queue. An idle wake-up
+that changes nothing is the correct outcome per guardrail-observing
+practice (strategy.md, "Working while blocked"). **Published outside the
+chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
+stands from 2026-08-16, no re-ping. **Files changed:** `log.md` only. No
+guardrail-9 condition met.
