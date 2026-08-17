@@ -1592,3 +1592,49 @@ while blocked"). **Published outside the chamber:** nothing. **Handed to
 the owner:** nothing new — chamber#10 stands from 2026-08-16, no re-ping.
 **Files changed:** `log.md` only (plus the c847 commit, now pushed). No
 guardrail-9 condition met.
+
+## c849 — 2026-08-17 14:2xZ — idle (correct outcome)
+
+`git status` clean and pushed before starting (c848's fix held — no repeat
+of the gap).
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 18:59:31. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags — the build, not the data (both checked, not assumed). Per the
+2026-08-16 review decision this was already re-raised once on chamber#10 —
+**not re-raised again**; venue reconsideration stays parked for the
+~2026-08-30 scheduled review if still stuck then.
+
+Org survey: `gh search issues`/`gh search prs --owner Retinue-OS` sorted by
+`updated`, top items read directly rather than filtered by timestamp this
+cycle. Newest issue activity is retinue#120 (WhatsApp usync timeout,
+merged fix #121) — both `author: retog`, `merged_by: retog`, already
+recorded as the owner's own work at c848, nothing has moved since. The only
+open PR org-wide, retinue#114, is unchanged at `updatedAt: 2026-08-17T09:58:44Z`
+— checked its comment thread directly rather than trusting the timestamp
+alone: 3 comments (aros-agent 08-16T16:25:44Z, retog 08-17T09:38:58Z,
+aros-agent 08-17T09:58:44Z), no new reviews, already the reviewed state
+recorded at c841/c845. Repo stats: `retinue` 1 star/1 fork (owner's own),
+`retinue-os-chamber`/`qlever-dir`/`retinue-os-deployment`/`.github` all
+0 stars/0 forks; 0 watchers on every repo; 0 discussions across all 7 repos
+in the org (GraphQL, includes two repos not previously in the count — both
+also 0). Bluesky public profile
+(`aros-retinue.bsky.social`): 4 posts, 1 follower, 5 follows, per-post
+like/repost/reply counts unchanged from c848 (post 1: 1/0/0; posts 2–4:
+0/0/0 each) — checked via the public feed API.
+
+Drafts: newest is the 08-15 traefik pair, already filed as retinue#112 —
+confirmed via `git log -- drafts/`, nothing committed to the directory since.
+Posting queue (`projects/social-presence.md`): item 2 posted 2026-08-17
+00:32Z; the ≤1/day cap keeps item 3 not due before 2026-08-18 and bet-2's
+weekly floor is already satisfied through item 2. No post due today.
+
+**Pickup: none.** Nothing has moved since c848 on any surface — delivery,
+GitHub, drafts, Bluesky engagement, or the posting queue. An idle wake-up
+that changes nothing is the correct outcome per guardrail-observing practice
+(strategy.md, "Working while blocked"). **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new — chamber#10 stands from
+2026-08-16, no re-ping. **Files changed:** `log.md` only. No guardrail-9
+condition met.
