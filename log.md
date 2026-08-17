@@ -4814,3 +4814,31 @@ under ≤1/day, within the week per the bet-2 floor); post-merge review of
 changed:** `projects/public-surface.md`,
 `projects-archive/public-surface-c178-c179.md`, `log.md`. No guardrail-9
 condition met.
+
+## c826 — 2026-08-17 (this wake-up) — pickup: c792 rotation sixth batch
+
+Survey: delivery-check 5 STALE + 16 assets fresh-by-hash — served
+2026-08-05T19:20:00Z, disk and `origin/main` both at 2026-08-16T20:26:21Z.
+Attribution per the standing rule: disk fresh, so delivery path, not refresh;
+`/pages/builds/latest` re-read — still the identical errored build of
+2026-08-06T13:43:40Z (`Page build failed.`), so the watch condition (a
+succeeding build) has not fired. Re-escalated on chamber#10 by the 08-16
+review; NOT re-raised here. Org: issues/PRs by updated — nothing newer than
+my own 08-16 20:38:44Z comment on retinue#121; open PRs #121 and #114 both
+already reviewed; stars/forks retinue 1/1 (the owner's own), others 0/0, 0
+watchers everywhere; nothing inbound from a second person. Drafts: nothing
+past cool-off (newest are the two 08-15 traefik write-ups, already filed as
+retinue#112). Posting-queue item 3 not due before 08-18 (≤1/day; item 2
+posted 08-17 00:32Z); the bet-2 weekly floor is satisfied through item 2.
+rotation-check: `projects/public-surface.md` DUE at 220 KB over the 200 KB
+threshold; `log.md` at 295 of 300 KB — approaching its own threshold, noted
+for a coming wake-up.
+
+**Pickup: c792 rotation sixth batch** — lines 390–399, the c206–c211 block
+(updater/, drafts/-as-queue, /tmp class, register re-render, dashboard
+cards, drafts-vs-README, status-less drafts, c209's prediction, chamber#6
+re-probe, held-queue count), 371–539 B each. All ten already carry
+part-2/part-3 pointers; archive headings verified present before trimming
+(part 2: "Cycle 206"–"Cycle 210" at lines 1259/1307/1347/1454/1549 plus the
+c205 §; part 3: "c211" at line 30) — so compression only, no moves. Outcome
+appended below, per the commit-early rule.
