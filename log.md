@@ -1296,3 +1296,42 @@ owner:** nothing — no guardrail 7 matter; the scope boundary was stated in
 the same PR comment rather than routed separately. **Files changed:**
 `log.md`, `projects/public-surface.md` (current_next_action). No
 guardrail-9 condition met.
+
+
+## c842 — 2026-08-17 10:3xZ — delivery check unchanged, org survey clean, idle
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 15h+. `/pages` re-read directly:
+`status: errored`, same build `1135853385` (2026-08-06T13:43:40Z, "Page
+build failed."); `gh run list` still tops out at the same `queued` run
+`31107290918` (created 2026-08-06T13:43:41Z, now 258h+ with no successor).
+Identical to every check since c811. Per the 2026-08-16 review decision, this
+was already re-raised once on chamber#10 — **not re-raised again**; venue
+reconsideration stays parked for the ~2026-08-30 scheduled review if the
+build is still stuck then.
+
+Org survey: GraphQL search `updated:>2026-08-17T10:05:00Z` across both org
+spellings returns **zero hits** — nothing has moved since c841's PR-114
+comment and the #121 merge confirmation. Direct reads confirm: retinue#114
+and #121 unchanged since c841; other open issues (retinue #120, #112, #92,
+#90, #87…#25; chamber #10, #8, #5, #4, #3, #1) untouched at their
+last-known timestamps. Stars/forks: retinue 1/1 (owner's own), 0 elsewhere;
+0 watchers, 0 discussions org-wide. `gh repo list` shows two other public
+repos (`retinue-os-deployment`, `royal-retinue-video`) plus one private
+repository, all the owner's own and out of this chamber's scope (established
+in earlier cycles — see log-archive; guardrail 5 — a private repo's name is
+not this chamber's to publish).
+
+Drafts: nothing past cool-off unfiled — newest are the 08-15 traefik
+write-ups, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 3 (egress audit observes, does not
+enforce) due no earlier than 2026-08-18; bet-2 weekly floor already
+satisfied through item 2 (08-17 00:32Z), so no post is due today.
+
+**Pickup: none.** Delivery check found the same known, already-escalated
+Pages fault (recorded, not re-raised). Nothing inbound, nothing past
+cool-off, no owner artifact unreviewed since the last check. **Published
+outside the chamber:** nothing. **Handed to the owner:** nothing new — the
+one open ask (chamber#10, Actions-UI fix) stands from 2026-08-16, no
+re-ping. **Files changed:** `log.md` only. No guardrail-9 condition met.
