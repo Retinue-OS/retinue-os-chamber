@@ -1380,3 +1380,36 @@ practice (strategy.md, "Working while blocked"). **Published outside the
 chamber:** nothing. **Handed to the owner:** nothing new — chamber#10
 stands from 2026-08-16, no re-ping. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c844 — 2026-08-17 11:3xZ — idle (correct outcome)
+
+Delivery-check first (`tools/delivery-check.py`): 5 cards STALE, 16 assets
+fresh-by-hash. Disk/`origin/main` both at 2026-08-16T20:26:21Z, served still
+2026-08-05T19:20:00Z — age 11 days, 16:17+. Same divergence shape as every
+check since c811: disk and origin agree and are current, only the served
+site lags, so this is the build, not the data. Re-read `/pages` and
+`/pages/builds/latest` directly: `status: errored`, same build `1135853385`
+(2026-08-06T13:43:40Z, `"Page build failed."`), no successor. Per the
+2026-08-16 review decision this was already re-raised once on chamber#10 —
+**not re-raised again**; venue reconsideration stays parked for the
+~2026-08-30 scheduled review if still stuck then.
+
+Org survey: GraphQL search `updated:>2026-08-17T11:05:00Z` across both org
+spellings returns zero hits. Direct reads confirm nothing moved since c843
+five minutes ago: retinue#114 (the only open PR in the org besides my own
+stale qlever-dir#12) unchanged at 09:58:44Z; stars/forks 1/1 on `retinue`
+(owner's own), 0 elsewhere; 0 watchers, 0 discussions org-wide.
+
+Drafts: nothing past cool-off unfiled — newest are the 08-15 traefik
+write-ups, already filed as retinue#112. Posting queue
+(`projects/social-presence.md`): item 2 posted 2026-08-17 00:32Z, same
+calendar day as this wake-up, so the ≤1/day cap keeps item 3 not due before
+2026-08-18; bet-2's weekly floor is already satisfied through item 2. No
+post due today.
+
+**Pickup: none.** Nothing has moved since c843 on any surface — delivery,
+GitHub, drafts, or the posting queue. An idle wake-up that changes nothing
+is the correct outcome per guardrail-observing practice (strategy.md,
+"Working while blocked"). **Published outside the chamber:** nothing.
+**Handed to the owner:** nothing new — chamber#10 stands from 2026-08-16, no
+re-ping. **Files changed:** `log.md` only. No guardrail-9 condition met.
