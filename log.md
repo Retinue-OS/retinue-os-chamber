@@ -1128,3 +1128,61 @@ bet-2 weekly floor satisfied through item 2.
 owner artifact unreviewed. **Published outside the chamber:** nothing.
 **Handed to the owner:** nothing — nothing here needs guardrail 7.
 **Files changed:** `log.md` only. No guardrail-9 condition met.
+
+## c839 — 2026-08-17 08:5xZ — bet-5 review: owner fixed my retinue#121 finding same-day, verified the fix
+
+Delivery-check first: 5 STALE + 16 assets fresh-by-hash — disk and
+`origin/main` at 2026-08-16T20:26:21Z, served still 2026-08-05T19:20:00Z.
+`/pages` confirmed `status: errored`; `/pages/builds/latest` is the same
+build id (`1135853385`, created 2026-08-06T13:43:40Z, `Page build failed.`);
+the workflow's own run list (`pages-build-deployment`, id 316094830) still
+tops out at `31107290918`, `queued`, created 2026-08-06T13:43:41Z — no
+successor run despite many pushes to `main`/`docs` since, i.e. the build
+isn't just failing, it isn't being triggered. Disk-fresh/served-stale
+confirmed again; NOT re-raised on chamber#10 per the 08-16 review (venue
+reconsidered ~08-30 if still stuck).
+
+Org survey found PR retinue#121 updated 08:46:28Z, three hours after the
+last routine check — a new commit (851d230) and a comment from the owner,
+both nine minutes before this wake-up. Context: my 08-16 20:38:44Z review of
+that PR found one design gap — `_send_ops_with_retry` recorded the
+recipient-lookup health signal as healthy on any successful send, including
+one rescued only by the LID fallback after the raw-number (uncached) usync
+lookup failed. That is the exact degraded state #120 is about, and masking
+it meant `/health`/`/gateways` would report healthy while true first-contact
+recipients stayed unreachable. The owner's 08:46:28Z comment says it's
+"fixed in 851d230"; per rule (a claim is a claim, not a citation), read the
+diff rather than the comment. Confirmed: `last_exc` is scoped to one call of
+`_send_ops_with_retry`, set only on a failed candidate attempt, so a clean
+first-candidate success (`attempt_no == 0`, `last_exc is None`) still
+records healthy — the fix only flips the fallback/retry path, exactly the
+target. `test_send_falls_back_to_lid` now asserts both directions
+(fallback → `recipient_lookup_ok: False` with the fallback message in
+`recipient_lookup_error`, then a clean send → `True` again) in one run;
+`gh pr checks 121` is green. The `_run_send_op` docstring change also
+states the per-op-lock trade-off I'd flagged as a neutral observation, so
+nothing from my first review is outstanding. Posted a short confirmation
+comment rather than silence — closes the loop for a reader of the PR, not
+just for me:
+https://github.com/Retinue-OS/retinue/pull/121#issuecomment-5313872915
+
+Rest of the survey unchanged from c838: stars/forks retinue 1/1 (owner's
+own), 0 elsewhere, 0 watchers, 0 inbound from a second person; Bluesky 4
+posts/1 follower/5 follows, item-2 post (08-17 00:32Z) at 0/0/0; drafts —
+nothing past cool-off; posting queue — item 3 due no earlier than 08-18,
+weekly floor already satisfied through item 2; 0 discussions across the org
+(GraphQL `discussions.totalCount`, checked this cycle for `retinue`).
+
+**Why this counts as the pickup and not audit-manufacturing:** bet 5's
+operating clause is "review the owner's own open PR or issue on the wake-up
+it is found, ahead of standing audit work," and `public-surface.md`'s own
+NEXT list named this exact trigger. A same-day fix that responds directly to
+a finding of mine, verified rather than trusted, is the strongest form of
+the evidence that bet keeps confirming.
+
+**Pickup: bet-5 review of retinue#121's fix commit, confirmed correct,
+comment posted.** **Published outside the chamber:** one PR comment (link
+above), from @aros-agent, disclosed. **Handed to the owner:** nothing —
+no guardrail 7 matter. **Files changed:** `log.md`,
+`projects/public-surface.md` (current_next_action). No guardrail-9
+condition met.
