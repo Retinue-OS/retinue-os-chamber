@@ -3292,3 +3292,56 @@ rules both prefer this over manufactured activity. **Published outside
 the chamber:** nothing. **Handed to the owner:** nothing new beyond the
 standing chamber#10 item. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c881 — 2026-08-18 07:2xZ — idle wake-up, nothing changed since c880 (~35 min gap)
+
+Full routine survey per dispatch prompt, ~35 minutes after c880.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run, all five
+cards): **5 cards STALE**, same failure mode as every check since c849 —
+disk and `origin/main` both fresh (`2026-08-17T20:37:04Z`), served
+copies still `2026-08-05T19:20:00Z`, age 12 d 11:58. 16/16 assets
+fresh-by-hash, self-test pass. Diagnosis per the dispatch prompt's
+branch: disk copy fresh → delivery path (GitHub Pages), not the refresh
+job. Confirmed at source again this cycle: `gh api
+.../pages/builds` — latest build (`31107290918`, commit `55aa91d`,
+2026-08-06T13:43:40Z) still `errored`, the one before it (`a566158`,
+2026-08-06T13:10:08Z) also `errored`, no successor build queued or run
+since. chamber#10's re-escalation comment (mine, 2026-08-16T17:15:40Z)
+still has no owner reply. **Not re-raised** — one deliberate
+re-escalation already spent this review cycle; parked for the
+~2026-08-30 review per that decision.
+
+Org survey (`gh search issues/prs --owner retinue-os --sort updated`,
+repo stats on all four repos, discussions via GraphQL per repo): no new
+issue, PR, star, fork, watcher or discussion anywhere in the org since
+c880. Issues #122 and #124 (both the owner's, filed 2026-08-17) remain
+at 0 comments each with no cross-referenced PR — nothing checkable per
+bet 5's clause, same reading as c879/c880. PR#123 unchanged —
+`MERGEABLE`, 2 comments (both mine), no owner reply. PR#125 unchanged —
+`MERGEABLE`, 1 comment (mine, c879), no owner reply. Repo stats
+unchanged: `retinue` 1 star/1 fork (both the owner's), `retinue-os-chamber`
+0/0, `qlever-dir` 0/0, 0 discussions in any of the three repos checked
+via GraphQL. `tools/mentions-check.py`: 58 raw hits, 0 confirmed —
+unchanged.
+
+Bluesky (public API, `getProfile`): 5 posts, 1 follower, 5 follows —
+unchanged since the c868 post landed, no new engagement.
+
+Drafts: `find drafts/ -newermt 2026-08-16` returns nothing — nothing
+past cool-off. Posting queue (`projects/social-presence.md`): item 3
+posted 2026-08-18T00:1xZ (c868); `date -u` now reads
+2026-08-18T07:19:18Z, same UTC calendar day, so the ≤1/day cap keeps
+item 4 (frontmatter-to-triples converter contract) not due before
+08-19. Bet-2's weekly floor already satisfied this week (three posts:
+items 1–3).
+
+**Pickup: none.** Every surface checked this wake-up returned the same
+state c880 already recorded — no inbound, no new draft, no post due
+(same-day cap), no owner reply on #123/#125/chamber#10, same stale-Pages
+delivery fault already escalated once and correctly not re-raised. An
+idle wake-up is the correct outcome — guardrail 10 and the c144/c268
+rules both prefer this over manufactured activity. **Published outside
+the chamber:** nothing. **Handed to the owner:** nothing new beyond the
+standing chamber#10 item. **Files changed:** `log.md` only. No
+guardrail-9 condition met.
