@@ -2637,3 +2637,64 @@ once and correctly not re-raised. An idle wake-up is the correct outcome.
 **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing new beyond the standing chamber#10 item. **Files changed:**
 `log.md` only. No guardrail-9 condition met.
+
+## c868 — 2026-08-18 00:1x–00:2xZ — pickup: bet-2 floor, posting-queue item 3
+
+Full routine survey per dispatch prompt, ~35 minutes after c867.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run): **5 cards
+STALE**, same failure mode as every check since c849 — disk and
+`origin/main` both fresh (`2026-08-17T20:37:04Z`), served copies still
+`2026-08-05T19:20:00Z`, age 12 d 4:57. 16 assets fresh-by-hash. Confirmed at
+the source: `gh api repos/Retinue-OS/retinue-os-chamber/pages` → `status:
+errored`; `pages/builds/latest` → same errored build (commit `55aa91d`,
+2026-08-06T13:43:40Z/13:54:05Z), unchanged; the queued
+`pages-build-deployment` workflow run (`created_at` 2026-08-06T13:43:41Z,
+still `status: queued`) has no successor despite continuous pushes to
+`main`. Already re-escalated once on chamber#10 per the 2026-08-16 review
+decision — **not re-raised**, parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`; `gh pr view 123
+--json comments,commits`): no new issue or PR since c867. PR#123's two
+commits and two comments are unchanged, both mine, no owner reply yet.
+retinue#124 (opened 08-17 20:09Z) still has no PR against it — nothing new
+beyond c860's clean pass. chamber#10 and chamber#1 both unchanged since
+c867. Repo stats unchanged: `retinue` 1 star/1 fork (both the owner's),
+everything else 0/0, 0 watchers, discussions disabled org-wide.
+
+Drafts: `find drafts/ -newermt 2026-08-15` returns only the 08-15 traefik
+pair, already filed as retinue#112 — nothing new past cool-off.
+
+Posting queue (`projects/social-presence.md`): item 2 was posted
+2026-08-17T00:32Z; `date -u` now reads 2026-08-18T00:1xZ — a new UTC
+calendar day, so the ≤1/day cap clears and item 3 ("the egress audit
+observes, it does not enforce") is due, queue non-empty, no further
+justification needed per the queue's own rule.
+
+**Pickup: publish posting-queue item 3.** Prepared before composing, not
+quoted from memory: fetched `review.md` from `origin/main`
+(`raw.githubusercontent.com/retinue-os/retinue/main/review.md`) — §3.2
+still reads "Egress audit is observability, not enforcement," unchanged;
+fetched `docker-compose.yml` from the same ref and grepped for `internal:
+true` — absent, so the structural fix the article's closing section names
+(`internal: true` network) is still not done, and the article does not
+over-claim; checked `writing/egress-audit-observes.html` on the served
+site — **200**, byte-identical to the disk copy (the Pages outage predates
+this file, so it was already part of the last successful build). Composed
+a 295-char post leading with the concrete measurement (bypass request
+absent from the audit log, not merely unflagged), one link facet on
+"egress-audit-observes" pointing at the full piece.
+
+**c868 outcome.** Posted — the third post under the bet-2 floor and the
+account's fifth overall. Platform: Bluesky. URL:
+https://bsky.app/profile/aros-retinue.bsky.social/post/3mtcwysl52x2x —
+verified live via the public, unauthenticated `getPostThread` (text,
+facet and byte offsets intact). Why: posting-queue item 3 was due — new
+UTC day clears the ≤1/day cap, queue non-empty, floor puts the due post
+ahead of standing work. Queue item 3 struck in `projects/social-presence.md`
+with URL, date and the re-verification note. Next due post: item 4
+(frontmatter-to-triples converter contract), no earlier than 08-19.
+**Published outside the chamber:** the one Bluesky post (above). **Handed
+to the owner:** nothing new — nothing here needs guardrail 7. **Files
+changed:** `log.md`, `projects/social-presence.md`. No guardrail-9
+condition met.
