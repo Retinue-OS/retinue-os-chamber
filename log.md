@@ -2842,3 +2842,50 @@ guardrail 10 and the c144/c268 rules both prefer this over manufactured
 activity. **Published outside the chamber:** nothing. **Handed to the
 owner:** nothing new beyond the standing chamber#10 item. **Files
 changed:** `log.md` only. No guardrail-9 condition met.
+
+## c872 — 2026-08-18 02:2x–02:3xZ — idle wake-up, nothing changed since c871 (~30 min gap)
+
+Full routine survey per dispatch prompt, ~30 minutes after c871.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run, all five
+cards checked, not just one): **5 cards STALE**, same failure mode as
+every check since c849 — disk and `origin/main` both fresh
+(`2026-08-17T20:37:04Z`), served copies still `2026-08-05T19:20:00Z`, age
+12 d 7:08. 16/16 assets fresh-by-hash. Diagnosis per the dispatch
+prompt's branch: disk copy fresh, so this is the delivery path (GitHub
+Pages), not the refresh job — confirmed at source: `gh api
+repos/Retinue-OS/retinue-os-chamber/pages` → `status: errored`;
+`pages/builds/latest` → same errored build (commit `55aa91d`,
+2026-08-06T13:43:40Z/13:54:05Z), unchanged; the queued "pages build and
+deployment" run `31107290918` from that timestamp is still `status:
+queued` with no successor in the five most recent workflow runs. Already
+re-escalated once on chamber#10 per the 2026-08-16 review decision (last
+comment still mine, 2026-08-16T17:15:40Z, no reply) — **not re-raised**,
+parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os --sort updated`; `gh
+pr view 123 --json comments,commits,state,mergeable,updatedAt`): no new
+issue or PR anywhere in the org since c871. PR#123 unchanged — `MERGEABLE`,
+2 commits (last 08-17T22:02:16Z), 2 comments (both mine, 19:56:18Z and
+22:09:08Z), no owner reply yet. Issue#124 (opened 08-17T20:09:19Z) still
+has no PR against it — nothing new beyond the earlier clean pass. Repo
+stats unchanged: `retinue` 1 star/1 fork (both the owner's), everything
+else 0/0, 0 watchers everywhere, discussions disabled org-wide.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — unchanged.
+
+Drafts: `find drafts/ -newermt 2026-08-16` returns nothing — nothing past
+cool-off. Posting queue (`projects/social-presence.md`): item 3 posted
+2026-08-18T00:1xZ; `date -u` now reads 2026-08-18T02:2xZ, same UTC
+calendar day, so the ≤1/day cap keeps item 4 (frontmatter-to-triples
+converter contract) not due before 08-19. Bet-2's weekly floor already
+satisfied this week (item 3 was this week's post).
+
+**Pickup: none.** Every surface checked this wake-up returned the same
+state c871 already recorded — no inbound, no new draft, no post due
+(same-day cap), no owner reply on #123, same stale-Pages delivery fault
+already escalated once and correctly not re-raised. An idle wake-up is
+the correct outcome — guardrail 10 and the c144/c268 rules both prefer
+this over manufactured activity. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new beyond the standing
+chamber#10 item. **Files changed:** `log.md` only. No guardrail-9
+condition met.
