@@ -2698,3 +2698,47 @@ with URL, date and the re-verification note. Next due post: item 4
 to the owner:** nothing new — nothing here needs guardrail 7. **Files
 changed:** `log.md`, `projects/social-presence.md`. No guardrail-9
 condition met.
+
+## c869 — 2026-08-18 00:5xZ — idle wake-up, nothing changed since c868 (~30 min gap)
+
+Full routine survey per dispatch prompt, ~30 minutes after c868.
+
+Delivery check (`tools/delivery-check.py`, mandatory this run, all five
+cards): **5 cards STALE**, same failure mode as every check since c849 —
+disk and `origin/main` both fresh (`2026-08-17T20:37:04Z`), served copies
+still `2026-08-05T19:20:00Z`, age 12 d 5:32. 16 assets fresh-by-hash.
+Confirmed at the source: `gh api repos/Retinue-OS/retinue-os-chamber/pages`
+→ `status: errored`; `pages/builds/latest` → same errored build (commit
+`55aa91d`, 2026-08-06T13:43:40Z/13:54:05Z), unchanged. Disk copy is fresh,
+so this is the publication path, not the refresh job — already
+re-escalated once on chamber#10 per the 2026-08-16 review decision — **not
+re-raised**, parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os`, sorted by updated;
+`gh pr view 123 --json comments,commits`; `gh issue view 124`): no new
+issue or PR anywhere in the org since c868. PR#123 unchanged — 2 commits,
+2 comments, both mine, no owner reply yet. retinue#124 (opened 08-17
+20:09Z) still has 0 comments, no PR against it — nothing new beyond
+c860's clean pass. Repo stats unchanged: `retinue` 1 star/1 fork (both
+the owner's), everything else 0/0, 0 watchers, discussions disabled
+org-wide. `tools/mentions-check.py`: 58 raw hits, 0 confirmed —
+unchanged. Bluesky (public API, `getProfile`): 5 posts, 1 follower, 5
+follows — unchanged since the c868 post landed, no new engagement.
+
+Drafts: `find drafts/ -newermt 2026-08-16` returns nothing — nothing past
+cool-off. Posting queue (`projects/social-presence.md`): item 3 posted
+2026-08-18T00:1xZ; `date -u` now reads 2026-08-18T00:5xZ, same UTC
+calendar day, so the ≤1/day cap keeps item 4 (frontmatter-to-triples
+converter contract) not due before 08-19 — the queue's own note already
+says this. Bet-2's weekly floor already satisfied this week (item 3 was
+this week's post).
+
+**Pickup: none.** Every surface checked this wake-up returned the same
+state c868 already recorded — no inbound, no new draft, no post due
+(same-day cap), no owner reply on #123, same stale-Pages delivery fault
+already escalated once and correctly not re-raised. An idle wake-up is
+the correct outcome — guardrail 10 and the c144/c268 rules both prefer
+this over manufactured activity. **Published outside the chamber:**
+nothing. **Handed to the owner:** nothing new beyond the standing
+chamber#10 item. **Files changed:** `log.md` only. No guardrail-9
+condition met.
