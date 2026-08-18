@@ -3164,3 +3164,83 @@ rules both prefer this over manufactured activity. **Published outside
 the chamber:** nothing. **Handed to the owner:** nothing new beyond the
 standing chamber#10 item. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c879 — 2026-08-18 06:1xZ — reviewed the owner's new PR#125 (bet 5), posted one review comment
+
+Full routine survey per dispatch prompt, ~30 min after c878.
+
+Delivery check (`tools/delivery-check.py`, all five cards, not just one):
+**5 cards STALE**, same failure mode as every check since c849 — disk
+and `origin/main` both fresh (`2026-08-17T20:37:04Z`), served copies
+still `2026-08-05T19:20:00Z`, age 12 d 10:54. 16/16 assets fresh-by-hash,
+self-test pass. Diagnosis per the dispatch prompt's branch: disk copy is
+fresh, so this is the delivery path (GitHub Pages), not the refresh job.
+Already escalated once on chamber#10 per the 2026-08-16 review decision
+(last comment mine, 2026-08-16T17:15:40Z, still no reply) — **not
+re-raised**, parked for the ~2026-08-30 review.
+
+Org survey (`gh search issues/prs --owner retinue-os --sort updated`;
+repo stats on all five repos; discussions via GraphQL): found **PR#125**,
+opened by the owner (`retog`) at 05:52:07Z, ~20 min before this wake-up —
+"fix(messenger): auto-whitelist a recipient after an outbound 1:1 send".
+Per the bet-5 clause (review the owner's own open PR/issue on the
+wake-up it is found, ahead of standing audit work), reviewed it in full:
+cloned the head branch, read both changed files
+(`scripts/triage_policy.py`, `scripts/whatsapp-gateway.py`) end to end
+rather than the diff alone, and traced every claim in the PR body against
+the code:
+
+- `auto_whitelist_on_send`'s signature and blacklist-wins logic match
+  `load_messenger_policy`/`render_messenger_policy` exactly.
+- Both send paths (`verify`-approved via `_execute_approved_send`, and
+  `allow`/`trust`+`user_approved` via the direct HTTP handler) funnel
+  through the single `_push` choke point where the new hook is called —
+  so "covers both paths" holds by construction, not by two call sites
+  that could drift apart.
+- Handle normalization lines up with the inbound side: `_jid_user`
+  strips to a bare user id with no `+`; `_autowhitelist_recipient` does
+  the same before whitelisting, so a reply actually matches.
+- `_lid_to_pn`/`_pn_to_lid` are local-store lookups under
+  `WA_CLIENT_LOCK`, called only after `_wa_send` has released it — no
+  deadlock — and the bare-number "try LID speculatively" fallback
+  matches the documented WhatsApp PN/LID split.
+- Group/broadcast skip and the swallow-all-exceptions wrapper are correct
+  for a best-effort hook that must never break a send.
+
+One gap, and it's the one thing in the PR body that isn't checkable from
+the diff: the description claims "Unit-tested `auto_whitelist_on_send`:
+fresh add, idempotent re-add, blacklist protection, empty/junk input, and
+gate integration" — but `gh pr view --json files` shows only the two
+source files changed; no test file. `tests/test_triage_policy.py`
+already has `test_messenger_policy_roundtrip_and_classify` doing the same
+load/render/classify dance this function reuses, so a
+`test_auto_whitelist_on_send` covering the described cases would fit
+directly and would be what keeps this behaving the same way once the
+promised Signal/Telegram follow-up touches the same helper. Posted as one
+comment, framed as a suggestion (nothing here blocks the merge):
+https://github.com/Retinue-OS/retinue/pull/125#issuecomment-5324353158
+
+No functional defect found — the logic checks out end to end. This is a
+clean-with-one-note review, same shape as c806/c809: the bet-5 counter
+(consecutive reviews finding nothing checkable) stays at **zero**, since
+this one did find something to say, even though it isn't a bug.
+
+PR#123 unchanged — `MERGEABLE`, no owner reply since 22:09:08Z
+2026-08-17. Repo stats unchanged: `retinue` 1 star/1 fork (both the
+owner's), other four repos 0/0, 0 discussions org-wide.
+
+Drafts: `find drafts/ -newermt 2026-08-16` returns nothing — nothing past
+cool-off. Posting queue (`projects/social-presence.md`): item 3 posted
+2026-08-18T00:1xZ (c868), `date -u` now 2026-08-18T06:1xZ, same UTC day
+— the ≤1/day cap keeps item 4 not due before 08-19. Bet-2's weekly floor
+already satisfied this week.
+
+**Pickup: one.** Reviewed PR#125 and posted one review comment on it —
+the single admissible action this wake-up, per bet 5's standing clause
+outranking survey-only audit work. **Published outside the chamber:**
+one GitHub PR review comment (link above), the sending identity is this
+account, openly Aros's, no guardrail-7/9 condition triggered (no legal
+exposure, no accusation, no unfixed vulnerability). **Handed to the
+owner:** nothing new beyond the standing chamber#10 item. **Files
+changed:** `log.md` only — the review itself lives on GitHub, not in
+this chamber.
