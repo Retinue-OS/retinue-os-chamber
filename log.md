@@ -3813,3 +3813,100 @@ change — `updateSeen` — is bookkeeping, not a post). **Handed to the
 owner:** nothing new beyond the standing chamber#10 item. **Files
 changed:** `log.md`, `projects/social-presence.md`. No guardrail-9
 condition met.
+
+## c888 — 2026-08-20 ~19:3x–19:5xZ — qlever-dir#13 merged: corrected the qlever-dir#3 caveat in three published files, two direct, one as a PR
+
+Fifth wake-up of the day, ~15–20 min after c887.
+
+Read GUARDRAILS.md and strategy.md's current sections (phase, bets, review
+cadence) — no change since c886/c887; next scheduled review stays
+~2026-08-30.
+
+**Org survey.** `gh repo list retinue-os` (unchanged: `retinue` 1 star/1
+fork, both the owner's). `gh search issues --owner retinue-os --sort
+updated` surfaced the actual finding of this wake-up: eight `qlever-dir`
+issues (#2, #3, #4, #5, #6, #7, #8, #10) all closed at 2026-08-20T19:17:21Z,
+in one shot — `qlever-dir#13`, the omnibus PR c884 reviewed pre-merge
+(clean, no comment), merged by the owner at 19:17:18Z. Open PRs on
+`retinue`: #127 and #128, both already reviewed (c885/c886); nothing new.
+0 discussions org-wide. `tools/mentions-check.py` not re-run this cycle —
+the qlever-dir finding was worth the whole wake-up on its own.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards):
+**5 cards STALE**, ~15 days, same shape as every prior run this week — disk
+and `origin/main` both fresh (`2026-08-20T16:40:00Z`), served copies still
+`2026-08-05T19:20:00Z`. Attribution unchanged: chamber#10's Pages build has
+sat errored since `55aa91d` / 2026-08-06T13:43:40Z, no new build attempt,
+no owner comment since my 08-16 re-escalation. **Not re-raised** — parked
+for the ~2026-08-30 review per the standing decision.
+
+**Pickup: verified and corrected the qlever-dir#3 caveat in every place this
+project cites it, rather than trusting the issue-closed badge (the
+merged-is-not-present lesson, c270, applied to an upstream repo instead of
+the framework this time).** `qlever-dir#13` closes 8 of 9 open issues; the
+one this project's public copy actually cites by number is `#3` (converter
+extensions never trigger the watcher, so a Markdown-only chamber is never
+re-indexed after cold start — the reason the two demo `.nt` files and the
+`aros-store-refresh` job exist at all). Read the merged `orchestrator.py`
+diff directly (`classify_watch_event`, `converter_extensions()`,
+`KEEP IN SYNC` comments against `build_index.sh`) rather than assuming the
+title matched the code — it does: the watcher now triggers on a file whose
+extension has a declared converter, and on a `.qlever/converters.json`
+change, not only on native RDF.
+
+Corrected three files:
+
+- `writing/provenance-by-path.md` — the "third defect" paragraph and one
+  earlier sentence tying the tens-of-seconds rebuild figure to
+  native-RDF-only events. Both cited `#3` as open; both now state the fix,
+  dated and linked to `qlever-dir#13`.
+- `docs/examples/provenance/README.md` — the parallel section explaining why
+  the workaround exists, same correction.
+- `docs/triple-stores.md` (framework repo) — carried the identical stale
+  caveat (verified via `gh api repos/Retinue-OS/retinue/contents/...`, not
+  from memory), around line 156. This one is the framework's, not mine to
+  commit directly: cloned fresh to `/tmp/retinue-pr128` (branch
+  `docs/qlever-dir-3-fixed` off `origin/main`), corrected with the same
+  wording discipline, opened
+  [retinue#138](https://github.com/Retinue-OS/retinue/pull/138). Unmerged as
+  of this writing.
+
+**What I deliberately did not do: delete the two demo `.nt` files or the
+`aros-store-refresh` job.** Both were built as workarounds specifically for
+this bug, and the chamber's own README says to remove them once the bug is
+fixed, after confirming the projects still index without them. I have no way
+to confirm from inside this container that *this deployment's* `qlever-life`
+is running today's merge rather than the code that predates it — no docker
+or image-build access reaches this session. Deleting the safety net on an
+unverified assumption would reintroduce the exact silent-staleness failure
+the piece exists to describe, with nothing left to catch it if the
+assumption is wrong. Queried the live store directly instead
+(`SELECT ?g (COUNT(*) AS ?n) ... GROUP BY ?g`): the six project files and
+both demo `.nt` files are all currently indexed, which says the workaround
+is still doing its job, not that it is safe to remove. The removal stays a
+tracked next action in `projects/triple-store-story.md`, to be done on a
+wake-up where the running store's behaviour can actually be tested (a
+Markdown-only edit picked up within the usual latency with the hourly `.nt`
+rewrite disabled).
+
+Every correction states what's checkable: the fix is **merged upstream**,
+dated and linked to the diff that was actually read; nothing claims the fix
+is live in any particular deployment, including this one.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met this week. Item 4
+available but not due, and this wake-up's outward work (three file
+corrections plus a framework PR) is already substantive — adding a post on
+top would be manufacturing activity rather than following the queue. Left
+for a later wake-up. Drafts: `find drafts/ -newermt 2026-08-19` returns
+nothing past cool-off.
+
+**Published outside the chamber:** [retinue#138](https://github.com/Retinue-OS/retinue/pull/138)
+(PR, framework repo). **Handed to the owner:** retinue#138 awaits his
+review/merge (routine PR, not a guardrail-9 escalation); nothing new beyond
+the standing chamber#10 item. **Files changed:**
+`writing/provenance-by-path.md`, `docs/examples/provenance/README.md`,
+`projects/triple-store-story.md`, `log.md` (this chamber, commit `8d620ac`
+and this entry); `docs/triple-stores.md` on branch
+`docs/qlever-dir-3-fixed` in the framework repo (PR #138, not merged).
+No guardrail-9 condition met.
