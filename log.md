@@ -3746,3 +3746,70 @@ later wake-up, consistent with c885's own precedent. Drafts: `find drafts/
 **Published outside the chamber:** nothing. **Handed to the owner:**
 nothing new beyond the standing chamber#10 item. **Files changed:**
 `log.md`, `projects/public-surface.md`. No guardrail-9 condition met.
+
+## c887 — 2026-08-20 ~18:4x–19:0xZ — checked Bluesky notifications directly; otherwise idle
+
+Fourth wake-up of the day, ~15–20 min after c886.
+
+Read GUARDRAILS.md and strategy.md's current sections (Bets, phase-end
+condition, review cadence) — no change since c886; next scheduled review
+stays ~2026-08-30.
+
+**Org survey.** Repeated the same checks as c886: `gh repo list retinue-os`
+(unchanged, `retinue` 1 star/1 fork, both the owner's, all else 0/0),
+`gh search issues --owner retinue-os --sort updated` (top 15, all recent
+items authored by `retog`), open PRs on `retinue` (#127, #128 — both
+reviewed, c885/c886), `qlever-dir` (#13 — reviewed clean, c884), none on
+`retinue-os-chamber`. Checked authorship/comments directly on the three
+newest issues with no PR yet (retinue#130, #135, `qlever-dir#14`): all
+authored by `retog`, 0 comments each — nothing checkable per bet 5's
+clause, unchanged from c884's assessment. 0 discussions org-wide
+(`gh api graphql`). `tools/mentions-check.py`: 58 raw hits, 0 confirmed,
+identical to every prior run.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory this run, all five
+cards): **5 cards STALE**, ~15 days, same shape as c884/c886 — disk and
+`origin/main` both fresh (`2026-08-20T16:40:00Z`), served copies still
+`2026-08-05T19:20:00Z`. Attribution re-confirmed: `gh api
+repos/Retinue-OS/retinue-os-chamber/pages/builds --paginate`, sorted by
+`created_at` — still no build attempt after `55aa91d` / errored /
+2026-08-06T13:43:40Z. This is the publish path (chamber#10), not this end.
+**Not re-raised** — parked for the ~2026-08-30 review per the standing
+decision; last comment on chamber#10 is still my own 08-16 re-escalation,
+unanswered.
+
+**Pickup: checked Bluesky notifications directly (`listNotifications`),
+found on this wake-up rather than assigned.** Nothing in the routine survey
+covers this owned channel's reply/mention surface — `mentions-check.py` and
+`web-mentions-check.py` are both GitHub/web-search only. Authenticated via
+`BSKY_EMAIL`/`BSKY_PASSWORD`, `getUnreadCount` read 2, `listNotifications`
+(limit 50) confirmed that is the account's entire lifetime notification
+history: the already-recorded 08-04 like (`andeeharry1.bsky.social`,
+`read`) and one **unread** `follow` from `wildsoundfestival.bsky.social`,
+2026-08-08T19:50:29Z — sitting unseen for twelve days. Pulled the profile
+before concluding anything: a film/screenplay-festival account, 25,346
+followers / 162,222 follows / 175 posts — a 6:1 follows:followers ratio is
+the mass-follow-for-follow-back shape, no bio or content overlap with the
+self-hosting/semantic-web audience bet 3 names. **Recorded as noise, not
+contact** — same disposition as the 08-04 like, same reasoning. **Not
+followed back** (guardrail 2). Marked seen via `updateSeen` so the account
+starts the next check from zero. Full write-up:
+`projects/social-presence.md`, appended after the 08-04 like section.
+**Does not move the phase** — the phase-end condition needs a reply,
+question, issue or PR "from a person who demonstrably read the content";
+a mass-follow account meets none of that, same standard applied to
+`andeeharry1` at c476.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met this week by items
+1–3; item 4 available but not due — a fourth wake-up today already carries
+outward work (this notification check plus three prior PR/issue reviews),
+and posting is not manufactured just because a slot is open. Left for a
+later wake-up, consistent with c884–886's own precedent. Drafts: `find
+drafts/ -newermt 2026-08-19` returns nothing past cool-off.
+
+**Published outside the chamber:** nothing new (the Bluesky account state
+change — `updateSeen` — is bookkeeping, not a post). **Handed to the
+owner:** nothing new beyond the standing chamber#10 item. **Files
+changed:** `log.md`, `projects/social-presence.md`. No guardrail-9
+condition met.
