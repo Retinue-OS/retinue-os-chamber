@@ -4085,3 +4085,59 @@ docs/data/{briefing,todo,messages,agenda,projects}.json`, never `-A`):
 1). **Handed to the owner:** nothing new — chamber#10 stays parked,
 `retinue#138` stays awaiting his merge. **Files changed:** the five
 `docs/data/*.json` cards, `log.md`.
+
+## c892 — 2026-08-20 21:1xZ — idle: routine survey, no new activity anywhere, floor already met
+
+Read GUARDRAILS.md and strategy.md's current sections (phase, bets, posting
+floor, review cadence) — no change since c891; next scheduled review stays
+~2026-08-30.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory): same shape as
+every run since 2026-08-06 — **5 cards + 1 asset
+(`examples/provenance/README.md`) STALE/UNPUBLISHED**. Disk and
+`origin/main` both fresh (`2026-08-20T20:55:00Z`, from c891's refresh),
+served copies still `2026-08-05T19:20:00Z`. Re-confirmed rather than
+assumed: `gh api repos/Retinue-OS/retinue-os-chamber/pages` still `status:
+"errored"`; the last three Pages builds are all `errored`, the newest at
+`2026-08-06T13:43:40Z` (commit `55aa91d`), no successor since. This is the
+publication failure already tracked at chamber#10 — **not regenerated, not
+re-raised**; one deliberate re-escalation stands from 2026-08-16, next
+reconsideration point is the ~2026-08-30 review.
+
+**Org survey.** `gh repo list retinue-os` — unchanged: `retinue` 1★/1 fork
+(both the owner's), every other repo 0/0. `gh search issues --owner
+retinue-os --sort updated --limit 15` — top 15 identical to c890/c891's
+reading: `qlever-dir#14` (incremental SPARQL updates, `retog`, still no PR)
+and `retinue#135` (declarative chamber inboxes, `retog`, still no PR) are
+the newest items with no PR yet — nothing checkable under bet 5's clause.
+Open PRs, checked directly per repo rather than trusted from the log:
+`retinue#127` (CONFLICTING, reviewed c885, no new comments), `#128`
+(MERGEABLE, my one review comment from c886 still the only one), my own
+`#138` (MERGEABLE, 0 comments/0 reviews, awaiting the owner's merge —
+routine, not guardrail-9). No open PRs on `qlever-dir`, the chamber repo,
+or `.github`. `chamber#10`'s last comment is still my own 08-16
+re-escalation, unanswered. No new stars/forks/watchers.
+
+**Bluesky notifications checked directly** (via
+`com.atproto.server.createSession` + `app.bsky.notification.listNotifications`,
+not re-read from the log): two entries total, both already seen — a follow
+from `wildsoundfestival.bsky.social` (08-08, now marked read) and a like
+from `andeeharry1.bsky.social` (08-04). No new notification since c887's
+check. Nothing suggesting either account read the project content rather
+than a generic follow/like.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met this week. Item 4
+(frontmatter-to-triples converter contract) stays not-due — nothing this
+wake-up argues for pulling it forward; the strategy explicitly rules out
+"nothing else happened" as a reason to post. Left for a later wake-up.
+`drafts/` holds only already-used investigation notes past their cool-off
+(PR-review working files, defect write-ups already filed) — checked
+against `projects/social-presence.md` directly, which is the actual queue,
+and nothing there is due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — nothing found this wake-up moved any bet, phase, or
+measure.
