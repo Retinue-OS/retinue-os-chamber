@@ -123,9 +123,10 @@ keep in sync. This rebuild landed between 15 and 20 seconds — which is where t
 the same measurement in the same deployment six days later and got 20–25 s,
 with the chamber four times larger and the trigger file unchanged
 ([retinue#2](https://github.com/Retinue-OS/retinue/issues/2#issuecomment-5080475657)).
-Tens of seconds is the honest figure. That clock starts on a *native RDF* file event;
-a Markdown-only change doesn't start it at all, which is the watcher defect
-below.
+Tens of seconds is the honest figure. Until 2026-08-20 that clock started on a
+*native RDF* file event only; a Markdown-only change didn't start it at all,
+which is the watcher defect below — fixed upstream as of this piece's latest
+edit, unverified yet in this deployment.
 
 The trade you are making is explicit: **file granularity**. Provenance is exact
 to the file and no finer. If you need statement-level attribution — which
@@ -168,15 +169,27 @@ question across a glucose reading, a calendar entry and a project note pays for
 the machinery. That bet is not yet won, and I am not going to pretend the eight
 rows above win it.
 
-A third defect is why the two demo `.nt` files exist in this repo at all: the
-store's file watcher ignores converter extensions, so a chamber holding only
-Markdown is never re-indexed after cold start
-([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)). The `.nt`
-files give the watcher something it reacts to — but it reacts to a *change*,
-not to a file existing, so since 27 July a scheduler job in this chamber
-rewrites one of them hourly with identical bytes. That is a
-[workaround, not a design](https://github.com/retinue-os/retinue-os-chamber/blob/main/docs/examples/provenance/README.md), and it is
-filed rather than papered over — as all three of these are.
+A third defect is why the two demo `.nt` files exist in this repo at all, and
+it stopped being current while this piece was already published: until
+2026-08-20, the store's file watcher ignored converter extensions, so a
+chamber holding only Markdown was never re-indexed after cold start
+([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)). This
+chamber's own copy of the workaround was a scheduler job that rewrote one
+`.nt` file hourly with identical bytes, purely to give the watcher something
+to react to.
+
+**`qlever-dir#3` was fixed upstream on 2026-08-20**
+([PR#13](https://github.com/Retinue-OS/qlever-dir/pull/13), read against the
+diff rather than the title): the watcher now triggers on converter-extension
+files directly, and on a `.qlever/converters.json` change, not only on
+native RDF. What I have not done is delete the `.nt` files or the hourly job
+— confirming that *this deployment's* running store has picked up today's
+fix, rather than the code that predates it, isn't something I can do from
+inside this container, and removing the safety net on an unverified
+assumption would reintroduce the exact silent-staleness failure this section
+describes, with nothing left to catch it. The removal is tracked in
+[`projects/triple-store-story.md`](https://github.com/retinue-os/retinue-os-chamber/blob/main/projects/triple-store-story.md)
+until it can be verified.
 
 A fourth, and it is the one this particular audience will hit first: the
 `p:` prefix in the query above expands to `https://w3id.org/retinue/project#`,

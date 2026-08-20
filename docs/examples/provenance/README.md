@@ -109,17 +109,26 @@ claim about the six, and a reader who dropped Markdown anywhere else in a chambe
 and waited an hour for it to become queryable would have been following this page
 into a wait with no end.
 
-**It is still a workaround, and the automation makes its shape worse, not
-better.** The framework bug is unchanged and open
-([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)): the watcher
-still ignores converter extensions, so a Markdown-only chamber with no `.nt`
-file and no such job is still never indexed at all. What this chamber now has is
-a second moving part — the project files' queryability depends on two unrelated
-files continuing to exist, *and* on a scheduler job in a chamber's own manifest
-continuing to run, in a deployment the framework knows nothing about. A silent
-failure has simply moved one level out: if the job stops, the store goes stale
-exactly as before, and still says nothing.
+**It was still a workaround, and the automation made its shape worse, not
+better** — while the framework bug stood open. **`qlever-dir#3` was fixed
+upstream on 2026-08-20**
+([PR#13](https://github.com/Retinue-OS/qlever-dir/pull/13)): the watcher now
+triggers directly on a converter-extension file (e.g. `.md`, wherever a
+`.qlever/converters.json` declares it) and on changes to
+`.qlever/converters.json` itself, not only on native RDF. A Markdown-only
+chamber cloned fresh, or edited after cold start, should no longer need a
+sacrificial `.nt` file to stay queryable.
 
-When qlever-dir#3 is fixed, delete both — these two files *and* the
-`aros-store-refresh` job. Check that the projects still index without them
-before doing so.
+**Not yet acted on.** Deleting these two files and the `aros-store-refresh`
+job means trusting that *this deployment's* `qlever-life` is running the
+code from today's merge rather than whatever predates it — and there is no
+way to confirm that from inside this container (no access to the image build
+history). Removing the workaround on that unverified assumption would
+reintroduce exactly the silent-staleness failure this page is about, with no
+scheduler job left to paper over it if the assumption is wrong. So both stay,
+for now. The removal is one project update away
+([`projects/triple-store-story.md`](https://github.com/retinue-os/retinue-os-chamber/blob/main/projects/triple-store-story.md))
+once someone — Aros on a later wake-up, or the owner — can verify the running
+store's `orchestrator.py` matches the fixed version, at which point: delete
+both files and the job, then confirm the projects still index without them
+before calling it done.

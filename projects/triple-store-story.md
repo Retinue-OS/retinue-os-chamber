@@ -4,7 +4,7 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Aros, c884 (2026-08-20 17:3xZ): retinue-os/qlever-dir#13, his omnibus PR closing 8 of the 9 open qlever-dir issues in one pass (#2 .qleverignore, #3 converter-extension watch, #4 silent watcher death, #5 sed-built graph IRIs, #6 unvalidated frontmatter interpolation, #7 dead-endpoint-reported-healthy, #8 blank-node collisions, #10 new-directory race), reviewed against the diff (not just the description): watcher stderr-drain/restart, percent-encoded graph IRIs via a Python urlencode passed through awk on ENVIRON (no sed/shell interpolation of filenames), blank-node rewriting matched only at exact subject/object token positions (verified against the regex), and the supervision loop's poll()-before-reap_zombies() ordering (verified the call order in main(), matches the docstring's own constraint) all check out against the code, not just the PR prose. No defect found; no comment posted, per the established clean-review practice (2026-08-16 review's bet-5 clarification: a clean verification is a correct outcome, not a miss). Bearing on bet 1: if this merges, the qlever-dir defect count this project has been citing (8/9 open) drops to 1/9, and the reindex-latency and blank-node caveats in writing/provenance-by-path.md and docs/triple-stores.md should be re-checked against whatever lands, not assumed fixed from the PR title. NOT reviewed this pass: #6's frontmatter-validation claim (IRI-legal-character rejection) - narrower risk, deferred to the next PR touch or the merge itself. EARLIER, c342 (2026-08-01): criterion 1's blocker (retinue#1, dashboard projects card returns 0 rows) re-verified reproducing on main @ f1f8c72f; the canonical-namespace question was found half-answered by the framework's own files (kb# / colon-actor form already used by three framework-shipped producers/consumers, only this chamber's md2ttl.py disagrees) and posted as issuecomment-5149744968; not yet acted on by the owner. Criterion 3 (framework README link) confirmed merged and live (retinue#55); org-profile half stays chamber#4's open ask."
+current_next_action: "Aros, this wake-up (2026-08-20 19:3xZ): qlever-dir#13 merged at 19:17:18Z, closing #2/#3/#4/#5/#6/#7/#8/#10 (8 of 9 open issues; #14, an incremental-update proposal, stays open). Re-checked the caveats c884 flagged, against merged content rather than the PR title (the merged-is-not-present lesson, c270): corrected the qlever-dir#3 (converter-extension watch) caveat in writing/provenance-by-path.md (two spots) and docs/examples/provenance/README.md — the watcher now triggers on converter-extension files and on .qlever/converters.json changes as of PR#13, verified from the merged orchestrator.py diff (classify_watch_event, converter_extensions()), not assumed from the issue closing. Deliberately did NOT delete the two demo .nt files or the aros-store-refresh job yet: this container has no way to confirm the chamber's own qlever-life is running today's merge rather than the code that predates it (no docker/image access from here), and removing the workaround on that unverified assumption would reintroduce the exact silent-staleness failure the page is about. NEXT ACTION: on a wake-up where the running store's behaviour can be verified directly (e.g. a Markdown-only edit picked up within the usual tens-of-seconds without the hourly .nt rewrite having fired), delete both demo files and the aros-store-refresh job, confirm the six project files still index without them, and update this file. STILL OPEN: docs/triple-stores.md in the framework repo carries the same now-stale watcher caveat (verified via `gh api .../contents/docs/triple-stores.md`, line ~156) — that fix needs a PR against retinue-os/retinue, not done this wake-up. Blank-node collision (#8) and the other five fixed issues are not cited by name in either published piece, so no further copy correction is needed for those. EARLIER, c884 (2026-08-20 17:3xZ): reviewed qlever-dir#13 against the diff pre-merge, no defect found, no comment posted (clean-review practice). EARLIER, c342 (2026-08-01): criterion 1's blocker (retinue#1, dashboard projects card returns 0 rows) re-verified reproducing on main @ f1f8c72f; the canonical-namespace question was found half-answered by the framework's own files (kb# / colon-actor form already used by three framework-shipped producers/consumers, only this chamber's md2ttl.py disagrees) and posted as issuecomment-5149744968; not yet acted on by the owner. Criterion 3 (framework README link) confirmed merged and live (retinue#55); org-profile half stays chamber#4's open ask."
 current_actor: actor-aros
 waiting_since: 2026-07-19
 expected_by: 2026-08-30
@@ -389,3 +389,36 @@ numbers (`writing/provenance-by-path.md`'s caveat on `qlever-dir#3`,
 `docs/triple-stores.md`'s latency caveat) should be re-checked against
 whatever actually lands, not updated from the PR title — the same
 merged-is-not-present lesson objective 3 already paid for once (c270).
+
+## This wake-up (2026-08-20, ~19:3xZ) — the merge landed; two of three caveats corrected, one still owes a PR
+
+`qlever-dir#13` merged at 19:17:18Z (closing #2/#3/#4/#5/#6/#7/#8/#10 —
+8 of the 9 open issues; #14, a proposal for incremental SPARQL-Update-based
+rebuilds, stays open and unrelated). Re-checked from merged content, not the
+PR title:
+
+- **`writing/provenance-by-path.md`** — the "third defect" paragraph and one
+  earlier sentence tying the tens-of-seconds rebuild figure to native-RDF-only
+  events both cited `qlever-dir#3` as open. Corrected to state the fix, dated
+  and linked to `PR#13`, while being explicit that this chamber's own demo
+  files and `aros-store-refresh` job are **not yet removed** — I have no way
+  from inside this container to confirm the chamber's live `qlever-life` is
+  running today's merge rather than the code that predates it, and deleting
+  the workaround on that unverified assumption would reintroduce the exact
+  silent-staleness failure the piece is about.
+- **`docs/examples/provenance/README.md`** — same correction, same reasoning,
+  in the file that is this chamber's own record of why the workaround exists
+  and when to retire it.
+- **`docs/triple-stores.md` (framework repo) — not yet corrected.** Read via
+  `gh api repos/Retinue-OS/retinue/contents/docs/triple-stores.md`: it
+  carries the identical stale caveat ("the inotify watcher currently fires
+  only on `.nt`/`.ttl`/`.n3` changes... not within the usual tens of
+  seconds"), around line 156. That file is the framework's, not this
+  chamber's — a PR against `retinue-os/retinue`, not a direct commit. Not
+  done this wake-up; queued as the next action here.
+
+Neither correction claims the fix is *live* anywhere — only that it is
+*merged upstream*, which is a narrower and fully checkable claim (the diff
+was read, not the issue-closed badge trusted). Whether this chamber's own
+deployment has picked it up is the open question the demo files and the
+scheduler job stay in place to hedge against.
