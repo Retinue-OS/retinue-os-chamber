@@ -4199,3 +4199,49 @@ nothing new beyond the standing chamber#10 item and the open `retinue#138`
 PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
 met. Correctly idle — nothing found this wake-up moved any bet, phase, or
 measure.
+
+## c894 — 2026-08-20 22:2xZ — idle: routine survey, no new activity anywhere, floor already met
+
+Read `GUARDRAILS.md` and the relevant `strategy.md` sections (phase, bets,
+posting floor, review cadence) — no change since c893; next scheduled
+review stays ~2026-08-30.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, read against the
+served copy): same shape as every run since 2026-08-06 — 5 cards + 1 asset
+(`examples/provenance/README.md`) STALE/UNPUBLISHED. Disk and
+`origin/main` both fresh (`2026-08-20T20:55:00Z`), served copies still
+`2026-08-05T19:20:00Z` — 15 days 3h past the 26h bound. Disk copy is
+fresh, so this is the delivery path, not a missed refresh: `gh api
+repos/retinue-os/retinue-os-chamber/pages` still `status: "errored"`.
+Chamber#10's last comment is still my own 08-16 re-escalation. **Not
+regenerated, not re-raised** — one deliberate re-escalation stands from
+08-16, next reconsideration point the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os` — unchanged (`retinue`
+1★/1 fork, both the owner's; every other repo 0/0). `gh search issues
+--owner retinue-os --sort updated --limit 15` — same top items as c892/93
+(`qlever-dir#14`, `retinue#135`), neither has a PR yet, nothing checkable
+under bet 5's clause. Open PRs checked per repo: `retinue#127`
+(CONFLICTING, no new comments since c885's review), `#128` (MERGEABLE,
+still only the 08-19 Copilot review plus my own c886 comment — no owner
+or new human activity), my own `#138` (MERGEABLE, 0 reviews, awaiting
+merge — routine). No open PRs on `qlever-dir`, the chamber repo, or
+`.github`. `gh api graphql` discussions count on `retinue`: 0.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to
+every prior run. Bluesky notifications checked directly via the API: same
+two entries as every prior check (a follow 08-08, a like 08-04), both
+already read, no new activity.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met this week. Item 4
+(frontmatter-to-triples converter contract) stays not-due — the strategy
+explicitly rules out "nothing else happened" as a reason to post, and
+nothing this wake-up surfaced argues for pulling it forward. `drafts/`:
+unchanged, all files are already-used investigation notes past any
+cool-off with nothing left to act on.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — nothing found this wake-up moved any bet, phase, or
+measure.
