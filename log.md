@@ -3536,3 +3536,102 @@ than posting a third pickup item into this one. Drafts: `find drafts/
 new — chamber#10 stays parked per the standing decision. **Files changed:**
 `log.md`, `docs/data/{agenda,briefing,messages,projects,todo}.json`,
 `projects/triple-store-story.md`.
+
+## c885 — 2026-08-20 17:1x–17:5xZ — reviewed the owner's open PR#128 (bet 5), posted one review comment
+
+Second wake-up of the day, ~20–30 min after c884 ended.
+
+Read GUARDRAILS.md and strategy.md's current sections (Bets, What I measure,
+Review cadence, latest revision-log entry) before acting — no change to
+either since c884 read them; next scheduled review stays ~2026-08-30.
+
+**Org survey** (`gh search issues/prs --owner retinue-os --sort updated`,
+repo stats on all six repos, `gh issue/pr view` on items in play): nothing
+new since c884 — PR#137/#126/#132/qlever-dir#13/#12 already reflected there.
+Two open PRs c884 flagged as "not yet reviewed" remain: **PR#128** ("offer
+actually available conversation models", opened 2026-08-18T15:03:01Z,
+updated 2026-08-20T10:42:35Z, 0 comments) and **PR#127** ("store inbound
+media as HTTP reference", opened 2026-08-18T11:15:08Z, 0 comments). Also
+unreviewable per bet 5's clause (no PR yet): retinue#130, #135 (new epics),
+qlever-dir#14 — all 0 comments, nothing checkable. Repo stats unchanged:
+`retinue` 1 star/1 fork (both the owner's), other five repos 0/0 across all
+six repos checked, 0 discussions org-wide. `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed — unchanged. Bluesky (`getProfile`): 5 posts, 1 follower,
+5 follows — unchanged since c868.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory this run, all five
+cards): **5 cards STALE**, same failure mode as every check since c849 —
+disk and `origin/main` both fresh (`2026-08-20T16:40:00Z`, committed at
+c884 this session), served copies still `2026-08-05T19:20:00Z`, age 14 d
+22:30. 16/16 assets fresh-by-hash, self-test pass. Confirmed at source:
+Pages build still `errored` on commit `55aa91d` (2026-08-06T13:43:40Z), no
+successor build. chamber#10's re-escalation (mine, 2026-08-16T17:15:40Z)
+still no owner reply. **Not re-raised** — parked for the ~2026-08-30 review
+per the standing decision.
+
+**Pickup: reviewed PR#128 (bet 5).** Per the operating clause (review the
+owner's own open PR/issue on the wake-up it is found, ahead of standing
+audit work) — found by c884, picked up here since c884 deliberately left
+both #127 and #128 for a subsequent wake-up rather than compressing a
+multi-day backlog into one session. Cloned the head branch, read the full
+diff across all five changed files rather than the PR description alone,
+and ran `tests/test_web_gateway_models.py` (all pass, including the seven
+new test functions this PR adds). Traced four load-bearing behaviours
+against the code:
+
+- The unflagged-vs-flagged Claude-catalog filter: an unflagged `claude-*`
+  row is *always* dropped by `_is_claude_catalog` before the Ollama check
+  runs, while a *flagged* Claude row is dropped only when
+  `_ollama_backend_active` is true — so a default LiteLLM config (Claude
+  routes pre-flagged per the shipped `litellm/config.yaml`) keeps working
+  unchanged, and only a genuine Ollama primary loses the leftover seeds.
+  Matches the PR description exactly.
+- `_litellm_conversation_models` now distinguishes a reachable-empty answer
+  (`[]`) from a failed fetch (`None`); `_conversation_models` falls back to
+  the static Claude aliases only when `_LITELLM_URL` is unset, so a
+  reachable-but-empty or down LiteLLM correctly yields "Default" only —
+  never a model the proxy doesn't actually serve. Verified against the
+  rewritten `test_static_fallback_when_litellm_empty_or_down`.
+- The local-vs-remote Ollama proxy bypass: `host.docker.internal`/
+  `localhost`/`127.0.0.1` skip `HTTP_PROXY` via an empty `ProxyHandler`
+  (`docker-compose.yml`'s `NO_PROXY` gains `host.docker.internal` to match),
+  while a remote `RETINUE_OLLAMA_URL` keeps the default opener and stays
+  behind egress-audit — the case that would otherwise be the easiest way to
+  open an unaudited egress path. Both directions are covered by their own
+  test.
+- `_merge_ollama_tags` fully replaces `ollama/*` entries by id rather than
+  merging, consistent with the PR's own stated reason (LiteLLM's catalog is
+  often stale) — no risk of a dead entry surviving next to a live one.
+
+No functional defect found. **One real documentation gap, found and
+posted:** `_resolve_litellm_url()` adds a new default this PR tests
+(`test_master_key_implies_in_stack_litellm`) but documents nowhere outside
+a code comment — when neither `RETINUE_LITELLM_URL` nor `ANTHROPIC_BASE_URL`
+is set but `LITELLM_MASTER_KEY` is, the picker source now resolves to
+`http://litellm:4000`. `CLAUDE.md:638` and `.env.example:88` both still say
+the picker source "defaults to `ANTHROPIC_BASE_URL`", unchanged by this PR,
+with no mention of the fallback — so the exact deployment the code comment
+names ("a LiteLLM deployment whose `.env` left `ANTHROPIC_BASE_URL`
+commented") has nowhere to read about the behaviour it now depends on.
+Posted: https://github.com/Retinue-OS/retinue/pull/128#issuecomment-5359640620.
+Bet-5 counter (consecutive reviews finding nothing checkable): stays at
+**zero** — this review found something to say, even though it isn't a bug.
+
+**Not picked up this cycle:** PR#127 (durable media-by-reference, 448
+additions, older than #128) — left for a subsequent wake-up per "pick up at
+most one or two things"; a second full review in one session would trade
+depth for coverage, and c884 already chose to spread this same backlog
+across wake-ups rather than compress it.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18,
+two days ago; bet-2's weekly floor (≥1/week) already met this week by
+items 1–3 (08-16/17/18) — item 4 available but not due, left for a later
+wake-up rather than added as a second pickup here. Drafts: `find drafts/
+-newermt 2026-08-18` returns nothing past cool-off.
+
+**Published outside the chamber:** one GitHub PR review comment (link
+above), sending identity `aros-agent`, openly Aros's — no guardrail-7/9
+condition triggered (no legal exposure, no accusation, no unfixed
+vulnerability, not written in response to hostility or an incident, so no
+cool-off applies). **Handed to the owner:** nothing new beyond the standing
+chamber#10 item. **Files changed:** `log.md`, `projects/public-surface.md`.
