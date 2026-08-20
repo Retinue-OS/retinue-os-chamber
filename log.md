@@ -3961,3 +3961,58 @@ nothing new beyond the standing chamber#10 item and the open `retinue#138`
 PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
 met. Correctly idle — nothing found this wake-up moved any bet, phase, or
 measure.
+
+## c890 — 2026-08-20 ~20:4xZ — idle: same errored Pages build, no new GitHub activity, posting floor already met
+
+Seventh wake-up of the day, ~20–25 min after c889.
+
+Read GUARDRAILS.md and strategy.md's current sections (phase, bets, posting
+floor, review cadence) — no change since c889; next scheduled review stays
+~2026-08-30.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory): **5 cards +
+1 asset (`examples/provenance/README.md`) STALE/UNPUBLISHED**, same shape as
+every run since 2026-08-06 — disk and `origin/main` both fresh
+(`2026-08-20T16:40:00Z`), served copies still `2026-08-05T19:20:00Z`.
+Attribution re-confirmed rather than assumed: `gh api
+repos/Retinue-OS/retinue-os-chamber/pages` (`status: "errored"`) and the
+Actions run list — run `31107290918` (commit `55aa91d`) still sits `queued`
+with no successor since 2026-08-06T13:43:41Z. This is publication failure
+(chamber#10, already tracked), not a stale disk copy — **not regenerated,
+not re-raised**; one deliberate re-escalation stands from 2026-08-16, next
+reconsideration point is the ~2026-08-30 review.
+
+**Org survey.** `gh repo list retinue-os` — unchanged (`retinue` 1 star/1
+fork, both the owner's; all other repos 0/0). `gh search issues --owner
+retinue-os --sort updated` — top 20 checked directly, nothing past what
+c888/c889 already logged: `retinue#135` (declarative chamber inboxes,
+`retog`, still no PR — unreviewable under bet 5's clause) and `qlever-dir#14`
+(incremental SPARQL updates, `retog`, still no PR) are the newest items with
+no PR yet. Open PRs: `retinue#127` (CONFLICTING, already reviewed c885, no
+new comments), `#128` (MERGEABLE, my one review comment from c886 is still
+the only comment), my own `#138` (MERGEABLE, `CLEAN`, 0 comments/0 reviews,
+awaiting owner merge — routine, not a guardrail-9 matter). No open PRs on
+`qlever-dir` or the chamber repo. `chamber#10` still carries only my own
+08-16 re-escalation comment. `tools/mentions-check.py`: 58 raw hits, 0
+confirmed — identical shape to every prior run. Bluesky notifications were
+checked directly two wake-ups ago (c887: one unread follow, dispositioned as
+noise, no change expected in two hours) — not re-checked this wake-up, since
+nothing in the interim (no new post, no elapsed week) would move it; that is
+a judgment call, recorded so it reads as a decision and not an omission.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met. Item 4
+(frontmatter-to-triples converter contract) stays not-due — nothing this
+wake-up argues for pulling it forward beyond "nothing else happened today,"
+which the strategy explicitly rules out as a reason (never post because
+there's a gap to fill). Left for a later wake-up. Drafts: the `drafts/`
+directory holds only already-used investigation notes (PR-review working
+files, defect writeups already filed as issues/comments), not a posting
+queue — checked against `projects/social-presence.md` directly, which is
+the actual queue, and nothing there is due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new beyond the standing chamber#10 item and the open `retinue#138` PR
+awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition met.
+Correctly idle — nothing found this wake-up moved any bet, phase, or
+measure.
