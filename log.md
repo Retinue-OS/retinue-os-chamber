@@ -3635,3 +3635,114 @@ condition triggered (no legal exposure, no accusation, no unfixed
 vulnerability, not written in response to hostility or an incident, so no
 cool-off applies). **Handed to the owner:** nothing new beyond the standing
 chamber#10 item. **Files changed:** `log.md`, `projects/public-surface.md`.
+
+## c886 — 2026-08-20 18:0x–18:3xZ — reviewed the owner's open PR#127 (bet 5), clean
+
+Third wake-up of the day, ~10–40 min after c885 ended.
+
+Read GUARDRAILS.md and strategy.md's current sections (Bets, What I measure,
+Review cadence, latest revision-log entry) before acting — no change since
+c885; next scheduled review stays ~2026-08-30.
+
+**Org survey.** `gh repo list retinue-os` (stars/forks on every **public**
+repo in the org, including `royal-retinue-video`, not yet tracked in this
+log — 0/0; the org also holds one private repository, out of scope for a
+public survey), `gh search issues --owner retinue-os --sort updated` (top
+15), `gh pr list` on `retinue` and `qlever-dir`, a GraphQL discussions
+count. Nothing new since c885: `retinue` 1 star/1 fork (the owner's own),
+all other public repos 0/0, 0 discussions org-wide. Two open PRs on
+`retinue` (#127, #128 — #128 already reviewed at c885), one on `qlever-dir`
+(#13, reviewed clean at c884). retinue#130/#135 (new epics) and
+qlever-dir#14 still carry no PR — nothing checkable per bet-5's clause.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — unchanged. GitHub
+`notifications` API still 403 (known role/token gap, not re-diagnosed).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory this run, all five
+cards): **5 cards STALE**, same failure mode as every check since c849 —
+disk and `origin/main` both fresh (`2026-08-20T16:40:00Z`), served copies
+still `2026-08-05T19:20:00Z`, age just under 15 days. 16/16 assets
+fresh-by-hash, self-test pass. Attribution per the standing rule (disk
+fresh → check the publish path, don't regenerate): re-read
+`gh api repos/Retinue-OS/retinue-os-chamber/pages` and `.../pages/builds` —
+status still `errored`, latest build still `55aa91d` / `2026-08-06T13:43:40Z`
+/ `"Page build failed."`, identical to every prior reading since c811. No
+successor build attempt exists. chamber#10's last comment is still my own
+2026-08-16T17:15:40Z re-escalation; no owner reply. **Not re-raised** —
+parked for the ~2026-08-30 review per the standing decision.
+
+**Pickup: reviewed PR#127 (bet 5)** — "store inbound media as HTTP
+reference, not inline RDF" (448/−90 across `scripts/inbound_store.py`, the
+signal/whatsapp/telegram gateways, and `tests/test_inbound_image_forward.py`).
+Found by c884, deliberately left unreviewed by both c884 and c885 (each
+picked #128 or other work instead); picked up here per the operating clause
+(review the owner's own open PR ahead of standing audit work).
+
+Cloned the head branch fresh (`gh pr checkout 127` into a scratch clone
+rather than trusting the diff alone), compiled all four changed scripts
+(`py_compile`, clean), and ran the two affected test files —
+`test_inbound_image_forward.py` and `test_inbound_store.py` — both pass in
+full (11 checks total), matching the PR's own claim. Read the complete
+1024-line diff, not the PR description alone, and traced the parts most
+likely to hide a bug:
+
+- The new `kb:attachment` predicate is multi-valued (one IRI triple per
+  attachment, deduped via `dict.fromkeys`) and deliberately carries no media
+  type in RDF — that comes back from the HTTP response's `Content-Type` on
+  resolution, correctly placed once the payload lives behind a URL rather
+  than inline.
+- `store_media`/`load_media` key blobs by `token_hex(16)` (32 lowercase hex
+  chars), never an untrusted filename; `load_media` validates the id
+  against `_MEDIA_ID_RE` *before* touching the filesystem, so a crafted
+  `media_id` cannot path-traverse out of the media directory — checked the
+  regex (`^[0-9a-f]{32}$`) and the write path (`store_media` always
+  generates via `secrets.token_hex`, so a legitimate id can never fail its
+  own check).
+- `GET /media/<id>` is token-gated (`self._authorized()`) identically in
+  all three gateways, matching the PR's "token-gated like /qr" claim —
+  checked each of the three `do_GET` additions directly, not just one and
+  assumed the rest matched.
+- Every `_store_media_ref` call is wrapped in a bare `except Exception`,
+  non-raising, so a failed blob write never costs the message itself — only
+  the attachment link is skipped. Consistent across all three gateways.
+- The size cap (`MAX_INBOUND_FILE_BYTES`) gates only the transient,
+  base64-encoded `files` payload; the durable reference is stored
+  unconditionally, matching the PR's stated "consistency over
+  data-in-graph" design (one mechanism regardless of size, not a
+  size-keyed inline-vs-reference split) — verified against the oversized-
+  image test case (`files == []` but `len(urls) == 1`) in all three
+  gateways' test coverage.
+- Blobs carry no RDF extension (`<id>` and `<id>.type`, no `.nt`/`.ttl`/
+  `.n3`), so qlever-dir's converter-extension indexing (`.qlever/
+  converters.json`, `md` → `md2ttl.py` in this chamber) never picks them
+  up — confirmed no `.type`/no-extension converter is declared anywhere in
+  the framework or this chamber.
+
+No functional defect found. Checked one thing that could have been a
+documentation gap (the pattern PR#128 had) — whether the new
+`kb:attachment` predicate is documented anywhere outside the code comment —
+and it is not, but neither is any other `inbound_store.py` predicate
+(`kb:text`, `kb:delivered`, `kb:messageId`): the internal message-store
+schema has never been documented in `CLAUDE.md` or `docs/`, so this PR
+introduces no new gap relative to the existing convention — not filed as a
+finding. **No comment posted** — a clean review is a correct bet-5 outcome
+per the 2026-08-16 clarification; counter (consecutive reviews finding
+nothing checkable) stays at **zero**, since this one did find checkable
+content and verified it clean, which is a different thing from finding
+nothing to check.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (2
+days ago); bet-2's weekly floor (≥1/week) already met this week by items
+1–3; item 4 (frontmatter-to-triples converter contract, bet 1) available
+but not due. While preparing this survey, ran the chamber's own reference
+converter (`projects/.qlever/md2ttl.py`) against the exact frontmatter
+block already published in `docs/triple-stores.md` — confirmed it produces
+the triples that doc claims, so the artifact for item 4 is verified and
+ready; not posted this cycle, since the floor is already met and adding a
+second pickup here (on top of the PR review) would trade the "pick up at
+most one or two things" discipline for manufactured activity. Left for a
+later wake-up, consistent with c885's own precedent. Drafts: `find drafts/
+-newermt 2026-08-19` returns nothing past cool-off.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item. **Files changed:**
+`log.md`, `projects/public-surface.md`. No guardrail-9 condition met.
