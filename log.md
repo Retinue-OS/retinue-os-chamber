@@ -4016,3 +4016,72 @@ new beyond the standing chamber#10 item and the open `retinue#138` PR
 awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition met.
 Correctly idle — nothing found this wake-up moved any bet, phase, or
 measure.
+
+## c891 — 2026-08-20 20:55:00Z — dashboard refresh: regenerated all five cards, folding in the qlever-dir consolidation
+
+Dispatched explicitly for the `aros-dashboard-refresh` job (distinct from
+the idle survey wake-ups c889/c890 immediately before it). Stamp
+`2026-08-20T20:55:00Z`, ~4 h 15 m after the last regeneration (16:40Z).
+
+**Live measurement, not a re-read of c888's narrative.** Re-ran the org
+survey myself via `gh` rather than trusting the log: `gh issue list
+--state open --limit 500` per repo (the default 30-item page silently
+undercounts `retinue`'s 46 — caught by cross-checking against the
+unlimited total before writing anything down). Confirmed directly: 8
+`qlever-dir` issues (#2–#8, #10) closed at `2026-08-20T19:17:2{0,1}Z` by
+`qlever-dir#13` (merged `19:17:18Z`); `qlever-dir#14` (his, opened
+`15:59:22Z`) is the one issue now open there. Open-issue total across the
+four public repos: 62 → 54 (retinue 46, chamber 6, qlever-dir 1, .github
+1). Open PRs: 4 → 3 (`retinue#127` CONFLICTING, `#128` MERGEABLE, my own
+`#138` MERGEABLE/CLEAN, still 0 reviews). Pages: unchanged and re-verified
+— `status: "errored"`, run `31107290918` still `queued` since
+`2026-08-06T13:43:41Z`, no successor. Not re-raised (parked to ~08-30).
+Stars/forks/watchers/traffic (14 d: 15 uniques/136 views) unchanged since
+c890.
+
+**All five `docs/data/*.json` regenerated together**, one stamp
+(`2026-08-20T20:55:00Z`). Every age recomputed from live `createdAt`
+timestamps, not carried forward. Content changes beyond the stamp/ages:
+
+- **`todo.json`**: dropped 4 references — `qlever-dir#2`, `#8`, `#10`
+  (closed) and `qlever-dir#13` (merged, was "not yet reviewed" at 16:40).
+  `retinue#28`'s line no longer names `qlever-dir#10`: naming a closed
+  issue on the desk re-triggers `desk-drop-check.py`'s STALE-RESOLVED case
+  even when the prose frames it as resolved, since the check reads
+  references, not sentences — first-hand confirmation of the tool's own
+  documented behaviour. Reworded to `retinue#28: boot-emitter doc gap, PR
+  22 follow-up`, the resolution recorded here instead. 27 "others" slots
+  (was 30).
+- **`briefing.json`**: leads with the qlever-dir consolidation; issue/PR
+  counts updated; oldest desk item is now `chamber#1` (32 d 22 h, not
+  `qlever-dir#2` which is closed) — the mandatory "items older than a
+  week" mention stays.
+- **`messages.json`**: new top item for the merge; the two 16:40-era items
+  it displaced (dashboard-refresh outage stays, "SECURITY.md merged"
+  stays) — 10 items held, oldest by relevance dropped.
+- **`agenda.json`**: added the 19:17 merge event and this regeneration as
+  its own event; kept at 9 events by not separately listing the PR's
+  15:51 open (subsumed into the merge line).
+- **`projects.json`**: `proj-triple-store-story`'s `next` updated from
+  "proposes closing … not yet reviewed" to "merged 08-20, closing
+  #2/#8/#10 (+5 more)" — the one line that would have been flatly false
+  had I copied it forward.
+
+**Checks run before commit, both mandatory per the job prompt:**
+`tools/card-budget-check.py` — 84 budgeted values, 0 over (self-test pass).
+`tools/desk-drop-check.py` — first pass flagged 1 problem
+(`STALE-RESOLVED qlever-dir#10`, from my own `retinue#28` wording above);
+fixed and re-ran clean: 4 dropped (4 resolved), 0 added, 0 resolved still
+on the queue, coverage 32/32. Did not run `delivery-check.py` — Pages is
+independently broken (chamber#10) and re-confirming that fact is not this
+job's ask; c890 measured it 15 minutes before this wake-up started and
+nothing about it depends on the disk content this job changes.
+
+**Committed and pushed** exactly the five named paths (`git add
+docs/data/{briefing,todo,messages,agenda,projects}.json`, never `-A`):
+`888e70b`. Working tree otherwise clean before and after.
+
+**Published outside the chamber:** nothing (this is a data refresh, Tier
+1). **Handed to the owner:** nothing new — chamber#10 stays parked,
+`retinue#138` stays awaiting his merge. **Files changed:** the five
+`docs/data/*.json` cards, `log.md`.
