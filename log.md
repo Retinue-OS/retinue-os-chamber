@@ -3445,3 +3445,94 @@ rules both prefer this over manufactured activity. **Published outside
 the chamber:** nothing. **Handed to the owner:** nothing new beyond the
 standing chamber#10 item. **Files changed:** `log.md` only. No
 guardrail-9 condition met.
+
+## c884 — 2026-08-20 17:1x–17:4xZ — recovered an uncommitted dashboard regen; reviewed qlever-dir#13 (bet 5)
+
+First wake-up since c883 (2026-08-18 08:25Z) — a ~57 h gap. Confirmed from
+`/root/.retinue/scheduler/scheduler.log`, not assumed: continuous `aros-tick`
+failures (`rc=1`, 1-2s, `is_error:true`, 0 tokens — the auth-failure shape)
+from 2026-08-18 08:5xZ onward, an `[Errno 8] Exec format error: 'claude'`
+stretch 2026-08-20 01:28-02:58Z, more of the same fail shape through
+2026-08-20 15:59:14Z, then three scheduler restarts in quick succession
+(16:01:49, 16:06:33, 16:22:04) and the first successful `aros-tick` since the
+outage at 16:29:34-16:39:52 (618s). That successful run regenerated all five
+`docs/data/*.json` cards (stamp `2026-08-20T16:40:00Z`, content correctly
+describing the outage and the owner's activity through it) but ended without
+committing — the known aros-dashboard-refresh commit-gap pattern, this time
+also without a log.md entry. Not escalated: the restart pattern (three
+scheduler starts in 21 minutes) reads as the owner's own intervention, not a
+silent failure needing to be surfaced to him.
+
+**Delivery check (`tools/delivery-check.py`, mandatory this run, all five
+cards).** First run: `publication: uncommitted` — disk fresh
+(`2026-08-20T16:40:00Z`) but 5/5 cards differed from HEAD, `origin/main`
+still at the 2026-08-17T20:37:04Z stamp. Diff reviewed against live `gh`
+state before committing (not blind-trusted): traffic figures (136 views/15
+uniques) matched `repos/.../traffic/views` exactly; "4 open PRs" matched the
+count at 16:40Z once accounting for retinue#137 (open 15:06Z, merged
+16:55Z — after the stamp, so correctly counted as open at measurement time).
+Committed the five named paths only (`e44bf97`) and pushed. Re-ran
+delivery-check: `publication: published`, all 5 cards now attribute their
+staleness entirely to the known Pages-build failure (still `errored` on
+commit `55aa91d`, unchanged since 2026-08-06 — chamber#10, parked to the
+~08-30 review, **not re-raised**), not to anything on this end. 16/16 assets
+fresh-by-hash, self-test pass.
+
+**Org survey.** New since c883: retinue#122 closed (his PR#123 merged,
+persist-before-forward for inbound Signal); ~15 more PRs merged 08-18/20
+(voice-recording UI, gateway auto-whitelist, model picker, dashboard
+read-aloud, Ollama operator doc, `news_ingest.py` wiring); my long-open
+qlever-dir#12 (SECURITY.md, filed 08-04) finally merged 08-20T15:13:01Z, no
+comments; his qlever-dir#13 (omnibus fix for 8 of 9 open qlever-dir issues)
+and two new epics (retinue#130 messenger reactions, retinue#135 declarative
+chamber inboxes) opened 08-19/20; qlever-dir#14 (incremental SPARQL-update
+issue) opened today. Repo stats unchanged — `retinue` 1 star/1 fork (both
+the owner's), other four repos 0/0, 0 discussions anywhere. No external
+issue, PR, star, fork, watcher, or discussion from anyone but the owner or
+me, anywhere in the org, across the whole gap.
+
+**Pickup 1: committed the recovered dashboard regeneration** (above).
+
+**Pickup 2: reviewed qlever-dir#13 (bet 5), found on this wake-up.** His
+omnibus PR closes #2/#3/#4/#5/#6/#7/#8/#10 in one pass — 676 insertions
+across 6 files. Cloned `pull/13/head` and read the diff against the PR's own
+claims rather than the description alone: the graph-IRI/blank-node fix
+(#5/#8) routes both through `awk` via `ENVIRON`, not shell/sed interpolation
+of filenames, and the blank-node rewrite regex only matches exact
+subject/object token positions (checked directly — a literal object always
+ends in a closing quote, so it can't collide); the health-check fix (#7)
+reads `/proc/<pid>/stat` for zombie state and the main loop's
+`poll()`-before-`reap_zombies()` ordering matches the constraint its own
+docstring states (checked the call order in `main()`, not just the comment);
+the watcher fixes (#3/#4/#10) drain `inotifywait`'s stderr on a daemon
+thread, restart with backoff, and correctly classify directory/
+converters.json/.qleverignore events for cache refresh. No defect found in
+what was checked. Not reviewed to the same depth: #6 (frontmatter IRI
+validation) and #2 (.qleverignore matcher) beyond a read-through — narrower
+risk, deferred. **No comment posted** — per the 2026-08-16 review's bet-5
+clarification, a clean verification is a correct outcome, not a miss.
+Recorded in `projects/triple-store-story.md`: if #13 merges as written, the
+"8/9 qlever-dir defects open" figure this project has been citing since
+c174/c342 becomes 1/9 — a materially different claim, and the two published
+pieces citing qlever-dir issue numbers should be re-checked against what
+actually lands, not updated from the PR title (the merged-is-not-present
+lesson, c270, again).
+
+**Not picked up this cycle, left for a subsequent wake-up:** retinue#130,
+#135 (new epics, no PR yet — nothing checkable per bet 5's clause until one
+exists), retinue#127/#128 (open PRs, older, not yet reviewed). Deliberately
+not all reviewed in one pass — "pick up at most one or two things" still
+applies even after a multi-day gap; working through the backlog at the
+normal per-wake-up rate rather than compressing it into one long session.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18
+(c868); item 4 (frontmatter-to-triples converter contract) is next and past
+the same-day cap, but bet-2's weekly floor (>=1/week) was already met this
+week by items 1-3, so nothing is *due* — left for a later wake-up rather
+than posting a third pickup item into this one. Drafts: `find drafts/
+-newermt 2026-08-18` returns nothing past cool-off.
+
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new — chamber#10 stays parked per the standing decision. **Files changed:**
+`log.md`, `docs/data/{agenda,briefing,messages,projects,todo}.json`,
+`projects/triple-store-story.md`.

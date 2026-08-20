@@ -4,10 +4,10 @@ id: proj-triple-store-story
 title: "Make the triple-store layer the lead story"
 goal: "The named-graph/converter architecture is explained well enough that a semantic-web engineer immediately sees why it is unusual."
 goal_status: in_progress
-current_next_action: "Aros, c342 (2026-08-01 04:2xZ): CRITERION 1'S BLOCKER RE-VERIFIED AND ITS OPEN QUESTION ANSWERED BY THE FRAMEWORK ITSELF. retinue#1 still reproduces on main @ f1f8c72f - web-gateway.py:1929-1930 still kb# / urn:retinue:actor:reto, query at :1940 still k:Project - unchanged by the 2026-07-29..31 merge wave that edited web-gateway.py and webapp/components/projects.js. I filed #1 saying I had no standing to pick the canonical namespace; HALF OF THAT IS RETRACTED. Three framework-shipped files already agree on kb# and the colon-actor form (web-gateway.py:1929-1930, agent-self-review.py:31,43-50, and the PRODUCER discover-agents.py:46,139-140 which runs at every boot and whose agents.nt every deployment indexes); the only dissenter is chamber content, and NOTHING the framework ships emits project# (find -name md2ttl* at f1f8c72f returns nothing; sole reference docs/triple-stores.md:73). MEASURED ON THE LIVE STORE, not argued: the agent-self-review gate query returns 0, the same count over project#Project returns 6 - so this is not only the dashboard card, the proactivity sweep has the same zero and its "empty result spawns nothing" cost model makes an unmatched gate indistinguishable from an empty backlog, silently and for free. Posted as issuecomment-5149744968 on retinue#1 with the cost of each option in files; NOT closed and NOT patched framework-side, the choice is his and web-gateway.py:1927-1928 is a factual error under either answer. NEXT ACTION IF HE PICKS "align the converter": criterion 1 stops being owner-blocked - projects/.qlever/md2ttl.py is THIS CHAMBER'S file and the diff is mine to land; note that this file's own current_actor: actor-aros is the losing shape and changes with it. EARLIER, c341 (2026-08-01 03:3xZ): criterion 3 is HALF MET - README.md:42 at f1f8c72f carries the link to writing/provenance-by-path.md, merged as retinue#55 on 2026-07-31T19:33:40Z, target returns 200, verified from content on main and not from the PR badge (c270); the branch this field used to name, docs/link-provenance-piece, no longer exists. CHECKED AND CLEAN: writing/provenance-by-path.md is blob 1fded9a9 on BOTH main and origin/main, so the 56 unpushed chamber commits do not sit between the framework README and its link target. STILL UNMET, criterion 3's other half: the ORG PROFILE - GET /repos/Retinue-OS/.github -> 404, org description empty, unchanged since c251; writing/org-profile-README.md stays status: ready-for-owner under chamber#4. DISTRIBUTION still waits on accounts existing (chamber#1)."
+current_next_action: "Aros, c884 (2026-08-20 17:3xZ): retinue-os/qlever-dir#13, his omnibus PR closing 8 of the 9 open qlever-dir issues in one pass (#2 .qleverignore, #3 converter-extension watch, #4 silent watcher death, #5 sed-built graph IRIs, #6 unvalidated frontmatter interpolation, #7 dead-endpoint-reported-healthy, #8 blank-node collisions, #10 new-directory race), reviewed against the diff (not just the description): watcher stderr-drain/restart, percent-encoded graph IRIs via a Python urlencode passed through awk on ENVIRON (no sed/shell interpolation of filenames), blank-node rewriting matched only at exact subject/object token positions (verified against the regex), and the supervision loop's poll()-before-reap_zombies() ordering (verified the call order in main(), matches the docstring's own constraint) all check out against the code, not just the PR prose. No defect found; no comment posted, per the established clean-review practice (2026-08-16 review's bet-5 clarification: a clean verification is a correct outcome, not a miss). Bearing on bet 1: if this merges, the qlever-dir defect count this project has been citing (8/9 open) drops to 1/9, and the reindex-latency and blank-node caveats in writing/provenance-by-path.md and docs/triple-stores.md should be re-checked against whatever lands, not assumed fixed from the PR title. NOT reviewed this pass: #6's frontmatter-validation claim (IRI-legal-character rejection) - narrower risk, deferred to the next PR touch or the merge itself. EARLIER, c342 (2026-08-01): criterion 1's blocker (retinue#1, dashboard projects card returns 0 rows) re-verified reproducing on main @ f1f8c72f; the canonical-namespace question was found half-answered by the framework's own files (kb# / colon-actor form already used by three framework-shipped producers/consumers, only this chamber's md2ttl.py disagrees) and posted as issuecomment-5149744968; not yet acted on by the owner. Criterion 3 (framework README link) confirmed merged and live (retinue#55); org-profile half stays chamber#4's open ask."
 current_actor: actor-aros
 waiting_since: 2026-07-19
-expected_by: 2026-08-15
+expected_by: 2026-08-30
 paused: false
 category: content
 links:
@@ -329,3 +329,63 @@ any part of criterion 1 has been on my side of the line.
 Note against this file's own frontmatter: `current_actor: actor-aros` is the
 `urn:retinue:` + raw-value form, i.e. the losing shape. Whatever #1 resolves to,
 this chamber's project files are one of the things that has to change with it.
+
+## c884 (2026-08-20) — qlever-dir#13 reviewed: omnibus fix for 8 of 9 open defects
+
+Found on this wake-up (opened 15:51:42Z, three hours before) — reviewed per
+bet 5's operating clause. This is the PR version of the issue list this
+project has cited since c174/c342 as evidence the layer works but is young:
+watcher reliability (#3, #4, #10), quad-emission correctness (#5, #8),
+supervision (#7), the converter-example validation gap (#6), and a new
+`.qleverignore` feature (#2). One commit per issue, 676 insertions across 6
+files.
+
+Cloned the branch (`gh pr checkout` equivalent — fetched `pull/13/head`
+directly, no local qlever/rapper/inotifywait binaries available, same
+constraint the PR's own "Verification" section names) and read the diff
+against the description's claims rather than trusting the prose:
+
+- **#5 (sed-built graph IRIs) and #8 (blank-node collisions).** The fix
+  routes the graph IRI and a per-file blank-node prefix through `awk` via
+  `ENVIRON`, not `-v` and not string-interpolated into the program text —
+  so a filename containing `&`, backslash, or awk-special characters can't
+  corrupt the substitution. Blank-node rewriting matches only a line
+  starting `_:` (subject position) or the last whitespace-delimited token
+  before the stripped trailing ` .` when that token matches
+  `^_:[A-Za-z0-9_][A-Za-z0-9_.-]*$` (object position) — a literal object
+  always ends in a closing quote (or `^^<...>`/`@lang` after it), so it
+  cannot collide with that pattern. Checked directly against the regex, not
+  assumed from the comment above it.
+- **#7 (dead endpoint reported healthy).** `nginx_is_alive()` reads
+  `/proc/<pid>/stat` and treats state `Z` as dead (`os.kill(pid, 0)` can't
+  tell a zombie from a live process, which the code's own docstring names as
+  the reason). The main loop's ordering — `active_proc.poll()` before
+  `reap_zombies()`, both before the next `time.sleep(1)` — matches the
+  constraint `reap_zombies()`'s own docstring states (must never run before
+  Popen has had a chance to observe/reap its own child). Verified the call
+  order in `main()` directly, not inferred from the docstring alone.
+- **#3/#4/#10 (watcher).** stderr is now drained on a daemon thread before
+  it can block `inotifywait`'s `write()`; the process is restarted with a
+  5 s backoff on any exit; `ISDIR` events and `.qlever/converters.json`/
+  `.qleverignore` changes are classified separately from ordinary RDF-file
+  events and each triggers the correct cache refresh. `classify_watch_event`
+  was read directly; the KEEP-IN-SYNC comment between `build_index.sh`'s
+  inline heredoc and `orchestrator.py`'s `converter_extensions()` names the
+  actual risk (the two must agree or the watcher and the builder disagree
+  about what's indexed) rather than asserting they can't drift.
+
+**Not reviewed to the same depth:** #6's frontmatter-validation claim
+(IRI-legal-character rejection in `md2ttl.py`) and #2's `.qleverignore`
+matcher beyond a read-through — narrower surface, lower risk, deferred
+rather than skipped. No defect found in what was checked; no comment posted,
+per the 2026-08-16 review's clarification that a clean verification is a
+correct outcome for bet 5, not a miss.
+
+**Bearing on bet 1.** This project has been citing "qlever-dir defects: 8/9
+open" as the honest state of the layer backing the triple-store story. If
+#13 merges as written, that becomes 1/9 — a materially different claim to
+make in public copy. The two published pieces that cite qlever-dir issue
+numbers (`writing/provenance-by-path.md`'s caveat on `qlever-dir#3`,
+`docs/triple-stores.md`'s latency caveat) should be re-checked against
+whatever actually lands, not updated from the PR title — the same
+merged-is-not-present lesson objective 3 already paid for once (c270).
