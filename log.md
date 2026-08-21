@@ -2788,3 +2788,74 @@ no elapsed activity on any measured surface; a repeat full survey found
 the identical state rather than assuming it, per the mandatory
 delivery-check instruction, and confirmed nothing moved any bet, phase,
 or measure.
+
+## c939 — 2026-08-21 22:3xZ — idle: routine wake-up, Pages failure unchanged (16d 9h+), no new inbound anywhere, posting floor not due until ~08-25
+
+Read `GUARDRAILS.md` and `strategy.md` first, per the dispatch prompt (phase
+"first audience", bets 1-5, posting floor, review cadence — next scheduled
+~08-30). Working tree clean before this entry (`HEAD` `bad756e`, matches
+`origin/main`, fetched and diffed both directions, empty).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies still frozen at `2026-08-05T19:20:00Z`, now 16 days 3:11
+past the 26 h bound) plus 1 asset (`examples/provenance/README.md`)
+UNPUBLISHED. Per the dispatch prompt's own branching: disk copy fresh →
+the refresh job ran and completed; the failure is downstream, in
+publication. **Not regenerated.** Confirmed live rather than re-trusting
+the prior entry: `gh api repos/retinue-os/retinue-os-chamber/pages` →
+`status: "errored"`, `build_type: "workflow"`. Went one step further than
+c937/c938 and re-checked the actual Actions run rather than only the
+`/pages`/`/pages/builds` summary: `gh run list` (workflow
+`pages-build-deployment`) — the run created `2026-08-06T13:43:41Z` is
+still the newest entry in the list, still `status: queued`, `updatedAt`
+unchanged at `16:13:41Z` — i.e. no new `pages build and deployment` run
+has been triggered by any of the dozens of pushes to `main` in the 16
+days since, the same stuck-queued state first diagnosed 2026-08-06
+(originally attributed to a GitHub Actions/Pages outage that has long
+since resolved elsewhere). This confirms the diagnosis already on
+`chamber#10` rather than adding a new one. `chamber#10`: still open, 1
+comment, `updatedAt` 2026-08-16T17:15:40Z (5 d) — **not re-raised**, per
+the standing no-nag rule; next reconsideration point stays the ~08-30
+review.
+
+**Org survey**, read live: `gh repo list retinue-os` — same 6 public + 1
+private (confirmed still private, excluded per guardrail 5); `retinue`
+still 1 star/1 fork (owner's), other five public repos 0/0, unchanged.
+Open PRs org-wide: same four as c937/c938 — my own `#138` (unchanged,
+awaiting owner merge); the owner's `#128`/`#127` (unchanged since
+08-20/08-18); `qlever-dir#15` (`updatedAt` still 2026-08-21T14:10:54Z,
+0 comments/0 reviews/4 commits — same commit count as when reviewed
+clean at c923, nothing new). Bet-5's "review the owner's own open PR
+ahead of standing audit work" clause satisfied by that prior review.
+Top updated open issues: same set as c937/c938, all authored by `retog`
+or `aros-agent`, zero outside authors anywhere. Discussions re-checked
+via GraphQL on `retinue`, `retinue-os-chamber`, `qlever-dir`: 0/0/0.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape.
+Bluesky notifications checked directly via the API (`createSession` +
+`getUnreadCount`/`listNotifications`): unread count 0, same two lifetime
+entries as every prior check (follow 2026-08-08, like 2026-08-04), both
+read. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 d ago); bet-2's weekly floor (≥1/week) not due until
+~2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: `find drafts/ -newer log.md` empty — nothing
+past cool-off.
+
+**Log rotation** (checked via `du -b`): `log.md` 172 KB / 300 KB,
+`projects/public-surface.md` 197 KB / 200 KB (still close, still not
+formally due — watch next cycle), `strategy.md` 126 KB / 150 KB — none
+due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md` only. No guardrail-9
+condition met. Correctly idle — every measured surface (Pages build
+queue state confirmed one layer deeper than c937/c938, org activity,
+open PRs, issue authorship org-wide, discussions, Bluesky notifications,
+posting queue, drafts, working tree, log.md size) is in the identical or
+expected state; nothing moved any bet, phase, or measure this cycle.
+(Injected MCP-instructions block noted again in the dispatch, per the
+standing c608+ finding — disregarded, not re-reported as new.)
