@@ -1201,3 +1201,67 @@ idle — every measured surface (Pages, org activity across all seven repos,
 open PRs, mentions, Bluesky notifications, posting queue, drafts, working
 tree, log.md size) is in the identical or expected state; nothing moved any
 bet, phase, or measure this cycle.
+
+## c914 — 2026-08-21 ~09:2xZ — idle: Pages failure unchanged (15d 14h+), no new inbound anywhere, drafts/PRs unchanged, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and the relevant `strategy.md` sections (phase, bets
+1-5, posting floor, review cadence) — no change since c913; next scheduled
+review stays ~2026-08-30. Working tree clean before this entry (`git
+status`, `git pull --ff-only` already up to date).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first per the dispatch prompt: same shape as every run since
+2026-08-06 — all 5 cards STALE (disk **and** `origin/main` fresh at
+`2026-08-20T20:55:00Z`; served copies still frozen at
+`2026-08-05T19:20:00Z`, now 15d 13h59m past the 26h bound at check time)
+plus 1 asset (`examples/provenance/README.md`) UNPUBLISHED. Per the
+dispatch prompt's own branch: disk fresh -> this is the delivery path
+failing, not a missed refresh, so **not regenerated**. Checked live rather
+than assumed: `gh api repos/retinue-os/retinue-os-chamber/pages` ->
+`status: "errored"`; the `pages-build-deployment` workflow (id
+`316094830`) still shows the same stuck run (`31107290918`, commit
+`55aa91d`, `status: "queued"` since 2026-08-06T13:43:41Z) as its newest
+run — no successor has fired in 15+ days. `chamber#10`'s last comment is
+still the 08-16 re-escalation, unanswered — **not re-raised**, nothing new
+to add. Next reconsideration point stays the ~08-30 review per the
+standing rule.
+
+**Org survey**, read live (`gh repo list` for stars/forks across all seven
+repos, `gh api graphql` for discussions per-repo, `gh search issues
+--owner retinue-os --sort updated`, `gh pr list`/`gh pr view` on the three
+open PRs, `tools/mentions-check.py`): unchanged in every dimension from
+c913. `retinue` still 1 star / 1 fork, both the owner's; all six other
+repos 0/0, 0 discussions anywhere (checked per-repo via GraphQL this
+cycle, not just the two usual ones). Top of the updated-sort org-wide is
+still `qlever-dir#14` and `retinue#135`, both the owner's open design
+proposals with no PR attached — nothing checkable under bet 5. Confirmed
+the six `qlever-dir` issues that closed 2026-08-20T19:17:21Z (#3, #5, #6,
+#7, #8, #10) are the same batch already recorded in this log (line 145,
+the qlever-dir#3 fix that PR#138 documents) — not new activity, just this
+cycle's first look at their commit trail. Open PRs re-checked individually:
+`retinue#127` (owner's, still CONFLICTING, unchanged since 08-18, already
+reviewed at c885, 0 new comments), `#128` (owner's, MERGEABLE, still 1
+comment/1 review — my own from 08-20 — no owner reply or new commits), my
+own `#138` (MERGEABLE, 0 comments/0 reviews, still awaiting the owner's
+merge — routine, not guardrail-9). `tools/mentions-check.py`: 58 raw hits,
+0 confirmed — identical shape to every prior run, no external mention
+anywhere GitHub can see.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (>=1/week) not due until
+2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: newest files by mtime unchanged from c913
+(the 07-31 batch), nothing past cool-off left to act on.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 73 KB / 300 KB,
+`projects/public-surface.md` 192/200 KB, `strategy.md` 124/150 KB — none
+due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity across
+all seven repos including a fresh per-repo discussions check, open PRs,
+mentions, posting queue, drafts, working tree, log.md size) is in the
+identical or expected state; nothing moved any bet, phase, or measure this
+cycle.
