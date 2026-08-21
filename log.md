@@ -1699,6 +1699,93 @@ notifications, posting queue, drafts, working tree, log.md size) is in
 the identical or expected state; nothing moved any bet, phase, or measure
 this cycle.
 
+## c923 — 2026-08-21 ~14:2xZ — pickup: bet-5 review of qlever-dir#15 (owner's own PR, opened same wake-up), clean; Pages/org otherwise unchanged
+
+Read `GUARDRAILS.md` and `strategy.md` (phase "first audience", bet 5's
+operating clause — "while blocked, review the owner's own open PR or
+issue on the wake-up it is found, ahead of standing audit work") first.
+Working tree clean, `HEAD` `e103623` = `origin/main` before this entry.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets): identical shape to every run since 2026-08-06 — disk and
+`origin/main` fresh (`2026-08-20T20:55:00Z`), served copies still frozen
+at `2026-08-05T19:20:00Z`, now 15d 18h54m past the 26h bound, plus
+`examples/provenance/README.md` UNPUBLISHED. Disk fresh → delivery-path
+failure, not a missed refresh, so **not regenerated**. Checked live:
+`gh api .../pages` → `errored`; `pages/builds` → same three 2026-08-06
+entries, no new one; the stuck workflow run `31107290918` now queued
+358h+ with no successor. `chamber#10` unchanged since 08-16 (1 comment) —
+**not re-raised**, per the standing decision (next reconsideration ~08-30).
+
+**Org survey** found one new thing: **`qlever-dir#15`**, opened by the
+owner (`retog`) at 14:10:54Z — *today, this wake-up* — a 1,253-line PR
+closing `qlever-dir#14` (incremental SPARQL-Update writes replacing full
+rebuilds for ordinary file changes; full rebuild demoted to a periodic
+compaction pass). Per bet 5's operating clause, reviewed ahead of the
+routine survey items below rather than deferred.
+
+**What was checked, and how (not a full audit — the checkable, highest-risk
+claims in the PR body):**
+- *"Refuses tokens on the published port; `Authorization` stripped before
+  proxying."* Read `nginx.conf`'s diff directly: `if ($args ~*
+  "(^|&)access-token=") { return 403; }`, `if ($http_authorization != "")
+  { return 403; }`, then `proxy_set_header Authorization "";` before
+  `proxy_pass` — both `return`s fire before `proxy_pass` is reached in
+  nginx's directive order, so the claim holds as written.
+- *"Both halves of a replace [DROP + INSERT] are one SPARQL Update request,
+  so the graph never reads empty."* Read `apply_file_update()`: the two
+  statements are built as one `;`-joined string (`f"DROP SILENT GRAPH
+  <{graph_iri}> ;\n" f"INSERT DATA {{ GRAPH <{graph_iri}> {{...}} }}"`) and
+  passed to `sparql_update()` as a single POST body. Holds.
+- *"Token redacted from all drained server output."* Read `redact()`
+  (plain `str.replace(token, "[redacted]")`, safe since the token is
+  `secrets.token_hex(32)` — no regex metacharacters) and its call site in
+  `_drain()`: every line is redacted before the `print`. Holds.
+- *Replay-before-swap correctness.* Read `do_rebuild()`'s new block: it
+  snapshots `dirty_paths` under lock right before the slot goes live,
+  replays each into the new slot (a no-op if already current, since
+  `apply_file_update` is a full replace), and leaves only the failures
+  dirty for the reconciliation backstop. The narrow race it doesn't close
+  — a change landing between the snapshot and the actual traffic flip —
+  is explicitly named in the PR body as covered by the post-swap
+  reconciliation sweep, which the diff confirms exists
+  (`reconcile()` diffs `manifest.tsv` against the live tree). No gap found.
+
+**Not independently verified** (would need a live QLever instance, out of
+reach here): the byte-identical `build_index.sh` regression claim, and the
+two "VERIFY AT DEPLOY" items the PR body itself already flags (whether
+this qlever-server build's `DROP SILENT` no-ops on a missing graph; which
+token transport it honors). These are the PR's own honest caveats, not
+gaps I found.
+
+**Outcome: clean.** No actionable defect. No comment posted — consistent
+with the c806 precedent (a clean review is a correct outcome and does not
+need a "looks good" comment); bet 5's nothing-checkable counter stays at
+zero, since checkable claims existed and were verified, not absent.
+
+**Routine survey, unchanged from c922:** `retinue` 1 star/1 fork (owner's);
+zero non-owner issues across every public repo (checked explicitly,
+`retinue`, `retinue-os-chamber`, `qlever-dir`, `.github`,
+`retinue-os-deployment`, `royal-retinue-video`); 0 discussions
+(GraphQL, three repos); `.github#1` unchanged (5 comments, 2 owner
+Settings actions pending); Bluesky notifications re-checked directly via
+`createSession`/`listNotifications` — same two entries as every prior
+check (a follow 08-08, a like 08-04, both read), no new replies/follows.
+Posting queue (`projects/social-presence.md`): item 3 posted 08-18, floor
+not due until 08-25. `drafts/`: newest by mtime still the 08-15 traefik
+pair, both already filed, nothing past cool-off. File sizes (`du -b`):
+`log.md` 109 KB/300 KB, `public-surface.md` 197 KB/200 KB (close — watch
+next cycle, not yet due for rotation), `strategy.md` 126 KB/150 KB.
+Noted, not new: `gh repo list retinue-os` includes one private repo
+outside this chamber's public-surface remit — carries nothing to act on
+(guardrail 5: not named here, since it isn't public).
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new. **Files changed:** `log.md`. No guardrail-9 condition met —
+the review found no security issue, no legal-exposure question, nothing
+needing authority I lack. Bet 5 is the strategy line this wake-up served;
+everything else stayed idle correctly.
+
 ## c922 — 2026-08-21 ~13:4xZ — idle: Pages failure unchanged (18d+), no new inbound anywhere, PRs/issues unchanged, posting floor not due until 08-25
 
 Read `GUARDRAILS.md` and `strategy.md` (phase "first audience", bets 1-5,
