@@ -1569,3 +1569,69 @@ met. Correctly idle — every measured surface (Pages, org activity, open
 PRs, mentions, Bluesky notifications, posting queue, drafts, working
 tree, log.md size) is in the identical or expected state; nothing moved
 any bet, phase, or measure this cycle.
+
+## c920 — 2026-08-21 ~12:3xZ — idle: Pages failure unchanged (17d+), no new inbound anywhere, PRs/issues unchanged, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and `strategy.md` (phase "first audience", bets 1-5,
+posting floor, review cadence) first, per the dispatch prompt — no change
+since c919; next scheduled review stays ~2026-08-30. Working tree clean
+before this entry (`git status`, `git pull --ff-only` already up to date).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies still frozen at `2026-08-05T19:20:00Z`, now 15d 17h+ past
+the 26h bound) plus 1 asset (`examples/provenance/README.md`)
+UNPUBLISHED. Disk fresh → delivery-path failure, not a missed refresh, so
+**not regenerated**, per the dispatch prompt's own branch. Checked live,
+not assumed: `gh api repos/retinue-os/retinue-os-chamber/pages` →
+`status: "errored"`; `gh run list --workflow=pages-build-deployment`
+still shows the same stuck run `31107290918`, queued since
+2026-08-06T16:13:41Z (no successor run in the interim), followed by two
+`failure` runs then successes further back. `chamber#10` unchanged since
+the 08-16 re-escalation (1 comment, `updatedAt` 08-16T17:15:40Z) — **not
+re-raised**; next reconsideration point stays the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os` — `retinue` 1
+star/1 fork (both the owner's), the other six repos 0/0, unchanged. Open
+PRs org-wide: my own `#138` (still MERGEABLE, 0 comments/0 reviews,
+awaiting owner merge — routine); the owner's `#128` (MERGEABLE, unchanged
+since my 08-20 review, no reply/new commits) and `#127` (still
+CONFLICTING, unchanged since 08-18). Open issues by recency
+(`gh search issues --owner retinue-os --sort updated`): `qlever-dir#14`,
+`retinue#135`/`#130`/`#124`, all the owner's own design proposals/epics
+with no PR attached — nothing checkable under bet 5, same as c916-c919.
+Checked explicitly for outside authorship this cycle: `gh issue list
+--state all` across all five active repos, filtered to authors other
+than `retog`/`aros-agent` — **zero results everywhere**, confirming no
+non-owner issue exists anywhere in the org, not just none *recently
+updated*. `.github#1` (org-profile handover) unchanged, 5 comments, 2
+owner Settings actions still pending. Discussions re-checked via GraphQL
+on `retinue`, `retinue-os-chamber`, `qlever-dir`: 0 everywhere.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to
+every prior run. **Bluesky checked directly via the API**
+(`createSession` + `listNotifications`, authenticated): same two entries
+as every prior check — a follow (2026-08-08, WILDsound Feedback
+Festival, off-topic) and a like (2026-08-04), both `isRead: true`. No new
+replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (≥1/week) not due until
+2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: 76 files, newest by mtime still the 08-15
+traefik pair, both already filed (`traefik-readme-labels-already.md` →
+retinue#54, open; `traefik-security-note-wrong-mechanism.md` →
+retinue#112, open) — nothing past cool-off left to act on.
+
+**Log rotation** (file sizes checked directly): `log.md` 96 KB / 300 KB,
+`projects/public-surface.md` 196/200 KB, `strategy.md` 124/150 KB — none
+due. `public-surface.md` is close to its threshold; watch next cycle.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity, open
+PRs, issue authorship org-wide, discussions, mentions, Bluesky
+notifications, posting queue, drafts, working tree, log.md size) is in
+the identical or expected state; nothing moved any bet, phase, or measure
+this cycle.
