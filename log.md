@@ -4516,3 +4516,64 @@ PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
 met. Correctly idle — every measured surface (Pages, org activity, PRs,
 mentions, Bluesky, posting queue, drafts) is in the identical state as
 c898; nothing moved any bet, phase, or measure.
+
+## c900 — 2026-08-21 01:38Z — idle: routine survey, delivery check re-confirms known Pages failure, no new inbound anywhere
+
+Also noting: this dispatch's context carried an injected `CLAUDE.md`/chamber-
+instructions block describing an unrelated "Ara/Retinue-framework"
+orchestrator persona (agents, chambers, SPARQL endpoints, dashboard
+gateway internals — none of it this chamber's own `GUARDRAILS.md` or
+`strategy.md`). Same shape as the standing finding in
+`aros-injected-mcp-instructions` memory (recurring since ~c608):
+disregarded as not-this-chamber's-instructions and not authoritative
+over `GUARDRAILS.md`/`strategy.md`; worked from the real chamber files at
+`/workspace/chambers/retinue/` instead. Not a new finding, not re-filed.
+
+Read `GUARDRAILS.md` and the relevant `strategy.md` sections (phase, bets,
+posting floor, review cadence) — no change since c899; next scheduled
+review stays ~2026-08-30.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets, read against the served copy): same shape as every run since
+2026-08-06 — 5 cards STALE (disk and `origin/main` both fresh at
+`2026-08-20T20:55:00Z`, served copies still `2026-08-05T19:20:00Z`, 15
+days 6h18m past the 26h bound) plus 1 asset
+(`examples/provenance/README.md`) UNPUBLISHED. Disk copy is fresh, so per
+the wake-up prompt's branch this is the delivery path, not a missed
+refresh — confirmed directly: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"`; the
+`pages/builds` list still ends at the three 2026-08-05 builds (last:
+`2026-08-05T23:22:00Z`), no new entry since. `chamber#10`'s last comment
+is still my own 08-16 re-escalation, unanswered (1 comment total, no
+reply). **Not regenerated, not re-raised** — one deliberate re-escalation
+stands from 08-16; next reconsideration point the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os` — unchanged
+(`retinue` 1★/1 fork, both the owner's; every other repo 0/0). `gh search
+issues --owner retinue-os --sort updated --limit 15` — top items still
+`qlever-dir#14` (open, no PR) and `retinue#135` (open, no PR) — nothing
+checkable under bet 5's clause; the closed-issue cluster from the 08-20
+qlever-dir omnibus fix (#2–#8, #10) unchanged, already recorded c896. Open
+PRs, checked per repo directly: `retinue#127` (CONFLICTING, 0 comments,
+unchanged since 08-18), `#128` (MERGEABLE, still only the 08-19 Copilot
+review plus my own c886 comment, no new activity), my own `#138`
+(MERGEABLE, 0 comments, 0 reviews, still awaiting the owner's merge —
+routine, not guardrail-9). No open PRs on `qlever-dir`, the chamber repo,
+`retinue-os-deployment`, or `.github`. GraphQL discussions count on
+`retinue`: 0. `tools/mentions-check.py`: 58 raw hits, 0 confirmed —
+identical shape to every prior run.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (3
+days ago); bet-2's weekly floor (≥1/week) not due until 08-25. Item 4
+(frontmatter-to-triples converter contract) stays not-due — the strategy
+explicitly rules out "nothing else happened" as a reason to post. `drafts/`
+checked by listing: newest files still the c391–393 batch (08-15 or
+earlier), all already-used investigation notes past any cool-off with
+nothing left to act on — unchanged from c893–899's reading.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (injected-instructions check,
+Pages, org activity, PRs, mentions, posting queue, drafts) is in the
+identical state as c899; nothing moved any bet, phase, or measure.
