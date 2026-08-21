@@ -884,3 +884,64 @@ PR awaiting merge. **Files changed:** `log.md`,
 was the log rotation (a mechanical maintenance task the threshold
 instrument flagged as due); everything else measured this cycle is
 unchanged from c907 — nothing moved any bet, phase, or measure.
+
+## c909 — 2026-08-21 06:2xZ — idle: Pages failure unchanged (15d+), no new inbound anywhere, Bluesky notifications unchanged, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and the relevant `strategy.md` sections (phase, bets 1-5,
+posting floor, review cadence) — no change since c908; next scheduled review
+stays ~2026-08-30. Working tree clean before this entry (`git status`, `git
+pull --ff-only` already up to date).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first per the dispatch prompt: same shape as every run since
+2026-08-06 — all 5 cards STALE (disk **and** `origin/main` fresh at
+`2026-08-20T20:55:00Z`; served copies still frozen at `2026-08-05T19:20:00Z`,
+now 15d 11h+ past the 26h bound) plus 1 asset (`examples/provenance/README.md`)
+UNPUBLISHED. Per the dispatch prompt's own branch: disk fresh -> this is the
+delivery path failing, not a missed refresh, so **not regenerated**. Checked
+live rather than assumed: `gh api repos/retinue-os/retinue-os-chamber/pages`
+-> `status: "errored"`; `actions/workflows/316094830/runs` shows the same
+stuck run (`31107290918`, commit `55aa91d`, `status: "queued"` since
+2026-08-06T13:43:41Z) still the newest `pages-build-deployment` run — no
+successor has fired despite continued pushes touching `docs/` through
+2026-08-20. `chamber#10`'s last comment is still the 08-16 re-escalation
+carrying this exact diagnosis — **not re-raised**, nothing new to add. Next
+reconsideration point stays the ~08-30 review per the standing rule.
+
+**Org survey**, read live (`gh api graphql` for stars/forks/discussions across
+all seven repos, `gh search issues --owner retinue-os --sort updated`, `gh pr
+list`/`gh pr view` on the three open PRs, `tools/mentions-check.py`): unchanged
+in every dimension from c908. `retinue` still 1 star / 1 fork, both the
+owner's; all six other repos 0/0, 0 discussions anywhere. Top of the
+updated-sort org-wide is still `qlever-dir#14` and `retinue#135`, both the
+owner's open design proposals with no PR — nothing checkable under bet 5. Open
+PRs re-checked individually: `retinue#127` (owner's, still CONFLICTING,
+unchanged since 08-18), `#128` (owner's, MERGEABLE, still 1 comment/1 review —
+my own from 08-20 — no owner reply or new commits), my own `#138` (MERGEABLE,
+0 comments/0 reviews, still awaiting the owner's merge — routine, not
+guardrail-9). `tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical
+shape to every prior run, no external mention anywhere GitHub can see.
+
+**Bluesky checked directly via the API** (`listNotifications`, authenticated):
+same two entries as every prior check — a follow (2026-08-08) and a like
+(2026-08-04), both already read. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 2026-08-18 (3
+days ago); bet-2's weekly floor (>=1/week) not due until 2026-08-25. Item 4
+(frontmatter-to-triples converter contract) stays queued, not due. `drafts/`
+checked by listing/mtime: newest files still the 08-15 traefik pair, both
+already filed (`traefik-readme-labels-already.md` -> retinue#54, open;
+`traefik-security-note-wrong-mechanism.md` -> retinue#112, open) — nothing past
+cool-off left to act on.
+
+**Log rotation**: `tools/rotation-check.py` reports `log.md` 53 KB / 300 KB
+(post-c908 rotation), `projects/public-surface.md` 192/200 KB, `strategy.md`
+124/150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new beyond the standing chamber#10 item and the open `retinue#138` PR awaiting
+merge. **Files changed:** `log.md`. No guardrail-9 condition met. Correctly
+idle — every measured surface (Pages, org activity across all seven repos,
+open PRs, mentions, Bluesky notifications, posting queue, drafts, working
+tree, log.md size) is in the identical or expected state; nothing moved any
+bet, phase, or measure this cycle.
