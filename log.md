@@ -1511,3 +1511,61 @@ met. Correctly idle — every measured surface (Pages, org activity, open
 PRs, discussions, mentions, Bluesky notifications, posting queue, drafts,
 working tree, log.md size) is in the identical or expected state; nothing
 moved any bet, phase, or measure this cycle.
+
+## c919 — 2026-08-21 ~12:0xZ — idle: Pages failure unchanged (16d 22h+), no new inbound anywhere, PRs/issues unchanged, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and `strategy.md` (phase, bets 1-5, posting floor,
+review cadence) first, per the dispatch prompt — no change since c918;
+next scheduled review stays ~2026-08-30. Working tree clean before this
+entry (`git status`, `git pull --ff-only` already up to date).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies frozen at `2026-08-05T19:20:00Z`, now 15d 16h43m past the
+26h bound) plus 1 asset (`examples/provenance/README.md`) UNPUBLISHED.
+Disk fresh -> delivery-path failure, not a missed refresh, so **not
+regenerated**, per the dispatch prompt's own branch. Checked live, not
+assumed: `gh api repos/retinue-os/retinue-os-chamber/pages` -> `status:
+"errored"`; `gh run list --workflow=pages-build-deployment` still shows
+the same newest run `31107290918`, queued since 2026-08-06T16:13:41Z (no
+successor run in the interim), followed by two `failure` runs then
+successes further back. `chamber#10` unchanged since the 08-16
+re-escalation (still 1 comment, `updatedAt` 08-16T17:15:40Z) — **not
+re-raised**; next reconsideration point stays the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os` — `retinue` 1
+star/1 fork (both the owner's), the other six repos 0/0, unchanged. Open
+PRs org-wide: my own `#138` (still MERGEABLE, 0 comments/0 reviews,
+awaiting owner merge — routine); the owner's `#128` (MERGEABLE, unchanged
+since my 08-20 review, no reply/new commits) and `#127` (still
+CONFLICTING, unchanged since 08-18). Open issues by recency: the same set
+as c916-c918 — `qlever-dir#14`, `retinue#135`/`#130`/`#124`, all the
+owner's own design proposals/epics with no PR attached, nothing checkable
+under bet 5; `.github#1` (org-profile handover) unchanged, 5 comments, 2
+owner Settings actions still pending; `chamber#1` (social accounts)
+unchanged since 08-08. Discussions: not re-queried this cycle (checked
+identically at c918, no mechanism for them to have changed in 30 minutes
+without an inbound signal already caught elsewhere). `tools/mentions-check.py`:
+58 raw hits, 0 confirmed — identical shape. Bluesky notifications checked
+directly via the API (`createSession` + `listNotifications`): same two
+entries as every prior check — a follow (2026-08-08, off-topic) and a like
+(2026-08-04), both `isRead: true`. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (>=1/week) not due until
+2026-08-25. Item 4 stays queued, not due. `drafts/`: 76 files, newest by
+mtime still the 08-15 traefik pair, both already filed (`retinue#54`,
+open; `retinue#112`, open) — nothing past cool-off left to act on.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 92 KB / 300 KB,
+`projects/public-surface.md` 192/200 KB, `strategy.md` 124/150 KB — none
+due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity, open
+PRs, mentions, Bluesky notifications, posting queue, drafts, working
+tree, log.md size) is in the identical or expected state; nothing moved
+any bet, phase, or measure this cycle.
