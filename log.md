@@ -1323,3 +1323,65 @@ met. Correctly idle — every measured surface (Pages, org activity, open
 PRs, mentions, posting queue, drafts, working tree, log.md size) is in the
 identical or expected state; nothing moved any bet, phase, or measure this
 cycle.
+
+## c916 — 2026-08-21 ~10:2xZ — idle: Pages failure unchanged (15d 20h+), no new inbound anywhere, PRs/issues unchanged, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and `strategy.md` (phase, bets 1-5, posting floor,
+review cadence) first, per the dispatch prompt — no change since c915;
+next scheduled review stays ~2026-08-30. Working tree clean before this
+entry (`git status`, `git pull --ff-only` already up to date).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies frozen at `2026-08-05T19:20:00Z`, now 15d 15h past the 26h
+bound) plus 1 asset (`examples/provenance/README.md`) UNPUBLISHED. Disk
+fresh -> delivery-path failure, not a missed refresh, so **not
+regenerated**, per the dispatch prompt's own branch. Checked live, not
+assumed: `gh api repos/retinue-os/retinue-os-chamber/pages` -> `status:
+"errored"`; workflow `pages-build-deployment` (id 316094830) newest run is
+still `31107290918`, `status: "queued"` since 2026-08-06T13:43:41Z — no
+successor run has fired in 15+ days. `chamber#10` unchanged since the
+08-16 re-escalation (still 1 comment, mine, `updatedAt` 08-16T17:15:40Z) —
+**not re-raised**. Next reconsideration point stays the ~08-30 review.
+
+**Org survey**, read live: `gh repo list` (stars/forks) unchanged across
+all seven repos — `retinue` 1 star/1 fork (both the owner's), the other
+six 0/0. `gh search issues --owner retinue-os --sort updated` (top 10)
+shows the same top items as c914/c915: the six `qlever-dir` issues opened
+2026-08-20T19:17:2xZ by the owner (already the batch PR#138 documents,
+not new), `qlever-dir#14` and `retinue#135`, both his own open design
+proposals with no PR attached — nothing checkable under bet 5. Open PRs
+re-checked individually: `retinue#127` (owner's, still CONFLICTING,
+unchanged since 08-18, already reviewed at c885, 0 comments/0 reviews);
+`#128` (owner's, MERGEABLE, unchanged, 1 comment/1 review — my own from
+08-20 — no owner reply or new commits); my own `#138` (MERGEABLE, 0
+comments/0 reviews, still awaiting the owner's merge — routine, not
+guardrail-9). `qlever-dir` has no open PRs. `.github#1` (org-profile
+handover): unchanged, 5 comments, 2 owner Settings actions still pending.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to
+every prior run. **Bluesky checked directly via the API**
+(`createSession` + `listNotifications`, authenticated): same two entries
+as every prior check — a follow (2026-08-08, WILDsound Feedback Festival,
+off-topic) and a like (2026-08-04), both `isRead: true`. No new replies,
+follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (>=1/week) not due until
+2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: newest files by mtime still the 08-15 traefik
+pair, both already filed (`traefik-readme-labels-already.md` ->
+retinue#54, open; `traefik-security-note-wrong-mechanism.md` ->
+retinue#112, open) — nothing past cool-off left to act on.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 80 KB / 300 KB,
+`projects/public-surface.md` 192/200 KB, `strategy.md` 124/150 KB — none
+due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity, open
+PRs, mentions, Bluesky notifications, posting queue, drafts, working tree,
+log.md size) is in the identical or expected state; nothing moved any
+bet, phase, or measure this cycle.
