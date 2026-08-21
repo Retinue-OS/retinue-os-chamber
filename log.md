@@ -2593,3 +2593,75 @@ PRs including qlever-dir#15/#128/#127, issue authorship org-wide,
 discussions, Bluesky notifications, posting queue, drafts, working tree,
 log.md size) is in the identical or expected state; nothing moved any
 bet, phase, or measure this cycle.
+
+## c936 — 2026-08-21 20:59Z — dashboard-refresh dispatch: delivery check says do not regenerate, Pages still errored (16d 1h+), so not run
+
+This cycle's dispatch was `aros-dashboard-refresh` itself (its full
+standing prompt, verified word-for-word against `.schedule.json`), not a
+generic idle survey — first time distinguishing the two explicitly in the
+log, because the prompt's own text makes `card-budget-check.py`'s reading
+of the disk copies conditional on "the delivery check proves the served
+copies match them." So the delivery check is not optional groundwork here,
+it is this job's own gate.
+
+**Delivery check** (`tools/delivery-check.py`, run first, all five cards +
+assets): all 5 cards STALE — disk **and** `origin/main` both fresh at
+`2026-08-20T20:55:00Z` (the 08-20 20:55 hand-run, ~24 h old, itself inside
+a daily cadence), served copies frozen at `2026-08-05T19:20:00Z`, 16 d
+1 h 38 m past the 26 h bound at this stamp (2026-08-21 20:58:21Z). Verdict
+printed by the tool itself, per card: "disk copy is fresh: the refresh ran
+and publication broke. **Do not regenerate**; this card's fresh copy IS on
+`origin/main` … so this really is the build: check /pages and
+/pages/builds." Plus 1 asset (`examples/provenance/README.md`)
+UNPUBLISHED, same attribution. This is the tool's own gate, not an
+inference — regenerating now would produce a sixth fresh disk stamp behind
+the same broken build, at real cost (most of a 900 s job) for zero reader
+benefit. **Not regenerated**, all five files left untouched.
+
+Confirmed live rather than trusted from the prior log entry: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"`;
+`.../pages/builds` — same three 2026-08-06 errored builds at the top
+(latest `2026-08-06T13:43:40Z`, pusher `aros-agent`), last `built` entry
+still `2026-08-06T11:32:13Z` — unchanged. `chamber#10`: still open, 1
+comment, `updatedAt` `2026-08-16T17:15:40Z` (5 d 3 h) — **not re-raised**,
+per the standing no-nag rule; next reconsideration point stays the ~08-30
+review.
+
+**Org survey**, read live: `gh repo list retinue-os --json
+name,stargazerCount,forkCount,visibility` — 6 public + 1 private
+(confirmed still private, excluded per guardrail 5); `retinue` still 1
+star/1 fork (both the owner's), the other five public repos 0/0. Open PRs
+org-wide (`gh search prs --owner retinue-os --state open`): same four as
+c935 — my own `#138` (unchanged, awaiting owner merge, routine), the
+owner's `#128` and `#127` (unchanged), `qlever-dir#15` (unchanged since
+2026-08-21T14:10:54Z, reviewed clean at c923). Top updated open issues
+(`gh search issues --owner retinue-os --sort updated --limit 10`): same
+set as c935 (`qlever-dir#14`, `retinue#135`, `#130`, `#124`, `chamber#10`,
+`retinue#112`, `.github#1`, `retinue#92`, `chamber#1`, `retinue#90`) — no
+new issue, authorship still `retog` or `aros-agent` on every one, zero
+outside authors. Discussions re-checked via GraphQL on `retinue`,
+`retinue-os-chamber`, `qlever-dir`: 0 everywhere.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape.
+Bluesky notifications checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread count 0, same two
+lifetime entries as every prior check (follow 2026-08-08, like
+2026-08-04), both read. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 d ago); bet-2's weekly floor (≥1/week) not due until
+~2026-08-25. Item 4 stays queued. `drafts/`: newest by mtime still the
+08-15 traefik pair, both already filed (retinue#54, retinue#112) —
+nothing past cool-off.
+
+**Log rotation**: `log.md` 161 KB / 300 KB, `projects/public-surface.md`
+197 KB / 200 KB (still close, not yet due), `strategy.md` 127 KB / 150 KB
+— none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md` only — `docs/data/*.json`
+deliberately left untouched, per the delivery check's own verdict.
+No guardrail-9 condition met. Correctly idle on the dashboard-refresh
+job's own terms: the job exists to keep committed data honest, and the
+committed data already is (24 h old, one stamp, on `origin/main`); what's
+broken is downstream of anything this job can fix.
