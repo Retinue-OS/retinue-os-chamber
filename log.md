@@ -4847,3 +4847,73 @@ awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition met.
 Correctly idle — every measured surface (Pages, org activity, PRs, mentions,
 posting queue, drafts, working tree) is in the identical state as c904;
 nothing moved any bet, phase, or measure.
+
+## c906 — 2026-08-21 04:5xZ (routine survey) — idle: Pages failure unchanged (15d+), no new inbound anywhere in the org, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and the relevant `strategy.md` sections (phase, bets 1-5,
+posting floor, review cadence, log-rotation rule) — no change since c905; next
+scheduled review stays ~2026-08-30. `log.md` measured at 291.7 KB (298,680 B),
+under the 300 KB rotation trigger but close enough to flag for the next few
+cycles.
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets): same shape as every run since 2026-08-06 — 5 cards STALE (disk **and**
+`origin/main` fresh at `2026-08-20T20:55:00Z`, served copies still frozen at
+`2026-08-05T19:20:00Z`, now 15d 9h32m past the 26h bound) plus 1 asset
+(`examples/provenance/README.md`) UNPUBLISHED. Disk fresh -> per the wake-up
+prompt's own branch this is the delivery path, not a missed refresh. Verified
+directly: `gh api repos/retinue-os/retinue-os-chamber/pages` -> `status:
+"errored"`. Went one step further than the last several cycles and checked the
+Actions side directly rather than just `/pages/builds`: `gh api
+.../actions/runs` filtered to the `pages-build-deployment` workflow shows the
+**same run (`31107290918`, build `1135853385`, commit `55aa91d`) still sitting
+`status: queued` since 2026-08-06T13:43:41Z — 15 days stuck — and, more
+tellingly, no run of that workflow has fired at all since then**, despite dozens
+of pushes to `main` touching `docs/` in the interim (the fresh `2026-08-20`
+disk/origin timestamps prove it). The workflow is GitHub-managed
+(`build_type: "workflow"`, path `dynamic/pages/pages-build-deployment`), so this
+account has no lever on it (cancel/re-run both 403'd on 08-15, per chamber#10).
+`chamber#10`'s last comment is still my own 08-16 re-escalation with this exact
+diagnosis already in it (same run id, same "no successor" finding) —
+**nothing here is new information, so not re-raised.** Next reconsideration
+point stays the ~08-30 review, per the standing rule.
+
+**Org survey**, read live across all seven `retinue-os` repos (`gh repo list`,
+per-repo `gh issue list`/`gh pr list --state all`, `gh search issues --owner
+retinue-os --sort updated`, GraphQL stars/forks/discussions,
+`tools/mentions-check.py`): unchanged in every dimension from c905. `retinue`
+still 1 star / 1 fork, both the owner's; all six other repos 0/0; 0 discussions
+anywhere. No new issues or PRs from anyone but `retog` and this account. Checked
+the two candidate bet-5 items by name: `qlever-dir#14` (incremental SPARQL
+Update, still an open issue with no PR — a design proposal, not a diff, so
+nothing checkable) and `retinue#135` (declarative chamber inboxes, same shape).
+Confirmed `qlever-dir#13` (the omnibus fix) is **merged**, not just open as a
+stale `gh pr list` row suggested at first glance — checked `state`/`mergedAt`
+directly (`MERGED`, `2026-08-20T19:17:18Z`), already reviewed and reflected in
+prior cycles (c884/c888), so not a new finding. Open PRs re-checked individually:
+`retinue#127` (owner's, still CONFLICTING, unchanged since 08-18), `#128`
+(owner's, MERGEABLE, still only my own review comment + Copilot's automated one,
+no new commits or owner reply), my own `#138` (MERGEABLE, 0 comments/reviews,
+still awaiting the owner's merge — routine). `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed, identical shape to every prior run — no external mention
+anywhere GitHub can see. `gh api notifications` 403s for this token (expected,
+unchanged, not a new limitation).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 08-18 (3 days
+ago); bet-2's weekly floor (>=1/week) not due until 08-25. Item 4
+(frontmatter-to-triples converter contract) stays queued, not due — the
+strategy explicitly rules out "nothing else happened" as a reason to post early.
+`drafts/` checked by listing/mtime: newest files still 08-15 or earlier, all
+already-filed investigation notes past any cool-off with nothing left to act
+on (`traefik-readme-labels-already.md` -> retinue#54, open;
+`traefik-security-note-wrong-mechanism.md` -> retinue#112, open) — unchanged
+from c904/c905's reading. Working tree clean before this entry, no uncommitted
+work from any prior wake-up.
+
+**Published outside the chamber:** nothing. **Handed to the owner:** nothing
+new beyond the standing chamber#10 item and the open `retinue#138` PR awaiting
+merge. **Files changed:** `log.md`. No guardrail-9 condition met. Correctly
+idle — every measured surface (Pages, org activity across all seven repos, open
+PRs, mentions, posting queue, drafts, working tree, log.md size) is in the
+identical or expected state; nothing moved any bet, phase, or measure this
+cycle.
