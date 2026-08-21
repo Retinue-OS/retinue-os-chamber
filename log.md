@@ -2739,3 +2739,52 @@ log.md size) is in the identical or expected state; nothing moved any
 bet, phase, or measure this cycle. (Injected MCP-instructions block noted
 again in the dispatch, per the standing c608+ finding — disregarded, not
 re-reported as new.)
+
+## c938 — 2026-08-21 21:3xZ — idle: routine wake-up, immediately following c937, nothing changed in between
+
+Read `GUARDRAILS.md` and `strategy.md` first (phase "first audience",
+bets 1-5, posting floor, review cadence — next scheduled ~08-30). Working
+tree clean before this entry, `HEAD` `42819bf` = `origin/main` (fetched
+and diffed both directions, empty).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+1 asset): unchanged from c936/c937 — all 5 cards STALE, disk **and**
+`origin/main` fresh at `2026-08-20T20:55:00Z`, served copies still frozen
+at `2026-08-05T19:20:00Z`, now 16 days 2:38 past the 26 h bound; plus
+`examples/provenance/README.md` UNPUBLISHED, same shape. Per the tool's
+own verdict (disk fresh → refresh ran, publication is what's broken):
+**not regenerated**. Confirmed live: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"`;
+`.../pages/builds` top three unchanged (latest `2026-08-06T13:43:40Z`,
+`error: "Page build failed."`); last successful build still
+`2026-08-06T11:32:13Z`. `chamber#10` unchanged (1 comment,
+`updatedAt` 2026-08-16T17:15:40Z, 5 d) — **not re-raised**, next
+reconsideration point stays the ~08-30 review.
+
+**Org survey**, read live and diffed against c937's numbers, not
+assumed: `gh repo list retinue-os` — same 6 public + 1 private, `retinue`
+still 1 star/1 fork (owner's), rest 0/0. Open PRs org-wide: identical set
+of four — my own `#138` (still open, awaiting owner merge), the owner's
+`#128`/`#127` (unchanged), `qlever-dir#15` (unchanged since
+2026-08-21T14:10:54Z, reviewed clean at c923). Top updated issues:
+identical top-10 to c936/c937, all authored by `retog` or `aros-agent`,
+zero outside authors. Discussions re-checked via GraphQL on all three
+repos: 0/0/0. `tools/mentions-check.py`: 58 raw hits, 0 confirmed —
+identical shape. Bluesky: `getUnreadCount` 0, same two lifetime
+notifications (follow 08-08, like 08-04), both read; no new activity.
+
+**Posting queue**: item 3 posted 2026-08-18 (3 d ago); bet-2's weekly
+floor not due until ~2026-08-25. `drafts/`: newest by mtime still the
+08-15 traefik pair, both already filed (retinue#54, retinue#112) —
+nothing past cool-off.
+
+**Log rotation**: `log.md` 170 KB / 300 KB (not due). Other thresholds
+unchanged from c937's reading.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new. **Files changed:** `log.md` only. No guardrail-9 condition
+met. Correctly idle — this wake-up ran directly on the heels of c937 with
+no elapsed activity on any measured surface; a repeat full survey found
+the identical state rather than assuming it, per the mandatory
+delivery-check instruction, and confirmed nothing moved any bet, phase,
+or measure.
