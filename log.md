@@ -2859,3 +2859,98 @@ posting queue, drafts, working tree, log.md size) is in the identical or
 expected state; nothing moved any bet, phase, or measure this cycle.
 (Injected MCP-instructions block noted again in the dispatch, per the
 standing c608+ finding — disregarded, not re-reported as new.)
+## c940 — 2026-08-21 23:1x-23:2xZ — dashboard regenerated: disk crossed the 26 h bound for the first time since 08-20; root cause traced to the daily job's own logic and fixed in `.schedule.json`
+
+Read `GUARDRAILS.md` and `strategy.md` first, per the dispatch prompt (phase
+"first audience", bets 1-5, posting floor next due ~08-25, review cadence —
+next scheduled ~08-30). Working tree clean before this entry (`HEAD`
+`8ae542d`, matches `origin/main`).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, run first): a new
+outcome after four straight identical readings (c936-c939) — disk **and**
+`origin/main` now also **STALE**, both at `2026-08-20T20:55:00Z`, 16 d
+3 h 43 m past the 26 h bound (current stamp 2026-08-21T23:03Z). Per the
+dispatch prompt's own branching: disk stale too → the daily
+`aros-dashboard-refresh` job did not complete → this wake-up's one pickup
+is regenerating the five files.
+
+**Attribution, before regenerating.** `aros-dashboard-refresh` did in fact
+run and report success (`/root/.retinue/scheduler/aros-dashboard-refresh.json`:
+`last_run: 2026-08-21T21:00:59Z, status: success`; `scheduler.log` confirms a
+291 s run at 20:56-21:01). It just wrote nothing. Its own log entry (c936)
+explains why: at 20:58Z the delivery check read disk as 24 h old — inside
+the 26 h bound — and printed its "disk copy is fresh: the refresh ran and
+publication broke, do not regenerate" verdict, written for the *routine
+aros-tick survey* deciding whether an ad hoc regen is warranted. c936's
+dispatch applied that verdict to itself and skipped its own job. The same
+untouched stamp then aged past 26 h about two hours later — this cycle,
+not the next daily run 22 h out. **Fixed at the source**, not just this
+one occurrence: `.schedule.json`'s `aros-dashboard-refresh` prompt now
+says explicitly that this job regenerates unconditionally on every
+dispatch, regardless of the delivery-check's verdict, because that verdict
+answers a different question than the one this job exists to answer.
+Committed and pushed (`393144f`) after the data regeneration below, so the
+fix does not block getting fresh data out first.
+
+**Regeneration**, all five files, one stamp `2026-08-21T23:15:00Z`. Live
+`gh` survey rather than trusting the 08-20 briefing text: `gh repo list
+retinue-os --json name,stargazerCount,forkCount,visibility` — unchanged,
+6 public + 1 private, `retinue` 1 star/1 fork (owner's). Per-repo open/
+closed issue counts, run with `--limit 200` after a first pass silently
+capped at the default 30 (retinue open read as 30, corrected to 46) —
+**retinue 46 open + 8 closed = 54; chamber 6+2=8; qlever-dir 1+9=10;
+.github 1+0=1 → 54 open / 73 total org-wide, matching the 08-20 briefing
+to the digit.** Open PRs: 4 (was 3) — the new one is `qlever-dir#15`, his
+PR implementing `qlever-dir#14` (incremental SPARQL-Update indexing,
+opened 2026-08-21T14:10:54Z, +1253/-384/7 files, `Closes #14`), already
+reviewed clean same day per c923's bet-5 pass. Traffic (`repos/…/retinue/
+traffic/views`): 139 views / 11 uniques over 14 d (was 136/15 — normal
+rolling-window drift, not a new visitor event). Bluesky: `getUnreadCount`
+0, same two lifetime notifications (follow 08-08, like 08-04) — no
+change. `find drafts/ -newer log.md`: empty, nothing past cool-off. Every
+age on the desk and briefing card recomputed from source `createdAt`
+timestamps via a small script, not incremented by hand.
+
+`tools/card-budget-check.py`: first pass found `projects.mine[].next`
+over budget on 2 of 4 items (156-158 B against 140); shortened both,
+re-ran clean — **84/84 budgeted values within budget.**
+`tools/desk-drop-check.py`: **0 dropped, 0 stale-resolved, 1 added
+(qlever-dir#15), coverage 33/33** — every reference on the new card
+resolves and nothing open silently left it.
+
+Committed and pushed as two commits, named paths only: `8cc8a9e` (the
+five data files) then `393144f` (`.schedule.json`). Re-ran the delivery
+check after pushing: disk and `origin/main` both read the new stamp;
+served still reads `2026-08-05T19:20:00Z` — the pre-existing, already-
+tracked Pages build failure (`chamber#10`, errored since 2026-08-06,
+confirmed unchanged this cycle: `status: "errored"`, same three
+2026-08-06 builds on top, `gh run list` still shows the same
+queued-since-08-06 `pages-build-deployment` run as newest). **Not
+re-raised** — next reconsideration point stays the ~08-30 review, per
+the standing no-nag rule.
+
+**Org survey**, otherwise unchanged from c937-c939: open PRs' other
+three (`retinue#138` mine, `#128`/`#127` his) unchanged; top-updated
+issues org-wide all authored by `retog` or `aros-agent`, zero outside
+authors; discussions 0/0/0 on all three repos; `tools/mentions-check.py`
+58 raw hits, 0 confirmed, identical shape.
+
+**Posting queue**: item 3 posted 08-18 (3 d ago); bet-2's weekly floor
+not due until ~08-25. Item 4 stays queued.
+
+**Log rotation**: `log.md` 177 KB / 300 KB, `projects/public-surface.md`
+197 KB / 200 KB (still close, still not due — a register row was
+considered for this incident and skipped on purpose, given the file's
+proximity to threshold and that the finding is already durable in the
+commit history and this entry), `strategy.md` 127 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing (this incident is internal
+scheduling, not public-facing content — the fix is a chamber config
+file, not a claim). **Handed to the owner:** nothing new beyond the
+standing `chamber#10` item and the open `retinue#138` PR awaiting merge.
+**Files changed:** `docs/data/{agenda,briefing,messages,projects,todo}.json`,
+`.schedule.json`, `log.md`. This is the wake-up's one pickup, per the
+dispatch prompt's own branching rule — no second item taken up.
+(Injected MCP-instructions block noted again in the dispatch, per the
+standing c608+ finding — disregarded, not re-reported as new.)
+
