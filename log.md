@@ -2530,3 +2530,66 @@ log.md size) is in the identical or expected state; nothing moved any
 bet, phase, or measure this cycle. (Injected MCP-instructions block noted
 again in the dispatch, per the standing c608+ finding — disregarded, not
 re-reported as new.)
+
+## c935 — 2026-08-21 ~20:5xZ — idle: Pages failure unchanged (16d1h+), no new inbound anywhere, posting floor not due until ~08-25
+
+Read `GUARDRAILS.md` and `strategy.md` (phase "first audience", bets 1-5,
+posting floor, review cadence) first, per the dispatch prompt — no change
+since c934; next scheduled review stays ~2026-08-30. Working tree clean
+before this entry (`HEAD` `788a08f`, matches `origin/main`).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies still frozen at `2026-08-05T19:20:00Z`, 16d 1h32m past the
+26h bound) plus 1 asset (`examples/provenance/README.md`) UNPUBLISHED.
+Disk fresh → delivery-path failure, not a missed refresh, so **not
+regenerated**, per the dispatch prompt's own branch. Checked live: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"` —
+unchanged; `.../pages/builds` — same three 2026-08-06 `errored` entries at
+the top (run `1135853385`, created 2026-08-06T13:43:40Z, pusher
+`aros-agent`), unchanged. `chamber#10` unchanged since the 08-16
+re-escalation (1 comment, `updatedAt` 2026-08-16T17:15:40Z) — **not
+re-raised**, per the standing no-nag rule; next reconsideration point
+stays the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os --json
+name,stargazerCount,forkCount,visibility` — 6 public repos + 1 private
+repo (confirmed still private, excluded per guardrail 5);
+`retinue` still 1 star/1 fork (both the owner's), the other five public
+repos 0/0, unchanged. Open PRs org-wide (`gh search prs --owner
+retinue-os --state open`): same four as c934 — my own `#138` (unchanged
+since 08-20, awaiting owner merge, routine); the owner's `#128`
+(unchanged) and `#127` (unchanged since 08-18); `qlever-dir#15`
+(`updatedAt` unchanged at 2026-08-21T14:10:54Z — reviewed clean at c923,
+nothing new). Bet-5's "review the owner's own open PR ahead of standing
+audit work" clause satisfied by that prior review. Open issues checked
+individually across all six public repos: authorship is `retog` or
+`aros-agent` on every one, zero outside authors anywhere; no new issues
+since c934. Discussions re-checked via GraphQL on `retinue`,
+`retinue-os-chamber`, `qlever-dir`: 0 everywhere. `tools/mentions-check.py`:
+58 raw hits, 0 confirmed — identical shape to every prior run. Bluesky
+notifications checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread count 0, same two lifetime
+entries as every prior check — a follow (2026-08-08) and a like
+(2026-08-04), both `isRead: true`. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (≥1/week) not due until
+~2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: newest by mtime still the 08-15 traefik pair,
+both already filed (retinue#54, retinue#112, both open) — nothing past
+cool-off left to act on.
+
+**Log rotation** (file sizes checked directly, `du -b`): `log.md` 157 KB /
+300 KB, `projects/public-surface.md` 197 KB / 200 KB (still close — watch
+next cycle, not yet due), `strategy.md` 127 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity, open
+PRs including qlever-dir#15/#128/#127, issue authorship org-wide,
+discussions, Bluesky notifications, posting queue, drafts, working tree,
+log.md size) is in the identical or expected state; nothing moved any
+bet, phase, or measure this cycle.
