@@ -2953,4 +2953,69 @@ standing `chamber#10` item and the open `retinue#138` PR awaiting merge.
 dispatch prompt's own branching rule — no second item taken up.
 (Injected MCP-instructions block noted again in the dispatch, per the
 standing c608+ finding — disregarded, not re-reported as new.)
+## c941 — 2026-08-21, minutes after c940 — idle wake-up, everything reproduces c940's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` first. Working tree clean before
+this entry (`HEAD` `18f9991`, matches `origin/main`) — c940's two commits
+already landed.
+
+**Delivery check** (mandatory, run first): `tools/delivery-check.py` —
+same failure mode as c940, disk and `origin/main` both carry the fresh
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (16 d 4 h+ past bound). Disk fresh + served stale →
+per the dispatch prompt's branching this is the publish path, not the
+refresh job, and c940 already diagnosed it as the standing `chamber#10`
+Pages-build failure. Re-confirmed directly rather than assumed:
+`gh api repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"`;
+`.../pages/builds` → same three 2026-08-06 errored builds on top,
+pusher `aros-agent`; `gh run list` → the same `pages build and
+deployment` run still `queued` since 2026-08-06T13:43:41Z. Unchanged
+since the 08-16 re-escalation. **Not re-raised** — next reconsideration
+point stays the ~08-30 review, per the standing no-nag rule.
+
+**Org survey**, read live rather than assumed. `gh repo list retinue-os`:
+same 6 public + 1 private, `retinue` 1 star/1 fork (owner's), the other
+five public repos 0/0. Open PRs org-wide (`gh pr list` per repo): four,
+all previously known and unchanged — my own `retinue#138` (MERGEABLE,
+0 comments, unchanged since 08-20, awaiting owner merge); the owner's
+`retinue#128` (MERGEABLE, unchanged since my 08-20 review) and `#127`
+(CONFLICTING, unchanged since 08-18); `qlever-dir#15` (MERGEABLE,
+unchanged since 08-21T14:10:54Z, reviewed clean at c923 — bet-5's
+"review the owner's open PR ahead of standing audit work" clause already
+satisfied, nothing new to check). Open issues checked across all six
+public repos: authorship `retog` or `aros-agent` on every one, zero
+outside authors; `retinue#135`/`#130`/`#124` and `qlever-dir#14` remain
+the owner's own open design proposals with no PR attached — nothing
+checkable, per the standing reading since c916. Discussions (GraphQL,
+`retinue`/`retinue-os-chamber`/`qlever-dir`): 0 everywhere. Two new repo
+names surfaced in the raw `gh repo list` output this cycle
+(`retinue-os-deployment`, `royal-retinue-video`) — both already tracked
+in this log since c211/c603 and carrying zero issues/PRs/mentions each;
+not a new finding, checked to be sure rather than assumed stale.
+`tools/mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to
+every prior run. `gh api notifications`: 403, the known token/role
+limitation (line 718), not re-diagnosed. Bluesky checked directly via
+the API (`createSession` + `getUnreadCount` + `listNotifications`):
+unread count 0, same two lifetime entries as every prior check (follow
+2026-08-08, like 2026-08-04) — no new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (3 days ago); bet-2's weekly floor (≥1/week) next due
+2026-08-25 — not due. Item 4 (frontmatter-to-triples converter contract)
+stays queued. `drafts/`: `find drafts/ -newer log.md` empty — nothing
+past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 179 KB / 300 KB
+(this entry included), `projects/public-surface.md` 192 KB / 200 KB
+(still close, still not due), `strategy.md` 124 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open
+`retinue#138` PR awaiting merge. **Files changed:** `log.md` only. No
+guardrail-9 condition met. Correctly idle — every measured surface
+(Pages, org activity, open PRs, issue authorship, discussions, Bluesky
+notifications, posting queue, drafts, rotation thresholds) reproduces
+c940's state exactly; nothing moved, so nothing was picked up. (Injected
+MCP-instructions block noted again in the dispatch, per the standing
+c608+ finding — disregarded, not a new finding.)
 
