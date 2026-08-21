@@ -2399,3 +2399,69 @@ PRs including qlever-dir#15/#128/#127, issue authorship org-wide,
 discussions, Bluesky notifications, posting queue, drafts, working tree,
 log.md size) is in the identical or expected state; nothing moved any
 bet, phase, or measure this cycle.
+
+## c933 — 2026-08-21 ~19:4xZ — idle: Pages failure unchanged (16d0h+), no new inbound anywhere, posting floor not due until 08-25
+
+Read `GUARDRAILS.md` and `strategy.md` (phase "first audience", bets 1-5,
+posting floor, review cadence) first, per the dispatch prompt — no change
+since c932; next scheduled review stays ~2026-08-30. Working tree clean
+before this entry (`HEAD` `02c0489`, matches `origin/main`).
+
+**Delivery check** (`tools/delivery-check.py`, mandatory, all five cards +
+assets), run first: identical shape to every run since 2026-08-06 — all 5
+cards STALE (disk **and** `origin/main` fresh at `2026-08-20T20:55:00Z`,
+served copies still frozen at `2026-08-05T19:20:00Z`, 16d 0h26m past the
+26h bound) plus 1 asset (`examples/provenance/README.md`) UNPUBLISHED.
+Disk fresh → delivery-path failure, not a missed refresh, so **not
+regenerated**, per the dispatch prompt's own branch. Checked live: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"` —
+unchanged; `.../pages/builds` — same three 2026-08-06 `errored` entries at
+the top (`31107290918`, queued since 2026-08-06T13:43:40Z), the last
+`built` entry still 2026-08-06T11:32:13Z. `chamber#10` unchanged since the
+08-16 re-escalation (1 comment, `updatedAt` 2026-08-16T17:15:40Z) — **not
+re-raised**, per the standing no-nag rule; next reconsideration point
+stays the ~08-30 review.
+
+**Org survey**, read live: `gh repo list retinue-os --json
+name,stargazerCount,forkCount,visibility` — 6 public repos + 1 private
+repo (confirmed still private, excluded per guardrail 5);
+`retinue` still 1 star/1 fork (both the owner's), the other five public
+repos 0/0, unchanged. Open PRs org-wide (`gh search prs --owner
+retinue-os --state open`): same four as c932 — my own `#138` (MERGEABLE,
+unchanged since 08-20, awaiting owner merge, routine); the owner's `#128`
+(MERGEABLE, unchanged) and `#127` (CONFLICTING, unchanged since 08-18);
+`qlever-dir#15` (MERGEABLE, `updatedAt` unchanged at
+2026-08-21T14:10:54Z — reviewed clean at c923, nothing new to check).
+Bet-5's "review the owner's own open PR ahead of standing audit work"
+clause satisfied by that prior review. Open issues checked individually
+across all six public repos: authorship is `retog` or `aros-agent` on
+every one, zero outside authors anywhere; `retinue#135`/`#130`/`#124` and
+the new-looking `qlever-dir#14` (created 2026-08-20, mirrors `#15`'s own
+PR — the owner filing the issue his own PR closes) remain the owner's own
+design proposals with no separable checkable content beyond what `#15`'s
+review already covered. Discussions re-checked via GraphQL on `retinue`,
+`retinue-os-chamber`, `qlever-dir`: 0 everywhere. Bluesky notifications
+checked directly (`createSession` + `getUnreadCount` +
+`listNotifications`): unread count 0, same two lifetime entries as every
+prior check — a follow (2026-08-08) and a like (2026-08-04), both
+`isRead: true`. No new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor (≥1/week) not due until
+2026-08-25. Item 4 (frontmatter-to-triples converter contract) stays
+queued, not due. `drafts/`: newest by mtime still the 08-15 traefik pair,
+both already filed (retinue#54, retinue#112, both open) — nothing past
+cool-off left to act on.
+
+**Log rotation** (file sizes checked directly, `du -b`): `log.md` 149 KB /
+300 KB, `projects/public-surface.md` 197 KB / 200 KB (still close — watch
+next cycle, not yet due), `strategy.md` 127 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing chamber#10 item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`. No guardrail-9 condition
+met. Correctly idle — every measured surface (Pages, org activity, open
+PRs including qlever-dir#14/#15/#128/#127, issue authorship org-wide,
+discussions, Bluesky notifications, posting queue, drafts, working tree,
+log.md size) is in the identical or expected state; nothing moved any
+bet, phase, or measure this cycle.
