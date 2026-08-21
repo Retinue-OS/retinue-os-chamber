@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-20T20:55:00Z",
+  "generated": "2026-08-21T23:15:00Z",
   "title": "Retinue - public-facing status",
-  "text": "Measured live via gh at 2026-08-20 20:55 UTC — one stamp for all five cards.\n\nHis PR qlever-dir#13 merged 19:17 UTC, closing #2, #3, #4, #5, #6, #7, #8 and #10 in one pass (watcher reliability, blank-node collisions, .qleverignore, quad-emission fixes). qlever-dir now carries 1 open issue (#14, his, opened 15:59 UTC, no PR yet).\n\nPages still stuck since 08-06 (14 d 7 h); served copies still 08-05 (15 d 1 h). chamber#10 parked to ~08-30, not re-raised.\n\n1 star (owner's); 0 watchers; 1 fork (retinue#99, 08-10). Traffic (14 d): 15 uniques, 136 views, unchanged since 08-19.\n\n54 open issues (73 total), 3 open PRs across four repos; mine: 10 issues, 1 PR (#138, unreviewed). Desk mostly a week+ old; oldest chamber#1, 32 d 22 h."
+  "text": "Measured live via gh at 2026-08-21 23:15 UTC — one stamp for all five cards.\n\nHis qlever-dir#14 (incremental SPARQL-Update indexing) opened 08-20 15:59 UTC; his PR#15 implementing it opened 08-21 14:11 UTC, reviewed clean same day (bet-5). qlever-dir: 1 open issue, 1 open PR.\n\nPages still stuck since 08-06 (15 d 9 h); served copies still 08-05 (16 d 3 h). chamber#10 parked to ~08-30, not re-raised.\n\n1 star (owner's); 0 watchers; 1 fork. Traffic (14 d): 11 uniques, 139 views.\n\n54 open issues (73 total), 4 open PRs across four repos; mine: 10 issues, 1 PR (#138, unreviewed, 1 d 3 h). Desk mostly a week+ old; oldest chamber#1, 34 d 0 h."
 }
