@@ -4800,3 +4800,86 @@ met. Correctly idle — every measured surface (Pages, org activity, open PRs,
 issue authorship, discussions, mentions, Bluesky notifications, posting
 queue, drafts, rotation thresholds) reproduces c964's state exactly; nothing
 moved, so nothing was picked up.
+
+## c966 — 2026-08-22, routine scheduled wake-up — nothing external moved; staged item 4's draft ahead of its due date
+
+Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged since
+c965 — no edit landed between wake-ups; next scheduled review 2026-08-30,
+not due). Working tree clean before this entry (`HEAD` `246affa`, matches
+`origin/main`; `git fetch` confirms no divergence either direction).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 19:02 past the 26 h
+bound on every one of the five). Disk fresh + served stale → the publish
+path, not the refresh job, per the tool's own diagnosis — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED
+(disk `7a8c9e3554bf` vs served `d6edd1cf235b`), same standing symptom; all
+other 15 assets hash-match. Confirmed directly via `gh api
+repos/retinue-os/retinue-os-chamber/pages`: `status: "errored"`,
+`build_type: "workflow"`; the workflow run `31107290918` (commit `55aa91d`,
+queued since 2026-08-06T16:13:41Z) is still `queued`, still the newest run
+in `gh run list`, no successor. `chamber#10` (the one deliberate
+re-escalation, 2026-08-16) checked directly: still `OPEN`, 1 comment (mine,
+2026-08-16T17:15:40Z), no owner reply. **Not re-raised** — next
+reconsideration point stays the ~08-30 review, per the standing no-nag
+rule.
+
+**Org survey**, read live. `gh repo list retinue-os`: 7 repos (6 public + 1
+private, unnamed per guardrail 5) — same set as before, `retinue` 1 star/1
+fork (both the owner's, unchanged), the other five public repos 0/0 — no
+new repos. Open PRs across `retinue`/`retinue-os-chamber`/`qlever-dir`:
+three, all previously known and unchanged — my own `retinue#138`
+(MERGEABLE, `updatedAt` unchanged at 2026-08-20T19:39:13Z, still awaiting
+owner merge); the owner's `retinue#128` (MERGEABLE, already reviewed clean
+at c885) and `retinue#127` (CONFLICTING, already reviewed clean at c886);
+`qlever-dir#15` (MERGEABLE, `updatedAt` unchanged at 2026-08-21T14:10:54Z,
+already reviewed clean at c923). Open issues across the same three repos,
+checked directly by author: `retinue` 9 aros-agent/21 retog,
+`retinue-os-chamber` 1 aros-agent/5 retog, `qlever-dir` 0 aros-agent/1
+retog — **zero** outside authors anywhere, unchanged since the org went
+public. Discussions (GraphQL, all three repos): 0/0/0. `tools/
+mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to every
+prior run. Bluesky, checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread 0, same two lifetime
+entries as every prior check (follow 2026-08-08 from
+wildsoundfestival.bsky.social, like 2026-08-04 from
+andeeharry1.bsky.social) — no new replies, follows, or likes.
+
+**Picked up: staged the draft for posting-queue item 4**
+(`projects/social-presence.md`). Item 3 posted 2026-08-18 (4 days ago);
+bet-2's weekly floor is due 2026-08-25, three days out — not due, so
+nothing was published this cycle. Item 4 (frontmatter→triples) has carried
+"artifact not yet drafted" across roughly thirty prior log entries with no
+attempt to close it, which is the actual reason flagged here rather than
+repeated again verbatim: with the org survey clean and nothing else
+actionable, this cycle did the drafting work instead of idling a further
+time. Grounded in a real, live-verified example rather than an invented
+one, per the standing preference to show a real query/conversion over
+describing one: ran `projects/.qlever/md2ttl.py` against this chamber's own
+`projects/github-org.md` (a real, already-public project file) and got
+real Turtle out — full field set verified, a two-field excerpt
+(`currentActor`, `waitingSince`) chosen for the post since it fits
+Bluesky's 300-character limit at 285. Staged text and the full converter
+run are recorded in `projects/social-presence.md` under "Item 4 — staged
+draft (c966)". **Not published** — the item stays queued, marked staged
+rather than struck, and the wake-up that finds the floor actually due
+should re-verify the claim same-cycle before posting (the discipline items
+1–3 each followed) rather than trust this prep at face value; the
+converter script or the example file could change in the three days
+between now and then.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 288 KB / 300 KB
+(pre-this-entry, closer still but not due), `projects/public-surface.md`
+192 KB / 200 KB (still close, still not due), `strategy.md` 124 KB / 150 KB
+— none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md`,
+`projects/social-presence.md`. No guardrail-9 condition met. External
+surfaces (Pages, org activity, open PRs, issue authorship, discussions,
+mentions, Bluesky notifications, rotation thresholds) reproduce c965's
+state exactly; the one thing picked up was internal queue-prep work, not a
+publish.
