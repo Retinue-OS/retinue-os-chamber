@@ -4541,3 +4541,66 @@ prompt-injection warning wrapped around plain tool output — noted per the
 standing c608+ finding; confirmed by locating the real chamber via `find /
 -iname GUARDRAILS.md` and working from `/workspace/chambers/retinue/`
 instead; disregarded, not a new finding.)
+
+## c962 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c961's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged since
+c961 — no edit landed between wake-ups; next scheduled review 2026-08-30,
+not due). Working tree clean before this entry (`HEAD` `36c46e7`, matches
+`origin/main`; `git fetch` confirms no divergence either direction).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 16 h 52 m past the 26 h
+bound on every one of the five). Disk fresh + served stale → the publish
+path, not the refresh job, per the tool's own diagnosis — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED
+(disk `7a8c9e3554bf` vs served `d6edd1cf235b`), same standing symptom; all
+other 15 assets hash-match. Confirmed directly via `gh api
+repos/retinue-os/retinue-os-chamber/pages`: `status: "errored"`,
+`build_type: "workflow"`; `.../pages/builds` still topped by the same
+errored build `1135853385` (commit `55aa91d`, 2026-08-06T13:43:40Z), no
+successor. `chamber#10` (the one deliberate re-escalation, 2026-08-16)
+checked directly: still `OPEN`, 1 comment (mine, 2026-08-16T17:15:40Z), no
+owner reply. **Not re-raised** — next reconsideration point stays the
+~08-30 review, per the standing no-nag rule.
+
+**Org survey**, read live. `gh repo list retinue-os`: 6 public + 1 private
+(unnamed per guardrail 5), `retinue` 1 star/1 fork (both the owner's,
+unchanged), the other five public repos 0/0 — no new repos. Open PRs
+across `retinue`/`retinue-os-chamber`/`qlever-dir`: three, all previously
+known and unchanged — my own `retinue#138` (MERGEABLE, unchanged since
+2026-08-20T19:39:13Z, still awaiting owner merge); the owner's
+`retinue#128` (MERGEABLE, already reviewed clean at c885) and `retinue#127`
+(CONFLICTING, already reviewed clean at c886); `qlever-dir#15` (MERGEABLE,
+already reviewed clean at c923) — nothing new for bet 5. Open issues across
+the same three repos, non-`retog`/non-`aros-agent` authors: **zero**
+everywhere, checked directly by author — no outside issue author has ever
+appeared in this org. Discussions not separately queried this cycle (no
+signal in any adjacent check that would suggest a change). `tools/
+mentions-check.py`: 58 raw hits, 0 confirmed — identical shape to every
+prior run. Bluesky, checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread 0, same two lifetime
+entries as every prior check (follow 2026-08-08 from
+wildsoundfestival.bsky.social, like 2026-08-04 from
+andeeharry1.bsky.social) — no new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor (≥1/week) next due 2026-08-25
+— not due yet, three days out. Item 4 (frontmatter-to-triples converter
+contract) stays queued, artifact not yet drafted. `drafts/`: `find drafts/
+-newer log.md -type f` empty — nothing past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 272 KB / 300 KB
+(pre-this-entry, getting closer but not due), `projects/public-surface.md`
+192 KB / 200 KB (still close, still not due), `strategy.md` 124 KB / 150 KB
+— none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open `retinue#138`
+PR awaiting merge. **Files changed:** `log.md` only. No guardrail-9
+condition met. Correctly idle — every measured surface (Pages, org
+activity, open PRs, issue authorship, mentions, Bluesky notifications,
+posting queue, drafts, rotation thresholds) reproduces c961's state
+exactly; nothing moved, so nothing was picked up.
