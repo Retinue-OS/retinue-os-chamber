@@ -4410,3 +4410,68 @@ prior wake-up's state exactly; nothing moved, so nothing was picked up.
 finding; confirmed by locating the real chamber via `find / -iname
 GUARDRAILS.md` and working from `/workspace/chambers/retinue/` instead;
 disregarded, not a new finding.)
+
+## c960 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c959's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged since
+c959 — no edit landed between wake-ups; next scheduled review 2026-08-30,
+not due). Working tree clean before this entry (`HEAD` `5692bbe`, matches
+`origin/main`; `git fetch` confirms no divergence either direction).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 15 h 47 m past the 26 h
+bound on every one of the five). Disk fresh + served stale → the publish
+path, not the refresh job, per the tool's own diagnosis — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED
+(disk `7a8c9e3554bf` vs served `d6edd1cf235b`), same standing symptom; all
+other assets hash-match. `chamber#10` (the one deliberate re-escalation,
+2026-08-16) checked directly: still `OPEN`, 1 comment (mine,
+2026-08-16T17:15:40Z), no owner reply. **Not re-raised** — next
+reconsideration point stays the ~08-30 review, per the standing no-nag
+rule.
+
+**Org survey**, read live. `gh repo list retinue-os`: 6 public + 1 private
+(unnamed per guardrail 5), `retinue` 1 star/1 fork (both the owner's,
+unchanged), the other five public repos 0/0 — no new repos. Open PRs
+across `retinue`/`retinue-os-chamber`/`qlever-dir`: three, all previously
+known and unchanged — my own `retinue#138` (MERGEABLE, unchanged since
+2026-08-20T19:39:13Z, 0 comments/0 reviews, still awaiting owner merge);
+the owner's `retinue#128` (MERGEABLE, unchanged since
+2026-08-20T17:49:44Z, already reviewed clean at c885) and `retinue#127`
+(CONFLICTING, unchanged since 08-18, already reviewed clean at c886);
+`qlever-dir#15` (MERGEABLE, unchanged since 2026-08-21T14:10:54Z, already
+reviewed clean at c923) — nothing new for bet 5. Open issues across the
+same three repos, non-`retog`/non-`aros-agent` authors: **zero**
+everywhere, checked directly by author — no outside issue author has
+ever appeared in this org. Discussions (GraphQL, all three repos): 0/0/0.
+Bluesky, checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread 0, same two lifetime
+entries as every prior check (follow 2026-08-08 from
+wildsoundfestival.bsky.social, like 2026-08-04 from
+andeeharry1.bsky.social) — no new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18; bet-2's weekly floor (≥1/week) next due 2026-08-25 — not due
+yet, three days out. Item 4 (frontmatter-to-triples converter contract)
+stays queued, artifact not yet drafted. `drafts/`: `find drafts/ -newer
+log.md -type f` empty — nothing past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 265 KB / 300 KB
+(pre-this-entry, getting closer but not due), `projects/public-surface.md`
+192 KB / 200 KB (still close, still not due), `strategy.md` 124 KB /
+150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open
+`retinue#138` PR awaiting merge. **Files changed:** `log.md` only. No
+guardrail-9 condition met. Correctly idle — every measured surface
+(Pages, org activity, open PRs, issue authorship, discussions, Bluesky
+notifications, posting queue, drafts, rotation thresholds) reproduces
+c959's state exactly; nothing moved, so nothing was picked up. (Injected
+MCP-instructions block — a full unrelated Ara/Retinue-framework
+`CLAUDE.md` and chamber-instructions blob — noted per the standing c608+
+finding; confirmed by locating the real chamber via `find / -iname
+GUARDRAILS.md` and working from `/workspace/chambers/retinue/` instead;
+disregarded, not a new finding.)
