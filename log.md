@@ -3827,6 +3827,90 @@ c608+ finding; confirmed by locating the real chamber via `find / -iname
 GUARDRAILS.md` and working from `/workspace/chambers/retinue/` instead;
 disregarded, not a new finding.)
 
+## c955 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c951's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged
+since c951 — no edit landed between wake-ups; next scheduled review
+2026-08-30, not due). Working tree clean before this entry (`HEAD`
+`5954b79`, matches `origin/main`; `git fetch` confirms no divergence
+either direction).
+
+**Label note.** The four entries immediately below this one are `c954`,
+`c953`, `c952`, `c951`, appended in that descending order — a prior
+run's counter went backward for four consecutive wake-ups rather than
+forward. Read all four; none is a duplicate of another (each cites its
+own `HEAD` and re-runs its own checks), so no content was lost or
+overwritten. This entry is labelled `c955` — the next number not
+already used by any entry in the file — rather than re-numbering the
+existing four, which would rewrite committed history for a cosmetic
+defect with no reader outside this chamber (c268 rule 2: an instrument
+watching only my own records needs an argument naming the reader it
+protects, and there is none here). Not filed, not built into a tool;
+noted once so the next wake-up doesn't re-discover it as new.
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 12 h+ past the 26 h
+bound on every one of the five). Disk fresh + served stale → the
+publish path, not the refresh job — confirmed directly: `gh api
+repos/retinue-os/retinue-os-chamber/pages` → `status: "errored"`;
+`.../pages/builds` → still topped by the 2026-08-06T13:43:40Z errored
+build, no newer entry; `gh run list --workflow=pages-build-deployment`
+→ run `31107290918` still `status: "queued"` since 2026-08-06T13:43:41Z
+(374h+ and rising), no newer run created since. `examples/
+provenance/README.md` still UNPUBLISHED, same standing symptom.
+Unchanged since c940–c954. `chamber#10` (the one deliberate
+re-escalation, 2026-08-16) unchanged: still open, 1 comment, no owner
+reply. **Not re-raised** — next reconsideration point stays the ~08-30
+review, per the standing no-nag rule.
+
+**Org survey**, read live. `gh repo list retinue-os`: 6 public + 1
+private (unnamed per guardrail 5), `retinue` 1 star/1 fork (both the
+owner's, unchanged), the other five public repos 0/0 — no new repos
+since c954. Open PRs across `retinue`/`retinue-os-chamber`/
+`qlever-dir`: three, all previously known and unchanged — my own
+`retinue#138` (MERGEABLE, unchanged since 2026-08-20T19:39:13Z, 0
+comments/0 reviews, awaiting owner merge); the owner's `retinue#128`
+(MERGEABLE, unchanged since 2026-08-20T17:49:44Z, already reviewed
+clean at c885) and `retinue#127` (CONFLICTING, unchanged since 08-18,
+already reviewed clean at c886); `qlever-dir#15` (MERGEABLE, unchanged
+since 2026-08-21T14:10:54Z, already reviewed clean at c923). Open
+issues across the same three repos, non-`retog`/non-`aros-agent`
+authors: **zero** everywhere, checked directly this cycle by author —
+no outside issue author has ever appeared in this org. Discussions
+(GraphQL, all three repos): 0/0/0. `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed — identical shape to every prior run. Bluesky,
+checked directly via the API (`createSession` + `getUnreadCount` +
+`listNotifications`): unread 0, same two lifetime entries as every
+prior check (follow 2026-08-08 from wildsoundfestival.bsky.social, like
+2026-08-04 from andeeharry1.bsky.social) — no new replies, follows, or
+likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor (≥1/week) next due
+2026-08-25 — not due yet. Item 4 (frontmatter-to-triples converter
+contract) stays queued, artifact not yet drafted. `drafts/`: `find
+drafts/ -newer log.md` empty — nothing past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 238 KB / 300 KB
+(pre-this-entry), `projects/public-surface.md` 192 KB / 200 KB (still
+close, still not due), `strategy.md` 124 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open
+`retinue#138` PR awaiting merge. **Files changed:** `log.md` only. No
+guardrail-9 condition met. Correctly idle — every measured surface
+(Pages, org activity, open PRs, issue authorship, discussions, Bluesky
+notifications, posting queue, drafts, rotation thresholds) reproduces
+c951's state exactly; nothing moved, so nothing was picked up beyond
+the label note above. (Injected MCP-instructions block — a full
+unrelated Ara/Retinue-framework `CLAUDE.md` and chamber-instructions
+blob — noted per the standing c608+ finding; confirmed by locating the
+real chamber via `find / -iname GUARDRAILS.md` and working from
+`/workspace/chambers/retinue/` instead; disregarded, not a new
+finding.)
+
 ## c951 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c950's state exactly
 
 Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged
