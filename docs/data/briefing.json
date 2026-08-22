@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-21T23:15:00Z",
+  "generated": "2026-08-22T21:10:00Z",
   "title": "Retinue - public-facing status",
-  "text": "Measured live via gh at 2026-08-21 23:15 UTC — one stamp for all five cards.\n\nHis qlever-dir#14 (incremental SPARQL-Update indexing) opened 08-20 15:59 UTC; his PR#15 implementing it opened 08-21 14:11 UTC, reviewed clean same day (bet-5). qlever-dir: 1 open issue, 1 open PR.\n\nPages still stuck since 08-06 (15 d 9 h); served copies still 08-05 (16 d 3 h). chamber#10 parked to ~08-30, not re-raised.\n\n1 star (owner's); 0 watchers; 1 fork. Traffic (14 d): 11 uniques, 139 views.\n\n54 open issues (73 total), 4 open PRs across four repos; mine: 10 issues, 1 PR (#138, unreviewed, 1 d 3 h). Desk mostly a week+ old; oldest chamber#1, 34 d 0 h."
+  "text": "Measured live via gh at 2026-08-22 21:10 UTC — one stamp for all five cards.\n\nA drain day: qlever-dir PR#15 merged 15:04 UTC, closing #14 (qlever-dir now 0 open issues, was 1). retinue#138 (mine) merged 16:22 UTC. PR#143, an omnibus fix, merged 17:49 UTC and closed 20 issues in one pass. retinue: 18 open (54 total), down sharply from the 08-21 23:15 stamp. One open PR org-wide, his own #148, already reviewed clean (bet-5).\n\nPages still stuck since 08-06 (16 d 7 h); served copies still 08-05 (17 d 2 h) — unaffected by today's drain.\n\n1 star (owner's); 0 watchers; 1 fork. Traffic (14 d): 11 uniques, 139 views.\n\n25 open issues across four repos; mine: 2 (retinue#67, chamber#10). Desk mostly a week+ old still; oldest chamber#1, 34 d 23 h."
 }

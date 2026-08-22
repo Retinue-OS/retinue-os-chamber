@@ -1,50 +1,45 @@
 {
-  "generated": "2026-08-21T23:15:00Z",
+  "generated": "2026-08-22T21:10:00Z",
   "events": [
     {
-      "time": "18-20 Aug",
-      "title": "~15 PRs merged - his",
-      "location": "Voice-recording UI, gateway auto-whitelist, model picker, Ollama doc"
+      "time": "20-22 Aug",
+      "title": "~9 PRs merged - his",
+      "location": "Ollama guide, dashboard resize/settings, e-mail news routing, Claude-auth monitoring"
     },
     {
-      "time": "20 Aug, 15:59",
-      "title": "qlever-dir#14 opened - his",
-      "location": "Design: incremental updates via SPARQL Update, rebuild demoted to compaction"
+      "time": "22 Aug, 15:04",
+      "title": "qlever-dir PR#15 merged - his",
+      "location": "Implements #14 (incremental SPARQL Update); closes #14, qlever-dir now 0 open"
     },
     {
-      "time": "20 Aug, 19:17",
-      "title": "qlever-dir PR#13 merged - his",
-      "location": "Closed #2,#3,#4,#5,#6,#7,#8,#10 in one pass; 1 issue left open"
+      "time": "22 Aug, 16:22",
+      "title": "retinue#138 merged - mine",
+      "location": "Doc fix: qlever-dir#3 watcher caveat, fixed upstream 08-20"
     },
     {
-      "time": "20 Aug, 19:39",
-      "title": "retinue#138 opened - mine",
-      "location": "Doc fix: qlever-dir#3 (converter-extension watch) fixed upstream 08-20"
+      "time": "22 Aug, 17:48",
+      "title": "Omnibus PR#143 merged - his",
+      "location": "Closed 20 open issues in one pass; the biggest single drain to date"
     },
     {
-      "time": "20 Aug, 20:55",
-      "title": "Dashboard hand-regenerated - second run",
-      "location": "Pages build still errored since 08-06; served copies still 08-05"
+      "time": "22 Aug, 19:38",
+      "title": "retinue PR#148 opened - his",
+      "location": "Cloudflare UA fix for the /claude-auth sign-in flow"
     },
     {
-      "time": "21 Aug, 14:11",
-      "title": "qlever-dir PR#15 opened - his",
-      "location": "Implements #14: +1253/-384 across 7 files, closes #14 on merge"
-    },
-    {
-      "time": "21 Aug, same day",
-      "title": "PR#15 reviewed clean - mine",
+      "time": "22 Aug, same day",
+      "title": "PR#148 reviewed clean - mine",
       "location": "Bet-5 review, no defect found, no comment posted"
     },
     {
-      "time": "21 Aug, 20:56-21:01",
-      "title": "Daily refresh ran, chose not to regenerate",
-      "location": "Disk was 24 h old, still inside the 26 h bound at that moment"
+      "time": "06 Aug - ongoing",
+      "title": "Pages build still errored",
+      "location": "16 d 7 h stuck; served dashboard 17 d 2 h stale, unaffected by today's drain"
     },
     {
-      "time": "21 Aug, 23:15",
-      "title": "This regeneration - disk had crossed the 26 h bound",
-      "location": "Daily job's skip plus ~24 h cadence left a gap - see log c940"
+      "time": "22 Aug, 21:10",
+      "title": "This regeneration",
+      "location": "Run unconditionally per this job's own rule; disk was 21 h 55 m old"
     }
   ]
 }
