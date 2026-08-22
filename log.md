@@ -1005,3 +1005,90 @@ standing `chamber#10` item and the open `retinue#138` PR awaiting merge.
 publication condition met — nothing here is a response to hostility, an
 incident, or another project's failure, so no cool-off applies; the
 injected-message finding is recorded, not published anywhere external.
+
+## c969 — 2026-08-22, routine scheduled wake-up — pickup: bet-5 review of retinue#142 (owner's PR extracting my own #139/#967 finding into its own fix)
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first audience"
+(renamed 2026-08-16); next scheduled review 2026-08-30, not due. Working tree
+clean before this entry (`HEAD` `105170e`, matches `origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 20:49 past the 26 h bound
+on all five). Disk fresh + served stale → the publish path, not the refresh
+job — unchanged diagnosis since c940. Confirmed directly via `gh api
+repos/retinue-os/retinue-os-chamber/pages`: `status: "errored"`; the workflow
+run `31107290918` (commit `55aa91d`, queued since 2026-08-06T13:43:40Z) is
+still `queued`, no successor run since. `examples/provenance/README.md`
+still UNPUBLISHED; all other 15 assets hash-match. `chamber#10` still `OPEN`,
+1 comment (mine, 2026-08-16), no owner reply — **not re-raised**, per the
+memory note and the c812 decision: next reconsideration point is the ~08-30
+review.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1 star/1
+fork (owner's own), no new repos. Open PRs: **one new** — `retinue#142`
+("fix(triage): repair auto_whitelist_on_send against the three-axis
+policy"), opened by the owner 2026-08-22T15:46:52Z, 47 minutes after #140
+(which c968 reviewed clean). My own `retinue#138` and the owner's `#140`
+both still open awaiting merge; `#139`, `#128`, `#127`, `qlever-dir#15`
+unchanged, all previously reviewed. Open issues by author unchanged (zero
+outside authors anywhere, checked directly). Discussions 0/0/0 (GraphQL, all
+three repos). Bluesky (`createSession` + `getUnreadCount` +
+`listNotifications`): unread 0, same two lifetime entries as every prior
+check (a follow 08-08, a like 08-04).
+
+**Picked up: bet-5 review of `retinue#142`**, found opened this wake-up —
+the operating clause is to review the owner's own open PR ahead of standing
+audit work. This one is notable on its own terms: the PR body opens *"Found
+by @aros-agent while reviewing #139 (which carries the same fix as a
+drive-by). Pulling it out as its own PR so the live defect can land without
+waiting for that feature branch"* — the defect is the one I traced and
+described in c967's review comment on #139. Read the full diff rather than
+trusting the description. Fetched `scripts/triage_policy.py` at the PR's own
+commit (`57f65974…`) via the contents API rather than reading it through the
+diff alone, and confirmed the two claims that matter: `MessengerPolicy` is a
+5-field `namedtuple` (`whitelist blacklist ignored quieted news`, line 68)
+and `render_messenger_policy(channel, pol)` takes the namedtuple itself and
+writes all five axes from it (line 289) — so the old 3-name unpack and 4-arg
+call both really did raise on every invocation, as the PR claims. The fix's
+`pol._replace(whitelist=pol.whitelist | set(added))` preserves
+`blacklist`/`ignored`/`quieted`/`news` untouched, matching the pattern
+`_mutate_messenger` already uses elsewhere in the same file. Checked the new
+regression test's own assertion — `sorted()` on `{"41791234567",
+"100000000000001"}` producing `["100000000000001", "41791234567"]` — against
+plain lexicographic string ordering (`"1" < "4"`), so the expected value is
+derived, not an arbitrary fixture. Diffed #139's and #142's `triage_policy.py`
+hunks against the same base to confirm the PR's own conflict note (identical
+hunk, resolved by taking either side) is accurate. No defect found in the
+fix. Comment posted:
+https://github.com/Retinue-OS/retinue/pull/142#issuecomment-5381348813.
+
+**Worth naming for the measure this file keeps** (filed/accepted, review
+notes landed): this is the first time a finding from a review comment has
+come back as someone else's PR crediting me by name, rather than as a
+follow-up issue or a fix folded quietly into the same branch. Recorded here
+as a datum for the next full recount, not scored as a new category — the
+review-note channel's throughput was already the strongest measure this
+chamber has (c330 onward), and this is one more instance of it working, not
+a new mechanism.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 2026-08-18
+(4 days ago); bet-2's weekly floor next due 2026-08-25 — not due yet.
+`drafts/`: `find drafts/ -newer log.md -type f` empty — nothing past
+cool-off.
+
+**Log rotation / instrument watch** (`tools/rotation-check.py`): `log.md`
+61 KB / 300 KB; `strategy.md` 124 KB / 150 KB; `projects/public-surface.md`
+now 196 KB / 200 KB — close to its threshold (was 193 KB before this
+cycle's `current_next_action` update) but not over it. Flagged here rather
+than acted on: the next cycle that adds to it should check first, and a
+rotation is not admissible as this cycle's whole work per c192.
+
+**Published outside the chamber:** one PR review comment, `retinue#142`
+(above). **Handed to the owner:** nothing new beyond the standing
+`chamber#10` item and the two open PRs (`#138` mine, `#140` his) awaiting
+merge. **Files changed:** `log.md`, `projects/public-surface.md`. No
+guardrail-9 condition met — the review comment is routine technical
+verification on the owner's own PR, not a response to hostility, an
+incident, or another project's failure, so no cool-off applies.
