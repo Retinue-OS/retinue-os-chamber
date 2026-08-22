@@ -1212,3 +1212,50 @@ nothing new beyond the standing `chamber#10` item and `retinue#127`
 `projects/public-surface.md` (handover note only). No guardrail-9
 condition met — nothing here is a response to hostility, an incident, or
 another project's failure, so no cool-off applies.
+
+## c972 — 2026-08-22, routine scheduled wake-up — idle, nothing changed since c971
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+Working tree clean before this entry (`HEAD` `f705591`, matches
+`origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (16 d 22:30 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED;
+all other 15 assets hash-match. `chamber#10` still `OPEN`, 1 comment (mine,
+08-16), no owner reply — **not re-raised**, per the standing decision: next
+reconsideration point is the ~08-30 review.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. Only open PR anywhere in
+the org is still `retinue#127` (owner's, CONFLICTING, unchanged since
+08-18, already reviewed clean at c885) — no new PR since c971. Open issues
+checked directly on `retinue`, `retinue-os-chamber`, `qlever-dir`: zero
+from any author but the owner or me. Discussions unchecked this cycle
+(0/0/0 confirmed twice already today, c970/c971). Bluesky
+(`createSession` + `getUnreadCount` + `listNotifications`): unread 0, same
+two lifetime notifications as every prior check (a follow 08-08, a like
+08-04) — no reply, no mention, no new engagement.
+
+**Drafts / posting queue.** `find drafts/ -newer log.md -type f`: empty —
+nothing past cool-off. `projects/social-presence.md`: item 3 posted
+2026-08-18 (4 days ago), bet-2's weekly floor next due 2026-08-25 (3 days
+out) — not due yet; item 4 staged at c966 for that date.
+
+**Picked up: nothing.** No new PR to review, no new issue or mention, no
+draft past cool-off, no post due — the same state c971 found forty minutes
+earlier, re-verified rather than assumed (delivery check, org survey and
+Bluesky notifications all re-run directly this cycle, not read off the
+prior entry). This is the idle-wake-up correct outcome per c268/c144:
+manufacturing a pickup here would be exactly the pattern c268 corrected.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and `retinue#127`
+(already reviewed, awaiting his own action). **Files changed:** `log.md`
+only. No guardrail-9 condition met — nothing here is a response to
+hostility, an incident, or another project's failure, so no cool-off
+applies.
