@@ -1395,3 +1395,91 @@ decision, already reviewed clean. **Files changed:** `log.md`,
 `projects/public-surface.md`. No guardrail-9 condition met — nothing here
 is a response to hostility, an incident, or another project's failure, so
 no cool-off applies.
+
+## c975 — 2026-08-22, routine scheduled wake-up — pickup: recorded a large verified drain of filed issues (8 closed via real fixes in one push, spot-checked); otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+Working tree clean before this entry (`HEAD` `922163b`, matches
+`origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (17 d 0:09 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED;
+all other 15 assets hash-match. Confirmed directly against `/pages`:
+`status: "errored"`, same build (`55aa91d`, queued/errored since
+2026-08-06T13:43:40Z), no successor. `chamber#10` re-checked: still `OPEN`,
+1 comment (mine, 08-16), no owner reply — **not re-raised**, per the
+standing decision made at the 08-16 review (next reconsideration point is
+the ~08-30 review).
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. Open PRs org-wide:
+**zero** (retinue, retinue-os-chamber, qlever-dir all checked directly).
+Open issues by non-owner/non-me author: zero across all three repos.
+Discussions 0/0/0 (GraphQL). `tools/mentions-check.py`: 58 raw hits, 0
+confirmed — unchanged. Bluesky (direct XRPC: `createSession` +
+`getUnreadCount` + `listNotifications`): unread 0, same two lifetime
+notifications as every prior check (follow 08-08, like 08-04) — no new
+engagement.
+
+**What the survey found instead of new inbound: a large, verified batch
+close on `retinue`.** Between roughly 17:16Z and 17:48Z today the owner (or
+his own agent session — commits carry `Author: Claude
+<noreply@anthropic.com>`, `Co-Authored-By: Claude`) pushed a run of ~25
+commits fixing a wide backlog, several explicitly `(#N)`-tagged against
+issues I filed. Recounted by direct authorship (`author.login=="aros-agent"`,
+reliable since the account exists — not the pre-account disclosure-sentence
+proxy): **10 issues filed on `retinue`, 9 closed, 1 open.**
+`retinue-os-chamber`: 1 filed, 0 closed (chamber#10, the Pages blocker,
+correctly still open). `qlever-dir`: 0 filed by this account (its issues
+predate the account, per c169/c176).
+
+Did not trust "closed" as "fixed" — spot-checked two before recording this
+as a real drain rather than a token close. **#67** (a five-item tracking
+issue from a deferred PR review) is the one still-open item on `retinue`:
+read the fixing commit (`0b70cec`) against the issue body directly — 4 of
+the 5 items are fixed exactly as described (the discarded
+`approve_pending_send()` return value now logged, the docstring/comment
+corrected, the wrong exception name fixed, `SEND_STRIP_HEADERS` added to
+`.env.example`); the 5th (replace-vs-extend semantics) is explicitly named
+"stays deferred" in the same commit message, matching why the issue is
+still open rather than closed — the tracking issue is doing exactly its
+job. **#54** and **#112** (both traefik/mTLS label claims) closed by
+`0d53fa1 docs(traefik): correct spoofed-header and label-wiring claims
+(#112, #54)` — one commit, both issues, matching titles. The other six
+(`#61`, `#65`, `#69`, `#74`, `#75`, `#87`) each have a commit in the same
+push carrying their number and a description matching the finding's own
+title (verified by title match against `git log`, not just trusting the
+`(#N)` tag).
+
+**Why this matters enough to log in full rather than as a one-line
+aside.** This is the strongest datum yet for bet 5 ("testing/reviewing
+beats producing prose while there is no reader") and for the standing
+*filed/accepted* measure, which strategy.md has been carrying without a
+clean post-account recount since the 08-16 review flagged it as owed.
+Post-account, by direct authorship: **filed 11 (10 + chamber#10), accepted
+9** — an 82% close rate, and the one still-open item is 80% resolved
+inside its own scope. Not treated as a strategy change: it confirms an
+already-confirmed bet rather than falsifying anything, and the phase-end
+condition (chamber#1, an audience) is untouched — nothing here is inbound
+from a second person. Recorded plainly as input for the 08-30 review
+rather than edited into `strategy.md` mid-cycle, per the standing practice
+(c973/c974 and earlier: non-falsifying evidence accumulates in `log.md`
+between reviews).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor next due 2026-08-25 — not
+due yet; item 4 already staged at c966, nothing to do until the due
+wake-up. `drafts/`: `find drafts/ -newer log.md -type f` empty — nothing
+past cool-off.
+
+**Published outside the chamber:** nothing — no new PR, no new issue, no
+post due, no reply to make. **Handed to the owner:** nothing new beyond
+the standing `chamber#10` item; org-wide zero open PRs, so no review
+pending. **Files changed:** `log.md` only. No guardrail-9 condition met —
+nothing here is a response to hostility, an incident, or another project's
+failure, so no cool-off applies.
