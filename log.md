@@ -1483,3 +1483,80 @@ the standing `chamber#10` item; org-wide zero open PRs, so no review
 pending. **Files changed:** `log.md` only. No guardrail-9 condition met —
 nothing here is a response to hostility, an incident, or another project's
 failure, so no cool-off applies.
+
+## c976 — 2026-08-22, routine scheduled wake-up — pickup: bet-5 review of retinue#148 (Cloudflare UA fix; verified, clean); otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+Working tree clean before this entry (`HEAD` `0d1e06b`, matches
+`origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (17 d 0:43 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED;
+all other 15 assets hash-match. Confirmed directly against `/pages`:
+`status: "errored"`, same stuck build (`55aa91d`, errored since
+2026-08-06T13:43:40Z), no successor build queued. `chamber#10` not
+re-checked separately this cycle beyond the standing state (c975 confirmed
+it minutes ago in this same wall-clock window) — **not re-raised**, per the
+standing decision made at the 08-16 review (next reconsideration point is
+the ~08-30 review).
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. Open PRs org-wide:
+**one — `retinue#148`** (owner's, opened 2026-08-22T19:37:54Z, ~6 minutes
+before this wake-up), `retinue-os-chamber` and `qlever-dir` both zero.
+Open issues by non-owner/non-agent author: zero across all three repos.
+Discussions 0/0/0 (GraphQL, unchanged). `tools/mentions-check.py`: 58 raw
+hits, 0 confirmed — unchanged. Bluesky (direct XRPC:
+`createSession`+`getUnreadCount`+`listNotifications`): unread 0, same two
+lifetime notifications as every prior check (follow 08-08, like 08-04) —
+no new engagement.
+
+**Picked up: bet-5 review of `retinue#148`.** "fix(claude-auth): present as
+the Claude Code CLI to pass Cloudflare" — follow-up to #147, fixing the
+first real `/claude-auth` sign-in, which failed at token exchange with
+"HTTP 403: error code: 1010" (Cloudflare's browser-signature ban, not an
+Anthropic error, per the PR body). Small diff (+66/−3 across 5 files, CI
+`tests` workflow green, `MERGEABLE`). Rather than trust the description,
+cloned the framework fresh into `/tmp`, checked out the PR branch, and
+read every changed file against the claims: (1) `scripts/claude_auth.py` —
+a new `user_agent()` reads `claude --version`, regex-extracts the leading
+version token, caches it, falls back to a baked constant on any
+subprocess failure, and an env override (`CLAUDE_OAUTH_USER_AGENT`) takes
+priority — exactly as described, and the header is now attached to the
+token-exchange `Request` alongside `Accept: application/json`; (2)
+`.env.example` and `docker-compose.yml` both gained the new variable in
+the same places its siblings (`CLAUDE_OAUTH_SCOPES` etc.) already sit —
+matches the "escape hatch" claim; (3) `docs/claude-auth.md` documents the
+1010 error and the fix in a new paragraph, matching the PR body almost
+verbatim; (4) the new test `test_user_agent_shape_and_override` checks the
+UA's shape, that it's cached, and that the override wins — read it
+line-by-line, it tests what it claims to. Two claims in the PR body are
+external and unverifiable from here (the live 403/1010 reproduction and
+the live fix confirmation against Anthropic's actual Cloudflare-fronted
+endpoint) — noted as such rather than either trusted or treated as a
+defect; nothing in the diff contradicts them. `pytest` is unavailable in
+this environment so the suite itself could not be re-run locally, but the
+CI check run is `SUCCESS` and the code reads correctly by inspection. No
+defect found; per the c806/c809 clarification the falsification counter
+tracks reviews offering nothing checkable, and this one offered several
+checkable claims that all held, so the counter stays at zero. No comment
+posted — a clean review with no comment is the established correct
+disposition (c968–c975).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor next due 2026-08-25 — not
+due yet; item 4 already staged at c966, nothing to do until the due
+wake-up. `drafts/`: `find drafts/ -newer log.md -type f` empty — nothing
+past cool-off.
+
+**Published outside the chamber:** nothing — the review found nothing
+actionable, so no comment. **Handed to the owner:** nothing new beyond the
+standing `chamber#10` item; `retinue#148` needs only his own merge
+decision, already reviewed clean. **Files changed:** `log.md` only. No
+guardrail-9 condition met — nothing here is a response to hostility, an
+incident, or another project's failure, so no cool-off applies.
