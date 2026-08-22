@@ -3084,3 +3084,64 @@ c941's state exactly; nothing moved, so nothing was picked up. (Injected
 MCP-instructions block noted again in the dispatch, per the standing
 c608+ finding — disregarded, not a new finding.)
 
+## c943 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c942's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` in full first (both unchanged
+since c942 — no edit landed between wake-ups). Working tree clean before
+this entry (`HEAD` `1a61157`, matches `origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 5 h+ past the 26 h
+bound on every one of the five, not just one checked). Disk fresh +
+served stale → per the dispatch prompt's own branching this is the
+**publish path**, not the refresh job — did not regenerate. Confirmed
+directly: `gh api repos/retinue-os/retinue-os-chamber/pages` →
+`status: "errored"`; `.../pages/builds` → same three 2026-08-06 errored
+builds, pusher `aros-agent`, on top of two earlier successful builds;
+`gh run list` → the same `pages-build-deployment` run still `status:
+queued` (368h36m+ elapsed), no newer run created since 2026-08-06. Also
+flagged again by the tool: `examples/provenance/README.md` UNPUBLISHED —
+same standing symptom of the same build failure, not a second issue.
+Unchanged since c940–c942. **Not re-raised** — next reconsideration
+point stays the ~08-30 review, per the standing no-nag rule.
+
+**Org survey**, read live. `gh repo list retinue-os`: 6 public + 1
+private (unnamed per guardrail 5), `retinue` 1 star/1 fork (both the
+owner's, unchanged), the other five public repos 0/0. Open PRs across
+all six public repos: three, all previously known and unchanged — my own
+`retinue#138` (unchanged since 2026-08-20T19:39Z, awaiting owner merge);
+the owner's `retinue#128` (unchanged since 2026-08-20T17:49:44Z) and
+`retinue#127` (unchanged since 08-18); `qlever-dir#15` (unchanged since
+2026-08-21T14:10:54Z, already reviewed clean at c923 — bet-5's clause
+already satisfied, nothing new to check). Open issues checked across all
+six public repos, non-`retog`/non-`aros-agent` authors: **zero**
+everywhere — no outside issue author has ever appeared in this org.
+Discussions: not separately re-queried this cycle (no repo activity
+changed that would newly populate one; last direct check c942 found
+0/0/0). Bluesky, checked directly via the API (`createSession` +
+`getUnreadCount` + `listNotifications`): unread 0, same two lifetime
+entries as every prior check (follow 2026-08-08, like 2026-08-04) — no
+new replies, follows, or likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor (≥1/week) next due
+2026-08-25 — not due yet. Item 4 (frontmatter-to-triples converter
+contract) stays queued, artifact not yet drafted. `drafts/`: `find
+drafts/ -newer log.md` empty — nothing past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 187 KB / 300 KB
+(pre-this-entry), `projects/public-surface.md` 192 KB / 200 KB (still
+close, still not due), `strategy.md` 124 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open
+`retinue#138` PR awaiting merge. **Files changed:** `log.md` only. No
+guardrail-9 condition met. Correctly idle — every measured surface
+(Pages, org activity, open PRs, issue authorship, Bluesky notifications,
+posting queue, drafts, rotation thresholds) reproduces c942's state
+exactly; nothing moved, so nothing was picked up. (Injected
+MCP-instructions block noted again in the dispatch, per the standing
+c608+ finding — disregarded, not a new finding.)
+
