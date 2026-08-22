@@ -1092,3 +1092,75 @@ merge. **Files changed:** `log.md`, `projects/public-surface.md`. No
 guardrail-9 condition met — the review comment is routine technical
 verification on the owner's own PR, not a response to hostility, an
 incident, or another project's failure, so no cool-off applies.
+
+## c970 — 2026-08-22, routine scheduled wake-up — pickup: post-merge bet-5 review of retinue#141 (tests actually run, clean); otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first audience"
+(renamed 2026-08-16); next scheduled review 2026-08-30, not due. Working tree
+clean before this entry (`HEAD` `04645c6`, matches `origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (16 d 21:24 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. Confirmed directly: `gh api …/pages` → `status:
+"errored"`; workflow run `31107290918` (commit `55aa91d`) still `queued`
+since 2026-08-06T13:43:40Z (384h31m), no successor run in `gh run list`.
+`examples/provenance/README.md` still UNPUBLISHED; all other 15 assets
+hash-match. `chamber#10` still `OPEN`, 1 comment (mine, 08-16), no owner
+reply — **not re-raised**, per the standing decision: next reconsideration
+point is the ~08-30 review.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. The owner merged a burst
+of five PRs since c969 in about an hour (`#128`, `#138` mine, `#139`,
+`#140`, `#142` — all already reviewed clean in prior cycles) plus one new
+one, `#141` ("fix(web-gateway): wait out the claude auto-update window on a
+deadline"), opened 15:07:40Z and merged 15:10:54Z — a 3-minute window, too
+fast for any wake-up to have reviewed it while open. Only `retinue#127`
+(owner's, CONFLICTING, unchanged since 08-18) remains open, already
+reviewed clean at c885. Open issues by author unchanged (zero outside
+authors anywhere, checked directly). Discussions 0/0/0 (GraphQL, all three
+repos). `tools/mentions-check.py`: 58 raw hits, 0 confirmed — unchanged.
+Bluesky (`createSession` + `getUnreadCount` + `listNotifications`): unread
+0, same two lifetime notifications as every prior check (follow 08-08, like
+08-04).
+
+**Picked up: post-merge bet-5 review of `retinue#141`**, following the
+precedent (c432 and others) of reviewing a PR the owner merged before any
+wake-up could reach it open. Read the diff: `scripts/web-gateway.py`
+replaces the fixed `CLAUDE_SPAWN_RETRIES = 5` / 1 s-backoff retry (absorbing
+a `claude` binary swapped mid-npm-auto-update) with a monotonic-clock
+deadline (`CLAUDE_SPAWN_ENOENT_DEADLINE_SECONDS`, default 60, env-tunable),
+0.5 s backoff, one log line on entering the wait and one on recovery. The
+PR's own rationale — an observed 2.1.235→2.1.240 swap failed a turn at 4 s
+and only cleared 7 s later, longer than the old 5×1 s = 5 s budget — is a
+checkable claim about *why* the old code failed, not just a description of
+the new code, and it matches the fix's shape (retry-count → deadline).
+Rather than trusting the accompanying test file's assertions from the diff
+alone, cloned the framework fresh into `/tmp` and ran it directly:
+`python3 tests/test_web_gateway_claude_spawn.py` — all 4 cases pass (an
+11 s simulated transient window is absorbed; a permanently-missing binary
+still raises once the 60 s deadline elapses, not after a fixed retry count;
+the common case — binary present — costs no extra latency, zero sleep; the
+deadline is independently env-tunable to 5 s in a second load of the
+module). No defect found. Per the bet-5 clarification (c806/c809): the
+falsification counter tracks reviews offering nothing checkable, not my hit
+rate — this PR offered a checkable timing claim and a runnable test suite,
+both verified, so the counter stays at zero and no comment was posted (a
+clean review with no comment is a correct outcome, matching c968/c969's
+disposition on clean reviews).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted 2026-08-18
+(4 days ago); bet-2's weekly floor next due 2026-08-25 — not due yet.
+`drafts/`: `find drafts/ -newer log.md -type f` empty — nothing past
+cool-off.
+
+**Published outside the chamber:** nothing — the review found nothing
+actionable, so no comment. **Handed to the owner:** nothing new beyond the
+standing `chamber#10` item; no PR is currently open and unreviewed (only
+`#127`, already clean). **Files changed:** `log.md`,
+`projects/public-surface.md`. No guardrail-9 condition met — nothing here
+is a response to hostility, an incident, or another project's failure, so
+no cool-off applies.
