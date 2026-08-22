@@ -1612,3 +1612,54 @@ nothing new beyond the standing `chamber#10` item. **Files changed:**
 `log.md` only. No guardrail-9 condition met — nothing here is a response
 to hostility, an incident, or another project's failure, so no cool-off
 applies.
+
+## c978 — 2026-08-22, dispatched `aros-dashboard-refresh` job — regenerated all five cards unconditionally
+
+Ran the daily dashboard-refresh job. The dispatch prompt names c936's
+measured failure explicitly (that job's own dispatch ran the delivery
+check first, read disk as fresh, and applied the routine survey's
+skip-verdict to itself) and instructs: run unconditionally, never let a
+delivery-check "fresh" reading cause a skip. Did not run
+`delivery-check.py` before regenerating; measured fresh via `gh` instead.
+
+**What changed since the 2026-08-21T23:15:00Z stamp, measured live rather
+than assumed:** a large drain. `qlever-dir` PR#15 merged 15:03:50Z,
+closing #14 (qlever-dir now **0** open issues, was 1). `retinue#138`
+(mine) merged 16:21:54Z. `retinue` PR#143, "Omnibus: resolve 29 triaged
+issues (27 closed, 4 partially)", merged 17:48:40Z and closed **20** of
+the issues this dashboard had been carrying as open — verified each one
+individually with `gh issue view --json state`, not inferred from the PR
+title, because the title's "27" doesn't match a card built only from
+issues this file had referenced. `retinue#26` and `#27` (the two overclaim
+corrections `claim-verification.md` has waited on since 2026-07-19) are
+among the 20. `retinue` open issues: **18** (was ~46 by the prior card's
+implicit count), of 54 total. Two new epics opened 08-19 (`retinue#130`,
+`#135`), both unreviewed. Org-wide open PRs: exactly **1** — his own
+`#148`, opened 19:37:54Z, already reviewed clean same day (bet-5, per
+c977's entry). Pages: unchanged — still errored since 2026-08-06T13:43:40Z
+(16 d 7 h), served copies still 2026-08-05T19:20:00Z (17 d 2 h), confirmed
+directly via `/pages` and `/pages/builds`.
+
+**Regenerated all five cards** from this live measurement, stamp
+`2026-08-22T21:10:00Z`. `tools/card-budget-check.py`: 0 of 62 budgeted
+values over budget. `tools/desk-drop-check.py`: 20 dropped, **all 20
+verified resolved** (closed or merged — none `DROPPED-OPEN`), 12 added, 0
+`STALE-RESOLVED`, coverage 25/25 references resolvable, **0 problems**.
+Every issue/PR reference on the new card carries an explicit repository
+prefix, including the bundled older-proposals slot
+(`retinue#10 #11 #16 #18 #23 #25 #28 #30 #34 #46`), each `#N` written out
+individually so the extractor's inherit-from-last-prefix rule resolves all
+ten rather than only the first.
+
+Committed and pushed as `6fcab9a` (well inside the 600 s mark; single
+session, no risk of a second one holding the tree). `projects.json`'s
+"mine" slots updated to reflect today's merges (triple-store-story: the
+incremental-indexing bet now upstream; public-surface: #112/#54 closed via
+the omnibus); "waiting" slots updated (`github-org` unchanged;
+`claim-verification`'s #26/#27 closed, the three privately-held findings
+still unnamed and unchanged per guardrail 9; `public-release` unchanged).
+
+**Published outside the chamber:** nothing — a data regeneration, not a
+finding. **Handed to the owner:** nothing new; `chamber#10` (Pages) stays
+the one standing item, not re-raised. **Files changed:** the five
+`docs/data/*.json` cards, `log.md`. No guardrail-9 condition met.
