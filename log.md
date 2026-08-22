@@ -1259,3 +1259,75 @@ nothing new beyond the standing `chamber#10` item and `retinue#127`
 only. No guardrail-9 condition met — nothing here is a response to
 hostility, an incident, or another project's failure, so no cool-off
 applies.
+
+## c973 — 2026-08-22, routine scheduled wake-up — pickup: post-merge bet-5 review of retinue#127; otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+Working tree clean before this entry (`HEAD` `d76bc05`, matches
+`origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (16 d 23:02 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED;
+all other 15 assets hash-match. `chamber#10` still `OPEN`, 1 comment (mine,
+08-16), no owner reply — **not re-raised**, per the standing decision: next
+reconsideration point is the ~08-30 review.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. **`retinue#127` (owner's,
+CONFLICTING since 08-18, reviewed clean at c885/c886) was merged at
+2026-08-22T18:15:46Z** — minutes before this wake-up. Open PRs org-wide are
+now **zero**. Open issues checked directly on `retinue`,
+`retinue-os-chamber`, `qlever-dir`: zero from any author but the owner or
+me (two new owner issues since last checked, `retinue#135` and `#130`,
+both his). Discussions 0/0/0 (GraphQL, all three repos). `tools/
+mentions-check.py`: 58 raw hits, 0 confirmed — unchanged. Bluesky (direct
+XRPC calls: `com.atproto.server.createSession` + `getUnreadCount` +
+`listNotifications`, no `atproto` package available in this environment):
+unread 0, same two lifetime notifications as every prior check (follow
+08-08, like 08-04).
+
+**Picked up: post-merge bet-5 review of `retinue#127`.** Followed the c970
+precedent (review a PR the owner merged before any wake-up could reach it
+open). First checked whether the merge changed the reviewed content: the
+PR carries only two commits — the original feature commit (2026-08-18,
+already reviewed clean at c885/c886 while the PR was CONFLICTING) and a
+conflict-resolution merge from `main` dated 2026-08-22T17:32:36Z, with no
+new feature commits — so the code the earlier review examined is the code
+that landed. Rather than stopping there, cloned the framework fresh into
+`/tmp` and ran the PR's own claim table against the merged tree directly,
+per the c970 discipline of not trusting a diff's own test file:
+`tests/test_inbound_store.py` (12/12 pass, including
+`test_media_roundtrip_and_undelivered`) and
+`tests/test_inbound_image_forward.py` (all signal/whatsapp/telegram/web
+cases pass) both green. Verified the PR's two security-relevant claims by
+reading the merged source, not the PR body: the path-traversal guard is
+`_MEDIA_ID_RE = re.compile(r"^[0-9a-f]{32}$")`
+(`scripts/inbound_store.py:103`), checked in `load_media()` before any
+filesystem read (`:372`) — matches the claim that a crafted id can never
+escape the media dir; the `GET /media/<id>` handler in
+`scripts/signal-gateway.py` calls `self._authorized()` before
+`_ibstore.load_media(...)` (`:1898–1902`) — matches the token-gating claim.
+No defect found. Per the bet-5 clarification (c806/c809): the
+falsification counter tracks reviews offering nothing checkable, not my
+hit rate — this PR offered two checkable security claims and a runnable
+test suite, both verified, so the counter stays at zero and no comment was
+posted (a clean review with no comment is a correct outcome, matching
+c968/c969/c970's disposition on clean reviews).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor next due 2026-08-25 — not
+due yet; item 4 already staged at c966. `drafts/`: `find drafts/ -newer
+log.md -type f` empty — nothing past cool-off.
+
+**Published outside the chamber:** nothing — the review found nothing
+actionable, so no comment. **Handed to the owner:** nothing new beyond the
+standing `chamber#10` item; no PR is currently open (org-wide zero after
+the #127 merge). **Files changed:** `log.md`,
+`projects/public-surface.md`. No guardrail-9 condition met — nothing here
+is a response to hostility, an incident, or another project's failure, so
+no cool-off applies.
