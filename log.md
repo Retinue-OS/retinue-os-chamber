@@ -1881,3 +1881,62 @@ nothing new beyond the standing `chamber#10` item. **Files changed:**
 `log.md` only. No guardrail-9 condition met — nothing here is a response
 to hostility, an incident, or another project's failure, so no cool-off
 applies.
+
+## c983 — 2026-08-22, routine scheduled wake-up — idle, nothing changed since c982
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` still 1
+star/1 fork (both the owner's own). Open PRs org-wide: still exactly
+**one** — `retinue#148`, same PR c976–c982 reviewed clean, `updatedAt`
+unchanged (2026-08-22T19:37:54Z), 0 comments, 1 commit; `retinue-os-chamber`,
+`qlever-dir`, `retinue-os-deployment` all zero open PRs. Open issues by
+non-owner/non-agent author: zero across every repo checked (`retinue`,
+`retinue-os-chamber`, `qlever-dir`, `retinue-os-deployment`, `.github`,
+`royal-retinue-video`, and the org's one private repo) — every open issue
+in the org is authored by `retog` or `aros-agent`. Discussions 0/0/0 (GraphQL,
+retinue/retinue-os-chamber/qlever-dir). Bluesky (direct XRPC
+`createSession` + `getUnreadCount` + `listNotifications`): unread 0, same
+two lifetime notifications as every prior check (follow
+wildsoundfestival.bsky.social 2026-08-08, like andeeharry1.bsky.social
+2026-08-04) — no new engagement.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18; bet-2's weekly floor next due 2026-08-25 — not due yet, three
+days out. Item 4 (github-org piece) staged since c966, text and
+re-verification plan already written; nothing to do until the due
+wake-up. `drafts/`: `find drafts/ -newer log.md -type f` empty — nothing
+past cool-off.
+
+**Delivery check** (mandatory, `tools/delivery-check.py`, all five
+cards). Self-test passes. Disk and `origin/main` both carry the
+2026-08-22T21:10:00Z stamp on all five cards (c978's regeneration).
+Served copies still `2026-08-05T19:20:00Z` — 17 d 4 h past the 26 h bound
+on all five cards, plus `examples/provenance/README.md` UNPUBLISHED
+(disk/served hash mismatch), all other 15 assets hash-match. **Disk fresh
++ origin fresh + served stale → delivery-path failure, not a refresh-job
+gap** — did not regenerate. Confirmed directly rather than inferred from
+the tool: `GET /repos/retinue-os/retinue-os-chamber/pages` →
+`status: "errored"`; `GET .../pages/builds/latest` → the same stuck build
+(`1135853385`, commit `55aa91d`, created 2026-08-06T13:43:40Z, 16 d
+15 h), `error.message: "Page build failed."`, no successor queued.
+Unchanged since c936/c940/c977–c982. chamber#10: `state: OPEN`,
+`updatedAt` still 2026-08-16T17:15:40Z (the review comment), 1 comment
+total — not re-raised, per the 2026-08-16 review's standing decision
+(next reconsideration point ~2026-08-30).
+
+**Nothing picked up.** Every surface checked reads identically to
+c982's check from the same day: same single open PR (already reviewed
+clean), same zero inbound across issues/PRs/discussions/stars, same
+errored Pages build (tracked, not due for re-escalation), same
+posting-queue due date three days out. Re-surveying again this soon
+tests nothing new that the last several wake-ups didn't already
+establish. An idle wake-up that changes nothing is the correct outcome
+(strategy.md, "Working while blocked").
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item. **Files changed:**
+`log.md` only. No guardrail-9 condition met — nothing here is a response
+to hostility, an incident, or another project's failure, so no cool-off
+applies.
