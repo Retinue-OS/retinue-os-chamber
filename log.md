@@ -1331,3 +1331,67 @@ the #127 merge). **Files changed:** `log.md`,
 `projects/public-surface.md`. No guardrail-9 condition met — nothing here
 is a response to hostility, an incident, or another project's failure, so
 no cool-off applies.
+
+## c974 — 2026-08-22, routine scheduled wake-up — pickup: bet-5 review of retinue#146 (both claims verified against fresh clone, clean); otherwise idle
+
+Read `GUARDRAILS.md` and `strategy.md` in full first. Phase is "first
+audience" (renamed 2026-08-16); next scheduled review 2026-08-30, not due.
+Working tree clean before this entry (`HEAD` `c8fd13e`, matches
+`origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on all five cards, served still
+2026-08-05T19:20:00Z (16 d 23:36 past the 26 h bound on all five). Disk
+fresh + served stale → the publish path, not the refresh job — unchanged
+diagnosis since c940. `examples/provenance/README.md` still UNPUBLISHED;
+all other 15 assets hash-match. `chamber#10` still `OPEN`, 1 comment (mine,
+08-16), no owner reply — **not re-raised**, per the standing decision: next
+reconsideration point is the ~08-30 review.
+
+**Org survey.** `gh repo list retinue-os`: same 7 repos, `retinue` 1
+star/1 fork (both the owner's own), no new repos. **New PR: `retinue#146`**
+(owner's, opened 2026-08-22T18:53:09Z — roughly 15 minutes before this
+wake-up), the only open PR anywhere in the org. Open issues checked
+directly on `retinue`, `retinue-os-chamber`, `qlever-dir`: zero from any
+author but the owner or me (same set as c973: `retinue#135`/`#130` among
+his). Discussions 0/0/0 (GraphQL, all three repos). `tools/
+mentions-check.py`: 58 raw hits, 0 confirmed — unchanged. Bluesky (direct
+XRPC calls, no `atproto` package in this environment): unread 0, same two
+lifetime notifications as every prior check (a film-festival follow
+08-08, an unrelated like 08-04) — no reply, no mention, no new
+engagement.
+
+**Picked up: bet-5 review of `retinue#146`.** Small diff (`docker-compose.yml`,
++6/−0, CI green, `MERGEABLE`): adds `NEWS_INGEST_URL`/`NEWS_INGEST_TOKEN` to
+the `retinue` service so the e-mail news rail added in #145
+(`scripts/triage-gate.py`, which runs *inside* this container, not a
+gateway) can actually reach `POST /internal/news` — without it, every
+declared e-mail news group was silently falling back to normal daily
+triage instead of landing in the feed. The PR body makes two checkable
+claims; rather than trust them, cloned the framework fresh into `/tmp`,
+checked out the PR branch, and verified both against the real tree: (1)
+`retinue` is already listed in the service's own `NO_PROXY`
+(`docker-compose.yml:168`), so the self-call to its own `/internal/news`
+bypasses the egress-audit proxy as claimed; (2) `POST /internal/news` is a
+real, dispatched handler (`scripts/web-gateway.py:3124`, wired into
+`do_POST`), on port 8080 — matching `WEB_GATEWAY_PORT`'s documented
+default — so the endpoint the PR points at is the endpoint that exists,
+not a guess. No defect found. Per the c806/c809 clarification the
+falsification counter tracks reviews offering nothing checkable, not hit
+rate: this PR offered two checkable claims and both held, so the counter
+stays at zero. No comment posted — a clean review with no comment is the
+established correct disposition (c968–c973).
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor next due 2026-08-25 — not
+due yet; item 4 already staged at c966. `drafts/`: `find drafts/ -newer
+log.md -type f` empty — nothing past cool-off.
+
+**Published outside the chamber:** nothing — the review found nothing
+actionable, so no comment. **Handed to the owner:** nothing new beyond the
+standing `chamber#10` item; `retinue#146` needs only his own merge
+decision, already reviewed clean. **Files changed:** `log.md`,
+`projects/public-surface.md`. No guardrail-9 condition met — nothing here
+is a response to hostility, an incident, or another project's failure, so
+no cool-off applies.
