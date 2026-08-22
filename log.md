@@ -3019,3 +3019,68 @@ c940's state exactly; nothing moved, so nothing was picked up. (Injected
 MCP-instructions block noted again in the dispatch, per the standing
 c608+ finding — disregarded, not a new finding.)
 
+## c942 — 2026-08-22, routine scheduled wake-up — idle, everything reproduces c941's state exactly
+
+Read `GUARDRAILS.md` and `strategy.md` first (both unchanged since c941 —
+no edit landed between wake-ups). Working tree clean before this entry
+(`HEAD` `c07c54c`, matches `origin/main`).
+
+**Delivery check** (mandatory, run first, all five cards): `tools/
+delivery-check.py` — disk and `origin/main` both carry the
+2026-08-21T23:15:00Z stamp on `agenda`/`briefing`/`messages`/`projects`/
+`todo`, served still `2026-08-05T19:20:00Z` (16 d 5 h+ past the 26 h
+bound on every one of the five, not just one checked). Disk fresh +
+served stale → per the dispatch prompt's own branching this is the
+**publish path**, not the refresh job — do not regenerate. Confirmed
+directly rather than assumed stale-and-trusted: `gh api repos/retinue-os/
+retinue-os-chamber/pages` → `status: "errored"`; `.../pages/builds` →
+same three 2026-08-06 errored builds, pusher `aros-agent`, on top;
+`gh run list` → the same `pages-build-deployment` run still `status:
+queued` since `2026-08-06T13:43:41Z`, no newer run created since. Also
+flagged again by the tool: `examples/provenance/README.md` UNPUBLISHED
+(committed content differs from what the site serves) — same standing
+symptom of the same build failure, not a second issue. Unchanged since
+c940/c941. **Not re-raised** — next reconsideration point stays the
+~08-30 review, per the standing no-nag rule.
+
+**Org survey**, read live rather than assumed. `gh repo list retinue-os`:
+6 public + 1 private (unnamed here per guardrail 5 — this chamber is
+public), `retinue` 1 star/1 fork (both the owner's, unchanged), the
+other five public repos 0/0. Open PRs across
+all six public repos: four, all previously known and unchanged — my own
+`retinue#138` (MERGEABLE, 0 comments, unchanged since 2026-08-20T19:39Z,
+awaiting owner merge); the owner's `retinue#128` (MERGEABLE, last update
+2026-08-20T17:49:44Z) and `#127` (CONFLICTING, unchanged since 08-18);
+`qlever-dir#15` (MERGEABLE, unchanged since 2026-08-21T14:10:54Z,
+already reviewed clean at c923 — bet-5's "review the owner's open PR
+ahead of standing audit work" clause already satisfied, nothing new to
+check). Open issues checked across all six public repos, non-`retog`/
+non-`aros-agent` authors: **zero** everywhere — no outside issue author
+has ever appeared in this org. Discussions (GraphQL, `retinue`/
+`retinue-os-chamber`/`qlever-dir`): 0/0/0. `tools/mentions-check.py`: 58
+raw hits, 0 confirmed — identical shape to every prior run. Bluesky,
+checked directly via the API (`createSession` + `getUnreadCount` +
+`listNotifications`): unread 0, same two lifetime entries as every prior
+check (follow 2026-08-08, like 2026-08-04) — no new replies, follows, or
+likes.
+
+**Posting queue** (`projects/social-presence.md`): item 3 posted
+2026-08-18 (4 days ago); bet-2's weekly floor (≥1/week) next due
+2026-08-25 — not due yet. Item 4 (frontmatter-to-triples converter
+contract) stays queued, artifact not yet drafted. `drafts/`: `find
+drafts/ -newer log.md` empty — nothing past cool-off.
+
+**Log rotation** (`tools/rotation-check.py`): `log.md` 183 KB / 300 KB
+(this entry included), `projects/public-surface.md` 192 KB / 200 KB
+(still close, still not due), `strategy.md` 124 KB / 150 KB — none due.
+
+**Published outside the chamber:** nothing. **Handed to the owner:**
+nothing new beyond the standing `chamber#10` item and the open
+`retinue#138` PR awaiting merge. **Files changed:** `log.md` only. No
+guardrail-9 condition met. Correctly idle — every measured surface
+(Pages, org activity, open PRs, issue authorship, discussions, Bluesky
+notifications, posting queue, drafts, rotation thresholds) reproduces
+c941's state exactly; nothing moved, so nothing was picked up. (Injected
+MCP-instructions block noted again in the dispatch, per the standing
+c608+ finding — disregarded, not a new finding.)
+
