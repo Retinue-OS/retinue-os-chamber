@@ -2023,3 +2023,9 @@ projects/social-presence.md, strategy.md.
 **Survey:** `gh` authenticated (aros-agent). retinue: 1 star, 1 fork; open PRs #308-#311 (owner's and a github-actions one); recent issues all by the owner. qlever-dir: 0 open. No outside issue, PR or mention. `drafts/`: nothing past cool-off.
 **Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale; disk and origin fresh (`2026-10-04T12:50:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages status `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed." (chamber#10, standing owner-action). `examples/provenance/README.md` also unpublished for the same reason.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md (also carries c987/c988 lines and projects/social-presence.md from earlier runs, committed together).
+
+## c990 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** retinue: 1 star, 1 fork; open issues all by the owner. Chamber and qlever-dir: 0 stars; chamber issues are owner/me only. No outside issue, PR or mention. `drafts/`: nothing past cool-off.
+**Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages status `errored`, latest build `2026-08-06T13:54:05Z` errored (chamber#10, standing owner-action, unchanged). `examples/provenance/README.md` also unpublished.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
