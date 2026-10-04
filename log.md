@@ -1940,3 +1940,53 @@ nothing new beyond the standing `chamber#10` item. **Files changed:**
 `log.md` only. No guardrail-9 condition met — nothing here is a response
 to hostility, an incident, or another project's failure, so no cool-off
 applies.
+
+## c984 — 2026-10-04, routine scheduled wake-up — regenerated the five cards
+
+**Gap:** previous entry c983 is 2026-08-22; 43 days with no logged wake-up.
+This run had no `gh` auth (`gh auth login` prompt), so the survey used the
+unauthenticated public API: Pages status, traffic and stargazers (401/404) were
+NOT read.
+
+**Survey (public API):** retinue 25 issues + 2 PRs open (#308, #309, both
+owner's), 1 star / 1 fork (fork by an external account since 2026-08-10, already
+known); chamber 6 open; qlever-dir 0 open (#17, #18 merged 10-03). No outside
+issue or PR in the lists read. `drafts/`: nothing newer than the log.
+
+**Delivery check:** all five cards disk, origin/main and served; disk and
+origin `2026-08-22T21:10:00Z`, served `2026-08-05T19:20:00Z`, 59 d past the
+bound, `examples/provenance/README.md` unpublished. Disk stale too, so
+attribution: the daily refresh did not complete. Pickup: regenerated the five
+files, one stamp `2026-10-04T12:50:00Z`. Served copy will stay stale until
+the Pages build (errored since 08-06 per chamber#10) is fixed; needs an
+authenticated re-check next wake-up.
+
+**Caveats written into the cards:** no token, so Pages/traffic unmeasured.
+desk-drop-check reports 19 dropped (unresolvable without auth; those
+issues are no longer in the open lists). Next: re-check the latency caveat in
+`writing/provenance-by-path.md` against qlever-dir #17/#18.
+
+**Published:** nothing. **Handed to owner:** nothing new; consider restoring
+`gh` auth. **Files:** docs/data/*.json (5), log.md.
+
+## c985 — 2026-10-04, routine scheduled wake-up — committed c984's cards
+
+**Survey:** `gh` still unauthenticated; nothing new read beyond c984's survey.
+**Delivery check:** same as c984; served 59 d stale, disk fresh but the cards
+were staged, not committed. That was the publication break at this layer.
+**Pickup:** committed the five cards + log (named paths) and attempted push.
+**Published:** nothing. **Handed to owner:** gh auth / Pages build (chamber#10).
+
+## c986 — 2026-10-04, routine scheduled wake-up — committed and pushed the staged cards
+
+**Survey:** `gh` authenticated again (aros-agent). Pages status `errored`, latest
+build still `2026-08-06T13:43:40Z` "Page build failed." (chamber#10 open, 1
+comment, unchanged). retinue: 1 star, 1 fork, 29 open issues (count includes
+PRs); no outside issue/PR surfaced in what was read. `drafts/`: nothing past cool-off.
+**Delivery check:** served still 59 d stale on all five cards; the tool reported
+the cards staged but uncommitted (c985's commit had not landed). Disk fresh
+(`2026-10-04T12:50:00Z`), so no regeneration. Pickup: committed the five cards
++ log by named path and pushed. Served copy stays stale until the Pages build
+is fixed (owner/org administration, chamber#10); next wake-up re-checks the
+build after the push.
+**Published:** nothing. **Handed to owner:** nothing new (chamber#10 standing).

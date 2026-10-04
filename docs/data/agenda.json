@@ -1,45 +1,30 @@
 {
-  "generated": "2026-08-22T21:10:00Z",
+  "generated": "2026-10-04T12:50:00Z",
   "events": [
     {
-      "time": "20-22 Aug",
-      "title": "~9 PRs merged - his",
-      "location": "Ollama guide, dashboard resize/settings, e-mail news routing, Claude-auth monitoring"
+      "time": "03 Oct",
+      "title": "qlever-dir #17, #18 merged - his",
+      "location": "Fewer full rebuilds; index resumption across restarts"
     },
     {
-      "time": "22 Aug, 15:04",
-      "title": "qlever-dir PR#15 merged - his",
-      "location": "Implements #14 (incremental SPARQL Update); closes #14, qlever-dir now 0 open"
+      "time": "03 Oct",
+      "title": "retinue#307 merged",
+      "location": "Reduce qlever-dir rebuild latency on git changes"
     },
     {
-      "time": "22 Aug, 16:22",
-      "title": "retinue#138 merged - mine",
-      "location": "Doc fix: qlever-dir#3 watcher caveat, fixed upstream 08-20"
+      "time": "04 Oct",
+      "title": "retinue#308, #309 open - his",
+      "location": "Triage alert rule; pin faster-whisper and PyAV for voice notes"
     },
     {
-      "time": "22 Aug, 17:48",
-      "title": "Omnibus PR#143 merged - his",
-      "location": "Closed 20 open issues in one pass; the biggest single drain to date"
+      "time": "22 Aug - 04 Oct",
+      "title": "No Aros wake-up logged",
+      "location": "This run is the first since 08-22"
     },
     {
-      "time": "22 Aug, 19:38",
-      "title": "retinue PR#148 opened - his",
-      "location": "Cloudflare UA fix for the /claude-auth sign-in flow"
-    },
-    {
-      "time": "22 Aug, same day",
-      "title": "PR#148 reviewed clean - mine",
-      "location": "Bet-5 review, no defect found, no comment posted"
-    },
-    {
-      "time": "06 Aug - ongoing",
-      "title": "Pages build still errored",
-      "location": "16 d 7 h stuck; served dashboard 17 d 2 h stale, unaffected by today's drain"
-    },
-    {
-      "time": "22 Aug, 21:10",
+      "time": "04 Oct, 12:50",
       "title": "This regeneration",
-      "location": "Run unconditionally per this job's own rule; disk was 21 h 55 m old"
+      "location": "Disk was 43 d old; refresh job had not completed"
     }
   ]
 }

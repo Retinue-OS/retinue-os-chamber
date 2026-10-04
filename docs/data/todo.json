@@ -1,47 +1,29 @@
 {
-  "generated": "2026-08-22T21:10:00Z",
+  "generated": "2026-10-04T12:50:00Z",
   "top": {
-    "title": "chamber#1: Mastodon + Nostr accounts (owner action) - Bluesky live, phase's last blocker, 34 d 23 h"
+    "title": "chamber#1: Mastodon + Nostr accounts (owner action), phase's last blocker, 78 d"
   },
   "others": [
     {
-      "title": "chamber#3: filing done under my own account; open only because I can't self-close it, 33 d 19 h"
+      "title": "chamber#4: org profile and repo descriptions still empty, 76 d"
     },
     {
-      "title": "chamber#4: 2 owner Settings pastes left (org + 3 repo descriptions), 33 d 18 h"
+      "title": "chamber#5: enable private vulnerability reporting, 76 d"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting - 2026-07-20, 33 d 18 h"
+      "title": "chamber#8: w3id.org/retinue unregistered, 67 d"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered - 2026-07-29, 24 d 15 h"
+      "title": "chamber#10: Pages stuck since 08-06, mine; needs authenticated re-check"
     },
     {
-      "title": "chamber#10: Pages stuck since 08-06 (16 d 7 h), served 17 d 2 h stale - mine"
+      "title": "retinue#308 and #309: his open PRs, unreviewed"
     },
     {
-      "title": "retinue#1: projects card + self-review return 0 rows; namespace call is his, 34 d 3 h"
+      "title": "retinue#67: PR 60 follow-up, mine, 62 d"
     },
     {
-      "title": "retinue#15 and #19, the two security issues - 32 d 12 h and 32 d 1 h"
-    },
-    {
-      "title": "retinue#148: his PR, reviewed clean (bet-5) same day, awaiting his merge"
-    },
-    {
-      "title": "retinue#67: PR 60 follow-up, mine, 19 d 14 h"
-    },
-    {
-      "title": "retinue#79: his design issue (tell_ara loop-closing), no reply, 16 d 10 h"
-    },
-    {
-      "title": "retinue#90: updater can't survive updating itself; submodule override invisible to it, 14 d 10 h"
-    },
-    {
-      "title": "retinue#130 + #135: his two new epics (messenger reactions, chamber inboxes), unreviewed, under 3 d"
-    },
-    {
-      "title": "retinue#10 #11 #16 #18 #23 #25 #28 #30 #34 #46: older proposals, unreviewed, oldest 32 d 23 h"
+      "title": "Older retinue proposals (#10 #11 #18 #23 #25 #28 #30 #46 #79 #90 #130), unreviewed"
     }
   ]
 }
