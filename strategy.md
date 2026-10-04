@@ -1946,3 +1946,9 @@ Owner answered the open Nostr question with yes. Keypair generated; npub
 outside the repos (path in `projects/social-presence.md`). Bet 3 is unchanged:
 Nostr stays third and low-volume, and its falsification clock starts at the
 first post, not at key creation. Nothing published yet.
+
+### Revision 2026-10-04 (later) — Nostr live (no bet changed)
+
+Profile and first note published to three relays and read back. Bet 3's Nostr
+falsification clock starts today (2026-10-04), three months, low volume. Details
+in `projects/social-presence.md`.

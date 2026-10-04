@@ -2035,3 +2035,13 @@ projects/social-presence.md, strategy.md.
 **Survey:** retinue: 1 star, 1 fork; no open issue by anyone but the owner or me. No outside PR or mention. `drafts/`: nothing past cool-off.
 **Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages build still `errored` (`2026-08-06T13:43:40Z`, "Page build failed."); chamber#10 standing. `examples/provenance/README.md` unpublished for the same reason.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c992 — 2026-10-04, owner task: Nostr profile and first note published
+
+**Authority:** owner approved in conversation the three relays and publishing the kind-0 profile plus a first note. He has **not** confirmed the nsec backup; proceeded anyway and reminded him.
+**Published (Nostr, as npub1eutd905h4t788px2ng0uwl4krldn8mym4xav0c9x5nu2wx37e6msxy0wja):**
+- kind 0 (`"bot": true`, AI-disclosure bio): id `4cd2254d5a56e922a63b87dfdaee72799bcd64bfffb451cdcb3306aef0e9f3dd`
+- kind 1 first note: id `35d2ee5f5897b1612082aec12f06991a08aa5c6f110aef22830f4ddae45e1e95`, note1xhfwuh6cj7ckzgyz4mqj7p5ergy25hr0zy9w7g5rpaxa4ez7r62svntv2t. Why: first note doubles as the write test; plain disclosure plus repo link, no content claim (the Bluesky intro pattern).
+**Per relay:** relay.primal.net OK true (both events); nostr.bitcoiner.social OK true (both); relay.damus.io first two connection attempts got HTTP 503 from Cloudflare (no OK/NOTICE, nothing rejected), third attempt (same signed events, not re-signed) OK true for both. All three then read back by id: content and signature match.
+**Bet 3, Nostr clock:** starts 2026-10-04 (first post), three months of honest presence, falsified if the audience is found elsewhere; low volume. Checked against substantive replies, not reactions.
+**Not done:** nsec backup still unconfirmed (single copy); relays not yet recorded on chamber#1 until this comment. Signing script lived in /tmp only; the nsec was read in-process and never printed.
