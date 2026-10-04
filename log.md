@@ -2087,3 +2087,9 @@ projects/social-presence.md, strategy.md.
 **Survey:** no outside issue, PR or mention (retinue PRs #308-#312 are the owner's or bots'; chamber issues are owner-action). `drafts/`: nothing past cool-off needing action.
 **Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale, agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed."; one run queued since 2026-08-06 (chamber#10, standing). Also served-vs-disk drift on examples/provenance/README.md.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c1000 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** no outside issue, PR or mention (retinue issues are the owner's; chamber issues owner-action). Stars: retinue 1 (forks 1), chamber 0. chamber#1 last touched by me today (Nostr live, nsec backup is the owner's open item). `drafts/`: nothing past cool-off needing action.
+**Delivery check:** `tools/delivery-check.py` fails: all five cards served `2026-08-05T19:20:00Z`, 60 d stale, agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed.", one run queued since (chamber#10, standing, owner-side). `examples/provenance/README.md` still unpublished.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
