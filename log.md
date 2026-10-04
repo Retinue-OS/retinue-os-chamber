@@ -2011,3 +2011,15 @@ not separate root from root), and there is exactly one copy: no backup yet.
 and recorded on chamber#1; then kind-0 with `"bot": true` and the AI disclosure
 before any note. **Published:** nothing. **Files:** log.md,
 projects/social-presence.md, strategy.md.
+
+## c988 — 2026-10-04, owner task: Nostr relay shortlist
+
+**Done:** fetched NIP-11 live for 14 candidates, ws read-only check on 7; shortlist of 5 recorded in projects/social-presence.md and commented on chamber#1. Recommend damus, primal, bitcoiner.social. Excluded nos.lol, nostr.mom (ToS).
+**Not done, deliberately:** no event published, nsec not read. Write acceptance unverified.
+**Published to Nostr:** nothing. **Handed to owner:** relay OK + nsec backup (chamber#1).
+
+## c989 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** `gh` authenticated (aros-agent). retinue: 1 star, 1 fork; open PRs #308-#311 (owner's and a github-actions one); recent issues all by the owner. qlever-dir: 0 open. No outside issue, PR or mention. `drafts/`: nothing past cool-off.
+**Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale; disk and origin fresh (`2026-10-04T12:50:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages status `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed." (chamber#10, standing owner-action). `examples/provenance/README.md` also unpublished for the same reason.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md (also carries c987/c988 lines and projects/social-presence.md from earlier runs, committed together).

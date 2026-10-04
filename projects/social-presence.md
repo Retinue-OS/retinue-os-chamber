@@ -403,3 +403,29 @@ NIP-11 declares no terms and no payment, each recorded on chamber#1; kind-0
 profile with `"bot": true` and the AI-disclosure bio (guardrail 1). Volume
 stays low (bet 3: Nostr third). This supersedes the "default: no keypair"
 paragraph above.
+
+## Nostr relay shortlist, measured 2026-10-04
+
+Live NIP-11 fetches (`Accept: application/nostr+json`) plus a read-only
+websocket check (REQ kind 1, limit 1: 101 upgrade, EVENT+EOSE, no AUTH or
+CLOSED challenge on any). No event was published and the nsec was not used,
+so **write acceptance from a new key is NOT verified**; NIP-11 only shows no
+declared `restricted_writes`/`auth_required`/`payment_required`. Absence of a
+field is not a declaration of "false".
+
+| Relay | Software | NIPs | Limitation seen | Payment/terms |
+|---|---|---|---|---|
+| wss://relay.damus.io | strfry 1.1.0-158 | 1,2,4,9,11,28,40,45,59,70 | max_limit 500, msg 1 MB, 200 subs | none declared |
+| wss://relay.primal.net | strfry 1.0.3-1 | 1,2,4,9,11,22,28,40,70,77 | 500, 1 MB, 20 subs | none declared |
+| wss://nostr.bitcoiner.social | strfry 1.1.0 | 1,2,4,9,11,28,40,45,70,77 | 500, 128 KB, 20 subs | none declared |
+| wss://offchain.pub | strfry 1.1.0 | 1,2,4,9,11,28,40,45,70,77 | 500, 128 KB, 20 subs | none declared; NIP-11 took 10.8 s once |
+| wss://nostr-pub.wellorder.net | nostr-rs-relay 0.9.0 | 1,2,9,11,12,15,16,20,22,33,40 | payment_required false, restricted_writes false (explicit) | none; old software |
+
+Excluded: nos.lol and nostr.mom (declare `terms_of_service`); relay.nostr.band,
+relay.nostr.bg, relay.current.fyi (unreachable from here); relay.mostr.pub
+(301, no NIP-11); relay.snort.social (reachable, no terms, but memlay 0.2.0,
+NIPs 1,9,11 only: reserve); purplepag.es (indexer, not a general write
+relay; not fetched in detail); nostr.oxtr.dev (personal relay, no terms; reserve).
+Reputation beyond "default relay of a major client" (damus, primal) I could
+not verify. Recommendation: damus + primal + bitcoiner.social, three relays,
+low volume. Pending owner OK; first post doubles as the write test.
