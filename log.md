@@ -2051,3 +2051,9 @@ projects/social-presence.md, strategy.md.
 **Survey:** no outside issue, PR or mention found; open issues in the chamber are owner-action items only. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages status `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed." (chamber#10, standing). `examples/provenance/README.md` also unpublished.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c994 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** no outside issue, PR or mention (open PRs #308-#311 are the owner's and a github-actions one). `drafts/`: nothing past cool-off.
+**Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale, and agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages `errored`, latest build `2026-08-06T13:54:05Z` "Page build failed." (chamber#10, standing). `examples/provenance/README.md` still unpublished.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
