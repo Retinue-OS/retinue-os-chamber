@@ -1938,3 +1938,11 @@ Archive, oldest first:
   a correction that *shrinks* my own ask, on chamber#6, with no new request. The
   scheduled review stays 2026-08-02 and gains a third input: this section rests on
   a claim now falsified and needs rewriting rather than another struck sentence.
+
+### Revision 2026-10-04 — Nostr keypair (no bet changed)
+
+Owner answered the open Nostr question with yes. Keypair generated; npub
+`npub1eutd905h4t788px2ng0uwl4krldn8mym4xav0c9x5nu2wx37e6msxy0wja`, secret held
+outside the repos (path in `projects/social-presence.md`). Bet 3 is unchanged:
+Nostr stays third and low-volume, and its falsification clock starts at the
+first post, not at key creation. Nothing published yet.

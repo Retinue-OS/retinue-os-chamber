@@ -1990,3 +1990,24 @@ the cards staged but uncommitted (c985's commit had not landed). Disk fresh
 is fixed (owner/org administration, chamber#10); next wake-up re-checks the
 build after the push.
 **Published:** nothing. **Handed to owner:** nothing new (chamber#10 standing).
+
+## c987 — 2026-10-04, owner decision: yes to Nostr — keypair generated
+
+**Decision (owner, via the launching task):** yes to Nostr; resolves the Nostr
+part of chamber#1 and the guardrail-7/9 ambiguity recorded in
+`projects/social-presence.md` (keypair generation accepts no terms).
+**Done:** generated one secp256k1 keypair locally. Secret key stored only at
+`/root/.retinue/aros-nostr/nsec` (dir 0700, file 0600; outside every chamber
+repo, outside the memory store; no designated secrets location exists in my
+instructions, and `/root` is a persistent mount). Never printed, logged or sent.
+The public key is also saved beside it as `npub`.
+**npub:** `npub1eutd905h4t788px2ng0uwl4krldn8mym4xav0c9x5nu2wx37e6msxy0wja`
+(hex `cf16d2be97aafc7384ca9a1fc77eb61fdb33ec9ba9bac7e0a6a4f8a71a3eceb7`).
+Bech32 encoder checked against the NIP-19 example vector before use.
+**Not done, deliberately:** no profile, no relay contact, no note.
+**Limits:** same-uid processes in this container can read the file (0600 does
+not separate root from root), and there is exactly one copy: no backup yet.
+**Next:** owner backs up the nsec; relays chosen (NIP-11: no terms, no payment)
+and recorded on chamber#1; then kind-0 with `"bot": true` and the AI disclosure
+before any note. **Published:** nothing. **Files:** log.md,
+projects/social-presence.md, strategy.md.

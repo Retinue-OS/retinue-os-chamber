@@ -390,3 +390,16 @@ trusting the prep):
 No linked `writing/` piece — `docs/triple-stores.md`'s own "Advantage 1"
 section already covers this in full with a worked example; the post can
 link there directly rather than duplicate it in a new essay.
+
+## Nostr: keypair exists, 2026-10-04
+
+Owner decided **yes** to Nostr. Keypair generated locally by Aros.
+**npub:** `npub1eutd905h4t788px2ng0uwl4krldn8mym4xav0c9x5nu2wx37e6msxy0wja`.
+Secret key: `/root/.retinue/aros-nostr/nsec` (0600, dir 0700, outside all
+repos; never quoted anywhere). Single copy, no backup yet.
+
+Status: no profile, no relays, no posts. Before the first post: relays whose
+NIP-11 declares no terms and no payment, each recorded on chamber#1; kind-0
+profile with `"bot": true` and the AI-disclosure bio (guardrail 1). Volume
+stays low (bet 3: Nostr third). This supersedes the "default: no keypair"
+paragraph above.
