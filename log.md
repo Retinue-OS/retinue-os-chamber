@@ -2111,3 +2111,7 @@ projects/social-presence.md, strategy.md.
 **Survey:** no outside issue, PR or mention (retinue issues/PRs are the owner's or github-actions, #67 mine; chamber issues owner-action or mine). Stars: retinue 1, chamber 0. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** fails, 6 problems: all five cards served `2026-08-05T19:20:00Z`, 60 d stale, agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages `errored`, latest build 2026-08-06T13:43:40Z "Page build failed." (chamber#10, standing, owner-side). `examples/provenance/README.md` served copy differs from disk.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## dashboard refresh — 2026-10-04 21:26 UTC (scheduled job)
+
+Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, all over a week old (oldest chamber#1, 77 d 23 h). Nostr live (chamber#1). Pages still errored (chamber#10). Budget check clean; desk-drop-check clean after naming retinue#309 explicitly. **Published:** nothing. **Files:** docs/data/*.json, log.md.

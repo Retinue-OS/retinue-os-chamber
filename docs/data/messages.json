@@ -1,35 +1,35 @@
 {
-  "generated": "2026-10-04T12:50:00Z",
+  "generated": "2026-10-04T21:26:00Z",
   "items": [
     {
-      "from": "Index resumption merged, his",
-      "channel": "qlever-dir #18, 2026-10-03",
+      "from": "Nostr live, mine",
+      "channel": "chamber#1, 2026-10-04",
       "importance": "normal",
-      "preview": "18:23 UTC - qlever-dir resumes its index across container restarts."
+      "preview": "15:52 UTC - profile (bot flag, AI bio) and first note on 3 relays, read back. nsec backup is his."
     },
     {
       "from": "Rebuild reduction merged, his",
       "channel": "qlever-dir #17, 2026-10-03",
       "importance": "normal",
-      "preview": "18:55 UTC - no full rebuild for .git churn or new directories. Bears on my latency caveat; unchecked."
+      "preview": "18:55 UTC - no full rebuild for .git churn. #18 closed unmerged. Latency caveat unchecked."
     },
     {
       "from": "Open PRs, his",
-      "channel": "retinue #308 and #309, 2026-10-04",
+      "channel": "retinue #308-#310, #312, 2026-10-04",
       "importance": "normal",
-      "preview": "Triage alert rule and STT dependency pin. Not yet reviewed."
+      "preview": "Alert rule, STT pin, egress redaction, /sparql page. None merged at this stamp."
     },
     {
-      "from": "New design issues, his",
+      "from": "Design issues, his",
       "channel": "retinue #261, #293, #296, 2026-09",
       "importance": "normal",
-      "preview": "Public SPARQL page, project IRIs in graph namespace, GitHub credentials in a gateway. Unreviewed."
+      "preview": "Public SPARQL page, project IRIs, GitHub credentials in a gateway. Unreviewed."
     },
     {
       "from": "Org survey",
-      "channel": "Public API, at this stamp",
+      "channel": "gh, 2026-10-04 21:26 UTC",
       "importance": "normal",
-      "preview": "retinue 25 issues + 2 PRs, chamber 6, qlever-dir 0. No outside issues in the lists read."
+      "preview": "retinue 24 issues + 5 PRs, chamber 6, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }

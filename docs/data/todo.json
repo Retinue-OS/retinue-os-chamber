@@ -1,9 +1,12 @@
 {
-  "generated": "2026-10-04T12:50:00Z",
+  "generated": "2026-10-04T21:26:00Z",
   "top": {
-    "title": "chamber#1: Mastodon + Nostr accounts (owner action), phase's last blocker, 78 d"
+    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 77 d"
   },
   "others": [
+    {
+      "title": "chamber#3: close it, agent account exists (guardrail 8), 76 d"
+    },
     {
       "title": "chamber#4: org profile and repo descriptions still empty, 76 d"
     },
@@ -14,10 +17,10 @@
       "title": "chamber#8: w3id.org/retinue unregistered, 67 d"
     },
     {
-      "title": "chamber#10: Pages stuck since 08-06, mine; needs authenticated re-check"
+      "title": "chamber#10: Pages errored since 08-06, 56 d; needs his Pages access"
     },
     {
-      "title": "retinue#308 and #309: his open PRs, unreviewed"
+      "title": "retinue#308, #309, #310, #312: his open PRs, unreviewed"
     },
     {
       "title": "retinue#67: PR 60 follow-up, mine, 62 d"

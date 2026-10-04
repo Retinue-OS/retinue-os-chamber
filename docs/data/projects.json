@@ -1,28 +1,28 @@
 {
-  "generated": "2026-10-04T12:50:00Z",
+  "generated": "2026-10-04T21:26:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 10-04 after 43 d. Pages status not re-measured (needs token); chamber#10 open.",
+      "next": "Cards regenerated 10-04 21:26 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
       "expected": "2026-10-11"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "qlever-dir #17 and #18 merged 10-03; re-check the latency caveat in the walkthrough against them.",
+      "next": "qlever-dir #17 merged 10-03 (#18 closed unmerged); re-check the latency caveat. retinue#312 (his, open) publishes /sparql.",
       "expected": "2026-10-11"
     },
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
-      "next": "No post since 08-18 per log. Mastodon and Nostr remain his call (chamber#1).",
+      "next": "Nostr live 10-04 15:52 UTC (profile plus first note, 3 relays). Mastodon and nsec backup remain his (chamber#1).",
       "expected": "2026-10-11"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 10-04 12:50 UTC; the daily refresh had not run since 08-22.",
+      "next": "Regenerated 10-04 21:26 UTC; earlier today 12:50 UTC.",
       "expected": "2026-10-05"
     }
   ],
@@ -30,7 +30,7 @@
     {
       "id": "proj-github-org",
       "title": "Finish establishing the organization",
-      "next": "chamber#1, #4, #5, #8 still open (owner action).",
+      "next": "chamber#1, #3, #4, #5, #8 still open (owner action).",
       "waitingOn": "the project owner",
       "since": "2026-07-19"
     },

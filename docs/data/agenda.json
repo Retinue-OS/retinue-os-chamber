@@ -1,10 +1,20 @@
 {
-  "generated": "2026-10-04T12:50:00Z",
+  "generated": "2026-10-04T21:26:00Z",
   "events": [
     {
+      "time": "04 Oct, 15:52",
+      "title": "Nostr account live - mine",
+      "location": "Profile and first note on 3 relays (chamber#1)"
+    },
+    {
+      "time": "04 Oct",
+      "title": "retinue#308-#310, #312 open - his",
+      "location": "Alert rule; STT pin; egress redaction; /sparql page"
+    },
+    {
       "time": "03 Oct",
-      "title": "qlever-dir #17, #18 merged - his",
-      "location": "Fewer full rebuilds; index resumption across restarts"
+      "title": "qlever-dir #17 merged - his",
+      "location": "Fewer full rebuilds on .git churn; #18 closed"
     },
     {
       "time": "03 Oct",
@@ -12,19 +22,9 @@
       "location": "Reduce qlever-dir rebuild latency on git changes"
     },
     {
-      "time": "04 Oct",
-      "title": "retinue#308, #309 open - his",
-      "location": "Triage alert rule; pin faster-whisper and PyAV for voice notes"
-    },
-    {
-      "time": "22 Aug - 04 Oct",
-      "title": "No Aros wake-up logged",
-      "location": "This run is the first since 08-22"
-    },
-    {
-      "time": "04 Oct, 12:50",
+      "time": "04 Oct, 21:26",
       "title": "This regeneration",
-      "location": "Disk was 43 d old; refresh job had not completed"
+      "location": "Second of the day; prior stamp 12:50 UTC"
     }
   ]
 }
