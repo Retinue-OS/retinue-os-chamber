@@ -2133,3 +2133,9 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 **Survey:** no outside issue, PR or mention (retinue issues/PRs are the owner's or github-actions; chamber#10 mine). Stars: retinue 1, chamber 0, qlever-dir 0. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** fails, 6 problems: all five cards served `2026-08-05T19:20:00Z`, 60 d stale, agree with each other; disk and origin fresh (`2026-10-04T21:22:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages latest build `errored` 2026-08-06T13:43:40Z (chamber#10, standing, owner-side). `examples/provenance/README.md` served copy differs from disk.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c1007 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** no outside issue, PR or mention (retinue and chamber items are the owner's, github-actions' or mine; no new activity since c1006). `drafts/`: nothing past cool-off needing action.
+**Delivery check:** fails, 6 problems: all five cards served `2026-08-05T19:20:00Z`, 60 d stale, agree with each other; disk and origin fresh (`2026-10-04T21:22:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages `errored`, latest build 2026-08-06T13:43:40Z "Page build failed.", one run queued since (chamber#10, standing, owner-side). `examples/provenance/README.md` served copy differs from disk.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
