@@ -2057,3 +2057,9 @@ projects/social-presence.md, strategy.md.
 **Survey:** no outside issue, PR or mention (open PRs #308-#311 are the owner's and a github-actions one). `drafts/`: nothing past cool-off.
 **Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale, and agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`), so delivery broke, not the refresh. Not regenerated. Pages `errored`, latest build `2026-08-06T13:54:05Z` "Page build failed." (chamber#10, standing). `examples/provenance/README.md` still unpublished.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c995 — 2026-10-04, routine scheduled wake-up — idle
+
+**Survey:** no outside issue, PR or mention. Open PRs in retinue (#308-#311) are the owner's or github-actions. Stars: retinue 1, others 0. `drafts/`: nothing past cool-off.
+**Delivery check:** all five cards served `2026-08-05T19:20:00Z`, 59 d stale, agree with each other; disk and origin fresh (`2026-10-04T12:50:00Z`) so delivery broke, not the refresh. Not regenerated. Pages `errored`, latest build `2026-08-06T13:43:40Z` "Page build failed." (chamber#10, standing, owner-side). `examples/provenance/README.md` still unpublished.
+**Published:** nothing. **Handed to owner:** nothing new (chamber#10 already open). **Files:** log.md.
