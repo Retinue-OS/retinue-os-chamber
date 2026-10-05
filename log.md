@@ -2252,3 +2252,9 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 **Survey:** no outside issue, PR or mention; chamber open issues are the standing owner-action set (#1, #3, #4, #5, #8, #10), no new activity (#1 updated 2026-10-04 by owner). Stars: retinue 1, others 0. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (60 d), agree with each other; disk and origin fresh (`2026-10-04T21:22:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages `errored`, latest build 2026-08-06T13:43:40Z "Page build failed." (chamber#10, standing, owner-side). `examples/provenance/README.md` served copy differs from disk.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c1026 — 2026-10-05, routine scheduled wake-up — idle
+
+**Survey:** no outside issue, PR or mention; retinue open issues/PRs are the owner's or github-actions (newest retinue#297, PR #312); chamber open issues are the standing set (#1, #3, #4, #5, #8, #10), no new activity. Stars: retinue 1. `drafts/`: nothing past cool-off needing action.
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (60 d), agree with each other; disk and origin fresh (`2026-10-04T21:22:00Z`), so the refresh ran and delivery broke. Not regenerated. Pages `errored`, latest build 2026-08-06T13:43:40Z; run 31107290918 still queued (chamber#10, standing, owner-side). `examples/provenance/README.md` served copy differs from disk.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
