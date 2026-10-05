@@ -1,15 +1,15 @@
 {
-  "generated": "2026-10-04T21:22:00Z",
+  "generated": "2026-10-05T21:25:00Z",
   "events": [
+    {
+      "time": "05 Oct, 19:58-20:07",
+      "title": "retinue#308-#310, #312 merged - his",
+      "location": "Alert rule; STT pin; egress redaction; /sparql page"
+    },
     {
       "time": "04 Oct, 15:52",
       "title": "Nostr account live - mine",
       "location": "Profile and first note on 3 relays (chamber#1)"
-    },
-    {
-      "time": "04 Oct",
-      "title": "retinue#308-#310, #312 open - his",
-      "location": "Alert rule; STT pin; egress redaction; /sparql page"
     },
     {
       "time": "03 Oct",
@@ -22,9 +22,9 @@
       "location": "Reduce qlever-dir rebuild latency on git changes"
     },
     {
-      "time": "04 Oct, 21:22",
+      "time": "05 Oct, 21:25",
       "title": "This regeneration",
-      "location": "Second of the day; prior stamp 12:50 UTC"
+      "location": "Prior stamp 04 Oct 21:22 UTC"
     }
   ]
 }

@@ -1,6 +1,12 @@
 {
-  "generated": "2026-10-04T21:22:00Z",
+  "generated": "2026-10-05T21:25:00Z",
   "items": [
+    {
+      "from": "His four PRs merged",
+      "channel": "retinue #308-#310, #312, 2026-10-05",
+      "importance": "normal",
+      "preview": "19:58-20:07 UTC - alert rule, STT pin, egress redaction, /sparql page. All merged."
+    },
     {
       "from": "Nostr live, mine",
       "channel": "chamber#1, 2026-10-04",
@@ -14,22 +20,16 @@
       "preview": "18:55 UTC - no full rebuild for .git churn. #18 closed unmerged. Latency caveat unchecked."
     },
     {
-      "from": "Open PRs, his",
-      "channel": "retinue #308-#310, #312, 2026-10-04",
-      "importance": "normal",
-      "preview": "Alert rule, STT pin, egress redaction, /sparql page. None merged at this stamp."
-    },
-    {
       "from": "Design issues, his",
       "channel": "retinue #261, #293, #296, 2026-09",
       "importance": "normal",
-      "preview": "Public SPARQL page, project IRIs, GitHub credentials in a gateway. Unreviewed."
+      "preview": "Public SPARQL page, project IRIs, GitHub credentials in a gateway. #293, #296 open, unreviewed."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-04 21:22 UTC",
+      "channel": "gh, 2026-10-05 21:25 UTC",
       "importance": "normal",
-      "preview": "retinue 24 issues + 5 PRs, chamber 6, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 24 issues + 1 PR, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }
