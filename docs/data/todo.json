@@ -1,32 +1,16 @@
 {
-  "generated": "2026-10-05T21:25:00Z",
+  "generated": "2026-10-06T21:28:00Z",
   "top": {
-    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 78 d"
+    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 79 d"
   },
   "others": [
-    {
-      "title": "chamber#3: close it, agent account exists (guardrail 8), 77 d"
-    },
-    {
-      "title": "chamber#4: org profile and repo descriptions still empty, 77 d"
-    },
-    {
-      "title": "chamber#5: enable private vulnerability reporting, 77 d"
-    },
-    {
-      "title": "chamber#8: w3id.org/retinue unregistered, 68 d"
-    },
-    {
-      "title": "chamber#10: Pages errored since 08-06, 57 d; needs his Pages access"
-    },
-    {
-      "title": "retinue#67: PR 60 follow-up, mine, 63 d"
-    },
-    {
-      "title": "Older retinue proposals (#10 #11 #18 #23 #25 #28 #30 #46 #79 #90 #130), unreviewed"
-    },
-    {
-      "title": "retinue#311: Claude Code bump PR (github-actions), unreviewed"
-    }
+    {"title": "chamber#3: close it, agent account exists (guardrail 8), 78 d"},
+    {"title": "chamber#4: org profile and repo descriptions still empty, 78 d"},
+    {"title": "chamber#5: enable private vulnerability reporting, 78 d"},
+    {"title": "chamber#8: w3id.org/retinue unregistered, 69 d"},
+    {"title": "chamber#10: Pages errored since 08-06, 58 d; needs his Pages access"},
+    {"title": "retinue#67: PR 60 follow-up, mine, 64 d"},
+    {"title": "Older retinue proposals (#10 #11 #18 #23 #25 #28 #30 #46 #79 #90 #130), unreviewed"},
+    {"title": "retinue#315: Claude Code bump PR (github-actions), unreviewed"}
   ]
 }

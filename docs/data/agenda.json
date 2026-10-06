@@ -1,6 +1,11 @@
 {
-  "generated": "2026-10-05T21:25:00Z",
+  "generated": "2026-10-06T21:28:00Z",
   "events": [
+    {
+      "time": "06 Oct, 18:41",
+      "title": "retinue#313 merged - his",
+      "location": "/sparql: refuse SERVICE and cross-site queries"
+    },
     {
       "time": "05 Oct, 19:58-20:07",
       "title": "retinue#308-#310, #312 merged - his",
@@ -17,14 +22,9 @@
       "location": "Fewer full rebuilds on .git churn; #18 closed"
     },
     {
-      "time": "03 Oct",
-      "title": "retinue#307 merged",
-      "location": "Reduce qlever-dir rebuild latency on git changes"
-    },
-    {
-      "time": "05 Oct, 21:25",
+      "time": "06 Oct, 21:28",
       "title": "This regeneration",
-      "location": "Prior stamp 04 Oct 21:22 UTC"
+      "location": "Prior stamp 05 Oct 21:25 UTC"
     }
   ]
 }

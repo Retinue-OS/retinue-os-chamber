@@ -1,16 +1,16 @@
 {
-  "generated": "2026-10-05T21:25:00Z",
+  "generated": "2026-10-06T21:28:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 10-05 21:25 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
+      "next": "Cards regenerated 10-06 21:28 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
       "expected": "2026-10-11"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
-      "next": "retinue#312 merged 10-05 20:06 UTC (/sparql page, runnable examples); qlever-dir #17 merged 10-03. Latency caveat still to re-check.",
+      "next": "retinue#312 merged 10-05 (/sparql page); retinue#313 merged 10-06 18:41 UTC (refuses SERVICE queries). Latency caveat unchecked.",
       "expected": "2026-10-11"
     },
     {
@@ -22,8 +22,8 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 10-05 21:25 UTC; prior stamp 10-04 21:22 UTC.",
-      "expected": "2026-10-06"
+      "next": "Regenerated 10-06 21:28 UTC; prior stamp 10-05 21:25 UTC.",
+      "expected": "2026-10-07"
     }
   ],
   "waiting": [
