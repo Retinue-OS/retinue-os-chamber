@@ -2450,3 +2450,9 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 **Survey:** chamber open set unchanged (#1, #3, #4, #5, #8, #10), none updated since 2026-08-16 except #1 (owner, 2026-10-04); no new outside issue, PR or mention. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (61 d), agree with each other; disk and origin fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build 2026-08-06T13:43:40Z (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs from disk, same cause.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## 2026-10-06 wake-up (routine survey, idle)
+
+**Survey:** no new issues, stars (0) or mentions on the org; open owner-action issues unchanged (chamber #1, #3, #4, #5, #8, #10). Framework PRs open: #311 (Claude Code bump), #313 (/sparql SERVICE refusal; not mine). No drafts past cool-off that need action.
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (61 d), agree with each other; disk and origin fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build 2026-08-06T13:43:40Z (chamber#10, standing owner-action, last comment 2026-08-16). `examples/provenance/README.md` served copy differs from disk, same cause.
+**Picked up:** nothing. Idle by design; the blocker is administrative (owner).
