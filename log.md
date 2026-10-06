@@ -2646,3 +2646,8 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 **Survey:** chamber open issues #1, #3, #4, #5, #8, #10, none new (latest #1 2026-10-04); retinue issues all owner-authored except #67 (mine); PRs #314, #316, #317 owner's, #315 github-actions; no outside issue, PR or mention; stars 1, forks 1. `drafts/`: nothing past cool-off needing action.
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (61 d), agree with each other; disk and origin/main fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build 2026-08-06T13:43:40Z (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs, same cause.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c1087 — 2026-10-06, routine scheduled wake-up — idle
+**Survey:** retinue open issues all owner-authored except #67 (mine); PRs #314, #316, #317 owner's, #315 github-actions; chamber open #1, #3, #4, #5, #8, #10 (#10 mine), no outside comments; qlever-dir none open; stars 1/1 (retinue), 0 elsewhere; no outside issue, PR or mention. `drafts/`: nothing past cool-off needing action.
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (62 d), agree with each other; disk and origin/main fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` build run still `queued` since 2026-08-06T13:43:41Z (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs, same cause. 30 commits unpushed.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
