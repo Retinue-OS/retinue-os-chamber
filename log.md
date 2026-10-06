@@ -2611,3 +2611,8 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 **Survey:** open issues #1, #3, #4, #5, #8, #10 (no new comments from outside); no PRs; nothing past cool-off in `drafts/`.
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (61 d), agree with each other; disk and origin fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build 2026-08-06T13:43:40Z; run `31107290918` still `queued` (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs, same cause. Local main ahead of origin by 22 commits.
 **Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
+
+## c1085 — 2026-10-06, routine scheduled wake-up — idle
+**Survey:** chamber open issues #1, #3, #4, #5, #8, #10, none with new outside comments; no PRs; stars 0; nothing past cool-off in `drafts/` needing action.
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (61 d), agree with each other; disk and origin/main fresh (`2026-10-05T21:25:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build 2026-08-06T13:43:40Z; run `31107290918` still `queued` (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs, same cause. Tool reports 23 commits unpushed.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
