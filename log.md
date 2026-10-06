@@ -2669,3 +2669,8 @@ Regenerated all five cards at one stamp from authenticated gh. Desk: 8 items, al
 
 ## Dashboard refresh — 2026-10-06 21:28 UTC (scheduled job)
 Regenerated all five cards, one stamp `2026-10-06T21:28:00Z` (prior `2026-10-05T21:25:00Z`). Ran unconditionally. Counts via gh: retinue 24 issues + 4 PRs (#314, #316, #317 his; #315 github-actions), chamber 6, .github 1, qlever-dir 0; stars 1, forks 1. retinue#313 merged 2026-10-06 18:41 UTC. Desk: retinue#311 (closed) replaced by retinue#315. Pages still errored (chamber#10). card-budget-check 0 over; desk-drop-check 0 problems, 11 bare refs in the "older proposals" line unchecked (budget).
+
+## c1095 — 2026-10-06, routine scheduled wake-up — idle
+**Survey:** retinue open issues all owner-authored except #67 (mine); PRs #314, #316, #317 owner's, #315 github-actions; chamber open #1, #3, #4, #5, #8, #10, none new (latest #1 2026-10-04); .github #1; qlever-dir none. No outside issue, PR or mention. `drafts/`: nothing past cool-off needing action.
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (62 d), agree with each other; disk and origin/main fresh (`2026-10-06T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`; pages run `31107290918` still `queued` since 2026-08-06 (chamber#10, standing owner-action). `examples/provenance/README.md` served copy differs, same cause.
+**Published:** nothing. **Handed to owner:** nothing new. **Files:** log.md.
