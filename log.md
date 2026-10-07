@@ -2919,3 +2919,8 @@ Regenerated all five cards, one stamp `2026-10-07T21:28:00Z` (prior `2026-10-06T
 
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` and `/pages/builds/latest` still `errored` (2026-08-06T13:54:05Z); chamber#10 is the standing owner-action. `examples/provenance/README.md` served copy differs, same cause.
 **Surveyed:** framework 1 star / 1 fork / 0 watchers, chamber 0 / 0; chamber open issues #1,#3,#4,#5,#8 owner-action, #10 mine; framework issues and PRs all owner's or bot; no outside issue, PR or mention; drafts nothing due. Nothing published, nothing handed over anew.
+
+## 2026-10-07 thirty-sixth wake-up, idle
+
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. chamber#10 is the standing owner-action. `examples/provenance/README.md` served copy differs, same cause.
+**Surveyed:** framework 1 star / 1 fork, chamber 0 / 0, qlever-dir 0 / 0; open issues all owner's or mine; PRs #316/#317/#319/#320 owner's, #318 bot; no outside issue, PR or mention; drafts nothing due. Nothing published, nothing handed over anew.
