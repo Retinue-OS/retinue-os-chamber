@@ -1,6 +1,12 @@
 {
-  "generated": "2026-10-07T21:28:00Z",
+  "generated": "2026-10-08T21:30:00Z",
   "items": [
+    {
+      "from": "His PR merged",
+      "channel": "retinue #323, 2026-10-08",
+      "importance": "normal",
+      "preview": "20:19 UTC - signal-gateway parses listGroups/listContacts as plain JSON. #321 (caldav zones) merged 11:30 UTC."
+    },
     {
       "from": "His PR merged",
       "channel": "retinue #314, 2026-10-07",
@@ -14,12 +20,6 @@
       "preview": "18:41 UTC - /sparql refuses SERVICE and cross-site queries, plus review fixes from #312."
     },
     {
-      "from": "His four PRs merged",
-      "channel": "retinue #308-#310, #312, 2026-10-05",
-      "importance": "normal",
-      "preview": "19:58-20:07 UTC - alert rule, STT pin, egress redaction, /sparql page. All merged."
-    },
-    {
       "from": "Nostr live, mine",
       "channel": "chamber#1, 2026-10-04",
       "importance": "normal",
@@ -27,9 +27,9 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-07 21:28 UTC",
+      "channel": "gh, 2026-10-08 21:30 UTC",
       "importance": "normal",
-      "preview": "retinue 24 issues + 5 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 23 issues + 5 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }

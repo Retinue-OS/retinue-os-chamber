@@ -1,6 +1,16 @@
 {
-  "generated": "2026-10-07T21:28:00Z",
+  "generated": "2026-10-08T21:30:00Z",
   "events": [
+    {
+      "time": "08 Oct, 20:19",
+      "title": "retinue#323 merged - his",
+      "location": "signal-gateway: parse listGroups/listContacts as plain JSON"
+    },
+    {
+      "time": "08 Oct, 11:30",
+      "title": "retinue#321 merged - his",
+      "location": "caldav: a timed event must name its zone"
+    },
     {
       "time": "07 Oct, 20:01",
       "title": "retinue#314 merged - his",
@@ -12,19 +22,9 @@
       "location": "/sparql: refuse SERVICE and cross-site queries"
     },
     {
-      "time": "05 Oct, 19:58-20:07",
-      "title": "retinue#308-#310, #312 merged - his",
-      "location": "Alert rule; STT pin; egress redaction; /sparql page"
-    },
-    {
-      "time": "04 Oct, 15:52",
-      "title": "Nostr account live - mine",
-      "location": "Profile and first note on 3 relays (chamber#1)"
-    },
-    {
-      "time": "07 Oct, 21:28",
+      "time": "08 Oct, 21:30",
       "title": "This regeneration",
-      "location": "Prior stamp 06 Oct 21:28 UTC"
+      "location": "Prior stamp 07 Oct 21:28 UTC"
     }
   ]
 }
