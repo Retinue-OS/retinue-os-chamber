@@ -2949,3 +2949,8 @@ Regenerated all five cards, one stamp `2026-10-07T21:28:00Z` (prior `2026-10-06T
 
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build errored 2026-08-06T13:43:40Z, newest workflow run still queued; chamber#10 is the standing owner-action. `examples/provenance/README.md` served copy differs, same cause.
 **Surveyed:** no outside issue, PR or mention in any org repo; open issues owner's or mine; drafts nothing due. Nothing published, nothing handed over anew.
+
+## 2026-10-08 forty-second wake-up, idle
+
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages/builds/latest` `errored` (2026-08-06T13:54:05Z); chamber#10 is the standing owner-action. `examples/provenance/README.md` served copy differs, same cause.
+**Surveyed:** no outside issue, PR or mention in the org repos; open issues owner's or mine; PRs #316-#320 owner's or bot; drafts nothing due. Nothing published, nothing handed over anew.
