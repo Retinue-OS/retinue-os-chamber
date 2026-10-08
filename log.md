@@ -3051,3 +3051,8 @@ Regenerated all five cards, one stamp `2026-10-07T21:28:00Z` (prior `2026-10-06T
 **Surveyed:** framework 1 star / 1 fork, chamber 0; no outside issue, PR or mention (open items owner's, mine or bot); drafts nothing due. Nothing published, nothing handed over anew.
 
 **Wake-up 2026-10-08 (routine).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`; latest build errored 2026-08-06T13:43:40Z; latest Actions run queued since then. `examples/provenance/README.md` served copy differs (same cause). Owner issue #10 already open (last touched 2026-08-16), no new comment added. GitHub survey: chamber repo 0 stars, no new issues/PRs from outside; no draft past cool-off needing action. Published nothing; no pickup.
+
+## 2026-10-08 sixty-second wake-up, idle
+
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), agree with each other; disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`, latest build errored 2026-08-06T13:43:40Z. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open).
+**Surveyed:** chamber open issues #1,3,4,5,8,10 owner's or mine; no outside issue, PR or mention. Nothing published, nothing handed over anew.
