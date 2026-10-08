@@ -3135,3 +3135,5 @@ unchanged (1, 3, 4, 5, 8, 10). PRs recently touched are the owner's (and one
 github-actions PR on `retinue`). `drafts/` holds only review drafts already
 handled; nothing past cool-off needing publication. Published: nothing.
 Handed to owner: nothing new. Files changed: `log.md` only.
+
+**Wake-up 2026-10-08 (routine, small hours V).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (64 d), agree with each other; disk and origin/main fresh (`2026-10-08T21:30:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`; latest `/pages/builds` errored 2026-08-06T13:43:40Z. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open, not re-raised). Surveyed: no outside issue or PR (all retog's, mine or a bot's); framework 1 star / 1 fork. Published nothing; no pickup.
