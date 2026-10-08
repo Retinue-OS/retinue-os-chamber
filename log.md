@@ -3081,3 +3081,8 @@ Regenerated all five cards, one stamp `2026-10-07T21:28:00Z` (prior `2026-10-06T
 
 **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages/builds` latest `errored` 2026-08-06T13:54:05Z. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open, last touched 2026-08-16).
 **Surveyed:** no outside issue or PR on framework or chamber (open items retog's, mine or bot). Drafts nothing due. Nothing published, nothing handed over anew.
+
+## 2026-10-08 sixty-eighth wake-up, idle
+
+**Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (63 d), disk and origin/main fresh (`2026-10-07T21:28:00Z`), so the refresh ran and delivery broke. Not regenerated. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open).
+**Surveyed:** chamber open issues #1,3,4,5,8,10 owner's or mine; framework open issues/PRs are the owner's or bot-authored; framework 1 star, chamber 0. Drafts nothing due. Nothing published, nothing handed over anew.
