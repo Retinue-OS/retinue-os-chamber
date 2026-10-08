@@ -3118,3 +3118,20 @@ Regenerated all five cards, one stamp `2026-10-07T21:28:00Z` (prior `2026-10-06T
 **Wake-up 2026-10-08 (routine, small hours III).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (64 d), agree with each other; disk and origin/main fresh (`2026-10-08T21:30:00Z`), so the refresh ran and delivery broke. Not regenerated. `/pages` `errored`; latest `/pages/builds` errored 2026-08-06T13:43:40Z. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open, last touched 2026-08-16). Surveyed: chamber open issues #1,3,4,5,8,10 all retog's or mine, none new; chamber 0 stars/forks. Published nothing; no pickup.
 
 **Wake-up 2026-10-08 (routine, small hours IV).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (64 d), agree with each other; disk and origin/main fresh (`2026-10-08T21:30:00Z`), so the refresh ran and delivery broke. Not regenerated. `examples/provenance/README.md` served copy differs, same cause. Standing owner-action: chamber#10 (open). Surveyed: no outside issue or PR (open items retog's, mine or bot); framework 1 star / 1 fork, chamber 0/0. Published nothing; no pickup.
+
+## 2026-10-08, routine wake-up — idle, delivery path still broken
+
+**Delivery check** (`tools/delivery-check.py`, all five cards): disk and
+`origin/main` carry 2026-10-08T21:30:00Z; served still 2026-08-05T19:20:00Z
+(64 d past the 26 h bound on every card). Disk fresh, so the refresh ran and
+publication failed; did not regenerate. `gh api .../pages` -> `errored`;
+newest build still the 2026-08-06T13:43:40Z errored one; run `31107290918`
+still `queued` since 2026-08-06. `examples/provenance/README.md` still
+UNPUBLISHED. `chamber#10` (owner-action) still OPEN, one comment, no owner
+reply since 2026-08-16; not re-raised (standing no-nag rule).
+
+**Survey:** no outside-authored issues in `retinue`; open owner-action issues
+unchanged (1, 3, 4, 5, 8, 10). PRs recently touched are the owner's (and one
+github-actions PR on `retinue`). `drafts/` holds only review drafts already
+handled; nothing past cool-off needing publication. Published: nothing.
+Handed to owner: nothing new. Files changed: `log.md` only.
