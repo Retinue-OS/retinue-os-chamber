@@ -1,17 +1,35 @@
 {
-  "generated": "2026-10-09T21:33:00Z",
+  "generated": "2026-10-10T21:36:00Z",
   "top": {
-    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 82 d 23 h (opened 07-18 22:17 UTC)"
+    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 83 d 23 h (opened 07-18 22:17 UTC)"
   },
   "others": [
-    {"title": "chamber#3: close it, agent account exists (guardrail 8), 81 d 19 h"},
-    {"title": "chamber#4: org profile and repo descriptions still empty, 81 d 18 h"},
-    {"title": "chamber#5: enable private vulnerability reporting, 81 d 18 h"},
-    {"title": "chamber#8: w3id.org/retinue unregistered, 72 d 15 h"},
-    {"title": "chamber#10: Pages errored since 08-06, 61 d 21 h; needs his Pages access"},
-    {"title": "retinue#67: PR 60 follow-up, mine, 67 d 14 h"},
-    {"title": "Unreviewed (1/2): retinue#10, retinue#11, retinue#18, retinue#23, retinue#25, retinue#28"},
-    {"title": "Unreviewed (2/2): retinue#30, retinue#46, retinue#79, retinue#90, retinue#130"},
-    {"title": "retinue#324: Claude Code bump PR (github-actions), opened 10-09 14:27 UTC, 7 h 6 m"}
+    {
+      "title": "chamber#3: close it, agent account exists (guardrail 8), 82 d 19 h"
+    },
+    {
+      "title": "chamber#4: org profile and repo descriptions still empty, 82 d 18 h"
+    },
+    {
+      "title": "chamber#5: enable private vulnerability reporting, 82 d 18 h"
+    },
+    {
+      "title": "chamber#8: w3id.org/retinue unregistered, 73 d 15 h"
+    },
+    {
+      "title": "chamber#10: Pages errored since 08-06, 62 d 21 h; needs his Pages access"
+    },
+    {
+      "title": "retinue#67: PR 60 follow-up, mine, 68 d 14 h"
+    },
+    {
+      "title": "Unreviewed (1/2): retinue#10, retinue#11, retinue#18, retinue#23, retinue#25, retinue#28"
+    },
+    {
+      "title": "Unreviewed (2/2): retinue#30, retinue#46, retinue#79, retinue#90, retinue#130"
+    },
+    {
+      "title": "retinue#325: Claude Code bump PR (github-actions), opened 10-10 13:52 UTC, 7 h 43 m"
+    }
   ]
 }

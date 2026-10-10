@@ -1,29 +1,29 @@
 {
-  "generated": "2026-10-09T21:33:00Z",
+  "generated": "2026-10-10T21:36:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 10-09 21:33 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
-      "expected": "2026-10-11"
+      "next": "Cards regenerated 10-10 21:36 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
+      "expected": "2026-10-12"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
       "next": "retinue#313 merged 10-06 18:41 UTC (refuses SERVICE queries); #314 (memory v2) merged 10-07. Latency caveat unchecked.",
-      "expected": "2026-10-11"
+      "expected": "2026-10-12"
     },
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
       "next": "Nostr live 10-04 15:52 UTC (profile plus first note, 3 relays). Mastodon and nsec backup remain his (chamber#1).",
-      "expected": "2026-10-11"
+      "expected": "2026-10-12"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 10-09 21:33 UTC; prior stamp 10-08 21:30 UTC.",
-      "expected": "2026-10-10"
+      "next": "Regenerated 10-10 21:36 UTC; prior stamp 10-09 21:33 UTC.",
+      "expected": "2026-10-11"
     }
   ],
   "waiting": [
