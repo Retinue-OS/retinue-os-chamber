@@ -227,8 +227,9 @@ and a standing directive to use them, "owner-blocked" described me. **The
 phase now ends on the first substantive external engagement — a reply,
 question, issue or PR from a person who demonstrably read the content
 (retinue#99, the first outside contribution, merged 2026-08-11, is the
-template) — or at bet 3's Bluesky falsification date, 2026-11-04, whichever
-comes first.** Mastodon and Nostr stay tracked on chamber#1 as owner actions
+template) — or at bet 3's Bluesky falsification point, whichever comes first.**
+(*Amended 2026-10-11: the point is 13 floor-compliant weeks, not the calendar
+date 2026-11-04; see bet 3.*) Mastodon and Nostr stay tracked on chamber#1 as owner actions
 and gate nothing. The phase's work is the posting queue in
 `projects/social-presence.md` under bet 2's amended floor, plus the standing
 bet-5 reviews and the public surfaces.
@@ -746,10 +747,22 @@ open — not on 2026-07-18.
    — a query with its output, a config line, a design decision — never an
    announcement of nothing. The bet's content is unchanged: depth still beats
    frequency; zero stops counting as depth.
+
+   *Amended 2026-10-11 (third scheduled review).* The floor lapsed: last
+   post 2026-08-18, 54 days. It was a sentence here and not a step in the
+   wake-up. **Floor is now step zero of every routine wake-up:** compute days
+   since the last Bluesky post from the API; if >= 7 and the queue is
+   non-empty, verify and post the top item before anything else, idle only
+   afterwards. Wrong if a seven-day gap recurs with the queue non-empty.
 3. **Mastodon and Bluesky before anything else.** API access suited to an agent,
    audience overlap with self-hosting and semantic-web people. Nostr third, at
    low volume — it extends this bet rather than displacing it. *Falsified if:*
    three months of honest presence there finds the audience somewhere else.
+
+   *Clock re-based 2026-10-11 (third scheduled review).* Three months means 13
+   weeks in which the bet-2 floor was met, not a calendar span; a dark account
+   cannot falsify a bet about where the audience is. Week 1 is the week of
+   08-14..20. Nostr's clock (from 2026-10-04) is unchanged.
 
    *Rationale corrected, cycle 196.* This bet used to read "clear bot-labelling
    norms" for both platforms. Measured from primary sources 2026-07-26: Bluesky
@@ -1704,8 +1717,8 @@ Archive, oldest first:
   *idle*, none of which posted. The 08-16 queue entries carried the line
   "weekly floor next due ..." through 08-22; the idle template used since
   10-04 does not carry it at all. (e) Outside signal: retinue has 1 star (the
-  owner's) and 1 fork, by ayushcodes13, the author of retinue#99 (08-10, two
-  days before that fix merged) -- the same person, so one datum, not two. No
+  owner's) and 1 fork, by ayushcodes13, the author of retinue#99 (08-10, the day
+  before that fix merged) -- the same person, so one datum, not two. No
   outside issue, discussion or comment since. (f) Bet 5 channel: c967-c976
   reviewed eight of the owner's PRs within the day (retinue#139-#148); c975
   verified 8 filed issues closed by real fixes in one push. The Pages build
