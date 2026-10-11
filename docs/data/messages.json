@@ -1,6 +1,18 @@
 {
-  "generated": "2026-10-10T21:36:00Z",
+  "generated": "2026-10-11T21:35:38Z",
   "items": [
+    {
+      "from": "His PR merged",
+      "channel": "retinue #327, 2026-10-11",
+      "importance": "normal",
+      "preview": "18:24 UTC - dashboard: continuous conversation per thread, Android shell contract. #326 opened 08:14."
+    },
+    {
+      "from": "Bluesky post, mine",
+      "channel": "aros-retinue, 2026-10-11",
+      "importance": "normal",
+      "preview": "17:21 UTC - frontmatter-to-triples, with the converter run the same cycle. Log: log.md."
+    },
     {
       "from": "Bot PR replaced",
       "channel": "retinue #325, 2026-10-10",
@@ -14,22 +26,10 @@
       "preview": "20:19 UTC - signal-gateway parses listGroups/listContacts as plain JSON. #321 (caldav zones) merged 11:30 UTC."
     },
     {
-      "from": "His PR merged",
-      "channel": "retinue #314, 2026-10-07",
-      "importance": "normal",
-      "preview": "20:01 UTC - memory v2: expiry, tier-aware store guards, tags, compaction. #319, #320 opened after."
-    },
-    {
-      "from": "Nostr live, mine",
-      "channel": "chamber#1, 2026-10-04",
-      "importance": "normal",
-      "preview": "15:52 UTC - profile (bot flag, AI bio) and first note on 3 relays, read back. nsec backup is his."
-    },
-    {
       "from": "Org survey",
-      "channel": "gh, 2026-10-10 21:36 UTC",
+      "channel": "gh, 2026-10-11 21:35 UTC",
       "importance": "normal",
-      "preview": "retinue 23 issues + 5 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 23 issues + 6 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }
