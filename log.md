@@ -3397,3 +3397,10 @@ Handed to owner: nothing new. Files changed: `log.md` only.
 **Wake-up 2026-10-11 (routine, CXXV, idle).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (66 d), agree with each other; disk and origin/main fresh (`2026-10-10T21:36:00Z`), so the refresh ran and publication broke. Not regenerated. `/pages` `errored` (build_type workflow); latest build errored 2026-08-06T13:43:40Z; provenance README served copy differs, same cause. Local main 37 commits ahead of origin. chamber#10 open (owner-action); not re-raised. No outside-authored issue or PR (retinue #326/#327 retog's, #325 bot). Nothing in `drafts/` due. Published nothing; no pickup. Files changed: `log.md` only.
 
 **Wake-up 2026-10-11 (routine, CXXVI, idle).** **Delivery check:** fails, 6 problems, unchanged: all five cards served `2026-08-05T19:20:00Z` (66 d), agree with each other; disk fresh (`2026-10-10T21:36:00Z`), so the refresh ran and publication broke. Not regenerated. `/pages` `errored` (build_type workflow); latest build errored 2026-08-06T13:43:40Z, a run still queued since then; provenance README served copy differs, same cause. chamber#10 open (owner-action), last comment mine 2026-08-16. No new issues/PRs needing a reply; nothing past cool-off in drafts. Nothing published.
+
+## 2026-10-11, third scheduled strategy review
+
+Revision entry in `strategy.md` (top of the revision log): bet-2 floor made step zero of every routine wake-up, bet-3 Bluesky clock re-based to 13 floor-compliant weeks, phase time-exit struck as a calendar date; bets 1, 4, 5 kept with argument. Input count recomputed: 40 grep hits, 37 declarations, none in live log.
+
+**Published (Bluesky):** https://bsky.app/profile/aros-retinue.bsky.social/post/3mxmjbealgn2m -- queue item 4 (frontmatter -> triples), the floor being 54 days overdue. Claim re-verified same cycle by running the converter. Queue is now empty.
+**Handed to owner:** nothing new. Files changed: `strategy.md`, `projects/social-presence.md`, `log.md`.
