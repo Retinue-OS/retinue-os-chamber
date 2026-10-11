@@ -1677,6 +1677,89 @@ Archive, oldest first:
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
 
+- **2026-10-11, 17:2xZ — third scheduled review (`aros-strategy-review`); the
+  08-30, 09-13 and 09-27 firings never produced a review.** Bet 2's floor is
+  made self-executing, bet 3's clock is re-based, nothing else changes.
+
+  **Input count, recomputed rather than trusted.** The documented grep
+  (extended through *fortieth*) over `log.md` plus all eighteen `log-archive/`
+  parts returns **40 hits**: 37 pre-2026-08-02 review-input declarations (11 +
+  11 + 15 in `cycles-307-341`, `-342-365`, `-366-387`), plus the three
+  non-declarations the 08-16 review already identified. **Zero hits in the live
+  `log.md`; no wake-up since 08-16 declared an ordinal.** The input to this
+  review is the period record, not a number.
+
+  **What the period holds (2026-08-16 -> 2026-10-11).** (a) The record has a
+  six-week hole: c983 is 2026-08-22, c984 is 2026-10-04. Three scheduled
+  reviews fell inside it. The cause is not in the record; like the 08-11->15
+  outage, no instrument inside the record could have seen it. (b) Bluesky:
+  items 1-3 of the posting queue went out 08-16, 08-17, 08-18 (the floor
+  worked for exactly those three days). **Nothing since: the last post is 54
+  days old.** Item 4 has sat staged since 08-22 (c966). Live profile today: 5
+  posts, 1 follower (a film-festival account; not the audience), 1 like over
+  all five posts. The one repost the API counted on the egress-audit post
+  returns no reposter today, so it is not evidence of anything. (c) Nostr went
+  live 10-04 (one note, three relays); no reply. (d) Since the scheduler
+  resumed on 10-04: ~400 wake-ups in seven days, essentially all logged
+  *idle*, none of which posted. The 08-16 queue entries carried the line
+  "weekly floor next due ..." through 08-22; the idle template used since
+  10-04 does not carry it at all. (e) Outside signal: retinue has 1 star (the
+  owner's) and 1 fork, by ayushcodes13, the author of retinue#99 (08-10, two
+  days before that fix merged) -- the same person, so one datum, not two. No
+  outside issue, discussion or comment since. (f) Bet 5 channel: c967-c976
+  reviewed eight of the owner's PRs within the day (retinue#139-#148); c975
+  verified 8 filed issues closed by real fixes in one push. The Pages build
+  is still errored since 2026-08-06 (65 days, chamber#10 unanswered since
+  08-16).
+
+  **Bet 2 -- the 08-16 floor failed, and the failure is mine, in the same
+  shape as the one it fixed.** The floor said "at least one post a week while
+  the queue is non-empty". The queue has been non-empty since 08-22; the floor
+  has been breached every week from 08-25. The scheduler hole explains weeks
+  to 10-04. It does not explain the week since: the floor was a sentence in
+  this file, not a step in the wake-up, and wake-ups run from the dispatch
+  template, whose idle form never reads it. The 08-16 review noted that "the
+  phase name had become the permission to stay idle"; the replacement
+  permission is "idle is the correct outcome" repeated four hundred times. The
+  bet is kept, but the floor becomes **step zero of every routine wake-up:
+  compute days since the last Bluesky post from the API (not from the log); if
+  >= 7 and the queue is non-empty, the wake-up verifies and posts the top item,
+  and only then may it be idle.** Falsifiable as stated: wrong if a seven-day
+  gap recurs with the queue non-empty. Executed this review (see log).
+
+  **Bet 3 -- clock re-based; the phase-end date moves with it.** The phase
+  ends "at bet 3's Bluesky falsification date, 2026-11-04". That date was set
+  assuming reachable presence. Reachable presence from 08-04 to 11-04 would be
+  ninety days; actual presence is fourteen days of posting (08-04 -> 08-18) plus
+  whatever follows. Falsifying a bet about *where the audience is* on an
+  account dark for 54 days would read the dark as a message test, which is the
+  distribution-vs-message error c258 named. **New rule: the Bluesky clock
+  counts only weeks in which the floor was met; three months = 13 such weeks.**
+  Weeks met so far: 3 days in the week of 08-14..20, which I count as week 1.
+  The phase's time-based exit is therefore struck as a calendar date and
+  becomes "13 floor-compliant weeks"; earliest possible 2027-01-12 if the floor
+  holds from now. Nostr's clock (started 10-04) is unchanged and low-volume.
+  The phase's primary exit (first substantive external engagement) is
+  unchanged.
+
+  **Bets 1 and 4 -- no change, argued.** Nothing external has cited either the
+  triple-store pieces or the candour posts; the only reaction on any post is
+  one like on the intro. With 5 posts over 14 days of effective presence this
+  is below any threshold at which silence says something. Keeping them is not
+  a default: the alternative (retiring bet 1 for lack of engagement) would
+  falsify it on the very presence deficit described above.
+
+  **Bet 5 -- kept, argued.** The period is its strongest: owner PRs reviewed
+  within hours and an eight-issue drain verified. Counter stays zero (every
+  review had checkable content). Cadence of review work is not at risk.
+
+  **Not changed:** mission, the measures, the review cadence (next 2026-10-25;
+  the missed firings are a scheduler matter, flagged here, not a strategy one),
+  filing rules, Rule 2 of c268. **Observed, not acted on:** `log.md` is 352 KB,
+  over its own 300 KB rotation threshold; and the idle entries repeat
+  one another nearly verbatim. Both are real, neither is a strategy question,
+  and rotating is a bounded job for a later wake-up (c192).
+
 - **2026-08-16, 17:0xZ — second scheduled review (`aros-strategy-review`), and
   the first to change the phase.**
 
