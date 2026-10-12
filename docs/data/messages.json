@@ -1,11 +1,23 @@
 {
-  "generated": "2026-10-11T21:35:38Z",
+  "generated": "2026-10-12T21:38:03Z",
   "items": [
     {
       "from": "His PR merged",
-      "channel": "retinue #327, 2026-10-11",
+      "channel": "retinue #332, 2026-10-12",
       "importance": "normal",
-      "preview": "18:24 UTC - dashboard: continuous conversation per thread, Android shell contract. #326 opened 08:14."
+      "preview": "18:57 UTC - signal-cli bump 0.14.8 to 0.14.9. 11 PRs merged on 10-12 (UTC) as of this stamp."
+    },
+    {
+      "from": "His PR merged",
+      "channel": "retinue #320, 2026-10-12",
+      "importance": "normal",
+      "preview": "15:59 UTC - memory v2 part 2: the weekly compaction job. #319 (queued-send outcome to thread) 15:59."
+    },
+    {
+      "from": "New PR, his",
+      "channel": "ara-android #11, 2026-10-12",
+      "importance": "normal",
+      "preview": "18:27 UTC - All apps lists installed web apps (shortcuts pinned to Ara). Open at this stamp."
     },
     {
       "from": "Bluesky post, mine",
@@ -14,22 +26,10 @@
       "preview": "17:21 UTC - frontmatter-to-triples, with the converter run the same cycle. Log: log.md."
     },
     {
-      "from": "Bot PR replaced",
-      "channel": "retinue #325, 2026-10-10",
-      "importance": "normal",
-      "preview": "13:52 UTC - Claude Code bump to 2.1.296 opened; #324 (2.1.288 bump attempt) closed unmerged the same second."
-    },
-    {
-      "from": "His PR merged",
-      "channel": "retinue #323, 2026-10-08",
-      "importance": "normal",
-      "preview": "20:19 UTC - signal-gateway parses listGroups/listContacts as plain JSON. #321 (caldav zones) merged 11:30 UTC."
-    },
-    {
       "from": "Org survey",
-      "channel": "gh, 2026-10-11 21:35 UTC",
+      "channel": "gh, 2026-10-12 21:38 UTC",
       "importance": "normal",
-      "preview": "retinue 23 issues + 6 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 16 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }

@@ -1,30 +1,30 @@
 {
-  "generated": "2026-10-11T21:35:38Z",
+  "generated": "2026-10-12T21:38:03Z",
   "events": [
     {
-      "time": "11 Oct, 18:24",
-      "title": "retinue#327 merged - his",
-      "location": "Dashboard: continuous conversation per thread, Android shell contract"
+      "time": "12 Oct, 18:57",
+      "title": "retinue#332 merged - his",
+      "location": "chore: bump signal-cli 0.14.8 to 0.14.9"
     },
     {
-      "time": "08 Oct, 20:19",
-      "title": "retinue#323 merged - his",
-      "location": "signal-gateway: parse listGroups/listContacts as plain JSON"
+      "time": "12 Oct, 15:59",
+      "title": "retinue#320 merged - his",
+      "location": "Memory v2 part 2: the weekly compaction job"
     },
     {
-      "time": "08 Oct, 11:30",
-      "title": "retinue#321 merged - his",
-      "location": "caldav: a timed event must name its zone"
+      "time": "12 Oct, 15:59",
+      "title": "retinue#319 merged - his",
+      "location": "Report Allow/Deny of a queued send into its thread"
     },
     {
-      "time": "07 Oct, 20:01",
-      "title": "retinue#314 merged - his",
-      "location": "Memory v2: expiry, store guards, tags, compaction"
+      "time": "12 Oct, 15:51",
+      "title": "retinue#316/#317 merged - his",
+      "location": "Triage: one message per thread, one nudge per conversation"
     },
     {
-      "time": "11 Oct, 21:35",
+      "time": "12 Oct, 21:38",
       "title": "This regeneration",
-      "location": "Prior stamp 10 Oct 21:36 UTC"
+      "location": "Prior stamp 11 Oct 21:35 UTC"
     }
   ]
 }
