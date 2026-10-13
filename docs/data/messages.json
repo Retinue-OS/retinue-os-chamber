@@ -1,23 +1,23 @@
 {
-  "generated": "2026-10-12T21:38:03Z",
+  "generated": "2026-10-13T21:41:00Z",
   "items": [
     {
       "from": "His PR merged",
-      "channel": "retinue #332, 2026-10-12",
+      "channel": "ara-android #11, 2026-10-13",
       "importance": "normal",
-      "preview": "18:57 UTC - signal-cli bump 0.14.8 to 0.14.9. 11 PRs merged on 10-12 (UTC) as of this stamp."
-    },
-    {
-      "from": "His PR merged",
-      "channel": "retinue #320, 2026-10-12",
-      "importance": "normal",
-      "preview": "15:59 UTC - memory v2 part 2: the weekly compaction job. #319 (queued-send outcome to thread) 15:59."
+      "preview": "18:41 UTC - All apps lists installed web apps (shortcuts pinned to Ara)."
     },
     {
       "from": "New PR, his",
-      "channel": "ara-android #11, 2026-10-12",
+      "channel": "retinue #334, 2026-10-13",
       "importance": "normal",
-      "preview": "18:27 UTC - All apps lists installed web apps (shortcuts pinned to Ara). Open at this stamp."
+      "preview": "18:37 UTC - webapp: navigation row on every page, back button inside it. Open at this stamp."
+    },
+    {
+      "from": "New issue, his",
+      "channel": "retinue #333, 2026-10-13",
+      "importance": "normal",
+      "preview": "12:54 UTC - Triage redesign: deterministic engine that consults models only at decision points."
     },
     {
       "from": "Bluesky post, mine",
@@ -27,9 +27,9 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-12 21:38 UTC",
+      "channel": "gh, 2026-10-13 21:41 UTC",
       "importance": "normal",
-      "preview": "retinue 16 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 1 PR, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ]
 }

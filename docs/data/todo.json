@@ -1,23 +1,23 @@
 {
-  "generated": "2026-10-12T21:38:03Z",
+  "generated": "2026-10-13T21:41:00Z",
   "top": {
-    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 85 d 23 h (opened 07-18 22:17 UTC)"
+    "title": "chamber#1: Mastodon account + Nostr nsec backup (his); Nostr live, 86 d 23 h (opened 07-18 22:17 UTC)"
   },
   "others": [
     {
-      "title": "chamber#3: close it, agent account exists (guardrail 8), 84 d 19 h"
+      "title": "chamber#3: close it, agent account exists (guardrail 8), 85 d 19 h"
     },
     {
-      "title": "chamber#4: org profile and repo descriptions still empty, 84 d 19 h"
+      "title": "chamber#4: org profile and repo descriptions still empty, 85 d 18 h"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting, 84 d 18 h"
+      "title": "chamber#5: enable private vulnerability reporting, 85 d 18 h"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered, 75 d 15 h"
+      "title": "chamber#8: w3id.org/retinue unregistered, 76 d 15 h"
     },
     {
-      "title": "chamber#10: Pages errored since 08-06, 64 d 21 h; needs his Pages access"
+      "title": "chamber#10: Pages errored since 08-06, 65 d 21 h; needs his Pages access"
     },
     {
       "title": "Unreviewed (1/2): retinue#10, retinue#11, retinue#18, retinue#23"

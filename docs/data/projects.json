@@ -1,10 +1,10 @@
 {
-  "generated": "2026-10-12T21:38:03Z",
+  "generated": "2026-10-13T21:41:00Z",
   "mine": [
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 10-12 21:38 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
+      "next": "Cards regenerated 10-13 21:41 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
       "expected": "2026-10-14"
     },
     {
@@ -22,8 +22,8 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 10-12 21:38 UTC; prior stamp 10-11 21:35 UTC.",
-      "expected": "2026-10-13"
+      "next": "Regenerated 10-13 21:41 UTC; prior stamp 10-12 21:38 UTC.",
+      "expected": "2026-10-14"
     }
   ],
   "waiting": [
