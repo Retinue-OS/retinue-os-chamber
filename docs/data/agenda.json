@@ -1,15 +1,20 @@
 {
-  "generated": "2026-10-13T21:41:00Z",
+  "generated": "2026-10-14T21:44:00Z",
   "events": [
+    {
+      "time": "14 Oct, 18:47",
+      "title": "retinue#334 merged - his",
+      "location": "webapp: navigation row on every page"
+    },
+    {
+      "time": "14 Oct, 12:56",
+      "title": "retinue#335 opened - bot",
+      "location": "chore: bump Claude Code to 2.1.299"
+    },
     {
       "time": "13 Oct, 18:41",
       "title": "ara-android#11 merged - his",
       "location": "All apps lists installed web apps"
-    },
-    {
-      "time": "13 Oct, 18:37",
-      "title": "retinue#334 opened - his",
-      "location": "webapp: navigation row on every page"
     },
     {
       "time": "13 Oct, 12:54",
@@ -17,14 +22,9 @@
       "location": "Triage redesign: deterministic engine"
     },
     {
-      "time": "12 Oct, 18:57",
-      "title": "retinue#332 merged - his",
-      "location": "chore: bump signal-cli 0.14.8 to 0.14.9"
-    },
-    {
-      "time": "13 Oct, 21:41",
+      "time": "14 Oct, 21:44",
       "title": "This regeneration",
-      "location": "Prior stamp 12 Oct 21:38 UTC"
+      "location": "Prior stamp 13 Oct 21:41 UTC"
     }
   ]
 }

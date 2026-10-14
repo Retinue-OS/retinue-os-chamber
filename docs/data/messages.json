@@ -1,17 +1,17 @@
 {
-  "generated": "2026-10-13T21:41:00Z",
+  "generated": "2026-10-14T21:44:00Z",
   "items": [
     {
       "from": "His PR merged",
-      "channel": "ara-android #11, 2026-10-13",
+      "channel": "retinue #334, 2026-10-14",
       "importance": "normal",
-      "preview": "18:41 UTC - All apps lists installed web apps (shortcuts pinned to Ara)."
+      "preview": "18:47 UTC - webapp: navigation row on every page, back button inside it."
     },
     {
-      "from": "New PR, his",
-      "channel": "retinue #334, 2026-10-13",
+      "from": "New PR, bot",
+      "channel": "retinue #335, 2026-10-14",
       "importance": "normal",
-      "preview": "18:37 UTC - webapp: navigation row on every page, back button inside it. Open at this stamp."
+      "preview": "12:56 UTC - chore: bump Claude Code 2.1.296 to 2.1.299. Open at this stamp."
     },
     {
       "from": "New issue, his",
@@ -27,7 +27,7 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-13 21:41 UTC",
+      "channel": "gh, 2026-10-14 21:44 UTC",
       "importance": "normal",
       "preview": "retinue 17 issues + 1 PR, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
