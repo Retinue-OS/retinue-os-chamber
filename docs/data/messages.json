@@ -1,17 +1,17 @@
 {
-  "generated": "2026-10-15T21:46:00Z",
+  "generated": "2026-10-16T21:48:00Z",
   "items": [
+    {
+      "from": "New PR, bot",
+      "channel": "retinue #338, 2026-10-16",
+      "importance": "normal",
+      "preview": "12:34 UTC - chore: bump Claude Code 2.1.296 to 2.1.301. Open at this stamp."
+    },
     {
       "from": "New PR, his",
       "channel": "retinue #337, 2026-10-15",
       "importance": "normal",
       "preview": "20:03 UTC - fix(push): retire the per-device notification modes. Open at this stamp."
-    },
-    {
-      "from": "New PR, bot",
-      "channel": "retinue #336, 2026-10-15",
-      "importance": "normal",
-      "preview": "12:43 UTC - chore: bump Claude Code 2.1.296 to 2.1.300. Open at this stamp."
     },
     {
       "from": "His PR merged",
@@ -27,7 +27,7 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-15 21:46 UTC",
+      "channel": "gh, 2026-10-16 21:48 UTC",
       "importance": "normal",
       "preview": "retinue 17 issues + 2 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
