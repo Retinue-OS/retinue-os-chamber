@@ -1,11 +1,10 @@
 {
-  "generated": "2026-10-16T21:48:00Z",
   "items": [
     {
       "from": "New PR, bot",
-      "channel": "retinue #338, 2026-10-16",
+      "channel": "retinue #339, 2026-10-17",
       "importance": "normal",
-      "preview": "12:34 UTC - chore: bump Claude Code 2.1.296 to 2.1.301. Open at this stamp."
+      "preview": "11:40 UTC - chore: bump Claude Code 2.1.296 to 2.1.302. Open at this stamp; #338 closed unmerged."
     },
     {
       "from": "New PR, his",
@@ -27,9 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-16 21:48 UTC",
+      "channel": "gh, 2026-10-17 21:48 UTC",
       "importance": "normal",
       "preview": "retinue 17 issues + 2 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
-  ]
+  ],
+  "generated": "2026-10-17T21:48:09Z"
 }
