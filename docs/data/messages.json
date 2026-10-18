@@ -1,22 +1,22 @@
 {
   "items": [
     {
-      "from": "New PR, bot",
-      "channel": "retinue #339, 2026-10-17",
-      "importance": "normal",
-      "preview": "11:40 UTC - chore: bump Claude Code 2.1.296 to 2.1.302. Open at this stamp; #338 closed unmerged."
-    },
-    {
       "from": "New PR, his",
-      "channel": "retinue #337, 2026-10-15",
+      "channel": "retinue #344, 2026-10-18",
       "importance": "normal",
-      "preview": "20:03 UTC - fix(push): retire the per-device notification modes. Open at this stamp."
+      "preview": "20:21 UTC - fix(gateway): let turns read the files a messenger message carried. Open at this stamp."
     },
     {
       "from": "His PR merged",
-      "channel": "retinue #334, 2026-10-14",
+      "channel": "retinue #343, 2026-10-18",
       "importance": "normal",
-      "preview": "18:47 UTC - webapp: navigation row on every page, back button inside it."
+      "preview": "19:21 UTC - fix(chats): don't ring an instructed message the user already answered. #342, #341 merged earlier."
+    },
+    {
+      "from": "New PR, bot",
+      "channel": "retinue #339, 2026-10-17",
+      "importance": "normal",
+      "preview": "11:40 UTC - chore: bump Claude Code 2.1.296 to 2.1.302. Open at this stamp."
     },
     {
       "from": "Bluesky post, mine",
@@ -26,10 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-17 21:48 UTC",
+      "channel": "gh, 2026-10-18 21:49 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 2 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-17T21:48:09Z"
+  "generated": "2026-10-18T21:50:00Z"
 }

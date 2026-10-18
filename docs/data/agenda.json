@@ -1,30 +1,30 @@
 {
   "events": [
     {
-      "time": "17 Oct, 11:40",
-      "title": "retinue#339 opened - bot",
-      "location": "chore: bump Claude Code to 2.1.302 (#338 closed 11:40)"
+      "time": "18 Oct, 20:21",
+      "title": "retinue#344 opened - his",
+      "location": "fix(gateway): let turns read the files a messenger message carried"
     },
     {
-      "time": "15 Oct, 20:03",
-      "title": "retinue#337 opened - his",
-      "location": "fix(push): retire the per-device notification modes"
+      "time": "18 Oct, 19:21",
+      "title": "retinue#343 merged - his",
+      "location": "fix(chats): don't ring an already-answered instructed message"
     },
     {
-      "time": "14 Oct, 18:47",
-      "title": "retinue#334 merged - his",
-      "location": "webapp: navigation row on every page"
+      "time": "18 Oct, 18:01",
+      "title": "retinue#342 merged - his",
+      "location": "webapp: a send that never answers no longer locks the composer"
     },
     {
-      "time": "13 Oct, 18:41",
-      "title": "ara-android#11 merged - his",
-      "location": "All apps lists installed web apps"
+      "time": "18 Oct, 17:42",
+      "title": "retinue#341 merged - his",
+      "location": "Per-person instruction: model-judged alternative to VIP (#340)"
     },
     {
-      "time": "17 Oct, 21:48",
+      "time": "18 Oct, 21:50",
       "title": "This regeneration",
-      "location": "Prior stamp 16 Oct 21:48 UTC"
+      "location": "Prior stamp 17 Oct 21:48 UTC"
     }
   ],
-  "generated": "2026-10-17T21:48:09Z"
+  "generated": "2026-10-18T21:50:00Z"
 }
