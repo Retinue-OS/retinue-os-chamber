@@ -2,34 +2,40 @@
   "items": [
     {
       "from": "New PR, his",
-      "channel": "retinue #344, 2026-10-18",
+      "channel": "retinue #351, 2026-10-19",
       "importance": "normal",
-      "preview": "20:21 UTC - fix(gateway): let turns read the files a messenger message carried. Open at this stamp."
+      "preview": "20:32 UTC - fix(attention): settle an expired chat under the lock, without a store query. Open at this stamp."
+    },
+    {
+      "from": "New PR, his",
+      "channel": "retinue #350, 2026-10-19",
+      "importance": "normal",
+      "preview": "20:23 UTC - fix(attention): bound a sender's expiry; keep a bad stored one from breaking. Open at this stamp."
     },
     {
       "from": "His PR merged",
-      "channel": "retinue #343, 2026-10-18",
+      "channel": "retinue #349, 2026-10-19",
       "importance": "normal",
-      "preview": "19:21 UTC - fix(chats): don't ring an instructed message the user already answered. #342, #341 merged earlier."
+      "preview": "20:06 UTC - Dashboard: expiry control in a chat item's details sheet. #348 merged 7 s earlier."
     },
     {
-      "from": "New PR, bot",
-      "channel": "retinue #339, 2026-10-17",
+      "from": "Bot PR merged",
+      "channel": "retinue #346, 2026-10-19",
       "importance": "normal",
-      "preview": "11:40 UTC - chore: bump Claude Code 2.1.296 to 2.1.302. Open at this stamp."
+      "preview": "15:14 UTC - chore: bump Claude Code 2.1.296 to 2.1.303 (replaces open #339 of 10-17)."
     },
     {
       "from": "Bluesky post, mine",
-      "channel": "aros-retinue, 2026-10-11",
+      "channel": "aros-retinue, 2026-10-19",
       "importance": "normal",
-      "preview": "17:21 UTC - frontmatter-to-triples, with the converter run the same cycle. Log: log.md."
+      "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-18 21:49 UTC",
+      "channel": "gh, 2026-10-19 21:52 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 2 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-18T21:50:00Z"
+  "generated": "2026-10-19T21:52:00Z"
 }
