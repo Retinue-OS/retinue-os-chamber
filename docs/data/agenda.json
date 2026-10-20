@@ -1,14 +1,19 @@
 {
   "events": [
     {
+      "time": "20 Oct, 13:17",
+      "title": "retinue#353 opened - his",
+      "location": "Sends: an approved e-mail ends like a messenger send"
+    },
+    {
+      "time": "20 Oct, 12:48",
+      "title": "retinue#352 opened - bot",
+      "location": "chore: bump Claude Code from 2.1.303 to 2.1.304"
+    },
+    {
       "time": "19 Oct, 20:32",
       "title": "retinue#351 opened - his",
       "location": "fix(attention): settle an expired chat under the lock, without a store query"
-    },
-    {
-      "time": "19 Oct, 20:23",
-      "title": "retinue#350 opened - his",
-      "location": "fix(attention): bound a sender's expiry; keep a bad stored one from breaking arrival"
     },
     {
       "time": "19 Oct, 20:06",
@@ -16,15 +21,10 @@
       "location": "Dashboard: expiry control in a chat item's details sheet"
     },
     {
-      "time": "19 Oct, 20:06",
-      "title": "retinue#348 merged - his",
-      "location": "fix(chats): name Signal and Telegram 1:1 chats in the backfill"
-    },
-    {
-      "time": "19 Oct, 21:52",
+      "time": "20 Oct, 21:56",
       "title": "This regeneration",
-      "location": "Prior stamp 18 Oct 21:50 UTC"
+      "location": "Prior stamp 19 Oct 21:52 UTC"
     }
   ],
-  "generated": "2026-10-19T21:52:00Z"
+  "generated": "2026-10-20T21:56:00Z"
 }

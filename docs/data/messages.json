@@ -2,27 +2,27 @@
   "items": [
     {
       "from": "New PR, his",
-      "channel": "retinue #351, 2026-10-19",
+      "channel": "retinue #353, 2026-10-20",
       "importance": "normal",
-      "preview": "20:32 UTC - fix(attention): settle an expired chat under the lock, without a store query. Open at this stamp."
+      "preview": "13:17 UTC - Sends: an approved e-mail ends like a messenger send. Open at this stamp."
+    },
+    {
+      "from": "New PR, bot",
+      "channel": "retinue #352, 2026-10-20",
+      "importance": "normal",
+      "preview": "12:48 UTC - chore: bump Claude Code from 2.1.303 to 2.1.304. Open at this stamp."
     },
     {
       "from": "New PR, his",
-      "channel": "retinue #350, 2026-10-19",
+      "channel": "retinue #351, 2026-10-19",
       "importance": "normal",
-      "preview": "20:23 UTC - fix(attention): bound a sender's expiry; keep a bad stored one from breaking. Open at this stamp."
+      "preview": "20:32 UTC - fix(attention): settle an expired chat under the lock. Open at this stamp."
     },
     {
       "from": "His PR merged",
       "channel": "retinue #349, 2026-10-19",
       "importance": "normal",
-      "preview": "20:06 UTC - Dashboard: expiry control in a chat item's details sheet. #348 merged 7 s earlier."
-    },
-    {
-      "from": "Bot PR merged",
-      "channel": "retinue #346, 2026-10-19",
-      "importance": "normal",
-      "preview": "15:14 UTC - chore: bump Claude Code 2.1.296 to 2.1.303 (replaces open #339 of 10-17)."
+      "preview": "20:06 UTC - Dashboard: expiry control in a chat item's details sheet."
     },
     {
       "from": "Bluesky post, mine",
@@ -32,10 +32,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-19 21:52 UTC",
+      "channel": "gh, 2026-10-20 21:56 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 2 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 4 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-19T21:52:00Z"
+  "generated": "2026-10-20T21:56:00Z"
 }
