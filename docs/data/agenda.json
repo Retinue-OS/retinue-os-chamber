@@ -1,30 +1,10 @@
 {
   "events": [
-    {
-      "time": "20 Oct, 13:17",
-      "title": "retinue#353 opened - his",
-      "location": "Sends: an approved e-mail ends like a messenger send"
-    },
-    {
-      "time": "20 Oct, 12:48",
-      "title": "retinue#352 opened - bot",
-      "location": "chore: bump Claude Code from 2.1.303 to 2.1.304"
-    },
-    {
-      "time": "19 Oct, 20:32",
-      "title": "retinue#351 opened - his",
-      "location": "fix(attention): settle an expired chat under the lock, without a store query"
-    },
-    {
-      "time": "19 Oct, 20:06",
-      "title": "retinue#349 merged - his",
-      "location": "Dashboard: expiry control in a chat item's details sheet"
-    },
-    {
-      "time": "20 Oct, 21:56",
-      "title": "This regeneration",
-      "location": "Prior stamp 19 Oct 21:52 UTC"
-    }
+    {"time": "21 Oct, 20:02", "title": "retinue#357 opened - his", "location": "fix(picker): drop the Ollama filter that hid flagged Claude routes"},
+    {"time": "21 Oct, 18:55", "title": "retinue#356 opened - his", "location": "Dashboard: per-instance name and icon colour for the PWA"},
+    {"time": "21 Oct, 15:12", "title": "retinue#355 merged - his", "location": "qlever-life: run the released qlever-dir image, drop the submodule"},
+    {"time": "21 Oct, 13:01", "title": "retinue#354 opened - bot", "location": "chore: bump Claude Code from 2.1.303 to 2.1.306"},
+    {"time": "21 Oct, 21:57", "title": "This regeneration", "location": "Prior stamp 20 Oct 21:56 UTC"}
   ],
-  "generated": "2026-10-20T21:56:00Z"
+  "generated": "2026-10-21T21:57:00Z"
 }

@@ -1,41 +1,11 @@
 {
   "items": [
-    {
-      "from": "New PR, his",
-      "channel": "retinue #353, 2026-10-20",
-      "importance": "normal",
-      "preview": "13:17 UTC - Sends: an approved e-mail ends like a messenger send. Open at this stamp."
-    },
-    {
-      "from": "New PR, bot",
-      "channel": "retinue #352, 2026-10-20",
-      "importance": "normal",
-      "preview": "12:48 UTC - chore: bump Claude Code from 2.1.303 to 2.1.304. Open at this stamp."
-    },
-    {
-      "from": "New PR, his",
-      "channel": "retinue #351, 2026-10-19",
-      "importance": "normal",
-      "preview": "20:32 UTC - fix(attention): settle an expired chat under the lock. Open at this stamp."
-    },
-    {
-      "from": "His PR merged",
-      "channel": "retinue #349, 2026-10-19",
-      "importance": "normal",
-      "preview": "20:06 UTC - Dashboard: expiry control in a chat item's details sheet."
-    },
-    {
-      "from": "Bluesky post, mine",
-      "channel": "aros-retinue, 2026-10-19",
-      "importance": "normal",
-      "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."
-    },
-    {
-      "from": "Org survey",
-      "channel": "gh, 2026-10-20 21:56 UTC",
-      "importance": "normal",
-      "preview": "retinue 17 issues + 4 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
-    }
+    {"from": "New PR, his", "channel": "retinue #357, 2026-10-21", "importance": "normal", "preview": "20:02 UTC - fix(picker): drop the Ollama filter that hid flagged Claude routes. Open at this stamp."},
+    {"from": "New PR, his", "channel": "retinue #356, 2026-10-21", "importance": "normal", "preview": "18:55 UTC - Dashboard: per-instance name and icon colour for the PWA. Open at this stamp."},
+    {"from": "His PR merged", "channel": "retinue #355, 2026-10-21", "importance": "normal", "preview": "15:12 UTC - qlever-life: run the released qlever-dir image, drop the submodule."},
+    {"from": "New PR, bot", "channel": "retinue #354, 2026-10-21", "importance": "normal", "preview": "13:01 UTC - chore: bump Claude Code to 2.1.306. Open at this stamp."},
+    {"from": "Bluesky post, mine", "channel": "aros-retinue, 2026-10-19", "importance": "normal", "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."},
+    {"from": "Org survey", "channel": "gh, 2026-10-21 21:57 UTC", "importance": "normal", "preview": "retinue 17 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."}
   ],
-  "generated": "2026-10-20T21:56:00Z"
+  "generated": "2026-10-21T21:57:00Z"
 }
