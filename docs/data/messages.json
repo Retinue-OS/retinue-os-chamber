@@ -1,11 +1,35 @@
 {
   "items": [
-    {"from": "New PR, his", "channel": "retinue #357, 2026-10-21", "importance": "normal", "preview": "20:02 UTC - fix(picker): drop the Ollama filter that hid flagged Claude routes. Open at this stamp."},
-    {"from": "New PR, his", "channel": "retinue #356, 2026-10-21", "importance": "normal", "preview": "18:55 UTC - Dashboard: per-instance name and icon colour for the PWA. Open at this stamp."},
-    {"from": "His PR merged", "channel": "retinue #355, 2026-10-21", "importance": "normal", "preview": "15:12 UTC - qlever-life: run the released qlever-dir image, drop the submodule."},
-    {"from": "New PR, bot", "channel": "retinue #354, 2026-10-21", "importance": "normal", "preview": "13:01 UTC - chore: bump Claude Code to 2.1.306. Open at this stamp."},
-    {"from": "Bluesky post, mine", "channel": "aros-retinue, 2026-10-19", "importance": "normal", "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."},
-    {"from": "Org survey", "channel": "gh, 2026-10-21 21:57 UTC", "importance": "normal", "preview": "retinue 17 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."}
+    {
+      "from": "His PR merged",
+      "channel": "retinue #360, 2026-10-22",
+      "importance": "normal",
+      "preview": "21:08 UTC - Chat page: keep the thread's room on a short frame; expand the draft."
+    },
+    {
+      "from": "New PR, his",
+      "channel": "retinue #359, 2026-10-22",
+      "importance": "normal",
+      "preview": "20:40 UTC - fix(dashboard): open links into the dashboard in place. Open at this stamp."
+    },
+    {
+      "from": "New PR, bot",
+      "channel": "retinue #358, 2026-10-22",
+      "importance": "normal",
+      "preview": "13:03 UTC - chore: bump Claude Code to 2.1.308. Open at this stamp."
+    },
+    {
+      "from": "Bluesky post, mine",
+      "channel": "aros-retinue, 2026-10-19",
+      "importance": "normal",
+      "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."
+    },
+    {
+      "from": "Org survey",
+      "channel": "gh, 2026-10-22 21:58 UTC",
+      "importance": "normal",
+      "preview": "retinue 17 issues + 4 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+    }
   ],
-  "generated": "2026-10-21T21:57:00Z"
+  "generated": "2026-10-22T21:58:06Z"
 }

@@ -1,10 +1,30 @@
 {
   "events": [
-    {"time": "21 Oct, 20:02", "title": "retinue#357 opened - his", "location": "fix(picker): drop the Ollama filter that hid flagged Claude routes"},
-    {"time": "21 Oct, 18:55", "title": "retinue#356 opened - his", "location": "Dashboard: per-instance name and icon colour for the PWA"},
-    {"time": "21 Oct, 15:12", "title": "retinue#355 merged - his", "location": "qlever-life: run the released qlever-dir image, drop the submodule"},
-    {"time": "21 Oct, 13:01", "title": "retinue#354 opened - bot", "location": "chore: bump Claude Code from 2.1.303 to 2.1.306"},
-    {"time": "21 Oct, 21:57", "title": "This regeneration", "location": "Prior stamp 20 Oct 21:56 UTC"}
+    {
+      "time": "22 Oct, 21:08",
+      "title": "retinue#360 merged - his",
+      "location": "Chat page: keep the thread's room on a short frame"
+    },
+    {
+      "time": "22 Oct, 20:40",
+      "title": "retinue#359 opened - his",
+      "location": "fix(dashboard): open links into the dashboard in place"
+    },
+    {
+      "time": "22 Oct, 13:03",
+      "title": "retinue#358 opened - bot",
+      "location": "chore: bump Claude Code from 2.1.303 to 2.1.308"
+    },
+    {
+      "time": "22 Oct, 13:03",
+      "title": "retinue#354 closed unmerged - bot",
+      "location": "closed 13:03:39 UTC, same minute as #358 opened"
+    },
+    {
+      "time": "22 Oct, 21:58",
+      "title": "This regeneration",
+      "location": "Prior stamp 21 Oct 21:57 UTC"
+    }
   ],
-  "generated": "2026-10-21T21:57:00Z"
+  "generated": "2026-10-22T21:58:06Z"
 }
