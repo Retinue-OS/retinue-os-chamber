@@ -1,22 +1,22 @@
 {
   "items": [
     {
-      "from": "His PR merged",
-      "channel": "retinue #360, 2026-10-22",
+      "from": "New PR, his",
+      "channel": "retinue #362, 2026-10-23",
       "importance": "normal",
-      "preview": "21:08 UTC - Chat page: keep the thread's room on a short frame; expand the draft."
+      "preview": "21:53 UTC - Dashboard: a saved attachment keeps its name. Open at this stamp."
     },
     {
       "from": "New PR, his",
-      "channel": "retinue #359, 2026-10-22",
+      "channel": "ara-android #13, 2026-10-23",
       "importance": "normal",
-      "preview": "20:40 UTC - fix(dashboard): open links into the dashboard in place. Open at this stamp."
+      "preview": "21:53 UTC - Open a file the page asks to view; name downloads. Open at this stamp."
     },
     {
       "from": "New PR, bot",
-      "channel": "retinue #358, 2026-10-22",
+      "channel": "retinue #361, 2026-10-23",
       "importance": "normal",
-      "preview": "13:03 UTC - chore: bump Claude Code to 2.1.308. Open at this stamp."
+      "preview": "12:42 UTC - chore: bump Claude Code to 2.1.309. Open; replaces #358, closed unmerged."
     },
     {
       "from": "Bluesky post, mine",
@@ -26,10 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-22 21:58 UTC",
+      "channel": "gh, 2026-10-23 21:59 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 4 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 5 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-22T21:58:06Z"
+  "generated": "2026-10-23T21:59:57Z"
 }
