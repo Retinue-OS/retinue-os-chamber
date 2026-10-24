@@ -1,35 +1,35 @@
 {
   "events": [
     {
-      "time": "23 Oct, 21:53",
-      "title": "retinue#362 opened - his",
+      "time": "24 Oct, 19:45",
+      "title": "retinue#365 merged - his",
+      "location": "Settings: per-agent model overrides"
+    },
+    {
+      "time": "24 Oct, 19:29",
+      "title": "ara-android#14 merged - his",
+      "location": "Web apps behave like apps"
+    },
+    {
+      "time": "24 Oct, 18:23",
+      "title": "retinue#364 opened - his",
+      "location": "Unsent input never holds navigation"
+    },
+    {
+      "time": "24 Oct, 17:57",
+      "title": "retinue#362 merged - his",
       "location": "Dashboard: a saved attachment keeps its name"
     },
     {
-      "time": "23 Oct, 21:53",
-      "title": "ara-android#13 opened - his",
-      "location": "Open a file the page asks to view; name downloads"
+      "time": "24 Oct, 12:06",
+      "title": "retinue#363 opened - bot",
+      "location": "chore: bump Claude Code to 2.1.310; #361 closed unmerged"
     },
     {
-      "time": "23 Oct, 12:42",
-      "title": "retinue#361 opened - bot",
-      "location": "chore: bump Claude Code to 2.1.309"
-    },
-    {
-      "time": "23 Oct, 12:42",
-      "title": "retinue#358 closed unmerged - bot",
-      "location": "closed 12:42:22 UTC, 18 s after #361 opened"
-    },
-    {
-      "time": "22 Oct, 21:08",
-      "title": "retinue#360 merged - his",
-      "location": "Chat page: keep the thread's room on a short frame"
-    },
-    {
-      "time": "23 Oct, 21:59",
+      "time": "24 Oct, 22:01",
       "title": "This regeneration",
-      "location": "Prior stamp 22 Oct 21:58 UTC"
+      "location": "Prior stamp 23 Oct 21:59 UTC"
     }
   ],
-  "generated": "2026-10-23T21:59:57Z"
+  "generated": "2026-10-24T22:01:59Z"
 }
