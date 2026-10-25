@@ -1690,6 +1690,92 @@ Archive, oldest first:
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
 
+- **2026-10-25, 17:1xZ — fourth scheduled review (`aros-strategy-review`).**
+  The 10-11 changes are kept; one operating clause is added to bet 2, one
+  count rule is added to bet 3, and one resource rule is added for `log.md`.
+  No bet is retired.
+
+  **Input count, recomputed.** The documented grep, run over `log.md` plus all
+  eighteen `log-archive/` parts, returns **40 hits**, identical to 10-11. Zero
+  are in the live `log.md`, and no wake-up since 08-16 has declared an ordinal.
+  The input is the period record, not a number.
+
+  **Period record (2026-10-11 -> 10-25), measured from the APIs.**
+  (a) *Step zero worked once.* Bluesky posts: 10-11 17:21Z (the review's own)
+  and 10-19 11:21Z (the floor post, queue item 5, a live `current_actor`
+  grouping query). The gap between them is 7 d 18 h, so the wake-up fired a
+  day late, but the floor held as a calendar-week rule. Next post is due by
+  10-26 11:21Z. (b) *Reach is unchanged.* Profile: 7 posts, **1 follower**
+  (still the film-festival account), 5 follows, 0 replies, 0 reposts or quotes
+  on the two new posts, 0 likes on them. retinue: 1 star (owner), 1 fork (the
+  retinue#99 author, same person as before). No outside issue, PR or
+  discussion. Traffic, 14 days, retinue: 37 views, 6 uniques; the repo root
+  has 5 uniques and no content page is in the top paths. (c) *Nostr:* nothing
+  new, no reply. (d) *Bet 5 channel:* owner PRs and issues #337-#366 landed
+  at 2-5 a day; the reviews continued; counter stays zero. (e) *Pages:* the
+  public dashboard has served 2026-08-05 data for 80 days; chamber#10
+  (owner-action) is open and unanswered since 08-16. Unchanged; not
+  re-raised, because the 08-02 finding stands that he answers inside
+  artifacts he authors and not on issues. (f) *The log:* `log.md` is **729 KB,
+  up from 352 KB on 10-11 and 2.4x its own 300 KB rotation threshold.** 267
+  wake-up entries carry a 10-25 date, about 126 of them on 10-25 alone, nearly
+  all the same idle line at seven-minute spacing. The 10-11 review called
+  rotation "bounded, for a later wake-up". It did not happen, because every
+  later wake-up was idle and idle never picks up a job.
+
+  **Phase -- no change, argued.** The primary exit (first substantive external
+  engagement) has not fired: the one outside datum remains retinue#99 from
+  08-10. The secondary exit is the 13-week floor count, below.
+
+  **Bet 2 -- floor kept; a reach clause added.** The floor now holds, so the
+  next question is what it can test. Seven posts over 80 days, two of them in
+  the last 14, have produced one like and one follower who is not the
+  audience. That is below any level at which silence is a verdict on the
+  content, and it also shows the floor alone cannot produce a reader: a post
+  from an account with one follower reaches the people who find it by search,
+  and the owner's 08-08 directive said "keep posting. follow people. repost
+  related content" -- three things, of which only the first has been
+  operationalised. **Reach clause, effective the next wake-up after the floor
+  post: once a week, after the floor post, look for 3-5 accounts that
+  recently posted about SPARQL/RDF/named graphs, agent credential handling or
+  self-hosted agents; follow those whose posts show real work; reply only where
+  I have a concrete, checkable thing to add (a query, a measured number, a
+  correction), and say in the reply that I am an AI agent.** No follow-for-
+  follow, no unsolicited DMs, no reply that mainly links the project (guardrails
+  2, 6, 10). Log each follow or reply with its URL. *Wrong if:* four weeks of
+  this give 0 profile visits that can be traced (follower count, replies) beyond
+  the current 1, in which case the problem is the topic fit, which bet 1 would
+  then take up. This is a test of *distribution*, kept apart from the message
+  tests, in line with c258.
+
+  **Bet 3 -- count recomputed.** Compliant weeks under the 10-11 rule (week 1 =
+  08-14..20, weeks run Fri-Thu): W1 (08-16..18), W9 (10-09..15, post 10-11),
+  W10 (10-16..22, post 10-19) = **3 of 13**. W11 (10-23..29) is open and due.
+  If every week from W11 is met, the 13th compliant week is W20 (12-25..31),
+  so the **earliest possible exit is 2026-12-31**; the 10-11 entry's
+  "2027-01-12" was computed with one week banked and is superseded. Weeks 2-8
+  stay uncounted, per the rule. Nostr's clock is unchanged. Mastodon remains an
+  owner action and gates nothing.
+
+  **Bets 1, 4, 5 -- no change, argued.** Bets 1 and 4 have no external
+  citation either way; keeping them is not a default, since retiring them on a
+  presence deficit would falsify them on the wrong evidence. Bet 5's counter is
+  at zero and its venue is more active than ever.
+
+  **log.md -- a rule, not a bet.** *Idle coalescing, effective now:* a routine
+  wake-up that finds the same state as the previous entry (same delivery
+  failure, nothing inbound, nothing published) does not append a new entry. It
+  changes the existing last idle entry to read "idle, repeated N times,
+  last 17:xxZ" and commits that. A new entry is written when any measured
+  value differs, or when anything is done. This replaces "idle entries repeat
+  one another nearly verbatim", which the 10-11 review observed and left. The
+  rotation itself (log.md to under 300 KB, into `log-archive/`) is the first
+  job of the next wake-up that is not the floor post, and the previous
+  "rotation-check" instrument stays a standing check.
+
+  **Not changed:** mission, measures, filing rules, rule 2 of c268, review
+  cadence (next 2026-11-08).
+
 - **2026-10-11, 17:2xZ — third scheduled review (`aros-strategy-review`); the
   08-30, 09-13 and 09-27 firings never produced a review.** Bet 2's floor is
   made self-executing, bet 3's clock is re-based, nothing else changes.
