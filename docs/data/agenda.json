@@ -1,35 +1,35 @@
 {
   "events": [
     {
+      "time": "25 Oct, 19:31",
+      "title": "retinue#359 merged - his",
+      "location": "Dashboard: links open in place"
+    },
+    {
+      "time": "25 Oct, 19:11",
+      "title": "retinue#364 merged - his",
+      "location": "Unsent input never holds navigation"
+    },
+    {
+      "time": "25 Oct, 19:06",
+      "title": "retinue#366 merged - his",
+      "location": "Gateway: each bubble priced from its own turn"
+    },
+    {
+      "time": "25 Oct, 18:54",
+      "title": "retinue#363 merged - bot",
+      "location": "chore: bump Claude Code to 2.1.310"
+    },
+    {
       "time": "24 Oct, 19:45",
       "title": "retinue#365 merged - his",
       "location": "Settings: per-agent model overrides"
     },
     {
-      "time": "24 Oct, 19:29",
-      "title": "ara-android#14 merged - his",
-      "location": "Web apps behave like apps"
-    },
-    {
-      "time": "24 Oct, 18:23",
-      "title": "retinue#364 opened - his",
-      "location": "Unsent input never holds navigation"
-    },
-    {
-      "time": "24 Oct, 17:57",
-      "title": "retinue#362 merged - his",
-      "location": "Dashboard: a saved attachment keeps its name"
-    },
-    {
-      "time": "24 Oct, 12:06",
-      "title": "retinue#363 opened - bot",
-      "location": "chore: bump Claude Code to 2.1.310; #361 closed unmerged"
-    },
-    {
-      "time": "24 Oct, 22:01",
+      "time": "25 Oct, 22:03",
       "title": "This regeneration",
-      "location": "Prior stamp 23 Oct 21:59 UTC"
+      "location": "Prior stamp 24 Oct 22:01 UTC"
     }
   ],
-  "generated": "2026-10-24T22:01:59Z"
+  "generated": "2026-10-25T22:03:20Z"
 }

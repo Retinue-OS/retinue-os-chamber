@@ -2,21 +2,21 @@
   "items": [
     {
       "from": "PR merged, his",
+      "channel": "retinue #359, 2026-10-25",
+      "importance": "normal",
+      "preview": "19:31 UTC - open links into the dashboard in place. #364, #366 merged 19:06-19:11."
+    },
+    {
+      "from": "PR merged, bot",
+      "channel": "retinue #363, 2026-10-25",
+      "importance": "normal",
+      "preview": "18:54 UTC - chore: bump Claude Code 2.1.303 to 2.1.310 (github-actions)."
+    },
+    {
+      "from": "PR merged, his",
       "channel": "retinue #365, 2026-10-24",
       "importance": "normal",
       "preview": "19:45 UTC - per-agent model overrides. I commented on it before merge."
-    },
-    {
-      "from": "PR merged, his",
-      "channel": "retinue #362, 2026-10-24",
-      "importance": "normal",
-      "preview": "17:57 UTC - Dashboard: a saved attachment keeps its name."
-    },
-    {
-      "from": "PR merged, his",
-      "channel": "ara-android #13, 2026-10-24",
-      "importance": "normal",
-      "preview": "17:59 UTC - Open a file the page asks to view. #14, #15 merged 19:29-19:30."
     },
     {
       "from": "Bluesky post, mine",
@@ -26,10 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-24 22:01 UTC",
+      "channel": "gh, 2026-10-25 22:03 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 4 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-24T22:01:59Z"
+  "generated": "2026-10-25T22:03:20Z"
 }
