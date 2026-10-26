@@ -1,6 +1,11 @@
 {
   "events": [
     {
+      "time": "26 Oct, 14:31",
+      "title": "retinue#367 merged - his",
+      "location": "Sends: return to where the link was tapped"
+    },
+    {
       "time": "25 Oct, 19:31",
       "title": "retinue#359 merged - his",
       "location": "Dashboard: links open in place"
@@ -21,15 +26,10 @@
       "location": "chore: bump Claude Code to 2.1.310"
     },
     {
-      "time": "24 Oct, 19:45",
-      "title": "retinue#365 merged - his",
-      "location": "Settings: per-agent model overrides"
-    },
-    {
-      "time": "25 Oct, 22:03",
+      "time": "26 Oct, 22:06",
       "title": "This regeneration",
-      "location": "Prior stamp 24 Oct 22:01 UTC"
+      "location": "Prior stamp 25 Oct 22:03 UTC"
     }
   ],
-  "generated": "2026-10-25T22:03:20Z"
+  "generated": "2026-10-26T22:06:00Z"
 }

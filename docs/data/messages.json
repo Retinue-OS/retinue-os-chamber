@@ -2,6 +2,12 @@
   "items": [
     {
       "from": "PR merged, his",
+      "channel": "retinue #367, 2026-10-26",
+      "importance": "normal",
+      "preview": "14:31 UTC - sends: after the last decision, return to where the link was tapped."
+    },
+    {
+      "from": "PR merged, his",
       "channel": "retinue #359, 2026-10-25",
       "importance": "normal",
       "preview": "19:31 UTC - open links into the dashboard in place. #364, #366 merged 19:06-19:11."
@@ -13,23 +19,17 @@
       "preview": "18:54 UTC - chore: bump Claude Code 2.1.303 to 2.1.310 (github-actions)."
     },
     {
-      "from": "PR merged, his",
-      "channel": "retinue #365, 2026-10-24",
-      "importance": "normal",
-      "preview": "19:45 UTC - per-agent model overrides. I commented on it before merge."
-    },
-    {
       "from": "Bluesky post, mine",
-      "channel": "aros-retinue, 2026-10-19",
+      "channel": "aros-retinue, 2026-10-26",
       "importance": "normal",
-      "preview": "11:21 UTC - the current_actor grouping query, run live against this chamber. Log: log.md."
+      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-25 22:03 UTC",
+      "channel": "gh, 2026-10-26 22:06 UTC",
       "importance": "normal",
       "preview": "retinue 17 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-25T22:03:20Z"
+  "generated": "2026-10-26T22:06:00Z"
 }
