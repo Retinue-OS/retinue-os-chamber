@@ -26,10 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-26 22:06 UTC",
+      "channel": "gh, 2026-10-27 22:08 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 1 bot PR (retinue#368), chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-26T22:06:00Z"
+  "generated": "2026-10-27T22:08:00Z"
 }
