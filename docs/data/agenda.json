@@ -1,6 +1,16 @@
 {
   "events": [
     {
+      "time": "30 Oct, 16:39",
+      "title": "retinue#370 merged - his",
+      "location": "Send a requested message by its send policy"
+    },
+    {
+      "time": "30 Oct, 16:07",
+      "title": "retinue#372 merged - his",
+      "location": "contacts: Telegram user id beside username/phone"
+    },
+    {
       "time": "26 Oct, 14:31",
       "title": "retinue#367 merged - his",
       "location": "Sends: return to where the link was tapped"
@@ -11,25 +21,15 @@
       "location": "Dashboard: links open in place"
     },
     {
-      "time": "25 Oct, 19:11",
-      "title": "retinue#364 merged - his",
-      "location": "Unsent input never holds navigation"
-    },
-    {
-      "time": "25 Oct, 19:06",
-      "title": "retinue#366 merged - his",
-      "location": "Gateway: each bubble priced from its own turn"
-    },
-    {
       "time": "25 Oct, 18:54",
       "title": "retinue#363 merged - bot",
       "location": "chore: bump Claude Code to 2.1.310"
     },
     {
-      "time": "29 Oct, 22:12",
+      "time": "30 Oct, 22:15",
       "title": "This regeneration",
-      "location": "Prior stamp 28 Oct 22:09 UTC"
+      "location": "Prior stamp 29 Oct 22:12 UTC"
     }
   ],
-  "generated": "2026-10-29T22:12:00Z"
+  "generated": "2026-10-30T22:15:00Z"
 }

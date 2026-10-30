@@ -2,15 +2,15 @@
   "items": [
     {
       "from": "PR merged, his",
-      "channel": "retinue #367, 2026-10-26",
+      "channel": "retinue #370, 2026-10-30",
       "importance": "normal",
-      "preview": "14:31 UTC - sends: after the last decision, return to where the link was tapped."
+      "preview": "16:39 UTC - send a requested message by its send policy, without a second round. #372 merged 16:07."
     },
     {
       "from": "PR merged, his",
-      "channel": "retinue #359, 2026-10-25",
+      "channel": "retinue #367, 2026-10-26",
       "importance": "normal",
-      "preview": "19:31 UTC - open links into the dashboard in place. #364, #366 merged 19:06-19:11."
+      "preview": "14:31 UTC - sends: after the last decision, return to where the link was tapped."
     },
     {
       "from": "PR merged, bot",
@@ -26,10 +26,10 @@
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-10-29 22:12 UTC",
+      "channel": "gh, 2026-10-30 22:15 UTC",
       "importance": "normal",
-      "preview": "retinue 17 issues + 1 bot PR (retinue#369), chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 17 issues + 3 PRs (2 his, 1 bot), chamber 6, .github 1, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-10-29T22:12:00Z"
+  "generated": "2026-10-30T22:15:00Z"
 }
