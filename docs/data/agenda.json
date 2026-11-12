@@ -1,35 +1,35 @@
 {
   "events": [
     {
-      "time": "30 Oct, 16:39",
-      "title": "retinue#370 merged - his",
-      "location": "Send a requested message by its send policy"
+      "time": "11 Nov, 13:09",
+      "title": "retinue#390 merged - his",
+      "location": "webapp: draggable grip between chat thread and composer"
     },
     {
-      "time": "30 Oct, 16:07",
-      "title": "retinue#372 merged - his",
-      "location": "contacts: Telegram user id beside username/phone"
+      "time": "10 Nov, 11:57",
+      "title": "retinue#393 merged - his",
+      "location": "Drop owner specifics from the framework; Garmin moves to its chamber"
     },
     {
-      "time": "26 Oct, 14:31",
-      "title": "retinue#367 merged - his",
-      "location": "Sends: return to where the link was tapped"
+      "time": "6 Nov, 15:53",
+      "title": "retinue#387 merged - his",
+      "location": "webapp: render root-relative Markdown links as dashboard links"
     },
     {
-      "time": "25 Oct, 19:31",
-      "title": "retinue#359 merged - his",
-      "location": "Dashboard: links open in place"
+      "time": "6 Nov, 14:21",
+      "title": "retinue#386 merged - his",
+      "location": "Settings: this browser and this instance"
     },
     {
-      "time": "25 Oct, 18:54",
-      "title": "retinue#363 merged - bot",
-      "location": "chore: bump Claude Code to 2.1.310"
+      "time": "5 Nov, 23:12",
+      "title": "retinue#385 merged - his",
+      "location": "Settings: Phone shell card first"
     },
     {
-      "time": "31 Oct, 22:13",
+      "time": "12 Nov, 11:10",
       "title": "This regeneration",
-      "location": "Prior stamp 30 Oct 22:15 UTC"
+      "location": "Prior stamp 31 Oct 22:13 UTC (12 d gap: daily job did not run)"
     }
   ],
-  "generated": "2026-10-31T22:13:00Z"
+  "generated": "2026-11-12T11:10:00Z"
 }
