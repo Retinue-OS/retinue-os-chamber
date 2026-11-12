@@ -2,34 +2,34 @@
   "items": [
     {
       "from": "PR merged, his",
-      "channel": "retinue #370, 2026-10-30",
+      "channel": "retinue #406, 2026-11-12",
       "importance": "normal",
-      "preview": "16:39 UTC - send a requested message by its send policy, without a second round. #372 merged 16:07."
+      "preview": "21:58 UTC - tests: dictation-send fake IndexedDB fix. #389 merged 21:49 (shell actions: type on a paired device)."
     },
     {
       "from": "PR merged, his",
-      "channel": "retinue #367, 2026-10-26",
+      "channel": "retinue #381, 2026-11-12",
       "importance": "normal",
-      "preview": "14:31 UTC - sends: after the last decision, return to where the link was tapped."
+      "preview": "20:40 UTC - voice conversations place calls. Eleven merges 17:18-21:58 UTC, all the owner's or bot #394."
     },
     {
       "from": "PR merged, bot",
-      "channel": "retinue #363, 2026-10-25",
+      "channel": "retinue #394, 2026-11-12",
       "importance": "normal",
-      "preview": "18:54 UTC - chore: bump Claude Code 2.1.303 to 2.1.310 (github-actions)."
+      "preview": "17:26 UTC - chore: bump Claude Code 2.1.318 to 2.1.322 (github-actions)."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-10-26",
       "importance": "normal",
-      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Log: log.md."
+      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Latest post as of this stamp: 17 d 10 h. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-12 11:10 UTC",
+      "channel": "gh, 2026-11-12 22:20 UTC",
       "importance": "normal",
-      "preview": "retinue 19 issues + 10 PRs (9 his, 1 bot), chamber 6, .github 1, qlever-dir 0, ara-android 4 PRs (his). No outside issues or PRs."
+      "preview": "retinue 18 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0, ara-android 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-11-12T11:10:00Z"
+  "generated": "2026-11-12T22:20:00Z"
 }

@@ -3,7 +3,7 @@
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 11-12 11:10 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
+      "next": "Cards regenerated 11-12 22:20 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
       "expected": "2026-11-12"
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 11-12 11:10 UTC by hand; prior stamp 10-31 22:13 UTC (daily job missed 12 d).",
+      "next": "Regenerated 11-12 22:20 UTC; prior stamp 11-12 11:10 UTC. Daily job; wake-ups check served copies against 26 h.",
       "expected": "2026-11-12"
     }
   ],
@@ -49,5 +49,5 @@
       "since": "2026-07-20"
     }
   ],
-  "generated": "2026-11-12T11:10:00Z"
+  "generated": "2026-11-12T22:20:00Z"
 }
