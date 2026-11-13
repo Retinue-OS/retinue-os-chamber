@@ -1,35 +1,30 @@
 {
   "events": [
     {
+      "time": "12 Nov, 23:33",
+      "title": "retinue#407 merged - his",
+      "location": "Dashboard: a Content-Security-Policy on every page, report-only"
+    },
+    {
       "time": "12 Nov, 21:58",
       "title": "retinue#406 merged - his",
       "location": "tests: dictation-send fake IndexedDB completes a transaction"
     },
     {
-      "time": "12 Nov, 21:49",
-      "title": "retinue#389 merged - his",
-      "location": "Shell actions: type on a paired device"
+      "time": "12 Nov, 19:10",
+      "title": "retinue#404 merged - his",
+      "location": "Content from outside stays text, a web link or one clean line"
     },
     {
-      "time": "12 Nov, 20:40",
-      "title": "retinue#381 merged - his",
-      "location": "Voice conversations place calls"
+      "time": "12 Nov, 17:29",
+      "title": "retinue#402 merged - his",
+      "location": "Messenger media: in place only what is passive"
     },
     {
-      "time": "11 Nov, 13:09",
-      "title": "retinue#390 merged - his",
-      "location": "webapp: draggable grip between chat thread and composer"
-    },
-    {
-      "time": "10 Nov, 11:57",
-      "title": "retinue#393 merged - his",
-      "location": "Drop owner specifics from the framework; Garmin moves to its chamber"
-    },
-    {
-      "time": "12 Nov, 22:20",
+      "time": "13 Nov, 22:22",
       "title": "This regeneration",
-      "location": "Prior stamp 12 Nov 11:10 UTC (11 h 10 min gap)"
+      "location": "Prior stamp 12 Nov 22:20 UTC (24 h 2 min gap)"
     }
   ],
-  "generated": "2026-11-12T22:20:00Z"
+  "generated": "2026-11-13T22:22:00Z"
 }

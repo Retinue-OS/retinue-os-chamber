@@ -2,34 +2,34 @@
   "items": [
     {
       "from": "PR merged, his",
-      "channel": "retinue #406, 2026-11-12",
+      "channel": "retinue #407, 2026-11-12",
       "importance": "normal",
-      "preview": "21:58 UTC - tests: dictation-send fake IndexedDB fix. #389 merged 21:49 (shell actions: type on a paired device)."
+      "preview": "23:33 UTC - dashboard: Content-Security-Policy on every page, report-only by default. Latest retinue merge as of this stamp."
     },
     {
       "from": "PR merged, his",
-      "channel": "retinue #381, 2026-11-12",
+      "channel": "retinue #406, 2026-11-12",
       "importance": "normal",
-      "preview": "20:40 UTC - voice conversations place calls. Eleven merges 17:18-21:58 UTC, all the owner's or bot #394."
+      "preview": "21:58 UTC - tests: dictation-send fake IndexedDB completes a transaction. No merges after #407 as of this stamp."
     },
     {
-      "from": "PR merged, bot",
-      "channel": "retinue #394, 2026-11-12",
+      "from": "PRs open, his and bot",
+      "channel": "retinue #408-#410, 2026-11-13",
       "importance": "normal",
-      "preview": "17:26 UTC - chore: bump Claude Code 2.1.318 to 2.1.322 (github-actions)."
+      "preview": "As of 22:22 UTC: #408 approval page links to asking thread, #409 sends carry any file, #410 bot bump Claude Code 2.1.323."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-10-26",
       "importance": "normal",
-      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Latest post as of this stamp: 17 d 10 h. Log: log.md."
+      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Latest post as of this stamp: 18 d 10 h. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-12 22:20 UTC",
+      "channel": "gh, 2026-11-13 22:22 UTC",
       "importance": "normal",
-      "preview": "retinue 18 issues + 0 PRs, chamber 6, .github 1, qlever-dir 0, ara-android 0. No outside issues or PRs."
+      "preview": "retinue 19 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0, ara-android 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-11-12T22:20:00Z"
+  "generated": "2026-11-13T22:22:00Z"
 }
