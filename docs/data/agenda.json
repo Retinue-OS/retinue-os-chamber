@@ -1,30 +1,30 @@
 {
   "events": [
     {
-      "time": "12 Nov, 23:33",
-      "title": "retinue#407 merged - his",
-      "location": "Dashboard: a Content-Security-Policy on every page, report-only"
+      "time": "14 Nov, 18:38",
+      "title": "retinue#414 merged - his",
+      "location": "fix(sends): noted return place lapses"
     },
     {
-      "time": "12 Nov, 21:58",
-      "title": "retinue#406 merged - his",
-      "location": "tests: dictation-send fake IndexedDB completes a transaction"
+      "time": "14 Nov, 18:27",
+      "title": "retinue#408 merged - his",
+      "location": "Sends: approval page links back to asking thread"
     },
     {
-      "time": "12 Nov, 19:10",
-      "title": "retinue#404 merged - his",
-      "location": "Content from outside stays text, a web link or one clean line"
+      "time": "14 Nov, 18:26",
+      "title": "retinue#409 merged - his",
+      "location": "Messenger sends carry any file, not only images"
     },
     {
-      "time": "12 Nov, 17:29",
-      "title": "retinue#402 merged - his",
-      "location": "Messenger media: in place only what is passive"
+      "time": "14 Nov, 18:23",
+      "title": "retinue#413 merged - his",
+      "location": "Dashboard: swipe threads like chats, star, delete"
     },
     {
-      "time": "13 Nov, 22:22",
+      "time": "14 Nov, 22:23",
       "title": "This regeneration",
-      "location": "Prior stamp 12 Nov 22:20 UTC (24 h 2 min gap)"
+      "location": "Prior stamp 13 Nov 22:22 UTC (24 h 1 min gap)"
     }
   ],
-  "generated": "2026-11-13T22:22:00Z"
+  "generated": "2026-11-14T22:23:00Z"
 }

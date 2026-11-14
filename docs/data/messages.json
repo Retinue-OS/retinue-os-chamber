@@ -2,34 +2,34 @@
   "items": [
     {
       "from": "PR merged, his",
-      "channel": "retinue #407, 2026-11-12",
+      "channel": "retinue #414, 2026-11-14",
       "importance": "normal",
-      "preview": "23:33 UTC - dashboard: Content-Security-Policy on every page, report-only by default. Latest retinue merge as of this stamp."
+      "preview": "18:38 UTC - sends: noted return place lapses. Latest retinue merge as of this stamp; #408, #409, #413 merged 18:23-18:27 UTC."
     },
     {
       "from": "PR merged, his",
-      "channel": "retinue #406, 2026-11-12",
+      "channel": "retinue #407, 2026-11-12",
       "importance": "normal",
-      "preview": "21:58 UTC - tests: dictation-send fake IndexedDB completes a transaction. No merges after #407 as of this stamp."
+      "preview": "23:33 UTC - dashboard: Content-Security-Policy on every page, report-only by default. Last merge before the 11-14 batch."
     },
     {
       "from": "PRs open, his and bot",
-      "channel": "retinue #408-#410, 2026-11-13",
+      "channel": "retinue #411, #412, #415, 2026-11-14",
       "importance": "normal",
-      "preview": "As of 22:22 UTC: #408 approval page links to asking thread, #409 sends carry any file, #410 bot bump Claude Code 2.1.323."
+      "preview": "As of 22:23 UTC: #411 Home keeps project threads, #412 bot bump Claude Code 2.1.325, #415 egress-audit streams large bodies."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-10-26",
       "importance": "normal",
-      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Latest post as of this stamp: 18 d 10 h. Log: log.md."
+      "preview": "~11:45 UTC - projects-by-actor query with ?g, rows re-run live. Latest post as of this stamp: 19 d 10 h. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-13 22:22 UTC",
+      "channel": "gh, 2026-11-14 22:23 UTC",
       "importance": "normal",
       "preview": "retinue 19 issues + 3 PRs, chamber 6, .github 1, qlever-dir 0, ara-android 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-11-13T22:22:00Z"
+  "generated": "2026-11-14T22:23:00Z"
 }
