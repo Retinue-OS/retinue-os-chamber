@@ -1,6 +1,16 @@
 {
   "events": [
     {
+      "time": "16 Nov, 20:21",
+      "title": "retinue#418 merged - his",
+      "location": "egress-audit: optional TLS passthrough for certificate-pinning clients"
+    },
+    {
+      "time": "16 Nov, 20:14",
+      "title": "retinue#417 merged - his",
+      "location": "Thread bar: on state of loop and read-aloud toggles distinct from hover"
+    },
+    {
       "time": "14 Nov, 18:38",
       "title": "retinue#414 merged - his",
       "location": "fix(sends): noted return place lapses"
@@ -11,20 +21,10 @@
       "location": "Sends: approval page links back to asking thread"
     },
     {
-      "time": "14 Nov, 18:26",
-      "title": "retinue#409 merged - his",
-      "location": "Messenger sends carry any file, not only images"
-    },
-    {
-      "time": "14 Nov, 18:23",
-      "title": "retinue#413 merged - his",
-      "location": "Dashboard: swipe threads like chats, star, delete"
-    },
-    {
-      "time": "15 Nov, 22:24",
+      "time": "16 Nov, 22:26",
       "title": "This regeneration",
-      "location": "Prior stamp 14 Nov 22:23 UTC (24 h 1 min gap)"
+      "location": "Prior stamp 15 Nov 22:24 UTC (24 h 3 min gap)"
     }
   ],
-  "generated": "2026-11-15T22:24:00Z"
+  "generated": "2026-11-16T22:26:00Z"
 }
