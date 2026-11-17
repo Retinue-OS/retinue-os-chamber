@@ -1,6 +1,11 @@
 {
   "events": [
     {
+      "time": "17 Nov, 18:01",
+      "title": "retinue#421 merged - his",
+      "location": "Dashboard: a Copy link on every answer that copies its Markdown"
+    },
+    {
       "time": "16 Nov, 20:21",
       "title": "retinue#418 merged - his",
       "location": "egress-audit: optional TLS passthrough for certificate-pinning clients"
@@ -16,15 +21,10 @@
       "location": "fix(sends): noted return place lapses"
     },
     {
-      "time": "14 Nov, 18:27",
-      "title": "retinue#408 merged - his",
-      "location": "Sends: approval page links back to asking thread"
-    },
-    {
-      "time": "16 Nov, 22:26",
+      "time": "17 Nov, 22:29",
       "title": "This regeneration",
-      "location": "Prior stamp 15 Nov 22:24 UTC (24 h 3 min gap)"
+      "location": "Prior stamp 16 Nov 22:26 UTC (24 h 3 min gap)"
     }
   ],
-  "generated": "2026-11-16T22:26:00Z"
+  "generated": "2026-11-17T22:29:00Z"
 }
