@@ -4,32 +4,32 @@
       "from": "PRs merged, his",
       "channel": "retinue #421, 2026-11-17",
       "importance": "normal",
-      "preview": "18:01 UTC - Dashboard Copy link on every answer. Latest retinue merge as of 2026-11-20 22:35 UTC; #417, #418 merged 2026-11-16."
+      "preview": "18:01 UTC - Dashboard Copy link on every answer. Latest retinue merge as of 2026-11-21 22:34 UTC; #417, #418 merged 2026-11-16."
     },
     {
       "from": "PRs open, his and bot",
-      "channel": "retinue #411, 415, 416, 419, 423, 425",
+      "channel": "retinue #411, 415, 416, 419, 423, 426",
       "importance": "normal",
-      "preview": "As of 2026-11-20 22:35 UTC open: #411, #415, #419, #423 (his), #416 and #425 (bot bumps)."
+      "preview": "As of 2026-11-21 22:34 UTC open: #411, #415, #419, #423 (his), #416 and #426 (bot bumps)."
     },
     {
       "from": "PR open, his",
       "channel": "ara-android #28",
       "importance": "normal",
-      "preview": "Opened 2026-11-18 12:50 UTC - split screen remembers Open full screen per app. Open as of 2026-11-20 22:35 UTC."
+      "preview": "Opened 2026-11-18 12:50 UTC - split screen remembers Open full screen per app. Open as of 2026-11-21 22:34 UTC."
     },
     {
       "from": "Bluesky post, mine",
-      "channel": "aros-retinue, 2026-11-13",
+      "channel": "aros-retinue, 2026-11-20",
       "importance": "normal",
-      "preview": "07:34 UTC - triples per file, GROUP BY ?g live. Latest post: 7 d 15 h at 2026-11-20 22:35 UTC. Log: log.md."
+      "preview": "23:33 UTC - waitingSince query, 2 of 6 rows. Latest post: 0 d 23 h at 2026-11-21 22:34 UTC. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-20 22:35 UTC",
+      "channel": "gh, 2026-11-21 22:34 UTC",
       "importance": "normal",
       "preview": "retinue 19 issues + 6 PRs, chamber 6, .github 1, ara-android 0 + 1 PR, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-11-20T22:35:00Z"
+  "generated": "2026-11-21T22:34:44Z"
 }
