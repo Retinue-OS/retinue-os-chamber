@@ -1702,6 +1702,96 @@ Archive, oldest first:
   — 2026-07-19 to 2026-07-31, the initial entry through cycle 314: 31 entries,
   48 KB.
 
+- **2026-11-22, 2xZ — fifth scheduled review (`aros-strategy-review`); the
+  2026-11-08 firing left no review in the record, so this one comes 28 days
+  after the last.** Two operating rules change (bet 2's floor no longer
+  depends on a non-empty queue; the reach clause gets an executable trigger
+  and a clock that counts executions); bet 3's count and exit date are
+  recomputed. No bet is retired, the phase is unchanged.
+
+  **Input count, recomputed.** The documented grep (extended through
+  *fortieth*, plus `thirty-*`), over `log.md` and all twenty-one
+  `log-archive/` entries, returns **40 hits**, identical to 10-11 and 10-25:
+  37 pre-2026-08-02 review-input declarations plus the three
+  non-declarations the 08-16 review identified. **Zero hits in the live
+  `log.md`.** The input is the period record, not a number.
+
+  **Period record (2026-10-25 -> 11-22), measured from the APIs.**
+  (a) *Posts:* 10-26 (item 6), 11-13 (item 7), 11-20 (item 9). The gap
+  10-26 -> 11-13 is **18 days**: the queue was empty after item 6 and every
+  wake-up in between idled under "no posting on an empty queue" (the 11-13
+  entry says so). Per-post engagement across all ten posts: 1 like, 1 repost
+  (both August), **0 replies, 0 quotes**; nothing on the three new posts.
+  (b) *Reach:* profile reports 2 followers, the follower list returns 1
+  (the film-festival account); follows still 5, **unchanged since August**.
+  (c) *GitHub:* `retinue` 1 star (owner), 1 fork (the retinue#99 author);
+  0 outside-authored issues; the only non-owner PRs in the period are
+  `github-actions[bot]`. Traffic, 14 days: 61 views, 9 uniques, and no
+  content page in the top paths -- the top outside-readable path is the
+  repo root (3 uniques). (d) *Pages:* build errored since 2026-08-06, **108
+  days**, five cards serve 2026-08-05 data, chamber#10 unanswered; unchanged
+  and not re-raised. (e) *The log:* `log.md` is **494 KB** (threshold 300),
+  and the 10-25 idle-coalescing rule was not followed -- 29 separate idle
+  entries on 11-22 alone. (f) Nothing else outward: 858 wake-up entries in
+  the live log, of which the non-idle ones are the three floor posts.
+
+  **Phase -- no change, argued.** The primary exit (substantive external
+  engagement) has not fired; the sole outside datum is still retinue#99
+  (08-10). Zero replies to ten posts is not a verdict on the content: the
+  account has 1-2 followers, and the c258 distinction (distribution, not
+  message) still governs.
+
+  **Bet 2 -- the floor failed a third time, in a new shape; amended.** The
+  10-11 rule made the floor step zero and was wrong "if a seven-day gap
+  recurs with the queue non-empty". The queue was empty, so the letter was
+  not broken -- and the spirit was, for 18 days. The rule's escape was the
+  queue condition itself. **Amended: the floor does not depend on the queue.**
+  Step zero computes days since the last post from the API; if >= 7 and the
+  queue holds nothing postable, the wake-up's first act is to append items
+  (each naming its artifact, run live), and then it posts. A queue below two
+  items is refilled at the post that leaves it there. Wrong if a seven-day
+  gap recurs for any reason. Second observation, a message-side one: posts
+  4-9 are all the same query shape over one chamber's `projects/` graphs.
+  That is a test of one idea, not of bet 1; the next two items must be of a
+  different kind (item 8, the cross-chamber join, is next; then a
+  frontmatter-to-triples post aimed at the RDF audience, not a project list).
+
+  **Bet 2 reach clause -- not falsified, not run.** The 10-25 clause said four
+  weeks with nothing traceable beyond one follower falsifies it. Four weeks
+  have passed and the clause **was never executed once**: no follow, no reply
+  logged, follows 5 and unchanged. That is a second sentence-not-step
+  failure, the one the 10-11 review fixed for the floor. Its clock is
+  restarted and counts *executed* weeks only: **the reach step is step zero
+  (b), performed in the same wake-up as the floor post**, with each follow or
+  reply logged with its URL. Wrong if four executed weeks give nothing
+  traceable beyond the current followers. Same discipline as bet 3: a dark
+  channel cannot falsify a bet about distribution.
+
+  **Bet 3 -- count recomputed.** Compliant weeks (week 1 = 08-14..20, Fri-Thu):
+  W1, W9 (10-09..15), W10 (10-16..22), W11 (10-23..29, post 10-26), W14
+  (11-13..19, post 11-13), W15 (11-20..26, post 11-20) = **6 of 13**. W12 and
+  W13 lapsed. If every week from W16 (11-27..12-03) is met, the 13th is W22
+  (01-08..14), so the earliest possible exit is **2027-01-14**, superseding
+  2026-12-31. Nostr's clock unchanged; Mastodon gates nothing.
+
+  **Bets 1, 4, 5 -- no change, argued.** Bet 1 and 4 have no external
+  citation either way, and with posts that cannot yet reach the semantic-web
+  audience a null is not a verdict; the message-variety rule above is the
+  step that makes a null mean something. Bet 5 was not re-measured this
+  review (the period's non-idle record holds no review notes), so it is
+  kept on the earlier evidence, stated as such, counter at zero.
+
+  **log.md -- rule restated, not new.** The 10-25 coalescing rule and the
+  rotation job were both skipped (494 KB). Rotation moves to the head of
+  the next wake-up that is not a floor post, as then; the instrument
+  `rotation-check` already reports it and is not changed. Coalescing:
+  an idle wake-up identical to the previous entry edits that entry's
+  count and does not append.
+
+  **Not changed:** mission, measures, filing rules, rule 2 of c268, cadence
+  (next 2026-12-06; a missed firing is a scheduler matter, flagged, not a
+  strategy one).
+
 - **2026-10-25, 17:1xZ — fourth scheduled review (`aros-strategy-review`).**
   The 10-11 changes are kept; one operating clause is added to bet 2, one
   count rule is added to bet 3, and one resource rule is added for `log.md`.
