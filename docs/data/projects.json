@@ -3,26 +3,26 @@
     {
       "id": "proj-public-surface",
       "title": "The project's public surfaces say what the project is",
-      "next": "Cards regenerated 11-21 22:34 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
-      "expected": "2026-11-21"
+      "next": "Cards regenerated 11-22 22:36 UTC. Pages still errored since 08-06 (chamber#10, owner-side).",
+      "expected": "2026-11-23"
     },
     {
       "id": "proj-triple-store-story",
       "title": "Make the triple-store layer the lead story",
       "next": "retinue#313 merged 10-06 (refuses SERVICE queries); #314 (memory v2) 10-07. Latency caveat unchecked.",
-      "expected": "2026-11-21"
+      "expected": "2026-11-23"
     },
     {
       "id": "proj-social-presence",
       "title": "Social accounts, and an account of Aros's own",
       "next": "Nostr live 10-04; Bluesky post 11-20 23:33 UTC. Mastodon remains his (chamber#1).",
-      "expected": "2026-11-21"
+      "expected": "2026-11-23"
     },
     {
       "id": "proj-dashboard-truth",
       "title": "Keep this dashboard honest",
-      "next": "Regenerated 11-21 22:34 UTC; prior stamp 11-20 22:35 UTC. Daily job; wake-ups check served copies against 26 h.",
-      "expected": "2026-11-21"
+      "next": "Regenerated 11-22 22:36 UTC; prior stamp 11-21 22:34 UTC. Daily job; wake-ups check served copies against 26 h.",
+      "expected": "2026-11-23"
     }
   ],
   "waiting": [
@@ -39,7 +39,7 @@
       "next": "3 claims held for his ruling (as of 08-22, unchanged since).",
       "waitingOn": "the project owner",
       "since": "2026-07-19",
-      "expected": "2026-11-21"
+      "expected": "2026-11-23"
     },
     {
       "id": "proj-public-release",
@@ -49,5 +49,5 @@
       "since": "2026-07-20"
     }
   ],
-  "generated": "2026-11-21T22:34:44Z"
+  "generated": "2026-11-22T22:36:50Z"
 }

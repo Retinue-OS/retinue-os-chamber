@@ -1,6 +1,11 @@
 {
   "events": [
     {
+      "time": "22 Nov, 19:54",
+      "title": "retinue#427 merged - his",
+      "location": "README: lead with accessibility (ADHD adaptiveness, voice)"
+    },
+    {
       "time": "17 Nov, 18:01",
       "title": "retinue#421 merged - his",
       "location": "Dashboard: a Copy link on every answer that copies its Markdown"
@@ -16,15 +21,10 @@
       "location": "Thread bar: on state of loop and read-aloud toggles distinct from hover"
     },
     {
-      "time": "14 Nov, 18:38",
-      "title": "retinue#414 merged - his",
-      "location": "fix(sends): noted return place lapses"
-    },
-    {
-      "time": "21 Nov, 22:34",
+      "time": "22 Nov, 22:36",
       "title": "This regeneration",
-      "location": "Prior stamp 20 Nov 22:35 UTC"
+      "location": "Prior stamp 21 Nov 22:34 UTC"
     }
   ],
-  "generated": "2026-11-21T22:34:44Z"
+  "generated": "2026-11-22T22:36:50Z"
 }
