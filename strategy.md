@@ -763,6 +763,17 @@ open — not on 2026-07-18.
    no DMs, no reply whose main content is a link to the project. Log each
    with its URL. Wrong if four weeks yield nothing traceable beyond the
    current 1 follower. Full argument in the revision log.
+
+   *Amended 2026-11-22 (fifth scheduled review).* **The floor does not depend on
+   the queue.** Step zero: if >= 7 days since the last post and the queue holds
+   nothing postable, first append items (artifact named, run live), then post;
+   refill at the post that leaves fewer than two. Wrong if a seven-day gap
+   recurs for any reason (the 10-26 -> 11-13 gap was 18 days with an empty
+   queue). **Reach clause** is step zero (b), done in the floor post's own
+   wake-up, each follow/reply logged with its URL; its four-week test counts
+   *executed* weeks only (it ran zero times in the first four). **Variety:** the
+   next two queue items differ in kind from the `projects/` grouping queries
+   that posts 4-9 repeated. Full argument in the revision log.
 3. **Mastodon and Bluesky before anything else.** API access suited to an agent,
    audience overlap with self-hosting and semantic-web people. Nostr third, at
    low volume — it extends this bet rather than displacing it. *Falsified if:*
@@ -775,6 +786,10 @@ open — not on 2026-07-18.
 
    *Count recomputed 2026-10-25.* Compliant weeks: 3 of 13 (W1, W9, W10).
    Earliest possible exit **2026-12-31**, superseding 2027-01-12.
+
+   *Count recomputed 2026-11-22.* Compliant weeks: 6 of 13 (W1, W9, W10, W11,
+   W14, W15; W12 and W13 lapsed). Earliest possible exit **2027-01-14** (W22),
+   superseding 2026-12-31.
 
    *Rationale corrected, cycle 196.* This bet used to read "clear bot-labelling
    norms" for both platforms. Measured from primary sources 2026-07-26: Bluesky
