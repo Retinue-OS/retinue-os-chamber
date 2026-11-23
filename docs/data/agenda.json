@@ -1,30 +1,30 @@
 {
   "events": [
     {
-      "time": "22 Nov, 19:54",
-      "title": "retinue#427 merged - his",
-      "location": "README: lead with accessibility (ADHD adaptiveness, voice)"
+      "time": "23 Nov, 15:14",
+      "title": "retinue#419 merged - his",
+      "location": "contacts: link a chat to the person who owns its handle"
     },
     {
-      "time": "17 Nov, 18:01",
-      "title": "retinue#421 merged - his",
-      "location": "Dashboard: a Copy link on every answer that copies its Markdown"
+      "time": "23 Nov, 15:14",
+      "title": "retinue#415 merged - his",
+      "location": "egress-audit: stream large bodies instead of buffering"
     },
     {
-      "time": "16 Nov, 20:21",
-      "title": "retinue#418 merged - his",
-      "location": "egress-audit: optional TLS passthrough for certificate-pinning clients"
+      "time": "23 Nov, 15:13",
+      "title": "retinue#416 merged - bot",
+      "location": "chore: bump signal-cli 0.14.9 to 0.14.10"
     },
     {
-      "time": "16 Nov, 20:14",
-      "title": "retinue#417 merged - his",
-      "location": "Thread bar: on state of loop and read-aloud toggles distinct from hover"
+      "time": "23 Nov, 15:06",
+      "title": "retinue#426 merged - bot",
+      "location": "chore: bump Claude Code 2.1.322 to 2.1.330"
     },
     {
-      "time": "22 Nov, 22:36",
+      "time": "23 Nov, 22:38",
       "title": "This regeneration",
-      "location": "Prior stamp 21 Nov 22:34 UTC"
+      "location": "Prior stamp 22 Nov 22:36 UTC"
     }
   ],
-  "generated": "2026-11-22T22:36:50Z"
+  "generated": "2026-11-23T22:38:48Z"
 }

@@ -1,35 +1,35 @@
 {
   "items": [
     {
-      "from": "PRs merged, his",
-      "channel": "retinue #427, 2026-11-22",
+      "from": "PRs merged, his and bot",
+      "channel": "retinue #415, 416, 419, 426, 2026-11-23",
       "importance": "normal",
-      "preview": "19:54 UTC - README leads with accessibility. Latest retinue merge as of 2026-11-22 22:36 UTC; #421 merged 2026-11-17."
+      "preview": "15:14 UTC - #419 contacts link, #415 egress-audit streaming; #416, #426 bot bumps. Latest retinue merge as of 2026-11-23 22:38 UTC."
     },
     {
-      "from": "PRs open, his and bot",
-      "channel": "retinue #411, 415, 416, 419, 423, 426",
+      "from": "PRs open, his",
+      "channel": "retinue #411, 423, 428, 430",
       "importance": "normal",
-      "preview": "As of 2026-11-22 22:36 UTC open: #411, #415, #419, #423 (his), #416 and #426 (bot bumps)."
+      "preview": "As of 2026-11-23 22:38 UTC open: #411 and #423 (older), #428 and #430 (opened 2026-11-23)."
     },
     {
-      "from": "PR open, his",
+      "from": "PR merged, his",
       "channel": "ara-android #28",
       "importance": "normal",
-      "preview": "Opened 2026-11-18 12:50 UTC - split screen remembers Open full screen per app. Open as of 2026-11-22 22:36 UTC."
+      "preview": "Merged 2026-11-23 19:20 UTC - split screen remembers Open full screen per app. ara-android has 0 open as of 2026-11-23 22:38 UTC."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-11-20",
       "importance": "normal",
-      "preview": "23:33 UTC - waitingSince query, 2 of 6 rows. Latest post: 1 d 23 h at 2026-11-22 22:36 UTC. Log: log.md."
+      "preview": "23:33 UTC - waitingSince query, 2 of 6 rows. Latest post: 2 d 23 h at 2026-11-23 22:38 UTC. Log: log.md."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-22 22:36 UTC",
+      "channel": "gh, 2026-11-23 22:38 UTC",
       "importance": "normal",
-      "preview": "retinue 19 issues + 6 PRs, chamber 6, .github 1, ara-android 0 + 1 PR, qlever-dir 0. No outside issues or PRs."
+      "preview": "retinue 19 issues + 4 PRs, chamber 6, .github 1, ara-android 0, qlever-dir 0. No outside issues or PRs."
     }
   ],
-  "generated": "2026-11-22T22:36:50Z"
+  "generated": "2026-11-23T22:38:48Z"
 }
