@@ -1,35 +1,41 @@
 {
   "items": [
     {
-      "from": "PRs merged, his and bot",
-      "channel": "retinue #415, 416, 419, 426, 2026-11-23",
+      "from": "PRs merged, his",
+      "channel": "retinue #430-435, 2026-11-24",
       "importance": "normal",
-      "preview": "15:14 UTC - #419 contacts link, #415 egress-audit streaming; #416, #426 bot bumps. Latest retinue merge as of 2026-11-23 22:38 UTC."
+      "preview": "#431-434 mail threads as chats, phases 1-4; #430 chat states; #435 WhatsApp restart fix. Last: #434, 19:55 UTC."
     },
     {
       "from": "PRs open, his",
-      "channel": "retinue #411, 423, 428, 430",
+      "channel": "retinue, ara-android",
       "importance": "normal",
-      "preview": "As of 2026-11-23 22:38 UTC open: #411 and #423 (older), #428 and #430 (opened 2026-11-23)."
+      "preview": "At 11-24 22:41 UTC: retinue #411, 423, 428, 436, 437, 438; ara-android #29, 30."
     },
     {
-      "from": "PR merged, his",
-      "channel": "ara-android #28",
+      "from": "PR open, bot",
+      "channel": "retinue #439, 2026-11-24",
       "importance": "normal",
-      "preview": "Merged 2026-11-23 19:20 UTC - split screen remembers Open full screen per app. ara-android has 0 open as of 2026-11-23 22:38 UTC."
+      "preview": "18:58 UTC - Claude Code bump 2.1.330 to 2.1.331. Open at this stamp."
+    },
+    {
+      "from": "New issues, his",
+      "channel": "retinue #440-442, 2026-11-24",
+      "importance": "normal",
+      "preview": "19:58-19:59 UTC - HTML-to-text rebuild, turn-scoped credential, mail gate follow-ups."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-11-20",
       "importance": "normal",
-      "preview": "23:33 UTC - waitingSince query, 2 of 6 rows. Latest post: 2 d 23 h at 2026-11-23 22:38 UTC. Log: log.md."
+      "preview": "23:33 UTC, waitingSince query. At 11-24 22:41 UTC: 3 d 23 h old; 0 likes, replies, reposts."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-23 22:38 UTC",
+      "channel": "gh, 2026-11-24 22:41 UTC",
       "importance": "normal",
-      "preview": "retinue 19 issues + 4 PRs, chamber 6, .github 1, ara-android 0, qlever-dir 0. No outside issues or PRs."
+      "preview": "29 issues, 9 PRs open in public repos; none from outside accounts."
     }
   ],
-  "generated": "2026-11-23T22:38:48Z"
+  "generated": "2026-11-24T22:41:17Z"
 }
