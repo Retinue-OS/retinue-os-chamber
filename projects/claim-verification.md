@@ -375,3 +375,14 @@ saved; notes taken once per run; one typing guard shared by list refresh and
 triage poll. All three hold by reading; nothing run; `test` on `ba5d2f6` in
 progress. No comment posted. One follow-up appended to thread `b4a3f76c`.
 Counter: 0. Next check: the owner's answer on that thread.
+
+2026-11-25 22:34Z run: reviewed retinue#451 (a pressed reply reads the chat,
+head `77edf59`), gateway and page diffs and the two prose docs, by reading;
+Python test diffs not read; nothing run. Two notes beyond Copilot's three
+threads: `docs/mail-chats.md` ("Unread / Read / Archived") and the module
+docstring of `tests/test_chat_mail_send.py` still state the old rule; and
+`_recheck` reaches `_readByReply()` on a repeat the gateway does not read, so
+the page shows a newer mail as read until a poll.
+https://github.com/Retinue-OS/retinue/pull/451#issuecomment-7176581010
+retinue#450 and #452 opened in the same window, not reviewed. Counter: 0.
+Next check: whether he addresses or declines the two notes.
