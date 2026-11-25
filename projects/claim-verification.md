@@ -332,3 +332,9 @@ reading: the legacy id is the same on every parse, current entries keep their
 stored id, `skipBody` never yields `{}`, so the drop rule reaches only the old
 shape. No comment posted (clean check).
 Counter: 0. Next check: none pending on this note.
+
+2026-11-25 19:21Z run: no review. retinue#436 and #438 merged (19:20Z, 19:21Z) at
+`57d57e1` and `fcd5796`, the heads carrying the fixes for my notes. His closing
+comment on #438 keeps one nit (arming via GET) as a follow-up; not my finding.
+https://github.com/Retinue-OS/retinue/pull/438#issuecomment-7172194560
+ara-android#30 still open at `44481af`. Counter: 0.
