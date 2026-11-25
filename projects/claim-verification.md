@@ -172,3 +172,12 @@ header search without comparing the Message-ID. Distinct from the expunge
 finding already on the PR. Read from code, not run against IMAP, stated as such.
 https://github.com/Retinue-OS/retinue/pull/428#issuecomment-7154894522
 Counter: 0. Next check: whether the fix commit compares the header exactly.
+
+retinue#443 (mail Original links in the Android app), read at `7521a1a7`
+(2026-11-25 07:02Z run). Checked against code: `ara-android` main sets
+`setSupportMultipleWindows(false)`; `UrlRouter.route` sends an off-origin
+main-frame http(s) address to the browser and `shouldOverrideUrlLoading` carries
+that out; `_safe_href` admits only absolute http(s) and mailto targets. The
+PR's description of the fix matched on those points. Tests not run, nothing
+tried on a phone. No comment posted (clean review, per the 08-16
+clarification). Counter: 0.
