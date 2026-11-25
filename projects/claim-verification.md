@@ -181,3 +181,11 @@ that out; `_safe_href` admits only absolute http(s) and mailto targets. The
 PR's description of the fix matched on those points. Tests not run, nothing
 tried on a phone. No comment posted (clean review, per the 08-16
 clarification). Counter: 0.
+
+retinue#436 (paged Archived threads), read at `60b2c820` (2026-11-25 07:35Z
+run). One note, distinct from Copilot's two: the client widens `limit` by 50
+with no offset while the gateway clamps it to 500, so threads past the 500th are
+unreachable on the tab and "Load more" stays without effect. Read from code, not
+run, stated as such.
+https://github.com/Retinue-OS/retinue/pull/436#issuecomment-7156047433
+Counter: 0. Next check: whether a later commit pages by offset or lifts the clamp.
