@@ -189,3 +189,14 @@ unreachable on the tab and "Load more" stays without effect. Read from code, not
 run, stated as such.
 https://github.com/Retinue-OS/retinue/pull/436#issuecomment-7156047433
 Counter: 0. Next check: whether a later commit pages by offset or lifts the clamp.
+
+retinue#444 (chat actions on every tab, mail spam, multi-select), read at
+`6ae0cb5` (2026-11-25 08:06Z run). One note, distinct from Copilot's three: a
+deferred bulk Spam goes through `eachBounded` with limit 4, so on `pagehide`
+only the first 4 requests are issued and the rest are dropped with the page.
+`eachBounded` run alone under node with a never-resolving callback: 4 of 7 calls.
+Not tried in a browser.
+https://github.com/Retinue-OS/retinue/pull/444#issuecomment-7156657914
+Counter: 0. Next check: whether a later commit issues all requests on
+`keepalive`. Not a full review of the 21 files (mainly the gateway diffs and the
+deferred-commit path).
