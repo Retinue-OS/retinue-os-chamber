@@ -398,3 +398,15 @@ preferences were folded.
 https://github.com/Retinue-OS/retinue/pull/454#issuecomment-7177215624
 retinue#450, #452, #453 not reviewed. Counter: 0. Next check: whether the
 argument order is fixed in what merges.
+
+2026-11-25 23:40Z run: reviewed retinue#453 (arrival turn's triage word, head
+`ba378be`): `scripts/` diff and surrounding gateway and store code; test diffs
+not read; nothing run; CI `test` passed. One note beyond the three Copilot
+threads: `_triage_from_arrival` uses the unconditional `put`, so an older word
+can replace a newer entry (deferred mails of a large batch, or a sorting during
+a running turn), and the word of a turn with deferred mails never saw them.
+Smaller: feedback section and docstring still say every unread chat is sorted
+again.
+https://github.com/Retinue-OS/retinue/pull/453#issuecomment-7177947821
+retinue#450 and #452 not reviewed. Counter: 0. Next check: whether the
+overwrite is fixed in what merges; retinue#454 argument order still open.
