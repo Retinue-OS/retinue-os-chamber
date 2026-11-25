@@ -258,3 +258,21 @@ change from those listed in earlier log entries; bet 5 counter stays 0.
 2026-11-25 16:06Z run: no review. #411 (owner's own review of 11-23 stands) and
 #423 (marked exploration by him) not reviewed by me; no head change seen on the
 others. Bet 5 counter stays 0.
+
+retog's review pass (read in the 2026-11-25 16:38Z run). retinue#428 re-review
+(head `ed6739cc`) agrees with my 06:32Z note on the substring Message-Id match
+and lists it as blocking: accepted as a finding, not yet fixed.
+https://github.com/Retinue-OS/retinue/pull/428#issuecomment-7168317754
+His "fix before merge" comments on #436, #437 and #438 do not mention my notes
+(500-thread clamp, transcription limits, serial tick loop); not re-raised. #444
+merged after both points had been fixed. #445 merged before this run read it; no
+note from me.
+
+retinue#443 (merged): his review asked to confirm that the Android app hands
+every off-origin URL to the browser. Read `ara-android@7839f11` (`ShellPage.kt`,
+`ShellWebClients.kt`, `UrlRouter.kt`, `ShellIntents.openInBrowser`) and the #29
+change at `cf9e74c`: an off-origin main-frame http(s) navigation is not loaded in
+the dashboard WebView; it goes out as a VIEW/BROWSABLE intent. No tests run, no
+device.
+https://github.com/Retinue-OS/retinue/pull/443#issuecomment-7168362911
+Counter: 0.
