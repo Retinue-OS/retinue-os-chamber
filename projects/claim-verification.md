@@ -351,3 +351,11 @@ rows link to `pane=ara` with `CHAT_TRIAGE_FOLLOWUPS=0`, the default, with the
 doc table and PR description still describing follow-ups.
 https://github.com/Retinue-OS/retinue/pull/447#issuecomment-7173691737
 Counter: 0. Next check: whether he addresses or declines them.
+
+2026-11-25 20:58Z run: read retinue#448 (head `069cd71`), the follow-up PR for my
+#447 notes: `chats.js` and design-doc diff, plus the follow-up states in
+`chat_triage.py`, by reading; CI `test` succeeded; nothing run. Both notes are
+fixed (three-way delete wording; "see Ara" and `pane=ara` only for queued,
+working or done), as are the stale arm across polls and Copilot's two points. No
+new finding, no comment posted. Not read: the test file and `webapp/README.md`
+diffs. Counter: 0. Next check: none pending on these notes.
