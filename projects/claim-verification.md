@@ -322,3 +322,13 @@ a new action is enqueued. Only phones that queued under an earlier branch build
 https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7170737397
 Counter: 0. Next check: whether he addresses or declines it.
 
+
+2026-11-25 18:49Z run. The "next check" above is answered: retog reports the
+legacy-id note fixed in `44481af` (name-based id for entries without one; undated
+legacy skips dropped on read). Diff `acab173..44481af` and the outbox code at
+that head read, plus the reminder-body lines of the PR's earlier commits; CI
+build and unit tests passed; nothing run by me, no device. The fix holds by
+reading: the legacy id is the same on every parse, current entries keep their
+stored id, `skipBody` never yields `{}`, so the drop rule reaches only the old
+shape. No comment posted (clean check).
+Counter: 0. Next check: none pending on this note.
