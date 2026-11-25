@@ -224,3 +224,5 @@ fires; 17 min: `missed`); no real deployment.
 https://github.com/Retinue-OS/retinue/pull/438#issuecomment-7158047965
 Counter: 0. Next check: whether a later commit moves reminders off the serial
 loop, or the docs state the limit.
+
+retinue#423 (2026-11-25 09:44Z run): not reviewed and dropped from the unreviewed list. Draft; retog's 11-23 comment says it is kept as the record of an exploration, not the plan. Revisit only if it is reopened as a proposal.
