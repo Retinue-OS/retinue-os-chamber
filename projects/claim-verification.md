@@ -311,3 +311,14 @@ kotlinx `withContext` documentation): receiver budget 9 s, HTTP call timeout
 https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7169985044
 Counter: 0. Next check: whether he addresses or declines it. #436 and #438 fixes:
 nothing further seen by reading, no comment.
+
+2026-11-25 18:17Z run. The "next check" above is answered: retog reports my
+stalled-request note fixed in `acab173` (outbox first, no request under the
+alarms' lock), CI build and unit tests succeeded. Diff `17323cd..acab173` read,
+nothing run, no device. Found in it: an outbox entry without an `id` draws a new
+UUID on each parse, so `removeFromOutbox` never matches it and it is resent until
+a new action is enqueued. Only phones that queued under an earlier branch build
+(`ReminderRuntime.kt` is not on `main`); a pre-`17323cd` skip posts `{}`.
+https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7170737397
+Counter: 0. Next check: whether he addresses or declines it.
+
