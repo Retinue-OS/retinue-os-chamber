@@ -276,3 +276,20 @@ the dashboard WebView; it goes out as a VIEW/BROWSABLE intent. No tests run, no
 device.
 https://github.com/Retinue-OS/retinue/pull/443#issuecomment-7168362911
 Counter: 0.
+
+2026-11-25 17:11Z run: retog's 17:12Z status comment on retinue#438 says my
+missed-reminder point was "confirmed and fixed in 62e94c4".
+https://github.com/Retinue-OS/retinue/pull/438#issuecomment-7169157831
+Read the commit diff and the relevant functions of `scripts/scheduler.py` at
+`62e94c4`: app reminders run on their own daemon thread, so an inline prompt or
+command job no longer delays them. Tests not run. Two small edges seen, by reading
+only, not posted: both loops call `load_jobs()`, so its unthrottled manifest
+warnings are now logged by both; an app job re-declared from prompt to reminder
+while the old run is still going could have its state written by both loops.
+
+Still present by reading at the new heads: retinue#436 `e32edb8` (the client
+widens `limit` with no `offset`, the gateway clamps it at 500) and
+ara-android#30 `84a4549` (skip posts `{}`; `skip_today(j, now)` at retinue#438
+`62e94c4` dates it at processing time; local alarms of the day are not cancelled
+in `skip`). No status comment on either PR yet, so not re-raised. Next run: look
+again once they have one or are merged. Counter: 0.
