@@ -386,3 +386,15 @@ the page shows a newer mail as read until a poll.
 https://github.com/Retinue-OS/retinue/pull/451#issuecomment-7176581010
 retinue#450 and #452 opened in the same window, not reviewed. Counter: 0.
 Next check: whether he addresses or declines the two notes.
+
+2026-11-25 23:07Z run: reviewed retinue#454 (news-curate, head `286a16f`):
+`news-curate.py`, the test and doc diff. Blocking: `--add-dir <directories...>`
+is variadic and precedes the prompt, so with no model override the CLI reads the
+prompt as a directory and exits ("Input must be provided"). Run offline on
+2.1.332, the pinned version: argument handling only; both `--add-dir=<dir>` and
+an option following the pair got past it. The PR's script and tests were not
+run. Second note, by reading: feedback cursor acks without any check that
+preferences were folded.
+https://github.com/Retinue-OS/retinue/pull/454#issuecomment-7177215624
+retinue#450, #452, #453 not reviewed. Counter: 0. Next check: whether the
+argument order is fixed in what merges.
