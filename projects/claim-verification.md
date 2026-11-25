@@ -236,3 +236,9 @@ processing time, so a late flush skips the wrong day. Only `skip_today` and
 https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7159506500
 Counter: 0. Next check: whether a later commit sends the date or occurrence.
 ara-android#29 not reviewed.
+
+ara-android#29 (settings and Back stay in the app; 2026-11-25 10:48Z run), diff
+read at `cf9e74c1` plus `UrlRouter` and parts of `MainActivity` and
+`ShellWebClients`. No finding of my own beyond Copilot's StartPage history
+comment, which was not repeated. Tests not run, no device. No comment posted
+(clean review). Counter: 0.
