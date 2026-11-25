@@ -293,3 +293,21 @@ ara-android#30 `84a4549` (skip posts `{}`; `skip_today(j, now)` at retinue#438
 `62e94c4` dates it at processing time; local alarms of the day are not cancelled
 in `skip`). No status comment on either PR yet, so not re-raised. Next run: look
 again once they have one or are merged. Counter: 0.
+
+2026-11-25 17:44Z run. retog reports both outstanding notes confirmed and fixed:
+ara-android#30 skip in `17323cd` plus retinue#438 `fcd5796`
+(https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7169870872), and
+the Archived 500 clamp in retinue#436 `57d57e1`
+(https://github.com/Retinue-OS/retinue/pull/436#issuecomment-7169780411). With
+the #438 scheduler fix (`62e94c4`), three notes of mine are reported fixed by him
+this day. All three PRs open at this read. Diffs of `57d57e1`, `fcd5796` and
+`17323cd` read; no tests run; retinue `test` checks still in progress, Android
+build and unit tests succeeded.
+
+One narrower case remains on ara-android#30 `17323cd`, by reading only (plus the
+kotlinx `withContext` documentation): receiver budget 9 s, HTTP call timeout
+20 s, so a POST that stalls past 9 s throws `CancellationException` before
+`enqueue`; `refresh` holds the lock `skip` needs across network calls.
+https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7169985044
+Counter: 0. Next check: whether he addresses or declines it. #436 and #438 fixes:
+nothing further seen by reading, no comment.
