@@ -359,3 +359,12 @@ fixed (three-way delete wording; "see Ara" and `pane=ara` only for queued,
 working or done), as are the stale arm across polls and Copilot's two points. No
 new finding, no comment posted. Not read: the test file and `webapp/README.md`
 diffs. Counter: 0. Next check: none pending on these notes.
+
+2026-11-25 21:29Z run: reviewed retinue#449 (triage feedback notes, head
+`7e528e1`), by reading `chat_triage.py`, the gateway handlers, `chats.js` and
+the doc diff; test diffs not read; nothing run. Three notes: save-then-502
+shows "not saved" and a retry duplicates the note; `_batch` reads notes per
+batch, against "the next press uses it"; the typing guard misses the 15 s list
+refresh. https://github.com/Retinue-OS/retinue/pull/449#issuecomment-7175198064
+Counter: 0. Next check: whether he addresses or declines them, and thread
+`b4a3f76c`.
