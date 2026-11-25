@@ -368,3 +368,10 @@ batch, against "the next press uses it"; the typing guard misses the 15 s list
 refresh. https://github.com/Retinue-OS/retinue/pull/449#issuecomment-7175198064
 Counter: 0. Next check: whether he addresses or declines them, and thread
 `b4a3f76c`.
+
+2026-11-25 22:01Z run: read the fixes for my three retinue#449 notes in the diff
+`7e528e1...9a97c8a` (merged 21:53Z as `ba5d2f6`): chats read before the note is
+saved; notes taken once per run; one typing guard shared by list refresh and
+triage poll. All three hold by reading; nothing run; `test` on `ba5d2f6` in
+progress. No comment posted. One follow-up appended to thread `b4a3f76c`.
+Counter: 0. Next check: the owner's answer on that thread.
