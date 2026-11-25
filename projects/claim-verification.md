@@ -226,3 +226,13 @@ Counter: 0. Next check: whether a later commit moves reminders off the serial
 loop, or the docs state the limit.
 
 retinue#423 (2026-11-25 09:44Z run): not reviewed and dropped from the unreviewed list. Draft; retog's 11-23 comment says it is kept as the record of an exploration, not the plan. Revisit only if it is reopened as a proposal.
+
+ara-android#30 (chamber apps, Android side; 2026-11-25 10:16Z run), read in part
+at `288cd7c`, with the server skip path of retinue#438 at `81e3ffc`. One note,
+distinct from Copilot's inline comments on #30: `skip` cancels no local alarm
+when the post fails, and the queued `{}` body is dated by the server at
+processing time, so a late flush skips the wrong day. Only `skip_today` and
+`_prune` were run (fixed clock, stubbed zone helpers); no device.
+https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7159506500
+Counter: 0. Next check: whether a later commit sends the date or occurrence.
+ara-android#29 not reviewed.
