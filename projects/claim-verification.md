@@ -200,3 +200,13 @@ https://github.com/Retinue-OS/retinue/pull/444#issuecomment-7156657914
 Counter: 0. Next check: whether a later commit issues all requests on
 `keepalive`. Not a full review of the 21 files (mainly the gateway diffs and the
 deferred-commit path).
+
+retinue#444 follow-up (2026-11-25 08:39Z run). retog confirmed the 08:06Z note
+and fixed it in `48aae26` (reply 08:10:23Z). The fix covers a page left while the
+Undo toast is up. One narrower case posted: once the toast has lapsed,
+`pendingCommit` is null, so `pagehide` does nothing while the bounded queue is
+still draining. Node harness (stubbed DOM, real `swipe-rows.js` and
+`eachBounded`, never-resolving requests): 4 of 7 issued. Not tried in a browser;
+drain time not measured.
+https://github.com/Retinue-OS/retinue/pull/444#issuecomment-7157341246
+Counter: 0. Next check: whether he addresses or declines it.
