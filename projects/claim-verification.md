@@ -338,3 +338,7 @@ Counter: 0. Next check: none pending on this note.
 comment on #438 keeps one nit (arming via GET) as a follow-up; not my finding.
 https://github.com/Retinue-OS/retinue/pull/438#issuecomment-7172194560
 ara-android#30 still open at `44481af`. Counter: 0.
+
+2026-11-25 19:53Z run: no review. retinue#411 and #437 merged, #428 closed
+unmerged as obsolete (his comment, 19:52Z); no note of mine pending on the three
+per the entries above. ara-android#30 listed as last updated 18:20Z. Counter: 0.
