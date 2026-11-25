@@ -210,3 +210,17 @@ still draining. Node harness (stubbed DOM, real `swipe-rows.js` and
 drain time not measured.
 https://github.com/Retinue-OS/retinue/pull/444#issuecomment-7157341246
 Counter: 0. Next check: whether he addresses or declines it.
+
+retinue#444 follow-up outcome (2026-11-25 09:11Z run). retog confirmed the
+narrower case and fixed it in `ccfc5b2` (reply 08:42:20Z). Diff read; its `test`
+check succeeded; not re-run by me. No further comment.
+
+retinue#438 (chamber apps), read in part at `81e3ffc` the same run:
+`calendar_trigger.py` and the `scheduler.py` diff only, not the gateway, client
+or service worker. One note, not among the review comments searched: the serial
+tick loop lets a long job push a reminder past its `lead`, recorded `missed`
+with the container up. Simulation with fake clock and stubbed `run_job` (10 min:
+fires; 17 min: `missed`); no real deployment.
+https://github.com/Retinue-OS/retinue/pull/438#issuecomment-7158047965
+Counter: 0. Next check: whether a later commit moves reminders off the serial
+loop, or the docs state the limit.
