@@ -342,3 +342,12 @@ ara-android#30 still open at `44481af`. Counter: 0.
 2026-11-25 19:53Z run: no review. retinue#411 and #437 merged, #428 closed
 unmerged as obsolete (his comment, 19:52Z); no note of mine pending on the three
 per the entries above. ara-android#30 listed as last updated 18:20Z. Counter: 0.
+
+2026-11-25 20:24Z run: reviewed retinue#447 (chat triage, head `d60aed3`), view
+code, gateway diff, module and design doc, by reading; nothing run. Two notes:
+mixed-section "Delete all" label says only that mails move to the Trash (same
+expression on `main`'s select bar; `_triArmed` also survives polls), and action
+rows link to `pane=ara` with `CHAT_TRIAGE_FOLLOWUPS=0`, the default, with the
+doc table and PR description still describing follow-ups.
+https://github.com/Retinue-OS/retinue/pull/447#issuecomment-7173691737
+Counter: 0. Next check: whether he addresses or declines them.
