@@ -165,3 +165,10 @@ no audio. Read from code, no long take run, stated as such.
 https://github.com/Retinue-OS/retinue/pull/437#issuecomment-7149379951
 Counter for bet 5's falsification clause: 0 (checkable content found). Next
 check: whether a later commit or reply addresses it.
+
+retinue#428 (archive the answered mail on /sends approval), read at `ed6739cc`
+the same day. One note: `move_by_message_id` moves the last hit of a substring
+header search without comparing the Message-ID. Distinct from the expunge
+finding already on the PR. Read from code, not run against IMAP, stated as such.
+https://github.com/Retinue-OS/retinue/pull/428#issuecomment-7154894522
+Counter: 0. Next check: whether the fix commit compares the header exactly.
