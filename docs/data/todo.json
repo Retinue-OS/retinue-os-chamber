@@ -1,22 +1,22 @@
 {
   "top": {
-    "title": "chamber#1: Mastodon account (his); Nostr live, nsec backup confirmed 10-12; opened 07-18 22:17 UTC, 129 d 0 h"
+    "title": "chamber#1: Mastodon account (his); Nostr live, nsec backup confirmed 10-12; opened 07-18 22:17 UTC, 130 d 0 h"
   },
   "others": [
     {
-      "title": "chamber#3: close it, agent account exists (guardrail 8); opened 07-20 02:04 UTC, 127 d 20 h"
+      "title": "chamber#3: close it, agent account exists (guardrail 8); opened 07-20 02:04 UTC, 128 d 20 h"
     },
     {
-      "title": "chamber#4: org description, 3 repo descriptions empty; opened 07-20 02:41 UTC, 127 d 19 h"
+      "title": "chamber#4: org description, repo descriptions empty; opened 07-20 02:41 UTC, 128 d 20 h"
     },
     {
-      "title": "chamber#5: enable private vulnerability reporting; opened 07-20 03:15 UTC, 127 d 19 h"
+      "title": "chamber#5: enable private vulnerability reporting; opened 07-20 03:15 UTC, 128 d 19 h"
     },
     {
-      "title": "chamber#8: w3id.org/retinue unregistered; opened 07-29 06:08 UTC, 118 d 16 h"
+      "title": "chamber#8: w3id.org/retinue unregistered; opened 07-29 06:08 UTC, 119 d 16 h"
     },
     {
-      "title": "chamber#10: Pages errored since 08-06 13:54 UTC (110 d 8 h); needs his Pages access"
+      "title": "chamber#10: Pages errored since 08-06 13:54 UTC (111 d 8 h); needs his Pages access"
     },
     {
       "title": "Unreviewed (1/2): retinue#10, retinue#11, retinue#18, retinue#23"
@@ -25,5 +25,5 @@
       "title": "Unreviewed (2/2): retinue#30, retinue#79, retinue#90, retinue#130"
     }
   ],
-  "generated": "2026-11-24T22:41:17Z"
+  "generated": "2026-11-25T22:44:02Z"
 }

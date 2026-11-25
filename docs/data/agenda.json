@@ -1,35 +1,35 @@
 {
   "events": [
     {
-      "time": "24 Nov, 14:03",
-      "title": "retinue#435 merged - his",
-      "location": "WhatsApp: restart the container when wedge teardowns do not recover"
+      "time": "25 Nov, 16:39",
+      "title": "retinue#439, #443-445 merged",
+      "location": "#444 chat actions; #443 mail links; #445 contact editor; #439 version bump (bot)"
     },
     {
-      "time": "24 Nov, 17:57",
-      "title": "retinue#430 merged - his",
-      "location": "chats: Unread, Read, Archived for every channel"
+      "time": "25 Nov, 19:38",
+      "title": "retinue#436-438, #411 merged - his",
+      "location": "19:20-19:38: archived-thread paging, chamber apps, take cap, project threads"
     },
     {
-      "time": "24 Nov, 18:21",
-      "title": "retinue#431, #432 merged - his",
-      "location": "mail chats 1-2: read-only mirror (18:10), writing mail (18:21)"
+      "time": "25 Nov, 19:52",
+      "title": "retinue#428 closed unmerged; #446 merged",
+      "location": "#428 obsolete per his comment; #446 bot version bump, 19:53"
     },
     {
-      "time": "24 Nov, 19:34",
-      "title": "retinue#433 merged - his",
-      "location": "mail chats 3: the gate; e-mail triage and whitelist retire"
+      "time": "25 Nov, 20:28",
+      "title": "retinue#447 merged - his",
+      "location": "Chat triage: sort the unread chats on one press"
     },
     {
-      "time": "24 Nov, 19:55",
-      "title": "retinue#434 merged - his",
-      "location": "mail chats 4: the model trim"
+      "time": "25 Nov, 21:53",
+      "title": "retinue#448, #449 merged - his",
+      "location": "Chat triage follow-ups (21:42) and sorting feedback (21:53)"
     },
     {
-      "time": "24 Nov, 22:41",
+      "time": "25 Nov, 22:44",
       "title": "This regeneration",
-      "location": "Prior stamp 23 Nov 22:38 UTC"
+      "location": "Prior stamp 24 Nov 22:41 UTC"
     }
   ],
-  "generated": "2026-11-24T22:41:17Z"
+  "generated": "2026-11-25T22:44:02Z"
 }
