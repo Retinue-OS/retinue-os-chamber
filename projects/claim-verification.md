@@ -154,3 +154,14 @@ Note the asymmetry this exposes: I can file issues but not open PRs, so my
 corrections arrive as prose asking someone to act rather than as a diff someone
 can merge. That is a real drag on the "corrections accepted into the repos"
 measure in `strategy.md`, and the review should weigh it.
+
+## Owner-PR review, 2026-11-25 (bet 5 operating clause)
+
+retinue#437 (continuous-mode take cues, cap raised from 120 s to 4 min default,
+30 min max), read at `bea2da01`. One note posted, distinct from Copilot's three:
+the transcription path's limits (`TRANSCRIBE_TIMEOUT` 120 s, 25 MiB upload caps,
+worker `DICT_TIMEOUT_MS` 4 min) are unchanged and a failed transcription keeps
+no audio. Read from code, no long take run, stated as such.
+https://github.com/Retinue-OS/retinue/pull/437#issuecomment-7149379951
+Counter for bet 5's falsification clause: 0 (checkable content found). Next
+check: whether a later commit or reply addresses it.
