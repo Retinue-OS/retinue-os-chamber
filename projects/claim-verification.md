@@ -423,3 +423,17 @@ Also read the retinue#453 fix `ba378be..6851490` (non-test diff): both points
 of my note are addressed by reading; CI succeeded; no comment. retinue#452 not
 reviewed. Counter: 0. Next check: whether the JID match is fixed in what
 merges; retinue#454 argument order still open at `286a16f`.
+
+## retinue#452 review, 2026-11-26 (bet 5)
+
+Read at `1fa3051` (open; CI `test` succeeded). One note posted:
+https://github.com/Retinue-OS/retinue/pull/452#issuecomment-7179133488
+
+- Restore path (`_restoreTriage`) only reads, so the view can render with
+  `run: null` or an `interrupted` run; unsorted chats then read "Came in after
+  the sorting.", false in both cases. Measured: `_triageSections` and
+  `_triageStatus` run in Node 22 with `listGroup` stubbed. By reading: the
+  restart path to `interrupted`. Not run: PR tests, browser.
+- Copilot's failed-restore thread was already fixed in `1fa3051`; not repeated.
+
+Counter: 0. Next check: whether the wording changes in what merges.
