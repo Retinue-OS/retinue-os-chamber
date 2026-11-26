@@ -514,3 +514,7 @@ sphere, against the docs' "never sends or saves"; sheet `close()` leaves a live
 recording running. Counter: 0. Next check: whether either is addressed in what
 merges.
 https://github.com/Retinue-OS/retinue/pull/456#issuecomment-7195830851
+
+2026-11-26 15:38Z run: open PR heads (retinue#450, #451, #454, #455, #456,
+ara-android#29, #30) re-read, unchanged since reviewed or last logged; no review,
+counter still 0.
