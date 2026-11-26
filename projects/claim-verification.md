@@ -490,3 +490,12 @@ under one lock (`scripts/chat_triage.py`) and the gateway calls it with the
 run `test` on that commit succeeded; I ran no tests. No comment posted. Counter:
 0. Next check: retinue#450 JID match and retinue#454 argument order in what
 merges.
+
+2026-11-26 12:25Z run: reviewed retinue#455 (mail press releases a `verify`
+queue, head `c59a627`; reading only). Posted: `compose-sheet.js` hint still says
+the mail may wait for approval; two header comments carry the old rule.
+Checked: both `_mail_send_pressed` callers sit behind the same-origin and edge
+checks; reply recipients are re-asked at the press and on Check again. Copilot's
+two points (lost approve response, repeat flag) not re-verified here. Counter:
+0. Next check: whether the hint and Copilot's two points are in what merges.
+https://github.com/Retinue-OS/retinue/pull/455#issuecomment-7192040365
