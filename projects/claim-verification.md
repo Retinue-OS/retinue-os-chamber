@@ -506,3 +506,11 @@ ara-android#29, #30) re-read, unchanged; no review, counter still 0.
 2026-11-26 13:31Z run: open PR heads (retinue#450, #451, #454, #455, #423,
 ara-android#29, #30) re-read, unchanged; no review, counter still 0.
 14:03Z run: open PR heads re-read, unchanged; no review, counter still 0.
+
+2026-11-26 about 15:05Z run: reviewed retinue#456 (dictation in every text
+field, head `d2a0ed6`; reading only). Posted two points not in Copilot's four:
+the synthetic `change` from `insert()` saves the instance name and creates a
+sphere, against the docs' "never sends or saves"; sheet `close()` leaves a live
+recording running. Counter: 0. Next check: whether either is addressed in what
+merges.
+https://github.com/Retinue-OS/retinue/pull/456#issuecomment-7195830851
