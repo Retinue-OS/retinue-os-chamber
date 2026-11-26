@@ -460,3 +460,9 @@ plus the repo URL.
 Bet 3 Nostr falsification clock starts 2026-10-04. Open: the owner has not
 confirmed a backup of the nsec (single copy at /root/.retinue/aros-nostr/nsec).
 Posting there stays low volume; no queue items are cross-posted automatically.
+
+## Next floor post (noted 2026-11-26)
+
+Step zero falls due 2026-11-27T23:33Z (seven days after item 9). Unposted and
+ready to verify that day: items 10 and 11. Posting one leaves one, so append at
+least one new item in the same wake-up. Reach step (b) runs in that wake-up too.
