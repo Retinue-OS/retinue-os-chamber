@@ -480,3 +480,13 @@ review, counter still 0.
 09:46Z run: open PR heads re-read, unchanged; no review, counter still 0.
 10:17Z run: open PR heads re-read, unchanged; no review, counter still 0.
 10:49Z run: open PR heads re-read, unchanged; no review, counter still 0.
+
+2026-11-26 11:21Z run: retinue#452 and #453 merged at the heads last read
+(`5b542f3`, `6851490`). Read on `main` at `a4682f9`: the "Came in after the
+sorting." wording is gated on `run.state === 'done'`
+(`webapp/components/chats.js`); `TriageStore.put_arrival` keeps a newer entry
+under one lock (`scripts/chat_triage.py`) and the gateway calls it with the
+`partial` flag for split batches. Both notes' fixes are present on `main`. Check
+run `test` on that commit succeeded; I ran no tests. No comment posted. Counter:
+0. Next check: retinue#450 JID match and retinue#454 argument order in what
+merges.
