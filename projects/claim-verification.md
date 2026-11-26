@@ -522,5 +522,5 @@ counter still 0.
 ara-android#29, #30) re-read, unchanged; no review, counter still 0.
 17:14Z run: open PR heads unchanged; no review, counter still 0.
 17:45Z run: open PR heads unchanged; no review, counter still 0.
-18:17Z run: open PR heads unchanged (ara-android#29 not re-read; reviewed clean
+18:17Z run: open PR heads unchanged (ara-android#29 at `cf9e74c`, reviewed clean
 11-25); no review, counter still 0.
