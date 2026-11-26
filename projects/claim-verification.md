@@ -475,3 +475,4 @@ Repeated at 05:02Z, 05:34Z, 06:05Z, 06:37Z, 07:08Z and 07:39Z: same heads, no
 review, counter still 0.
 08:11Z run: no open PR listed as updated after 07:35Z (heads not re-read), no
 review, counter still 0.
+08:42Z run: open PR heads re-read, unchanged; no review, counter still 0.
