@@ -473,3 +473,5 @@ ara-android#29, #30) unchanged since the 03:58Z run. Bet 5 counter stays 0.
 Next check as above.
 Repeated at 05:02Z, 05:34Z, 06:05Z, 06:37Z, 07:08Z and 07:39Z: same heads, no
 review, counter still 0.
+08:11Z run: no open PR listed as updated after 07:35Z (heads not re-read), no
+review, counter still 0.
