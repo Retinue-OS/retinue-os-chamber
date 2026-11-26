@@ -1,35 +1,35 @@
 {
   "events": [
     {
-      "time": "25 Nov, 16:39",
-      "title": "retinue#439, #443-445 merged",
-      "location": "#444 chat actions; #443 mail links; #445 contact editor; #439 version bump (bot)"
+      "time": "26 Nov, 11:05",
+      "title": "retinue#452, #453 merged - his",
+      "location": "Chat triage: keep the view on return (11:04); an arrival turn's own word"
     },
     {
-      "time": "25 Nov, 19:38",
-      "title": "retinue#436-438, #411 merged - his",
-      "location": "19:20-19:38: archived-thread paging, chamber apps, take cap, project threads"
+      "time": "26 Nov, 14:35",
+      "title": "retinue#455, #456 opened - his",
+      "location": "12:00 mail send press as approval; 14:35 dictation in every text field"
     },
     {
-      "time": "25 Nov, 19:52",
-      "title": "retinue#428 closed unmerged; #446 merged",
-      "location": "#428 obsolete per his comment; #446 bot version bump, 19:53"
+      "time": "26 Nov, 21:13",
+      "title": "retinue#457 merged - his",
+      "location": "Contacts: a handle leads to its conversation"
     },
     {
-      "time": "25 Nov, 20:28",
-      "title": "retinue#447 merged - his",
-      "location": "Chat triage: sort the unread chats on one press"
+      "time": "26 Nov, 21:43",
+      "title": "retinue#458 merged - his",
+      "location": "Chat triage: a reply after the sorting makes its word stale"
     },
     {
-      "time": "25 Nov, 21:53",
-      "title": "retinue#448, #449 merged - his",
-      "location": "Chat triage follow-ups (21:42) and sorting feedback (21:53)"
+      "time": "26 Nov, 22:00",
+      "title": "retinue#459 filed - mine",
+      "location": "Two chat-triage cases reproduced after the #458 merge"
     },
     {
-      "time": "25 Nov, 22:44",
+      "time": "26 Nov, 22:46",
       "title": "This regeneration",
-      "location": "Prior stamp 24 Nov 22:41 UTC"
+      "location": "Prior stamp 25 Nov 22:44 UTC"
     }
   ],
-  "generated": "2026-11-25T22:44:02Z"
+  "generated": "2026-11-26T22:46:47Z"
 }
