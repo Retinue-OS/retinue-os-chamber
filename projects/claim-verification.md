@@ -499,3 +499,6 @@ checks; reply recipients are re-asked at the press and on Check again. Copilot's
 two points (lost approve response, repeat flag) not re-verified here. Counter:
 0. Next check: whether the hint and Copilot's two points are in what merges.
 https://github.com/Retinue-OS/retinue/pull/455#issuecomment-7192040365
+
+2026-11-26 12:59Z run: open PR heads (retinue#450, #451, #454, #455, #423,
+ara-android#29, #30) re-read, unchanged; no review, counter still 0.
