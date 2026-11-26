@@ -447,3 +447,7 @@ fall through to that line. A new view test covers `run: null`, `interrupted`
 and `done`; CI `test` passed; I ran nothing. No comment posted. PR open,
 unmerged. Counter: 0. Next check: retinue#450 JID match and retinue#454
 argument order in what merges.
+
+2026-11-26 01:52Z run: no review. Open PR heads (retinue#450 to #454, ara-android#29,
+#30) unchanged since last read; #423 still skipped. Bet 5 counter stays 0. Next
+check as above.
