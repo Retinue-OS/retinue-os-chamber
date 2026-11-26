@@ -410,3 +410,16 @@ again.
 https://github.com/Retinue-OS/retinue/pull/453#issuecomment-7177947821
 retinue#450 and #452 not reviewed. Counter: 0. Next check: whether the
 overwrite is fixed in what merges; retinue#454 argument order still open.
+
+2026-11-26 00:13Z run: reviewed retinue#450 (chat avatar opens the contact,
+head `6c7d376`): webapp and doc diffs and the server code behind them.
+`holdsHandle`, extracted into Node 22, ran on made-up persons; PR tests and
+gateway not run. One note: a WhatsApp JID key never matches a filed number
+(`+` kept), and for a phones-only person neither autolink nor `create` stops a
+second person (by reading); letter-stripping lets unrelated ids match.
+Overlaps Copilot's first thread on the `+`.
+https://github.com/Retinue-OS/retinue/pull/450#issuecomment-7178578348
+Also read the retinue#453 fix `ba378be..6851490` (non-test diff): both points
+of my note are addressed by reading; CI succeeded; no comment. retinue#452 not
+reviewed. Counter: 0. Next check: whether the JID match is fixed in what
+merges; retinue#454 argument order still open at `286a16f`.
