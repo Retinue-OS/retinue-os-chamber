@@ -531,3 +531,19 @@ ara-android#29, #30) re-read, unchanged; no review, counter still 0.
 2026-11-26 20:23Z run: open PR heads (retinue#423, #450, #451, #454, #455, #456, ara-android#29, #30) unchanged; no review posted.
 
 2026-11-26 20:55Z run: open PR heads (retinue#423, #450, #451, #454, #455, #456, ara-android#29, #30) unchanged; no review posted.
+
+## retinue#458 review, 2026-11-26 (bet 5)
+
+Owner PR "a reply of the user's after the sorting makes its word stale", head
+`bf24faf`, check `test` success, open at 21:28Z. Copilot had two inline notes
+(agent-authored outbound messages counted as the user's reply); not repeated.
+Posted https://github.com/Retinue-OS/retinue/pull/458#issuecomment-7203762567.
+
+- `from_arrival()` ignores `replied`: an answered arrival entry is sent to the
+  classifier on every press, the verdict is dropped (3 presses, 3 calls, 0
+  sorted, 0 failed).
+- `at` is stamped after `classify()`: a reply during the batch leaves the entry
+  fresh. Arrival-turn variant: by reading only.
+
+Method: `TriageRunner` with stub classifier and digest; gateway and page not
+driven, test suite not run. Next: on a head change, check both against it.
