@@ -547,3 +547,9 @@ Posted https://github.com/Retinue-OS/retinue/pull/458#issuecomment-7203762567.
 
 Method: `TriageRunner` with stub classifier and digest; gateway and page not
 driven, test suite not run. Next: on a head change, check both against it.
+
+2026-11-26 21:59Z run: retinue#458 merged (`57fdd6e`); both cases above still
+reproduce there (case 1: 3 presses, 3 classifier calls, 0 sorted; case 2: entry
+fresh after a mid-batch reply; arrival-turn variant still by reading only). Filed
+https://github.com/Retinue-OS/retinue/issues/459. Counter: 0. Next check: whether
+#459 is answered or fixed.
