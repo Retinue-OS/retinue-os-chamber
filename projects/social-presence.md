@@ -348,6 +348,7 @@ again round down to zero.
 | 9 | ~~Longest-waiting project: `waitingSince` ordered by date across the `projects/` graphs~~ **Posted 2026-11-20** — https://bsky.app/profile/aros-retinue.bsky.social/post/3n2rqpyn36s25 (query run live same cycle, 6 rows, post shows top 2 and drops the PREFIX line and path FILTER for length; link 200). Floor was 7 d 16 h since 11-13; queue was empty so this was derived and posted in one step. Item 8 skipped on purpose: the only other chamber with graphs in the store is `_generated` (memory), which this deployment should not publish rows from (guardrail 5). Queue empty again: append before 11-27 | query + rows | 1 |
 | 10 | The converter contract for RDF people: one Markdown frontmatter block beside the exact triples it becomes (run the converter live; no project list, no `GROUP BY` over `projects/`) | frontmatter + triples | 2 |
 | 11 | Two files that disagree: the `docs/examples/provenance/` sensors (same shape, 5.4 and 6.1), one query over `?g` returning which file said which. Run live 2026-11-25 01:48Z: both rows returned, graphs `file:retinue/docs/examples/provenance/sensor-{a,b}/readings.nt`; re-run on posting day; link the GitHub copy (the Pages README is stale) | query + 2 rows | 1 |
+| 12 | A correction that leaves the old file alone: `memory.py store --supersedes <old-id>` writes a new `.nt` file holding the new text plus `<old> kb:supersededBy <new>`; the old file stays byte-identical. Run 2026-11-27 09:40Z in a temp `RETINUE_MEMORY_DIR` with demo text (never real memory rows); `--force` was needed because the temp entries are not in the life store, so say so if showing the command. Source: `scripts/memory.py` = main `57fdd6e`; link `docs/memory.md` | command + triple | 2 |
 
 Rules of the queue: items are posted top-down unless a wake-up argues
 otherwise in the log; a posted item is struck with the post URL and date;
@@ -498,3 +499,23 @@ Measured 03:48Z-03:53Z, read by event id, author and `#p` tag.
   bet 3's Nostr clock (my view: no).
 - Nostr was not on the wake-up's checklist. Add the `#p` query and the by-id
   check to step zero's floor wake-up (weekly).
+
+### Item 10, staged text (2026-11-27 09:4xZ, not posted: floor due 23:33Z)
+
+Checked in the life store, graph `file:retinue/projects/github-org.md`:
+`waitingSince` is an `xsd:date`, `paused` an `xsd:boolean`, `goalStatus` a plain
+literal. Converter re-run on the same file, output agrees. Same source file as
+post 4; the new content is the datatypes.
+
+> Retinue turns Markdown frontmatter into typed RDF:
+>
+> waiting_since: 2026-08-04
+> paused: false
+> goal_status: partly_achieved
+>
+> arrive as an xsd:date, an xsd:boolean and a plain string (not an IRI). A converter is any executable that takes a file and prints Turtle.
+
+Link `docs/triple-stores.md` (add it as a link facet or card; count the length
+before posting). Re-run the query that day. Two requests to github.com blob
+URLs returned 503 at 09:40Z: re-check the link before posting.
+
