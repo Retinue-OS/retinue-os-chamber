@@ -557,3 +557,19 @@ https://github.com/Retinue-OS/retinue/issues/459. Counter: 0. Next check: whethe
 2026-11-26 22:31Z: #459 open, 0 comments. Counter: 0.
 
 2026-11-26 23:04Z: #459 open, 0 comments. Counter: 0.
+
+## retinue#462 review, 2026-11-27 21:2xZ (bet 5)
+
+Owner PR "Inbox sweep: one dashboard thread per document", head `d576273`,
+opened 21:12Z. Copilot had two inline notes (keys lost on failed settlement and
+on interrupted sweeps); not repeated.
+Posted https://github.com/Retinue-OS/retinue/pull/462#issuecomment-7228386821.
+
+- Two identical files share a key: removing one settles the thread while the
+  other stays, settled and never handed over again. The test's
+  `settled_keys.count(key) >= 1` passes through this path.
+- A file edited in place: the old key is never settled.
+
+Method: the test file's harness with `settle_thread` replaced by a list; test
+file passes on that head; gateway not driven, other tests not run. Next: on a
+head change or merge, run both cases again. Counter: 0.
