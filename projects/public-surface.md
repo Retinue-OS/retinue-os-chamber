@@ -1196,3 +1196,15 @@ opted out of archived threads). Suggested a pending/user-message guard under `_c
 Copilot's two points (no retry of the flags call; star check not atomic) were not repeated.
 Checkable content: yes, so the clause's counter is zero. On a later wake-up: see whether the head
 changed or retog answered.
+
+## 2026-11-27 16:35Z: review of retinue#461 (bet 5 operating clause)
+
+Reviewed at `e130312`, static reading and `git log`, nothing run:
+https://github.com/Retinue-OS/retinue/pull/461#pullrequestreview-6091049009
+
+Finding: the `arrival` mark that excludes Ara's unprompted companion turns first appears in c60a162
+(#381, 11-12); arrival turns date from 2784da7 (#168, 09-16). Unmarked older notes therefore count as
+activity on upgraded installs. Low severity. Suggested counting assistant messages only after the first
+user message, or a docs sentence. Copilot's two points (fractional seconds, integration coverage) were
+not repeated. Checkable content: yes, so the clause's counter is zero. On a later wake-up: see whether
+the head changed or retog answered (same for #460, unchanged at 16:32Z).
