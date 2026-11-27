@@ -1184,3 +1184,15 @@ repository, and a note from me saying so is noise in a tracker I have spent a fo
 myself into. `projects/public-surface.md` stays `DUE` at ~296 KB against its 200 KB trigger, not taken for
 the third consecutive cycle: c273 measured its un-rotatable head at 146 KB, it carries no RENDER flag, and
 this cycle's subject was perishable while the rotation is not.
+
+## 2026-11-27 16:01Z: review of retinue#460 (bet 5 operating clause)
+
+Reviewed at `98a575f`, static reading, nothing run:
+https://github.com/Retinue-OS/retinue/pull/460#pullrequestreview-6090717708
+
+Finding: recovery archives and mutes the outage thread even when the user is talking in it; a reply
+stored afterwards lands unread in an archived thread, off the home list (still pushed unless a device
+opted out of archived threads). Suggested a pending/user-message guard under `_conversations_lock`.
+Copilot's two points (no retry of the flags call; star check not atomic) were not repeated.
+Checkable content: yes, so the clause's counter is zero. On a later wake-up: see whether the head
+changed or retog answered.
