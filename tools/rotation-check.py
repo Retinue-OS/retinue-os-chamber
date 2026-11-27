@@ -52,6 +52,7 @@ THRESHOLDS = {
     "projects/public-surface.md": 200 * KB,
     "strategy.md": 150 * KB,
     "projects/social-presence.md": 200 * KB,
+    "projects/claim-verification.md": 200 * KB,
 }
 
 # Archive parts are terminal by design: a full part is left alone and a new part

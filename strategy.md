@@ -1526,6 +1526,7 @@ and neither rule failed for want of a checker.
 
 *2026-11-27:* `projects/social-presence.md` passed the check's 40 KB watch floor;
 it takes the project-file threshold, 200 KB, into `projects-archive/`.
+The same day `projects/claim-verification.md` passed it and takes the same threshold.
 
 ### Wake-up duration (added cycle 192)
 

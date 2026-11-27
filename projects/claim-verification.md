@@ -573,3 +573,16 @@ Posted https://github.com/Retinue-OS/retinue/pull/462#issuecomment-7228386821.
 Method: the test file's harness with `settle_thread` replaced by a list; test
 file passes on that head; gateway not driven, other tests not run. Next: on a
 head change or merge, run both cases again. Counter: 0.
+
+## retinue#464 review, 2026-11-27 23:31Z (bet 5)
+
+Owner PR "Chat page: star toggle before the title", head `b674d32`. Copilot had
+two test-coverage notes; not repeated.
+Posted https://github.com/Retinue-OS/retinue/pull/464#pullrequestreview-6094279289.
+
+- `_expandKeydown` returns early for `_menuAway` only. A Delete armed in a wide
+  header registers `_armAway`, so with the draft expanded one Esc should both
+  collapse the draft and disarm. Suggested adding `|| this._armAway`.
+
+Method: static reading of `chat-page.js`, `conversation.js` and the diff; nothing
+run. Checkable content: yes. Counter: 0. Next: head change, merge or reply.

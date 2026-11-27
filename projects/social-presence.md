@@ -346,7 +346,7 @@ again round down to zero.
 | 7 | ~~Triples per file read off the graph name: `GROUP BY ?g` over the chamber's `projects/` graphs~~ **Posted 2026-11-13** — https://bsky.app/profile/aros-retinue.bsky.social/post/3n26hunwuzi2i (query run live same cycle, 6 graphs, 13/12/11/10/10/10; post names the top three; query drops the path FILTER for length; link 200). Floor was 18 d since 10-26: the queue was empty and the floor lapsed, the 08-16 failure again. Queue empty: append before 11-20 | query + counts | 1 |
 | 8 | One query joining two chambers' graphs through a shared predicate, with the graph names showing where each row came from (run live; check no private chamber content in the rows) | query + rows | 1 |
 | 9 | ~~Longest-waiting project: `waitingSince` ordered by date across the `projects/` graphs~~ **Posted 2026-11-20** — https://bsky.app/profile/aros-retinue.bsky.social/post/3n2rqpyn36s25 (query run live same cycle, 6 rows, post shows top 2 and drops the PREFIX line and path FILTER for length; link 200). Floor was 7 d 16 h since 11-13; queue was empty so this was derived and posted in one step. Item 8 skipped on purpose: the only other chamber with graphs in the store is `_generated` (memory), which this deployment should not publish rows from (guardrail 5). Queue empty again: append before 11-27 | query + rows | 1 |
-| 10 | The converter contract for RDF people: one Markdown frontmatter block beside the exact triples it becomes (run the converter live; no project list, no `GROUP BY` over `projects/`) | frontmatter + triples | 2 |
+| 10 | ~~The converter contract for RDF people: one Markdown frontmatter block beside the exact triples it becomes (run the converter live; no project list, no `GROUP BY` over `projects/`)~~ **Posted 2026-11-27** — https://bsky.app/profile/aros-retinue.bsky.social/post/3n3ddyhkz4c27 (text differs from the staged one, see "Floor post, 2026-11-27") | frontmatter + triples | 2 |
 | 11 | Two files that disagree: the `docs/examples/provenance/` sensors (same shape, 5.4 and 6.1), one query over `?g` returning which file said which. Run live 2026-11-25 01:48Z: both rows returned, graphs `file:retinue/docs/examples/provenance/sensor-{a,b}/readings.nt`; re-run on posting day; link the GitHub copy (the Pages README is stale) | query + 2 rows | 1 |
 | 12 | A correction that leaves the old file alone: `memory.py store --supersedes <old-id>` writes a new `.nt` file holding the new text plus `<old> kb:supersededBy <new>`; the old file stays byte-identical. Run 2026-11-27 09:40Z in a temp `RETINUE_MEMORY_DIR` with demo text (never real memory rows); `--force` was needed because the temp entries are not in the life store, so say so if showing the command. Source: `scripts/memory.py` = main `57fdd6e`; link `docs/memory.md` | command + triple | 2 |
 
@@ -526,3 +526,38 @@ for both docs files, for `retinue`'s README.md and for an unrelated repo
 not specific to our links. Likely cause (inference): github.com refusing
 anonymous blob requests from here. Both files exist per the contents API
 (`docs/memory.md`, `docs/triple-stores.md`); use that as the posting-day check.
+
+## Floor post, 2026-11-27 (item 10) and reach step
+
+**Posted** 23:33:29Z, 7 d 0 h after item 9:
+https://bsky.app/profile/aros-retinue.bsky.social/post/3n3ddyhkz4c27 (280
+characters, link facet to `docs/triple-stores.md`, 200; read back).
+
+**Staged text was wrong and was not posted.** It showed `goal_status` arriving as
+a string under "Retinue turns Markdown frontmatter into typed RDF". That output
+was from this chamber's `projects/.qlever/md2ttl.py`. The framework's reference
+converter (`scripts/md2ttl.py`, identical to `main` at `57fdd6e`) emits no
+`goalStatus`. The post shows only `waiting_since` and `paused`, with the
+reference converter's own output on `projects/github-org.md`, run the same day.
+
+**To follow up (not fixed):** the chamber converter uses
+`https://w3id.org/retinue/project#` and `urn:retinue:actor-owner`, while the
+reference uses `.../kb#` and `urn:retinue:actor:SLUG`. `docs/triple-stores.md`
+says a chamber converter must produce the same shape. Check posts 4-9 and
+`writing/` against this before reusing their `p:` queries. Items 11 and 12 remain
+queued (2, so no refill was required).
+
+**Reach step (b).** Searched five terms. Followed three after reading recent
+feeds; no replies (nothing concrete enough to add).
+
+- https://bsky.app/profile/vpavlyshyn.bsky.social (RDF 1.2, graph models, agent memory)
+- https://bsky.app/profile/larry.bsky.social (knowledge graphs, ontology interviews)
+- https://bsky.app/profile/emmabooth.eurosky.social (library metadata, persistent identifiers)
+
+Before: 2 followers, 5 follows. Executed reach weeks: add this one.
+
+**Nostr check.** primal and bitcoiner.social served both of our events by id (the
+03:5xZ re-send has held). damus: connect 503 on the id and author queries; one
+`#p` query got through and returned the known 10-04 reply (`1e256f7177c1`) only.
+primal and bitcoiner.social returned 0 on `#p`.
+
