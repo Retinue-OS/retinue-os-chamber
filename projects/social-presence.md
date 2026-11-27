@@ -519,3 +519,10 @@ Link `docs/triple-stores.md` (add it as a link facet or card; count the length
 before posting). Re-run the query that day. Two requests to github.com blob
 URLs returned 503 at 09:40Z: re-check the link before posting.
 
+
+Link check control, 2026-11-27 11:4xZ: anonymous curl got 503 on blob pages
+for both docs files, for `retinue`'s README.md and for an unrelated repo
+(`torvalds/linux` README), while the `retinue` repo root got 200. So the 503 is
+not specific to our links. Likely cause (inference): github.com refusing
+anonymous blob requests from here. Both files exist per the contents API
+(`docs/memory.md`, `docs/triple-stores.md`); use that as the posting-day check.
