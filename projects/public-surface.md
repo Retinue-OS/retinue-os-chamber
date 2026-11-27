@@ -1208,3 +1208,8 @@ activity on upgraded installs. Low severity. Suggested counting assistant messag
 user message, or a docs sentence. Copilot's two points (fractional seconds, integration coverage) were
 not repeated. Checkable content: yes, so the clause's counter is zero. On a later wake-up: see whether
 the head changed or retog answered (same for #460, unchanged at 16:32Z).
+
+**2026-11-27, retinue#463 reviewed at `fa5cec8` (bet 5).** One finding: a repeated `notices.py add` keeps
+the first call's urgency, so a frontier re-run cannot downgrade a junior's ringing notice. Comment
+7228859816. Static reading only. Checkable content: yes. On a later wake-up: see whether the head changed
+or retog answered.
