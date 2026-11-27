@@ -1,35 +1,35 @@
 {
   "events": [
     {
-      "time": "26 Nov, 11:05",
-      "title": "retinue#452, #453 merged - his",
-      "location": "Chat triage: keep the view on return (11:04); an arrival turn's own word"
+      "time": "27 Nov, 15:30",
+      "title": "retinue#460 opened - his",
+      "location": "gateway-monitor: archive a healed outage's thread, debounce five minutes"
     },
     {
-      "time": "26 Nov, 14:35",
-      "title": "retinue#455, #456 opened - his",
-      "location": "12:00 mail send press as approval; 14:35 dictation in every text field"
+      "time": "27 Nov, 16:21",
+      "title": "retinue#461 opened - his",
+      "location": "Chats: order the list by last activity, companion exchange included"
     },
     {
-      "time": "26 Nov, 21:13",
-      "title": "retinue#457 merged - his",
-      "location": "Contacts: a handle leads to its conversation"
+      "time": "27 Nov, 21:12",
+      "title": "retinue#462 opened - his",
+      "location": "Inbox sweep: one dashboard thread per document"
     },
     {
-      "time": "26 Nov, 21:43",
-      "title": "retinue#458 merged - his",
-      "location": "Chat triage: a reply after the sorting makes its word stale"
+      "time": "27 Nov, 21:37",
+      "title": "retinue#463 opened - his",
+      "location": "Notice board for portal notices; only the frontier tier may ring"
     },
     {
-      "time": "26 Nov, 22:00",
-      "title": "retinue#459 filed - mine",
-      "location": "Two chat-triage cases reproduced after the #458 merge"
+      "time": "27 Nov, 21:54",
+      "title": "Fourth review posted - mine",
+      "location": "retinue#463; the others: #460 16:01, #461 16:34, #462 21:22"
     },
     {
-      "time": "26 Nov, 22:46",
+      "time": "27 Nov, 22:50",
       "title": "This regeneration",
-      "location": "Prior stamp 25 Nov 22:44 UTC"
+      "location": "Prior stamp 26 Nov 22:46 UTC"
     }
   ],
-  "generated": "2026-11-26T22:46:47Z"
+  "generated": "2026-11-27T22:50:09Z"
 }

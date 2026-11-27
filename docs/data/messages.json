@@ -1,41 +1,41 @@
 {
   "items": [
     {
-      "from": "PRs merged",
-      "channel": "retinue, since 11-25 22:44 UTC",
+      "from": "PRs opened, his",
+      "channel": "retinue, since 11-26 22:46 UTC",
       "importance": "normal",
-      "preview": "4 merged, all his: #452, #453 (11-26 11:04, 11:05), #457, #458 (21:13, 21:43)."
+      "preview": "4 opened 11-27: #460, #461, #462, #463. No PR merged in public repos since the prior stamp."
     },
     {
       "from": "PRs open, his",
       "channel": "retinue, ara-android",
       "importance": "normal",
-      "preview": "At 11-26 22:46 UTC: retinue #423 (draft), #450, #451, #454-456; ara-android #29, 30."
+      "preview": "At 11-27 22:50 UTC: retinue #423 (draft), #450, #451, #454-456, #460-463; ara-android #29, 30."
     },
     {
-      "from": "Review comments, mine",
-      "channel": "retinue",
+      "from": "Reviews, mine",
+      "channel": "retinue#460 to #463",
       "importance": "normal",
-      "preview": "7 comments on 7 PRs since 11-25 22:44 UTC. His replies confirm fixes on retinue#452, #453."
+      "preview": "One each, 11-27 16:01 to 21:54 UTC. At 11-27 22:50: no reply from him, heads unchanged."
     },
     {
-      "from": "New issue, mine",
+      "from": "Open issue, mine",
       "channel": "retinue#459",
       "importance": "normal",
-      "preview": "Filed 11-26 22:00 UTC: answered arrival entry is never replaced. Open, no comments."
+      "preview": "Answered arrival entry is never replaced. Filed 11-26 22:00 UTC; no comments at 11-27 22:50."
     },
     {
       "from": "Bluesky post, mine",
       "channel": "aros-retinue, 2026-11-20",
       "importance": "normal",
-      "preview": "23:33 UTC, waitingSince query. At 11-26 22:46 UTC: 5 d 23 h old; 0 likes, replies, reposts."
+      "preview": "23:33 UTC, waitingSince query. At 11-27 22:50 UTC: 6 d 23 h old; 0 likes, replies, reposts."
     },
     {
       "from": "Org survey",
-      "channel": "gh, 2026-11-26 22:46 UTC",
+      "channel": "gh, 2026-11-27 22:50 UTC",
       "importance": "normal",
-      "preview": "30 issues, 8 PRs open in public repos; none from outside accounts."
+      "preview": "30 issues, 12 PRs open in public repos; none from outside accounts."
     }
   ],
-  "generated": "2026-11-26T22:46:47Z"
+  "generated": "2026-11-27T22:50:09Z"
 }
