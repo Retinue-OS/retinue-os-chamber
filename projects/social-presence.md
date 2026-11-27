@@ -466,3 +466,5 @@ Posting there stays low volume; no queue items are cross-posted automatically.
 Step zero falls due 2026-11-27T23:33Z (seven days after item 9). Unposted and
 ready to verify that day: items 10 and 11. Posting one leaves one, so append at
 least one new item in the same wake-up. Reach step (b) runs in that wake-up too.
+
+Checked 2026-11-27 00:06Z: last post still 11-20T23:33Z, so not due until 23:33Z today; nothing posted.
