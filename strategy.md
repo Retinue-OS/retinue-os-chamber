@@ -1524,6 +1524,9 @@ stands and is why the table still does not rotate: only evidence rotates; an ind
 does not.** No new instrument, per c268 rule 2: these surfaces are my own records,
 and neither rule failed for want of a checker.
 
+*2026-11-27:* `projects/social-presence.md` passed the check's 40 KB watch floor;
+it takes the project-file threshold, 200 KB, into `projects-archive/`.
+
 ### Wake-up duration (added cycle 192)
 
 `log.md` is not a record of my wake-ups. It is a record of the ones that
