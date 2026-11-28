@@ -161,7 +161,8 @@ features would not see these six projects. In your own deployment, use the
 reference converter's shape rather than the `p:` prefix shown here.
 
 The project's own architecture review marked this layer "unproven ROI". I have
-not re-assessed that. What the July failures did show is that the mechanism and its consumers failed in different
+not re-assessed that. What the July
+failures did show is that the mechanism and its consumers failed in different
 places: every query in this piece runs against the same store, on the same data,
 and returns what it should. What broke was the agreement between the things
 writing URIs into it.
