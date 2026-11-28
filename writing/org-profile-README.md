@@ -171,27 +171,34 @@ push-only path.
 
 ---
 
+**Revised 2026-11-28.** The live profile had called retinue#1, #15 and #19 open for
+more than ten weeks after they closed, and placed the mail passwords in a sidecar.
+Corrected and pushed as `b979872` in `Retinue-OS/.github`; the body below is that
+text. Source: tracker states and `SECURITY.md` at retinue `09c05fc`, read, not run.
+Notes above this one describe earlier versions.
+
+---
+
 ## Retinue
 
 A self-hosted personal agent system where the agent has real reach into your
-messaging, files and data — but never holds the credentials to your accounts,
-sends from them only under a policy you set per identity, and keeps everything
-it knows as files in a git repo you own.
+messaging, files and data — but your messenger credentials stay in separate
+containers, outbound sends are gated by a policy you set per identity, and what
+it knows is kept largely as files you own.
 
 ### The architecture, in four claims
 
-**Capability without credential custody.** Signal keys, the WhatsApp session,
-the Telegram MTProto session, SMTP/IMAP passwords — each lives in a dedicated
-sidecar container. The model talks to thin HTTP APIs and never sees a *messaging*
-credential. That scope word is load-bearing: the session does hold capability
-tokens for the sidecars it drives, and, in a session spawned by the scheduler or
-a gateway rather than by the entrypoint, whatever else the container's
-environment carries — a model-gateway key, a repo token
-([retinue#15](https://github.com/retinue-os/retinue/issues/15), open). The
-difference the design buys is blast radius, not an empty environment. A stolen mail password is your mailbox from
-anywhere, until you notice. A stolen backend token is a request to a sidecar
-that still applies send policy, reachable only from inside the deployment
-network.
+**Capability without credential custody.** Signal keys and the WhatsApp and
+Telegram sessions live in their own sidecar containers, and the model talks to
+thin HTTP APIs. Spawned sessions get their environment from an allowlist
+(`scripts/session_env.py`). The limits, as
+[`SECURITY.md`](https://github.com/Retinue-OS/retinue/blob/main/SECURITY.md)
+states them: mailbox credentials are still held by the main agent container (and
+by the mail gateway), every process there runs as the same user so a session can
+read a daemon's environment, the repository token is on disk, the main
+remote-control session keeps a narrower scrub, and sessions do hold the model
+credential, capability tokens and anything a deployment passes in. So the claim
+is about messenger credentials, not about an empty or sandboxed session.
 
 This is a property of the paths Retinue ships, and it holds in a deployment
 where those paths are the only ones to your accounts. Attach a direct connector
@@ -204,12 +211,13 @@ mailbox has no use for the password.
 **Autonomy without borrowed identity.** Outbound sends are gated by policy keyed
 to the *sending* identity, not the recipient. A dedicated, labelled agent
 account can run `allow` while your own accounts stay locked. An undeclared
-account fails safe to "needs approval", and a queued message waits on an
-approval page. What the approval page does *not* currently do is distinguish the
-human from the agent: the Allow button is a plain HTTP call the agent can make
-itself, so `verify` is a queue and an audit trail rather than a human gate
-([retinue#19](https://github.com/retinue-os/retinue/issues/19), open). The
-identity-keyed policy is the part that holds today.
+account fails safe to `verify`, and a queued message waits for approval.
+A pending approval is not bound to a separate authorization identity, so treat
+it as a workflow gate rather than a hard boundary. That is a documented
+limitation
+([`SECURITY.md`](https://github.com/Retinue-OS/retinue/blob/main/SECURITY.md);
+[retinue#19](https://github.com/Retinue-OS/retinue/issues/19) was closed on that
+basis, not fixed).
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 the agent definitions themselves are Markdown and RDF in git. Diffable,
@@ -220,79 +228,54 @@ derived from the file's path. Scope a query to one sensor, one chamber or one
 ingest run without anyone hand-modelling provenance; move a file and its
 provenance moves with it.
 
-Two measured limits belong with that sentence, both open in our own tracker. A
-chamber mounted from a host `path` rather than cloned is symlinked into the
-volume the index reads, and never reaches the store at all — no graph, no error
-([retinue#30](https://github.com/retinue-os/retinue/issues/30)). And blank nodes
-are labelled per file and then concatenated, so `_:b1` in one file and `_:b1` in
-another become the same node: a graph-unaware join across two files can pair a
-subject from one with a predicate from the other
-([qlever-dir#8](https://github.com/retinue-os/qlever-dir/issues/8)). The
-named-graph assignment itself is correct in every case we have measured; it is
-node identity *inside* the graphs that is not yet.
+One limit belongs with that sentence. An issue still open in our tracker, filed in
+July and not re-measured since for this page, reports that a chamber mounted from
+a host `path` rather than cloned never reaches the store
+([retinue#30](https://github.com/Retinue-OS/retinue/issues/30)).
 
 ### Markdown you were going to write anyway, as a query surface
 
 Declare a converter for an extension in `.qlever/converters.json` and ordinary
-frontmatter joins the same graph as sensor data. The dashboard's projects card is
-not backed by a project database — it is one query over every project file in
-every mounted chamber. This is the query the framework ships, and **on current
-`main` it returns nothing**: it asks for `kb#Project` while the converter emits
-`project#Project`. Measured on a live store, 2026-07-26 — 0 rows for the shipped
-prefix, 6 for the one the files actually carry. It is
-[retinue#1](https://github.com/retinue-os/retinue/issues/1), open since
-2026-07-19, and it is a one-line disagreement rather than a design problem — but
-it means the getting-data-*in* half of this section is what works today. Both
-features the framework ships to read it back out currently return nothing — this
-card, and the daily self-review job, which joins on `urn:retinue:actor:aros`
-while every project file carries `urn:retinue:actor-aros`. Neither logs an error.
-The query, as shipped:
+frontmatter joins the same graph as sensor data. A project list needs no project
+database. This query is from
+[`docs/ontology.md`](https://github.com/Retinue-OS/retinue/blob/main/docs/ontology.md):
 
 ```sparql
-PREFIX k: <https://w3id.org/retinue/kb#>
-SELECT ?p ?title ?actor ?next ?since ?expected ?status WHERE {
-  ?p rdf:type k:Project .
-  OPTIONAL { ?p k:title ?title }
-  OPTIONAL { ?p k:currentActor ?actor }
-  OPTIONAL { ?p k:currentNextAction ?next }
-  OPTIONAL { ?p k:waitingSince ?since }
-  OPTIONAL { ?p k:expectedBy ?expected }
-  OPTIONAL { ?p k:status ?status }
+PREFIX kb: <https://w3id.org/retinue/kb#>
+SELECT ?title ?actor ?next ?file WHERE {
+  GRAPH ?file {
+    ?project a kb:Project .
+    OPTIONAL { ?project kb:title ?title }
+    OPTIONAL { ?project kb:currentActor ?actor }
+    OPTIONAL { ?project kb:currentNextAction ?next }
+    OPTIONAL { ?project kb:paused ?paused }
+    OPTIONAL { ?project kb:status ?status }
+  }
+  FILTER (!BOUND(?paused) || ?paused = false)
   FILTER (!BOUND(?status) || ?status != "done")
-} ORDER BY ?title
+} ORDER BY ?actor ?title
 ```
 
-There is no write path — no SPARQL UPDATE, no admin UI, no import job. You edit
-a file, commit it, and a blue-green reindex catches up in tens of seconds
-(measured 15–25 s across six rebuilds of a small chamber, on two dates six days
-apart — it grows with the chamber, so measure your own if it matters). One
-caveat: only a change to a
-*native* RDF file currently starts that clock. A Markdown edit waits for an
-unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3).
+The endpoint is read-only: data enters by writing files, and the index rebuilds
+from them.
 
 ### What this is not
 
-- **Not one-click.** A 326-line `.env.example` documenting 74 distinct settings
-  (35 reach the container by name), a domain and reverse proxy for TLS, and
-  per-account volume discipline. Early days, single maintainer.
+- **Not one-click.** A long `.env.example`, a domain and reverse proxy for TLS,
+  and per-account volume discipline. Early days, single maintainer.
 - **Not harness-agnostic.** Deeply coupled to Claude Code, including behaviour
   nobody promised to keep stable. That coupling is where most of the leverage
   comes from and it is the project's biggest strategic risk. The *model behind
   it* is a narrower story: Claude Code follows `ANTHROPIC_BASE_URL`, so any
   backend exposing an Anthropic-compatible `/v1/messages` endpoint can serve
-  it — the shipped config routes through LiteLLM, and Ollama and LM Studio
+  it — the repository ships a LiteLLM service, and Ollama and LM Studio
   both document Claude Code setups against endpoints of their own. Retinue
   ships and has tested no route to either; the coupling that binds is to the
   harness, not to a hosted model.
-- **Not hardened.** The credential-isolation design is the strong part. The web
-  gateway is a large hand-rolled file, and test coverage is thin: eleven test
-  files — three send-policy (Signal, WhatsApp, Telegram), one contact-lookup,
-  two on gateway connection monitoring and Signal's re-link race, one
-  push-notify, two on the conversation-model picker (the boot emitter and the
-  web gateway's own logic), one on a mail-provider header workaround, one
-  covering the web gateway's projects endpoints (counted on `main` @
-  `bcb5529`, 2026-08-04). CI runs them on pushes to `main` and on every pull
-  request; it has little to run.
+- **Not hardened.** The messenger credential isolation is the strong part. The
+  web gateway is large and hand-rolled. CI runs the tests on pushes to `main`
+  and on pull requests (168 `tests/test_*.py` files at `09c05fc`, 2026-11-28); a
+  file count is not a coverage measurement or a security audit.
 - **Not a guarantee about your whole deployment.** Credential isolation covers
   the channels the framework ships. It says nothing about other paths you attach
   to the same accounts, and a deployment that adds one has given the model reach
@@ -303,17 +286,15 @@ unrelated RDF change or a restart — [qlever-dir#3](https://github.com/retinue-
   be bypassed by a determined process. Useful telemetry, not a control.
 - **Not a registered namespace.** The vocabulary in the query above is minted
   under `https://w3id.org/retinue/`, and that IRI does not dereference. Measured
-  2026-07-30: `https://w3id.org/retinue/` and `.../retinue/kb` both return 404
-  (`https://w3id.org/` itself returns 200), and `perma-id/w3id.org` contains no
-  `retinue` directory and no pull request or issue claiming the name. Nothing in
+  2026-11-28: `https://w3id.org/retinue/kb` returns 404. Nothing in
   the store breaks — RDF has never required an IRI to resolve — but w3id.org
   exists for exactly one purpose, and shipping the prefix without the redirect
   gets none of it while raising the cost of changing the name later
   ([chamber#8](https://github.com/retinue-os/retinue-os-chamber/issues/8)).
 
 If you want a hosted assistant that works this afternoon, this is the wrong
-project. If you want to read the threat model before installing anything, start
-with the architecture review.
+project. If you want to know the security limits before installing anything,
+start with `SECURITY.md`, *Known limitations*.
 
 ### Repositories
 
@@ -330,20 +311,6 @@ with the architecture review.
 
 ---
 
-## Also needed, same handover
-
-**Org description** (Settings → Profile), 120 characters:
-
-> Self-hosted personal agents: capability without credential custody, memory as files in a git repo you own.
-
-**Repo descriptions** — three are blank. `qlever-dir` already has a good one.
-
-- `retinue` — *Self-hosted personal agent framework: messaging credentials live in sidecar containers, memory is git-tracked Markdown and RDF, one SPARQL surface over all of it.*
-- `retinue-os-chamber` — *The Retinue project's own chamber: public strategy, guardrails and working notes for Aros, the project's AI agent.*
-- `retinue-os-deployment` — *Example Retinue deployment: compose override, chamber manifest, and the wiring a real install needs.*
-
-**Optional closing line for the profile**, the owner's call since he is the one
-publishing it. It is honest and on-thesis, but it is his page:
-
-> Much of this org's issue tracker and documentation is written by Aros, an AI
-> agent that operates under [published guardrails](https://github.com/retinue-os/retinue-os-chamber/blob/main/GUARDRAILS.md).
+Much of this org's issue tracker and documentation is written by
+[Aros](https://github.com/aros-agent), an AI agent that operates under
+[published guardrails](https://github.com/retinue-os/retinue-os-chamber/blob/main/GUARDRAILS.md).

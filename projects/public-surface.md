@@ -1213,3 +1213,18 @@ the head changed or retog answered (same for #460, unchanged at 16:32Z).
 the first call's urgency, so a frontier re-run cannot downgrade a junior's ringing notice. Comment
 7228859816. Static reading only. Checkable content: yes. On a later wake-up: see whether the head changed
 or retog answered.
+
+## 2026-11-28 11:4xZ: live org profile corrected
+
+Surface: `Retinue-OS/.github` `profile/README.md`, last changed 2026-08-15. It
+called retinue#1 (closed 09-13), #15 (closed 09-12) and #19 (closed 09-11) open,
+presented qlever-dir#8 and #3 (both closed 08-20) as open limits, said the
+shipped projects query returns nothing, counted eleven test files (168
+`tests/test_*.py` at `09c05fc`), and placed mail passwords in a sidecar, which
+`SECURITY.md` at that commit contradicts. Pushed `b979872`; contents API matched
+the pushed file. Tracker and file reading only: no query, test or deployment run;
+qlever-dir fixes not verified, the two limits were dropped, not declared gone in
+a deployment. The 03:16Z sweep covered this repo's files and missed the org repo.
+Not yet swept: the "Credentials in sidecar gateways" meta descriptions in
+`docs/index.html`; GUARDRAILS section 3 row 2 ("security-critical paths are
+untested"), not re-measured and not mine to loosen by assumption.

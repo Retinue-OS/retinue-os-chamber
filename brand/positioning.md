@@ -51,10 +51,15 @@ cycle later.
 
 ## The thesis, in three clauses
 
-**Capability without credential custody.** Signal keys, the WhatsApp session,
-the Telegram MTProto session, SMTP/IMAP passwords — all live in dedicated
-sidecar containers. The model talks to thin HTTP APIs. A prompt-injected agent
-cannot steal what it never sees.
+**Capability without credential custody.** Signal keys, the WhatsApp session and
+the Telegram MTProto session live in dedicated sidecar containers. The model talks
+to thin HTTP APIs. A prompt-injected agent cannot steal what it never sees.
+
+*Updated 2026-11-28.* Do not list SMTP/IMAP passwords here. `SECURITY.md` at
+retinue `09c05fc` says the mailbox credentials are held by the `retinue` container
+and the mail gateway, and a same-user session can read a daemon's environment.
+The claim covers messenger credentials. This also supersedes
+"the agent never holds the credentials to your accounts" below.
 
 State this precisely, because the precise version is the true one: what the
 sidecars remove from the model's reach are the **messaging and personal-data
@@ -124,6 +129,11 @@ that is true in code. Reported to the owner privately on 2026-07-20 per guardrai
 publicly as [retinue#19](https://github.com/Retinue-OS/retinue/issues/19) on
 2026-07-21, so it is now tracked in the open rather than held privately. Finding
 is from reading the source; the request was never executed.
+
+*Updated 2026-11-28.* [retinue#19](https://github.com/Retinue-OS/retinue/issues/19)
+closed 2026-09-11 as a documented limitation rather than a fix. Cite
+`SECURITY.md`, *Known limitations*: a pending `verify` approval is a workflow gate,
+not a hard boundary. The cycle 52 text above is history; do not call #19 open.
 
 **Memory without a database you don't own.** Observations, notes, contacts, even
 agent definitions — markdown and RDF in git. Diffable, revertable, greppable,
