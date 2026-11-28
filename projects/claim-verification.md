@@ -601,3 +601,10 @@ Method: static reading of the commit and the branch source at `2cf8023`; nothing
 built or run, PR's test count not verified. Also read, no note: long-press menus
 omit the alternate-open item for chamber apps; `appUrl` checks origin and path.
 Checkable content: yes. Counter: 0. Next: head change, merge or reply.
+
+2026-11-28 12:5xZ: fix commit `ad4aa14` (12:22:02Z) and the owner-account reply
+issuecomment-7239179388 read. `LinkSwitch` carries the entry; `switchForLink`
+makes both calls. `recordLaunch` stores by `item.key`, which includes the
+endpoint id, so calling it before `selectEndpoint` is fine. Check run "Build and
+unit tests": success. Nothing built or run here; no device. The finding is
+closed; no further comment posted. Counter: 0.
