@@ -96,25 +96,18 @@
       gets real capability over messaging, files and data while the credentials
       to your accounts stay out of the model's context: the Signal keys and the
       WhatsApp and Telegram sessions live in sidecar containers the model reaches
-      only through thin HTTP APIs, so a prompt-injected agent cannot steal what
-      it never sees. That property belongs to the paths Retinue ships, in a
-      deployment where those gateways are the only route to those accounts — and
-      the environment scrub meant to enforce it currently reaches the main
-      session but not the ones the dashboard and scheduler spawn
-      (<a href="https://github.com/retinue-os/retinue/issues/15">retinue#15</a>).
+      only through thin HTTP APIs. That property belongs to the paths Retinue ships, in a
+      deployment where those gateways are the only route to those accounts.
       Outbound sends are governed by a policy keyed to the
       <em>sending identity</em>, not the recipient — a dedicated agent account
       can send freely while your own stays locked. Everything the agent knows is
       files in a git repo you own, and
       <a href="https://github.com/retinue-os/retinue/blob/main/docs/triple-stores.md">every file's triples land in a named graph derived from its path</a>,
       so one SPARQL endpoint answers across all of them and provenance comes for
-      free — getting data in works, and both features the framework ships to read
-      it back out return nothing today: the dashboard's projects card asks for a
-      namespace nothing emits, and the daily self-review job joins on an actor URI
-      no file carries
-      (<a href="https://github.com/retinue-os/retinue/issues/1">retinue#1</a>;
-      0 rows against 6, and <code>actor:aros</code> against
-      <code>actor-aros</code>, both measured on a live store on 26 July 2026).
+      free. The framework's projects card and daily self-review read that layer in the
+      vocabulary of its reference converter; this repository's own older converter
+      does not match it yet, so those two features would not see its projects
+      (checked 28 November 2026).
       It is an early single-maintainer project with a real onboarding cost,
       and its egress audit observes outbound traffic rather than enforcing it —
       both of which its own

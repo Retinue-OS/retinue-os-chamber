@@ -18,6 +18,26 @@ links:
 
 # Make the triple-store layer the lead story
 
+## 2026-11-28: stale read-back claim corrected; chamber converter still diverges
+
+retinue#1 (closed 2026-09-13) and retinue#15 (closed 09-12) were still described
+as live defects in `writing/provenance-by-path.md` (and its rendered page),
+`docs/index.html`, `README.md` and `brand/positioning.md`. Corrected, from a
+static reading of `main` at `57fdd6e`; neither feature was run. The served site
+will not show it while the Pages build is errored (chamber#10); the GitHub copy
+linked from the framework README does.
+
+Open:
+
+- `projects/.qlever/md2ttl.py` emits `project#` and `urn:retinue:actor-<name>`.
+  The store holds 0 `kb:currentActor` triples from this chamber. Switching to
+  the reference shape needs the six `current_actor` values changed to bare slugs
+  (and the duplicate line in `social-presence.md` removed), the piece's query
+  and outputs re-run, and a look at the effect first: the self-review sweep
+  would then see projects whose actor is `aros`.
+- Bluesky correction queued in
+  `drafts/bluesky-correction-converter-vocabulary.md`, not before 11-28T23:33Z.
+
 ## Goal
 The named-graph/converter architecture is explained well enough that a
 semantic-web engineer immediately sees why it is unusual.

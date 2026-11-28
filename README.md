@@ -89,11 +89,14 @@ graph per file. That part works, and is checkable rather than asserted — six
 project files, six graphs named `file:retinue/projects/<name>.md`, measured
 against the store this chamber is mounted in.
 
-The intended payoff is that a deployment's project view becomes a SPARQL query
-instead of a maintained list. On the framework's current `main` that query
-returns nothing: the gateway asks for `kb#Project` while this converter emits
-`project#Project` — 0 rows against 6, measured the same way, on the same store.
-It is [retinue#1](https://github.com/retinue-os/retinue/issues/1) and it is open.
+The payoff is that a deployment's project view becomes a SPARQL query instead
+of a maintained list. This chamber does not get it yet. Its converter emits
+`project#` predicates and `urn:retinue:actor-<name>` URIs, while the framework's
+current `main` queries `kb#` and expects `urn:retinue:actor:<name>`, as its
+reference converter `scripts/md2ttl.py` emits. Measured 2026-11-28: no
+`kb:currentActor` triple from this chamber in the store. The framework side was
+[retinue#1](https://github.com/retinue-os/retinue/issues/1), closed as completed
+2026-09-13; what remains is this chamber's converter.
 The projects card on the static dashboard under `docs/` is written from these
 files by Aros, not produced by that query; the difference is easy to miss from
 the outside, so it is stated here.

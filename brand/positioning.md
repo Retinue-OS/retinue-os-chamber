@@ -67,40 +67,15 @@ only reachable from inside the deployment network. "The agent holds nothing
 sensitive" would be an overclaim. "The agent never holds the credentials to
 your accounts" is the claim, and it survives inspection.
 
-*Calibration, cycle 71 — the credential scrub is not applied at every spawn
-point today.* The claim above describes the design and holds, **in part**, for
-the **main remote-control session**: the entrypoint unsets `ANTHROPIC_API_KEY`
-and `EMAIL_PASS*` before it `exec`s the agent — and nothing else. (*Corrected
-cycle 155: this sentence read "`ANTHROPIC_API_KEY`, `EMAIL_PASS*`,
-`GARMIN_PASSWORD` and the rest", which overstates the scrub in the project's
-favour. Measured against `main` at `92af09c`: `scripts/entrypoint.sh` has
-exactly two `unset` sites, line 401 and the `EMAIL_PASS*` loop at 409–411.
-`GARMIN_PASSWORD` appears nowhere in it, and neither do the model-gateway keys
-or the GitHub token — so even the scrubbed main session keeps those.*) It
-does **not** currently hold for **gateway- and scheduler-spawned `claude -p`
-sessions** — the dashboard conversation tabs and scheduled jobs, i.e. the
-sessions a user interacts with most. Those are forked earlier in the entrypoint,
-before the scrub, and inherit the full credential-bearing environment;
-`EMAIL_PASS`, `GARMIN_PASSWORD`, `LITELLM_MASTER_KEY`, `GITHUB_TOKEN` and
-`OPENROUTER_API_KEY` are readable via `printenv` there. (*Amended cycle 155,
-re-measured from inside a scheduler-spawned session: `GITHUB_TOKEN`,
-`OPENROUTER_API_KEY`, `LITELLM_MASTER_KEY` and `LITELLM_DB_PASSWORD` are present;
-`EMAIL_PASS*` and `GARMIN_PASSWORD` are set nowhere in this deployment — absent
-from PID 1, the web gateway and the scheduler — so that half of the list rests on
-retinue#15's measurement and not on mine. Say "the variables this deployment
-sets" rather than naming a list I have only partly seen.*) Owner-filed and public,
-measured in a live dashboard session, at
-[retinue#15](https://github.com/retinue-os/retinue/issues/15), with a proposed
-fix that keeps the existing unset pattern but applies the deny-list at each
-spawn point. This is an implementation gap, not an architecture defect — the
-sidecar design intends these variables gone, and the fix does not change the
-design — but until it lands, **Aros does not present the sidecar isolation as
-complete across all sessions.** The precise, currently-true form is: the
-credentials live in sidecars, the *design* keeps them out of the agent's
-environment, and today that scrub reaches the main session but not the
-gateway/scheduler-spawned ones. Named here because this is the source of truth
-for what may be claimed, and the claim-vs-reality gap this project's credibility
-rests on has to be visible where copy is composed, not only in an issue tracker.
+*Updated 2026-11-28.* The calibration that stood here (cycle 71: the entrypoint
+scrub reached only the main session) is superseded.
+[retinue#15](https://github.com/retinue-os/retinue/issues/15) closed 2026-09-12;
+on `main` at `57fdd6e` the gateway and the scheduler build session environments
+from the allowlist in `scripts/session_env.py` (read in the code, not run). Use
+"cannot steal what it never sees" only of a named credential held in a
+sidecar, never of secrets in general. Do
+not repeat the old wording, and do not extend this into "sessions hold no
+secrets": capability tokens are passed by design.
 
 **Scope this to the framework's own channels, and say so.** The sidecar property
 is a property of the paths Retinue ships — the Signal, WhatsApp and Telegram
@@ -209,21 +184,17 @@ What's actually different:
   number: only a change to a *native RDF* file currently starts that clock. A
   Markdown edit waits for an unrelated RDF change or a restart
   ([qlever-dir#3](https://github.com/retinue-os/qlever-dir/issues/3)).
+  *Updated 2026-11-28: that caveat is out of date; qlever-dir#3 was fixed
+  upstream on 2026-08-20. Not re-measured in this deployment.*
 
-The honest caveat, which Aros states unprompted: getting data *in* works, and
-**both features the framework ships to read it back out currently return
-nothing.** The dashboard's projects card queries a namespace nothing emits
-([retinue#1](https://github.com/retinue-os/retinue/issues/1), open since
-2026-07-19), and the daily `agent-self-review` job — the framework's only
-proactive behaviour, enabled by default at 86400 s in the base `.schedule.json` —
-is gated by a query whose actor join cannot match: the boot script emits
-`urn:retinue:actor:aros` with a colon, and the only actor URIs in the live store
-are `urn:retinue:actor-aros` and `urn:retinue:actor-owner`, built with a hyphen
-by the frontmatter converter
-([retinue#1, comment](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826)).
-Neither logs an error. So this is the heaviest infrastructure per delivered
-feature in the stack, it is a bet that cross-domain queries become load-bearing,
-and the bet is not yet won.
+*Updated 2026-11-28.* The caveat that stood here (both read-back features return
+nothing) is out of date: [retinue#1](https://github.com/retinue-os/retinue/issues/1)
+closed 2026-09-13, and on `main` at `57fdd6e` both consumers and the reference
+converter `scripts/md2ttl.py` agree on `kb#` and `urn:retinue:actor:SLUG` (read
+in the code, not run). The current caveat is narrower and ours: **this chamber's
+own converter still emits `project#` and hyphenated actor URIs**, so its
+projects are not seen by either feature. Whether cross-domain queries become
+load-bearing is still an open bet.
 
 *Correction, cycle 186 (2026-07-26).* Until this revision the paragraph read
 "today this powers a dashboard card and archivist ingestion" — which asserted

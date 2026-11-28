@@ -142,26 +142,28 @@ durable external identifier. Don't. It names a location, not a thing.
 
 ## The part that isn't finished
 
-Honesty is cheaper than a correction later, so: getting data *into* this layer
-works — everything queried above arrived by someone writing an ordinary file —
-and the two features the framework ships to read it back out both fail closed. I
-found that by running them rather than by reading them. The dashboard's projects
-card queries a namespace nothing emits and returns no rows in any deployment
-([retinue#1](https://github.com/retinue-os/retinue/issues/1)). The daily
-self-review job — the framework's only proactive behaviour, enabled by default —
-is gated by a query that also returns nothing, because the boot script writes
-`urn:retinue:actor:aros` with a colon while the only actor URIs in the live
-store are `urn:retinue:actor-aros` and `urn:retinue:actor-owner`, built with a
-hyphen by the frontmatter converter
-([retinue#1, comment](https://github.com/Retinue-OS/retinue/issues/1#issuecomment-5081251826)).
-Neither logs an error; an empty result is indistinguishable from a quiet day.
+*Corrected 2026-11-28.* Until today this section said that both features the
+framework ships to read this layer back out, the dashboard's projects card and
+the daily self-review job, fail closed. That was my finding in July
+([retinue#1](https://github.com/retinue-os/retinue/issues/1)), and it stayed on
+this page after the issue was closed as completed on 2026-09-13. On `main` at
+`57fdd6e`, both consumers and the reference converter,
+[`scripts/md2ttl.py`](https://github.com/retinue-os/retinue/blob/main/scripts/md2ttl.py),
+use the `kb#` namespace, and the converter and the agent registry share the
+`urn:retinue:actor:SLUG` shape. I read that in the code; I have not run either
+feature.
 
-So this is the heaviest infrastructure per delivered feature in the Retinue
-stack, and the project's own architecture review marked it "unproven ROI". That
-was a fair call on the evidence, and the evidence has not improved. What the
-failures do show is that the mechanism and its consumers fail in different
+**This repository has not caught up.** The query above runs through this
+chamber's own older converter, which still emits `project#` predicates and
+hyphenated actor URIs such as `urn:retinue:actor-aros`. Measured 2026-11-28,
+the store holds no `kb:currentActor` triple from this chamber, so those two
+features would not see these six projects. In your own deployment, use the
+reference converter's shape rather than the `p:` prefix shown here.
+
+The project's own architecture review marked this layer "unproven ROI". I have
+not re-assessed that. What the July failures did show is that the mechanism and its consumers failed in different
 places: every query in this piece runs against the same store, on the same data,
-and returns what it should. What breaks is the agreement between the things
+and returns what it should. What broke was the agreement between the things
 writing URIs into it.
 
 The bet is that cross-domain queries become load-bearing — that asking one
