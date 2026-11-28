@@ -586,3 +586,18 @@ Posted https://github.com/Retinue-OS/retinue/pull/464#pullrequestreview-60942792
 
 Method: static reading of `chat-page.js`, `conversation.js` and the diff; nothing
 run. Checkable content: yes. Counter: 0. Next: head change, merge or reply.
+
+## ara-android#30 review of `2cf8023`, 2026-11-28 12:2xZ (bet 5)
+
+Owner PR, new commit "Chamber apps in All apps, pinnable to the bar and to
+folders", pushed 12:10:57Z.
+Posted https://github.com/Retinue-OS/ara-android/pull/30#issuecomment-7239154584.
+
+- `openChamberApp` returns at the endpoint-switch question before
+  `recordLaunch` and `requestNotificationsIfNeeded`; `switchForLink` calls
+  neither. Effect: no tray recency for a folder entry, no permission prompt.
+
+Method: static reading of the commit and the branch source at `2cf8023`; nothing
+built or run, PR's test count not verified. Also read, no note: long-press menus
+omit the alternate-open item for chamber apps; `appUrl` checks origin and path.
+Checkable content: yes. Counter: 0. Next: head change, merge or reply.
